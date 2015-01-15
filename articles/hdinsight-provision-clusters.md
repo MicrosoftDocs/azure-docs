@@ -1,6 +1,6 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="Provision Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Provision Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="" authors="mumian"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="jgao" />
 
 #Provision Hadoop clusters in HDInsight using custom options
 
@@ -47,7 +47,7 @@ When provisioning an HDInsight cluster, you can specify a SQL Database that will
 
 ### Cluster customization
 
-You can install additional components or customize the cluster configuration, while an HDInsight cluster is being created. Clusters can be customized by writing scripts that get executed during cluster creation. Such scripts are invoked using **Script Action**, which is a configuration option that can be used from HDInsight PowerShell cmdlets or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-customize-cluster].
+You can install additional components or customize the cluster configuration, while an HDInsight cluster is being created. Clusters can be customized by writing scripts that get executed during cluster creation. Such scripts are invoked using **Script Action**, which is a configuration option that can be used from the Azure Management Portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-customize-cluster].
 
 
 ###Virtual Networking
@@ -89,7 +89,7 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **CUSTOM CREATE**.
 3. On the **Cluster Details** page, type or choose the following values:
 
-	![HDI.CustomCreateCluster][image-hdi-customcreatecluster]
+	![Provide Hadoop HDInsight cluster details][image-customprovision-page1]
 
     <table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
@@ -116,9 +116,10 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 	</table>
 
 
+
 5. On the **Configure Cluster User** page, provide the following values:
 
-    ![HDI.CustomCreateCluster.ClusterUser][image-hdi-customcreatecluster-clusteruser]
+    ![Provide Hadoop HDInsight cluster user][image-customprovision-page3]
 
     <table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
@@ -143,7 +144,7 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 
 6. On the **Storage Account** page, provide the following value:
 
-    ![HDI.CustomCreateCluster.StorageAccount][image-hdi-customcreatecluster-storageaccount]
+    ![Provide storage account for Hadoop HDInsight cluster][image-customprovision-page4]
 
 	<table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
@@ -172,15 +173,31 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 
 	Click the right arrow.
 
-7. On the **Storage Account** page, enter the account information for the additional storage account:
+7. If you chose to configure additional storage for the cluster, on the **Storage Account** page, enter the account information for the additional storage account:
 
-	![HDI.CustomCreateCluster.AddOnStorage][image-hdi-customcreatecluster-addonstorage]
+	![Provide additional storage details for HDInsight cluster][image-customprovision-page5]
 
     Here again, you have the option to choose from existing storage, create new storage, or use storage from another Azure subscription. The procedure to provide the values is similar to the previous step.
 
-    Click the check mark to start provisioning the cluster. When the provisioning completes, the  status column shows **Running**.
+    > [WACOM.NOTE] Once an Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.
 
-	> [WACOM.NOTE] Once an Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.
+8. On the **Script Actions** page, click **add script action** to provide details about the custom script that you want to run to customize a cluster, as the cluster is being created. For example, you can use Script Action to customize a cluster to install <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. For more information, see [Customize HDInsight clusters using Script Action][hdinsight-customize-cluster]. 
+	
+	![Configure Script Action to customize an HDInsight cluster][image-customprovision-page6]
+
+	<table border='1'>
+		<tr><th>Property</th><th>Value</th></tr>
+		<tr><td>Name</td>
+			<td>Specify a name for the script action.</td></tr>
+		<tr><td>Script URI</td>
+			<td>Specify the URI to the script that is invoked to customize the cluster.</td></tr>
+		<tr><td>Node Type</td>
+			<td>Specifies the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.
+		<tr><td>Parameters</td>
+			<td>Specify the parameters, if required by the script.</td></tr>
+	</table>
+
+	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the check mark to start provisioning the cluster. 
 
 ##<a id="powershell"></a> Using Azure PowerShell
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to provision an HDInsight cluster using For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
@@ -598,6 +615,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs] - Learn how to programmtically submit jobs to HDInsight
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation] - Discover the HDInsight SDK
 
+
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/en-us/library/dn479185.aspx
 [hdinsight-hbase-custom-provision]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
 
@@ -629,10 +647,12 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [image-hdi-customcreatecluster-storageaccount]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.StorageAccount.png
 [image-hdi-customcreatecluster-addonstorage]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.AddOnStorage.png
 
-[image-customprovision-page1]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page1.png
-[image-customprovision-page2]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page2.png
-[image-customprovision-page3]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page3.png
-[image-customprovision-page4]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page4.png
+[image-customprovision-page1]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page1.png "Provide Hadoop HDInsight cluster details"
+[image-customprovision-page3]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page3.png "Provide Hadoop HDInsight cluster users"
+[image-customprovision-page4]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page4.png "Provide storage account details for Hadoop HDInsight cluster"
+[image-customprovision-page5]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page5.png "Provide additional storage account details for Hadoop HDInsight cluster"
+[image-customprovision-page6]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page6.png "Configure Script Action to customize an HDInsight cluster"
+
 
 [image-cli-account-download-import]: ./media/hdinsight-provision-clusters/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-provision-clusters/HDI.CLIClusterCreation.png

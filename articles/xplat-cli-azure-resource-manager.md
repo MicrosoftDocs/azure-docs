@@ -1,4 +1,4 @@
-<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="larryfr,rasquill" services="" />
+<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="squillace" services=""/>
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="rasquill" />
 
@@ -8,9 +8,9 @@
 
 We recently introduced a preview of Resource Manager, which is a new way to manage Microsoft Azure. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
->[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same level of management capabilities as Azure Service Management.
+>[AZURE.NOTE] The Resource Manager is currently in preview, and does not provide the same level of management capabilities as Azure Service Management.
 
->[WACOM.NOTE] If you have not already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
+>[AZURE.NOTE] If you have not already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
 ##Resource Manager
 
@@ -18,7 +18,7 @@ The Resource Manager allows you to manage a group of _resources_ (user-managed e
 
 To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the the region the Website will be located in, and other common parameters.
 
->[WACOM.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
+>[AZURE.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
 >
 > However, you can use the `azure group template download` command to download and modify templates provided by Microsoft and partners from the template gallery.
 
@@ -36,7 +36,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 		azure config mode arm
 
-	>[WACOM.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+	>[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 2. When working with templates, you can either create your own, or use one from the Template Gallery. To list available templates from the gallery, use the following command.
 
@@ -64,7 +64,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 	Downloading a template allows you to customize it to better suite your requirements. For example, adding another resource to the template.
 
-	>[WACOM.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
+	>[AZURE.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
 
 5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**. When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
 
@@ -103,7 +103,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 	Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in the template.
 
-	>[WACOM.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
+	>[AZURE.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 	>
 	> `azure group deployment show MyGroupName MyDeployment`
 	> 
@@ -125,7 +125,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 While templates allow you to declare group-wide changes in configuration, sometimes you need to work with just a specific resource. You can do this using the `azure resource` commands.
 
-> [WACOM.NOTE] When using the `azure resource` commands other than the `list` command, you must specify the API version of the resource you are working with using the `-o` parameter. If you are unsure about the API version to use, consult the template file and find the **apiVersion** field for the resource.
+> [AZURE.NOTE] When using the `azure resource` commands other than the `list` command, you must specify the API version of the resource you are working with using the `-o` parameter. If you are unsure about the API version to use, consult the template file and find the **apiVersion** field for the resource.
 
 1. To list all resources in a group, use the following command.
 
@@ -143,7 +143,7 @@ While templates allow you to declare group-wide changes in configuration, someti
 
 		azure resource show MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01" --json
 
-	>[WACOM.NOTE] You can save the JSON data to file by using the &gt; character to pipe the output to file. For example:
+	>[AZURE.NOTE] You can save the JSON data to file by using the &gt; character to pipe the output to file. For example:
 	>
 	> `azure resource show MyGroupName MyWebSite Micrsoft.Web/sites --json > myfile.json`
 

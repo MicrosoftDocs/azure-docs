@@ -1,6 +1,6 @@
-<properties title="Faceted navigation in Azure Search" pageTitle="Faceted navigation in Azure Search" description="Faceted navigation in Azure Search" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="" pageTitle="Faceted navigation in Azure Search" description="Faceted navigation in Azure Search" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="12/18/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="" ms.date="12/18/2014" ms.author="heidist"/>
 
 #Faceted navigation in Azure Search#
 
@@ -259,7 +259,7 @@ Although this behavior could change at any time, if you encounter this behavior 
 
 Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx).
 
-Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it will automatically create ranges of 0 -10, 10-20, 20-30. In the response, Azure Search removes any intervals that are empty. 
+Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it will automatically create ranges of 0 -10, 10-20, 20-30. The sample application removes any intervals that are empty. 
 
 **Approach 1: Use the interval parameter**<br/>
 To set price facets in $10 increments, you would specify: `&facet=price,interval:10`
@@ -274,17 +274,13 @@ The range is specified in the **CatalogSearch.cs** file using a values list:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals. Azure Search will do this as part of faceted navigation. You do not have to write code for structuring each interval. Similarly, assigning specific items to each interval is also built-in to the faceted navigation feature. If no items can be assigned to an interval, the interval is excluded from the results.
+Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals. Azure Search will do this as part of faceted navigation. You do not have to write code for structuring each interval.
 
 ### Build a filter for facet ranges ###
 
 To filter documents based on a range selected by the user, you can the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`.
 
-In the sample application, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. 
-
-In **Index.cshtml**, the onClick event for the listPrice facet calls the filter expression that defines the range.
-
-In the BuildFilter method in **CatalogSearch.cs**, an OData filter specifies how to evaluate a listPrice to determine which range a document belongs to.
+In the sample application, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. The **BuildFilter** method in **CatalogSearch.cs** contains the filter expression that gives you the documents within a range.
 
   ![][6]
 
@@ -358,9 +354,9 @@ For more insights on design principles for faceted navigation, we recommend the 
 [4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
 [5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
 [6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-Appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-Appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-Appbikefaceted.png
+[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
+[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
+[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 
 <!--Link references-->

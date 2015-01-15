@@ -1,4 +1,4 @@
-<properties title="Invoke MapReduce Program from Azure Data Factory" pageTitle="Invoke MapReduce Program from Azure Data Factory" description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties title="" pageTitle="Invoke MapReduce Program from Azure Data Factory" description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 

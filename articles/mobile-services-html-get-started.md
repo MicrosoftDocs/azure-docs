@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -20,7 +20,7 @@ A screenshot from the completed app is below:
 
 Completing this tutorial is a prerequisite for all other Mobile Services tutorials for HTML apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Azure Free Trial</a>.</p></div>
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
 ###Additional requirements
 
@@ -66,9 +66,7 @@ In this section you will create a new HTML app that is connected to your mobile 
 
   	![][9]
 
-	<div class="dev-callout"><b>Note</b>
-		<p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Cross-origin resource sharing</a>.</p>
-	</div>
+	> [AZURE.IMPORTANT] If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the **Allow requests from host names** list. For more information, see [Cross-origin resource sharing](http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 ## Host and run your HTML app
 
@@ -80,9 +78,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
-	<div class="dev-callout"><b>Note</b>
-		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
-	</div>
+	> [AZURE.NOTE] On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
 
 	This starts a web server on your local computer to host the new app.
 
@@ -94,10 +90,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
    	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.</p> 
- 	</div>
+	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 

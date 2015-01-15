@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Get started with authentication (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Get started with authentication (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="ggailey777" solutions="mobile" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
@@ -31,7 +31,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
-	>[WACOM.NOTE]On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
+	>[AZURE.NOTE]On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
 
 	This starts a web server on your local computer to host the new app.
 
@@ -45,7 +45,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 ##<a name="add-authentication"></a>Add authentication to the app
 
->[WACOM.NOTE]Because the login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event. Otherwise, many browsers will suppress the login window.
+>[AZURE.NOTE]Because the login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event. Otherwise, many browsers will suppress the login window.
 
 1. Open the project file index.html, locate the H1 element and under it add the following code snippet:
 
@@ -95,7 +95,7 @@ Next, you will update the app to allow authentication before requesting resource
 
     This creates a set of functions to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em>, or <em>aad</em>.
 
-	>[WACOM.NOTE]In a PhoneGap app, you must also add the following plugins to the project:
+	>[AZURE.NOTE]In a PhoneGap app, you must also add the following plugins to the project:
 	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
 	><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -103,7 +103,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 	   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-	>[WACOM.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the <strong>Security</strong> tab of <strong>Internet Options</strong>, click <strong>Local Intranet</strong>, click <strong>Sites</strong>, and disable <strong>Automatically detect intranet network</strong>. Remember to change this setting back when you are done testing.
+	>[AZURE.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the <strong>Security</strong> tab of <strong>Internet Options</strong>, click <strong>Local Intranet</strong>, click <strong>Sites</strong>, and disable <strong>Automatically detect intranet network</strong>. Remember to change this setting back when you are done testing.
 
 ## <a name="next-steps"> </a>Next steps
 

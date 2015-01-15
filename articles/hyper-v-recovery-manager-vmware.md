@@ -1,4 +1,4 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: Protection Between Two On-Premises VMWare sites with InMage" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, VMWare, InMage" description="InMage in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises VMWare Site Protection with InMage" editor="jimbe" manager="jwhit" authors="raynew" />
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: Protection Between Two On-Premises VMWare sites with InMage" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, VMWare, InMage" description="InMage in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="" editor="jimbe" manager="jwhit" authors="rayne-wiselman" services="site-recovery" documentationCenter=""/>
 
 <tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
 
@@ -6,47 +6,39 @@
 # Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMWare Site Protection
 
 
-<div class="dev-callout"> 
-
-<p>InMage in Azure Site Recovery provides real-time replication between on-premises VMWare sites . InMage is included in subscriptions to the Azure Site Recovery service.</p>
+InMage in Azure Site Recovery provides real-time replication between on-premises VMWare sites . InMage is included in subscriptions to the Azure Site Recovery service.
 
 
-</div>
+##<a id="before"></a>Prerequisites
 
-
-<h2><a id="before"></a>Prerequisites</h2> 
-<div class="dev-callout"> 
-
-<UL>
-<LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get subscription pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
-</UL>
+- **Azure account**—You'll need an Azure account. If you don't have one, see [Azure free trial](http://aka.ms/try-azure). Get subscription pricing information at [Azure Site Recovery Manager Pricing Details](http://go.microsoft.com/fwlink/?LinkId=378268).
 
 
 
-<a name="vault"></a> <h2>Step 1: Create a vault and download InMage</h2>
+##<a name="vault"></a>Step 1: Create a vault and download InMage
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 
-2. Expand <b>Data Services</b>, expand <b>Recovery Services</b>, and click <b>Site Recovery Vault</b>.
+2. Expand **Data Services**, expand **Recovery Services**, and click **Site Recovery Vault**.
 
 
-3. Click <b>Create New</b> and then click <b>Quick Create</b>.
+3. Click **Create New** and then click **Quick Create**.
 	
-4. In <b>Name</b>, enter a friendly name to identify the vault.
+4. In **Name**, enter a friendly name to identify the vault.
 
-5. In <b>Region</b>, select the geographic region for the vault. To check supported regions see Geographic Availability in <a href="http://go.microsoft.com/fwlink/?LinkId=389880">Azure Site Recovery Pricing Details</a>
+5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](href="http://go.microsoft.com/fwlink/?LinkId=389880)
 
-6. Click <b>Create vault</b>. 
+6. Click **Create vault**. 
 
 	![New Vault](./media/hyper-v-recovery-manager-configure-vault/SRSAN_HvVault.png)
 
-<P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
+Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main Recovery Services page.
 
-<a name="upload"></a> <h2>Step 2: Configure the vault</h2>
+##<a name="upload"></a> Step 2: Configure the vault
 
 
-1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
+1. In the **Recovery Services** page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
 	![Quick Start Icon](./media/hyper-v-recovery-manager-configure-vault/SRSAN_QuickStartIcon.png)
 
@@ -59,8 +51,6 @@
 
 
 
-<h2><a id="next"></a>Next steps</h2>
-<UL>
+##<a id="next"></a>Next steps
 
-<LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI> 
-</UL>
+- For questions, visit the [Azure Recovery Services Forum](http://go.microsoft.com/fwlink/?LinkId=313628).

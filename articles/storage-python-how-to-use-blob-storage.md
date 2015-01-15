@@ -1,4 +1,4 @@
-<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
+<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="python" title="" authors="rmcmurray" videoId="" scriptId="" manager="wpickett" editor=""/>
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -19,7 +19,6 @@ see the [Next Steps][] section.
  [How To: List the Blobs in a Container][]   
  [How To: Download Blobs][]   
  [How To: Delete a Blob][]   
- [How To: Upload and Download Large Blobs][]   
  [Next Steps][]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]

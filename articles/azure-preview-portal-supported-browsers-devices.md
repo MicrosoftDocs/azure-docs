@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="carolz" editor=""  />
+<properties urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="" authors="JustinBeckwith" solutions="" writer="" manager="carolz" editor=""/>
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="justbe" />
 

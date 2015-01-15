@@ -1,4 +1,4 @@
-<properties linkid="access yarn application logs" urlDisplayName="access yarn application logs" pageTitle="Access HDInsight Application Logs Programmatically| Azure" metaKeywords="" description="Access HDInsight Application Logs Programmatically." metaCanonical="" services="hdinsight" documentationCenter="" title="Access HDInsight Application Logs Programmatically" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="access yarn application logs" urlDisplayName="access yarn application logs" pageTitle="Access HDInsight Application Logs Programmatically| Azure" metaKeywords="" description="Access HDInsight Application Logs Programmatically." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bradsev" />
 
@@ -73,7 +73,7 @@ To use the following code samples, you must satisfy the prerequisites outlined a
 
 The code below illustrates how to use the new APIs to enumerate applications and download the logs for completed applications.
 
-> [WACOM.NOTE] The APIs below will only work against "Running" Hadoop clusters with version 3.1.1.374 or greater. Add the following directives.
+> [AZURE.NOTE] The APIs below will only work against "Running" Hadoop clusters with version 3.1.1.374 or greater. Add the following directives.
 
 	using Microsoft.Hadoop.Client;
 	using Microsoft.WindowsAzure.Management.HDInsight;

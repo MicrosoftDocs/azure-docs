@@ -1,4 +1,4 @@
-<properties pageTitle="How to create a new mobile service" metaKeywords="" description="Follow this tutorial to create a new service using Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to create a new mobile service" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="How to create a new mobile service" metaKeywords="" description="Follow this tutorial to create a new service using Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -6,7 +6,7 @@
 
 This topic shows you how to use the [Azure Management Portal][Management Portal] to create a new JavaScript backend in Azure Mobile Services, which uses JavaScript for server-side business logic. To create both the mobile service backend and a mobile client app that consumes the new mobile service, you should instead see [Get started with Mobile Services].
 
->[WACOM.NOTE]To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE]To complete this tutorial, you need an Azure account that has the Azure Mobile Services feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F" target="_blank">Azure Free Trial</a>. 
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services, service-bus" documentationCenter=".net" title="" authors="sethmanheim" solutions="" manager="timlt" editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm" />
 
 
 
@@ -168,7 +168,9 @@ Note that you can also manage namespaces and Service Bus messaging entities usin
 
 	![][31]
 
-9.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** values.
+9.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
+
+    ![][35]
 
 10.  Make a note of the key, or copy it to the clipboard.
 
@@ -215,7 +217,7 @@ Queue and displaying status information about the queue.
     ![][10]
 
 4.  Hover over **WebRole1** under **Azure Cloud Service solution**, click
-    the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**. (Make sure you enter "Frontend" with a lower-case "e", not "FrontEnd".)
+    the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**. (Make sure you enter "Frontend" with a lower-case 'e,' not "FrontEnd".)
 
     ![][11]
 
@@ -340,8 +342,8 @@ displays.
     **Views\Shared\\_Layout.cshtml** file to open it in the Visual
     Studio editor.
 
-9.  Replace all occurrences of **My ASP.NET MVC Application** with
-    **LITWARE'S Awesome Products**.
+9.  Replace all occurrences of **My ASP.NET Application** with
+    **LITWARE'S Products**.
 
 11. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
@@ -375,11 +377,7 @@ Service Bus Queue.
 
 2.  Name the class **QueueConnector.cs**. Click **Add** to create the class.
 
-3.  You will now paste in code that encapsulates your connection
-    information and contains methods for initializing the connection to
-    a Service Bus Queue. In QueueConnector.cs, paste in the following code, and enter in
-    values for **Namespace**, **IssuerName**, and **IssuerKey**. You can
-    obtain these values either from the [Management Portal][Azure Management Portal], or from the Visual Studio Server Explorer under the **Service Bus** node.
+3.  You will now add code that encapsulates the connection information and initializes the connection to a Service Bus queue. In QueueConnector.cs, add the following code, and enter values for **Namespace** (your service namespace) and **yourKey**, which is the SAS key you obtained from the [Azure management portal][Azure Management Portal] earlier.
 
         using System;
         using System.Collections.Generic;
@@ -410,8 +408,8 @@ Service Bus Queue.
                     // management operations
                     var uri = ServiceBusEnvironment.CreateServiceUri(
                         "sb", Namespace, String.Empty);
-                    var tP = TokenProvider.CreateSharedSecretTokenProvider(
-                        IssuerName, IssuerKey);
+                    var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                        "RootManageSharedAccessKey", "yourKey");
                     return new NamespaceManager(uri, tP);
                 }
 
@@ -496,7 +494,7 @@ Service Bus Queue.
 
 <h2>Cloud configuration manager</h2>
 
-Azure supports a set of managed APIs that provides a consistent way to create new instances of Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
+Azure supports a set of managed APIs that provides a consistent way to create new instances of Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** class. There are also APIs on the client side.
 
 ### Connection string
 
@@ -504,7 +502,7 @@ To instantiate a client (for example, a Service Bus **QueueClient**), you can re
 
 	<ConfigurationSettings>
     ...
-    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
+    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=yourKey" />
 	</ConfigurationSettings>
 
 The following code retrieves the connection string, creates a queue, and initializes the connection to the queue:
@@ -662,6 +660,7 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
+  [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  

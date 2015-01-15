@@ -1,4 +1,4 @@
-<properties urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
+<properties urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="xamarin" title="" authors="lindydonna" editor="wesmc" manager="dwrede" services=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="donnam" />
 
@@ -15,7 +15,7 @@ Offline sync has several potential uses:
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 >
 > If this is your first experience with Mobile Services, you should first complete [Get started with Mobile Services].
 
@@ -149,6 +149,7 @@ In this section you will reconnect the app to the mobile service. This simulates
 [Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
 [Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
 [How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="Get started with authentication (Xamarin.Android) - Mobile Services" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.Android" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with authentication in Mobile Services" services="mobile-services" documentationCenter="Mobile" manager="dwrede" authors="donnam"/>
+<properties urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="Get started with authentication (Xamarin.Android) - Mobile Services" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.Android" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="" services="mobile-services" documentationCenter="xamarin" manager="dwrede" authors="lindydonna" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
 
@@ -59,9 +59,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
     This creates a new method to handle the authentication process. The user is authenticated by using a Microsoft Account login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Microsoft, change the value passed to the <strong>login</strong> method above to one of the following: <i>Facebook</i>, <i>Google</i>, <i>Twitter</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+    > [AZURE.NOTE] If you are using an identity provider other than Microsoft, change the value passed to the **login** method above to one of the following: _Facebook_, _Google_, _Twitter_, or _WindowsAzureActiveDirectory_.
 
 3. In the **OnCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
 

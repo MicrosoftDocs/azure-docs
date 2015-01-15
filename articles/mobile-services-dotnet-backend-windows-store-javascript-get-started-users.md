@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, FAcebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, FAcebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="windows" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
@@ -8,7 +8,7 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from your Windows Store app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
->[WACOM.NOTE]Authentication is not currently supported for Windows Phone Store 8.1 apps when using the Mobile Services JavaScript client library. If you have a universal Windows app project that uses the JavaScript client, you will not be able to authenticate users on Windows Phone at this time.
+>[AZURE.NOTE]Authentication is not currently supported for Windows Phone Store 8.1 apps when using the Mobile Services JavaScript client library. If you have a universal Windows app project that uses the JavaScript client, you will not be able to authenticate users on Windows Phone at this time.
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 

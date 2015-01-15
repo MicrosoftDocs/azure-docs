@@ -1,4 +1,4 @@
-<properties title="How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" manager="timlt" />
+<properties title="" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="" authors="squillace" videoId="" scriptId="" manager="timlt" editor=""/>
 
 <tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/21/2014" ms.author="rasquill" />
 # Using the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)
@@ -14,7 +14,7 @@ This topic describes how to create a VM with the Docker VM Extension from the xp
 ## <a id='How to use the Docker VM Extension with Azure'>How to use the Docker VM Extension with Azure</a>
 To use the Docker VM extension with Azure, you must install a version of the [Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (called the **xplat-cli** in this topic) higher than 0.8.6 (as of this writing the current version is 0.8.10). You can install the xplat-cli on Mac, Linux, and Windows. 
 
-> [WACOM.NOTE] Although you can install the xplat-cli on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the xplat-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program for Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
+> [AZURE.NOTE] Although you can install the xplat-cli on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the xplat-cli and the Docker commands in this document and those of Docker. Docker itself has a setup program for Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
 
 The complete process to use Docker on Azure is simple:
 
@@ -22,17 +22,17 @@ The complete process to use Docker on Azure is simple:
 + Use the xplat-cli Docker commands to create a VM Docker host in Azure
 + Use the local Docker commands to manage your Docker containers in your Docker VM in Azure.
 
-> [WACOM.NOTE] The xplat-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. 
+> [AZURE.NOTE] The xplat-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. 
 
 ### Install the Cross-Platform Command-Line Interface (xplat-cli)
 To install and configure the Cross-Platform Command-Line Interface, see [How to install the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the xplat-cli ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
 
-> [WACOM.NOTE] If you are using an Ubuntu 14.04 LTS installation, that image has a slightly different node installation that may require some extra work. One suggestion that seems to work well is located [here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server) in the **How To Install Using a PPA** section, which describes how to install the most recent version of nodejs directly and seems to work well on an Ubuntu 14.04 LTS distribution. 
+> [AZURE.NOTE] If you are using an Ubuntu 14.04 LTS installation, that image has a slightly different node installation that may require some extra work. One suggestion that seems to work well is located [here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server) in the **How To Install Using a PPA** section, which describes how to install the most recent version of nodejs directly and seems to work well on an Ubuntu 14.04 LTS distribution. 
 
 ### Connect the xplat-cli to to your Azure Account
 Before you can use the xplat-cli you must associate your Azure account credentials with the xplat-cli on your platform. The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to either download and import your **.publishsettings** file or associate your xplat-cli command-line with an organizational id. 
 
-> [WACOM.NOTE] There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality. 
+> [AZURE.NOTE] There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality. 
 
 ### Install Docker and use the Docker VM Extension for Azure
 Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. For most operating systems and distributions, this means typing `apt-get install docker.io`. Confirm that the Docker version is at 1.0 or greater.
@@ -63,13 +63,13 @@ where:
 
 + *&lt;password&gt;* is the password of the *username* account that meets the standards of complexity for Azure 
  
-> [WACOM.NOTE] Currently, a password must be at least 8 characters, contain one lower case and one upper case character, a number, and a special character such as one of the following characters: `!@#$%^&+=`. No, the period at the end of the preceding sentence is NOT a special character. 
+> [AZURE.NOTE] Currently, a password must be at least 8 characters, contain one lower case and one upper case character, a number, and a special character such as one of the following characters: `!@#$%^&+=`. No, the period at the end of the preceding sentence is NOT a special character. 
 
 If the command was successful, you should see something like the following, depending on the precise arguments and options you used:
 
 ![](./media/virtual-machines-docker/dockercreateresults.png)
 
-> [WACOM.NOTE] Creating a virtual machine can take a few minutes, but after it has been provisioned the Docker daemon (the Docker service) starts and you can connect to the Docker container host.
+> [AZURE.NOTE] Creating a virtual machine can take a few minutes, but after it has been provisioned the Docker daemon (the Docker service) starts and you can connect to the Docker container host.
 
 To test the Docker VM you have created in Azure, type
 
@@ -91,7 +91,7 @@ By default, certificates are placed in `~/.docker`, and Docker will be configure
 
 The Docker daemon on the host is configured to listen for and authenticate client connections on the specified port using the certificates generated by the `azure vm docker create` command. The client machine must have these certificates to gain access to the Docker host. 
 
-> [WACOM.NOTE] A networked host running without these certificates will be vulnerable to anyone that can to connect to the machine. Before you modify the default configuration, ensure that you understand the risks to your computers and applications.
+> [AZURE.NOTE] A networked host running without these certificates will be vulnerable to anyone that can to connect to the machine. Before you modify the default configuration, ensure that you understand the risks to your computers and applications.
 
 
 

@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="mumian" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
 
@@ -170,7 +170,7 @@ This tutorial uses the following folder structure:
 
 This tutorial uses the .txt files located in the %hadoop_home% directory.
 
-> [WACOM.NOTE] The Hadoop HDFS commands are case sensitive.
+> [AZURE.NOTE] The Hadoop HDFS commands are case sensitive.
 
 **To copy the text files to the emulator HDFS**
 

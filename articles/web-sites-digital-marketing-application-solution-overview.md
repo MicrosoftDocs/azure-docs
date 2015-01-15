@@ -1,4 +1,4 @@
-<properties urlDisplayName="Resources" pageTitle="Create a Digital Marketing Campaign on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Resources" pageTitle="Create a Digital Marketing Campaign on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." metaCanonical="" services="web-sites" documentationCenter="" title="" authors="rothja" solutions="" manager="wpickett" editor="mollybos"/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 
@@ -17,7 +17,7 @@ The following areas are addressed in this guide:
 - [Integrate with Other Services](#integrate)
 - [Monitor the Campaign](#monitor)
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
@@ -79,7 +79,7 @@ Automatic scaling makes much more efficient use of resources. For example, it is
 
 For more information about scaling websites, see [How to Scale Web Sites][scalewebsite]. This subject is also closely tied with monitoring. For more information, see the section in this guide on [monitoring your campaign](#monitor).
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > For web applications that choose to use cloud services and web roles, there is an additional option to scale based on the length of items in a queue. In a cloud service, roles that process backend queues are a common architecture pattern. For more information on cloud service scaling, see <a href="http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/">How to Scale a Cloud Service</a>.
 
 ##<a name="integrate"></a>Integrate with Other Services

@@ -1,4 +1,4 @@
-<properties title="Download the Azure SDK for PHP" pageTitle="Download the Azure SDK for PHP" metaKeywords="" description="Learn how to download and install the Azure SDK for PHP." documentationCenter="PHP" services="" solutions="web" authors="tomfitz" manager="wpickett" />
+<properties title="" pageTitle="Download the Azure SDK for PHP" metaKeywords="" description="Learn how to download and install the Azure SDK for PHP." documentationCenter="php" services="" solutions="web" authors="tfitzmac" manager="wpickett" editor=""/>
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
 
@@ -15,7 +15,7 @@ The sections below describe how to download and install the components described
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > You must have PHP 5.3 or higher to use the PHP client libraries for Azure. 
 
 ##PHP client libraries for Azure
@@ -29,7 +29,7 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 1. [Install Git][install-git]. 
 
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
 	> On Windows, you will also need to add the Git executable to your PATH environment variable.
 
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
@@ -73,7 +73,7 @@ To download and install the PHP Client Libraries for Azure manually, follow thes
 
 1. Download a .zip archive that contains the libraries from [GitHub][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
 	> The PHP Client Libraries for Azure have a dependency on the [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), and [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager](http://pear.php.net/manual/en/installation.php)
 
 2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application.
@@ -96,7 +96,7 @@ The Azure Command-Line Tools for Mac and Linux are a set of command-line tools f
 
 		npm install azure-cli -g
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
 	> You may need to run this command with elevated privileges:  `sudo npm install azure-cli -g`
 
 

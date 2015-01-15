@@ -1,4 +1,4 @@
-<properties urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+<properties urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="" authors="mandiohlinger" solutions="" manager="dwrede" editor="cgronlun"/>
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
@@ -14,10 +14,7 @@ This topic lists the steps to create an Azure BizTalk Service in the Azure Manag
 -  [Hybrid Connections - New!](#HC)
 
 
-<div class="dev-callout"> 
-<b>Tip</b> 
-<p>To log into the Azure Management Portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See <a href="http://go.microsoft.com/fwlink/p/?LinkID=239738">Azure Free Trial</a>.</p> 
-</div>
+> [AZURE.TIP] To log into the Azure Management Portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 ##<a name="BizTalk"></a>Create a BizTalk Service
 Depending on the Edition you choose, not all BizTalk Service settings may be available.
@@ -76,10 +73,8 @@ If you create a new Storage account, enter the <strong>Storage Account Name</str
 	<td><strong>Tracking Database</strong></td>
 	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/>
 
-	<div class="dev-callout"> 
-	<b>Tip</b> 
-	<p>Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</p> 
-	</div>
+	<blockquote><p> [AZURE.TIP] Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</p> 
+	</blockquote>
 	</td>
 	</tr>
 	</table>

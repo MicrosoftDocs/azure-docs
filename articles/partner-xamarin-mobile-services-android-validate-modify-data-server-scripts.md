@@ -1,4 +1,4 @@
-<properties urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (Xamarin Android) | Mobile Dev Center" metaKeywords="access and change data, Azure Mobile Services, mobile devices, Azure, mobile, Xamarin.Android" description="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
+<properties urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (Xamarin Android) | Mobile Dev Center" metaKeywords="access and change data, Azure Mobile Services, mobile devices, Azure, mobile, Xamarin.Android" description="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="xamarin" services="mobile-services" title="" authors="lindydonna" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
 
@@ -45,9 +45,7 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+    > [AZURE.TIP] You can remove a registered script on the **Script** tab by clicking **Clear** and then **Save**.
 
 ## <a name="update-client-validation"></a>Update the client
 
@@ -84,9 +82,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 
     This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
-    </div>
+    > [AZURE.IMPORTANT] Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the **createdAt** column to the **TodoItem** table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.
 
 2. From the **Run** menu, then click **Run** to start the app, then type text (shorter than 10 characters) in the textbox and click **Add**.
 
@@ -107,9 +103,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
         [DataMember(Name = "createdAt")]
         public DateTime? CreatedAt { get; set; }
   
-    <div class="dev-callout"><b>Note</b>
-	<p>The <code>DataMember's Name</code> annotation tells the client to map the new <code>CreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.</p>
-    </div>
+    > [AZURE.NOTE] The `DataMember's Name` annotation tells the client to map the new `CreatedAt` property in the app to the `createdAt` column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.
 
 2. In the GetView method, add the following code just above where the current code that sets <code>checkBox.Text</code> to <code>currentItem.Text</code>:
 

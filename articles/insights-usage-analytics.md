@@ -1,8 +1,8 @@
-<properties title="How to use end user analytics in Azure" pageTitle="How to use end user analytics" description="End user analytics for Microsoft Azure websites." authors="awills" manager="kamrani" />
+<properties title="" pageTitle="How to use end user analytics" description="End user analytics for Microsoft Azure websites." authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter="" metaKeywords=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
 
-# Analytics for Microsoft Azure websites
+# Usage analytics for Microsoft Azure websites
 
 Wonder how many users have visited you site?  Wonder what the average page load time is or what browsers are being used?  By inserting a few lines of script in your web pages, you can collect data about how your website is used by your customers. 
 
@@ -31,3 +31,10 @@ The Analytics part shows:
     ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
 - Your slowest pages in the past week so you can improve them to meet your business goals and objectives
 
+## Get more Application Insights
+
+* [Monitor performance][azure-perf] to diagnose issues with your code's dependencies
+* [Create web tests][azure-availability] to make sure your site is available and responsive
+
+[azure-perf]: ../insights-perf-analytics/
+[azure-availability]: ../insights-create-web-tests/

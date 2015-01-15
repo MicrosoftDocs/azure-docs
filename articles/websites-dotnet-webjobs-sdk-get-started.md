@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with the Azure WebJobs SDK" metaKeywords="Azure tutorial, Azure WebJobs tutorial, Azure multi-tier tutorial, MVC tutorial, Azure blobs tutorial, Azure queues tutorial, Azure storage tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Get Started with the Azure WebJobs SDK" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Get Started with the Azure WebJobs SDK" metaKeywords="Azure tutorial, Azure WebJobs tutorial, Azure multi-tier tutorial, MVC tutorial, Azure blobs tutorial, Azure queues tutorial, Azure storage tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." metaCanonical="" services="web-sites, storage" documentationCenter=".net" title="" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos"/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
 
@@ -355,7 +355,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 	The **Replay Function** button on this page causes the WebJobs SDK framework to call the function again, and it gives you a chance to change the data passed to the function first.
 
->[WACOM.NOTE] When you're finished testing, delete the website and the SQL Database instance. The website is free, but the SQL Database instance and storage account accrue charges (minimal due to small size). Also, if you leave the site running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your website, and then click the **Delete** button at the bottom of the page. You can then select a check box to delete the SQL Database instance at the same time. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+>[AZURE.NOTE] When you're finished testing, delete the website and the SQL Database instance. The website is free, but the SQL Database instance and storage account accrue charges (minimal due to small size). Also, if you leave the site running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your website, and then click the **Delete** button at the bottom of the page. You can then select a check box to delete the SQL Database instance at the same time. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 
 ### Enable AlwaysOn for long-running processes
 
@@ -785,7 +785,7 @@ For more information about how to write functions that use  WebJobs SDK attribut
 * [How to use Azure table storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
 * [How to use Azure Service Bus with the WebJobs SDK](../websites-dotnet-webjobs-sdk-service-bus)
 
->[WACOM.NOTE] 
+>[AZURE.NOTE] 
 >* If your website runs on multiple VMs, this program will run on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).
 >* For information about how to implement graceful shutdown, see [Graceful Shutdown](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   
 >* The code in the `ConvertImageToThumbnailJPG` method (not shown) uses classes in the `System.Drawing` namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.

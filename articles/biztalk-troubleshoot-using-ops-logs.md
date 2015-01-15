@@ -1,4 +1,4 @@
-<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="biztalk-services" documentationCenter="" title="" authors="mandiohlinger" solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"/>
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
@@ -7,10 +7,8 @@
 
 Operation Logs is a Management Services feature available in the Azure Management portal that allows you to view historical logs of operations performed on your Azure services, including BizTalk Service. This enables you to view historical data related to management operations on your BizTalk Service subscription for as far back as 180 days.
 
-<div class="dev-callout"><b>Note</b>
-<p>This feature only captures logs for management operations on BizTalk Services, such as when the service was started, backed up, etc. Such operations are tracked irrespective of whether they are performed from the Azure Management Portal or by using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn232347.aspx">BizTalk Service REST APIs</a>. For a complete list of operations that are tracked using Management Services, see <a href="#bizops">Operations Tracked Using Azure Management Services</a>.</p>
-<p>This does not capture the logs for activities related to BizTalk Service runtime (such as message processed by bridges, etc.). To view such logs, you must use the Tracking view from the BizTalk Services portal. For more information, see <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Tracking Messages</a>.</p>
-</div>
+> [AZURE.NOTE] This feature only captures logs for management operations on BizTalk Services, such as when the service was started, backed up, etc. Such operations are tracked irrespective of whether they are performed from the Azure Management Portal or by using the [BizTalk Service REST APIs](http://msdn.microsoft.com/en-us/library/windowsazure/dn232347.aspx). For a complete list of operations that are tracked using Management Services, see [>Operations Tracked Using Azure Management Services](#bizops).<br />
+This does not capture the logs for activities related to BizTalk Service runtime (such as message processed by bridges, etc.). To view such logs, you must use the Tracking view from the BizTalk Services portal. For more information, see [Tracking Messages](http://msdn.microsoft.com/library/windowsazure/hh949805.aspx).
 
 ##<a name="viewlogs"></a>View BizTalk Services Operation Logs
 1. From the Azure Management Portal, click Management Services, and then click the Operation Logs tab.

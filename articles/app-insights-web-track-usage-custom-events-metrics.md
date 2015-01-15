@@ -1,4 +1,4 @@
-<properties title="Trace usage and events in your web app with Application Insights API" pageTitle="Trace usage and events in your web app with Application Insights API" description="Insert a few lines of code to track usage and diagnose issues." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+<properties title="" pageTitle="Trace usage and events in your web app with Application Insights API" description="Insert a few lines of code to track usage and diagnose issues." metaKeywords="analytics monitoring application insights" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
  
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
 

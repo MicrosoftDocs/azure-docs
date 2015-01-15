@@ -8,6 +8,7 @@ Thank you for your interest in Azure documentation!
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
 * [More resources](#more-resources)
+* [Index of all contributors' guide articles](./contributor-guide/contributor-guide-index.md) (opens new page)
 
 ## Ways to contribute
 
@@ -15,7 +16,8 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 
 * Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 * Submit Disqus comments at the bottom of articles.
-* Contribute to articles via the public Azure repo.
+* You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article. 
+* If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands. 
 
 ##About your contributions to Azure content
 
@@ -43,13 +45,21 @@ The content in the azure-content repository follows the organization of document
 
 The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/en-us/documentation/articles/{article-name-without-md}/*. 
 
-* **Article filenames:** Begin with the service name, such as *hdinsight*, and include the development language and a description of the subject matter. Use all lowercase letters and dashes (-) to separate the words. 
+* **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md). 
 
 * **Media subfolders:** The *\articles* folder contains the *\media* folder, inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
 
 ### \includes
 
-You can create reusable content sections to be included in one or more articles. see [Custom extensions used in our technical content](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).  
+You can create reusable content sections to be included in one or more articles. see [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md).
+
+### \markdown templates
+
+This folder contains our standard markdown template with the basic markdown formatting you need for an article.
+
+### \contributor-guide
+
+This folder contains articles that are part of our contributors' guide.  
 
 ## Use GitHub, Git, and this repository
 

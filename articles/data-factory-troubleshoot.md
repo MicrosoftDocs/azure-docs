@@ -1,4 +1,4 @@
-<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Troubleshoot Azure Data Factory issues" description="Learn how to troubleshoot issues with using Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties title="" pageTitle="Troubleshoot Azure Data Factory issues" description="Learn how to troubleshoot issues with using Azure Data Factory." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
@@ -77,7 +77,7 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
          
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
-	> [WACOM.NOTE] Replace <b>StartDateTime</b> value with the current day and <b>EndDateTime</b> value with the next day. 
+	> [AZURE.NOTE] Replace <b>StartDateTime</b> value with the current day and <b>EndDateTime</b> value with the next day. 
 
 
 ### Use Azure Preview Portal to troubleshoot the error
@@ -122,7 +122,7 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
          
 		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-	> [WACOM.NOTE] Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	> [AZURE.NOTE] Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -204,7 +204,7 @@ In this scenario, data set is in an error state due to a failure in Hive process
          
 		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-	> [WACOM.NOTE] Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	> [AZURE.NOTE] Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory

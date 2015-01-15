@@ -1,6 +1,6 @@
-<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="" pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="larryfr" />
 
 #Getting started using Storm with HDInsight (Hadoop)
 
@@ -40,23 +40,41 @@ You must have the following to successfully complete this tutorial.
 
 3. Click on the HDInsight icon in the second column, and then select **Custom**.
 
-4. On the **Cluster Details** page, enter the name of the new cluster, and select **Storm** for the **Cluster Type**. Select the arrow to continue.
+4. On the **Cluster Details** page, enter the name of the new cluster, and select **Storm** for the **Cluster Type**. Click the arrow to continue.
 
 	![cluster details](./media/hdinsight-storm-getting-started/wizard1.png)
 
-5. Enter the number of **Data Nodes** to use for this cluster, and the **Region/Virtual Network** that this cluster will be created in. Select the arrow to continue.
+5. Enter the number of **Data Nodes** to use for this cluster, and the **Region/Virtual Network** that this cluster will be created in. Click the arrow to continue.
 
 	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
 	![data nodes and region](./media/hdinsight-storm-getting-started/wizard2.png)
 
-6. Enter the administrator **User Name** and **Password**, then select the arrow to continue.
+6. Enter the administrator **User Name** and **Password**, then Click the arrow to continue.
 
 	![account and password](./media/hdinsight-storm-getting-started/wizard3.png)
 
-4. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use. Click on the check icon on the lower left to create the Storm cluster.
+7. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use.
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
+
+8. On the **Script Actions** page, click **add script action** to provide details about the custom script that you want to run to customize a cluster, as the cluster is being created. For example, you can use Script Action to customize a cluster to install <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. For more information, see [Customize HDInsight clusters using Script Action](/en-us/documentation/articles/hdinsight-hadoop-customize-cluster/). 
+	
+	![Configure Script Action to customize an HDInsight HBase cluster](./media/hdinsight-storm-getting-started/wizard5.png "Use Script Action to customize an HDInsight cluster") 
+
+	<table border='1'>
+		<tr><th>Property</th><th>Value</th></tr>
+		<tr><td>Name</td>
+			<td>Specify a name for the script action.</td></tr>
+		<tr><td>Script URI</td>
+			<td>Specify the URI to the script that is invoked to customize the cluster.</td></tr>
+		<tr><td>Node Type</td>
+			<td>Specifies the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.
+		<tr><td>Parameters</td>
+			<td>Specify the parameters, if required by the script.</td></tr>
+	</table>
+
+	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the check mark to start provisioning the cluster.
 
 ##Using HDInsight Storm
 

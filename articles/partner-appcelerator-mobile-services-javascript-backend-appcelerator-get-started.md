@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="mattchenderson" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender" />
 
@@ -75,7 +75,7 @@ This sends a POST request to the new mobile service hosted in Windows Azure. Dat
 ![][8]
 
 
->[WACOM.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
+>[AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 

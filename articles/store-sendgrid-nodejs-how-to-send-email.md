@@ -1,4 +1,4 @@
-<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="sendgrid" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="nodejs" title="" authors="thinkingserious" solutions="" manager="sendgrid" editor=""/>
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -103,19 +103,18 @@ it using the Web API provided by SendGrid.
         console.log(json);
     });
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While the above examples show passing in an email object and
+> [AZURE.NOTE] While the above examples show passing in an email object and
 callback function, you can also directly invoke the send
-function by directly specifying email properties. For example:</p>
-<pre class="prettyprint">sendgrid.send({
+function by directly specifying email properties. For example:  
+>
+>`````
+sendgrid.send({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
     subject: 'test mail',
     text: 'This is a sample email message.'
 });
-</pre>
-</div>
+`````
 
 ## <a name="addattachment"> </a>How to: Add an Attachment
 
@@ -140,11 +139,8 @@ sending an attachment:
         ],
     });
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>When using the <strong>files</strong> property, the file must be accessible
-through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the <strong>files</strong> property.</p>
-</div>
+> [AZURE.NOTE] When using the **files** property, the file must be accessible
+through [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the **files** property.
 
 ## <a name="usefilters"> </a>How to: Use Filters to Enable Footers and Tracking
 

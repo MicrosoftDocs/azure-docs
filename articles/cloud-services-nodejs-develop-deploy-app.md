@@ -1,4 +1,4 @@
-<properties urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="" authors="" solutions="" manager="wpickett" editor=""/>
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -84,10 +84,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
 	The **Add-AzureNodeWebRole** cmdlet creates a new directory for your application and generates scaffolding for a basic Node.js application. It also modifies the **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg**, and **ServiceDefinition.csdef** files created in the previous step to add configuration entries for the new role.
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>By default if you do not provide a role name, one will be created for you. You can provide a name as the first parameter to <b>Add-AzureNodeWebRole</b>. For example, <code>Add-AzureNodeWebRole MyRole</code></p>
-	</div>
+	> [AZURE.NOTE] By default if you do not provide a role name, one will be created for you. You can provide a name as the first parameter to **Add-AzureNodeWebRole**. For example, `Add-AzureNodeWebRole MyRole`
 
 5.  Use the following commands to navigate to the **WebRole1** directory, and then open the the **server.js** file in notepad. 
 
@@ -145,10 +142,7 @@ In order to deploy your application to Azure, you must first download the publis
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>After importing the publish settings, consider deleting the downloaded .publishSettings file as it contains information that can be used by others to access your account.</p>
-	</div>
+	> [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file as it contains information that can be used by others to access your account.
     
 
 ### Publishing the Application
@@ -179,7 +173,7 @@ In order to deploy your application to Azure, you must first download the publis
 4.  Publishes the deployment package to Azure.
 
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> It can take 5 - 7 minutes for the application to deploy and become available when first published.
 
 	Once the deployment has completed, a browser window will open and navigate to the cloud service.
@@ -212,11 +206,7 @@ After deploying your application, you may want to disable it so you can avoid ex
 
 	![The status of the Remove-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on
-deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">How to Delete a Storage Account from an Azure Subscription</a>.</p>
-</div>
+	> [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on deleting a storage account, see [How to Delete a Storage Account from an Azure Subscription](http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx).
 
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png

@@ -18,7 +18,7 @@ By default, all requests to mobile service resources are restricted to clients t
 
 	This will ensure that all operations against the **TodoItem** table require an authenticated user. 
 
-	>[WACOM.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
+	>[AZURE.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
 
 5. If you wish to debug authentication locally, expand the App_Start folder, open the WebApiConfig.cs project file, then add the following code to the **Register** method:
 

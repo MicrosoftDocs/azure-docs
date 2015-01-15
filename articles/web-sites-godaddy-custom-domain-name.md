@@ -1,4 +1,4 @@
-<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="Configure a GoDaddy domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+<properties title="" pageTitle="Configure a GoDaddy domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
@@ -42,7 +42,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 	To **edit** an existing record, select the pen & paper icon beside the record.
 
-	> [WACOM.NOTE] Before adding new records, note that GoDaddy has already created DNS records for popular sub-domains (called **Host** in editor,) such as **email**, **files**, **mail**, and others. If the name you wish to use already exists, modify the existing record instead of creating a new one.
+	> [AZURE.NOTE] Before adding new records, note that GoDaddy has already created DNS records for popular sub-domains (called **Host** in editor,) such as **email**, **files**, **mail**, and others. If the name you wish to use already exists, modify the existing record instead of creating a new one.
 
 4. When adding a record, you must first select the record type.
 
@@ -54,7 +54,7 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 	* When adding an **A (host) record** - you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) * (a wildcard for matching multiple sub-domains,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points to** field to the IP address of your Azure Website.
 	
-		> [WACOM.NOTE] When using A (host) records, you must also add a CNAME record with the following configuration:
+		> [AZURE.NOTE] When using A (host) records, you must also add a CNAME record with the following configuration:
 		> 
 		> * A **Host** value of **awverify** that **Points to** a value of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 

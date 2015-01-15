@@ -1,4 +1,4 @@
-<properties title="Normal Distribution Web Service Suite" pageTitle="Normal Distribution Web Service Suite | Azure" description="Normal Distribution Web Service Suite" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="" pageTitle="Normal Distribution Web Service Suite | Azure" description="Normal Distribution Web Service Suite" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 
@@ -56,35 +56,90 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 
 ###Starting C# code for web service consumption:
 
-	public class Input{
-	public double Recency;
-	public double Frequency;
-	public double Monetary;
-	public double Time;
-	public double Class;
+###Normal Distribution Quantile Calculator:
+	    public class Input
+	    {
+	        public string p;
+	        public string mean;
+	        public string sd;
+	        public string side;
 	}
-
 	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-        System.Diagnostics.Debug.WriteLine("AuthenticationHeaderValue" + new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray)));
-        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-       
+	    {
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
 	void Main()
 	{
-  	var input = new Input(){Recency =1, Frequency=0,Monetary=0,Time=1, Class= 0};
-	var json = JsonConvert.SerializeObject(input);
-	var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-       
-  	var httpClient = new HttpClient();
-   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
-   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
-  	var result = query.Result.Content;
-  	var scoreResult = result.ReadAsStringAsync().Result;
-  	scoreResult.Dump();
+	        var input = new Input() { p = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+	    var scoreResult = result.ReadAsStringAsync().Result;
 	}
+
+
+###Normal Distribution Probability Calculator:
+	    public class Input
+	    {
+	        public string q;
+	        public string mean;
+	        public string sd;
+	        public string side;
+	}
+	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	    {
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	void Main()
+	{
+	        var input = new Input() { q = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+	    var scoreResult = result.ReadAsStringAsync().Result;
+	}
+
+###Normal Distribution Generator:
+	    public class Input
+	    {
+	        public string n;
+	        public string mean;
+	        public string sd;
+	}
+	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	    {
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	void Main()
+	{
+	        var input = new Input() { n = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+	    var scoreResult = result.ReadAsStringAsync().Result;
+	}
+
 
 ##Creation of Web Service 
 >This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). 
@@ -92,7 +147,9 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 ###Normal Distribution Quantile Calculator:
+
 Experiment Flow
+
 ![Experiment flow][2]
  
 	#data schema with example data (replaced with data from web service)
@@ -125,6 +182,7 @@ Experiment Flow
 	
 ###Normal Distribution Probability Calculator:
 Experiment Flow
+
 ![Experiment flow][3]
  
  	#data schema with example data (replaced with data from web service)
@@ -152,6 +210,7 @@ Experiment Flow
 	
 ###Normal Distribution Generator:
 Experiment Flow
+
 ![Experiment flow][4]
 
 	#data schema with example data (replaced with data from web service)

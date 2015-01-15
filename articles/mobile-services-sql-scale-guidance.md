@@ -1,4 +1,4 @@
-<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
+<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="lindydonna" solutions="" manager="dwrede" editor="mollybos"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 # Scale mobile services backed by Azure SQL Database
@@ -261,7 +261,7 @@ The management portal makes certain metrics readily available if using the Basic
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > Please execute this query on the **master** database on your server, the **sys.resource\_stats** view is only present on that database.
 
 The result will contain the following useful metrics: CPU (% of tier limit), Storage (megabytes), Physical Data Reads (% of tier limit), Log Writes (% of tier limit), Memory (% of tier limit), Worker Count, Session Count, etc. 
@@ -275,7 +275,7 @@ The **[sys.event\_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.as
     and event_type like 'throttling%'
     order by start_time desc
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > Please execute this query on the **master** database on your server, the **sys.event\_log** view is only present on that database.
 
 <a name="AdvancedIndexing" />
@@ -289,7 +289,7 @@ A table or view can contain the following types of indexes:
 
 To provide a real-world analogy: consider a book or a technical manual. The contents of each page are a record, the page number is the clustered index, and the topic index in the back of the book is a nonclustered index. Each entry in the topic index points to the clustered index, the page number.
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `EntityData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>

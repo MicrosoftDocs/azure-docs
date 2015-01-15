@@ -1,4 +1,4 @@
-<properties title="How to Use CoreOS on Azure" pageTitle="How to Use CoreOS on Azure" description="Describes CoreOS, how to create a CoreOS virtual machine on Azure, and its basic usage." metaKeywords="linux, virtual machines, vm, azure, CoreOS, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" manager="timlt" />
+<properties title="" pageTitle="How to Use CoreOS on Azure" description="Describes CoreOS, how to create a CoreOS virtual machine on Azure, and its basic usage." metaKeywords="linux, virtual machines, vm, azure, CoreOS, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="" authors="squillace" videoId="" scriptId="" manager="timlt" editor=""/>
 
 <tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/27/2014" ms.author="rasquill" />
 
@@ -56,7 +56,7 @@ This section describes how to create an Azure Cloud Service with three CoreOS vi
  
 Use the instructions in [How to Use SSH with Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/) to create a public and private key for SSH. (The basic steps are in the instructions below.) You are going to use these keys to connect to VMs in the cluster to verify that they are working and can communicate with each other.
 
-> [WACOM.NOTE] This topic assumes that you do not have these keys, and requires you to create a **`myPrivateKey.pem`** and **`myCert.pem`** files for clarity. If you already have a public and private key pair saved to **`~/.ssh/id_rsa`**, you can just type `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` to obtain the .pem file that you need to upload to Azure.
+> [AZURE.NOTE] This topic assumes that you do not have these keys, and requires you to create a **`myPrivateKey.pem`** and **`myCert.pem`** files for clarity. If you already have a public and private key pair saved to **`~/.ssh/id_rsa`**, you can just type `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` to obtain the .pem file that you need to upload to Azure.
 
 1. In a working directory, type `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` to create the private key and an the X.509 certificate associated with it. 
 
@@ -77,7 +77,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 Still in the same working directory, create a file with your favorite text editor with the following text and save it as **`cloud-config.yaml`**. (You can save it as any file name you want, but when you create your VMs in the next step, you'll need to reference this file's name in your **--custom-data** option for the **azure create vm** command.)
 
-> [WACOM.NOTE] Remember to type `cat etcdid` to retrieve the etcd discovery id from the `etcdid` file you created above and replace **`<token>`** in the following **cloud-config.yaml** file with the generated number from your `etcdid` file. If you are unable to validate your cluster at the end, this may be one of the steps you overlooked!
+> [AZURE.NOTE] Remember to type `cat etcdid` to retrieve the etcd discovery id from the `etcdid` file you created above and replace **`<token>`** in the following **cloud-config.yaml** file with the generated number from your `etcdid` file. If you are unable to validate your cluster at the end, this may be one of the steps you overlooked!
 
 ```
 #cloud-config
@@ -162,7 +162,7 @@ Make sure **fleet** has access to your `myPrivateKey.key` in the working directo
 
 `ssh-add ./myPrivateKey.key`
 
-> [WACOM.NOTE] If you are already using the **~/.ss h/id_rsa** key, then add that with `ssh-add ~/.ssh/id_rsa`.
+> [AZURE.NOTE] If you are already using the **`~/.ssh/id_rsa`** key, then add that with `ssh-add ~/.ssh/id_rsa`.
 
 Now you are ready to test remotely using the same **fleetctl** command you used from **node-1**, but passing some remote arguments:
 

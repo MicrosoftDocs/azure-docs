@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Hadoop in HDInsight: Big data analysis in the cloud | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Hadoop in HDInsight: Big data processing and analysis in the cloud" authors="cgronlun" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Hadoop in HDInsight: Big data analysis in the cloud | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="cjgronlund" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="cgronlun" />
 
@@ -171,7 +171,7 @@ To try Hadoop on HDInsight, see "Get started" articles in the Explore section on
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>: Learn more about the Apache Hadoop software library, a framework that allows for the distributed processing of large data sets across clusters of computers.	
 
-*  <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>: Learn more about the architecture and design of the Hadoop Distributed File System (HDFS), the primary storage system used by Hadoop applications.		
+*  <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html">HDFS</a>: Learn more about the architecture and design of the Hadoop Distributed File System (HDFS), the primary storage system used by Hadoop applications.		
 
 * <a target="_blank" href="http://mapreduce.org/">MapReduce</a>: Learn more about the programming framework for writing Hadoop applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.	
 

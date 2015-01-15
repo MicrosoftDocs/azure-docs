@@ -6,7 +6,7 @@ After you have registered your app with APNS and configured your project, you mu
 
   Make a note of the file name and location of the exported certificate.
 
->[WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
+>[AZURE.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
 
 2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -22,7 +22,7 @@ After you have registered your app with APNS and configured your project, you mu
 
    	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios-upload.png)
 
-    > [WACOM.NOTE] This tutorial uses developement certificates.
+    > [AZURE.NOTE] This tutorial uses developement certificates.
 
 Your mobile service is now configured to work with APNS.
 

@@ -1,4 +1,4 @@
-<properties urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="" authors="cephalin" solutions="" manager="wpickett" editor="mollybos"/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -36,7 +36,7 @@ In **Standard** website mode, you can receive alerts based on your website monit
 
 Websites can be configured to run in either **Shared** or **Standard** website mode from the website's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 websites per region in **Shared** website mode. The pool of resources available to each Website subscription for this purpose is shared by other websites in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other websites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each website's **Dashboard** management page.
 
->[WACOM.NOTE] When a website is configured to run in **Standard** mode, it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. There are no limits to the resources a subscription can use for running websites in **Standard** mode. However, the number of **Standard** mode websites that can be created per region is 500.
+>[AZURE.NOTE] When a website is configured to run in **Standard** mode, it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. There are no limits to the resources a subscription can use for running websites in **Standard** mode. However, the number of **Standard** mode websites that can be created per region is 500.
  
 ### How to: View usage quotas for websites configured for Shared website mode ###
 To determine the extent that a website is impacting resource usage quotas, follow these steps:
@@ -84,29 +84,22 @@ You can enable or disable the following application diagnostics:
 
 For more information about Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-<div class="dev-callout"on> 
-<b>Note</b> 
-<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+> [AZURE.NOTE] Application logging to table or blob storage is only supported for .NET applications.
 
 Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
 
-<div class="dev-callout"> 
-	<b>Note</b> 
-	<p><b>Application diagnostics (file system)</b>, <b>Application diagnostics (table storage)</b>, and <b>Application diagnostics (blob storage)</b> can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.</p> </div>
+> [AZURE.NOTE] **Application diagnostics (file system)**, **Application diagnostics (table storage)**, and **Application diagnostics (blob storage)** can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.
 
-<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Diagnostics can also be enabled from Azure PowerShell using the <b>Set-AzureWebsite</b> cmdlet.</p><p>If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/">How to Use Azure PowerShell</a>.</p></div>
+> [AZURE.NOTE] Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet.
+> 
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Application logging relies on log information generated by your application. The method used to generate log information, as well as the format of the information is specific to the language your application is written in. For language-specific information on using application logging, see the following articles:</p>
-<ul>
-<li><b>.NET</b> - <a href="/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">Enable diagnostic logging for Azure Websites</a></li>
-<li><b>Node.js</b> - <a href="/en-us/develop/nodejs/how-to-guides/Debug-Website/">How to debug a Node.js application in Azure Websites</a></li>
-</ul>
-<p>Application logging to table or blob storage is only supported for .NET applications.</p>
-</div>
+> [AZURE.NOTE] Application logging relies on log information generated by your application. The method used to generate log information, as well as the format of the information is specific to the language your application is written in. For language-specific information on using application logging, see the following articles:
+> 
+> - **.NET** - [Enable diagnostic logging for Azure Websites](/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
+> - **Node.js** - [How to debug a Node.js application in Azure Websites](/en-us/develop/nodejs/how-to-guides/Debug-Website/)
+> 
+> Application logging to table or blob storage is only supported for .NET applications.
 
 ####Site Diagnostics####
 
@@ -127,10 +120,7 @@ The **site diagnostics** section of the **Configure** management page controls t
 
 After enabling diagnostics for a website, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
 
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>Logging and tracing place significant demands on a website. We recommend turning off logging and tracing once you have reproduced the problem(s) that you are troubleshooting.</p> 
-</div>
+> [AZURE.IMPORTANT] Logging and tracing place significant demands on a website. We recommend turning off logging and tracing once you have reproduced the problem(s) that you are troubleshooting.
 
 ###Advanced configuration###
 
@@ -169,10 +159,7 @@ Log files can be downloaded using either FTP, Azure PowerShell, or the Azure Com
 
 1. From the **Start Screen** or the **Start Menu**, search for **Azure PowerShell**. Right-click the **Azure PowerShell** entry and select **Run as Administrator**.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>If <b>Azure PowerShell</b> is not installed, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx">Getting Started with Azure PowerShell Cmdlets</a> for installation and configuration information.</p> 
-	</div>
+	> [AZURE.NOTE] If **Azure PowerShell** is not installed, see [Getting Started with Azure PowerShell Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) for installation and configuration information.
 
 2. From the Azure PowerShell prompt, use the following command to download the log files:
 
@@ -200,10 +187,7 @@ You may also view a lie stream of log events by using the following command:
 
 This will display log information to the command prompt, PowerShell, bash or terminal session that the command is ran from.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>If the <b>azure</b> command is not installed, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/">How to use the Azure Command-Line Tools</a> for installation and configuration information.</p>
-</div>
+> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/) for installation and configuration information.
 
 ###Reading log files###
 

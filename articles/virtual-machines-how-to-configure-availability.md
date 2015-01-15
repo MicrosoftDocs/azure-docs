@@ -1,4 +1,4 @@
-<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="How to Configure An Availability Set for Virtual Machines" description="Gives the steps to configure an availability set for a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="" pageTitle="How to Configure An Availability Set for Virtual Machines" description="Gives the steps to configure an availability set for a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="KBDAzure" manager="timlt" videoId="" scriptId="" editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
 
@@ -14,7 +14,7 @@ You can put virtual machines into an availability set using one of two options:
 - [Option 2: Add an existing virtual machine to an availability set] [].
 
 
->[WACOM.NOTE] Virtual machines that you want to put in the same availability set must belong to the same cloud service.   
+>[AZURE.NOTE] Virtual machines that you want to put in the same availability set must belong to the same cloud service.   
 
 ## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time##
 
@@ -55,7 +55,7 @@ To use Azure cmdlets:
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[WACOM.NOTE] Run `Get-AzureVMImage` without parameters to get a list of all images that apply to your subscription. This might return a large list. To shorten the list, use properties such as the image family name. For tips and examples that show you how to do this to find a specific image, see [Manage Images using Windows PowerShell](http://msdn.microsoft.com/en-us/library/azure/dn790330.aspx).
+	>[AZURE.NOTE] Run `Get-AzureVMImage` without parameters to get a list of all images that apply to your subscription. This might return a large list. To shorten the list, use properties such as the image family name. For tips and examples that show you how to do this to find a specific image, see [Manage Images using Windows PowerShell](http://msdn.microsoft.com/en-us/library/azure/dn790330.aspx).
 
 3.	Specify the configuration for the new virtual machine, and then use the pipeline to pass a configuration object to the cmdlet that creates the VM. Be sure to substitute your own values for the placeholders, such as  &lt;VmName&gt; and &lt;VmSize&gt;.
 
@@ -89,7 +89,7 @@ Open an Azure PowerShell session and run the following command. Be sure to subst
 
 	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
->[WACOM.NOTE] The virtual machine might be restarted to finish adding it to the availability set.
+>[AZURE.NOTE] The virtual machine might be restarted to finish adding it to the availability set.
 
 
 ##Additional resources

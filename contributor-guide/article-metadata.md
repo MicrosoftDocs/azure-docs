@@ -4,6 +4,11 @@
 
 All Azure technical articles contain two metadata sections - a properties section and a tags section. The properties section enables some website automation and SEO stuff, while the tags section enables a lot of internal content reporting. Both sections are required.
 
+- [Syntax]
+- [Usage]
+- [Attributes and values for the properties section]
+- [Attributes and values for the tags section]
+
 ##Syntax
 
 The properties section uses this syntax:
@@ -20,9 +25,9 @@ The tags section uses this syntax:
 - The <properties> section must be the first line of your file, and it must exist as a single line (e.g. don't add any line breaks between attributes).
 - Leave a blank line after each metadata section and before your page title to ensure that the page title is correctly converted to HTML during the publishing process.
 
-## Attributes and their values - properties section
+## Attributes and values for the properties section
 
-![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Checking to see if we can leave it out.
+![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Leave value empty.
 
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The title you enter for this attribute appears in the browser address bar and as the title in a search result.
  
@@ -60,17 +65,17 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. Values:
 
-- **.NET** 
+- **.net** 
 - **nodejs** 
-- **Java** 
-- **PHP** 
-- **Python** 
-- **Ruby** 
-- **Mobile**: Deprecated. Replace with specific mobile platform.
-- **iOS**: Verifing this new value
-- **Android**: Verifing this new value
-- **Windows**: Verifing this new value
-- **Xamarin**: Verifing this new value
+- **java** 
+- **php** 
+- **python** 
+- **ruby** 
+- **mobile**: Deprecated. Replace with specific mobile platform.
+- **ios**: Verifing this new value
+- **android**: Verifing this new value
+- **windows**: Verifing this new value
+- **xamarin**: Verifing this new value
 
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
@@ -80,7 +85,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
-## Attributes and their values - tags section
+## Attributes and values for the tags section
 
 ![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page. 
 
@@ -233,6 +238,15 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png) **ms.author**: Required. Specifies the author(s) associated with the topic. To specify multiple values you should spearate them with semicolons. Either Microsoft aliases or complete email addresses are acceptable. The length can be no longer than 200 characters.
 
-![](./media/article-metadata/checkmark-small.png)**ms.service**: Not yet required - to be added in January 2015. Always set value as **azure**.
+
+###Contributors' Guide Links
+
+- [Overview article](./../CONTRIBUTING.md)
+- [Index of guidance articles](./contributor-guide-index.md)
 
 
+<!--Anchors-->
+[Syntax]: #syntax
+[Usage]: #usage
+[Attributes and values for the properties section]: #attributes-and-values-for-the-properties-section
+[Attributes and values for the tags section]: #attributes-and-values-for-the-tags-section

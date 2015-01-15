@@ -1,6 +1,6 @@
-<properties urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="" authors="blackmist" solutions="" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 
@@ -15,15 +15,9 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 * Azure Webites understand **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
 * Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.</p>
-</div>
+> [AZURE.NOTE] Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>It is possible to enable support for installing modules using <b>package.json</b> or <b>npm-shrinkwrap.json</b> files on Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see <a href="http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure">Azure Startup task to run npm install to avoid deploying node modules </a></p>
-</div>
+> [AZURE.NOTE] It is possible to enable support for installing modules using **package.json** or **npm-shrinkwrap.json** files on Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see [Azure Startup task to run npm install to avoid deploying node modules](http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure)
 
 ##Node.js Modules
 
@@ -49,7 +43,7 @@ During development, you can use the **--save**, **--save-dev**, or **--save-opti
 
 One potential problem with the **package.json** file is that it only specifies the version for top level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development. 
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > When deploying to an Azure Webite, if your <b>package.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
@@ -63,7 +57,7 @@ The **npm-shrinkwrap.json** file is an attempt to address the module versioning 
 
 When your application is ready for production, you can lock-down version requirements and create an **npm-shrinkwrap.json** file by using the **npm shrinkwrap** command. This will use the versions currently installed in the **node\_modules** folder, and record these to the **npm-shrinkwrap.json** file. After the application has been deployed to the hosting environment, the **npm install** command is used to parse the **npm-shrinkwrap.json** file and install all the dependencies listed. For more information, see [npm-install](https://npmjs.org/doc/install.html).
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 >When deploying to an Azure Webite, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 		
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'

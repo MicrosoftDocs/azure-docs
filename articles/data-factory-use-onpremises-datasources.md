@@ -1,4 +1,4 @@
-<properties title="Enable your pipelines to work with on-premises data" pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties title="" pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
@@ -8,7 +8,7 @@ To enable your pipelines in an Azure data factory to work with an on-premises da
  
 To be able to add an on-premises data source as a linked service to a data factory, you first need to download and install Microsoft Data Management Gateway on an on-premises computer and configure linked service for the on-premises data source to use the gateway .
  
-> [WACOM.NOTE] Only SQL Server is the supported on-premises data source at this moment.
+> [AZURE.NOTE] Only SQL Server is the supported on-premises data source at this moment.
 
 ## <a href="DMG"></a> Data Management Gateway
 
@@ -359,9 +359,9 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 3. Once the pipeline is created, you can specify the duration in which data processing will occur. By specifying the active period for a pipeline, you are defining the time duration in which the data slices will be processed based on the **Availability** properties that were defined for each Azure Data Factory table.  Execute the following PowerShell command to set active period on pipeline and enter Y to confirm. 
 
 
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipelineOnPrem  
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -StartDateTime 2014-09-29Z –EndDateTime 2014-09-30Z –Name ADFTutorialPipelineOnPrem  
 
-	> [WACOM.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z.The EndDateTime is optional, but we will use in this tutorial.
+	> [AZURE.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z.The EndDateTime is optional, but we will use in this tutorial.
 	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
 
 	In the example above, there will be 24 data slices as each data slice is produced hourly.

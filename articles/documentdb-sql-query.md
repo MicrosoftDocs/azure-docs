@@ -1,4 +1,4 @@
-<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+<properties title="" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." metaKeywords="" services="documentdb" documentationCenter="" solutions="data-management" authors="mimig1" manager="jhubbard" editor="monicar" videoId="" scriptId=""/>
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
 

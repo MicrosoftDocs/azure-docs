@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="monicar" />
+<properties urlDisplayName="Install SQL Server" pageTitle="Provision a SQL Server virtual machine in Azure" metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="Selcin" solutions="" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="selcint" />
 
@@ -25,7 +25,7 @@ In this tutorial, you will:
 
 3. On the **Create a Virtual Machine** page, select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure, see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set. 
 
-    >[WACOM.NOTE] If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery. You can choose one of the following two options:
+    >[AZURE.NOTE] If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery. You can choose one of the following two options:
     
     > - You can create a new virtual machine by using the per-minute paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Azure using data disks](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Or**,
 
@@ -39,7 +39,7 @@ In this tutorial, you will:
 	- In the **CONFIRM PASSWORD** box, retype the password.
 	- Select the appropriate **SIZE** from the drop down list. 
 
-	>[WACOM.NOTE] The size of the virtual machine is specified during provisioning:
+	>[AZURE.NOTE] The size of the virtual machine is specified during provisioning:
  	> A2 is the smallest size recommended for production workloads. 
     > The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.
     > Select A3 or higher when using SQL Server Enterprise Edition.

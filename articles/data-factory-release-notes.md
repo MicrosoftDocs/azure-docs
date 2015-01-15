@@ -1,4 +1,4 @@
-<properties title="Azure Data Factory - Release Notes" pageTitle="Data Factory - Release Notes | Azure" description="Data Factory release notes" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties title="" pageTitle="Data Factory - Release Notes | Azure" description="Data Factory release notes" metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="spelluru" />
 

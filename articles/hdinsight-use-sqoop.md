@@ -1,4 +1,4 @@
-<properties urlDisplayName="Use Hadoo Sqoop in HDInsight" pageTitle="Use Hadoop Sqoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Use Hadoop Sqoop in HDInsight" authors="jgao" />
+<properties urlDisplayName="Use Hadoo Sqoop in HDInsight" pageTitle="Use Hadoop Sqoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="" authors="mumian"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
@@ -54,23 +54,23 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL Database to which Sqoop will export data to or import data from. </td></tr>
 	</table>
 
-	> [WACOM.NOTE] By default an Azure SQL database allows connections from Azure services like Azure HDInsight. If this firewall setting is disabled, you must enabled it from Azure Management portal. For instruction on creating SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue]. 
+	> [AZURE.NOTE] By default an Azure SQL database allows connections from Azure services like Azure HDInsight. If this firewall setting is disabled, you must enabled it from Azure Management portal. For instruction on creating SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue]. 
 
 * **SQL Server**. If your HDInsight cluster is on the same Azure Virtual Network as a SQL Server, you can use the steps in this article to import and export data to a SQL Server database. For more information, see the following articles.
 
-	> [WACOM.NOTE] > Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
+	> [AZURE.NOTE] > Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
 
 	* To **create and configure a Virtual Network**, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
 
 		* When using SQL Server **in your datacenter**, you must configure the Virtual Network as either *site-to-site* or *point-to-site*.
 
-			> [WACOM.NOTE] For **point-to-site** Virtual Networks, the SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure Virtual Network configuration.
+			> [AZURE.NOTE] For **point-to-site** Virtual Networks, the SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure Virtual Network configuration.
 
 		* When using SQL Server in an **Azure Virtual Machine**, any Virtual Network configuration may be used as long as the Virtual Machine hosting SQL Server is a member of the same Virtual Network as HDInsight.
 
 	* To **provision an HDInsight cluster onto a Virtual Network**, see [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/)
 
-	> [WACOM.NOTE] The SQL Server must also allow SQL Authentication. You must use a SQL login for the steps in this article.
+	> [AZURE.NOTE] The SQL Server must also allow SQL Authentication. You must use a SQL login for the steps in this article.
 
 	<table border="1">
 	<tr><th>SQL database property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
@@ -81,7 +81,7 @@ Before you begin this tutorial, you must have the following:
 	</table>
 
 
-> [WACOM.NOTE] Fill the values into the tables above.  It will be helpful for going through this tutorial.
+> [AZURE.NOTE] Fill the values into the tables above.  It will be helpful for going through this tutorial.
 
 ## <a id="scenario"></a>Understand the scenario
 HDInsight cluster comes with some sample data. You will use the following two:
@@ -123,9 +123,9 @@ The WASB syntax is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
+> [AZURE.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
 
-> [WACOM.NOTE] The WASB path is a virtual path.  For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
+> [AZURE.NOTE] The WASB path is a virtual path.  For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
 A file stored in the default file system container can be accessed from HDInsight using any of the following URIs (use sample.log as an example):
 
@@ -274,7 +274,7 @@ This is fine for other examples that use this data, but we must remove these exc
 
 	You will be prompted to enter your Azure account credentials. This method of adding a subscription connection times out, and after 12 hours, you will have to log in again. 
 
-	> [WACOM.NOTE] If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select the current subscription.
+	> [AZURE.NOTE] If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select the current subscription.
 
 3. Copy the following script into the script pane, and then set the first two variables:
 		
@@ -346,7 +346,7 @@ This is fine for other examples that use this data, but we must remove these exc
 
 In this section, you will use Azure PowerShell to run the Sqoop export command to export both a Hive table, and a data file to an Azure SQL database or SQL Server. The next section provides an HDInsight .NET sample.
 
-> [WACOM.NOTE] Other than connection string information, the steps in this section should work for either Azure SQL Database or SQL Server. These steps were tested against the following configuration:
+> [AZURE.NOTE] Other than connection string information, the steps in this section should work for either Azure SQL Database or SQL Server. These steps were tested against the following configuration:
 > 
 > * **Azure Virtual Network point-to-site configuration** - A virtual network connecting the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](http://msdn.microsoft.com/en-us/library/azure/dn133792.aspx) for more information.
 > * **Azure HDInsight 3.1** - See [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/) for information on creating a cluster on a Virtual Network

@@ -1,4 +1,4 @@
-<properties linkid="collect heap dumps" urlDisplayName="Collect Heap Dumps for Debugging and Analysis" pageTitle="Collect Heap Dumps for Debugging and Analysis| Azure" metaKeywords="" description="Collect Heap Dumps for Debugging and Analysis" metaCanonical="" services="hdinsight" documentationCenter="" title="Collect Heap Dumps for Debugging and Analysis" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="collect heap dumps" urlDisplayName="Collect Heap Dumps for Debugging and Analysis" pageTitle="Collect Heap Dumps for Debugging and Analysis| Azure" metaKeywords="" description="Collect Heap Dumps for Debugging and Analysis" metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="bradsev" />
 

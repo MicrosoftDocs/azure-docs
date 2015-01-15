@@ -1,4 +1,4 @@
-<properties urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites, storage" documentationCenter="nodejs" title="" authors="MikeWasson" solutions="" manager="wpickett" editor=""/>
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -24,9 +24,9 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ![A web page displaying an empty tasklist][node-table-finished]
 
-> [WACOM.NOTE] This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**.
+> [AZURE.NOTE] This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**.
 
-> [WACOM.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+> [AZURE.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -76,7 +76,7 @@ In this section you will create a new Node application and use npm to add module
 
 		npm install express-generator@4.2.0 -g
 
-    > [WACOM.NOTE] When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.
+    > [AZURE.NOTE] When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
@@ -84,7 +84,7 @@ In this section you will create a new Node application and use npm to add module
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [WACOM.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate website scaffolding without having to type in additional path information.**
+	> [AZURE.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate website scaffolding without having to type in additional path information.**
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -359,7 +359,7 @@ In this section you will extend the basic application created by the **express**
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [WACOM.NOTE] nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
+	> [AZURE.NOTE] nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
 
 3. In the app.js file, scroll down to where you see the following line:
 
@@ -493,9 +493,9 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-> [WACOM.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site].
+> [AZURE.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site].
 
-> [WACOM.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
+> [AZURE.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
 
 ###Create an Azure subscription
 
@@ -509,9 +509,9 @@ To install the command-line tools, use the following command:
 	
 	npm install azure-cli -g
 
-> [WACOM.NOTE] For more information, see [Install and configure the Azure Cross-Platform Command-Line Interface](/en-us/documentation/articles/xplat-cli/);
+> [AZURE.NOTE] For more information, see [Install and configure the Azure Cross-Platform Command-Line Interface](/en-us/documentation/articles/xplat-cli/);
 
-> [WACOM.NOTE] While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
+> [AZURE.NOTE] While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
 ###Import publishing settings
 
@@ -557,9 +557,9 @@ Before using the command-line tools with Azure, you must first download a file c
 	
 	The `--git` parameter will create a Git repository on Azure for this website. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Azure. Finally, it will create a **web.config** file, which contains settings used by Azure to host node applications.
 	
-	> [WACOM.NOTE] If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
+	> [AZURE.NOTE] If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
-	> [WACOM.NOTE] If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
+	> [AZURE.NOTE] If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the website.
 	
@@ -576,7 +576,7 @@ Before using the command-line tools with Azure, you must first download a file c
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [WACOM.NOTE] If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to an Azure Website].
+	> [AZURE.NOTE] If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to an Azure Website].
 
 ###Publish the application
 

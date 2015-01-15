@@ -1,4 +1,4 @@
-<properties urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Deploy a Ruby on Rails Web application to an Azure VM using Capistrano" authors="larryfr" manager="wpickett" />
+<properties urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="" authors="blackmist" manager="wpickett" editor="" services="virtual-machines" documentationCenter=""/>
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -25,7 +25,7 @@ The following is a screenshot of the completed application:
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
 
-> [WACOM.NOTE] The application used for this tutorial includes native binary components. You may encounter errors when deploying to the VM if your development environment is not Linux-based. The Gemfile.lock file used during deployment will contain platform-specific gems, which may not include entries for the native Linux versions of the gems required on the VM.
+> [AZURE.NOTE] The application used for this tutorial includes native binary components. You may encounter errors when deploying to the VM if your development environment is not Linux-based. The Gemfile.lock file used during deployment will contain platform-specific gems, which may not include entries for the native Linux versions of the gems required on the VM.
 > 
 > Specific steps are called out for using a Windows development environment. However, if you encounter errors during or after deployment that are not covered in this article, you may wish to retry the steps in this article from a Linux-based development environment.
 
@@ -63,15 +63,15 @@ The following is a screenshot of the completed application:
 
 		gem install rails --no-rdoc --no-ri
 
-	> [WACOM.NOTE] This may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows.
+	> [AZURE.NOTE] This may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows.
 	> 
 	> `sudo gem install rails`
 
-	> [WACOM.NOTE] Version 4.0.4 of the Rails gem was used for this tutorial.
+	> [AZURE.NOTE] Version 4.0.4 of the Rails gem was used for this tutorial.
 
 3. You must also install a JavaScript interpreter, which will be used by Rails to compile CoffeeScript assets used by your Rails application. A list of supported interpreters is available at [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
 	
-	> [WACOM.NOTE] [Node.js](http://nodejs.org/) was used for this tutorial, as it is available for OS X, Linux and Windows operating systems.
+	> [AZURE.NOTE] [Node.js](http://nodejs.org/) was used for this tutorial, as it is available for OS X, Linux and Windows operating systems.
 
 ##<a id="create"></a>Create a Rails application
 
@@ -81,7 +81,7 @@ The following is a screenshot of the completed application:
 
 	This creates a new directory named **blog_app**, and populates it with the files and sub-directories required by a Rails application.
 
-	> [WACOM.NOTE] This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and will be unresponsive during this time.
+	> [AZURE.NOTE] This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and will be unresponsive during this time.
 
 2. Change directories to the **blog_app** directory, and then use the following command to create a basic blog scaffolding:
 
@@ -129,7 +129,7 @@ When deploying an application using Capistrano, the files to are pulled from a r
 
 1.	Create a new repository on [GitHub](https://github.com/). If you do not have a GitHub account, you can sign up for one for free. The following steps assume that the repository name is **blog_app**.
 
-	> [WACOM.NOTE] To support automated deployments of your application, you should use SSH keys to authenticate to GitHub. For more information, see the GitHub documentation on [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys).
+	> [AZURE.NOTE] To support automated deployments of your application, you should use SSH keys to authenticate to GitHub. For more information, see the GitHub documentation on [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys).
 
 2.	From the command prompt, change directories to the **blog_app** directory and run the following commands to upload the application to your GitHub repository. Replace **YourGitHubName** with the name of your GitHub account.
 
@@ -151,17 +151,17 @@ Follow the instructions given [here][vm-instructions] to create an Azure virtual
 
 3. From **Choose an image**, select **Ubuntu**, and then select version **12.04 LTS**. Select the arrow to continue.
 
-	> [WACOM.NOTE] The steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.04 LTS. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.
+	> [AZURE.NOTE] The steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.04 LTS. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.
 
 4. In the **Virtual Machine Name** type the name you want to use. This name will be used to create the domain name of this virtual machine.
 
 5. In **New User Name**, type the name of the administrator account for this machine.
 
-	> [WACOM.NOTE] For this tutorial, the administrator account will also be used to deploy the application. For information on creating a separate account for deployment, see the [Capistrano][capistrano] documentation.
+	> [AZURE.NOTE] For this tutorial, the administrator account will also be used to deploy the application. For information on creating a separate account for deployment, see the [Capistrano][capistrano] documentation.
 
 6. Under **Authentication**, check **Upload compatible SSH key for authentication**, then browse and select the **.pem** file containing the certificate. Finally, select the arrow to continue.
 
-	> [WACOM.NOTE] If you are unfamiliar with generating or using an SSH key, see [How to use SSH with Linux on Azure][ssh-on-azure] for instructions on creating SSH keys.
+	> [AZURE.NOTE] If you are unfamiliar with generating or using an SSH key, see [How to use SSH with Linux on Azure][ssh-on-azure] for instructions on creating SSH keys.
 	> 
 	> You may also enable password authentication, however the SSH Key must also be provided, as it is used to automate deployment.
 
@@ -190,10 +190,10 @@ After the virtual machine has been created, connect to it using SSH and use the 
 	gem install bundler
 	~/.rbenv/bin/rbenv rehash
 
-> [WACOM.NOTE] You may wish to save the above into a script (.sh file,) to avoid typos when executing the commands.
+> [AZURE.NOTE] You may wish to save the above into a script (.sh file,) to avoid typos when executing the commands.
 
 
-> [WACOM.NOTE] The **~/.rbenv/bin/rbenv install 2.0.0-p451** command can take several minutes to complete.
+> [AZURE.NOTE] The **~/.rbenv/bin/rbenv install 2.0.0-p451** command can take several minutes to complete.
 
 The **rbenv-install.sh** script performs the following actions:
 	
@@ -226,7 +226,7 @@ The default database used by Rails for development is SQLite. Usually you will u
 		sudo -u postgres createuser -D -A -P my_username
 		sudo -u postgres createdb -O my_username my_database
 
-	> [WACOM.NOTE] Use the user name for the database name as well. This is required for the capistrano-postgresql gem used by this application.
+	> [AZURE.NOTE] Use the user name for the database name as well. This is required for the capistrano-postgresql gem used by this application.
 
 	When prompted, enter a password for the user. When prompted to allow the user to create new roles, select **y**, as this user will be used during deployment to create the database and login that will be used by your Rails application.
 
@@ -250,7 +250,7 @@ The HTTP endpoint added during the creation of the virtual machine will allow it
 
 	![nginx welcome page][nginx-welcome]
 
-	> [WACOM.NOTE] The deployment scripts used later in this tutorial will make the blog_app the default website served by Nginx.
+	> [AZURE.NOTE] The deployment scripts used later in this tutorial will make the blog_app the default website served by Nginx.
 
 At this point, you have an Azure Virtual Machine with Ruby, Nginx, and PostgreSQL that is ready for your deployment. In the next section, you will modify your Rails application to add the scripts and information that perform the deployment.
 
@@ -275,7 +275,7 @@ On your development environment, modify the application to use the Unicorn web s
 		  gem 'capistrano-postgresql', '~> 3.0'
 		end
 
-	> [WACOM.NOTE] Unicorn is not available on Windows. If you are using Windows as your development environment, modify the __Gemfile__ to ensure that it will only attempt to install Unicorn when deployed to the VM by using the following when specifying the unicorn gem.
+	> [AZURE.NOTE] Unicorn is not available on Windows. If you are using Windows as your development environment, modify the __Gemfile__ to ensure that it will only attempt to install Unicorn when deployed to the VM by using the following when specifying the unicorn gem.
 	> 
 	> `platforms :ruby do`
 	> `  gem 'unicorn'`
@@ -398,7 +398,7 @@ On your development environment, modify the application to use the Unicorn web s
 
 The application should now be ready for deployment.
 
-> [WACOM.NOTE] For a more complex application, or for a different database or application server, you may need additional configuration or deployment scripts.
+> [AZURE.NOTE] For a more complex application, or for a different database or application server, you may need additional configuration or deployment scripts.
 
 ##<a id="deploy"></a>Deploy
 
@@ -408,7 +408,7 @@ The application should now be ready for deployment.
 
 	Capistrano will connect to the VM using SSH, and then create the directory (~/apps) that the application will be deployed to. If this is the first deployment, the capistrano-postgresql gem will also create a role and database in PostgreSQL on the server. It will also create a database.yml configuration file that Rails will used to connect to the database.
 
-	> [WACOM.NOTE] If you receive an error of **Error reading response length from authentication socket** when deploying, you may need to start the SSH agent on your development environment using the `ssh-agent` command. For example, adding `eval $(ssh-agent)` to your ~/.bash\_profile file.
+	> [AZURE.NOTE] If you receive an error of **Error reading response length from authentication socket** when deploying, you may need to start the SSH agent on your development environment using the `ssh-agent` command. For example, adding `eval $(ssh-agent)` to your ~/.bash\_profile file.
 	> 
 	> You may also need to add the SSH key to the agent cache using the `ssh-add` command.
 
@@ -418,11 +418,11 @@ The application should now be ready for deployment.
 
 	This command will deploy the application to the VM, install required gems, and then start/restart Unicorn and Nginx.
 
-	> [WACOM.NOTE] The process may pause for several minutes during processing.
+	> [AZURE.NOTE] The process may pause for several minutes during processing.
 
-	> [WACOM.NOTE] Some portions of the deployment may return 'exit status 1 (failed).' These can generally be ignored as long as the deployment completes successfully.
+	> [AZURE.NOTE] Some portions of the deployment may return 'exit status 1 (failed).' These can generally be ignored as long as the deployment completes successfully.
 
-	> [WACOM.NOTE] On some systems, you may encounter a situation where the SSH Agent cannot forward credentials to the remote VM when authenticating to GitHub. If this occurs, you can work around the error by modifying the **config/deploy.rb** file and change the `set :repo_url` line to use HTTPS when accessing Github. When using HTTPS, you must specify your GitHub user name and password (or authentication token,) as part of the URL. For example:
+	> [AZURE.NOTE] On some systems, you may encounter a situation where the SSH Agent cannot forward credentials to the remote VM when authenticating to GitHub. If this occurs, you can work around the error by modifying the **config/deploy.rb** file and change the `set :repo_url` line to use HTTPS when accessing Github. When using HTTPS, you must specify your GitHub user name and password (or authentication token,) as part of the URL. For example:
 	> 
 	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
 	> 

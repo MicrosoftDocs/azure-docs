@@ -1,4 +1,4 @@
-<properties urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -89,9 +89,7 @@ You can use the command-line tools to delete an existing mobile service, along w
 
 By including `-a` and `-q` parameters, this command also deletes the SQL Database and server used by the mobile service without displaying a prompt.
 
-<div class="dev-callout"><strong>Note</strong> 
-   <p>If you do not specify the <code>-q</code> parameter along with <code>-a</code> or <code>-d</code>, execution is paused and you are prompted to select delete options for your SQL Database. Only use the <code>-a</code> parameter when no other service uses the database or server; otherwise use the <code>-d</code> parameter to only delete data that belongs to the mobile service being deleted.</p>
-</div>
+> [AZURE.NOTE] If you do not specify the <code>-q</code> parameter along with <code>-a</code> or <code>-d</code>, execution is paused and you are prompted to select delete options for your SQL Database. Only use the <code>-a</code> parameter when no other service uses the database or server; otherwise use the <code>-d</code> parameter to only delete data that belongs to the mobile service being deleted.
 
 <h2><a name="create-table"></a>How to create a table in the mobile service</h2>
 

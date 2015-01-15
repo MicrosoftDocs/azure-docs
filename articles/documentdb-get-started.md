@@ -1,4 +1,4 @@
-<properties title="Get started with the DocumentDB .NET SDK" pageTitle="Get started with a the DocumentDB .NET SDK | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" scriptId="" />
+<properties title="" pageTitle="Get started with a the DocumentDB .NET SDK | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started" services="documentdb" solutions="data-management" documentationCenter="" authors="mimig1" manager="jhubbard" editor="monicar" scriptId=""/>
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="mimig" />
 
@@ -8,7 +8,7 @@ This guide shows you how to get started using [Microsoft Azure DocumentDB (Previ
 
 The scenarios covered in this article include creating and configuring a DocumentDB account, creating databases, creating collections, and storing JSON documents within the account. Each of these samples are part of a complete solution available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). You can [download the solution](#GetSolution) to view the sample code in context, or you can just review the samples in this article.
 
-##Table of contents
+## In this article
 
 -	[Connect to a DocumentDB account](#Connect)
 -	[Create a database](#CreateDB)
@@ -26,15 +26,7 @@ We'll start by creating a new instance of the [DocumentClient](http://go.microso
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
  
-A **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account.  
-
-The DocumentDB account endpoint and keys can be obtained from the [Azure preview management portal](https://portal.azure.com) blade for your DocumentDB account. 
-
-![][1]
- 
->Note that the DocumentDB access keys available from the Keys blade grant administrative access to your DocumentDB account and the resources in it.  DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key.    
-
-Create the client using code like the following example.  
+Next, a **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account. Create the client using code similar to the following:   
 
     private static string EndpointUrl = "<your endpoint URI>";
     private static string AuthorizationKey = "<your key>";
@@ -42,9 +34,15 @@ Create the client using code like the following example.
     // Create a new instance of the DocumentClient.
     var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
-**Warning:** Never store credentials in source code. To keep this sample the credentials are shown in the source code. See [Windows Azure Web Sites: How Application Strings and Connection Strings Work](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials.  
+> [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Windows Azure Web Sites: How Application Strings and Connection Strings Work](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. 
 
-Now that you know how to connect to a DocumentDB account and create an instance of **DocumentClient**, let's take a look at working with DocumentDB resources.  
+The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the [Azure preview management portal](https://portal.azure.com) blade for your DocumentDB account. 
+
+![][1]
+ 
+These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see the Permissions section of [DocumentDB Resource Model and Concepts](../documentdb-resources/).
+
+Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
 ##<a id="CreateDB"></a>Create a database
 A DocumentDB database can be created by using the [CreateDatabaseAsync](http://go.microsoft.com/fwlink/p/?linkid=522478) method of the **DocumentClient** class.  
@@ -194,7 +192,7 @@ To build the GetStarted solution that contains all the samples in this article, 
 -   [DocumentDB account][documentdb-create-account].
 -   The [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) solution available on GitHub. 
 
-To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the GetStarted solution in Solution Explorer, and then click Enable NuGet Package Restore, which will restore the references. 
+To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the GetStarted solution in Solution Explorer, and then click Enable NuGet Package Restore, which will restore the references. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect). 
 
 ##<a id="NextSteps"></a>Next steps
 -	Learn how to [monitor a DocumentDB account](http://go.microsoft.com/fwlink/p/?LinkId=402378).

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="brettsam" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="brettsam" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam" />
 
@@ -45,10 +45,8 @@ To recover your mobile service after an outage:
 
 4. Now you can use your secondary service to recover your primary one.
 
-    <div class="dev-callout"><b>Important</b>
-	<p>When you execute the command in this step, the secondary service is deleted so that its capacity can be used to recover the primary service. We recommend that you back up your scripts and settings before you run the command, if you would like to keep them.</p>
-    </div>
-
+    > [AZURE.IMPORTANT] When you execute the command in this step, the secondary service is deleted so that its capacity can be used to recover the primary service. We recommend that you back up your scripts and settings before you run the command, if you would like to keep them.
+    
    When you're ready, execute this command:
 
 		azure mobile recover PrimaryService SecondaryService
@@ -60,9 +58,7 @@ To recover your mobile service after an outage:
 		info:    mobile recover command OK
 
 
-	<div class="dev-callout"><b>Note</b>
-	<p>It may take a few minutes after the command completes until you can see the changes in the portal.</p>
-    </div>
+	> [AZURE.NOTE] It may take a few minutes after the command completes until you can see the changes in the portal.
 
 5. Verify that all scripts have been recovered correctly by comparing them to your originals in source control. In most cases, scripts are automatically recovered without data loss, but if you find a discrepancy, you can recover that script manually.
 

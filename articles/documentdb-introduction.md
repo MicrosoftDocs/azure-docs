@@ -1,4 +1,4 @@
-<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB, a NoSQL document database, and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management"  authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+<properties title="" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB, a NoSQL document database, and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management" authors="mimig1" manager="jhubbard" editor="monicar" videoId="" scriptId="" documentationCenter=""/>
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="mimig" />
 

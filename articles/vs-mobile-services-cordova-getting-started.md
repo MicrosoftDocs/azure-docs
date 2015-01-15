@@ -1,4 +1,4 @@
-<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" manager="douge" />
+<properties title="" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="kempb" manager="douge" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb" />
 
@@ -14,7 +14,7 @@ For a JavaScript backend mobile service, create a table called TodoItem.  To cre
 
 If instead you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure. To publish it, open the context menu for the mobile service project in Solution Explorer, and choose **Publish Web**. Accept the defaults, and choose the **Publish** button.
   
->[WACOM.NOTE]**Please apply this [workaround](http://go.microsoft.com/fwlink/?LinkId=518765) to work with Azure Mobile Services in Cordova projects.**
+>[AZURE.NOTE]**Please apply this [workaround](http://go.microsoft.com/fwlink/?LinkId=518765) to work with Azure Mobile Services in Cordova projects.**
 
 #####Get reference to a table
 

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="mobile-services" documentationCenter="android" title="" authors="RickSaling" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
 
@@ -19,7 +19,7 @@
 
 This topic shows you how to use Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
+>[AZURE.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
 >
 >Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
 
@@ -114,15 +114,11 @@ You mobile service is now configured to work with GCM to send push notifications
 		
 	This code creates a new property that holds the registration ID.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new <strong>handle</strong> column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
-    </div>
+    > [AZURE.NOTE] When dynamic schema is enabled on your mobile service, a new **handle** column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
 
 8. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
-    </div>
+    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
 
 9.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
@@ -220,9 +216,7 @@ Your app is now updated to support push notifications.
 
 ##<a id="test"></a>Test push notifications in your app
 
-<div class="dev-callout"><b>Note</b>
-	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
-</div>
+> [AZURE.NOTE] When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
 1. Restart Eclipse, then in Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
 

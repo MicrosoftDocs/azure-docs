@@ -1,4 +1,4 @@
-<properties urlDisplayName="Issuer name and issuer key" pageTitle="Issuer Name and Issuer Key in BizTalk Services | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Issuer Name and Issuer Key" authors="mandia" solutions="" manager="dwrede" editor="susanjo" />
+<properties urlDisplayName="Issuer name and issuer key" pageTitle="Issuer Name and Issuer Key in BizTalk Services | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services." metaCanonical="" services="biztalk-services" documentationCenter="" title="" authors="mandiohlinger" solutions="" manager="dwrede" editor="susanjo"/>
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
@@ -62,11 +62,8 @@ Issuer Key = Password value
 
 In the left navigation pane, you can also select **Active Directory** to retrieve the Access Control values. 
 
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>When an Access Control Namespace is created using <strong>Active Directory</strong>, a Service Identity is <strong>not</strong> automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.</p> 
-<p><a href="http://go.microsoft.com/fwlink/p/?LinkID=303942">How to: Use ACS Management Service to Configure Service Identities</a> provides more information on Access Control Service Identities.</p>
-</div>
+> [AZURE.IMPORTANT] When an Access Control Namespace is created using <strong>Active Directory</strong>, a Service Identity is **not** automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.<br /> 
+[How to: Use ACS Management Service to Configure Service Identities](http://go.microsoft.com/fwlink/p/?LinkID=303942) provides more information on Access Control Service Identities.
 
 
 ## Service Bus Issuer Name and Issuer Key

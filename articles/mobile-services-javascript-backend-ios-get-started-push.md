@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services, notification-hubs" documentationCenter="ios" title="" solutions="" manager="dwrede" editor="" authors="krisragh"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh" />
 
@@ -25,7 +25,7 @@ This tutorial requires the following:
 + An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
-   > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
+   > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to an existing app][Get started with data].
 
@@ -68,7 +68,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
    	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.
 
 
-   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
+   	> [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.
 
 ## <a id="add-push"></a>Add push notifications to your app
 
@@ -130,7 +130,7 @@ Your app is now updated to support push notifications.
 
   	![][23]
 
-    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 

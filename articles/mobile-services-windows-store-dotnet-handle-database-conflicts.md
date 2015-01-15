@@ -1,4 +1,4 @@
-<properties urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
+<properties urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="windows" title="" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -116,12 +116,12 @@ Two or more clients may write changes to the same item, at the same time, in som
 			public string Version { set; get; }
 		}
 
-	<div class="dev-callout"><strong>Note</strong>
-	<p>When using untyped tables, enable optimistic concurrency by adding the Version flag to the SystemProperties of the table.</p>
-	<pre><code>//Enable optimistic concurrency by retrieving __version
+	> [AZURE.NOTE] When using untyped tables, enable optimistic concurrency by adding the Version flag to the SystemProperties of the table.  
+	>
+	>````` 
+	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-</code></pre>
-	</div>
+`````
 
 
 2. By adding the `Version` property to the `TodoItem` class, the application will be notified with a `MobileServicePreconditionFailedException` exception during an update if the record has changed since the last query. This exception includes the latest version of the item from the server. In MainPage.xaml.cs, add the following code to handle the exception in the `UpdateToDoItem()` method.

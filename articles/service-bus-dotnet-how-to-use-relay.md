@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C#" description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".net" title="" authors="sethmanheim" solutions="" manager="timlt" editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm" />
 
 
 
@@ -75,7 +75,7 @@ To create a service namespace:
 
 	IMPORTANT: Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
 
-6.	Click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
@@ -98,20 +98,21 @@ In order to perform management operations, such as creating a relay connection, 
  
 4.  When a Service Bus namespace is provisioned, a **SharedAccessAuthorizationRule**, with **KeyName** set to **RootManageSharedAccessKey**, is created by default. This page displays that key, as well as the primary and secondary keys for the default rule. 
 
-##Get the Service Bus NuGet Package##
+##Get the Service Bus NuGet Package
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
 Service Bus dependencies. The NuGet Visual Studio extension makes it
 easy to install and update libraries and tools in Visual Studio and
-Visual Studio Express 2012 for Web. The Service Bus NuGet package is the easiest way
+Visual Studio Express. The Service Bus NuGet package is the easiest way
 to get the Service Bus API and to configure your application with all of
 the Service Bus dependencies.
 
 To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click **Manage NuGet Packages**.
-2.  Search for WindowsAzure" and select the **Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog.
+2.  Search for "Service Bus" and select the **Microsoft Azure
+    Service Bus** item. Click **Install** to complete the installation, then close this dialog.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
   
@@ -180,7 +181,7 @@ With the contract in place, the implementation is trivial:
             }
         }
 
-####How to Configure a Service Host Programmatically####
+####How to Configure a Service Host Programmatically
 
 With the contract and implementation in place, you can now host
 the service. Hosting occurs inside a
@@ -188,8 +189,8 @@ the service. Hosting occurs inside a
 instances of the service and hosts the endpoints that listen for
 messages. The code below configures the service with both a regular
 local endpoint and a Service Bus endpoint to illustrate the appearance, side-by-side, of internal and external endpoints. Replace the
-string "\*\*namespace\*\*" with your namespace name and "\*\*key\*\*"
-with the issuer key that you obtained in the setup step above. 
+string *namespace* with your namespace name and *yourKey*
+with the SAS key that you obtained in the setup step above. 
 
     ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
 
@@ -199,9 +200,9 @@ with the issuer key that you obtained in the setup step above.
 
     sh.AddServiceEndpoint(
        typeof(IProblemSolver), new NetTcpRelayBinding(), 
-       ServiceBusEnvironment.CreateServiceUri("sb", "**namespace**", "solver"))
+       ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver"))
         .Behaviors.Add(new TransportClientEndpointBehavior {
-              TokenProvider = TokenProvider.CreateSharedSecretTokenProvider( "owner", "**key**")});
+              TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "yourKey")});
 
     sh.Open();
 
@@ -235,7 +236,7 @@ hosting code in this case is as follows:
 
 The endpoint definitions move into the App.config file. Note that the **NuGet** package has already added a range of definitions to the App.config file, which are the required configuration extensions for Service Bus. The following code snippet, which is the exact equivalent of the code listed above, should
 appear directly beneath the **system.serviceModel** element. This snippet assumes that your project C\# namespace is named "Service".
-Replace the placeholders with your Service Bus service namespace and key.
+Replace the placeholders with your Service Bus service namespace and SAS key.
 
     <services>
         <service name="Service.ProblemSolver">
@@ -244,7 +245,7 @@ Replace the placeholders with your Service Bus service namespace and key.
                       address="net.tcp://localhost:9358/solver"/>
             <endpoint contract="Service.IProblemSolver"
                       binding="netTcpRelayBinding"
-                      address="sb://**namespace**.servicebus.windows.net/solver"
+                      address="sb://namespace.servicebus.windows.net/solver"
                       behaviorConfiguration="sbTokenProvider"/>
         </service>
     </services>
@@ -253,7 +254,7 @@ Replace the placeholders with your Service Bus service namespace and key.
             <behavior name="sbTokenProvider">
                 <transportClientEndpointBehavior>
                     <tokenProvider>
-                        <sharedSecret issuerName="owner" issuerSecret="**key**" />
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" issuerSecret="yourKey" />
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>
@@ -264,7 +265,7 @@ After you make these changes, the service starts as it did before, but with two 
 
 ### How to Create the Client
 
-####How to Configure a Client Programmatically####
+####How to Configure a Client Programmatically
 
 To consume the service, you can construct a WCF client using a
 **ChannelFactory** object. Service Bus uses a claims-based security
@@ -279,14 +280,14 @@ from the portal as described in the previous section.
 First, reference or copy the **IProblemSolver** contract code from
 the service into your client project.
 
-Then, replace the code in the **Main** method of the client, again replacing the placeholder text with your Service Bus service namespace and key:
+Then, replace the code in the **Main** method of the client, again replacing the placeholder text with your Service Bus namespace and SAS key:
 
     var cf = new ChannelFactory<IProblemSolverChannel>(
         new NetTcpRelayBinding(), 
-        new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "**namespace**", "solver")));
+        new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
 
     cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
-                { TokenProvider = TokenProvider.CreateSharedSecretTokenProvider("owner","**key**") });
+                { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","yourKey") });
      
     using (var ch = cf.CreateChannel())
     {
@@ -297,7 +298,7 @@ You can now compile the client and the service, run
 them (run the service first), and the client will call the service and
 print "9". You can run the client and server on different machines, even across networks, and the communication will still work. The client code can also run in the cloud or locally.
 
-####How to Configure a Client in the App.config File####
+####How to Configure a Client in the App.config File
 
 You can also configure the client using the App.config file. The client
 code for this is as follows:
@@ -311,13 +312,13 @@ code for this is as follows:
 The endpoint definitions move into the App.config file. The following
 snippet, which is the same as the code listed above, should
 appear directly beneath the **system.serviceModel** element. Here, as before,
-you must replace the placeholders with your Service Bus service namespace
-and key.
+you must replace the placeholders with your Service Bus namespace
+and SAS key.
 
     <client>
         <endpoint name="solver" contract="Service.IProblemSolver"
                   binding="netTcpRelayBinding"
-                  address="sb://**namespace**.servicebus.windows.net/solver"
+                  address="sb://namespace.servicebus.windows.net/solver"
                   behaviorConfiguration="sbTokenProvider"/>
     </client>
     <behaviors>
@@ -325,7 +326,7 @@ and key.
             <behavior name="sbTokenProvider">
                 <transportClientEndpointBehavior>
                     <tokenProvider>
-                        <sharedSecret issuerName="owner" issuerSecret="**key**" />
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" issuerSecret="yourKey" />
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>

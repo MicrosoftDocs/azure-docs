@@ -1,4 +1,4 @@
-<properties urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="mobile-services" documentationCenter="android" title="" authors="RickSaling" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal" />
 
@@ -45,9 +45,7 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+   > [AZURE.TIP] You can remove a registered script on the **Script** tab by clicking **Clear** and then **Save**.
 
 ## <a name="update-client-validation"></a>Update the client
 
@@ -69,9 +67,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
-<div class="dev-callout"><b>Note</b>
-<p>The <b>createdAt</b> timestamp property demonstrated here is now redundant. Mobile Services automatically creates a <b>__createdAt</b> system property for each table.</p>
-</div>
+> [AZURE.NOTE] The **createdAt** timestamp property demonstrated here is now redundant. Mobile Services automatically creates a **__createdAt** system property for each table.
 
 1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
 
@@ -86,9 +82,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 
     This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
-    </div>
+    > [AZURE.IMPORTANT] Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the **createdAt** column to the **TodoItem** table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.
 
 2. From the **Run** menu, then click **Run** to start the app, then type text (shorter than 10 characters) in the textbox and click **Add**.
 
@@ -116,9 +110,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 		@com.google.gson.annotations.SerializedName("createdAt")
 		private Date mCreatedAt;
   
-    <div class="dev-callout"><b>Note</b>
-	<p>The <code>SerializedName</code> annotation tells the client to map the new <code>mCreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.</p>
-    </div>
+    > [AZURE.NOTE] The `SerializedName` annotation tells the client to map the new `mCreatedAt` property in the app to the `createdAt` column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.
 
 2. Add the following methods to the ToDoItem class to get and set the new mCreatedAt property:
 

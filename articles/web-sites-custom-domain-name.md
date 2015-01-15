@@ -1,4 +1,4 @@
-<properties title="Learn how to configure an Azure website to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+<properties title="" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson" />
 
@@ -54,7 +54,7 @@ The Domain Name System (DNS) uses data records to map domain names into IP addre
 
 If the IP address changes, a CNAME entry is still valid, whereas an A record must be updated. However, some domain registrars do not allow CNAME records for the root domain or for wildcard domains. In that case, you must use an A record. 
 
-> [WACOM.NOTE] The IP address may change if you delete and recreate your website, or change the website mode back to free.
+> [AZURE.NOTE] The IP address may change if you delete and recreate your website, or change the website mode back to free.
 
 
 ## Find the virtual IP address 

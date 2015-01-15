@@ -1,4 +1,4 @@
-<properties urlDisplayName="Load Testing Pattern" pageTitle="Load Testing Application Pattern - Azure Architecture Patterns" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="jwhit" editor="" />
+<properties urlDisplayName="Load Testing Pattern" pageTitle="Load Testing Application Pattern - Azure Architecture Patterns" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." metaCanonical="" services="" documentationCenter=".net" title="" authors="Rboucher" solutions="" manager="jwhit" editor=""/>
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
 

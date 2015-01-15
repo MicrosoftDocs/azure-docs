@@ -1,4 +1,4 @@
-<properties title="Get started using HDInsight Tools for Visual Studio" pageTitle="Get started using HDInsight Tools for Visual Studio | Azure" description="Learn how to install and use HDInsight Tools for Visual Studio to connect to HDInsight and run Hive queries." metaKeywords="" services="HDInsight" solutions="big-data" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" />
+<properties title="" pageTitle="Get started using HDInsight Tools for Visual Studio | Azure" description="Learn how to install and use HDInsight Tools for Visual Studio to connect to HDInsight and run Hive queries." metaKeywords="" services="hdinsight" solutions="big-data" documentationCenter="" authors="mumian" videoId="" scriptId="" manager="paulettm" editor=""/>
 
 <tags ms.service="hdinsight" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-data" ms.date="11/12/2014" ms.author="jgao" editor="cgronlun"/>
 
@@ -20,7 +20,7 @@ Learn how to install and use HDInsight Tools for Visual Studio to connect to HDI
 	- Windows 7 or Windows 8.
 	- Visual Studio 2012 with [Update 4](http://www.microsoft.com/en-us/download/details.aspx?id=39305), or Visual Studio 2013 with [Update 3](http://www.microsoft.com/en-us/download/details.aspx?id=43721), or [Visual Studio Express 2013](http://www.microsoft.com/en-us/download/details.aspx?id=43722).
 
-	>[WACOM.NOTE] Currently the tools only come with the English version. 
+	>[AZURE.NOTE] Currently the tools only come with the English version. 
 
 
 ## Installation
@@ -39,7 +39,7 @@ The HDInsight Tools for Visual Studio allows you to connect to your HDInsight cl
 2.	From the **View** menu, click **Server Explorer** to open the Server Explorer window.
 3.	Expand **Azure**, and then click **HDInsight** Clusters. 
 
-	>[WACOM.NOTE]Notice the **HDInsight Task List** window is opened. If you do not see it, you can open it by clicking **Other Windows** from the **VIEW** menu, and then click **HDInsight Task List Window**.  
+	>[AZURE.NOTE]Notice the **HDInsight Task List** window is opened. If you do not see it, you can open it by clicking **Other Windows** from the **VIEW** menu, and then click **HDInsight Task List Window**.  
 4.	Enter your azure subscription credentials, and then click **Sign In**. This is only required if you haven’t never connected to the Azure subscription from the Visual Studio on this workstation.
 5.	In Server Explorer, you will see a list of existing HDInsight clusters. If you do not have any clusters, you can provision one using the Management portal, Azure PowerShell, or HDInsight SDK.  For more information, see [Provision HDInsight clusters][hdinsight-provision].
 

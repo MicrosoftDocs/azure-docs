@@ -1,11 +1,11 @@
-<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Monitor and manage Azure Data Factory using Azure PowerShell" description="Learn how to use Azure PowerShell to monitor and manage Azure data factories you have created." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties title="" pageTitle="Monitor and manage Azure Data Factory using Azure PowerShell" description="Learn how to use Azure PowerShell to monitor and manage Azure data factories you have created." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Monitor and manage Azure Data Factory using Azure PowerShell
 The following table lists cmdlets you can use monitor and manage Azure data factories by using Azure PowerShell. 
 
-> [WACOM.NOTE] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+> [AZURE.NOTE] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
 
 - [Get-AzureDataFactory](#get-azuredatafactory)

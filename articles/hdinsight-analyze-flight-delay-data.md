@@ -1,4 +1,4 @@
-<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Analyze flight delay data using Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to  use one PowerShell script to provision HDInsight cluster, run Hive job, run Sqool job, and delete the cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Analyze flight delay data using Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to  use one PowerShell script to provision HDInsight cluster, run Hive job, run Sqool job, and delete the cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="mumian" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jgao" />
 
@@ -55,7 +55,7 @@ The WASB syntax is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
->[WACOM.NOTE] The WASB path is virtual path.  For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
+>[AZURE.NOTE] The WASB path is virtual path.  For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
 For files stored in the default container. it can be accessed from HDInsight using any of the following URIs (using flightdelays.hql as an example):
 
@@ -97,7 +97,7 @@ There are a few things you need to know about Hive internal table and external t
 
 For more information, see [HDInsight: Hive Internal and External Tables Intro][cindygross-hive-tables].
 
-> [WACOM.NOTE] One of the HiveQL statements creates an Hive external table. Hive external table keeps the data file in the original location. Hive internal table moves the data file to hive\warehouse. Hive internal table requires the data file to be located in the default container. For data stored outside default Blob container, you must use Hive external tables.
+> [AZURE.NOTE] One of the HiveQL statements creates an Hive external table. Hive external table keeps the data file in the original location. Hive internal table moves the data file to hive\warehouse. Hive internal table requires the data file to be located in the default container. For data stored outside default Blob container, you must use Hive external tables.
 
 
 
@@ -385,7 +385,7 @@ Prior to uploading the data file and the HiveQL script files (see [Appendix B](#
 - **Use the same Azure storage account that will be used by the HDInsight cluster as the default file system.** Because the HDInsight cluster will have the storage account access key, you don't need to make any additional changes.
 - **Use a different Azure storage account from the HDInsight cluster default file system.** If this is the case, you must modified the provision part of the PowerShell script found in [Provision HDInsight cluster and run Hive/Sqoop jobs](#runjob) to include the storage account as an additional storage account. For the instructions, see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. By doing so, the HDInsight cluster knows the access key for the storage account.
 
->[WACOM.NOTE] The WASB path for the data file is hard coded in the HiveQL script file. You must update it accordingly.
+>[AZURE.NOTE] The WASB path for the data file is hard coded in the HiveQL script file. You must update it accordingly.
 
 **To download the flight data**
 
@@ -486,7 +486,7 @@ If you choose to use a different method for uploading the files, please make sur
 
 *tutorials/flightdelays/data* is the virtual folder you created when you uploaded the files. Verify that there are 12 files, one for each month.
 
->[WACOM.NOTE] You must update the Hive query to read from the new location.
+>[AZURE.NOTE] You must update the Hive query to read from the new location.
 
 > You must either configure the container access permission to be public or bind the storage account to the HDInsight cluster.  Otherwise, the Hive query string will not be able to access the data files. 
 
@@ -818,7 +818,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 		
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
-	>[WACOM.NOTE] The script uses a REST service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL Database server.  
+	>[AZURE.NOTE] The script uses a REST service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL Database server.  
 
 	Here are some variables used in the script:
 

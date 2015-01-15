@@ -1,8 +1,8 @@
-<properties title="Storm in HDInsight overview" pageTitle="Learn about Apache Storm in HDInsight (hadoop)" description="Learn how you can use Apache Storm in HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hdinsight real-time, azure hadoop storm real-time, aure hadoop real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="" pageTitle="Learn about Apache Storm in HDInsight (hadoop)" description="Learn how you can use Apache Storm in HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hdinsight real-time, azure hadoop storm real-time, aure hadoop real-time" services="hdinsight" solutions="" documentationCenter="" authors="blackmist" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#HDinsight Storm overview
+#HDInsight Storm overview
 
 ##What is Storm?
 
@@ -32,7 +32,7 @@ A storm cluster process **topologies** instead of the MapReduce jobs that you ma
 
 * **Spout** - Consumes data from a data source and emits one or more **streams**
 
-	> [WACOM.NOTE] In many cases, data is read from a queue such as Kafka, Azure ServiceBus Queues or Event Hubs. The queue ensures that data is persisted in case of an outage.
+	> [AZURE.NOTE] In many cases, data is read from a queue such as Kafka, Azure ServiceBus Queues or Event Hubs. The queue ensures that data is persisted in case of an outage.
 
 * **Bolt** - Consumes **streams**, performs processing on **tuples**, and may emit **streams**. Bolts are also responsible for writing data to external storage, such as a queue, HDInsight HBase, a blob, or other data store
 

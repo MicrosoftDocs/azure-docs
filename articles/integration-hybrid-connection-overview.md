@@ -1,4 +1,4 @@
-<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Hybrid Connections Overview | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="Learn about hybrid connections, including Security." metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Hybrid Connections Overview | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="Learn about hybrid connections, including Security." metaCanonical="" services="biztalk-services" documentationCenter="" title="" authors="mandiohlinger" solutions="" manager="dwrede" editor="cgronlun"/>
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
 
@@ -25,7 +25,7 @@ Hybrid Connections benefits include:
 - Applications using Hybrid Connections access only the specific on-premises resource that is published through the Hybrid Connection.
 - Can connect to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services.
 
-> [WACOM.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported.
+> [AZURE.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported.
 
 - Can be used with all frameworks supported by Azure Websites (.NET, PHP, Java, Python, Node.js) and Azure Mobile Services (Node.js, .NET).
 - Websites and Mobile Services can access on-premises resources in exactly the same way as if the Website or Mobile Service is located on your local network. For example, the same connection string used on-premises can also be used on Azure.

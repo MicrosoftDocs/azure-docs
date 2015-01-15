@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with authentication (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with authentication (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="mattchenderson" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender" />
 
@@ -80,7 +80,7 @@ Next, you will update the app to authenticate users before requesting resources 
             }
         });
 
->[WACOM.NOTE] If you are using an identity provider other than Google, change the value passed to **authorizeClient** to one of the following: *microsoftaccount*, *facebook*, *twitter* or *windowsazureactivedirectory*.
+>[AZURE.NOTE] If you are using an identity provider other than Google, change the value passed to **authorizeClient** to one of the following: *microsoftaccount*, *facebook*, *twitter* or *windowsazureactivedirectory*.
 
 4.	Press the Run button to build the project, start the app in the iPhone simulator or in Android emulator, and then click on With Login option to log-on with identity provider.
 

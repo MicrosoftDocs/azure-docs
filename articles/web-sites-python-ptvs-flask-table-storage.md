@@ -1,4 +1,4 @@
-<properties linkid="web-sites-python-ptvs-flask-table-storage" title="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Flask application that stores data in Azure Table Storage and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties linkid="web-sites-python-ptvs-flask-table-storage" title="" pageTitle="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Flask application that stores data in Azure Table Storage and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="python" authors="huguesv" videoId="" scriptId="" manager="wpickett" editor=""/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 
@@ -116,7 +116,7 @@ In this section, we'll configure our application to use the storage account we j
 
 It's easy to view and edit storage tables using Server Explorer in Visual Studio.  In this section we'll use Server Explorer to view the contents of the polls application tables.
 
-> [WACOM.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET][].
+> [AZURE.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET][].
 
 1.  Open **Server Explorer**.  Expand **Azure**, **Storage**, your storage account, then **Tables**.
 

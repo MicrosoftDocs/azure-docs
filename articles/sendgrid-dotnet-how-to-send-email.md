@@ -1,4 +1,4 @@
-<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="sendgrid" editor="erikre" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".net" title="" authors="thinkingserious" solutions="" manager="sendgrid" editor="erikre"/>
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/29/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
@@ -58,12 +58,7 @@ and to configure your application with all dependencies. NuGet is a
 Visual Studio extension included with Microsoft Visual Studio 2012 that makes it easy to install and update
 libraries and tools. 
 
-<div class="dev-callout">
-<b>Note</b>
-<p>To
-install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2012, visit <a href="http://www.nuget.org">http://www.nuget.org</a>, and click the <b>Install
-NuGet</b> button.</p>
-</div>
+> [AZURE.NOTE] To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2012, visit [http://www.nuget.org](http://www.nuget.org), and click the **Install NuGet** button.
 
 To install the SendGrid NuGet package in your application, do the following:
 

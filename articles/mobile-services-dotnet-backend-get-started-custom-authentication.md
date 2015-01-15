@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get started with custom authentication" pageTitle="Get started with custom authentication | Mobile Dev Center" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
+<properties urlDisplayName="Get started with custom authentication" pageTitle="Get started with custom authentication | Mobile Dev Center" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="windows" title="" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
 
@@ -6,7 +6,7 @@
 
 This topic shows you how to authenticate users in the Azure Mobile Services .NET backend by issuing your own Mobile Services authentication token. In this tutorial, you add authentication to the quickstart project using a custom username and password for your app.
 
->[WACOM.NOTE] This tutorial demonstrates an advanced method of authenticating your Mobile Services with custom credentials. Many apps will be best suited to instead use the built-in social identity providers, allowing users to log in via Facebook, Twitter, Google, Microsoft Account, and Azure Active Directory. If this is your first experience with authentication in Mobile Services, please see the [Get Started with Users] tutorial.
+>[AZURE.NOTE] This tutorial demonstrates an advanced method of authenticating your Mobile Services with custom credentials. Many apps will be best suited to instead use the built-in social identity providers, allowing users to log in via Facebook, Twitter, Google, Microsoft Account, and Azure Active Directory. If this is your first experience with authentication in Mobile Services, please see the [Get Started with Users] tutorial.
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -19,7 +19,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
->[WACOM.NOTE] The purpose of this tutorial is to show you how to issue an authentication token for Mobile Services. This is not to be taken as security guidance. In developing your app, you need to be aware of the security implications of password storage, and you need to have a strategy for managing brute-force attacks.
+>[AZURE.NOTE] The purpose of this tutorial is to show you how to issue an authentication token for Mobile Services. This is not to be taken as security guidance. In developing your app, you need to be aware of the security implications of password storage, and you need to have a strategy for managing brute-force attacks.
 
 
 ## <a name="table-setup"></a>Set up the accounts table
@@ -252,7 +252,7 @@ Next, you will create an endpoint for your users to log in. The username and pas
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[WACOM.NOTE] Your `CustomLoginController` for production use should also contain a brute-force detection strategy. Otherwise your login solution may be vulnerable to attack.
+>[AZURE.NOTE] Your `CustomLoginController` for production use should also contain a brute-force detection strategy. Otherwise your login solution may be vulnerable to attack.
 
 ## <a name="require-authentication"></a>Configure the mobile service to require authentication
 
@@ -263,7 +263,7 @@ Next, you will create an endpoint for your users to log in. The username and pas
 
 In your client application, you will need to develop a custom login screen which takes usernames and passwords and sends them as a JSON payload to your registration and login endpoints. To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.
 
->[WACOM.NOTE] The Mobile Services SDKs will communicate with the service over HTTPS. If you plan to access this endpoint via a direct REST call, you must make sure that you use HTTPS to call your mobile service, as passwords are being sent as plaintext.
+>[AZURE.NOTE] The Mobile Services SDKs will communicate with the service over HTTPS. If you plan to access this endpoint via a direct REST call, you must make sure that you use HTTPS to call your mobile service, as passwords are being sent as plaintext.
 
 1. In Visual Studio, start a new debugging instance of your Mobile Services backend project by right-clicking on the project and selecting **Debug->Start New Instance**
 

@@ -1,4 +1,4 @@
-<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="devinrader" solutions="" manager="twilio" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 
@@ -91,7 +91,7 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 		  "keywords":[]
 		}
 
-	>[WACOM.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
+	>[AZURE.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
 
 4. Commit this file update and push the update back to the mobile service.
 
@@ -156,10 +156,7 @@ The following code shows how to send an SMS message using the **sendSms**  funct
 
 When your application initiates a call to the Twilio API - for example, via the client.InitiateOutboundCall method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in How to: Make an outgoing call uses the Twilio-provided URL http://twimlets.com/message to return the response.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click <a href="http://twimlets.com/message">twimlet_message_url</a> to see an empty &lt;Response&gt; element; as another example, click <a href="http://twimlets.com/message?Message%5B0%5D=Hello%20World">twimlet_message_url_hello_world</a> to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.</p>
-</div>
+> [AZURE.NOTE] While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [twimlet_message_url](http://twimlets.com/message) to see an empty &lt;Response&gt; element; as another example, click [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you'll be hosting the URL from an ASP.NET generic handler.
 

@@ -1,4 +1,4 @@
-<properties linkid="install Giraph on HDInsight cluster" urlDisplayName="Use Script Action in HDInsight to install Giraph on Hadoop cluster" pageTitle="Use Script Action in HDInsight to install Giraph on Hadoop cluster| Azure" metaKeywords="" description="Learn how to customize HDInsight cluster to install Giraph. You'll use a Script Action configuration option to use a script to install Giraph" metaCanonical="" services="hdinsight" documentationCenter="" title="Install and use Giraph on HDInsight clusters" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="install Giraph on HDInsight cluster" urlDisplayName="Use Script Action in HDInsight to install Giraph on Hadoop cluster" pageTitle="Use Script Action in HDInsight to install Giraph on Hadoop cluster| Azure" metaKeywords="" description="Learn how to customize HDInsight cluster to install Giraph. You'll use a Script Action configuration option to use a script to install Giraph" metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="nitinme" />
 
@@ -31,7 +31,7 @@ In this topic, you will learn how to install Giraph using Script Action. Once yo
 
 A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). This section provides instructions on how to use the sample script while provisioning the cluster using the Azure Management Portal. 
 
-> [WACOM.NOTE] The sample script works only with HDInsight cluster version 3.1.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
 
 1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the Script Action, as shown below:

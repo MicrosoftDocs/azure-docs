@@ -1,15 +1,8 @@
-<properties title="Azure Government Developers Guide" pageTitle="Azure Government Developers Guide" description="This provides a comparision of features and guidance on developing applications for Azure Government" metaKeywords="Azure Government AzureGov GovCloud" services="" solutions="" documentationCenter="" authors="John Harvey" videoId="" scriptId="" manager="carolz" />
+<properties title="" pageTitle="Azure Government Developers Guide" description="This provides a comparision of features and guidance on developing applications for Azure Government" metaKeywords="Azure Government AzureGov GovCloud" services="" solutions="" documentationCenter="" authors="Joharve2" videoId="" scriptId="" manager="carolz" editor=""/>
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="12/6/2014" ms.author="jharve" />
+<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="1/9/2014" ms.author="jharve" />
 
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
-
-<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
-
-<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
-
-<!--The next line, with one pound sign at the beginning, is the page title--> 
 #  Microsoft Azure Government Developer Guide 
 
 <p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
@@ -91,21 +84,16 @@ Table Storage</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloud
 SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net
 </td></tr><tr><td>
 Service Management</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
-</td></tr></table> 
 
+</td></tr>
+<tr><td>SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
+</table> 
 
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next"></a>Next steps
-
 If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to <A href="http://azure.com/gov">http://www.azure.com/gov</a>
 
 <!--Anchors-->
-[Overview]: ##Overview
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
-[Next steps]: #next-steps
+
 
 
 <!-- Images. -->

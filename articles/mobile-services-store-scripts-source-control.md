@@ -1,4 +1,4 @@
-<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Store project code in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Store project code in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -29,7 +29,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 	The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
@@ -111,10 +111,7 @@ The recommended way to add Node.js modules to your mobile service is by adding r
 
 	NPM creates the `node_modules` directory in the current location and installs the [node-uuid] module in the `\node-uuid` subdirectory. 
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>When <code>node_modules</code> already exists in the directory hierarchy, NPM will create the <code>\node-uuid</code> subdirectory there instead of creating a new <code>node_modules</code> in the repository. In this case, just delete the existing <code>node_modules</code> directory.</p>
-	</div>
+	> [AZURE.NOTE] When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
 
 4. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
 

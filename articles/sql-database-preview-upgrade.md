@@ -1,4 +1,4 @@
-<properties title="Upgrade to the Latest SQL Database Update V12 (preview)" pageTitle="Upgrade to the Latest SQL Database Update V12 (preview)" description="Upgrade to the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Upgrade Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalm" videoId="" scriptId="" manager="jeffreyg" />
+<properties title="" pageTitle="Upgrade to the Latest SQL Database Update V12 (preview)" description="Upgrade to the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Upgrade Azure SQL Database, Azure SQL Database preview" services="sql-database" solutions="" documentationCenter="" authors="sonalmm" videoId="" scriptId="" manager="jeffreyg" editor=""/>
 
 <tags ms.service="sql-database" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-management" ms.date="12/11/2014" ms.author="sonalm" />
 
@@ -10,11 +10,13 @@
 
 - How to copy a database to a new server with SQL Database Update (preview) features enabled **(feature coming soon)**
 
-> [AZURE.NOTE] **CAUTION**:  Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
+[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 (Preview) to take advantage of the next generation of  SQL Database on Microsoft Azure. To take advantage of the preview, you first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information. 
 
-## How to Update a Server In Place with the Latest SQL Database Update (preview) Features ##
+> [AZURE.WARNING] Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
 
-| Action | Screen shot |
+## How to Upgrade a Server In Place with the Latest SQL Database Update (preview) Features ##
+
+| Upgrade  | Screen shot |
 | :--- | :--- |
 | 1. Sign in to [http://portal.azure.com/](http://portal.azure.com/). | ![New Azure Portal][1] |
 | 2. Click **BROWSE**. | ![Browse Services][2] |
@@ -44,6 +46,11 @@ Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a 
 ##How to Copy a Database to a New Server with SQL Database Update  V12 (preview) Features Enabled **(coming soon)**
 
 The scenario of copying your database to a new server is not available at this time. However, the copy feature will be available during the preview time frame. Please check again. 
+
+# Related Links  #
+
+-  [What's new in the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/)
+- [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/)
 
 
 <!--Image references-->

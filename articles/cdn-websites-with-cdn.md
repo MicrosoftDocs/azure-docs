@@ -1,4 +1,4 @@
-<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="Integrate an Azure Website with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="A tutorial that teaches you how to deploy a website that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="Integrate an Azure Website with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="A tutorial that teaches you how to deploy a website that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn, web-sites" documentationCenter=".net" title="" authors="cephalin" solutions="" manager="wpickett" editor="jimbe"/>
 
 <tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
 
@@ -81,7 +81,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	>[WACOM.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	>[AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
@@ -91,7 +91,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[WACOM.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+	>[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
 2. Now, click the CDN endpoint address. If the endpoint is ready, you should see your website displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
 

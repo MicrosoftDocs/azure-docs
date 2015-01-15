@@ -1,4 +1,4 @@
-<properties title="Scale Azure Stream Analytics jobs" pageTitle="Scale Stream Analytics jobs | Azure" description="Learn how to scale Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="" pageTitle="Scale Stream Analytics jobs | Azure" description="Learn how to scale Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="mumian" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 
@@ -37,7 +37,7 @@ A query can have one or many steps. Each step is a sub-query defined using the W
 
 The previous query has 2 steps. 
 
-> [WACOM.NOTE] This sample query will be explained later in the article.
+> [AZURE.NOTE] This sample query will be explained later in the article.
 
 ### Partition a step
 
@@ -122,7 +122,7 @@ When a query is partitioned, the input events are processed and aggregated in se
 
 This query can be scaled to 24 streaming units. 
 
->[WACOM.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
+>[AZURE.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
 
 
 ##<a name="configure"></a>Configure Stream Analytics job partition

@@ -1,6 +1,6 @@
-<properties title="Get started with Application Insights" pageTitle="Get started with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties title="" pageTitle="Get started with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
 
 # Get started with Application Insights
 
@@ -16,7 +16,7 @@ We currently support ASP.NET web applications and  WCF services, Windows Phone a
 
 Start with any combination, in any order, of the entry points on the left of this map. Follow the path that works for you.
 
-You'll need an account in [Microsoft Azure](http://azure.com).
+You'll need an account in [Microsoft Azure](http://azure.com). You might already have access to a group account through your organization, or you might want to get a Pay-as-you-go account. (While Application Insights is in Preview, it's free.)
 
 What you want | What to do  | What you get
 ---|---|---
@@ -24,7 +24,7 @@ What you want | What to do  | What you get
 ![](./media/appinsights/appinsights-gs-i-04-red2.png)<br/>![](./media/appinsights/appinsights-gs-i-03-red.png)|[Install Status Monitor on your IIS server][redfield]<br/>![](./media/appinsights/appinsights-00arrow.png) | ![](./media/appinsights/appinsights-gs-r-03-red.png)
 ![](./media/appinsights/appinsights-gs-i-02-usage.png)|[Insert the Application Insights script into your web pages][usage]<br/>![](./media/appinsights/appinsights-00arrow.png)  | ![](./media/appinsights/appinsights-gs-r-02-usage.png)
 ![](./media/appinsights/appinsights-gs-i-05-avail.png)|[Create web tests][availability]<br/>![](./media/appinsights/appinsights-00arrow.png) | ![](./media/appinsights/appinsights-gs-r-05-avail.png)
-![](./media/appinsights/appinsights-gs-i-06-device.png)|[Add Application Insights to your device app project][devices]<br/>![](./media/appinsights/appinsights-00arrow.png) | ![](./media/appinsights/appinsights-gs-r-06-device.png)
+![](./media/appinsights/appinsights-gs-i-06-device.png)|[Add Application Insights to your device app project][windows]<br/>![](./media/appinsights/appinsights-00arrow.png) | ![](./media/appinsights/appinsights-gs-r-06-device.png)
 
 
 
@@ -32,7 +32,7 @@ What you want | What to do  | What you get
 
 #### Introduction
 
-> [AZURE.VIDEO application-insights-introduction]
+> [AZURE.VIDEO application-insights-for-asp-net]
 
 #### Get started
 

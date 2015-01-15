@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications." metaCanonical="" services="notification-hubs" documentationCenter="" title="" authors="sethmanheim" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -57,9 +57,7 @@ In the portal, add the client secret and client id to the **Configure** tab of y
 
 ## Set up your application
 
-<div class="dev-callout"><b>Note</b>
-    <p>When creating an application, use at least API Level 17.</p>
-    </div>
+> [AZURE.NOTE] When creating an application, use at least API Level 17.
 
 Add the ADM libraries to your Eclipse project.
 
@@ -236,9 +234,8 @@ Edit your app manifest to support ADM:
 2. In the emulator, swipe from the top and click **Settings**, then click **My account**, and register with a valid Amazon account.
 3. In Eclipse, run the app.
 
-<div class="dev-callout"><b>Note</b>
-    <p>If a problem occurs, check the time of the emulator (or device). The time value must be accurate. To change the time of the Kindle emulator, you can run the following command from your Android SDK platform-tools directory: </p>
-</div>
+> [AZURE.NOTE] If a problem occurs, check the time of the emulator (or device). The time value must be accurate. To change the time of the Kindle emulator, you can run the following command from your Android SDK platform-tools directory: 
+
 		adb shell  date -s "yyyymmdd.hhmmss"
 
 ## Send a message

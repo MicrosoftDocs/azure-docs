@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications (Xamarin.iOS) - Mobile Services" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications (Xamarin.iOS) - Mobile Services" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="xamarin" title="" authors="ysxu" manager="dwrede" services="mobile-services" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
 
@@ -26,9 +26,7 @@ This tutorial requires the following:
 + [Xamarin.iOS Studio]
 + [Azure Mobile Services Component]
 
-   <div class="dev-callout"><b>Note</b>
-   <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
-   </div>
+   > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
@@ -302,9 +300,7 @@ Your app is now updated to support push notifications.
 
     This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
-    <div class="dev-callout"><b>Note</b>
-   <p>This script delays sending the notification to give you time to close the app to receive a toast notification.</p>
-   </div> 
+   > [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
 
 ## <a name="test"></a>Test push notifications in your app
 
@@ -312,9 +308,7 @@ Your app is now updated to support push notifications.
 
     ![][23]
 
-    <div class="dev-callout"><b>Note</b>
-    <p>You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.</p>
-    </div>
+   > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 

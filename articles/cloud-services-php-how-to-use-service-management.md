@@ -1,4 +1,4 @@
-<properties urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId=""/>
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
 
@@ -116,7 +116,7 @@ When you create a cloud service, storage service, or affinity group, you will ne
 - West US 
 - East US
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > In the code examples that follow, locations are passed to methods as strings. However, you can also pass locations as enumerations using the <code>WindowsAzure\ServiceManagement\Models\Locations</code> class. For example, instead of passing "West US" to a method that accepts a location, you could pass <code>Locations::WEST_US</code>.
 
 ##<a id="CreateCloudService"></a>How to: Create a cloud service

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Phone 8) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Windows Phone app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Phone 8) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Windows Phone app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="windows" title="" authors="wesmc7777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -115,7 +115,7 @@ The final step is to update the client to display the new **CompleteDate** data.
             public DateTime? CompleteDate { get; set; }
         }
 	
-    >[WACOM.NOTE] The <code>DataMemberAttribute</code> tells the client to map the new <code>CompleteDate</code> property in the app to the <code>CompleteDate</code> column defined in the TodoItem table. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database.
+    >[AZURE.NOTE] The <code>DataMemberAttribute</code> tells the client to map the new <code>CompleteDate</code> property in the app to the <code>CompleteDate</code> column defined in the TodoItem table. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database.
     
 
 	

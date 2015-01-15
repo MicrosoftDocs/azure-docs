@@ -1,4 +1,4 @@
-<properties urlDisplayName="How to create" pageTitle="How to create, manage, or delete a storage account | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
+<properties urlDisplayName="How to create" pageTitle="How to create, manage, or delete a storage account | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="" solutions="" authors="tamram" manager="adinah" editor=""/>
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 
@@ -23,7 +23,7 @@ The [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/
 
 For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
 
-> [WACOM.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/en-us/documentation/services/virtual-machines/) for more details. <br />
+> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/en-us/documentation/services/virtual-machines/) for more details. <br />
 
 ## Table of Contents ##
 
@@ -47,7 +47,7 @@ This article describes how to create a standard storage account, and some decisi
 
 4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs. 
 
-	> [WACOM.NOTE] Note that you must select an affinity group when your storage account is created; you cannot move an existing account to an affinity group.
+	> [AZURE.NOTE] Note that you must select an affinity group when your storage account is created; you cannot move an existing account to an affinity group.
 
 	For details about affinity groups, see [Service co-location with an affinity group](#affinity-group) below.
 
@@ -87,7 +87,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
 
-> [WACOM.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
+> [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
 
 
 ### <a id="replication-options"></a>Storage account replication options
@@ -99,7 +99,7 @@ An *affinity group* is a geographic grouping of your Azure services and VMs with
 
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
-> [WACOM.NOTE] We recommend that you avoid sharing your storage account access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See the [shared access signature tutorial](../storage-dotnet-shared-access-signature-part-1/) for more information.
+> [AZURE.NOTE] We recommend that you avoid sharing your storage account access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See the [shared access signature tutorial](../storage-dotnet-shared-access-signature-part-1/) for more information.
 
 In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
@@ -121,11 +121,7 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 ### Regenerate storage access keys ###
 You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
 
-<div class="dev-callout"> 
-    <b>Warning</b> 
-    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
-    </p> 
-    </div>
+> [AZURE.WARNING] Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
 
 **Virtual machines** - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys. To avoid redeployment, shut down the virtual machines before you regenerate the access keys.
  
@@ -145,17 +141,9 @@ You should change the access keys to your storage account periodically to help k
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 
-<div class="dev-callout">
-	<b>Warning</b>
-	<p>There's no way to restore the content from a deleted storage account. Make 
-	sure you back up anything you want to save before you delete the account.
-	</p>
-	<p>
-	If your storage account contains any VHD files or disks for an Azure 
-	virtual machine, then you must delete any images and disks that are using those VHD files 
-	before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
-	</p>
-</div>
+> [AZURE.WARNING] There's no way to restore the content from a deleted storage account. Make 
+	sure you back up anything you want to save before you delete the account. <br />
+	If your storage account contains any VHD files or disks for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
 
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.

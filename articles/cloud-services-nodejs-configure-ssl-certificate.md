@@ -1,4 +1,4 @@
-<properties urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="" authors="" solutions="" manager="wpickett" editor=""/>
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -12,9 +12,7 @@ securing data sent across the internet. This common task discusses how
 to specify an HTTPS endpoint for a Node.js application hosted as an Azure Cloud Service in a web role and how to upload an
 SSL certificate to secure your application.
 
-<div class="dev-callout">Note
-<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service in a web role; for Websites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure website</a>.</p>
-</div>
+> [AZURE.NOTE] The steps in this article only apply to node applications hosted as an Azure Cloud Service in a web role; for Websites, see [Configuring an SSL certificate for an Azure website](../web-sites-configure-ssl-certificate/).
 
 This task includes the following steps:
 
@@ -51,10 +49,7 @@ world' service using the Azure PowerShell using these steps:
 
     ![][3]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If you have not previously imported publish settings for your Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Azure PowerShell for Node.js</a></p>
-	</div>
+	> [AZURE.NOTE] If you have not previously imported publish settings for your Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see [How to Use the Azure PowerShell for Node.js](https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings)
 
 The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Azure.
 
@@ -81,10 +76,7 @@ certificates in Azure:
 
 Once you have a certificate, install it into the certificate store on your development machine. This certificate will be retrieved and uploaded to Azure as part of your application deployment package based on configuration changes you make in a subsequent step.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>The steps used in this section are based on the Windows 8 version of the Certificate Import Wizard. If you are using a previous version of Windows, the steps listed here may not match the order displayed in the wizard. If this is the case, fully read this section before using the Certificate Import Wizard so that you understand what overall actions must be performed.</p>
-</div>
+> [AZURE.NOTE] The steps used in this section are based on the Windows 8 version of the Certificate Import Wizard. If you are using a previous version of Windows, the steps listed here may not match the order displayed in the wizard. If this is the case, fully read this section before using the Certificate Import Wizard so that you understand what overall actions must be performed.
 
 To import the SSL certificate, perform the following steps:
 
@@ -175,10 +167,7 @@ connect to it using HTTPS.
 
     ![the site url][site-url]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If the Site URL displayed in the portal does not specify HTTPS, then you must manually enter the URL in the browser using HTTPS instead of HTTP.</p>
-	</div>
+	> [AZURE.IMPORTANT] If the Site URL displayed in the portal does not specify HTTPS, then you must manually enter the URL in the browser using HTTPS instead of HTTP.
 
 3.  A new browser will open and display your website.
 

@@ -1,4 +1,4 @@
-<properties title="Lexicon Based Sentiment Analysis" pageTitle="Step 1: Lexicon Based Sentiment Analysis | Azure" description="Lexicon Based Sentiment Analysis" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="" pageTitle="Step 1: Lexicon Based Sentiment Analysis | Azure" description="Lexicon Based Sentiment Analysis" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 
@@ -27,35 +27,32 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	public class Input{
-	public double Recency;
-	public double Frequency;
-	public double Monetary;
-	public double Time;
-	public double Class;
+	    public class ScoreResult
+	    {
+	        [DataMember]
+	        public double result
+	        {
+	            get;
+	            set;
+	        }
+	}
+	void main()
+	{
+	        using (var wb = new WebClient())
+	        {
+	            var acitionUri = new Uri("PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score");
+	            DataServiceContext ctx = new DataServiceContext(acitionUri);
+	            var cred = new NetworkCredential("PutEmailAddressHere", "ChangeToAPIKey");
+	            var cache = new CredentialCache();
+	
+	            cache.Add(acitionUri, "Basic", cred);
+	            ctx.Credentials = cache;
+	            var query = ctx.Execute<ScoreResult>(acitionUri, "POST", true, new BodyOperationParameter("Text", TextBox1.Text));
+	            ScoreResult scoreResult = query.ElementAt(0);
+	            double result = scoreResult.result;
+	    }
 	}
 
-	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-        System.Diagnostics.Debug.WriteLine("AuthenticationHeaderValue" + new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray)));
-        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-       
-	void Main()
-	{
-  	var input = new Input(){Recency =1, Frequency=0,Monetary=0,Time=1, Class= 0};
-	var json = JsonConvert.SerializeObject(input);
-	var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-       
-  	var httpClient = new HttpClient();
-   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
-   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
-  	var result = query.Result.Content;
-  	var scoreResult = result.ReadAsStringAsync().Result;
-  	scoreResult.Dump();
-	}
 
 
 The input is “Today is a good day.”, the output is “1” which indicates positive sentiment associated with the input sentence. 

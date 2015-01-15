@@ -9,14 +9,14 @@
 
 When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
 
-> [WACOM.NOTE] A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images] []. For instructions, see [How to Attach a Data Disk to a Virtual Machine] [attachdisk].
+> [AZURE.NOTE] A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images] []. For instructions, see [How to Attach a Data Disk to a Virtual Machine] [attachdisk].
 
 ## <a id="finddisks"> </a>Step 1: Find the disk##
 
 
 If you don't know or want to verify the name of the disk before you detach it, follow these steps. 
 
-> [WACOM.NOTE] Azure automatically assigns a name to the disk when you attach it. The name consists of the cloud service name, the virtual machine name, and a number.
+> [AZURE.NOTE] Azure automatically assigns a name to the disk when you attach it. The name consists of the cloud service name, the virtual machine name, and a number.
 
 1. If you haven't already done so, sign in to the Azure [Management Portal](http://manage.windowsazure.com). 
 

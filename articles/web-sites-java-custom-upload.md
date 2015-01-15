@@ -1,4 +1,4 @@
-<properties urlDisplayName="Upload custom Java website" pageTitle="Upload a custom Java website to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java website to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Upload custom Java website" pageTitle="Upload a custom Java website to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java website to Azure." metaCanonical="" services="web-sites" documentationCenter="java" title="" videoId="" scriptId="" authors="rmcmurray" solutions="" manager="wpickett" editor="mollybos"/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -60,7 +60,7 @@ Examples:
                                     
 **stdoutLogFile** (Default="d:\home\LogFiles\httpPlatformStdout.log".) Absolute file path for which **stdout** and **stderr** from the process specified in **processPath** will be logged.
                                     
-> [WACOM.NOTE] `%HTTP_PLATFORM_PORT%` is a special placeholder which needs to specified either as part of **arguments** or as part of the **httpPlatform** **environmentVariables** list. This will be replaced by an internally generated port by **HttpPlatformHandler** so that the process specified by **processPath** can listen on this port.
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%` is a special placeholder which needs to specified either as part of **arguments** or as part of the **httpPlatform** **environmentVariables** list. This will be replaced by an internally generated port by **HttpPlatformHandler** so that the process specified by **processPath** can listen on this port.
 
 # Deployment
 

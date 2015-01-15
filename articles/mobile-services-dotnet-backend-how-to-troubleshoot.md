@@ -1,4 +1,4 @@
-<properties urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshoot the Mobile Services .NET Backend" authors="wesmc" solutions="" manager="dwrede" editor="mollybos" />
+<properties urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" metaCanonical="" services="" documentationCenter="windows" title="" authors="wesmc7777" solutions="" manager="dwrede" editor="mollybos"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="wesmc" />
 # Troubleshoot the Mobile Services .NET Backend
@@ -21,7 +21,7 @@ You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http:/
 1. Start with a Mobile Services server project open in **Visual Studio 2013 Update 2** or later. If you don't have one handy, you can create one by selecting **File**, **New**, **Project**, then selecting the **Cloud** node and then the **Windows Azure Mobile Services** template.
 2. Hit **F5**, which will build and run the project. On the start page, select **try it out**. 
 
-    >[WACOM.NOTE] 
+    >[AZURE.NOTE] 
     > If the service is hosted locally, clicking the link will direct you to the next page. However, if hosting in the cloud, you will be prompted for a set of credentials. This is to ensure that unauthenticated users don't have access to information about your API and payloads. In order to see the page, you need to log in with a **blank username** and your **application key** as the password. Your application key is available in the **Azure Management Portal** by navigating to the **Dashboard** tab for your mobile service and selecting **Manage keys**.
     >
     > ![Authentication prompt to access help page][HelpPageAuth]
@@ -104,7 +104,7 @@ When you publish your mobile service to Azure, it gets loaded by the Mobile Serv
 
 It is sometimes possible to introduce versioning conflicts by referencing *different major versions* of required assemblies (different *minor* versions are allowed). Frequently this happens when NuGet prompts you to upgrade to the atest version of one of the packages used by the Mobile Services .NET backend. 
 
->[WACOM.NOTE] Mobile Services is currently compatible only with ASP.NET 5.1; ASP.NET 5.2 is not presently supported. Upgrading your ASP.NET NuGet packages to 5.2.* may result in an error after deployment.
+>[AZURE.NOTE] Mobile Services is currently compatible only with ASP.NET 5.1; ASP.NET 5.2 is not presently supported. Upgrading your ASP.NET NuGet packages to 5.2.* may result in an error after deployment.
 
 If you do upgrade any such packages, when you publish the updated service to Azure, you will see a warning page indicating the conflict:
 

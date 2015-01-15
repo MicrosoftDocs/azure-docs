@@ -1,4 +1,4 @@
-<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties title="" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
@@ -99,7 +99,7 @@ Set the resource before the other properties. Don't choose the webtest resources
 
 Be careful to note the units in which you're asked to enter the threshold value.
 
-*I don't see the Add Alert button.* - That's probably because you have read-only access. 
+*I don't see the Add Alert button.* - Is this a group account to which you have read-only access? Check with the account administrator.
 
 ## <a name="diagnosis"></a>Diagnosing issues
 

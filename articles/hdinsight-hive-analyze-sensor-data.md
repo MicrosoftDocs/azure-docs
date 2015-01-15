@@ -1,4 +1,4 @@
-<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties title="" pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="" authors="blackmist" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
@@ -21,7 +21,7 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 * Microsoft Excel 2013
 
-	> [WACOM.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), which is currently only available on Windows.
+	> [AZURE.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), which is currently only available on Windows.
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/en-us/download/details.aspx?id=40886)
 

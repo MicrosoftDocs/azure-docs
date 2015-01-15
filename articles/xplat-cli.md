@@ -1,4 +1,4 @@
-<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="rasquill" services="" />
+<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="squillace" services=""/>
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="rasquill" />
 
@@ -42,7 +42,7 @@ If Node.js is installed on your system, use the following command to install the
 
 	npm install azure-cli -g
 
->[WACOM.NOTE] You may need to use `sudo` to successfully run the __npm__ command.
+>[AZURE.NOTE] You may need to use `sudo` to successfully run the __npm__ command.
 
 This will install the xplat-cli and required dependencies. At the end of the installation, you should see something similar to the following:
 
@@ -64,7 +64,7 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
-> [WACOM.NOTE] Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.
+> [AZURE.NOTE] Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
 <h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
 
@@ -80,7 +80,7 @@ To help you choose the authentication method that's appropriate for your needs, 
 
 *  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
 
-	> [WACOM.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> [AZURE.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
 	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
 	> 
@@ -114,7 +114,7 @@ If you want to log in by typing interactively (for example, if you want your pas
 
 and you will be prompted for your credentials and your password characters will be masked.
 
-> [WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache an authentication token. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
+> [AZURE.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache an authentication token. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
 >
 > When you authenticate with an organizational account, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 
@@ -122,9 +122,9 @@ To log out, use the following command:
 
 	azure logout -u <username>
 
-> [WACOM.NOTE] If the subscriptions associated with the account were only authenticated with Active Directory, logging out will delete the subscription information from the local profile. However, if the a publish settings file has also been imported for the subscriptions, logging out will only delete the Active Directory related information from the local profile.
+> [AZURE.NOTE] If the subscriptions associated with the account were only authenticated with Active Directory, logging out will delete the subscription information from the local profile. However, if the a publish settings file has also been imported for the subscriptions, logging out will only delete the Active Directory related information from the local profile.
 
-> [WACOM.NOTE] The following commands will not function correctly when authenticating using an account:
+> [AZURE.NOTE] The following commands will not function correctly when authenticating using an account:
 > 
 > * `azure vm`
 > * `azure network`
@@ -140,7 +140,7 @@ To download the publish settings for your account, use the following command:
 
 This will open your default browser and prompt you to sign in to the Azure Management Portal. After signing in, a `.publishsettings` file will be downloaded. Make note of where this file is saved.
 
-> [WACOM.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
+> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 > 
 > Once selected using the download page, or by visiting the Azure Management portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
@@ -148,7 +148,7 @@ Next, import the `.publishsettings` file by running the following command, repla
 
 	azure account import [path to .publishsettings file]
 
-> [WACOM.NOTE] When you import publish settings, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
+> [AZURE.NOTE] When you import publish settings, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 >
 > * On Windows, modify the directory properties or use BitLocker.
 > * On Mac, turn on FileVault for the directory.
@@ -172,7 +172,7 @@ In the above list, the **Current** column indicates the current default subscrip
 
 This will change the default subscription to Azure-sub-2. 
 
-> [WACOM.NOTE] Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether ran from the same command-line instance or a different instance, will use the new default subscription.
+> [AZURE.NOTE] Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether ran from the same command-line instance or a different instance, will use the new default subscription.
 
 If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `--subscription` option and provide the name of the subscription you wish to use for the operation.
 
@@ -242,7 +242,7 @@ The xplat-cli allows you to perform management operations on individual _resourc
 
 To support managing a group of resources as a single logical unit, or _resource group_, we have introduced a preview of the **Resource Manager** as a new way of managing Azure resources. 
 
->[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
+>[AZURE.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
 
 To support the new Resource Manager, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.
 
@@ -254,7 +254,7 @@ To change back to Azure service management mode, use the following command:
 
 	azure config mode asm 
 
->[WACOM.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 For more information on working with the Resource Manager using the xplat-cli, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager][xplatarm].
 
@@ -268,9 +268,9 @@ The xplat-cli allows you to easily manage Azure services. In this example, you w
 
 	You will be prompted to specify the region that the website will be created in. Select a region that is geographically near you. After this command completes, the website will be available at http://mywebsite.azurewebsites.net (replace **mywebsite** with the name you specified.)
 
-	> [WACOM.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this website. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Website using the `git push azure master` command.
+	> [AZURE.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this website. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Website using the `git push azure master` command.
 
-	> [WACOM.NOTE] If you receive an error that 'site' is not an azure command, the xplat-cli is most likely in resource group mode. To change back to resource mode, use the `azure config mode asm` command.
+	> [AZURE.NOTE] If you receive an error that 'site' is not an azure command, the xplat-cli is most likely in resource group mode. To change back to resource mode, use the `azure config mode asm` command.
 
 2. Use the following command to list websites for your subscription:
 
@@ -368,7 +368,7 @@ Note that the `verbose:` information appears to be JSON formatted data. You can 
 
 The command above retrieves a list of websites as JSON, then uses jsawk to retrieve the site names, and finally uses xargs to run a site delete command for each site, passing the site name as a parameter.
 
->[WACOM.NOTE] The `--json` parameter blocks the generation of status or data information (strings prefixed by `info:` and `data:`). For example, if the `--json` parameter is used with the `azure site create`, no output is returned as this command does not return any data other than `info:`.
+>[AZURE.NOTE] The `--json` parameter blocks the generation of status or data information (strings prefixed by `info:` and `data:`). For example, if the `--json` parameter is used with the `azure site create`, no output is returned as this command does not return any data other than `info:`.
 
 ###Working with errors
 

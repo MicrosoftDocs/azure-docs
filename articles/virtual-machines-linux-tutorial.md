@@ -1,4 +1,4 @@
-<properties urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux vm" description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux vm" description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/9/2014" ms.author="kathydav" />
 
@@ -6,7 +6,7 @@
 
 Creating a virtual machine that runs Linux is easy when you use the Image Gallery in the Azure Management Portal. This guide shows you how to do this and assumes that you don't have experience using Azure.
 
-> [WACOM.NOTE] Even though you don't need any experience with Azure VMs to finish this tutorial, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] Even though you don't need any experience with Azure VMs to finish this tutorial, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
 This tutorial covers:
 

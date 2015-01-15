@@ -1,6 +1,6 @@
-<properties title="What is RemoteApp?" pageTitle="What is RemoteApp?" description="Learn about Azure RemoteApp." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="" pageTitle="What is RemoteApp?" description="Learn about Azure RemoteApp." metaKeywords="" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/07/2015" ms.author="elizapo" />
 
 #What is Azure RemoteApp?
 
@@ -14,7 +14,7 @@ Have questions about Azure RemoteApp? Check out our [FAQ](http://azure.microsoft
 
 Azure RemoteApp is part of the [Microsoft Virtual Desktop Infrastructure](http://www.microsoft.com/en-us/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
-**New!** Want to learn more about Azure RemoteApp? Or ready to validate RemoteApp at scale? Join our weekly [ask the experts webinar](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html).
+**New!** Want to learn more about Azure RemoteApp? Or ready to validate RemoteApp at scale? Join our weekly [ask the experts webinar](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
 ##RemoteApp deployment options
 There are two kinds of RemoteApp collections:

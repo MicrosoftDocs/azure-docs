@@ -1,4 +1,4 @@
-<properties linkid="customize HDInsight cluster" urlDisplayName="Use Script Actions in HDInsight to customize Hadoop clusters" pageTitle="Script Action Development with HDInsight| Azure" metaKeywords="" description="Learn how to customize Hadoop clusters with Script Action." metaCanonical="" services="hdinsight" documentationCenter="" title="Script Action Development with HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="customize HDInsight cluster" urlDisplayName="Use Script Actions in HDInsight to customize Hadoop clusters" pageTitle="Script Action Development with HDInsight| Azure" metaKeywords="" description="Learn how to customize Hadoop clusters with Script Action." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="bradsev" /> 
 
@@ -109,7 +109,7 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 - [Install and use Solr on HDInsight clusters](../hdinsight-hadoop-solr-install)
 - [Install and use Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install)  
 
-> [WACOM.NOTE] The sample script works only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>How to test your custom script with the HDInsight Emulator
 

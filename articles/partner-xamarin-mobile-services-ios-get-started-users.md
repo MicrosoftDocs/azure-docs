@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.iOS" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile"  services="mobile-services" title="Get started with authentication in Mobile Services" manager="dwrede" authors="donnam" />
+<properties urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.iOS" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="xamarin" services="mobile-services" title="" manager="dwrede" authors="lindydonna" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
 
@@ -58,9 +58,7 @@ Next, you will update the app to authenticate users before requesting resources 
             }
         }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than a Microsoft Account, change the value passed to <strong>LoginAsync</strong> above to one of the following: <i>Facebook</i>, <i>Twitter</i>, <i>Google</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+	> [AZURE.NOTE] If you are using an identity provider other than a Microsoft Account, change the value passed to **LoginAsync** above to one of the following: _Facebook_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
 3. Move the request for the **TodoItem** table from the **TodoService** constructor into a new method named **CreateTable**:
 

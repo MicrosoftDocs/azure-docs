@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor=""  />
+<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile-services, notification-hubs" documentationCenter="windows" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
@@ -10,7 +10,7 @@
 This topic shows you how to use Azure Mobile Services to send push notifications to a universal Windows app. 
 In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[WACOM.NOTE]This topic shows you how to use to manually configure push notifications using Mobile Services in a Windows Store project. You can use Visual Studio 2013 to add the same push notifications to a Windows Store app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) of this tutorial. 
+>[AZURE.NOTE]This topic shows you how to use to manually configure push notifications using Mobile Services in a Windows Store project. You can use Visual Studio 2013 to add the same push notifications to a Windows Store app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) of this tutorial. 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -21,7 +21,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
 
->[WACOM.NOTE]This topic supports Windows Phone Store 8.1 apps. To add push notifications to a Windows Phone 8 or Windows Phone Silverlight 8.1 app, see this version of [Get started with push notifications in Mobile Services](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
+>[AZURE.NOTE]This topic supports Windows Phone Store 8.1 apps. To add push notifications to a Windows Phone 8 or Windows Phone Silverlight 8.1 app, see this version of [Get started with push notifications in Mobile Services](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
 
 ##<a id="register"></a> Register your app with WNS and configure Mobile Services
 

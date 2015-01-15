@@ -1,4 +1,4 @@
-<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Create a Line-of-Business Application on Azure Websites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
+<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Create a Line-of-Business Application on Azure Websites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="" authors="rothja" services="web-sites" documentationCenter=""/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 
@@ -16,10 +16,7 @@ The following areas are addressed in this guide:
 - [Use Service Bus to Integrate with On-Premises Resources](#servicebusrelay)
 - [Monitor the Application](#monitor)
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a>.</p>
-</div>
+> [AZURE.NOTE] This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on [Global Web Presence](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/) and [Digital Marketing Campaigns](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview).
 
 ##<a name="benefits"></a>Consider the Benefits
 Because line-of-business applications typically target corporate users, you should consider the reasons to use the Cloud versus on-premises corporate resources and infrastructure. First, there are some of the typical benefits of moving to the Cloud, such as the ability to scale up and down with dynamic workloads. For example, consider an application that handles annual performance reviews. For most of the year, this type of application would handle very little traffic. But during the review period, traffic would spike to high levels for a large company. Azure provides scaling options that enable the company to scale out to handle the load during the high-traffic review period while saving money by scaling back for the rest of the year. Another benefit of the Cloud is the ability to focus more on application development and less on infrastructure acquisition and management.

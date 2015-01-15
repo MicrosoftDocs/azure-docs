@@ -1,4 +1,4 @@
-<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP website with MySQL and FTP - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP website with MySQL and FTP - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor=""/>
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
@@ -94,7 +94,7 @@ To build and run the application locally, follow the steps below. Note that thes
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
 	> You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
@@ -148,7 +148,7 @@ To build and run the application locally, follow the steps below. Note that thes
 			die(var_dump($e));
 		}
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 7. Following the database connection code, add code for inserting registration information into the database.

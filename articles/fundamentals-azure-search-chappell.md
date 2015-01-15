@@ -1,4 +1,4 @@
-<properties urlDisplayName="Introduction to Azure Search" pageTitle="Introduction to Azure Search | Azure" metaKeywords="" description="Learn how Azure Search can help you build rich search applications." umbracoNaviHide="0" disqusComments="1" editor="monicar" manager="mblythe" services="search" documentationCenter="" title="Introduction to Azure Search" authors="heidist" />
+<properties urlDisplayName="Introduction to Azure Search" pageTitle="Introduction to Azure Search | Azure" metaKeywords="" description="Learn how Azure Search can help you build rich search applications." umbracoNaviHide="0" disqusComments="1" editor="monicar" manager="mblythe" services="search" documentationCenter="" title="" authors="HeidiSteen"/>
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2014" ms.author="heidist" />
 

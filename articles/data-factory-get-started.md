@@ -1,4 +1,4 @@
-<properties title="Get started using Azure Data Factory" pageTitle="Get started using Azure Data Factory" description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties title="" pageTitle="Get started using Azure Data Factory" description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="spelluru" />
 
@@ -64,7 +64,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 7. In the **New data factory** blade, notice that **Add to Startboard** is selected.
 8. Click **Create** in the **New data factory** blade.
 
-	> [WACOM.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactory” is not available**, change the name (for example, yournameADFTutorialDataFactory). Use this name in place of ADFTutorialFactory while performing steps in this tutorial.  
+	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactory” is not available**, change the name (for example, yournameADFTutorialDataFactory). Use this name in place of ADFTutorialFactory while performing steps in this tutorial.  
 	 
 	![Data Factory name not available][image-data-factory-name-not-available]
 
@@ -126,7 +126,7 @@ In this step, you will create two linked services: **MyBlobStore** and **MyAzure
 
 ## <a name="CreateInputAndOutputDataSets"></a>Step 3: Create input and output tables
 
-In the previous step, you created linked services **MyBlobStore** and **MyAzureSQLStore** to link an Azure Storage account and Azure SQL datbase to the data factory: **ADFTutorialDataFactory**. In this step, you will create tables that represent the input and output data for Copy activity in the pipeline you will be creating in the next step. 
+In the previous step, you created linked services **MyBlobStore** and **MyAzureSQLStore** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you will create tables that represent the input and output data for Copy activity in the pipeline you will be creating in the next step. 
 
 A table is a rectangular dataset and it is the only type of dataset that is supported at this time. The input table refers to a blob container in the Azure Storage that MyBlobStore points to and the output table refers to a SQL table in the Azure SQL database that MyAzureSQLStore points to.  
  
@@ -208,7 +208,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	- **linkedServiceName** is set to **MyBlobStore**. You had created this linked service in Step 2).
 	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
-	- - There are two fields in the text file – **FirstName** and **ColumnName** – separated by a comma character (columDelimiter)	
+	- There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (columDelimiter)	
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**). The Data Factory service will look for input data every hour in the root folder in the blob container (**adftutorial**) you specified.
 
 	if you don't specify a **fileName** for an **input table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
@@ -357,9 +357,9 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 
 
 
-         Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline  
+         Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29Z –EndDateTime 2014-09-30Z –Name ADFTutorialPipeline  
 
-	> [WACOM.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **EndDateTime** is optional, but we will use it in this tutorial. 
+	> [AZURE.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **EndDateTime** is optional, but we will use it in this tutorial. 
 	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.  
 	
 	In the example above, there will be 24 data slices as each data slice is produced hourly.

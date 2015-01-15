@@ -1,16 +1,16 @@
-<properties urlDisplayName="Get Started" pageTitle="Get started with the HDInsight Emulator | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Learn how to use HDInsight Emulator for Azure." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Get started with the HDInsight Emulator" author="nitinme" />
+<properties urlDisplayName="Get Started" pageTitle="Get started with the HDInsight Emulator | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Learn how to use HDInsight Emulator for Azure." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="" author="nitinme" authors="nitinme" documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="nitinme" />
 
 # Get started with the HDInsight Emulator 
 
 This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight Emulator for Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Azure HDInsight?][hdinsight-versions].
 
->[WACOM.NOTE] The HDInsight Emulator only includes a Hadoop cluster. It does not include HBase.
+>[AZURE.NOTE] The HDInsight Emulator only includes a Hadoop cluster. It does not include HBase.
 
 HDInsight Emulator provides a local development environment for Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. In HDInsight, the default file system is Azure Blob storage (WASB, aka Azure Storage - Blobs). So eventually, you will want to develop your jobs using WASB. To use WASB with HDInsight Emulator, you must make changes to HDInsight Emulator configuration. 
 
-> [WACOM.NOTE] The HDInsight Emulator can use only a single node deployment. 
+> [AZURE.NOTE] The HDInsight Emulator can use only a single node deployment. 
 
 
 **Prerequisites**	
@@ -32,13 +32,14 @@ Before you begin this tutorial, you must have the following:
 * [Run the getting started samples](#rungetstartedsamples)
 * [Connect to Azure Blob storage](#blobstorage)
 * [Run HDInsight PowerShell](#powershell)
+* [Remove the HDInsight Emulator](#remove)
 * [Next steps](#nextsteps)
 
 ##<a name="install"></a>Install the HDInsight Emulator
 
 The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform Installer.  
 
-> [WACOM.NOTE] The HDInsight Emulator currently only supports English OS. If you a previous version of the Emulator installed, you must uninstall the following two components from Control Panel/Program and Features before installing the latest version of Emulator.
+> [AZURE.NOTE] The HDInsight Emulator currently only supports English OS. If you a previous version of the Emulator installed, you must uninstall the following two components from Control Panel/Program and Features before installing the latest version of Emulator.
 ><ul>
 <li>Microsoft HDInsight Emulator for Windows Azure or HDInsight Developer Preview, whichever is installed.</li>
 <li>Hortonworks Data Platform</li>
@@ -79,7 +80,7 @@ For known issues with installing and running HDInsight Server, see the [HDInsigh
 
 Now that you have the HDInsight emulator configured on your workstation,  you can run a MapReduce job to test the installation. You will first upload some data files to HDFS, and then run a word count MapReduce job to count the frequency of specific words in those files. 
 
-The word counting MapReduce program has been packaged into *hadoop-mapreduce-examples-2.4.0.SNAPSHOT.jar*.  The jar file is located at the *C:\hdp\hadoop-2.4.0.SNAPSHOT\share\hadoop\mapreduce* folder.
+The word counting MapReduce program has been packaged into *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*.  The jar file is located at the *C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce* folder.
 
 The MapReduce job to count words takes two arguments:
 
@@ -90,7 +91,7 @@ The MapReduce job to count words takes two arguments:
 
 1. From the desktop, double-click **Hadoop Command Line** to open the Hadoop command line window.  The current folder should be:
 
-		c:\hdp\hadoop-2.4.0.SNAPSHOT
+		c:\hdp\hadoop-2.4.0.2.1.3.0-1981
 
 	If not, run the following command:
 
@@ -103,7 +104,7 @@ The MapReduce job to count words takes two arguments:
 	
 3. Run the following Hadoop command to copy some local text files to HDFS:
 
-		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.SNAPSHOT\share\doc\hadoop\common\*.txt /user/HDIUser
+		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\*.txt /user/HDIUser
 
 4. Run the following command to list the files in the /user/HDIUser folder:
 
@@ -111,7 +112,7 @@ The MapReduce job to count words takes two arguments:
 
 	You should see the following files:
 
-		C:\hdp\hadoop-2.4.0.SNAPSHOT>hadoop fs -ls /user/HDIUser
+		C:\hdp\hadoop-2.4.0.2.1.3.0-1981>hadoop fs -ls /user/HDIUser
 		Found 4 items
 		-rw-r--r--   1 username hdfs     574261 2014-09-08 12:56 /user/HDIUser/CHANGES.txt
 		-rw-r--r--   1 username hdfs      15748 2014-09-08 12:56 /user/HDIUser/LICENSE.txt
@@ -120,7 +121,7 @@ The MapReduce job to count words takes two arguments:
 
 5. Run the following command to run the word count MapReduce job:
 
-		C:\hdp\hadoop-2.4.0.SNAPSHOT> hadoop jar C:\hdp\hadoop-2.4.0.SNAPSHOT\share\hadoop\mapreduce\hadoop-mapreduce-examples-2.4.0.SNAPSHOT.jar wordcount /user/HDIUser/*.txt /user/HDIUser/WordCount_Output
+		C:\hdp\hadoop-2.4.0.2.1.3.0-1981> hadoop jar C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce\hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar wordcount /user/HDIUser/*.txt /user/HDIUser/WordCount_Output
 
 6. Run the following command to list the number of words with "windows" in them from the output file:
 
@@ -128,7 +129,7 @@ The MapReduce job to count words takes two arguments:
 
 	The output should be:
 
-		C:\hdp\hadoop-2.4.0.SNAPSHOT>hadoop fs -cat /user/HDIUser/WordCount_Output/part-r-00000 | findstr "windows"
+		C:\hdp\hadoop-2.4.0.2.1.3.0-1981>hadoop fs -cat /user/HDIUser/WordCount_Output/part-r-00000 | findstr "windows"
 		windows 4
 		windows.        2
 		windows/cygwin. 1
@@ -265,11 +266,11 @@ The Hive query engine might feel familiar to analysts with strong SQL skills. It
 
 5. Run the following command to execute the **w3ccreate.hql** script file.  The script creates a Hive table, and loads data to the Hive table:
         
-		C:\hdp\hive-0.13.0.SNAPSHOT\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
+		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
 	The output shall be similar to the following:
 
-		Logging initialized using configuration in file:/C:/hdp/hive-0.13.0.SNAPSHOT	/conf/hive-log4j.properties
+		Logging initialized using configuration in file:/C:/hdp/hive-0.13.0.2.1.3.0-1981	/conf/hive-log4j.properties
 		OK
 		Time taken: 1.137 seconds
 		OK
@@ -287,7 +288,7 @@ The Hive query engine might feel familiar to analysts with strong SQL skills. It
 	The following table describes the elements of the command:
 	<table border="1">
 	<tr><td>File</td><td>Description</td></tr>
-	<tr><td>C:\hdp\hive-0.13.0.SNAPSHOT\bin\hive.cmd</td><td>The Hive command script.</td></tr>
+	<tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>The Hive command script.</td></tr>
 	<tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> You can substitute the Hive script file with one of the following:
 	<ul>
 	<li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li>
@@ -333,12 +334,12 @@ Pig processing uses a data flow language, called *Pig Latin*. Pig Latin abstract
 2. Change directory to the **C:\hdp\GettingStarted** folder.
 3. Run the following command to submit a Pig job:
 
-		C:\hdp\pig-0.12.1.SNAPSHOT\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
+		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
 	The following table shows the elements of the command:
 	<table border="1">
 	<tr><td>File</td><td>Description</td></tr>
-	<tr><td>C:\hdp\pig-0.12.1.SNAPSHOT\bin\pig.cmd</td><td>The Pig command script.</td></tr>
+	<tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>The Pig command script.</td></tr>
 	<tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> You can substitute the Pig Latin script file with one of the following:
 	<ul>
 	<li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li>
@@ -378,7 +379,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Connect to Azure Blob storage
 The HDInsight Emulator uses HDFS as the default file system. However, Azure HDInsight uses Azure Blob storage as the default file system. It is possible to configure HDInsight Emulator to use Azure Blob storage instead of local storage. Follow the instructions below to create a storage container in Azure and to connect it to the HDInsight Emulator.
 
->[WACOM.NOTE] For more information on how HDInsight uses Azure Blob storage, see [Use Azure blob Storage with HDInsight][hdinsight-storage].
+>[AZURE.NOTE] For more information on how HDInsight uses Azure Blob storage, see [Use Azure blob Storage with HDInsight][hdinsight-storage].
 
 Before you start with the instructions below, you must have created a storage account. For instructions, see [How To Create a Storage Account][azure-create-storage-account].
 
@@ -396,7 +397,7 @@ Before you can access an Azure Storage account, you must add the account name an
 
 **To configure the connection to an Azure Storage account**
 
-1. Open **C:\hdp\hadoop-2.4.0.SNAPSHOT\etc\hadoop\core-site.xml** in Notepad.
+1. Open **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\etc\hadoop\core-site.xml** in Notepad.
 2. Add the following <property\> tag next to the other <property\> tags:
 
 		<property>
@@ -441,6 +442,9 @@ You will get a prompt when calling Get-Credential. You must use **hadoop** as th
 
 For more information for submitting Hadoop jobs, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]. For more information about the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
+
+##<a name="remove"></a> Remove the HDInsight Emulator
+On the computer where you have the Emulator installed, open Control Panel and under **Programs**, click **Uninstall a Program**. From the list of installed programs, right-click **Microsoft HDInsight Emulator for Azure**, and then click **Uninstall**. 
 
 
 ##<a name="nextsteps"></a> Next steps

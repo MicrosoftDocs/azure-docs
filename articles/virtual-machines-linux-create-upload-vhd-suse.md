@@ -1,6 +1,6 @@
-<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Create and upload a SUSE Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a SUSE Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Create and upload a SUSE Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a SUSE Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="szarkos" solutions="" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos" />
 
 
 # Prepare a SLES or openSUSE Virtual Machine for Azure
@@ -35,39 +35,13 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3. Add the repository containing the latest kernel and Azure Linux Agent. Run the command `zypper lr`. For example, with SLES 11 SP3 the output should look similar to the following:
+3. Register your SUSE Linux Enterprise system to allow it to download updates and install packages.
 
-		# | Alias                        | Name               | Enabled | Refresh
-		--+------------------------------+--------------------+---------+--------
-		1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
-		2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
-		3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
-		4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
-		5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
-		6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
-
-	If the command returns an error message such as the following:
-
-		"No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
-
-	then use the following commands to add these repos:
-
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Pool/sle-11-x86_64 SLES11-SP3-Pool 
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Updates/sle-11-x86_64 SLES11-SP3-Updates
-
-	In case one of the relevant update repositories is not enabled, enable it with following command:
-
-		# sudo zypper mr -e [REPOSITORY NUMBER]
-
-4. Update the kernel to the latest available version:
-
-		# sudo zypper up kernel-default
-
-	Or to update the system with all the latest patches:
+4. Update the system with the latest patches:
 
 		# sudo zypper update
 
-5. Install the Azure Linux Agent:
+5. Install the Azure Linux Agent from the SLES repository:
 
 		# sudo zypper install WALinuxAgent
 

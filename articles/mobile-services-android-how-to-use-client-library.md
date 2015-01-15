@@ -1,4 +1,4 @@
-<properties urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android Client Library" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android Client Library" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="android" title="" authors="RickSaling" solutions="" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal" />
 
@@ -632,8 +632,7 @@ These first two tasks are done using the [Azure Management Portal](https://manag
 
     This code authenticates the user using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <i>MicrosoftAccount</i>, <i>Facebook</i>, <i>Twitter</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
+    > [AZURE.NOTE] If you are using an identity provider other than Google, change the value passed to the **login** method above to one of the following: _MicrosoftAccount_, _Facebook_, _Twitter_, or _WindowsAzureActiveDirectory_.
     </div>
 
 

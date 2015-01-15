@@ -1,4 +1,4 @@
-<properties title="Analyzing sensor data with Storm and HDInsight" pageTitle="Analyzing sensor data with Apache Storm and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process sensor data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="" pageTitle="Analyzing sensor data with Apache Storm and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process sensor data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
@@ -28,7 +28,7 @@ The dashboard is used to display near-real time sensor information. In this case
 
 The website also contains a static index.html file, which also connects to SignalR, and uses D3.js to graph the data transmitted by the Storm topology.
 
-> [WACOM.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using Azure Service Bus ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus)).
+> [AZURE.NOTE] While you could also use raw WebSockets instead of SignalR, WebSockets does not provide a built-in scaling mechanism if you need to scale out the web site. SignalR can be scaled using Azure Service Bus ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus)).
 >
 > For an example of using a Storm topology to communicate with a Python website using raw WebSockets, see the [Storm Tweet Sentiment D3 Visualization](https://github.com/P7h/StormTweetsSentimentD3Viz) project.
 
@@ -511,6 +511,8 @@ Since there isn't an easy, standard set of sensors available to everyone, a .NET
 		    	[DataMember]
 		    	public DateTime TimeStamp { get; set; }
 		        [DataMember]
+		        public DateTime TimeStamp { get; set; }
+		        [DataMember]
 		        public int DeviceId { get; set; }
 		        [DataMember]
 		        public int Temperature { get; set; }
@@ -549,7 +551,7 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 9. On the bottom of the page, the default subnet name is **Subnet-1**. Use the **add subnet** button to add **Subnet-2**. These subnets will house the Storm and HBase clusters.
 
-	> [WACOM.NOTE] In this article, we will be using clusters with only one node. If you are creating multi-node clusters, you must verify the **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (Gateway: 2, Headnode: 2, Zookeeper: 3). For example, if you need a 10 node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
+	> [AZURE.NOTE] In this article, we will be using clusters with only one node. If you are creating multi-node clusters, you must verify the **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (Gateway: 2, Headnode: 2, Zookeeper: 3). For example, if you need a 10 node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
 	>
 	> It is highly recommended to designate a single subnet for one cluster.
 
@@ -567,7 +569,7 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 5. Enter 1 for the number of **Data Nodes** to use for this cluster. For **Region/Virtual Network**, select the Azure Virtual Network created earlier. For **Virtual Network Subnets**, select **Subnet-2**.
 
-	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+	> [AZURE.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
 6. Enter the administrator **User Name** and **Password**, then select the arrow to continue.
 
@@ -585,13 +587,13 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 5. Enter 1 for the number of **Data Nodes** to use for this cluster. For **Region/Virtual Network**, select the Azure Virtual Network created earlier. For **Virtual Network Subnets**, select **Subnet-1**.
 
-	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+	> [AZURE.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
 6. Enter the administrator **User Name** and **Password**, then select the arrow to continue.
 
 4. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use. Click on the check icon on the lower left to create the Storm cluster.
 
-	> [WACOM.NOTE] You should use a different container than the one used for the Storm cluster.
+	> [AZURE.NOTE] You should use a different container than the one used for the Storm cluster.
 
 ###Enable remote desktop
 
@@ -615,7 +617,7 @@ In order to write to HBase from the Storm cluster, you must use the fully qualif
 
 ##Develop the Storm topology
 
-> [WACOM.NOTE] The steps in this section should be performed on your local development environment.
+> [AZURE.NOTE] The steps in this section should be performed on your local development environment.
 
 ###Download and build external dependencies
 
@@ -633,7 +635,7 @@ In order to receive data from Event Hub, we will use the **eventhubs-storm-spout
 
 6. Use the following command to install the package into the local Maven store. This will allow us to easily add it as a reference in the Storm project in a later step.
 
-		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
 ####Download and build the SignalR client
 
@@ -652,7 +654,7 @@ To send messages to the ASP.NET Dashboard, use the [SignalR client SDK for Java]
 		cd java-client\signalr-client-sdk
 		mvn package
 
-	> [WACOM.NOTE] If you receive an error that the **gson** dependency cannot be downloaded, remove the following lines from the **java-client\signalr-client-sdk\pom.xml** file.
+	> [AZURE.NOTE] If you receive an error that the **gson** dependency cannot be downloaded, remove the following lines from the **java-client\signalr-client-sdk\pom.xml** file.
 	> ```<repositories>
 <repository>
 <id>central</id>
@@ -665,7 +667,7 @@ To send messages to the ASP.NET Dashboard, use the [SignalR client SDK for Java]
 
 6. Use the following command to install the package into the local Maven store. This will allow us to easily add it as a reference in the Storm project in a later step.
 
-		mvn install:install-file -Dfile=target\signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+		mvn install:install-file -Dfile=target/signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
 
 ###Scaffold the Storm topology project
 
@@ -746,7 +748,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 	* storm-core - core classes for Storm
 	* storm-hbase - classes that allow writing to HBase
 
-	> [WACOM.NOTE] Note that some dependencies are marked with a scope of **provided** to indicate that these dependencies should be downloaded from the Maven repository and used to build and test the application locally, but that they will also be available in your runtime environment and do not need to be compiled and included in the JAR created by this project.
+	> [AZURE.NOTE] Note that some dependencies are marked with a scope of **provided** to indicate that these dependencies should be downloaded from the Maven repository and used to build and test the application locally, but that they will also be available in your runtime environment and do not need to be compiled and included in the JAR created by this project.
 
 2. At the end of the **pom.xml** file, right before the **&lt;/project>** entry, add the following.
 
@@ -824,7 +826,7 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 
 **eventhubs-storm-spout** reads configuration information from a **Config.properties** file. This tells it what Event Hub to connect to. While you can specify a configuration file when starting the topology on a cluster, including one in the project gives you a known default configuration.
 
-1. In the **Temperature** directory, create a new directory named **conf**.
+1. In the **TemperatureMonitor** directory, create a new directory named **conf**.
 
 2. In the **conf** directory, create two new files:
 
@@ -838,8 +840,8 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
-		# The name of the event hub
-		eventhubspout.entitypath = temperature
+
+		eventhubspout.entitypath = <the event hub name>
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
 
@@ -850,7 +852,11 @@ Next, modify the **pom.xml** to reference the dependencies for this project, as 
 
 		eventhub.receiver.credits = 1024
 
-	Replace the **password** with the key for the **storm** policy created earlier on Event Hub. Replace **namespace** with the namespace of your Event Hub.
+	Replace the **password** with the key for the **storm** policy created earlier on Event Hub.
+	
+	Replace the **namespace** with the namespace of your Event Hub.
+	
+	Replace the **entitpath** with the name of your Event Hub.
 
 3. Use the following as the contents for the **hbase-site.xml** file.
 
@@ -1086,7 +1092,7 @@ Bolts do the main processing in a topology. For this topology there are three bo
 		  }
 		}
 
-	Replace `http://yourwebsiteaddress` with the address of the Azure Website that you published the dashboard to earlier. For example, http://mydashboard.azurewebsites.net.
+	Replace `http://dashboard.azurewebsites.net/` with the address of the Azure Website that you published the dashboard to earlier. For example, http://mydashboard.azurewebsites.net.
 
 2. Save and close the files.
 
