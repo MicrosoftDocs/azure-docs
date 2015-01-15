@@ -1,8 +1,8 @@
-<properties title="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" pageTitle="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" description="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="" pageTitle="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" description="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="12/16/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
 
-# Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview #
+#Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)#
 
 > [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
 
@@ -94,7 +94,7 @@ The syntax for structuring the request payload is as follows. A sample request i
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
     	"type" : "Required. Must be 'azuresql' or 'docdb'",
-    	"credentials" : { "connectionString" : "Required. Connection string for your SQL Azure database" },
+    	"credentials" : { "connectionString" : "Required. Connection string for your Azure SQL database" },
     	"container" : { "name" : "Required. The name of the table or collection you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
     	"dataDeletionDetectionPolicy" : { Optional. See below for details }
@@ -105,18 +105,53 @@ Request can contain the following properties:
 - `name`: Required. The name of the data source. A data source name must only contain lowercase letters, digits or dashes, cannot start or end with dashes and is limited to 128 characters.
 - `description`: An optional description. 
 - `type`: Required. Use `azuresql` for an Azure SQL data source, `docdb` for a  DocumentDB data source.
-- `container`: The required `name` property specifies the table or view (for SQL Azure) or collection (for DocumentDB) that will be indexed. 
+- `container`: 
+	- The required `name` property specifies the table or view (for Azure SQL data source) or collection (for DocumentDB data source) that will be indexed. 
+	- DocumentDB data sources also support an optional `query` property that allows you to specify a query that flattens an arbitrary JSON document layout into a flat schema that Azure Search can index.   
 - The optional `dataChangeDetectionPolicy` and `dataDeletionDetectionPolicy` are described below.
 
 <a name="DataChangeDetectionPolicies"></a>
 **Data Change Detection Policies**
 
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy, which is specified as follows:
+The purpose of a data change detection policy is to efficiently identify changed data items. Supported policies vary based on the data source type. Sections below describe each policy. 
+
+***High Watermark Change Detection Policy*** 
+
+Use this policy when your data source contains a column or property that meets the following criteria:
+ 
+- All inserts specify a value for the column. 
+- All updates to an item also change the value of the column. 
+- The value of this column increases with each change.
+- Queries that use a filter clause similar to the following `WHERE [High Water Mark Column] > [Current High Water Mark Value]` can be executed efficiently.
+
+For example, when using Azure SQL data sources, an indexed `rowversion` column is the ideal candidate for use with with the high water mark policy. 
+
+When using DocumentDB data sources, you must use the `_ts` property provided by DocumentDB.
+ 
+This policy can be specified as follows:
 
 	{ 
 		"@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
+
+***SQL Integrated Change Detection Policy***
+
+If your SQL database supports [SQL Integrated Change Tracking](http://technet.microsoft.com/en-us/library/cc280462(v=SQL.105).aspx), we recommend using SQL Integrated Change Tracking Policy. This policy enables the most efficient change tracking, and allows Azure Search to identify deleted rows without you having to have an explicit "soft delete" column in your schema.
+
+SQL integrated change tracking is supported starting with the following SQL database versions: 
+- SQL Server 2008 R2, if you're using SQL IaaS VMs.
+- Azure SQL Database V12, if you're using Azure SQL.  
+
+**NOTE:** When using SQL Integrated Change Tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. 
+
+**NOTE:** This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy.     
+ 
+SQL integrated change tracking policy can be specified as follows:
+
+	{ 
+		"@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
+	}
 
 <a name="DataDeletionDetectionPolicies"></a>
 **Data Deletion Detection Policies**
@@ -171,6 +206,9 @@ The request body syntax is the same as for [Create Data Source requests](#Create
 
 **Response**
 For a successful request: 201 Created if a new data source was created, and 204 No Content if an existing data source was updated.
+
+**NOTE:**
+Some properties cannot be updated on an existing data source. For example, you cannot change the type of an existing data source.  
 
 ## List Data Sources ##
 
@@ -510,9 +548,23 @@ Indexer execution status captures the status of a single indexer execution. It c
 
 - `persistentFailure` indicates that the indexer has failed in a way that likely requires human intervention (for example, because of a schema incompatibility between the data source and the target index). Scheduled indexer executions stop; user action is required to address the issue (described in the `errorMessage` property) and restart indexer execution. 
 
+- `reset` indicates that the indexer has been reset by a call to Reset Indexer API (see below). 
+
+<a name="ResetIndexer"></a>
+## Reset Indexer ##
+
+The **Reset Indexer** operation resets the change tracking state associated with the indexer. This allows you to trigger from-scratch re-indexing (for example, if your data source schema has changed), or to change the data change detection policy for a data source associated with the indexer.   
+
+	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
+    api-key: [admin key]
+
+**Response**
+
+Status Code: 204 No Content for a successful response.
+
 ## Mapping between SQL Data Types and Azure Search Data Types ##
 
-<table>
+<table style="font-size:12">
 <tr>
 <td>SQL data type</td>	
 <td>Allowed target index field types</td>
@@ -574,7 +626,7 @@ Indexer execution status captures the status of a single indexer execution. It c
 
 ## Mapping between JSON Data Types and Azure Search Data Types ##
 
-<table>
+<table style="font-size:12">
 <tr>
 <td>JSON data type</td>	
 <td>Allowed target index field types</td>

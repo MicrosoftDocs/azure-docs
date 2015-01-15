@@ -1,6 +1,6 @@
-<properties title="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Azure" pageTitle="Azure Search Developer Case Study" description="How WhatToPedia.com built an infomedia portal on Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="HeidiSteen" videoId="" scriptId="" manager="mblythe" />
+<properties title="" pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure" description="Learn how to build an information portal and meta search engine using Search service on Microsoft Azure" metaKeywords="" services="search, sql-database,  storage, web-sites" solutions="" documentationCenter="" authors="HeidiSteen" videoId="" scriptId="" manager="mblythe" />
 
-<tags ms.service="azure-search" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="search" ms.date="01/13/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="search" ms.date="01/13/2015" ms.author="heidist" />
 
 <h1>Azure Search Developer Case Study</h1>
 
