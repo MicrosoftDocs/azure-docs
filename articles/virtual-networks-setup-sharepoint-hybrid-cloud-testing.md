@@ -1,6 +1,6 @@
 <properties urlDisplayName="Set up a SharePoint intranet farm in a hybrid cloud for testing" pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" metaKeywords="" description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up a SharePoint intranet farm in a hybrid cloud for testing" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
 
 <h1 id="sphybcloudtest">Set up a SharePoint intranet farm in a hybrid cloud for testing</h1>
 
@@ -48,20 +48,11 @@ Next, create a SharePoint farm administrator account. Open an administrator-leve
 
 When prompted to supply the SPFarmAdmin account password, type a strong password and record it in a secure location.
 
-Next, create an Azure Virtual Machine for SQL1. 
-
-To determine the name of the image for the virtual machine you want to create, run these commands from an administrator-level Azure PowerShell command prompt on your local computer. Prior to executing these commands, fill in the variable values and remove the < and > characters.
+Next, create an Azure Virtual Machine for SQL1 with these commands at the Azure PowerShell command prompt on your local computer.
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	Set-AzureStorageAccount –StorageAccountName $storageacct
-	$family="SQL Server 2014 RTM Standard on Windows Server 2012 R2" 
-	Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family} 
-
-From the output of the Get-AzureVMImage command, copy the value of the ImageName property for the image that you want to use to create SQL1. If there are multiple images for different months, choose the image with the most recent PublishedDate property.
-
-To create the SQL1 virtual machine, run these commands at the Azure PowerShell command prompt on your local computer.
-
-	$image="<Copied ImageName field for the selected image>"
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"
@@ -85,7 +76,7 @@ Next, connect to the new SQL1 virtual machine *using the local administrator acc
 
 Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
 
-	New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
+	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
@@ -104,7 +95,7 @@ Next, add the extra data disk as a new volume with the drive letter F:.
 9.	On the Confirm selections page, click **Create**.
 10.	When complete, click **Close**.
 
-Run these commands at the Windows PowerShell command prompt:
+Run these commands at the Windows PowerShell command prompt on SQL1:
 
 	md f:\Data
 	md f:\Log
@@ -138,18 +129,9 @@ This is your current configuration.
  
 ##Phase 3: Configure the SharePoint server (SP1)
 
-First, create an Azure Virtual Machine for SP1. 
+First, create an Azure Virtual Machine for SP1 with these commands at the Azure PowerShell command prompt on your local computer.
 
-To determine the name of the image for the virtual machine you want to create, run these commands from the Azure PowerShell command prompt on your local computer.
-
-	$family="SharePoint Server 2013 Trial"
-	Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family} 
-
-From the output of the Get-AzureVMImage command, copy the value of the ImageName property for the image that you want to use to create SP1. If there are multiple images for different months, choose the image with the most recent PublishedDate property.
-
-To create the SP1 virtual machine, run these commands at the Azure PowerShell command prompt on your local computer.
-
-	$image="<Copied ImageName field for the selected image>"
+	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"

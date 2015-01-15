@@ -1,12 +1,12 @@
 <properties urlDisplayName="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" metaKeywords="" description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
 
 <h1 id="azpswindowsvms">Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines</h1>
 
 These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
-These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced Azure PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
+These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
 ##Step 1
 
@@ -25,43 +25,40 @@ You can get the correct subscription name from the SubscriptionName property of 
 
 ##Step 3
 
-Next, you need to determine the ImageFamily value for the specific image corresponding to the Azure virtual machine you want to create. Here are some examples from the Gallery in the Azure Management Portal.
+Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create. Here are some examples from the Gallery in the Azure Management Portal.
 
 ![](./media/virtual-machines-use-PS-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
  
-You can also get the list of available ImageFamily values by running this command.
+You can get the list of available ImageFamily values with this command.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
 Here are some examples of ImageFamily values for Windows-based computers:
 
-- Windows Server 2012 R2 Datacenter
-- Windows Server 2008 R2 SP1
-- Windows Server Technical Preview
-- SQL Server 2012 SP1 Enterprise on Windows Server 2012
+- Windows Server 2012 R2 Datacenter 
+- Windows Server 2008 R2 SP1 
+- Windows Server Technical Preview 
+- SQL Server 2012 SP1 Enterprise on Windows Server 2012 
 
-Next, run these commands to list the images for that family.
+If you find the image you are looking for, open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the ImageFamily value. 
 
 	$family="<ImageFamily value>"
-	Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}
+	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-Each image has a set of properties that starts with the ImageName property and ends with the OperationStatus property. If there are multiple images for different months, locate the image with the most recent PublishedDate property.
+In some cases, such as the SharePoint Server 2013 Preview image, the image name is in the Label property instead of the ImageFamily value. If you did find the image that you are looking for, list the images by their Label property with this command.
+
+	Get-AzureVMImage | select Label -Unique
+
+If you find the right image with this command, open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the Label value. 
+
+	$label="<Label value>"
+	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ##Step 4
 
-Open a fresh instance of the text editor of your choice and copy the following into the new text file.  
+Build the rest of your command set by copying the appropriate set of blocks below into your new text file and then filling in the variable values and removing the < and > characters. See the two examples at the end of this article for an idea of the final result.
 
-	$image="<ImageName value>"
-
-From the output of images in step 3, copy the ImageName property from the appropriate image and replace the **<ImageName value>** part of the command. Here is an example.
-
-	$image="a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"
-
-##Step 5
-
-Build the rest of your command set by copying the appropriate set of blocks below into your new text file and then filling in the variables and removing the < and > characters. See the two examples at the end of this article for an idea of the final result.
-
-Start your command set by choosing one of the two command blocks (required):
+Start your command set by choosing one of these two command blocks (required).
 
 
 Option 1:Specify a virtual machine name and a size.
@@ -129,7 +126,7 @@ Optionally, add the virtual machine to an existing load-balanced set for externa
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Finally, start the virtual machine creation process by choosing one of these command blocks (required):
+Finally, start the virtual machine creation process by choosing one of these command blocks (required).
 
 Option 1: Create the virtual machine in a new cloud service. 
 
@@ -148,7 +145,7 @@ Option 3: Create the virtual machine in an existing cloud service and virtual ne
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
-##Step 6
+##Step 5
 
 Review the Azure PowerShell command set you built in your text editor consisting of multiple blocks of commands from step 5. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
@@ -161,7 +158,7 @@ If you will be creating this VM again or a similar one, you can:
 
 ##Examples
 
-Here are two examples of using the steps above to build Azure PowerShell command sets that create Azure virtual machines.
+Here are two examples of using the steps above to build Azure PowerShell command sets that create Windows-based Azure virtual machines.
 
 ###Example 1
 
@@ -177,6 +174,8 @@ I need a PowerShell command set to create the initial virtual machine for an Act
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
 
+	$family="Windows Server 2012 R2 Datacenter"
+	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$image="a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"
 	$vmname="AZDC1"
 	$vmsize="Medium"
@@ -213,7 +212,8 @@ I need a PowerShell command set to create a virtual machine for a line-of-busine
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine.
 
-	$image="a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"
+	$family="Windows Server 2012 R2 Datacenter"
+	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vmname="LOB1"
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
