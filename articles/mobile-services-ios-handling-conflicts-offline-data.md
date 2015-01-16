@@ -1,15 +1,11 @@
-<properties pageTitle="Handle Conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your iOS application" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
+<properties pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your iOS application" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/26/2015" ms.author="krisragh,donnam"/>
 
 
 # Handling Conflicts with Offline Data Sync in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data" title="iOS" class="current">iOS</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services. This tutorial builds on the steps and the sample app from the previous tutorial [Get Started with Offline Data]. Before you begin this tutorial, you must first complete [Get Started with Offline Data].
 
