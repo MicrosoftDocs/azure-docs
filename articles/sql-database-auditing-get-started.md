@@ -13,7 +13,7 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 + [Set up auditing for your database]
 + [Analyze audit logs and reports]
 
-##<a id="subheading-1">Azure SQL Database Auditing basics</a>
+##<a id="subheading-1"></a>Azure SQL Database Auditing basics
 
 You set up auditing in the Azure Preview Portal, but it makes no difference whether you created the database using the Azure Portal or the Azure Preview Portal. SQL Database auditing enables you to:
 
