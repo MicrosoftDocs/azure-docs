@@ -29,10 +29,7 @@ more information on blobs, see the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-##<a name="create-account"></a>Create an Azure Storage account
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-##<a name="setup-connection-string"></a>Setup a storage connection string
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 

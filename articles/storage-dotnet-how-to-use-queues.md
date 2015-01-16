@@ -32,11 +32,7 @@ to the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <h2><a name="create-account"></a>Create an Azure Storage account</h2>
-
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <h2><a name="setup-connection-string"></a>Setup an Azure Storage Connection String</h2>
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
