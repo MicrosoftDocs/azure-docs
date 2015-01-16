@@ -50,7 +50,7 @@ Default values for the ports and protocol for these endpoints are provided when 
 
 ###Manage the ACL on an Endpoint###
 
-Follow these steps to add, modify, or remove an ACL on an endpoint.
+The Access Control List (ACL) on a network endpoint can restrict traffic based upon source IP, to secure the endpoints created on your Virtual Machine. Follow these steps to add, modify, or remove an ACL on an endpoint.
 
 **Note**: If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
 
