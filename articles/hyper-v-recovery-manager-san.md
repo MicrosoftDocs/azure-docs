@@ -29,7 +29,7 @@
 
 
 <h2><a id="before"></a>Prerequisites</h2> 
-<div class="dev-callout"> 
+
 <P>Make sure you have everything in place before you begin the walkthrough.</P>
 
 <UL>
@@ -60,7 +60,7 @@
 	<LI><a href="http://go.microsoft.com/fwlink/?LinkId=522290">Enable network mapping</a> in the SAN deployment guide.</LI>
 	</UL>
 </UL>
-</div>
+
 
 <h2><a id="tutorial"></a>Tutorial steps</h2> 
 

@@ -23,7 +23,7 @@
 
 
 <h2><a id="before"></a>Prerequisites</h2> 
-<div class="dev-callout"> 
+
 <P>Make sure you have everything in place before you begin the tutorial.</P>
 
 <UL>
@@ -39,7 +39,7 @@
 <LI><b>Virtual machine</b>—You'll need virtual machines that comply with Azure requirements. See <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.</LI>
 <LI>For a full list of virtual machine support requirements for failover to Azure, read  </LI>
 </UL>
-</div>
+
 
 <h2><a id="tutorial"></a>Tutorial steps</h2> 
 
