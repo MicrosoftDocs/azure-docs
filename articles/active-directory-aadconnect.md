@@ -6,7 +6,12 @@
 
 The Azure Active Directory Connect wizard is the single tool and guided experience for connecting your on-premises directories with Azure Active Directory.  The wizard deploys and configures all components required to get your directory integration up and running including sync services, password sync or Active Directory  Federation Services (AD FS), and prerequisites such as the Azure AD PowerShell module.
 
->[AZURE.IMPORTANT] Azure Active Directory Connect encompasses functionality that was previously released as DirSync and AAD Sync.  These tools will no longer be released individually.  Future improvements will be included in updates to Azure Active Directory Connect, so that you always know where to get the most current functionality.  
+>[AZURE.IMPORTANT] Azure Active Directory Connect encompasses functionality that was previously released as DirSync and AAD Sync.  **These tools will no longer be released individually.**  Future improvements and the latest functionality will be included in updates to the Azure Active Directory Connect. 
+
+>**Azure Active Directory Connect is now the one stop shop for sync, sign-on, and all other aspects of your on-premises to Azure AD integration.**
+
+>If you are currently evaluating or using Azure Active Directory Synchronization Tool (DirSync), Azure Active Directory Synchronization Services (AAD Sync), or Forefront Identity Manager 2010 R2, see [Directory Intergration Tools](http://msdn.microsoft.com/en-us/library/azure/dn757582.aspx "Directory Integration Tools").
+
 
 ##  Azure Active Directory Connect Public Preview 
 
@@ -30,5 +35,5 @@ Extending your on-premises Windows Server Active Directory to Azure AD gives you
 
 **Azure Active Directory Connect is now your one stop shop for sync, sign-on, and all other aspects of your on-premises to Azure AD integration.**
 
-[Learn more about Azure Active Directory Connect vs DirSync, AAD Sync, and FIM](http://msdn.microsoft.com/en-us/library/azure/dn757582.aspx "Directory Integration Tools").
+For more information about Azure Active Directory Synchronization Tool (DirSync), Azure Active Directory Synchronization Services (AAD Sync), or Forefront Identity Manager 2010 R2, see [Directory Intergration Tools](http://msdn.microsoft.com/en-us/library/azure/dn757582.aspx "Directory Integration Tools").
 
