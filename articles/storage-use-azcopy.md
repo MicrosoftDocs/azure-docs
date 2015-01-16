@@ -409,7 +409,7 @@ The examples below demonstrate a variety of scenarios for copying blobs with AzC
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-For how to get the storage access keys, please visit [View, copy, and regenerate storage access keys]( http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
+For more information about working with your storage access keys, please see [View, copy, and regenerate storage access keys]( http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
 
 ### Copy a blob via server-side copy
 
