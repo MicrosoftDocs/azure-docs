@@ -50,5 +50,8 @@ Follow the steps in this article to stage content to the internal staging site p
 
 10. Review your content on the staging site. If you are happy with the staged content, go back to master and follow the steps to push your final version to your fork, and then file a pull request. Articles are staged three times a day, around 10 AM, 2 PM, and 5 PM PST.
 
+ Don’t edit your article while working in a sandbox-derived branch. If you discover issues you need to fix after you stage, change back to your master-derived working branch, make the changes there, and then restage. Moving content to sandbox should always be a one-way trip.
+
+
 
 
