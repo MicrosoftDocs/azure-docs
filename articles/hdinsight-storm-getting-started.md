@@ -8,7 +8,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 ##In this tutorial, you will learn...
 
-* [How to provision an HDInsight Storm cluster](#provision)
+* [How to provision a Storm cluster on HDInsight](#provision)
 
 * [How to connect to the cluster](#connect)
 
@@ -76,9 +76,9 @@ You must have the following to successfully complete this tutorial.
 
 	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the check mark to start provisioning the cluster.
 
-##Using HDInsight Storm
+##Using Storm on HDInsight
 
-For the preview release of HDInsight Storm, you must connect to the cluster using Remote Desktop to work with Storm. Use the following steps to connect to the HDInsight cluster and use the Storm command.
+For the preview release of Storm on HDInsight, you must connect to the cluster using Remote Desktop to work with Storm. Use the following steps to connect to the HDInsight cluster and use the Storm command.
 
 ###<a id="connect"></a>Connect to the cluster
 
@@ -106,7 +106,7 @@ For the preview release of HDInsight Storm, you must connect to the cluster usin
 
 4. To see a list of commands available, enter `storm` without any parameters.
 
-The HDInsight cluster comes with several example Storm topologies. The sample **WordcountTopology** is used in the following steps. For more information on the examples provided with HDInsight Storm, see [Next Steps](#next).
+The HDInsight cluster comes with several example Storm topologies. The sample **WordcountTopology** is used in the following steps. For more information on the examples provided with Storm on HDInsight, see [Next Steps](#next).
 
 ###<a id="run"></a>To run a Storm topology
 
@@ -171,7 +171,7 @@ If you view the Storm UI web page immediately after this command, you will notic
 
 ##<a id="next"></a>Next steps
 
-* **Sample files** - The HDInsight Storm cluster provides several examples in the **%storm_home%\contrib** directory. Each example should contain the following.
+* **Sample files** - The Storm cluster provides several examples in the **%storm_home%\contrib** directory. Each example should contain the following.
 
 	* The source code - for example, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
