@@ -45,7 +45,7 @@ If you find the image you are looking for, open a fresh instance of the text edi
 	$family="<ImageFamily value>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-In some cases, such as the SharePoint Server 2013 Preview image, the image name is in the Label property instead of the ImageFamily value. If you did find the image that you are looking for, list the images by their Label property with this command.
+In some cases, such as the SharePoint Server 2013 Preview image, the image name is in the Label property instead of the ImageFamily value. If you did not find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.
 
 	Get-AzureVMImage | select Label -Unique
 
