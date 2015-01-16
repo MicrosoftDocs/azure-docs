@@ -1,6 +1,6 @@
 <properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="squillace" services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="rasquill" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="1/16/2016" ms.author="rasquill" />
 
 #Install and Configure the Azure Cross-Platform Command-Line Interface
 
@@ -20,13 +20,9 @@ This document describes how to install and configure the Azure Cross-Platform Co
 * [How to script the Azure Cross-Platform Command-Line Interface](#script)
 * [Additional resources](#additional-resources)
 
-<h2><a id="install"></a>How to install the Azure Cross-Platform Command-Line Interface</h2>
+## <a id="install">How to install the Azure Cross-Platform Command-Line Interface</a>
 
-There are two ways to install the xplat-cli; using installer packages for Windows and OS X, or if Node.js is installed on your system, the **npm** command.
-
-For Linux systems, you must have Node.js installed and either use **npm** to install the xplat-cli as described below, or build it from source. The source is available at [http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). For more information on on building from source, see the INSTALL file included in the archive.
-
-Once the xplat-cli has been installed, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access the xplat-cli commands.
+There are two ways to install the xplat-cli; using installer packages for Windows and OS X, or if Node.js is installed on your system, the **npm** command. Once the xplat-cli has been installed, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access the xplat-cli commands.
 
 ###Using an installer
 
@@ -38,13 +34,45 @@ The following installer packages are available:
 
 ###Using npm
 
-If Node.js is installed on your system, use the following command to install the xplat-cli:
+If Node.js is already installed on your system, use the following command to install the xplat-cli:
 
 	npm install azure-cli -g
 
 >[AZURE.NOTE] You may need to use `sudo` to successfully run the __npm__ command.
 
-This will install the xplat-cli and required dependencies. At the end of the installation, you should see something similar to the following:
+If node.js is not installed, you're going to have to install it first. For Linux systems, you must have Node.js installed and either use **npm** to install the xplat-cli as described below, or build it from source. The source is available at [http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). For more information on on building from source, see the INSTALL file included in the archive.
+
+####Installing node.js and npm on Distributions that use [dpkg](http://en.wikipedia.org/wiki/Dpkg) Package Management 
+The most common of these distributions use either the [advanced packaging tool (apt)](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) or other tools based on the `.deb` package format. Examples are Ubuntu and Debian, but there are many others. 
+
+Most of the more recent of these distributions require installing **nodejs-legacy** in order to get a properly configued **npm** tool to install the azure-cli. The following code shows the commands that install **npm** properly on Ubuntu 14.04.
+	
+	sudo apt-get install nodejs-legacy
+	sudo apt-get install npm
+	sudo npm install -g azure-cli
+
+Some of the older distributions, such as Ubuntu 12.04, require installing the current binary distribution of node.js. The following code shows how to do that by installing and using **curl**. 
+> [AZURE.NOTE] The commands here are taken from the Joyent installation instructions found [here](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). However, when using **sudo** as a pipe target you should always take care to check the scripts that you are installing and validate that they do exactly what you are expecting before running them through **sudo**.
+	
+	sudo apt-get install curl
+	curl -sL https://deb.nodesource.com/setup | sudo bash -
+	sudo apt-get install -y nodejs
+	sudo npm install -g azure-cli
+
+####Installing node.js and npm on Distributions that use [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager) Package Management
+
+Installing node.js on RPM-based distributions requires enabling the EPEL repository. The following code shows the best practices for installation on CentOS 7. (Note that in the first line, below, the '-' (hyphen character) is important!)
+
+	su -     
+	yum update [enter]
+	yum upgrade –y [enter] 
+	yum install epel-release [enter]
+	yum install nodejs [enter] 
+	yum install npm [enter] 
+	npm install azure-cli –g  [enter]
+
+
+Once the xplat-cli has been installed, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access the xplat-cli commands. At the end of the installation, you should see something similar to the following:
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -64,7 +92,7 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
-> [AZURE.NOTE] Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.
+> [AZURE.NOTE] Node.js and npm can also be installed on Windows from <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
 <h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
 
