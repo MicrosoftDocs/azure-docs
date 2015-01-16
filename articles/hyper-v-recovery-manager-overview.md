@@ -4,7 +4,7 @@
 
 # Azure Site Recovery Overview
 
-<div class="dev-callout"> 
+
 <p>Azure Site Recovery orchestrates replication and failover in a number of scenarios:</p>
 
 

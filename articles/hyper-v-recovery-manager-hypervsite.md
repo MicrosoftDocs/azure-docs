@@ -18,11 +18,11 @@ You can read full deployment instructions in the <a href="http://go.microsoft.co
 <LI>If you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions to the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
 </UL>
 
-</div>
+
 
 
 <h2><a id="before"></a>Prerequisites</h2> 
-<div class="dev-callout"> 
+
 <P>Make sure you have everything in place before you begin.</P>
 
 <UL>
