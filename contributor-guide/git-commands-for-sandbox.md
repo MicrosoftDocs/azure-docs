@@ -42,9 +42,9 @@ Follow the steps in this article to stage content to the internal staging site p
 
         git push origin <sandbox-derived-branch>
 
-8. Create a pull request:
+8. Create a pull request from your fork to the core repo, from your local sandbox-derived branch to the main sandbox branch:
 
-       upstream/sandbox <--- *your-fork/sandbox-derived-branch*
+ ![](./media/git-commands-for-sandbox/pullrequestsandbox.png)
 
 9. The pull request acceptor accepts the pull request.
 
