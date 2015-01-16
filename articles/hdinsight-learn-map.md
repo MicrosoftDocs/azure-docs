@@ -6,7 +6,7 @@
 # Learning map for HDInsight
 In HDInsight you can work with big data in the cloud on Hadoop, HBase, and customized clusters. Follow the guidance on this page for an effective learning path through HDInsight documentation.
 
-<object type="image/svg+xml" data="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" width="100%" height="100%">
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%">
 </object>
 
 
