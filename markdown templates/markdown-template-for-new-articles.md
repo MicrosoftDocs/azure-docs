@@ -1,6 +1,6 @@
-<properties title="required" pageTitle="required" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="Your GitHub account" videoId="" scriptId="" manager="required" />
+<properties pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
 
-<tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="09/31/2014" ms.author="Your MSFT alias or your full email address" />
+<tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
 
 <!--This is a basic template that shows you how to use markdown to create a topic that includes a TOC, sections with sub-headings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For more complex markdown, see [the markdown extensions guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).-->
 
