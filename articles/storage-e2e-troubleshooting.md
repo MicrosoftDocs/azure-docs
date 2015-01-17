@@ -160,6 +160,8 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 
 7. Exit the dialog, and click **Restart** to begin collecting the trace with the hostname filter in place, so that only Azure Storage network traffic is included in the trace.
 
+>[AZURE.NOTE] After you have finished collecting your network trace, we strongly recommend that you revert the settings that you may have changed in Fiddler to decrypt HTTPS traffic. In the Fiddler Options dialog, deselect the **Capture HTTPS CONNECTs** and **Decrypt HTTPS Traffic** checkboxes.
+
 See [Using the Network Tracing Features](http://technet.microsoft.com/en-us/library/jj674819.aspx) on Technet for more details.
 
 ## <a name="review-metrics"></a>Review metrics data in the portal
