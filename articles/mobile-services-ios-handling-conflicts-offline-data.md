@@ -23,17 +23,11 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### Update Todo List View Controller
 
-1. Let's update the iPhone storyboard. If you're working with an iPad, please follow the same steps for the iPad storyboard as well.
-
-2. Select **MainStoryboard_iPhone.storyboard** in the Xcode Project Navigator, then select **Todo List View Controller**. At the top menu, click **Editor -> Embed In -> Navigation Controller**
-
-      ![][update-todo-list-view-controller-1]
-
-3. Next, in **Todo List View Controller**, select the table view cell, and sets its Accessory mode to **Disclosure indicator**. The disclosure indicator indicates to users that if they tap on the associated table view controller, a new view will be displayed. The disclosure indicator produces no event.
+1. Select **MainStoryboard_iPhone.storyboard** in the Xcode Project Navigator, then select **Todo List View Controller**. Select the table view cell, and sets its Accessory mode to **Disclosure indicator**. The disclosure indicator indicates to users that if they tap on the associated table view controller, a new view will be displayed. The disclosure indicator produces no event.
 
       ![][update-todo-list-view-controller-2]
 
-4. In **TodoListViewController.m**, remove the following operations and their contents altogether. We do not need them:
+2. In **TodoListViewController.m**, remove the following operations and their contents altogether. We do not need them:
 
         -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 
@@ -44,26 +38,27 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### Add Todo Item View Controller
 
-1. Add a new Objective-C class called **QSTodoItemViewController**, derived from **UIViewController**, to your project:
+1. Create a new Cocoa Touch class named **QSItemViewController**, derived from **UIViewController**.
 
-      ![][add-todo-item-view-controller-1]
+2. In **QSItemViewController.h** add the following type definition:
 
-      ![][add-todo-item-view-controller-2]
+        typedef void (^ItemEditCompletionBlock) (NSDictionary *editedItem);
 
-2. In **QSTodoItemViewController.h**, add a property to hold the item to be modified:
+3. In **QSItemViewController.h**, add a property to hold the item to be modified, and a property for the callback that is invoked after the user presses the back button in the detail view:
 
         @property (nonatomic, weak) NSMutableDictionary *item;
+        @property (nonatomic, strong) ItemEditCompletionBlock editCompleteBlock;
 
-3. In **QSTodoItemViewController.m**, add two private properties for the two fields of the todo item we'll edit -- the completion status and the text of the todo item itself:
+4. In **QSItemViewController.m**, add two private properties for the two fields of the todo item we'll edit -- the completion status and the text of the todo item itself:
 
-        @interface QSTodoItemViewController ()
+        @interface QSItemViewController ()
 
         @property (nonatomic, strong) IBOutlet UITextField *itemText;
         @property (nonatomic, strong) IBOutlet UISegmentedControl *itemComplete;
 
         @end
 
-4. In **QSTodoItemViewController.m**, update the stub implementation of **viewDidLoad** to the following code:
+5. In **QSItemViewController.m**, update the stub implementation of **viewDidLoad** to the following code:
 
         - (void)viewDidLoad
         {
@@ -83,8 +78,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
                         forControlEvents:UIControlEventValueChanged];
         }
 
-5. In **QSTodoItemViewController.m**, add four additional methods to handle several events:
-
+6. In **QSItemViewController.m**, add four additional methods to handle edited control events:
 
         - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
             [textField resignFirstResponder];
@@ -101,28 +95,51 @@ The offline sync features in the SDK let you handle such  conflicts via code and
             [[self view] endEditing:YES];
         }
 
-        - (void)viewWillDisappear:(BOOL)animated {
-            [self.item setValue:[self.itemText text] forKey:@"text"];
-            [self.item setValue:[NSNumber numberWithBool:self.itemComplete.selectedSegmentIndex == 0] forKey:@"complete"];
+7. In **QSItemViewController**, also add the following method, which is called when the user presses the **Back** button in the Navigation Bar. The method can be called on other events, so we first check the parent view. If there has been any change to the item, then **self.item** is modified and the callback **editCompleteBlock** is called:
+
+        - (void)didMoveToParentViewController:(UIViewController *)parent
+        {
+            if (![parent isEqual:self.parentViewController]) {
+                NSNumber *completeValue = [NSNumber numberWithBool:self.itemComplete.selectedSegmentIndex == 0];
+                
+                Boolean changed =
+                    [self.item valueForKey:@"text"] != [self.itemText text] ||
+                    [self.item valueForKey:@"complete"] != completeValue;
+                
+                if (changed) {
+                    [self.item setValue:[self.itemText text] forKey:@"text"];
+                    [self.item setValue:completeValue forKey:@"complete"];
+                    
+                    self.editCompleteBlock(self.item);
+                }
+            }
         }
 
 ### Add Todo Item View Controller and Segue to Storyboard
 
 1. Return to the **MainStoryboard_iPhone.storyboard** file using the Project Navigator.
 
-2. Add a new view controller for the Todo Item to the storyboard, to the right of the existing **Todo List View Controller**. Set the custom class of this new view controller to **QSTodoItemViewController**. To learn more, see [Adding a Scene to a Storyboard].
+2. Add a new view controller for the Todo Item to the storyboard, to the right of the existing **Todo List View Controller**. Set the custom class of this new view controller to **QSItemViewController**. To learn more, see [Adding a Scene to a Storyboard].
 
-3. Add a push segue from the **Todo List View Controller** to the **Todo Item View Controller** and name the segue **detailSegue**. To learn more, see [Adding a Segue Between Scenes in a Storyboard]. Don't create this segue from the any cell or button in the origin view controller. Instead, CTRL + Drag from the view controller icon below the **Todo List View Controller** in the storyboard interface to the  **Todo Item View Controller**. If you accidentally segue from a cell, you will trigger the segue twice when you run the app, resulting in this error:
+3. Add a **Show** segue from the **Todo List View Controller** to the **Todo Item View Controller**. Then, in the Attributes Inspector, set the segue identifier to **detailSegue**. 
+
+    Don't create this segue from the any cell or button in the origin view controller. Instead, CTRL + Drag from the view controller icon above the **Todo List View Controller** in the storyboard interface to the  **Todo Item View Controller**:
+
+    ![][todo-list-view-controller-add-segue]
+
+    If you accidentally segue from a cell, you will trigger the segue twice when you run the app, resulting in this error:
 
         Nested push animation can result in corrupted navigation bar
+
+    To learn more about segues, see [Adding a Segue Between Scenes in a Storyboard]. 
 
 4. Add a text field for item text and a segmented control for the completion status to the new **Todo Item View Controller**, with labels as well. In the segmented control, set the title of **Segment 0** to **Yes** and the title for **Segment 1** to **No**. Connect these new fields to outlets in code. To learn more, see [Build a User Interface] and [Segmented Controls].
 
       ![][add-todo-item-view-controller-3]
 
-5. Connect these new fields to the corresponding outlets you've already added to **QSTodoItemViewController.m**. Connect the item text field to the **itemText** outlet and the completion status segmented control to the **itemComplete** outlet. To learn more, see [Creating an Outlet Connection].
+5. Connect these new fields to the corresponding outlets you've already added to **QSItemViewController.m**. Connect the item text field to the **itemText** outlet and the completion status segmented control to the **itemComplete** outlet. To learn more, see [Creating an Outlet Connection].
 
-6. Set the text field's delegate to the view controller. This resigns the text field when you eventually edit an item and press RETURN. CTRL + Drag from the text field to the view controller icon below the **Todo Item View Controller** in the storyboard interface, and select the delegate outlet; this indicates to the storyboard that this text field's delegate is this view controller.
+6. Set the text field's delegate to the view controller. CTRL + Drag from the text field to the view controller icon below the **Todo Item View Controller** in the storyboard interface, and select the delegate outlet; this indicates to the storyboard that this text field's delegate is this view controller.
 
 7. Verify that the app works with all the changes you've made so far. Run the app now in the simulator. Add items to the todo list, and then click on them. You'll see the (currently empty) item view controller.
 
@@ -132,30 +149,35 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### Add Item Details to Todo Item View Controller
 
-1. We will refer to **QSTodoItemViewController** from  **QSTodoListViewController.m**. So, in **QSTodoListViewController.m**, let's add a line to import **QSTodoItemViewController.h**.
+1. We will refer to **QSItemViewController** from  **QSTodoListViewController.m**. So, in **QSTodoListViewController.m**, let's add a line to import **QSItemViewController.h**.
 
-        #import "QSTodoItemViewController.h"
+        #import "QSItemViewController.h"
 
-2. Add two new properties to the **QSTodoListViewController** interface in **QSTodoListViewController.m** to store the item being edited:
+2. Add a new property to the **QSTodoListViewController** interface in **QSTodoListViewController.m** to store the item being edited:
 
-        @property (nonatomic)           NSInteger       editedItemIndex;
-        @property (strong, nonatomic)   NSMutableDictionary *editedItem;
+        @property (strong, nonatomic)   NSDictionary *editingItem;
 
 3. Implement **tableView:didSelectRowAtIndexPath:** in **QSTodoListViewController.m** to save the item being edited and then to call the segue to display the detail view.
 
-          - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-              self.editedItemIndex = [indexPath row];
-              self.editedItem = [[self.todoService.items objectAtIndex:[indexPath row]] mutableCopy];
+        - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+            NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            self.editingItem = [MSCoreDataStore tableItemFromManagedObject:item]; // map from managed object to dictionary
+            
+            [self performSegueWithIdentifier:@"detailSegue" sender:self];
+        }
 
-              [self performSegueWithIdentifier:@"detailSegue" sender:self];
-          }
-
-4. Implement **prepareForSegue:sender:** in **QSTodoListViewController.m** to pass the item to the  **Todo Item View Controller**.
+4. Implement **prepareForSegue:sender:** in **QSTodoListViewController.m** to pass the item to the  **Todo Item View Controller**, and specify the callback when the user exits the detail view:
 
         - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
-                QSTodoItemViewController *ivc = (QSTodoItemViewController *)[segue destinationViewController];
-                ivc.item = self.editedItem;
+                QSItemViewController *ivc = (QSItemViewController *) [segue destinationViewController];
+                ivc.item = [self.editingItem mutableCopy];
+                
+                ivc.editCompleteBlock = ^(NSDictionary *editedValue) {
+                    [self.todoService updateItem:editedValue completion:^(NSUInteger index) {
+                        self.editingItem = nil;
+                    }];
+                };
             }
         }
 
@@ -165,101 +187,44 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### Add Support for Saving Edits
 
-1. When you click the "Back" button in the navigation view, the edits are lost. We've sent data to the detail view, but the data isn't  sent back to the master view. Since we already pass a pointer to a copy of the item, we can use that pointer to retrieve the list of updates made to the item and update it on the server. To get started, first update the server wrapper class of **QSTodoService** in **QSTodoService.m** by removing the **completeItem** operation and adding a new  **updateItem** operation. This is because **completeItem** only marks items as complete; instead, **updateItem** will update items.
+1. When you click the "Back" button in the navigation view, the edits are lost. We've sent data to the detail view, but the data isn't sent back to the master view. Since we already pass a pointer to a copy of the item, we can use that pointer to retrieve the list of updates made to the item and update it on the server. To get started, first update the server wrapper class of **QSTodoService** in **QSTodoService.m** by removing the **completeItem** operation and adding a new  **updateItem** operation. This is because **completeItem** only marks items as complete; instead, **updateItem** will update items.
 
-        - (void)updateItem:(NSDictionary *)item atIndex:(NSInteger)index completion:(QSCompletionWithIndexBlock)completion {
-            // Cast the public items property to the mutable type (it was created as mutable)
-            NSMutableArray *mutableItems = (NSMutableArray *) items;
-
-            // Replace the original in the items array
-            [mutableItems replaceObjectAtIndex:index withObject:item];
-
+        - (void)updateItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+        {
+            // Set the item to be complete (we need a mutable copy)
+            NSMutableDictionary *mutable = [item mutableCopy];
+            
             // Update the item in the TodoItem table and remove from the items array when we mark an item as complete
-            [self.syncTable update:item completion:^(NSError *error) {
+            [self.syncTable update:mutable completion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
-
-                NSInteger index = -1;
-                if (!error) {
-                    BOOL isComplete = [[item objectForKey:@"complete"] boolValue];
-                    NSString *remoteId = [item objectForKey:@"id"];
-                    index = [items indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-                        return [remoteId isEqualToString:[obj objectForKey:@"id"]];
-                    }];
-
-                    if (index != NSNotFound && isComplete)
-                    {
-                        [mutableItems removeObjectAtIndex:index];
-                    }
+                
+                if (completion != nil) {
+                    dispatch_async(dispatch_get_main_queue(), completion);
                 }
-
-                // Let the caller know that we have finished
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(index);
-                });
             }];
         }
 
 2. Remove the declaration for **completeItem** from **QSTodoService.h** and add this declaration for **updateItem**:
 
-        - (void)updateItem:(NSDictionary *)item atIndex:(NSInteger)index completion:(QSCompletionWithIndexBlock)completion;
+        - (void)updateItem:(NSDictionary *)item completion:(QSCompletionBlock)completion;
 
-3. In **QSTodoListViewController.m**, add the operation **viewWillAppear**, to call the update method whenever the master view is displayed after returning from the details view controller.
-
-        - (void)viewWillAppear:(BOOL)animated {
-            if (self.editedItem && self.editedItemIndex >= 0) {
-                // Returning from the details view controller
-                NSDictionary *item = [self.todoService.items objectAtIndex:self.editedItemIndex];
-
-                BOOL changed = ![item isEqualToDictionary:self.editedItem];
-                if (changed) {
-                    [self.tableView setUserInteractionEnabled:NO];
-
-                    // Change the appearance to look greyed out until we remove the item
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.editedItemIndex inSection:0];
-
-                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-                    cell.textLabel.textColor = [UIColor grayColor];
-
-                    // Ask the todoService to update the item, and remove the row if it's been completed
-                    [self.todoService updateItem:self.editedItem atIndex:self.editedItemIndex completion:^(NSUInteger index) {
-                        if ([[self.editedItem objectForKey:@"complete"] boolValue]) {
-                            // Remove the row from the UITableView
-                            [self.tableView deleteRowsAtIndexPaths:@[ indexPath ]
-                                                  withRowAnimation:UITableViewRowAnimationTop];
-                        } else {
-                            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-                        }
-
-                        [self.tableView setUserInteractionEnabled:YES];
-
-                        self.editedItem = nil;
-                        self.editedItemIndex = -1;
-                    }];
-                } else {
-                    self.editedItem = nil;
-                    self.editedItemIndex = -1;
-                }
-            }
-        }
-
-4. Now let's test the app. Verify that the app works with all the changes you've made so far. Run the app now in the simulator. Add items to the todo list, and then click on them. Try to edit an item, and go back. Verify that the item description is updated in the app's master view. Refresh the app using the drag-down gesture, and verify that the edit is reflected in the cloud.
+3. Now let's test the app. Verify that the app works with all the changes you've made so far. Run the app now in the simulator. Add items to the todo list, and then click on them. Try to edit an item, and go back. Verify that the item description is updated in the app's master view. Refresh the app using the drag-down gesture, and verify that the edit is reflected in your remote service.
 
 ### Conflict Handling Problem
 
-1. Let's examine what happens when two different clients try to modify the same piece of data at the same time. In the example list below, there's an item "Hello world 3" Let's change this to, say, "Hello world 13" on one device and let's change this to "Hello world 23" on another device.
+1. Let's examine what happens when two different clients try to modify the same piece of data at the same time. In the example list below, there's an item "Mobile Services is Cool!" Let's change this to, say, "I love Mobile Services!" on one device and let's change this to "I love Azure!" on another device.
 
       ![][conflict-handling-problem-1]
 
 2. Launch the app in two places: on two iOS devices, or in the simulator and on an iOS device. If you don't have a physical device to test on, launch one instance in the simulator, and using a REST client, send a PATCH request to the mobile service.The URL of the PATCH request reflects the name of the Mobile Service, the name of the todo item table, and the ID of the todo item table you're editing, while the x-zumo-application header is the application key:
 
-        PATCH https://todolist.azure-mobile.net/tables/todoitem/D265929E-B17B-42D1-8FAB-D0ADF26486FA?__systemproperties=__version
+        PATCH https://donnam-tutorials.azure-mobile.net/tables/todoitem/D265929E-B17B-42D1-8FAB-D0ADF26486FA?__systemproperties=__version
         Content-Type: application/json
-        x-zumo-application: shYOoDFdKhmzLEbnMQqPYrCLhwGOVA10
+        x-zumo-application: xuAdWVDcLuCNfkTvOfaqzCCSBVHqoy96
 
         {
-            "id": "D265929E-B17B-42D1-8FAB-D0ADF26486FA",
-            "text": "Hello world 23"
+            "id": "CBBF4464-E08A-47C9-B6FB-6DCB30ACCE7E",
+            "text": "I love Azure!"
         }
 
 3. Now, refresh the items in the two instances of the app. You'll see an error printed in the output log in Xcode:
@@ -365,13 +330,13 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### Add Conflict Handler to Todo List View Controller
 
-1. In **QSTodoListViewController.m**, replace the call to **defaultService** in **viewDidLoad** with a call to **defaultServiceWithDelegate** instead, as shown below:
+1. In **QSTodoListViewController.m**, edit **viewDidLoad**. Replace the call to **defaultService** with a call to **defaultServiceWithDelegate** instead:
 
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
 
 2. In **QSTodoListViewController.h**, add **&lt;MSSyncContextDelegate&gt;** to the interface declaration so we're implementing the **MSSyncContextDelegate** protocol.
 
-        @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate>
+        @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate, NSFetchedResultsControllerDelegate>
 
 3. Add the following import statement at the top of **QSTodoListViewController.m**:
 
@@ -424,7 +389,12 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### Test the App
 
-Let's test the application with conflicts! Edit the same item in two different instances of the app running at the same time. Now perform the refresh gesture in the app instances by dragging from the top. You'll see a prompt to reconcile the change now.
+Let's test the application with conflicts! Edit the same item in two different instances of the app running at the same time, or using the app and a REST client. 
+
+Perform the refresh gesture in the app instances by dragging from the top. Now you'll see a prompt to reconcile the conflict:
+
+![][conflict-ui]
+
 
 ### Summary
 
@@ -438,15 +408,15 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 
 <!-- URLs. -->
 
-[add-todo-item-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-1.png
-[add-todo-item-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-2.png
 [add-todo-item-view-controller-3]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-3.png
 [add-todo-item-view-controller-4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
 [add-todo-item-view-controller-5]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-5.png
 [add-todo-item-view-controller-6]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-6.png
-[conflict-handling-problem-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
-[update-todo-list-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-1.png
+[todo-list-view-controller-add-segue]: ./media/mobile-services-ios-handling-conflicts-offline-data/todo-list-view-controller-add-segue.png
 [update-todo-list-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-2.png
+[conflict-handling-problem-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
+[conflict-ui]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-ui.png
+
 
 [Segmented Controls]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
 [Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
