@@ -34,7 +34,9 @@ Follow the steps in this article to create a local working branch on your comput
 
 8. Add and commit the changes you made:
 
-        git add . 
+        git add .
+        git commit –m "<comment>"
+        
    Or, to add only the specific files you modified:
 
         git add <file path>
