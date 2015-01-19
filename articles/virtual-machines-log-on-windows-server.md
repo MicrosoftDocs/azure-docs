@@ -32,3 +32,4 @@ For a virtual machine that's running the Windows Server operating system, you us
 
 	You can now work with the virtual machine just as you would with any other server.
 
+>[AZURE.NOTE] If you are unable to connect, you may need to precede your user name with a "\" in order to connect. In the Remote Desktop Prompt, you can select **Other User** or **Use another account**, add a backslash before your user name and then type the same password. For more troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294). 
