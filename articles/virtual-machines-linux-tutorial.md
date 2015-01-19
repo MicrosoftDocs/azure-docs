@@ -1,6 +1,6 @@
 <properties urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux vm" description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/9/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="1/19/2015" ms.author="kathydav" />
 
 #Create a Virtual Machine Running Linux 
 
@@ -39,6 +39,7 @@ This tutorial uses the **From Gallery** method to create a virtual machine becau
 
 [WACOM.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
+> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For more details on how to configure and connect with an SSH key, see [How to Use SSH with Linux on Azure](./virtual-machines-linux-use-ssh-key/).
 
 ##Next Steps 
 
@@ -49,6 +50,8 @@ To learn more about Linux on Azure, see the following articles:
 - [How to use the Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/)
 
 - [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
+
+- [The Docker Virtual Machine Extension for Linux on Azure](../virtual-machines-docker-vm-extension/)
 
 
 [Next Steps]: #next
