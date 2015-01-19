@@ -49,7 +49,7 @@ Maybe not.
 
  Then, click the edit icon in the GitHub version of the article
 
- ![GitHub profile example](./media/tools-and-setup/editicon.png)
+ ![GitHub profile example](./media/tools-and-setup/editicon.PNG)
 
  That opens the easy-to-use web editor that makes it easy to submit changes. 
 
