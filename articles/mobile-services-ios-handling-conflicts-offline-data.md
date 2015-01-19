@@ -11,17 +11,31 @@ This topic shows you how to synchronize data and handle conflicts when using the
 
 >[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
+This tutorial walks you through these basic steps:
+
+1. [Update the App Project to Allow Editing]
+2. [Update Todo List View Controller]
+3. [Add Todo Item View Controller]
+4. [Add Todo Item View Controller and Segue to Storyboard]
+5. [Add Item Details to Todo Item View Controller]
+6. [Add Support for Saving Edits]
+7. [Conflict Handling Problem]
+8. [Update QSTodoService to Support Conflict Handling]
+9. [Add UI Alert View Helper to Support Conflict Handling]
+10. [Add Conflict Handler to Todo List View Controller]
+11. [Test the App]
+
 ## Complete the Get Started with Offline Tutorial
 
 Follow the instructions at the [Get Started with Offline Data] tutorial and complete that project. We will use the finished project from that tutorial as the starting point for this tutorial.
 
-## Update the App Project to Allow Editing
+## <a name="update-app"></a>Update the App Project to Allow Editing
 
 Let's update the finished project from [Get Started with Offline Data] to allow the editing of items. Currently, if you run this same app on two phones, change the same item on both phones locally, and push the changes back to the server, it will fail with a conflict.
 
 The offline sync features in the SDK let you handle such  conflicts via code and let you dynamically decide what to do with conflicting items. Changing the quickstart project lets us experiment with this feature.
 
-### Update Todo List View Controller
+### <a name="update-list-view"></a>Update Todo List View Controller
 
 1. Select **MainStoryboard_iPhone.storyboard** in the Xcode Project Navigator, then select **Todo List View Controller**. Select the table view cell, and sets its Accessory mode to **Disclosure indicator**. The disclosure indicator indicates to users that if they tap on the associated table view controller, a new view will be displayed. The disclosure indicator produces no event.
 
@@ -36,7 +50,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
         -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
          forRowAtIndexPath:(NSIndexPath *)indexPath
 
-### Add Todo Item View Controller
+### <a name="add-view-controller"></a>Add Todo Item View Controller
 
 1. Create a new Cocoa Touch class named **QSItemViewController**, derived from **UIViewController**.
 
@@ -115,7 +129,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
             }
         }
 
-### Add Todo Item View Controller and Segue to Storyboard
+### <a name="add-segue"></a>Add Todo Item View Controller and Segue to Storyboard
 
 1. Return to the **MainStoryboard_iPhone.storyboard** file using the Project Navigator.
 
@@ -147,7 +161,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
       ![][add-todo-item-view-controller-5]
 
-### Add Item Details to Todo Item View Controller
+### <a name="add-item-details"></a>Add Item Details to Todo Item View Controller
 
 1. We will refer to **QSItemViewController** from  **QSTodoListViewController.m**. So, in **QSTodoListViewController.m**, let's add a line to import **QSItemViewController.h**.
 
@@ -185,7 +199,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
       ![][add-todo-item-view-controller-6]
 
-### Add Support for Saving Edits
+### <a name="saving-edits"></a>Add Support for Saving Edits
 
 1. When you click the "Back" button in the navigation view, the edits are lost. We've sent data to the detail view, but the data isn't sent back to the master view. Since we already pass a pointer to a copy of the item, we can use that pointer to retrieve the list of updates made to the item and update it on the server. To get started, first update the server wrapper class of **QSTodoService** in **QSTodoService.m** by removing the **completeItem** operation and adding a new  **updateItem** operation. This is because **completeItem** only marks items as complete; instead, **updateItem** will update items.
 
@@ -210,7 +224,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 3. Now let's test the app. Verify that the app works with all the changes you've made so far. Run the app now in the simulator. Add items to the todo list, and then click on them. Try to edit an item, and go back. Verify that the item description is updated in the app's master view. Refresh the app using the drag-down gesture, and verify that the edit is reflected in your remote service.
 
-### Conflict Handling Problem
+### <a name="conflict-handling-problem"></a>Conflict Handling Problem
 
 1. Let's examine what happens when two different clients try to modify the same piece of data at the same time. In the example list below, there's an item "Mobile Services is Cool!" Let's change this to, say, "I love Mobile Services!" on one device and let's change this to "I love Azure!" on another device.
 
@@ -235,7 +249,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
   This is because on the completion block, in the call to **pullWithQuery:completion:**, the error parameter will be non-nil, which will cause the error to be printed out to the output via **NSLog**.
 
-### Update QSTodoService to Support Conflict Handling
+### <a name="service-add-conflict-handling"></a>Update QSTodoService to Support Conflict Handling
 
 1. Let's let the user decide how to handle the conflict by dealing with it in the client. To do this, let's implement the **MSSyncContextDelegate** protocol. In both **QSTodoService.h** and **QSTodoService.m**, change the **(QSTodoService *)defaultService;** factory method declaration to the statement below, so as to receive the sync context delegate as a parameter:
 
@@ -253,7 +267,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:syncDelegate dataSource:store callback:nil];
 
-### Add UI Alert View Helper to Support Conflict Handling
+### <a name="add-alert-view"></a>Add UI Alert View Helper to Support Conflict Handling
 
 1. If there's a conflict, let's allow the user to choose which version to keep:
   * keep the client version (which overrides the version on the server),
@@ -328,7 +342,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
         @end
 
-### Add Conflict Handler to Todo List View Controller
+### <a name="add-conflict-handling"></a>Add Conflict Handler to Todo List View Controller
 
 1. In **QSTodoListViewController.m**, edit **viewDidLoad**. Replace the call to **defaultService** with a call to **defaultServiceWithDelegate** instead:
 
@@ -387,7 +401,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
             }];
         }
 
-### Test the App
+### <a name="test-app"></a>Test the App
 
 Let's test the application with conflicts! Edit the same item in two different instances of the app running at the same time, or using the app and a REST client. 
 
@@ -407,6 +421,19 @@ Next, you discovered what happens when there is a conflict. You added support fo
 Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an alert to users, and finished by adding code to **QSTodoListViewController** to prompt the user to reconcile the conflict in one of three ways.
 
 <!-- URLs. -->
+
+[Update the App Project to Allow Editing]: #update-app
+[Update Todo List View Controller]: #update-list-view
+[Add Todo Item View Controller]: #add-view-controller
+[Add Todo Item View Controller and Segue to Storyboard]: #add-segue
+[Add Item Details to Todo Item View Controller]: #add-item-details
+[Add Support for Saving Edits]: #saving-edits
+[Conflict Handling Problem]: #conflict-handling-problem
+[Update QSTodoService to Support Conflict Handling]: #service-add-conflict-handling
+[Add UI Alert View Helper to Support Conflict Handling]: #add-alert-view
+[Add Conflict Handler to Todo List View Controller]: #add-conflict-handling
+[Test the App]: #test-app
+
 
 [add-todo-item-view-controller-3]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-3.png
 [add-todo-item-view-controller-4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
