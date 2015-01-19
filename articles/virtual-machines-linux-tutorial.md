@@ -39,7 +39,7 @@ This tutorial uses the **From Gallery** method to create a virtual machine becau
 
 [WACOM.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For more details on how to configure and connect with an SSH key, see [How to Use SSH with Linux on Azure](../virtual-machines-linux-use-ssh-key/).
+> [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For more details on how to configure and connect with an SSH key, see [How to Use SSH with Linux on Azure](./virtual-machines-linux-use-ssh-key/).
 
 ##Next Steps 
 
