@@ -1,28 +1,26 @@
 <properties urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="kathydav" />
 
 
 #Create and upload a Windows Server VHD to Azure#
 
 This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more information about disks and images in Microsoft Azure, see [About Disks and Images in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
-**Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-windows-tutorial/).
+> [AZURE.NOTE] When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-windows-tutorial/).
 
 ##Prerequisites##
 This article assumes that you have the following items:
 
-**An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).  
+1. **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).  
 
-**Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed. To download the module, see [Microsoft Azure Downloads](http://www.windowsazure.com/en-us/downloads/). A tutorial to install and configure PowerShell with your Azure Subscription can be found [here](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).
+2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed. To download the module, see [Microsoft Azure Downloads](http://www.windowsazure.com/en-us/downloads/). A tutorial to install and configure PowerShell with your Azure Subscription can be found [here](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).The [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) cmdlet will be used to upload the VHD.
 
-- The [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) cmdlet, which is part of the Microsoft Azure PowerShell module. You'll use this cmdlet to upload the VHD.
+3. **A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solutions such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/en-us/library/hh846766.aspx).
 
-**A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solutions such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/en-us/library/hh846766.aspx).
-
-**Important**: The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/en-us/library/hh848454.aspx). A tutorial on this can be found [here](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.NOTE] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/en-us/library/hh848454.aspx). A tutorial on this can be found [here](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
-**Window Server operating system media.** This task requires an .iso file that contains the Windows Server operating system. The following Windows Server versions are supported:
+ The following Windows Server versions are supported:
 <P>
   <TABLE BORDER="1" WIDTH="600">
   <TR BGCOLOR="#E9E7E7">
@@ -110,6 +108,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 	![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
+
 5. Click **Create Storage Account**.
 
 	The account now appears under **Storage Accounts**.
@@ -185,7 +184,7 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 
 	For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/dn495173.aspx).
 
-##Add the Image to Your List of Custom Images ##
+##Step 5: Add the Image to Your List of Custom Images ##
 After you upload the .vhd, you add it as an image to the list of custom images associated with your subscription.
 
 1. From the Management Portal, under **All Items**, click **Virtual Machines**.
@@ -198,11 +197,13 @@ After you upload the .vhd, you add it as an image to the list of custom images a
 
 4. In **Create an image from a VHD**, do the following:
  	
+
 	- Specify **name**
 	- Specify **description**
 	- To specify the **URL of your VHD** click the folder button to launch the below dialog box
  
 	![Select VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
+
 	- Select the storage account your VHD is in and click **Open**. This returns you to the **Create an image from a VHD** window.
 	- After you return to the **Create an image from a VHD** window, select the Operating System Family.
 	- Check **I have run Sysprep on the virtual machine associated with this VHD** to acknowledge that you generalized the operating system in Step 1, and then click **OK**. 
@@ -226,6 +227,8 @@ After you upload the .vhd, you add it as an image to the list of custom images a
 
 	![create VM from custom image](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
+	> [AZURE.NOTE] If you experience a failure after creating a VM with a message that says, "The VHD https://XXXXX... has an unsupported virtual size of YYYY bytes. The size must be a whole number (in MBs)," it means your VHD is not a whole number of MBs and needs to be a fixed size VHD. In step 5 above, try adding your image using the Add-AzureVMImage PowerShell cmdlet mentioned in the optional step instead of using the portal. The Azure cmdlets will ensure that the VHD meets the Azure requirements.
+	
 ## Next Steps ##
  
 
