@@ -19,11 +19,11 @@ Application Insights is a preview service available in the Azure Preview portal 
 
 In your project in Visual Studio 2013 Update 3 or later, add Application Insights to your project.
 
-![](./media/insights-perf-analytics/03-add.png)
+![In Solution Explorer, right-click your project and choose Add Application Insights](./media/insights-perf-analytics/03-add.png)
 
 Or if you're creating a new project, just make sure to check the Application Insights option:
 
-![](./media/insights-perf-analytics/04-new.png)
+![In the New Project dialog, check Add Application Insights](./media/insights-perf-analytics/04-new.png)
 
 
 When you're asked to login, use the credentials for your Azure account.
@@ -32,7 +32,7 @@ When you're asked to login, use the credentials for your Azure account.
 
 Enable the Application Insights Extension on the Azure web site blade (not the Application Insight blade):
 
-![](./media/insights-perf-analytics/05-extend.png)
+![In your Azure website blade, click Extensions. In the Extensions blade, click Add, then Choose Extension, then Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 ## Explore the data
 
@@ -40,15 +40,15 @@ Use your website for a while to generate some data.
 
 Then refresh your Application Insights blade and scroll down to the performance lens.
 
-![](./media/insights-perf-analytics/06-overview.png)
+![Click Refresh](./media/insights-perf-analytics/06-overview.png)
 
 Drill into the first or second chart to see your code dependencies:
 
-![](./media/insights-perf-analytics/07-dependency.png)
+![Click a chart to see more detail](./media/insights-perf-analytics/07-dependency.png)
 
 Drill through to see individual requests:
 
-![](./media/insights-perf-analytics/08-requests.png)
+![In the grid, click a dependency to see related requests.](./media/insights-perf-analytics/08-requests.png)
 
 ## Get more Application Insights
 
