@@ -4,22 +4,34 @@
 
 #Azure technical content contributors' guide index
 
-###Overview
+##General guidance
 
 - [Contribute to Azure documentation](./../CONTRIBUTING.md)
 
-###Authoring technical articles
-
 - [Content channel guidance](./content-channel-guidance.md)
+
+- [Style and voice](./style-and-voice.md)
+
+
+##Authoring articles: tools, processes, guidance
+
+- Tools and setup for authoring in GitHub (pending)
+
+- [Git commands for creating a new article or updating an existing article](./git-commands-for-master.md)
+
+- [Git commands for creating a new article or updating an existing article](./git-commands-for-sandbox.md)
+
+- [File names and locations for Azure technical articles](./file-names-and-locations.md)
+
+
+##Authoring articles: markdown
 
 - [Create tables in markdown](./create-tables-markdown.md)
 
 - [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
 
-- [File names and locations for Azure technical articles](./file-names-and-locations.md)
-
 - [Markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md)
 
 - [Metadata for Azure technical articles](./article-metadata.md)
 
-- [Style and voice](./style-and-voice.md)
+

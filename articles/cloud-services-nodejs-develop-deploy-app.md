@@ -17,12 +17,8 @@ provide a robust dedicated virtual machine for hosting each role reliably.
 
 For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
-<p />
+>[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight Azure Website.</a> You can easily upgrade to a Cloud Service as your website grows and your requirements change.
 
-<div class="dev-callout"><strong>Looking to build a simple website?</strong>
-<p>If your scenario involves just a simple website front-end, consider <a href="/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight Azure Website.</a> You can easily upgrade to a Cloud Service as your website grows and your requirements change.</p>
-</div>
-<br />
 
 By following this tutorial, you will build a simple web application hosted inside a web role. You
 will use the compute emulator to test your application locally and then you will deploy it
