@@ -26,7 +26,7 @@ information on using Azure Redis Cache, refer to the [Next Steps][] section.
 <a name="video"></a>
 ## Introduction to Azure Redis Cache (Video)
 In this video, Saurabh Pant and Scott Hanselman introduce Azure Redis Cache. (Duration: 7:45)  
-> [AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
+[AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
 
 <a name="what-is"></a>
 ## What is Azure Redis Cache?
