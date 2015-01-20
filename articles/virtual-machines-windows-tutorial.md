@@ -1,6 +1,6 @@
 <properties urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Windows in Azure" metaKeywords="Azure capture image vm, capturing vm" description="Learn to create Windows virtual machine (VM) .in Azure, then log on and attach a data disk" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/18/2015" ms.author="kathydav" />
 
 
 
