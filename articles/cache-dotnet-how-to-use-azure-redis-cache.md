@@ -226,7 +226,6 @@ Type **RedisSessionStateProvider** into the **Search Online** text box, select i
 
 The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
 
-    ```XML
     <sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
@@ -246,14 +245,11 @@ The NuGet package downloads and adds the required assembly references and adds t
         <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />
       </providers>
     </sessionState>
-    ```
-
 
 The commented section provides an example of the attributes and sample settings for them.
 
 Configure the attributes with the values from your cache blade on the preview portal, and configure the other values as desired.
 
-    ```XML
     <sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
@@ -274,17 +270,14 @@ Configure the attributes with the values from your cache blade on the preview po
 		accessKey="..." ssl="true" />
       </providers>
     </sessionState>
-    ```
 
 Be sure to comment out the standard **InProc** session state provider.
 
-    ```XML
     <!-- <sessionState mode="InProc" customProvider="DefaultSessionProvider">
       <providers>
         <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
       </providers>
     </sessionState> -->
-    ```
     
 For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider][].
 
