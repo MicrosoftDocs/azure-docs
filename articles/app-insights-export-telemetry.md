@@ -1,4 +1,4 @@
-<properties title="" pageTitle="Export telemetry from Application Insights" description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." metaKeywords="application insights export" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
+<properties title="Export telemetry from Application Insights" pageTitle="Export telemetry from Application Insights" description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." metaKeywords="application insights export" authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
  
