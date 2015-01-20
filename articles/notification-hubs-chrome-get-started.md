@@ -9,7 +9,7 @@ This topic shows you how to use Azure Notification Hubs to send push notificatio
 
 One of the key benefits of using Chrome App notifications is that the notifications show up within the context of Google Chrome browser and you don't need to have the Chrome App running or open in the browser (though Chrome browser itself must be running). You also get a consolidated view of all your notifications in the Chrome Notifications window. 
 
->[WACOM.NOTE] This is not a generic in-browser push notification and is specific to Chrome Apps - see [Chrome Apps Overview] for details. Chrome Apps were previously known as "Packaged Apps" and are different from simpler "Hosted Apps". See [Installable Web Apps] for the difference. Chrome Apps can also run on Mobile (Android & iOS) using Apache Cordova. See [Chrome Apps on Mobile] to learn more. 
+>[AZURE.NOTE] This is not a generic in-browser push notification and is specific to Chrome Apps - see [Chrome Apps Overview] for details. Chrome Apps were previously known as "Packaged Apps" and are different from simpler "Hosted Apps". See [Installable Web Apps] for the difference. Chrome Apps can also run on Mobile (Android & iOS) using Apache Cordova. See [Chrome Apps on Mobile] to learn more. 
 
 In this tutorial, we will create a Chrome app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the Chrome users who have installed this Chrome App. 
 
@@ -25,7 +25,7 @@ This tutorial demonstrates the simple broadcast scenario using Notification Hubs
 
 Be sure to follow along with the tutorials in Next Steps to see how to use notification hubs to address specific users and groups of devices. 
 
->[WACOM.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-chrome-get-started/" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-chrome-get-started/" target="_blank">Azure Free Trial</a>.
 
 ##<a id="register"></a>Enable Google Cloud Messaging (GCM)
 
@@ -424,7 +424,7 @@ For an example of how to send notifications using the REST APIs, see **How to us
 
    	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." 
 
-	>[WACOM.NOTE] Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+	>[AZURE.NOTE] Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
 
 5. Then add the following lines in the **Main** method:
 

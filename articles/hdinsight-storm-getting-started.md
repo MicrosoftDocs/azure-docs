@@ -46,7 +46,7 @@ You must have the following to successfully complete this tutorial.
 
 5. Enter the number of **Data Nodes** to use for this cluster, and the **Region/Virtual Network** that this cluster will be created in. Click the arrow to continue.
 
-	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+	> [AZURE.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
 	![data nodes and region](./media/hdinsight-storm-getting-started/wizard2.png)
 
@@ -94,7 +94,7 @@ For the preview release of Storm on HDInsight, you must connect to the cluster u
 
     ![connect](./media/hdinsight-storm-getting-started/connect.png)
 
-	> [WACOM.NOTE] You may receive several prompts to trust certificates while connecting to the remote machine.
+	> [AZURE.NOTE] You may receive several prompts to trust certificates while connecting to the remote machine.
 
 3. After connecting, use the __Hadoop Command Line__ icon on the desktop to open the Hadoop Command Line.
 
@@ -116,7 +116,7 @@ To run the **WordCountTopology**, use the following commands.
 
 This tells Storm that we want to run the **wordcount** topology from the **storm.starter.WordCountTopology** class, which is contained in the **storm-starter-&lt;version>-jar-with-dependencies.jar** file. This file is located in the contrib folder under the %storm_home% directory, along with the other Storm examples.
 
-> [WACOM.NOTE] The version of the JAR file containing the examples may change periodically. Specify the version of the file provided with your cluster when running this command.
+> [AZURE.NOTE] The version of the JAR file containing the examples may change periodically. Specify the version of the file provided with your cluster when running this command.
 
 Note that nothing is returned when you enter the command. **A Storm topology, once started, runs until you stop it.** The WordCountTopology will generate random sentences, and keep a count of how many times it encounters each word, until you stop it.
 
@@ -138,7 +138,7 @@ The WordCountTopology sample doesn't write output to a directory, but we can use
 
 	![selecting executors](./media/hdinsight-storm-getting-started/executors.png)
 
-	> [WACOM.NOTE] Depending on the number of nodes in your cluster, and the topology you are running, it may take several minutes before the topology begins processing. Refresh the page periodically until the **Emitted** and **Transferred** values start increasing.
+	> [AZURE.NOTE] Depending on the number of nodes in your cluster, and the topology you are running, it may take several minutes before the topology begins processing. Refresh the page periodically until the **Emitted** and **Transferred** values start increasing.
 
 6. You should see a page containing information similar to the following.
 
@@ -181,7 +181,7 @@ If you view the Storm UI web page immediately after this command, you will notic
 
 	Use the 'jar' command to extract the source code or Java docs. For example, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.
 
-	> [WACOM.NOTE] Java docs consist of web pages. Once extracted, use a browser to view the **index.html** file.
+	> [AZURE.NOTE] Java docs consist of web pages. Once extracted, use a browser to view the **index.html** file.
 
 * [Analyzing sensor data with Storm and HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis)
 
