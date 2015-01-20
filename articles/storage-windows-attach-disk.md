@@ -1,6 +1,6 @@
 <properties urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine | Azure" metaKeywords="Azure Windows virtual machine, Azure attach disk, Azure initialize disk" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="" services="virtual-machines, storage" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="kathydav" />
 
 #How to Attach a Data Disk to a Windows Virtual Machine
 
@@ -17,9 +17,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 ##<a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server
 
-1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Windows Server][logon].
-
-
+1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server][logon].
 
 2. After you log on, open **Server Manager**, in the left pane, expand **Storage**, and then click **Disk Management**.
 
