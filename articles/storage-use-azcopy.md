@@ -411,6 +411,8 @@ The examples below demonstrate a variety of scenarios for copying blobs with AzC
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
+For more information about working with your storage access keys, please see [View, copy, and regenerate storage access keys]( http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
+
 ### Copy a blob via server-side copy
 
 When you copy a blob within a storage account or across storage accounts, a server-side copy operation is performed. For more information about server-side copy operations, see [Introducing Asynchronous Cross-Account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
@@ -736,11 +738,11 @@ Note that /SyncCopy might generate additional egress cost comparing to asynchron
 
 By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `/SetContentType:[content-type]`. This syntax sets the content type for all blobs in a copy operation.
 
-	AzCopy /Source:D:\test\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
+	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
 
 If you specify `/SetContentType` without a value, then AzCopy will set each blob or file's content type according to its file extension.
 
-	AzCopy /Source:D:\test\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
+	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 
 ##<a id="copy-files"></a> Copy files in Azure File storage with AzCopy (preview version only)
 
@@ -792,7 +794,7 @@ The examples below demonstrate a variety of scenarios for copying Azure Table En
 
 ### Export entities to the local file system
 
-	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:D:\test\ /SourceKey:key
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
 
 ### Export entities to an Azure blob
 
@@ -806,7 +808,7 @@ The generated JSON data file follows the payload format for minimal metadata. Fo
 
 ### Split the export files
 
-	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
+	AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 
 AzCopy uses a *volume index* in the split data file names to distinguish multiple files. The volume index consists of two parts, a *partition key range index* and a *split file index*. Both indexes are zero-based.
 
@@ -821,7 +823,7 @@ Note that the minimum possible value for option `/SplitSize` is 32MB. If the spe
 
 ### Export entities concurrently
 
-	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:D:\test\ /SourceKey:key /PKRS:"aa#bb"
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
 
 AzCopy will start concurrent operations to export entities when the user specifies option `/PKRS`. Each operation exports one partition key range.
 
@@ -829,7 +831,7 @@ Note that the number of concurrent operations is also controlled by option `/NC`
 
 ### Import entities concurrently
 
-	AzCopy /Source:D:\test\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
+	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
 
 When you export table entities, AzCopy writes a manifest file to the specified destination folder or blob container. The manifest file is used by the import process to locate the necessary data files and perform data validation during the import process. The manifest file uses the following naming convention:
 

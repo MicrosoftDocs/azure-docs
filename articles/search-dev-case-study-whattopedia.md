@@ -158,7 +158,7 @@ All web jobs have been developed as console applications that can be uploaded to
 
 The job is scheduled to run every 5 minutes as a scheduled web task. We calculated that the service takes approximately three minutes to upload 3,000 documents, which was within our requirements. 
 
-> [WACOM.NOTE] There is a prototype indexer feature that was recently introduced in Azure Search. This feature came too late for us to use it in our first release, but it appears to solve the same problem we used our indexer job for, which is to automate data load operations.
+> [AZURE.NOTE] There is a prototype indexer feature that was recently introduced in Azure Search. This feature came too late for us to use it in our first release, but it appears to solve the same problem we used our indexer job for, which is to automate data load operations.
 
 
 ###Backup strategy
@@ -181,7 +181,7 @@ Previously, our code implemented paging, counts, and other behaviors that are st
 
 The greatest challenge during implementation was that it was a Preview version and finding information and shared experiences was difficult. Once we connected a few dots, we found that using Azure Search Service was pretty simple due to its REST API and JSON data format. We could call the framework directly from most open source plugins like JQuery JSON.Net, and we could use tools like Fiddler for fast experimentation and debugging. 
 
-> [WACOM.NOTE] Besides having the data prepped, it helped that those of us building the prototype already understood how search technology works, making us more productive, and more appreciative of the built-in features. If you need to ramp up on search query construction, faceted navigation, filters, etc. you should expect prototyping to take longer. 
+> [AZURE.NOTE] Besides having the data prepped, it helped that those of us building the prototype already understood how search technology works, making us more productive, and more appreciative of the built-in features. If you need to ramp up on search query construction, faceted navigation, filters, etc. you should expect prototyping to take longer. 
 
 ###Controlling facets in the search presentation page
 

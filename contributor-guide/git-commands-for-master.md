@@ -34,7 +34,9 @@ Follow the steps in this article to create a local working branch on your comput
 
 8. Add and commit the changes you made:
 
-        git add . 
+        git add .
+        git commit –m "<comment>"
+        
    Or, to add only the specific files you modified:
 
         git add <file path>
@@ -56,7 +58,7 @@ Follow the steps in this article to create a local working branch on your comput
 
 14. Review your content at
 
- http://azure.Microsoft.com/en-us/documentation/articles/*name of your article without the MD extension*
+ http://azure.Microsoft.com/en-us/documentation/articles/*name-of-your-article-without-the-MD-extension*
 
  At this time, technical articles are published once daily around 10 AM Pacific Standard Time (PST), Monday-Friday. Remember, your pull request has to be accepted before changes are included in the next scheduled publishing run.
 

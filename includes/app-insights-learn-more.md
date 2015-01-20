@@ -10,6 +10,7 @@ Overview
 </li>
 <li> <a href="../app-insights-detect-triage-diagnose/">Detect, triage and diagnose</a>
 </li>
+<li><a href="../app-insights-overview-usage/">Know your users</a></li>
 </ul>
 
 
