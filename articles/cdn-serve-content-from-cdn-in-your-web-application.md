@@ -29,14 +29,9 @@ This tutorial has the following prerequisites:
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) for blob management GUI
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (used by [Automate content upload from your ASP.NET application to your CDN endpoint](#upload))
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
-  <ul>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
-  <ul>
-</div>
+> [AZURE.NOTE] You need an Azure account to complete this tutorial:
+> + You can [open an Azure account for free][http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F] - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
+> + You can [activate MSDN subscriber benefits][http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F] - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 <a name="static"></a>
 ## Serve static content from an Azure CDN endpoint ##
