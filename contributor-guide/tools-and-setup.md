@@ -40,6 +40,8 @@ Your profile should resemble this profile:
 
 ##Sign up for Disqus
 
+ ![Discus logo](./media/tools-and-setup/discus.png)
+
 If you are an employee, and if you are the author of an article or a major contributor to an article, you'll want to sign up for Disqus so you can participate in the comment stream for the article. 
 
 1. Sign up for an account at [http://www.disqus.com/](http://www.disqus.com/)
