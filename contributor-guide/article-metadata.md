@@ -153,7 +153,7 @@ The tags section uses this syntax:
 
  - **infographic-page**: Azure.com only. A page that features a browsable infographic or poster, for instance http://azure.microsoft.com/en-us/documentation/infographics/windows-azure/
 
- - **reference**: An API reference page
+ - **reference**: An API reference page (including REST API) or PowerShell cmdlet reference page
 
  - **service-home-page**: Azure.com only.  A doc service home page, e.g. /documentation/services/virtual-machines/
 
