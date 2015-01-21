@@ -42,9 +42,12 @@ Your profile should resemble this profile:
 
 If you are an employee, and if you are the author of an article or a major contributor to an article, you'll want to sign up for Disqus so you can participate in the comment stream for the article. 
 
-- **Full Name**: your full name as displayed in your Microsoft address book listing, plus the bracketed info, which is your alias plus @MSFT. Format: *First Last [alias@MSFT]*
-- **Location**: Your location
-- **Short Bio**: Your title
+1. Sign up for an account at [http://www.disqus.com/](http://www.disqus.com/)
+2. Fill out your profile as follows - by doing this, your responses to article comment threads will be counted in the KPI measurement around our responses to customer comments.
+
+ - **Full Name**: your full name as displayed in your Microsoft address book listing, plus the bracketed info, which is your alias plus @MSFT. Format: *First Last [alias@MSFT]*
+ - **Location**: Your location
+ - **Short Bio**: Your title
 
 ##Determine whether you really need to follow the rest of these steps
 
