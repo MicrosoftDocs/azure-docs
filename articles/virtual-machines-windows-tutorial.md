@@ -53,7 +53,7 @@ This section shows you how to attach an empty data disk to the virtual machine. 
 
 	![Select Attach from the command bar](./media/virtual-machines-windows-tutorial/commandbarattach.png)	
 
-5. The **Virtual Machine Name**, **Storage Location**, **File Name**, and **Host Cache Preference** are already defined for you. All you have to specifiy is a size for the disk. For example, type **5** in the **Size** field. Click the check mark to attach the disk.
+5. The **Virtual Machine Name**, **Storage Location**, **File Name**, and **Host Cache Preference** are already defined for you. All you have to specify is a size for the disk. For example, type **5** in the **Size** field. Click the check mark to attach the disk.
 
 
 	>[AZURE.NOTE] All disks are created from .vhd files in Azure storage. **File Name** lets you name the .vhd file that the disk uses, not the disk name. Azure automatically assigns a name to the disk. 
