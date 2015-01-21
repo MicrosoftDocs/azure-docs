@@ -170,7 +170,7 @@ If you are an employee, and if you are the author of an article or a major contr
 
 
 [Step 1: Create a GitHub account and set up your profile]: #step-1-create-a-github-account-and-set-up-your-profile
-[Do I need to follow the rest of these steps?]: #do-i-need-to-follow-the-rest-of-these-steps?
+[Step 2: Do I need to follow the rest of these steps?]: #step-2-do-i-need-to-follow-the-rest-of-these-steps?
 [Permissions in GitHub]: #permissions-in-github
 [Install Git for Windows]: #install-git-for-windows
 [Enable two-factor authentication]: #enable-two-factor-authentication
