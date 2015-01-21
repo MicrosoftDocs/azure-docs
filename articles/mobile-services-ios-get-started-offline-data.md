@@ -31,6 +31,9 @@ This tutorial walks you through these basic steps:
 
 In the [Mobile Services sample repository on GitHub], clone the repo and open the project [Offline iOS Sample] in Xcode.
 
+### Beta SDK
+To add offline support to an existing app, get the latest [beta iOS SDK](http://zumo.blob.core.windows.net/sdk/azuresdk-iOS-v2.0.0-beta2.zip).
+
 ## <a name="review-sync"></a>Review the Mobile Services sync code
 
 Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize the sync context of `MSClient` and reference a local store. Then reference your table through the `MSSyncTable` interface.
