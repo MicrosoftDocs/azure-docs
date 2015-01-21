@@ -32,6 +32,7 @@ The tutorial assumes that you know how to work with [ASP.NET MVC](http://www.asp
 The tutorial instructions work with the following products:
 
 * Visual Studio 2013
+* Visual Studio 2013 Community
 * Visual Studio 2013 Express for Web
 
 If you don't have one of these, Visual Studio 2013 Express for Web will be installed automatically when you install the Azure SDK.
