@@ -1,6 +1,6 @@
 <properties urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine | Azure" metaKeywords="Azure Windows virtual machine, Azure attach disk, Azure initialize disk" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="" services="virtual-machines, storage" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/20/2015" ms.author="kathydav" />
 
 #How to Attach a Data Disk to a Windows Virtual Machine
 
@@ -49,3 +49,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 
 	![Volume successfully initialized](./media/storage-windows-attach-disk/InitializeSuccess.png)
+
+> [AZURE.NOTE] The maximum amount of disks that can be attached to a virtual machine is variable based upon the size of the virtual machine. For example, you can only attach 4 disks to the Standard A2 but you can attach 32 disks to the Standard D14 and 64 disks to the Standard G5. The details on how many disks can be attached by virtual machine size can be found [here](https://msdn.microsoft.com/en-us/library/azure/dn197896.aspx).
+
+
