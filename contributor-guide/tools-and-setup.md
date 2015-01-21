@@ -10,8 +10,8 @@ If you're unfamiliar with Git, you might want to review some Git terminology. Tâ
 
 ##Contents
 
-- [Step 1 Create a GitHub account and set up your profile]
-- [Step 2 Do I need to follow the rest of these steps?]
+- [Step 1 - Create a GitHub account and set up your profile]
+- [Step 2 - Do I need to follow the rest of these steps]
 - [Step 3: Permissions in GitHub]
 - [Step 4: Install Git for Windows]
 - [Step 5: Enable two-factor authentication]
@@ -22,7 +22,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology. Tâ
 - [Next steps]
 â€‹â€‹
 
-##Step 1 Create a GitHub account and set up your profile
+##Step 1 - Create a GitHub account and set up your profile
 
 To contribute to the Azure technical content, you'll need a [GitHub](http://www.github.com) account.
 
@@ -39,7 +39,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Step 2 Do I need to follow the rest of these steps?
+##Step 2 - Do I need to follow the rest of these steps?
 
 Maybe not.
 
@@ -169,8 +169,8 @@ If you are an employee, and if you are the author of an article or a major contr
 [other style and voice issues to watch for]: #other-style-and-voice-issues-to-watch-for
 
 
-[Step 1 Create a GitHub account and set up your profile]: #step-1-create-a-github-account-and-set-up-your-profile
-[Step 2 Do I need to follow the rest of these steps]: #step-2-do-i-need-to-follow-the-rest-of-these-steps
+[Step 1 - Create a GitHub account and set up your profile]: #step-1-create-a-github-account-and-set-up-your-profile
+[Step 2 - Do I need to follow the rest of these steps]: #step-2-do-i-need-to-follow-the-rest-of-these-steps
 [Permissions in GitHub]: #permissions-in-github
 [Install Git for Windows]: #install-git-for-windows
 [Enable two-factor authentication]: #enable-two-factor-authentication
