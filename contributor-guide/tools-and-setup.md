@@ -10,7 +10,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology. Tâ
 
 ##Contents
 
-- Step 1: [Create a GitHub account and set up your profile]
+- [Create a GitHub account and set up your profile]
 - Step 2: [Do I need to follow the rest of these steps?]
 - [Step 3: Permissions in GitHub]
 - [Step 4: Install Git for Windows]
