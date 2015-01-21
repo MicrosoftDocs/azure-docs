@@ -25,7 +25,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 2. In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
 
-		# sudo grep SCSI /var/log/messages
+		# sudo grep SCSI /var/log/syslog
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
