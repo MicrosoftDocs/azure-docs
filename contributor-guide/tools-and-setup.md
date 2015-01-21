@@ -44,7 +44,7 @@ Every published Azure technical article has a comment stream provided by the Dis
 
  ![Discus logo](./media/tools-and-setup/discus.png)
 
-If you are an employee, and if you are the author of or a contributor to an article, you need to sign up for Disqus so you can participate in the comment stream for the article. 
+If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Disqus so you can participate in the comment stream for the article. 
 
 1. Sign up for an account at [http://www.disqus.com/](http://www.disqus.com/)
 2. Fill out your profile as follows:
