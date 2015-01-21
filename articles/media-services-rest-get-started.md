@@ -72,7 +72,7 @@ The following steps describe the most common workflow when using the Media Servi
 1. Getting an access token. 
 2. Connecting to the Media Services URI. 
 	
-	> AZURE.NOTE
+	>[AZURE.NOTE]
 	After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
 	> 
 	> You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.
@@ -137,7 +137,7 @@ The following example shows the HTTP response that contains the access token in 
 	}
 	
 
->AZURE.NOTE
+>[AZURE.NOTE]
 It is recommended to cache the "access_token " and "expires_in " values to an external storage. The token data could later be retrieved from the storage and re-used in your Media Services REST API calls. This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.
 
 Make sure to monitor the "expires_in" value of the access token and update your REST API calls with new tokens as needed.
@@ -204,7 +204,7 @@ The following example demonstrates HTTP request to the Media Services root URI (
 	 
 
 
->AZURE.NOTE From now on the new URI will be used in this tutorial.
+>[AZURE.NOTE] From now on the new URI will be used in this tutorial.
 
 
 ## <a id="configure_streaming_units"></a>Configure streaming units with REST API
@@ -581,7 +581,7 @@ If successful, the following response is returned:
 	
 Once you have the AccessPolicy and Locator set, the actual file is uploaded to an Azure Blob Storage container using the Azure Storage REST APIs. You can either upload in page or block blobs. 
 
->AZURE.NOTE You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE] You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/en-us/library/azure/dd135733.aspx).
 
@@ -718,7 +718,7 @@ The following code requests the encoder's id.
 
 ### Create a job
 
-Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing; however, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see Open Data Protocol (OData) Batch Processing.
+Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing; however, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/en-us/library/azure/dn619392.aspx) supported by the Azure Media Processor.  
 
@@ -825,7 +825,7 @@ There are a few important things to note in any Job request:
 - Tasks must not form a cycle.
 - The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an Asset. The actual Assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the Job entity definition. 
 
->AZURE.NOTE Because Media Services is built on OData v3, the individual assets in InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair. 
+>[AZURE.NOTE] Because Media Services is built on OData v3, the individual assets in InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair. 
 
 - InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
 - OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset will be whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob". 
@@ -900,7 +900,7 @@ The following example shows how to call CancelJob.
 
 If successful, a 204 response code is returned with no message body.
 
->AZURE.NOTE You must URL-encode the job id (normally nb:jid:UUID: somevalue) when passing it in as a parameter to CancelJob.
+>[AZURE.NOTE] You must URL-encode the job id (normally nb:jid:UUID: somevalue) when passing it in as a parameter to CancelJob.
 
 
 ### Get the output asset 
@@ -1081,7 +1081,7 @@ This sections shows how to perform the following tasks necessary to "publish" yo
 
 ###Creating the AccessPolicy with read permission
 
-Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see AccessPolicy Entity Properties.
+Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://msdn.microsoft.com/en-us/library/azure/hh974297.aspx#accesspolicy_properties).
 
 The following example shows how to specify the AccessPolicy for read permissions for a given Asset.
 
@@ -1100,7 +1100,7 @@ The following example shows how to specify the AccessPolicy for read permissions
 
 If successful, a 201 success code is returned describing the AccessPolicy entity that you created. You will then use the AccessPolicy Id along with the Asset Id of the asset that contains the file you want to deliver(such as an output asset) to create the Locator entity.
 
->AZURE.NOTE
+>[AZURE.NOTE]
 This basic workflow is the same as uploading a file when ingesting an Asset (as was discussed earlier in this topic). Also, like uploading files, if you (or your clients) need to access your files immediately, set your StartTime value to five minutes before the current time. This action is necessary because there may be clock skew between the client and Media Services. The StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").
 
 
@@ -1167,14 +1167,14 @@ If successful, the following response is returned:
 
 The returned **Path** property contains the SAS URL.
 
->AZURE.NOTE
+>[AZURE.NOTE]
 If you download storage encrypted content, you must manually decrypt it before rendering it, or use the Storage Decryption MediaProcessor in a processing task to output processed files in the clear to an OutputAsset and then download from that Asset. For more information on processing, see Creating an Encoding Job with the Media Services REST API. Also, SAS URL Locators cannot be updated after they have been created. For example, you cannot reuse the same Locator with an updated StartTime value. This is because of the way SAS URLs are created. If you want to access an asset for download after a Locator has expired, then you must create a new one with a new StartTime.
 
 ###Download files
 
 Once you have the AccessPolicy and Locator set, you can download files using the Azure Storage REST APIs.  
 
->AZURE.NOTE You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE] You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/en-us/library/azure/dd135733.aspx).
 
