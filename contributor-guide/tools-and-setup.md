@@ -79,7 +79,7 @@ You might not need to follow all the steps in this article. It depends on the so
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are an employee working on content for an unreleased technology, you need to work in our private content repository. See the internal wiki for information.
+If you are an employee working on content for an unreleased technology, you need to work in our private content repository. See the [internal wiki for information](http://go.microsoft.com/fwlink/?LinkId=524850).
 
 ##Install Git for Windows
 
