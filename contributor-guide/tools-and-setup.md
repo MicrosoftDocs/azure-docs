@@ -39,7 +39,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Determine whether you really need to follow the rest of these steps?
+##Determine whether you really need to follow the rest of these steps
 
 Maybe not.
 
