@@ -1,15 +1,17 @@
-<properties urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="" authors="juliako" solutions="" manager="dwrede" editor=""/>
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services SDK for .NET- Azure" metaKeywords="Azure media services" description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services SDK for .NET" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako" />
 
 
 # Delivering Video-on-Demand with Media Services SDK for .NET 
 
+[WACOM.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
+
 
 >[AZURE.NOTE]
 > To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
-This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services SDK for .NET. 
+This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET. 
 
 The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.  
 
@@ -18,8 +20,8 @@ To implement a VoD content delivery application, you can use different technolog
 This tutorial uses Azure Management Portal and Media Services SDK for .NET to achieve the following tasks:     
 
 
-1.  [Create a Media Services account](#create_ams).
-2.  [Configure streaming units](#configure_streaming_units).
+1.  [Create a Media Services account using Portal](#create_ams).
+2.  [Configure streaming units using Portal](#configure_streaming_units).
 3.  [Create and configure a Visual Studio project](#configure_VS)
 4.  [Use .NET to upload, encode, and deliver content](#use_dotnet)
 	5.  [Connect to the Media Services account](#connect).
@@ -38,7 +40,7 @@ The following prerequisites are required to start developing with Media Services
 - Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
 
 
-## <a id="create_ams"></a>Create a Media Services account
+## <a id="create_ams"></a>Create a Media Services account using Portal
 
 1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
    
@@ -66,7 +68,7 @@ The following prerequisites are required to start developing with Media Services
 	When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
 
 	 
-## <a id="configure_streaming_units"></a>Configure streaming units
+## <a id="configure_streaming_units"></a>Configure streaming units using Portal
 
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
 
@@ -74,10 +76,12 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
-- get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content.
+- encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
+- get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content.
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
+
+Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
 
 
 To change the number of on-demand streaming reserved units, do the following:
@@ -96,8 +100,9 @@ To change the number of on-demand streaming reserved units, do the following:
 
 	 
 	>[AZURE.NOTE] Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
+	>
+	> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-	>[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 ## <a id="configure_VS"></a>Create and configure a Visual Studio project
@@ -207,7 +212,7 @@ The **Main** function calls methods that will be defined further in this section
 
 ### <a id="upload"></a>Create a new asset and upload a video file
 
-In Media Services, you upload your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming. 
+In Media Services, you upload (or ingest) your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming. The files in the asset are called **Asset Files**.
 
 The **UploadFile** method defined below calls **CreateFromFile** (defined in .NET SDK Extensions). **CreateFromFile** creates a new asset into which the specified source file is uploaded. 
 
@@ -218,6 +223,10 @@ If you plan to deliver an MP4 using progressive download, use this option.
 - **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
 - **CommonEncryption** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
 - **EnvelopeEncrypted** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
+
+The **CreateFromFile** method also lets you specify a callback in order to report the upload progress of the file.
+
+In the following example we specify **None** for the asset options.
 
 Add the following method to the Program class.
 
@@ -239,6 +248,8 @@ Add the following method to the Program class.
 
 ### <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
+After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is comprised of atomic Tasks that do the actual work on the Asset file. 
+
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
 
 To take advantage of dynamic packaging, you need to do the following:
@@ -246,10 +257,10 @@ To take advantage of dynamic packaging, you need to do the following:
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
 - get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. 
 
-You can also progressively download MP4 files that were created as a result of transcoding. 
-Note that you do not need to get on-demand streaming units in order to progressively download MP4 files.  
+The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The code submits the job and waits until it is completed. 
 
-The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using Azure Media Encoder. The code submits the job and waits until it is completed.
+Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.
+Note that you do not need to get on-demand streaming units in order to progressively download MP4 files. 
 
 
 Add the following method to the Program class.
@@ -331,8 +342,29 @@ MPEG DASH
 
 ### <a id="publish_get_urls"></a>Publish the asset and get streaming and progressive download URLs
 
-To stream or download an asset you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) URL locators, used to download media files.
+To stream or download an asset you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
+Once you create the locators, you can build the URLs that are used to stream or download your files. 
+
+
+An on-demand URL for Smooth Streaming has the following format:
+
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+
+An on-demand URL for HLS has the following format:
+
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+
+An on-demand URL for MPEG DASH has the following format:
+
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+
+A SAS URL used to download files has the following format:
+
+	{blob container name}/{asset name}/{file name}/{SAS signature}
+
+Media Services .NET SDK extensions provide convenient helper methods that return formatted URLs for the published asset.
+ 
 The following code uses .NET SDK Extensions to create locators, get streaming and progressive download URLs. The code also shows how to download files to a local folder.
 
 Add the following method to the Program class.
@@ -360,22 +392,25 @@ Add the following method to the Program class.
                 .ToList()
                 .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
 
-        // Generate the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming, 
+        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming, 
         // and the Progressive Download URL.
         Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
         Uri hlsUri = asset.GetHlsUri();
         Uri mpegDashUri = asset.GetMpegDashUri();
 
-        List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
+        // Get progressive download URLs for each MP4 file that was generated as a result
+		// of encoding.
+		List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
 
-        // Get the asset URLs.
+        // Display  the streaming URLs.
         Console.WriteLine("Use the following URLs for adaptive streaming: ");
         Console.WriteLine(smoothStreamingUri);
         Console.WriteLine(hlsUri);
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
 
+		// Display the progressive download URLs.
         Console.WriteLine("Use the following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();
@@ -407,26 +442,33 @@ Adaptive streaming URLs:
 
 Smooth Streaming
 
-	http://juliakoams1.streaming.mediaservices.windows.net/706bf111-6a91-4f5e-ad24-a3aa3137a13d/BigBuckBunny.ism/manifest
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
 HLS
 
-	http://juliakoams1.streaming.mediaservices.windows.net/706bf111-6a91-4f5e-ad24-a3aa3137a13d/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-	http://juliakoams1.streaming.mediaservices.windows.net/706bf111-6a91-4f5e-ad24-a3aa3137a13d/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
-Progressive download URLs (audio and video): 
-
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
-	https://juliakostoreaccount1.blob.core.windows.net/asset-0b0e77ec-352b-4e3b-bb8f-f43afd90cee9/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=5a58b11f-243d-4920-af34-b4110fb3f929&sig=F0N9V4r96J02wYVF97lHNYNaN%2FgO9djA7SV7uemHd9o%3D&se=2015-02-11T06:29:36Z
+Progressive download URLs (audio and video).    
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+	
+	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
 To test smooth streaming, use [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/), or [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
@@ -436,7 +478,9 @@ To test MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/j
 To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/en-us/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
 
 
-To test your progressive download, paste the2 URL is the browser (for example, IE, Chrome, Safari).
+To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
+
+
 <h2>Additional Resources</h2>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>
