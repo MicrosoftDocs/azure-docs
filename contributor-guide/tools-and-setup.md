@@ -41,7 +41,7 @@ Your profile should resemble this profile:
 
 ##Determine whether you really need to follow the rest of these steps
 
-Maybe not.
+You might not need to follow all the steps in this article. It depends on the sort of content contribution you want or need to make:
 
 - **Simple text updates only:** If you only need or want to make textual updates to an existing article, you probably don't need to follow the rest of the steps. You can use GitHub's web-based markdown editor to submit your changes. Just click the "Contribute to this article" link in the article you want to modify:
 
