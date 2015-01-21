@@ -9,11 +9,8 @@
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>You need an Visual Studio online account to complete this tutorial:</h5>
-<p>You can <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">open a Visual Studio Online account for free</a>.</p>
-</div>
+> [AZURE.NOTE] You need an Visual Studio online account to complete this tutorial:
+> You can [open a Visual Studio Online account for free][http://go.microsoft.com/fwlink/p/?LinkId=512979].
 
 To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps:
 
