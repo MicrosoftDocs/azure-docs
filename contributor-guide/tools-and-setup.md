@@ -10,19 +10,19 @@ If you're unfamiliar with Git, you might want to review some Git terminology. T�
 
 ##Contents
 
-- [Step 1 - Create a GitHub account and set up your profile]
-- [Step 2 - Do I need to follow the rest of these steps]
-- [Step 3: Permissions in GitHub]
-- [Step 4: Install Git for Windows]
-- [Step 5: Enable two-factor authentication]
-- [Step 6: Install a markdown editor]
-- [Step 7: Fork the repository and copy it to your computer]
-- [Step 8: Install git-credential-winstore]
-- Step 9: [Sign up for Disqus]
+- [Create a GitHub account and set up your profile]
+- [Do I need to follow the rest of these steps]
+- [Permissions in GitHub]
+- [Install Git for Windows]
+- [Enable two-factor authentication]
+- [Install a markdown editor]
+- [Fork the repository and copy it to your computer]
+- [Install git-credential-winstore]
+- [Sign up for Disqus]
 - [Next steps]
 ​​
 
-##Step 1 - Create a GitHub account and set up your profile
+##Create a GitHub account and set up your profile
 
 To contribute to the Azure technical content, you'll need a [GitHub](http://www.github.com) account.
 
@@ -39,7 +39,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Step 2 - Do I need to follow the rest of these steps?
+##Do I need to follow the rest of these steps?
 
 Maybe not.
 
@@ -61,13 +61,13 @@ Maybe not.
  - Update an article over a period of days without publishing changes each of those days
 
 
-##Step 3: Permissions in GitHub
+##Permissions in GitHub
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
 If you are an employee working on content for an unreleased technology, you need to work in our private content repository. See the internal wiki for information.
 
-##Step 4: Install Git for Windows
+##Install Git for Windows
 
 Install Git for Windows from [http://git-scm.com/download/win](http://git-scm.com/download/win). This download installs the Git version control system, and it installs Git Bash, the command-line app that you will use to interact with your local Git repository. 
 
@@ -77,7 +77,7 @@ You can accept the default settings; if you want the commands to be available wi
  ![GitHub profile example](./media/tools-and-setup/gitbashinstall.png)
 
 
-##Step 5: Enable two-factor authentication
+##Enable two-factor authentication
 
 You have to enable two factor authentication (2FA) on your GitHub account if you are working in the private content repository. It's required in the private repository.
 
@@ -95,7 +95,7 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
  - Click the icon in the upper left corner of the command line window>Edit>Paste.
  - Right-click the icon in the upper left corner of the window and click Properties>Options>QuickEdit Mode. This configures the command line so you can paste by right-clicking in the command line window.
 
-##Step 6: Install a markdown editor
+##Install a markdown editor
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor. Here are some options: 
 
@@ -106,7 +106,7 @@ We author content using simple "markdown" notation in the files, rather than com
 - **Prose**: This is a lightweight, elegant, on-line, and open source markdown editor that offers a preview. Visit [http://prose.io](http://prose.io) and authorize Prose in your repository.
 
 
-##Step 7: Fork the repository and copy it to your computer 
+##Fork the repository and copy it to your computer 
 
 1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers need to fork azure-content-pr. Community contributors need to fork azure-content.   
 
@@ -128,7 +128,7 @@ We author content using simple "markdown" notation in the files, rather than com
 
  This usually takes a while. After you do this, you won't have to fork again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
 
-##Step 8: Install git-credential-winstore
+##Install git-credential-winstore
 
 Cache your credential so you don't have to type your user name and token every time you access a content repository in GitBash! If you don't do this you'll have to manually enter Git credentials every time you execute a command-line Git command that accesses GitHub, and it will drive you nuts. 
 
@@ -139,7 +139,7 @@ Cache your credential so you don't have to type your user name and token every t
         cd c:\users\alias\downloads
         git-credential-winstore.exe -i "C:\Program Files (x86)\Git\cmd\git.cmd"​
 
-##Step 9: Sign up for Disqus
+##Sign up for Disqus
 
 If you are an employee, and if you are the author of an article or a major contributor to an article, you'll want to sign up for Disqus so you can participate in the comment stream for the article. 
 
