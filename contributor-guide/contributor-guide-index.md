@@ -15,7 +15,7 @@
 
 ##Authoring articles: tools, processes, guidance
 
-- Tools and setup for authoring in GitHub (pending)
+- [Tools and setup for authoring in GitHub](./tools-and-setup.md)
 
 - [Git commands for creating a new article or updating an existing article](./git-commands-for-master.md)
 
