@@ -11,7 +11,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology. Tâ
 ##Contents
 
 - [Create a GitHub account and set up your profile]
-- [Do I need to follow the rest of these steps]
+- [Determine whether you really need to follow the rest of these steps]
 - [Permissions in GitHub]
 - [Install Git for Windows]
 - [Enable two-factor authentication]
@@ -39,7 +39,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Do I need to follow the rest of these steps?
+##Determine whether you really need to follow the rest of these steps?
 
 Maybe not.
 
