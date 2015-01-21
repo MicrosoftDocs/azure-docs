@@ -1,6 +1,6 @@
 <properties title="" pageTitle="Azure Government Developers Guide" description="This provides a comparision of features and guidance on developing applications for Azure Government" metaKeywords="Azure Government AzureGov GovCloud" services="" solutions="" documentationCenter="" authors="Joharve2" videoId="" scriptId="" manager="carolz" editor=""/>
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="1/9/2014" ms.author="jharve" />
+<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="1/21/2014" ms.author="jharve" />
 
 
 #  Microsoft Azure Government Developer Guide 
@@ -80,8 +80,6 @@ Blob Storage</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovcloudapi
 Queue Storage	</td><td>*.queue.core.windows.net</td><td>	*.queue.core.usgovcloudapi.net
 </td></tr><tr><td>
 Table Storage</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloudapi.net
-</td></tr><tr><td>
-SQL Database</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net
 </td></tr><tr><td>
 Service Management</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
 
