@@ -28,8 +28,6 @@ This tutorial requires the following:
 * Microsoft Azure Mobile Services SDK
 * The [Active Directory Authentication Library for iOS]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
-
 [WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
 ## <a name="require-authentication"></a>Configure the mobile service to require authentication

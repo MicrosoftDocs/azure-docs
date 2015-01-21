@@ -1,4 +1,4 @@
-<properties pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
+<properties title="" pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
 
 <tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
 
