@@ -706,13 +706,13 @@ mobile-friendly Web applications. These include:
     `RequireConsistentDisplayMode` property
 -   Create views that target specific browsers, such as the iPhone
     browser
--   Apply Boostrap styling in Razor code
+-   Apply Bootstrap styling in Razor code
 
 See Also
 --------
 
--   [9 basic principles of responsive web design][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
--   [Bootstrap][BootstrapSite] site
+-   [9 basic principles of responsive web design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
+-   [Bootstrap][BootstrapSite]
 -   [Official Bootstrap Blog][]
 -   [Twitter Bootstrap Tutorial from Tutorial Republic][]
 -   [The Bootstrap Playground][]
