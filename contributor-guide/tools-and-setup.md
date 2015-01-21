@@ -11,6 +11,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology. Tâ
 ##Contents
 
 - [Create a GitHub account and set up your profile]
+- [Sign up for Disqus]
 - [Determine whether you really need to follow the rest of these steps]
 - [Permissions in GitHub]
 - [Install Git for Windows]
@@ -18,9 +19,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology. Tâ
 - [Install a markdown editor]
 - [Fork the repository and copy it to your computer]
 - [Install git-credential-winstore]
-- [Sign up for Disqus]
 - [Next steps]
-â€‹â€‹
 
 ##Create a GitHub account and set up your profile
 
@@ -39,11 +38,26 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
+##Sign up for Disqus
+
+Every published Azure technical article has a comment stream provided by the Disqus service.
+
+ ![Discus logo](./media/tools-and-setup/discus.png)
+
+If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Disqus so you can participate in the comment stream for the article. 
+
+1. Sign up for an account at [http://www.disqus.com/](http://www.disqus.com/)
+2. Fill out your profile as follows:
+
+ - **Full Name**: your full name as displayed in your Microsoft address book listing, plus the bracketed info, which is your alias plus @MSFT. Format: *First Last [alias@MSFT]*
+ - **Location**: Your location
+ - **Short Bio**: Your title
+
 ##Determine whether you really need to follow the rest of these steps
 
-Maybe not.
+You might not need to follow all the steps in this article. It depends on the sort of content contribution you want or need to make:
 
-- **Simple text updates only:** If you only need or want to make textual updates to an existing article, you probably don't need to follow the rest of the steps. You can use GitHub's web-based markdown editor to submit your changes. Just click the "Contribute to this article" link in the article you want to modify:
+- **Simple text updates only:** If you only need or want to make textual updates to an existing article, you probably don't need to follow the rest of the steps. You can use GitHub's web-based markdown editor to submit your changes. Just click the GitHub link in the article you want to modify:
 
  ![GitHub profile example](./media/tools-and-setup/contributetogit.png)
 
@@ -65,7 +79,7 @@ Maybe not.
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are an employee working on content for an unreleased technology, you need to work in our private content repository. See the internal wiki for information.
+If you are an employee working on content for an unreleased technology, you need to work in our private content repository. See the [internal wiki for information](http://go.microsoft.com/fwlink/?LinkId=524850).
 
 ##Install Git for Windows
 
@@ -139,13 +153,7 @@ Cache your credential so you don't have to type your user name and token every t
         cd c:\users\alias\downloads
         git-credential-winstore.exe -i "C:\Program Files (x86)\Git\cmd\git.cmd"â€‹
 
-##Sign up for Disqus
 
-If you are an employee, and if you are the author of an article or a major contributor to an article, you'll want to sign up for Disqus so you can participate in the comment stream for the article. 
-
-- **Full Name**: your full name as displayed in your Microsoft address book listing, plus the bracketed info, which is your alias plus @MSFT. Format: *First Last [alias@MSFT]*
-- **Location**: Your location
-- **Short Bio**: Your title
 
 ##Next steps
 
