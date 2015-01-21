@@ -22,7 +22,7 @@ For every call you make into Media Services, there is a set of required headers 
 </table><br/>
 
 
->AZURE.NOTE Because Media Services uses OData to expose its underlying asset metadata repository through REST APIs, the DataServiceVersion and MaxDataServiceVersion headers should be included in any request; however, if they are not, then currently Media Services assumes the DataServiceVersion value in use is 3.0.
+>[AZURE.NOTE] Because Media Services uses OData to expose its underlying asset metadata repository through REST APIs, the DataServiceVersion and MaxDataServiceVersion headers should be included in any request; however, if they are not, then currently Media Services assumes the DataServiceVersion value in use is 3.0.
 
 The following is a set of optional headers:
 
