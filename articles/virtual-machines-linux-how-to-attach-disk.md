@@ -27,7 +27,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 		# sudo grep SCSI /var/log/messages
 
-	>[AZURE.NOTE] For recent Ubuntu distributions you may need to use `sudo grep SCSI /var/log/syslog` as logging to `/var/log/messages` may be disabled by default. 
+	>[AZURE.NOTE] For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default. 
 
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
@@ -42,7 +42,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 		# sudo fdisk /dev/sdc
 
-	>[AZURE.NOTE] In this example you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
+	>[AZURE.NOTE] In this example, you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 
 4. Type **n** to create a new partition.
