@@ -13,7 +13,5 @@ After you have subscribed to the Frequently Bought Together web service, you can
 
 |||The sentence below uses "manage create"...which word do you want?|||
 
-<SPAN style="BACKGROUND-COLOR: #ffff00">Example of highlighted text</SPAN>
-
-This service contains APIs to <Font color="BACKGROUND-COLOR: #ffff00">manage create</Font> Frequently Bought Together models, upload historical transactions, and retrieve the best-ranked, frequently bought together product set for a given product. Examples that demonstrate how to use these APIs can be found on the [Azure-MachineLearning-DataScience](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) repository on GitHub.
+This service contains APIs to manage create Frequently Bought Together models, upload historical transactions, and retrieve the best-ranked, frequently bought together product set for a given product. Examples that demonstrate how to use these APIs can be found on the [Azure-MachineLearning-DataScience](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) repository on GitHub.
 
