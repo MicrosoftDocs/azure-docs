@@ -74,8 +74,8 @@ The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://git
 		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
 	...
     var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		> In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the AAD Graph API and returns the response back to the page.
-		> Later, you will use the same method to create simple functionality in your application.
+		In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the AAD Graph API and returns the response back to the page.
+		Later, you will use the same method to create simple functionality in your application.
 
 6.	Select a user or group from the dropdown, select a role, and click **Assign Role**.
 
@@ -230,9 +230,9 @@ In this part of the tutorial, you will learn how to build out the desired LOB fu
 	Since you take care of role mappings in the Roles controller, all you need to do is make sure that each action authorizes the right roles.
 
 	> [AZURE.NOTE] You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail anti-forgery token validation because:
-		> + AAD does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.
-		> + If AAD is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.
-		> You will take care of this in the next step.
+	> + AAD does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.
+	> + If AAD is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.
+	> You will take care of this in the next step.
 
 12.  In App_Start\Startup.Auth.cs, add the following line of code in the `ConfigureAuth` method:
 
