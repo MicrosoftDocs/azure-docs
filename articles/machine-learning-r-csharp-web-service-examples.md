@@ -3,14 +3,13 @@
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
 
 
-#Sample Web Services Built with R on Azure ML and Published to Marketplace
+#Sample solutions using R on Machine Learning and published to Marketplace
 
+In Azure Machine Learning Studio, users can write R code and with a few clicks, publish it as a web service for applications and devices to consume around the world. 
 
+From producing simple calculators that provide statistical functionality to creating a custom text-mining sentiment analysis predictor, both new and experienced R users can benefit from the ease with which users of Azure ML can operationalize R code. While these web services could be consumed by users, potentially through a mobile app or a website, the purpose of these web services is also to serve as an example of how Machine Learning can operationalize R scripts for analytical purposes and be used to create web services on top of R code.
 
-
-With the Azure Machine Learning Studio, users can write R code and with a few clicks of a button, publish it as a web service for other individuals and devices to consume around the world. From producing simple calculators that provide statistical functionality to creating a custom text mining sentiment analysis predictor for example, both new and experienced R users can benefit from the ease with which users of Azure ML can operationalize R code. While these web services could be consumed by users, potentially through a mobile app or a website, the purpose of these web services is also to serve as an example of how Azure ML can operationalize R scripts for analytical purposes and be used to create web services on top of R code.
-
-In this page you can find a broad set of example web services that were created using Azure ML and published to the Microsoft Azure Marketplace. Each web service has a comprehensive document attached, embedding sample data sets for testing the services and explaining how the user can create a similar service themselves. 
+In this page you can find a broad set of example web services that were created using Machine Learning and published to the Azure Marketplace. Each web service has a comprehensive document attached, embedding sample data sets for testing the services and explaining how the user can create a similar service themselves. 
 
 ![Workflow][1]
 
