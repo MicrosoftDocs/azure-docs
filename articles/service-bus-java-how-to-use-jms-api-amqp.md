@@ -19,7 +19,7 @@ This how-to guide explains how to use the Service Bus brokered messaging feature
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled [How to Use Service Bus Queues](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/).
 
-**Note**: You must create the queue with partitioning disabled as partitioned queues and topics do not yet have AMQP support. For additional information, see [Partitioning Messaging Entities](https://msdn.microsoft.com/en-us/library/azure/dn520246.aspx).
+**Note**: You must create the queue with partitioning disabled as partitioned queues and topics do not yet have AMQP support. For additional information, see [Partitioning Messaging Entities](http://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ##Downloading the AMQP 1.0 JMS client library
 
