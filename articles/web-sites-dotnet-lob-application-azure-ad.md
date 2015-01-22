@@ -57,34 +57,25 @@ The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://git
 1.	Clone or download the sample solution at [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet) to your local directory.
 2.	Follow the instructions at [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/GroupClaims/README.md) to set up the AAD application and project.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>The permissions configured in the AAD application only requires the <strong>User</strong> role, not <strong>Global Administrator</strong>.</p>
-	</div>
+	> [AZURE.NOTE] The permissions configured in the AAD application only requires the <strong>User</strong> role, not **Global Administrator**.
 	
 3.	Once you're finished configuring the application, Type `F5` to run the application.
 4.	Once the application loads, click **Sign In**. 
 5.	If you configured the AAD application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the AAD application in the Azure portal, since it's the AAD application's default owner. 
 	
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediatley start managing application roles in the <code>Roles</code> controller.</p>
-	</div>
+	> [AZURE.NOTE] In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediatley start managing application roles in the <code>Roles</code> controller.
 	
 4.	Once signed in, click **Roles** to manage application roles.
 5.	In **Search for Users/Groups**, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your AAD tenant.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called <code>AadPicker</code> (defined in Scripts\AadPickerLibrary.js) to access the <code>Search</code> action in the <code>Roles</code> controller.</p>
+	> [AZURE.NOTE] In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called <code>AadPicker</code> (defined in Scripts\AadPickerLibrary.js) to access the <code>Search</code> action in the <code>Roles</code> controller.
 		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
 	...
     var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		<p>In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the AAD Graph API and returns the response back to the page.</p>
-		<p>Later, you will use the same method to create simple functionality in your application.</p>
-	</div>
+		> In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the AAD Graph API and returns the response back to the page.
+		> Later, you will use the same method to create simple functionality in your application.
 
 6.	Select a user or group from the dropdown, select a role, and click **Assign Role**.
 
@@ -126,10 +117,7 @@ Here, you will publish the application to an Azure Website. There are already in
 7. Under **Keys**, create a new key by selecting **1 year** in the dropdown.
 8. Under **Permissions to other applications**, for the **Windows Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>The exact permissions you need here depends on the desired functionality of your application. Some permissions require the <strong>Global Administrator</strong> role to set, but the permissions required by this tutorial only requires the <strong>User</strong> role.</p>
-	</div> 
+	> [AZURE.NOTE] The exact permissions you need here depends on the desired functionality of your application. Some permissions require the **Global Administrator** role to set, but the permissions required by this tutorial only requires the **User** role.
 
 9.  Clic **Save**.  
 10.  Before you navigate away from the saved configuration page, copy the following information into a text editor.
@@ -241,15 +229,10 @@ In this part of the tutorial, you will learn how to build out the desired LOB fu
 
 	Since you take care of role mappings in the Roles controller, all you need to do is make sure that each action authorizes the right roles.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the behavior described by <a href="https://twitter.com/BrockLAllen">Brock Allen</a> at <a href="http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/">MVC 4, AntiForgeryToken and Claims</a> your HTTP POST may fail anti-forgery token validation because:</p>
-		<ul>
-		<li>AAD does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.</li>
-		<li>If AAD is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.</li>
-		</ul>
-		<p>You will take care of this in the next step.</p>
-	</div>
+	> [AZURE.NOTE] You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail anti-forgery token validation because:
+		> + AAD does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.
+		> + If AAD is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.
+		> You will take care of this in the next step.
 
 12.  In App_Start\Startup.Auth.cs, add the following line of code in the `ConfigureAuth` method:
 
