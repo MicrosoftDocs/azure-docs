@@ -46,7 +46,7 @@ The samples are written in Java and require the [Mobile Services SDK]. This tuto
 	- [Customize serialization]
 - [Next steps][]
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 
 <h2><a name="setup"></a>Setup and Prerequisites</h2>
