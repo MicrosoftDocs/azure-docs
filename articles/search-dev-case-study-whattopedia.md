@@ -213,170 +213,180 @@ We hope you found this case study useful. If you go on to use Azure Search, I re
 
 The following code builds the indexer mentioned in the section on building the prototype.
 
-    static void Main(string[] args)
-    {
-    int success = 0;
-    int errors = 0;
+        static void Main(string[] args)
+        {
+            int success = 0;
+            int errors = 0;
 
-    Log.Write("Starting job","", System.Diagnostics.TraceLevel.Info);
+            Log.Write("Starting job","", System.Diagnostics.TraceLevel.Info);
 
-    var serviceName = ConfigurationManager.AppSettings["SearchServiceName"];
-    var serviceKey = ConfigurationManager.AppSettings["SearchServiceKey"];
+            var serviceName = ConfigurationManager.AppSettings["SearchServiceName"];
+            var serviceKey = ConfigurationManager.AppSettings["SearchServiceKey"];
 
-    HttpClient client = new HttpClient();
-    client.DefaultRequestHeaders.Add("api-key", serviceKey);
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("api-key", serviceKey);
 
-    var db = new DB(Config.ConectionString);
+            var db = new DB(Config.ConectionString);
 
-    var recreateIndex = false;
-    Boolean.TryParse(ConfigurationManager.AppSettings["RecreateIndex"], out recreateIndex);
+            var recreateIndex = false;
+            Boolean.TryParse(ConfigurationManager.AppSettings["RecreateIndex"], out recreateIndex);
 
-    if(recreateIndex)
-    {
-    Log.Write("Recreating index and set all to no index", "", System.Diagnostics.TraceLevel.Info);
-    db.SetAllToNotIndexed();
-    RecreateIndex(serviceName, client);
-    }    
-    
-    var profiles = db.Profiles.Where(p=>!p.Indexed).ToList();
+            if(recreateIndex)
+            {
+                Log.Write("Recreating index and set all to no index", "", System.Diagnostics.TraceLevel.Info);
+                db.SetAllToNotIndexed();
+                RecreateIndex(serviceName, client);
+            }            
+            
+            var profiles = db.Profiles.Where(p=>!p.Indexed).ToList();
 
-    Log.Write(string.Format("Indexing {0} profiles",profiles.Count),"", System.Diagnostics.TraceLevel.Info);
+            Log.Write(string.Format("Indexing {0} profiles",profiles.Count),"", System.Diagnostics.TraceLevel.Info);
 
-    var cities = db.Cities.ToList();
-    var categories = db.Tags.Where(p=>p.ParentId==null).ToList();    
+            var cities = db.Cities.ToList();
+            var categories = db.Tags.Where(p=>p.ParentId==null).ToList();            
 
-    foreach (var profile in profiles)
-    {
-    Log.Write(string.Format("Indexing profile {0}", profile.Name),"",profile.ProfileId,0,System.Diagnostics.TraceLevel.Verbose);
-    try
-    {
-    var city = cities.Where(p => p.CityId == profile.CityId);
-    var category = categories.Where(p => p.TagId == profile.CategoryId);
+            foreach (var profile in profiles)
+            {
+                Log.Write(string.Format("Indexing profile {0}", profile.Name),"",profile.ProfileId,0,System.Diagnostics.TraceLevel.Verbose);
 
-    var cityse = city.Where(p => p.Lang == "se").FirstOrDefault();
-    var cityen = city.Where(p => p.Lang == "en").FirstOrDefault();
-    var categoryse = category.Where(p => p.Lang == "se").FirstOrDefault();
-    var categoryen = category.Where(p => p.Lang == "en").FirstOrDefault();
+                try
+                {
+                    var city = cities.Where(p => p.CityId == profile.CityId);
+                    var category = categories.Where(p => p.TagId == profile.CategoryId);
 
-    var citysename = cityse == null ? "" : cityse.Name;
-    var cityenname = cityen == null ? "" : cityen.Name;
-    var categorysename = categoryse == null ? "" : categoryse.Name;
-    var categoryenname = categoryen == null ? "" : categoryen.Name;
+                    var cityse = city.Where(p => p.Lang == "se").FirstOrDefault();
+                    var cityen = city.Where(p => p.Lang == "en").FirstOrDefault();
+                    var categoryse = category.Where(p => p.Lang == "se").FirstOrDefault();
+                    var categoryen = category.Where(p => p.Lang == "en").FirstOrDefault();
 
-    var tags = db.GetTagsFromProfile(profile.ProfileId);
+                    var citysename = cityse == null ? "" : cityse.Name;
+                    var cityenname = cityen == null ? "" : cityen.Name;
+                    var categorysename = categoryse == null ? "" : categoryse.Name;
+                    var categoryenname = categoryen == null ? "" : categoryen.Name;
 
-    var batch = new
-    {
-        value = new[] 
-    { 
-        new 
-        { 
-        id = profile.ProfileId.ToString()+"_en",
-        profileid = profile.ProfileId.ToString(),
-        city = cityenname,
-        category = categoryenname,
-        address = profile.Adress1,
-        email = profile.Email,
-        name = profile.Name,
-        lang = "en",
-        brands = profile.Brands,
-        descen=profile.DescEn,
-        descse=profile.DescSe,
-        orgnumber=profile.OrgNumber,
-        phone=profile.Phone,
-        zip=profile.Zip,
-        cities = city.Select(p=>p.Name).ToArray(),
-        categories = category.Select(p=>p.Name).ToArray(),
-        cityid = profile.CityId.ToString(),
-        tags=tags.ToArray()
-        },
-        new 
-        { 
-        id = profile.ProfileId.ToString()+"_se",
-        profileid = profile.ProfileId.ToString(),
-        city = citysename,
-        category = categorysename,
-        address = profile.Adress1,
-        email = profile.Email,
-        name = profile.Name,
-        lang = "se",
-        brands = profile.Brands,
-        descen=profile.DescEn,
-        descse=profile.DescSe,
-        orgnumber=profile.OrgNumber,
-        phone=profile.Phone,
-        zip=profile.Zip,
-        cities = city.Select(p=>p.Name).ToArray(),
-        categories = category.Select(p=>p.Name).ToArray(),
-        cityid = profile.CityId.ToString(),
-        tags=tags.ToArray()
+                    var tags = db.GetTagsFromProfile(profile.ProfileId);
+
+                    var batch = new
+                    {
+                        value = new[] 
+                    { 
+                        new 
+                        { 
+                            id = profile.ProfileId.ToString()+"_en",
+                            profileid = profile.ProfileId.ToString(),
+                            city = cityenname,
+                            category = categoryenname,
+                            address = profile.Adress1,
+                            email = profile.Email,
+                            name = profile.Name,
+                            lang = "en",
+                            brands = profile.Brands,
+                            descen=profile.DescEn,
+                            descse=profile.DescSe,
+                            orgnumber=profile.OrgNumber,
+                            phone=profile.Phone,
+                            zip=profile.Zip,
+                            cities = city.Select(p=>p.Name).ToArray(),
+                            categories = category.Select(p=>p.Name).ToArray(),
+                            cityid = profile.CityId.ToString(),
+                            tags=tags.ToArray()
+                        },
+                        new 
+                        { 
+                            id = profile.ProfileId.ToString()+"_se",
+                            profileid = profile.ProfileId.ToString(),
+                            city = citysename,
+                            category = categorysename,
+                            address = profile.Adress1,
+                            email = profile.Email,
+                            name = profile.Name,
+                            lang = "se",
+                            brands = profile.Brands,
+                            descen=profile.DescEn,
+                            descse=profile.DescSe,
+                            orgnumber=profile.OrgNumber,
+                            phone=profile.Phone,
+                            zip=profile.Zip,
+                            cities = city.Select(p=>p.Name).ToArray(),
+                            categories = category.Select(p=>p.Name).ToArray(),
+                            cityid = profile.CityId.ToString(),
+                            tags=tags.ToArray()
+                        }
+                    },
+                    };
+
+                    var response = client.PostAsync("https://" + serviceName + ".search.windows.net/indexes/profiles/docs/index?api-version=2014-10-20-Preview", new StringContent(JsonConvert.SerializeObject(batch), Encoding.UTF8, "application/json")).Result;
+                    response.EnsureSuccessStatusCode();
+
+                    db.Entry(profile).State = System.Data.Entity.EntityState.Modified;
+                    profile.Indexed = true;
+                    db.SaveChanges();
+                    success++;
+                }
+                catch(Exception ex)
+                {
+                    Log.Write("Error indexing profile", ex.Message, profile.ProfileId, 0, System.Diagnostics.TraceLevel.Verbose);
+                    errors++;
+                }
+            }
+            if(errors > 0)
+            {
+                Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Error);
+            }
+            else
+            {
+                Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Info);
+            }
+            
         }
-    },
-    };
-    var response = client.PostAsync("https://" + serviceName + ".search.windows.net/indexes/profiles/docs/index?api-version=2014-10-20-Preview", new StringContent(JsonConvert.SerializeObject(batch), Encoding.UTF8, "application/json")).Result;
-    response.EnsureSuccessStatusCode();
 
-    db.Entry(profile).State = System.Data.Entity.EntityState.Modified;
-    profile.Indexed = true;
-    db.SaveChanges();
-    success++;
-    }
-    catch(Exception ex)
-    {
-    Log.Write("Error indexing profile", ex.Message, profile.ProfileId, 0, System.Diagnostics.TraceLevel.Verbose);
-    errors++;
-    }
-    }
-    if(errors > 0)
-    {
-    Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Error);
-    }
-    else
-    {
-    Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Info);
-    }  
-    }
+        static void RecreateIndex( string ServiceName, HttpClient client)
+        {
+            var index = new
+            {
+                name = "profiles",
+                fields = new[] 
+                { 
+                    new { name = "id",              type = "Edm.String",         key = true,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "profileid",       type = "Edm.String",         key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "cityid",          type = "Edm.String",         key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "city",            type = "Edm.String",         key = false, searchable = true,  filterable = true, sortable = true,  facetable = true, retrievable = true,  suggestions = true  },
+                    new { name = "category",        type = "Edm.String",         key = false, searchable = true,  filterable = true, sortable = false, facetable = true, retrievable = true,  suggestions = false  },
+                    new { name = "address",         type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "email",           type = "Edm.String",         key = false, searchable = true,  filterable = false, sortable = true, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "name",            type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true, suggestions = true },
+                    new { name = "lang",            type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = false,  facetable = false,  retrievable = true, suggestions = false },
+                    new { name = "brands",          type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "descen",          type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "descse",          type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "orgnumber",       type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "phone",           type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "zip",             type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "cities",          type = "Collection(Edm.String)",         key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
+                   new { name = "categories",      type = "Collection(Edm.String)",         key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
+                    new { name = "tags",            type = "Collection(Edm.String)",         key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false }
+                    
+                }
+            };
 
-    static void RecreateIndex( string ServiceName, HttpClient client)
-    {
-    var index = new
-    {
-    name = "profiles",
-    fields = new[] 
-    { 
-    new { name = "id",      type = "Edm.String",     key = true,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "profileid",   type = "Edm.String",     key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "cityid",  type = "Edm.String",     key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "city",    type = "Edm.String",     key = false, searchable = true,  filterable = true, sortable = true,  facetable = true, retrievable = true,  suggestions = true  },
-    new { name = "category",    type = "Edm.String",     key = false, searchable = true,  filterable = true, sortable = false, facetable = true, retrievable = true,  suggestions = false  },
-    new { name = "address",     type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "email",   type = "Edm.String",     key = false, searchable = true,  filterable = false, sortable = true, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "name",    type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true, suggestions = true },
-    new { name = "lang",    type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = false,  facetable = false,  retrievable = true, suggestions = false },
-    new { name = "brands",  type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "descen",  type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "descse",  type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "orgnumber",   type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "phone",   type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "zip",     type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "cities",  type = "Collection(Edm.String)",     key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
-       new { name = "categories",  type = "Collection(Edm.String)",     key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
-    new { name = "tags",    type = "Collection(Edm.String)",     key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false }    
-    }
-    };
+            var url = "https://" + ServiceName + ".search.windows.net/indexes/?api-version=2014-10-20-Preview";
 
-    var url = "https://" + ServiceName + ".search.windows.net/indexes/?api-version=2014-10-20-Preview";
-    var deleteUrl = "https://" + ServiceName + ".search.windows.net/indexes/profiles?api-version=2014-10-20-Preview";
-    try
-    {
-    var deleteResponseIndex = client.DeleteAsync(deleteUrl).Result;
-    deleteResponseIndex.EnsureSuccessStatusCode();
-    }
-    catch (Exception ex)
-    {
-    }
-    var responseIndex = client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(index), Encoding.UTF8, "application/json")).Result;
-    responseIndex.EnsureSuccessStatusCode(); 
+            var deleteUrl = "https://" + ServiceName + ".search.windows.net/indexes/profiles?api-version=2014-10-20-Preview";
+
+            try
+            {
+                var deleteResponseIndex = client.DeleteAsync(deleteUrl).Result;
+                deleteResponseIndex.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            var responseIndex = client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(index), Encoding.UTF8, "application/json")).Result;
+            responseIndex.EnsureSuccessStatusCode();            
+          
+
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
