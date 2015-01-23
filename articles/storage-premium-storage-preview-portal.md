@@ -1,6 +1,6 @@
-<properties urlDisplayName="Learn Azure Premium Storage for Disks" pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads" metaKeywords="Azure Storage, Premium, Storage Account, Page blobs" description="Learn Azure Premium Storage for Disks. Learn how to create a Premium Storage account." metaCanonical="" services="storage" documentationCenter="" title="" authors="Selcin" solutions="data-management" manager="adinah" editor="tysonn"/>
+<properties pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads" description="Learn Azure Premium Storage for Disks. Learn how to create a Premium Storage account." services="storage" documentationCenter="" authors="Selcin" manager="adinah" editor="tysonn"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="selcint" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="selcint"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
