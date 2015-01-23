@@ -6,4 +6,4 @@
 
 
 
-[WACOM.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]
+[AZURE.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]

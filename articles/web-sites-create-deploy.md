@@ -43,7 +43,7 @@ Follow these steps to create a website in Azure.
 
 ##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Gallery
 
-[WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
+[AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="deleteawebsite"></a>How to: Delete a Website
 Websites are deleted using the **Delete** icon in the Azure Management Portal. The **Delete** icon is available in the Azure Portal when you click **Websites** to list all of your websites and at the bottom of each of the website management pages.

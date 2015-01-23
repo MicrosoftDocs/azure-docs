@@ -16,7 +16,7 @@ The sample application is written in C# using Visual Studio 2013. Try the free [
 
 You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](../search-get-started/) for help with setting up the service.
 
-[WACOM.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
 <h2 id="sub-2">Download the sample application</h2>
 Go to [Azure Search Scoring Profiles Demo](https://azuresearchscoringprofiles.codeplex.com/) on codeplex to download the sample application described in this tutorial.

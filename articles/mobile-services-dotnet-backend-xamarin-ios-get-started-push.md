@@ -4,6 +4,6 @@
 
 # Add push notifications to your Mobile Services app
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
 
-[WACOM.INCLUDE [mobile-services-content-not-ready](../includes/mobile-services-content-not-ready.md)]
+[AZURE.INCLUDE [mobile-services-content-not-ready](../includes/mobile-services-content-not-ready.md)]

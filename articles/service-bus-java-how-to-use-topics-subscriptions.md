@@ -24,7 +24,7 @@ messages to a topic**, **receiving messages from a subscription**, and
 -   [How to: Delete Topics and Subscriptions][]
 -   [Next Steps][]
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="bkmk_ConfigYourApp"> </a>Configure Your Application to Use Service Bus
 

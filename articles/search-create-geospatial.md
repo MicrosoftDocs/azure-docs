@@ -37,7 +37,7 @@ This solution contains two projects:
 +	**StoreIndexer** creates an Azure Search index and loads data.
 +	**AdventureWorksWebGeo** is an MVC4-based application that queries the Azure Search index and shows store locations on a Bing map.
 
-[WACOM.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
 
 <h2 id="sub-2">Bing Maps</h2>

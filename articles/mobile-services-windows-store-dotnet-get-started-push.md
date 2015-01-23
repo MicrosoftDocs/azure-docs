@@ -33,7 +33,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="register"></a>Add and configure push notifications in the app</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
 <li><p>Expand <strong>services</strong>, <strong>mobile services</strong>, your service name, open the generated code file, and then inspect the <strong>UploadChannel</strong> method that obtains the installation ID and channel for the device and inserts this data into the new channels table.</p> 
@@ -54,7 +54,7 @@ While the generated code makes it easy to demonstrate a notification when the ap
 
 <h2><a name="update-scripts"></a>Update the generated push notification code</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 <h2><a name="test"></a>Test push notifications in your app</h2>
 

@@ -4,7 +4,7 @@
 
 # Azure Search: development workflow
 
-[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
 This article provides a roadmap and a few best practices for creating and maintaining the Search service and its indexes. 
 

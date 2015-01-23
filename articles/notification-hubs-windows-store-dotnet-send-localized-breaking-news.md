@@ -161,7 +161,7 @@ Notifications singleton in the *OnLaunched* method:
 
 <h2><a name="send"></a>Send localized notifications from your back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 

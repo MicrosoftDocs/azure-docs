@@ -162,7 +162,7 @@ In order to adapt your client apps to receive localized messages, you have to re
 
 <h2><a name="send"></a>Send localized notifications from your back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 ## Next Steps

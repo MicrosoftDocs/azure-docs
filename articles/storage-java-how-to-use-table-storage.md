@@ -30,11 +30,11 @@ Note: An SDK is available for developers who are using Azure Storage on Android 
 * [How to: Delete a table](#DeleteTable)
 * [Next steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a name="CreateAccount"></a>Create an Azure storage account
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Create a Java application
 

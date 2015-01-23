@@ -42,7 +42,7 @@ To clarify what Blitline is useful for, it is often easier to identify what Blit
 
 ## <a id="createaccount"></a>Create a Blitline account
 
-[WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
+[AZURE.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
 ## <a id="createjob"></a>How to create a Blitline job
 

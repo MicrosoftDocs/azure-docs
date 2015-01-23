@@ -16,9 +16,9 @@ messages from a subscription**, and **deleting topics and
 subscriptions**. For more information on topics and subscriptions, see
 the [Next Steps][] section. </span>
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 <h2>Configure the Application to Use Service Bus</h2>
 

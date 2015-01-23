@@ -21,7 +21,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 ##<a name="enable-source-control"></a>Enable source control in your mobile service
 
-[WACOM.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
+[AZURE.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
 ##<a name="clone-repo"></a>Install Git and create the local repository
 

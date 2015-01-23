@@ -28,7 +28,7 @@ Steps] section.
 -   [How to: Handle Application Crashes and Unreadable Messages](#handle-crashes)
 -   [Next Steps](#next-steps)
 
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 

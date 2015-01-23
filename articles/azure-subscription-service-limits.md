@@ -164,7 +164,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 ##<a name="websiteslimits"></a>Websites Limits
 
-[WACOM.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
 ##<a name="networkinglimits"></a>Networking Limits
 
@@ -279,11 +279,11 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 ##<a name="batchlimits"></a>Batch Preview Limits
 
-[WACOM.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+[AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ##<a name="documentdblimits"></a>DocumentDB Preview Limits
 
-[WACOM.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+[AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 ##<a name="sqldblimits"></a>SQL Database Limits
 
@@ -296,11 +296,11 @@ For SQL Database Limits, please see the following topics:
 
 ##<a name="mediaserviceslimits"></a>Media Services Limits
 
-[WACOM.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
 ##<a name="servicebuslimits"></a>Service Bus Limits
 
-[WACOM.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
 ##<a name="adlimits"></a>Active Directory Limits
 

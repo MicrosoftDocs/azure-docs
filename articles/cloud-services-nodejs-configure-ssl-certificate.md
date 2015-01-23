@@ -34,7 +34,7 @@ world' service using the Azure PowerShell using these steps:
 
 	![Azure PowerShell icon][powershell-menu]
 
-[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
+[AZURE.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 
 2.  Create a new service project using the **New-AzureServiceProject** cmdlet. 

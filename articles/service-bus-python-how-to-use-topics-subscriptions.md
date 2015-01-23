@@ -28,7 +28,7 @@ and subscriptions, see the [Next Steps](#Next_Steps) section.
 -   [Next Steps](#Next_Steps)
 
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
 

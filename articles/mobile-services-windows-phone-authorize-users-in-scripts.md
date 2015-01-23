@@ -4,7 +4,7 @@
 
 # Service-side authorization of Mobile Services users
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
 
 <div class="dev-onpage-video-clear clearfix">

@@ -13,7 +13,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 - [How to: Initialize a new data disk in Windows Server](#initializeinWS)
 
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 ##<a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server
 

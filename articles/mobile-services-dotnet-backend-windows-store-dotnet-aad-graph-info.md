@@ -4,7 +4,7 @@
 
 # Accessing Azure Active Directory Graph Information
 
-[WACOM.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
+[AZURE.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
 
 
 
@@ -37,7 +37,7 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 
 During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID. 
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
+[AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 ## <a name="create-api"></a>Create a GetUserInfo custom API
@@ -149,13 +149,13 @@ If you've never used custom APIs with Mobile Services, refer to the [Custom API 
 
 In this section you will update the `AuthenticateAsync` method you implemented in the [Add Authentication to your app] tutorial to call the custom API and return additional information about the user from the AAD. 
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
   
 
 
 ## <a name="test-app"></a>Test the app
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 
 

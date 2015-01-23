@@ -5,4 +5,4 @@
 
 
 
-[WACOM.INCLUDE [custom-dns](../includes/custom-dns.md)]
+[AZURE.INCLUDE [custom-dns](../includes/custom-dns.md)]

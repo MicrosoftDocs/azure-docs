@@ -7,7 +7,7 @@
 
 <h1>Sign up for Azure as an organization</h1>
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+[AZURE.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Until recently, you could only sign up for a new Microsoft Azure subscription using your Microsoft account (Windows Live ID). Azure now supports using either of the following two account methods to sign up:
 

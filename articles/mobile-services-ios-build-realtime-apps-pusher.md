@@ -25,7 +25,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="sign-up"></a>Create a new Pusher account
 
-[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
+[AZURE.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>Update your app
 

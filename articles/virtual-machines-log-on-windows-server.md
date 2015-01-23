@@ -7,4 +7,4 @@
 
 To log on to a virtual machine running Windows Server, use the Connect button in the Management Portal to start a Remote Desktop Connection. (For Linux VMs, see [How to Log on to a Virtual Machine Running Linux](./virtual-machines-linux-how-to-log-on/).)
 
-[WACOM.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]

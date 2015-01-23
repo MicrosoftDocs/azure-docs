@@ -49,7 +49,7 @@ For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 <h2><a name="createaccount"></a>Create a SendGrid account</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="reference"></a>Reference the SendGrid .NET class library</h2>
 

@@ -6,4 +6,4 @@
 
 
 
-[WACOM.INCLUDE [cdn](../includes/cdn.md)]
+[AZURE.INCLUDE [cdn](../includes/cdn.md)]

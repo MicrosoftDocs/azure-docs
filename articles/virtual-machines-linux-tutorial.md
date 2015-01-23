@@ -35,9 +35,9 @@ Each virtual machine resides in a cloud service, either by itself, or grouped wi
 
 This tutorial uses the **From Gallery** method to create a virtual machine because it gives you more options than the **Quick Create** method. You can choose connected resources, the DNS name, and the network connectivity if needed.
 
-[WACOM.INCLUDE [virtual-machines-create-LinuxVM](../includes/virtual-machines-create-LinuxVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../includes/virtual-machines-create-LinuxVM.md)]
 
-[WACOM.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
+[AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
 > [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For more details on how to configure and connect with an SSH key, see [How to Use SSH with Linux on Azure](./virtual-machines-linux-use-ssh-key/).
 

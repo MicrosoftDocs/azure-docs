@@ -8,4 +8,4 @@
 
 
 
-[WACOM.INCLUDE [cloud-storage](../includes/cloud-storage.md)]
+[AZURE.INCLUDE [cloud-storage](../includes/cloud-storage.md)]

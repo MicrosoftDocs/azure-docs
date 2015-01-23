@@ -5,7 +5,7 @@
 
 # Delivering Video-on-Demand with Media Services SDK for .NET 
 
-[WACOM.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
+[AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]

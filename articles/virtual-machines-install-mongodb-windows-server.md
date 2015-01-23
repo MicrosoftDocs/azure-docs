@@ -21,18 +21,18 @@ Following are general instructions; you can modify them by creating an endpoint 
 - Use **TCP** as the protocol
 - Set both the public and private ports to **27017**.
  
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## Attach a data disk
 To provide a storage for the virtual machine, attach a data disk and then initialize it so that Windows can use it. You can attach either an existing disk if you already have data you want to use, or attach an empty disk.
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 For instructions on initalizing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/).
 
 ## Install and run MongoDB on the virtual machine 
 
-[WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
+[AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ##Summary
 In this tutorial you learned how to create a Windows Server virtual machine, remotely connect to it, and attach a data disk.  You also learned how to install and configure MongoDB on the Windows virtual machine. For more information on MongoDB, see the [MongoDB Documentation][MongoDocs].

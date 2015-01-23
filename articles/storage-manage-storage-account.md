@@ -14,7 +14,7 @@
 
 <h2><a id="georeplication"></a>How to: Replicate your storage account data for durability and high availability</h2>
 
-[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### To specify replication settings for a storage account ###
 

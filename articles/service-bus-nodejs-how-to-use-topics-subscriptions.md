@@ -31,7 +31,7 @@ and subscriptions, see the [Next Steps][] section.
 -   [How to: Delete Topics and Subscriptions](#delete)
 -   [Next Steps](#next-steps)
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ##<a name="create-app"></a> Create a Node.js Application
 

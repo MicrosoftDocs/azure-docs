@@ -23,7 +23,7 @@ This guide provides an overview of using Python web and worker roles using [Pyth
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="what-are-python-web-and-worker-roles"></a>What are Python web and worker roles?
 

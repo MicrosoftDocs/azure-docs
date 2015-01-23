@@ -108,7 +108,7 @@ Example `requirements.txt`:
 
 <h2><a name="python-version"></a>Python Version</h2>
 
-[WACOM.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
+[AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
 Example `runtime.txt`:
 
@@ -363,22 +363,22 @@ Contents of `ptvs_virtualenv_proxy.py`:
 
 <h2><a name="customize-git-deployment"></a>Customize Git deployment</h2>
 
-[WACOM.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-deployment.md)]
 
 
 <h2><a name="troubleshooting-deployment"></a>Troubleshooting - Deployment</h2>
 
-[WACOM.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
 <h2><a name="troubleshooting-package-installation"></a>Troubleshooting - Package Installation</h2>
 
-[WACOM.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
+[AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
 <h2><a name="troubleshooting-virtual-environment"></a>Troubleshooting - Virtual Environment</h2>
 
-[WACOM.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
+[AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
 

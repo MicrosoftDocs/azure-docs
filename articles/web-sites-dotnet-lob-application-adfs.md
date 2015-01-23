@@ -30,7 +30,7 @@ You will build a basic ASP.NET application in Azure Websites with the following 
 <a name="bkmk_need"></a>
 ## What you will need ##
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 You need the following to complete this tutorial:
 

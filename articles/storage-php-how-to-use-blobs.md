@@ -22,11 +22,11 @@ This guide will show you how to perform common scenarios using the Azure Blob se
 * [How to: Delete a Blob container](#DeleteContainer)
 * [Next steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>Create a PHP application</h2>
 
@@ -36,7 +36,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 <h2><a id="GetClientLibrary"></a>Get the Azure Client Libraries</h2>
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="ConfigureStorage"></a>Configure your application to access the Blob service</h2>
 

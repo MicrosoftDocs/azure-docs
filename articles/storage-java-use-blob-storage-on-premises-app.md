@@ -33,7 +33,7 @@ HTML file that displays the image in your browser.
     **FileInputStream** constructor in the example to use a different
     image path and file name.
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <a name="bkmk_uploadfile"> </a>To use Azure blob storage to upload a file
 

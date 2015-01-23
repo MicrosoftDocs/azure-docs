@@ -41,7 +41,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
 
-[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.
 
@@ -62,7 +62,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 ###Add Google Play Services to the project
 
-[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ###Add code
 

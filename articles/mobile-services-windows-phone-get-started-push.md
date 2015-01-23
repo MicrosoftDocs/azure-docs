@@ -41,7 +41,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="create-table"></a>Create a new table
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 <h2><a name="add-push"></a>Add push notifications to your app</h2>
 		
@@ -100,7 +100,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="update-scripts"></a>Update the registered insert scripts in the Management Portal</h2>
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
+[AZURE.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 

@@ -6,4 +6,4 @@
 
 
 
-[WACOM.INCLUDE [load-balancing-vms](../includes/load-balancing-vms.md)]
+[AZURE.INCLUDE [load-balancing-vms](../includes/load-balancing-vms.md)]

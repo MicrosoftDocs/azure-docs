@@ -41,7 +41,7 @@ In this video, Scott Hanselman presents how easy it is to sign-up for a free tri
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Create an ASP.NET web application
 

@@ -18,7 +18,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ![Virtual machine running Apache Tomcat][virtual_machine_tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
 

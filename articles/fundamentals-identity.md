@@ -8,4 +8,4 @@
 
 
 
-[WACOM.INCLUDE [identity](../includes/identity.md)]
+[AZURE.INCLUDE [identity](../includes/identity.md)]

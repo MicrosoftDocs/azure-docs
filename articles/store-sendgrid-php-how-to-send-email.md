@@ -37,7 +37,7 @@ For more information, see [https://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGrid"> </a>Create a SendGrid Account
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Using SendGrid from your PHP Application
 

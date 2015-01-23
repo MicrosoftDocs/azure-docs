@@ -19,7 +19,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="sign-up"></a>Create a new SendGrid account</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="add-script"></a>Register a new script that sends emails</h2>
 

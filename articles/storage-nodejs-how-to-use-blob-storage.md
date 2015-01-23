@@ -31,10 +31,10 @@ see the [Next Steps][] section.
 * [How To: Work with Shared Access Signatures][]     
 * [Next Steps][]
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ##<a name="create-account"></a>Create an Azure Storage account
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 

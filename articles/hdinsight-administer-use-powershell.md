@@ -32,7 +32,7 @@ Before you begin this article, you must have the following:
 ##<a id="provision"></a> Provision an HDInsight cluster
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. 
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **To create an Azure storage account**
 

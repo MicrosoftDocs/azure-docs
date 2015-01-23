@@ -48,7 +48,7 @@ For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="createaccount"> </a>Create a SendGrid Account
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="reference"> </a>Reference the SendGrid Node.js Module
 

@@ -4,7 +4,7 @@
 
 # Service-side authorization of Mobile Services users
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
 
 This topic shows you how to authorize authenticated users for accessing data in Azure Mobile Services from an Android app. In this tutorial you add code to the data access methods in your your controller that filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
@@ -12,7 +12,7 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 ## <a name="register-scripts"></a>Modify the data access methods
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)]
 
 
 ## Test the app

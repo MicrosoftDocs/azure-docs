@@ -13,7 +13,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 - [How to: Attach an existing disk](#attachexisting)
 - [How to: Initialize a new data disk in Linux](#initializeinlinux)
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 ##<a id="initializeinlinux"></a>How to: Initialize a new data disk in Linux
 

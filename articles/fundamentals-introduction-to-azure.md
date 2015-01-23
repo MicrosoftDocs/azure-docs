@@ -6,4 +6,4 @@
 
 
 
-[WACOM.INCLUDE [intro-to-azure](../includes/intro-to-azure.md)]
+[AZURE.INCLUDE [intro-to-azure](../includes/intro-to-azure.md)]

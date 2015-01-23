@@ -25,11 +25,11 @@ This guide will show you how to perform common scenarios using the Azure Table s
 * [How to: Delete a table](#DeleteTable)
 * [Next Steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a id="CreateAccount"></a>Create an Azure storage account
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ##<a id="CreateApplication"></a>Create a PHP application
 
@@ -39,7 +39,7 @@ In this guide, you will use Table service features which can be called from with
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureStorage"></a>Configure your application to access the Table service
 

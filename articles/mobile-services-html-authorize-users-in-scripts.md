@@ -4,7 +4,7 @@
 
 # Service-side authorization of Mobile Services users
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
 
 This topic shows you how to use server scripts to authorize authenticated users for accessing data in Azure Mobile Services from an HTML app.  In this tutorial, you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.

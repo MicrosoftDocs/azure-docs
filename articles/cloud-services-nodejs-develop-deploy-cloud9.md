@@ -111,7 +111,7 @@ To deploy your application to Azure, you need an account. If you
 do not already have an Azure account, you can sign up for a free
 trial by following these steps:
 
-[WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
+[AZURE.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
 
 
 ## Create a Deployment

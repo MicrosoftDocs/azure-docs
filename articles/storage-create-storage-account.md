@@ -92,7 +92,7 @@ An *affinity group* is a geographic grouping of your Azure services and VMs with
 
 ### <a id="replication-options"></a>Storage account replication options
 
-[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 
 ## <a id="regeneratestoragekeys"></a>How to: View, copy, and regenerate storage access keys

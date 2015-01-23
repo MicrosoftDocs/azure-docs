@@ -8,4 +8,4 @@
 
 
 
-[WACOM.INCLUDE [hybrid-solutions](../includes/hybrid-solutions.md)]
+[AZURE.INCLUDE [hybrid-solutions](../includes/hybrid-solutions.md)]

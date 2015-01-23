@@ -35,7 +35,7 @@ This guide shows you how to perform common scenarios using the iOS client for Az
 	- [Customize data type serialization]
 - [Next steps][]-->
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="Setup"></a>Setup and Prerequisites
 

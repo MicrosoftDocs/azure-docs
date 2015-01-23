@@ -32,7 +32,7 @@ You must have the following to successfully complete this tutorial.
 
 ##<a id="provision"></a>Provision a Storm cluster on the Azure portal
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 1. Sign in to the [Azure Management Portal][azureportal]
 

@@ -17,7 +17,7 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ![Azure PHP web site][ws-storage-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Installing the Azure client libraries
 

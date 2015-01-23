@@ -16,7 +16,7 @@ Foundation API with extensions contained in the Service Bus assembly
 that is part of the .NET Azure SDK. For more
 information on the Service Bus relay, see the "Next Steps" section.
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 <h2>What is the Service Bus Relay</h2>
 

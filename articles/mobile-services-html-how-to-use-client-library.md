@@ -36,7 +36,7 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 - [How to: Use cross-origin resource sharing]
 - [Next steps]
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="create-client"></a>How to: Create the Mobile Services Client
 

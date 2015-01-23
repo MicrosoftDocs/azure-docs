@@ -69,7 +69,7 @@ In order to access SharePoint, you need a special access token with SharePoint a
 
 1. Open your Mobile Services backend project in Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 2. In your Mobile Services backend project, crate a new class called SharePointUploadContext. In it, add the following:
 

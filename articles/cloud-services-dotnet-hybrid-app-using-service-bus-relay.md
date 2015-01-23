@@ -23,7 +23,7 @@ You will learn:
 -   How to use the Azure Service Bus relay to share data between
     an Azure application and a web service hosted elsewhere.
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ###How the Service Bus relay helps with hybrid solutions
 

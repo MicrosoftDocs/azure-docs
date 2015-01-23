@@ -34,7 +34,7 @@ This guide shows you how to perform common scenarios using the Xamarin Component
 - [How to: Design unit tests]
 - [Next steps]
 	
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a>Setup and Prerequisites</h2>
 

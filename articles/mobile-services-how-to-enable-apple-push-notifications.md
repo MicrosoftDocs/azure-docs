@@ -6,7 +6,7 @@
 
 This topic shows you how to enable your iOS app for push notifications by using the Apple Push Notification Service (APNS). The certificate obtained is used to register the iOS app for push notifications in the [Azure Management Portal][Management Portal]. For the complete end-to-end tutorial that includes updates to your app, see [Get started with push notifications]. 
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 Now, you can use this .p12 certificate to enable services to authenticate with APNS and send push notifications on behalf of your app.
 

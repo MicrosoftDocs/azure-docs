@@ -22,7 +22,7 @@ covered include **creating queues, sending and receiving messages**, and
 -   [How to: Handle Application Crashes and Unreadable Messages][]
 -   [Next Steps][]
 
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
 

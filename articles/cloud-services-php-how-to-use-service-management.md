@@ -41,7 +41,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 ##<a id="GetClientLibraries"></a>Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="Connect"></a>How to: Connect to service management
 

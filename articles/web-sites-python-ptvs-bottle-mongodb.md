@@ -33,7 +33,7 @@ See the [Python Developer Center][] for more articles that cover development of 
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
  - [RoboMongo][] (optional)
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Create the Project
 

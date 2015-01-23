@@ -39,7 +39,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
 	![Azure PowerShell icon][powershell-menu]
 
-	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
+	[AZURE.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 
 2.  Create a new **node** directory on your C drive, and change to the c:\\node directory:
@@ -117,7 +117,7 @@ when it is deployed to the cloud. Perform the following steps to test the applic
 
 ## Deploying the Application to Azure
 
-	[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+	[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 
 

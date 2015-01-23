@@ -87,7 +87,7 @@ Before using the command-line interface, you must configure connectivity between
 
 ##<a id="provision"></a> Provision an HDInsight cluster
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account is required before you can create an HDInsight cluster. 

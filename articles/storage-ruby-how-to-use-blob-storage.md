@@ -29,11 +29,11 @@ For more information on blobs, see the [Next Steps](#next-steps) section.
 * [Next Steps](#NextSteps)
 
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a id="CreateAccount"></a>Create an Azure storage account
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a id="CreateRubyApp"></a>Create a Ruby Application
 

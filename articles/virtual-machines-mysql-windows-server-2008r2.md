@@ -15,7 +15,7 @@ This tutorial shows you how to:
 
 ##Create a virtual machine running Windows Server
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ##Attach a data disk
 
@@ -24,7 +24,7 @@ After the virtual machine is created, attach a data disk. This disk provides dat
 ##Log on to the virtual machine
 Next, you'll log on to the virtual machine so you can install MySQL.
 
-[WACOM.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
 ##Install and run MySQL Community Server on the virtual machine
 Follow these steps to install, configure, and run MySQL Community Server:

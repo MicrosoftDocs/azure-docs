@@ -11,7 +11,7 @@ Web application that is mobile-friendly and deploy it into Windows Azure. For th
 or the professional edition of Visual Studio if you already
 have that.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### What You'll Build
 
