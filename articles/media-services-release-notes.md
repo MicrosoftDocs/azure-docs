@@ -1,6 +1,6 @@
-<properties pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Media Services Release Notes" metaCanonical="" services="media-services" documentationCenter="media" title="" authors="juliako" solutions="media" manager="dwrede" editor=""/>
+<properties pageTitle="Media Services Release Notes" description="Media Services Release Notes" services="media-services" documentationCenter="media" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/15/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/15/2014" ms.author="juliako"/>
 
 
 # Azure Media Services Release Notes
