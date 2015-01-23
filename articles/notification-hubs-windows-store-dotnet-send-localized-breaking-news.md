@@ -1,6 +1,6 @@
-<properties urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services, notification-hubs" documentationCenter="" title="" authors="RickSaling" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Notification Hubs Localized Breaking News Tutorial" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." services="mobile-services, notification-hubs" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
 # Use Notification Hubs to send localized breaking news
 
 <div class="dev-center-tutorial-selector sublanding"> 
