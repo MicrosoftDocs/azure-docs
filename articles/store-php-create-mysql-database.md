@@ -1,6 +1,6 @@
-<properties title="" pageTitle="How to create a MySQL Database in Azure" metaKeywords="MySQL Azure" description="Learn how to use ClearDB to create a MySQL database in an Azure data center." documentationCenter="php" services="" authors="rmcmurray" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId=""/>
+<properties pageTitle="How to create a MySQL Database in Azure" description="Learn how to use ClearDB to create a MySQL database in an Azure data center." documentationCenter="php" services="" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="multiple" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 [WACOM.INCLUDE [create-mysql-db](../includes/create-mysql-db.md)]
 
