@@ -1,6 +1,6 @@
-<properties urlDisplayName="Learn Azure SQL Database and SQL Server in Azure VMs" pageTitle="Understanding Azure SQL Database and SQL Server in Azure VMs" metaKeywords="SQL, Azure SQL Database, SQL Server IAAS, SQL Server in Azure VM" description="Learn Azure SQL Database and SQL Server in Azure Virtual Machines. Review common business motivators for determining which SQL technology works best for your application." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="Selcin" solutions="data-management" manager="jeffreyg" editor="tysonn"/>
+<properties pageTitle="Understanding Azure SQL Database and SQL Server in Azure VMs" description="Learn Azure SQL Database and SQL Server in Azure Virtual Machines. Review common business motivators for determining which SQL technology works best for your application." services="virtual-machines" documentationCenter="" authors="Selcin" manager="jeffreyg" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="selcint" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="selcint"/>
 
 # Understanding Azure SQL Database and SQL Server in Azure VMs
 
