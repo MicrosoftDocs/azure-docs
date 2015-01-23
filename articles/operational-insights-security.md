@@ -1,6 +1,6 @@
-<properties urlDisplayName="Operational Insights security" pageTitle="Operational Insights security" metaKeywords="" description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." metaCanonical="" services="operational-insights" documentationCenter="" title="" authors="bandersmsft" solutions="" manager="jwhit" editor=""/>
+<properties pageTitle="Operational Insights security" description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." services="operational-insights" documentationCenter="" authors="bandersmsft" manager="jwhit" editor=""/>
 
-<tags ms.service="operational-insights" ms.workload="appservices" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/06/2014" ms.author="banders" />
+<tags ms.service="operational-insights" ms.workload="appservices" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/06/2014" ms.author="banders"/>
 
 
 
