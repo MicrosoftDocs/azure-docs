@@ -1,6 +1,6 @@
-<properties urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="mumian" solutions="big-data" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"/>
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight
 
