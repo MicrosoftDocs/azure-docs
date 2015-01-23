@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="mobile-services" authors="lindydonna" solutions="" manager="dwrede" editor="" title="" documentationCenter="xamarin"/>
+<properties pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." services="mobile-services" authors="lindydonna" manager="dwrede" editor="" documentationCenter="xamarin"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam"/>
 
 
 # Refine Mobile Services queries with paging
