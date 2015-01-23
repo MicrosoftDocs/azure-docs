@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to manage" pageTitle="How to manage websites - Microsoft Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." metaCanonical="" services="web-sites" documentationCenter="" title="" authors="MikeWasson" solutions="" writer="mwasson" manager="wpickett" editor=""/>
+<properties pageTitle="How to manage websites - Microsoft Azure service management" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." services="web-sites" documentationCenter="" authors="MikeWasson" writer="mwasson" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"/>
 
 #<a name="howtomanage"></a>Manage websites through the Azure Management Portal
 
