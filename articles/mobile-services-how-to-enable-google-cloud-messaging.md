@@ -1,6 +1,6 @@
-<properties pageTitle="How to enable Google Cloud Messaging" metaKeywords="" description="Follow this tutorial to create a new service using Azure Mobile Services." metaCanonical="" services="mobile-services, notification-hubs" documentationCenter="android" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="How to enable Google Cloud Messaging" description="Follow this tutorial to create a new service using Azure Mobile Services." services="mobile-services, notification-hubs" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
 # How to enable Google Cloud Messaging
 
