@@ -1,6 +1,6 @@
-<properties urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" metaKeywords="" description="Learn how to create an Azure Virtual Network with cross-premises connectivity in this tutorial." metaCanonical="" services="virtual-network" documentationCenter="" title="" authors="cherylmc" solutions="" manager="adinah" editor=""/>
+<properties pageTitle="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" description="Learn how to create an Azure Virtual Network with cross-premises connectivity in this tutorial." services="virtual-network" documentationCenter="" authors="cherylmc" manager="adinah" editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc"/>
 
 
 
