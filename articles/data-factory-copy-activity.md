@@ -15,7 +15,11 @@ You can use the **Copy Activity** in a pipeline to copy data from a source to a 
 	- Archive or back up data to on-premises for tiered storage
 - **Azure-to-Azure copy**. In this scenario, the data distributed across Azure data sources is aggregated into a centralized Azure data store. Examples: Azure table to Azure blob, Azure blob to Azure table, Azure Table to Azure SQL, Azure blob to Azure SQL.
 
-See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity. See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity.
+To learn more, you can:
+
+- See video [Introducing Azure Data Factory Copy Activity][copy-activity-video]
+- See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity. 
+- See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity.
 
 ## In This Article
 Section | Description
@@ -264,7 +268,7 @@ The following table lists the properties supported by these sources and sinks.
 	<tr>
 		<tr>
 		<td><b>BlobSource</b></td>
-		<td>BlobSourceTreatEmptyAsNull</td>
+		<td>TreatEmptyAsNull</td>
 		<td>Specifies whether to treat null or empty string as null value.</td>
 		<td>TRUE<br/>FALSE</td>
 		<td>N</td>
@@ -273,8 +277,8 @@ The following table lists the properties supported by these sources and sinks.
 
 	<tr>
 		<td></td>
-		<td>BlobSourceSkipHeaderLineCount</td>
-		<td>Indicate how many lines need be skipped.</td>
+		<td>SkipHeaderLineCount</td>
+		<td>Indicate how many lines need be skipped. It is applicable only when input dataset is using TextFormat.</td>
 		<td>Integer from 0 to Max.</td>
 		<td>N</td>
 	</tr>
@@ -376,6 +380,15 @@ The following table lists the properties supported by these sources and sinks.
 		<td>A table type name.</td>
 		<td>N</td>
 	</tr>
+
+	<tr>
+		<td></td>
+		<td>WriteBatchTimeout</td>
+		<td>Wait time for the batch insert operation to complete before it times out.</td>
+		<td>(Unit = timespan)<br/><br/>Sample: “00:30:00” (30 minutes)</td>
+		<td>N</td>
+	</tr>
+
 </table>
 
 
@@ -786,6 +799,7 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
 
+[copy-activity-video]: http://azure.microsoft.com/en-us/documentation/videos/introducing-azure-data-factory-copy-activity/
 [table-valued-parameters]: http://msdn.microsoft.com/en-us/library/bb675163.aspx
 
 
