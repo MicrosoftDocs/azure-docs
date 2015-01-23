@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create" pageTitle="How to create, manage, or delete a storage account | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="" solutions="" authors="tamram" manager="adinah" editor=""/>
+<properties pageTitle="How to create, manage, or delete a storage account | Azure" description="Learn how to create, manage, or delete a storage account in the Azure management portal." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram"/>
 
 
 # About Azure Storage Accounts
