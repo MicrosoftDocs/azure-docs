@@ -1,6 +1,6 @@
-<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="" authors="bradsev"/>
+<properties pageTitle="The 10GB GraySort sample | Azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev"/>
 
 # The 10GB GraySort Hadoop sample in HDInsight
  
