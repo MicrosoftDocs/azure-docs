@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started with Mobile Services for Xamarin iOS apps" pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development" metaCanonical="" services="" documentationCenter="xamarin" title="" authors="lindydonna" solutions="" manager="dwrede" editor="mollybos"/>
+<properties pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development" services="" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
