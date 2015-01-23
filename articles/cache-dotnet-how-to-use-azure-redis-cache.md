@@ -1,6 +1,6 @@
 <properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="" title="" authors="steved0x" solutions="" manager="dwrede" editor=""/>
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="1/20/2015" ms.author="sdanie" />
 
 # How to Use Azure Redis Cache
 
@@ -26,7 +26,7 @@ information on using Azure Redis Cache, refer to the [Next Steps][] section.
 <a name="video"></a>
 ## Introduction to Azure Redis Cache (Video)
 In this video, Saurabh Pant and Scott Hanselman introduce Azure Redis Cache. (Duration: 7:45)  
-[AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
+> [AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
 
 <a name="what-is"></a>
 ## What is Azure Redis Cache?
@@ -226,7 +226,7 @@ Type **RedisSessionStateProvider** into the **Search Online** text box, select i
 
 The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
+  <sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -246,11 +246,13 @@ The NuGet package downloads and adds the required assembly references and adds t
       </providers>
     </sessionState>
 
+
+
 The commented section provides an example of the attributes and sample settings for them.
 
 Configure the attributes with the values from your cache blade on the preview portal, and configure the other values as desired.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
+	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -278,7 +280,7 @@ Be sure to comment out the standard **InProc** session state provider.
         <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
       </providers>
     </sessionState> -->
-    
+
 For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider][].
 
 <a name="next-steps"></a>
@@ -288,6 +290,8 @@ Now that you've learned the basics of Azure Redis Cache,
 follow these links to learn how to do more complex caching tasks.
 
 -	Learn more about the StackExchange.Redis client: [StackExchange.Redis cache client documentation][]
+	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].
+	-	Azure Redis Cache can also be used with services such as Redsmin. For more information, see  [How to retrieve an Azure Redis connection string and use it with Redsmin][].
 -	See the [redis][] documentation and read about [redis data types][] and [a fifteen minute introduction to Redis data types][].
 -   See the MSDN Reference: [Azure Redis Cache][]
 
@@ -337,6 +341,9 @@ follow these links to learn how to do more complex caching tasks.
 
    
 <!-- LINKS -->
+[http://redis.io/clients]: http://redis.io/clients
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/en-us/library/azure/dn690470.aspx
+[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Azure Management Portal]: http://windows.azure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
