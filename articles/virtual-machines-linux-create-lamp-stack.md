@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create a LAMP Stack with Microsoft Azure" pageTitle="How to create a LAMP Stack with Microsoft Azure" metaKeywords="Azure LAMP stack vm, LAMP stack vm, Azure LAMP stack" description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="NingKuang" solutions="" manager="timlt" editor="tysonn"/>
+<properties pageTitle="How to create a LAMP Stack with Microsoft Azure" description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
 
 #How to create a LAMP Stack with Microsoft Azure 
 
