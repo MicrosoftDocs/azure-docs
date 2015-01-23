@@ -1,6 +1,6 @@
-<properties urlDisplayName="Media Services REST API overview " pageTitle="Media Services REST API overview - Azure" metaKeywords="Azure media services" description="Media Services REST API overview" metaCanonical="" services="media-services" documentationCenter="" title="Media Services REST API overview" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Media Services REST API overview - Azure" description="Media Services REST API overview" services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/19/2015" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/19/2015" ms.author="juliako"/>
 
 
 # Media Services REST API overview 
