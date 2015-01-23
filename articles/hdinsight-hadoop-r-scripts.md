@@ -1,6 +1,6 @@
-<properties linkid="customize HDInsight cluster" urlDisplayName="Use R in HDInsight to customize Hadoop clusters" pageTitle="Use R in HDInsight to customize clusters| Azure" metaKeywords="" description="Learn how to install and use R to customize Hadoop clusters." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Use R in HDInsight to customize clusters| Azure" description="Learn how to install and use R to customize Hadoop clusters." services="hdinsight" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="bradsev"/>
 
 # Install and use R on HDInsight Hadoop clusters
 
