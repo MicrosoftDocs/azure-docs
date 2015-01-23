@@ -1,4 +1,4 @@
-<properties title="" pageTitle="Upgrade SQL Database Web/Business Databases to New Service Tiers" description="Upgrade Azure SQL Database Web or Business database to the new Azure SQL Database service tiers/performance levels." metaKeywords="Azure, SQL. DB, Service, Tier, web, business" services="sql-database" solutions="upgrade, migrate, move, monitor, t-sql, powershell" documentationCenter="" authors="jenniehubbard" manager="jeffreyg" videoId="" scriptId="" editor=""/>
+<properties pageTitle="Upgrade SQL Database Web/Business Databases to New Service Tiers" description="Upgrade Azure SQL Database Web or Business database to the new Azure SQL Database service tiers/performance levels." services="sql-database" documentationCenter="" authors="jenniehubbard" manager="jeffreyg" editor=""/>
 
 <tags ms.service="sql-database" ms.date="12/3/2014" ms.author="jhubbard" ms.workload="" ms.topic="" ms.tgt_pltfrm=""/>
 
