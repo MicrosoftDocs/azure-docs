@@ -1,6 +1,6 @@
 <properties urlDisplayName="Using io.js in Azure Websites" pageTitle="How to Use Azure Websites with io.js" metaKeywords="io.js website azure, io.js azure, iojs azure web site, iojs azure" description="Learn how to use an Azure website with io.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="" authors="feriese" solutions="" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/20/2015" ms.author="feriese" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/20/2015" ms.author="felixrieseberg" />
 
 
 
@@ -10,7 +10,7 @@
 
 The popular Node fork [io.js] features various differences to Joyent's Node.js project, including a more open governance model, a supposedly faster release cycle and a faster adoption of new and experimental JavaScript features.
 
-While Azure Websites has many Node.js versions preinstalled, it also allows for a user-provided Node.js binary. This article discusses two methods enabling the use of io.js on Azure Websites: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
+While Azure Websites has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary. This article discusses two methods enabling the use of io.js on Azure Websites: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
 
 ##<a id="deploymentscript"></a>Using a Deployment Script
 
