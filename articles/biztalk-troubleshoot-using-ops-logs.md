@@ -1,6 +1,6 @@
-<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="biztalk-services" documentationCenter="" title="" authors="mandiohlinger" solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"/>
+<properties pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" description="BizTalk Services: Troubleshoot using ops logs" services="biztalk-services" documentationCenter="" authors="mandiohlinger" writer="nitinme" manager="dwrede" editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"/>
 
 
 # BizTalk Services: Troubleshoot using operation logs
