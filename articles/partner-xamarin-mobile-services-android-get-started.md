@@ -1,6 +1,6 @@
-<properties pageTitle="Get Started with Mobile Services for Xamarin.Android" metaKeywords="Azure Xamarin.Android application, mobile service XamarinAndroid, getting started Azure Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="xamarin" title="" authors="lindydonna" manager="dwrede" editor="" services=""/>
+<properties pageTitle="Get Started with Mobile Services for Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam"/>
 
 # <a name="getting-started"></a>Get started with Mobile Services
 
