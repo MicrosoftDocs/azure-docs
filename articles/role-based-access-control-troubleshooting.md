@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="Role based access control troubleshooting" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="" authors="stepsic-microsoft-com" solutions="" writer="" manager="terrylan" editor=""/>
+<properties pageTitle="Role based access control troubleshooting" description="" services="" documentationCenter="" authors="stepsic-microsoft-com" writer="" manager="terrylan" editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="stepsic" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="stepsic"/>
 
 # Role based access control troubleshooting
 
