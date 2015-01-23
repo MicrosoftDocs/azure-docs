@@ -1,6 +1,6 @@
-<properties linkid="develop-python-web-site-with-django" urlDisplayName="Websites with Django" pageTitle="Python Websites with Django - Azure tutorial" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="python" title="" authors="huguesv" solutions="" manager="" editor=""/>
+<properties pageTitle="Python Websites with Django - Azure tutorial" description="A tutorial that introduces you to running a Python website on Azure." services="web-sites" documentationCenter="python" authors="huguesv" manager="" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="12/17/2014" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="12/17/2014" ms.author="huvalo"/>
 
 
 
