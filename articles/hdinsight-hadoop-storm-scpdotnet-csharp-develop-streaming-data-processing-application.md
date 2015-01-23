@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Develop streaming data processing apps with SCP.NET on Storm | Azure" description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." services="hdinsight" solutions="" documentationCenter="" authors="" videoId="" scriptId="" manager="paulettm" editor="cgronlun" metaKeywords=""/>
+<properties pageTitle="Develop streaming data processing apps with SCP.NET on Storm | Azure" description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." services="hdinsight" documentationCenter="" authors="" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia"/>
 
 #Develop streaming data processing applications in C# with Stream Computing Platform and Storm in HDInsight
 
