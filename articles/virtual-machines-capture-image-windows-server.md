@@ -51,7 +51,9 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 11.	Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps. Click **I have run Sysprep on the virtual machine** to indicate that you have done this.
 
-12.	Click the check mark to capture the image. When you capture an image of a generalized virtual machine, the virtual machine is deleted.
+12.	Click the check mark to capture the image. 
+
+  **NOTE: When you capture an image of a generalized virtual machine, the virtual machine is deleted.**
 
 	The new image is now available under **Images**.
 
