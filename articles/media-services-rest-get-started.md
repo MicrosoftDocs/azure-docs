@@ -2,6 +2,7 @@
 
 <tags ms.service="media-services" ms.devlang="REST" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/20/2015" ms.author="juliako" />
 
+
 # Delivering Video-on-Demand with Media Services REST APIs 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
@@ -21,9 +22,9 @@ This tutorial uses Azure Management Portal and Media Services REST APIs to achie
 
 1.  [Create a Media Services account using Portal](#create_ams).
 1.  [Connect to the Media Services account with REST API](#connect).
-1.  [Configure streaming units with REST API](#configure_streaming_units).
 1.  [Create a new asset and upload a video file with REST API](#upload).
-1.  [Encode the source file into a set of adaptive bitrate MP4 files with REST API](#encode).
+1.  [Configure streaming units with REST API](#configure_streaming_units).
+2.  [Encode the source file into a set of adaptive bitrate MP4 files with REST API](#encode).
 1.  [Configure delivery policy for the encoded asset with REST API](#configure_delivery_method).
 1.  [Publish the asset and get streaming and progressive download URLs with REST API](#publish_get_urls). 
 1.  [Play your content](#play). 
@@ -205,126 +206,6 @@ The following example demonstrates HTTP request to the Media Services root URI (
 
 
 >[AZURE.NOTE] From now on the new URI will be used in this tutorial.
-
-
-## <a id="configure_streaming_units"></a>Configure streaming units with REST API
-
-When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
-
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
-
-To take advantage of dynamic packaging, you need to do the following:
-
-- encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
-- get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content.
-
-With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
-
-Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
-
->[AZURE.NOTE] For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
-
-To change the number of on-demand streaming reserved units, do the following:
-	
-### Get the streaming endpoint you want to update
-
-For example, let's get the first streaming endpoint in your account (you can have up to 2 streaming endpoints in running state at the same time.)
-
-**HTTP Request**:
-
-	GET https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints()?$top=1 HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json;odata=verbose
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
-
-**HTTP Response**
-	
-If successful, the following is returned:
-	
-	HTTP/1.1 200 OK
-	. . . 
-	
-### Scale the streaming endpoint
- 
-**HTTP Request**:
-
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints('nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486')/Scale HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json;odata=verbose
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-	x-ms-version: 2.8
-	x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	
-	{"scaleUnits":1}
-
-**HTTP Response**
-
-	HTTP/1.1 202 Accepted
-	Cache-Control: no-cache
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
-	request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
-	x-ms-request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
-	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 1.0;
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Fri, 16 Jan 2015 22:16:43 GMT
-	Content-Length: 0
-
-	
-### <a id="long_running_op_status"></a> Check on the status of a long-running operation
-
-The allocation of any new units of on-demand streaming takes around 20 minutes to complete. To check the status of the operation use the **Operations** method and specify the Id of the operation. The operation Id was returned in the response to the **Scale** request.
-
-	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
- 
-**HTTP Request**:
-	
-	GET https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7') HTTP/1.1
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json;odata=verbose
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	
-**HTTP Response**
-	
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Content-Length: 515
-	Content-Type: application/json;odata=verbose;charset=utf-8
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 829e1a89-3ec2-4836-a04d-802b5aeff5e8
-	request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
-	x-ms-request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 1.0;
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Fri, 16 Jan 2015 22:57:39 GMT
-	
-	{  
-	   "d":{  
-	      "__metadata":{  
-	         "id":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
-	         "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
-	         "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Operation"
-	      },
-	      "Id":"nb:opid:UUID:cc339c28-6bba-4f7d-bee5-91ea4a0a907e",
-	      "State":"Succeeded",
-	      "TargetEntityId":"nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486",
-	      "ErrorCode":null,
-	      "ErrorMessage":null
-	   }
-	}
 
 ## <a id="upload"></a>Create a new asset and upload a video file with REST API
 
@@ -655,8 +536,127 @@ If successful, the following is returned:
 	...
 
  
-## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
+## <a id="configure_streaming_units"></a>Configure streaming units with REST API
 
+When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
+
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
+
+To take advantage of dynamic packaging, you need to do the following:
+
+- get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content (described in this section).
+- encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
+
+With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
+
+Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
+
+>[AZURE.NOTE] For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+
+To change the number of on-demand streaming reserved units, do the following:
+	
+### Get the streaming endpoint you want to update
+
+For example, let's get the first streaming endpoint in your account (you can have up to 2 streaming endpoints in running state at the same time.)
+
+**HTTP Request**:
+
+	GET https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints()?$top=1 HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json;odata=verbose
+	Accept-Charset: UTF-8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
+	x-ms-version: 2.8
+	Host: wamsbayclus001rest-hs.cloudapp.net
+
+**HTTP Response**
+	
+If successful, the following is returned:
+	
+	HTTP/1.1 200 OK
+	. . . 
+	
+### Scale the streaming endpoint
+ 
+**HTTP Request**:
+
+	POST https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints('nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486')/Scale HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json;odata=verbose
+	Accept-Charset: UTF-8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
+	x-ms-version: 2.8
+	x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
+	Host: wamsbayclus001rest-hs.cloudapp.net
+	
+	{"scaleUnits":1}
+
+**HTTP Response**
+
+	HTTP/1.1 202 Accepted
+	Cache-Control: no-cache
+	Server: Microsoft-IIS/8.5
+	x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
+	request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
+	x-ms-request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
+	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
+	X-Content-Type-Options: nosniff
+	DataServiceVersion: 1.0;
+	Strict-Transport-Security: max-age=31536000; includeSubDomains
+	Date: Fri, 16 Jan 2015 22:16:43 GMT
+	Content-Length: 0
+
+	
+### <a id="long_running_op_status"></a> Check on the status of a long-running operation
+
+The allocation of any new units of on-demand streaming takes around 20 minutes to complete. To check the status of the operation use the **Operations** method and specify the Id of the operation. The operation Id was returned in the response to the **Scale** request.
+
+	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
+ 
+**HTTP Request**:
+	
+	GET https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7') HTTP/1.1
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json;odata=verbose
+	Accept-Charset: UTF-8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
+	x-ms-version: 2.8
+	Host: wamsbayclus001rest-hs.cloudapp.net
+	
+**HTTP Response**
+	
+	HTTP/1.1 200 OK
+	Cache-Control: no-cache
+	Content-Length: 515
+	Content-Type: application/json;odata=verbose;charset=utf-8
+	Server: Microsoft-IIS/8.5
+	x-ms-client-request-id: 829e1a89-3ec2-4836-a04d-802b5aeff5e8
+	request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
+	x-ms-request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
+	X-Content-Type-Options: nosniff
+	DataServiceVersion: 1.0;
+	Strict-Transport-Security: max-age=31536000; includeSubDomains
+	Date: Fri, 16 Jan 2015 22:57:39 GMT
+	
+	{  
+	   "d":{  
+	      "__metadata":{  
+	         "id":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
+	         "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
+	         "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Operation"
+	      },
+	      "Id":"nb:opid:UUID:cc339c28-6bba-4f7d-bee5-91ea4a0a907e",
+	      "State":"Succeeded",
+	      "TargetEntityId":"nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486",
+	      "ErrorCode":null,
+	      "ErrorMessage":null
+	   }
+	}
+
+
+## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
 After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each [Job](http://msdn.microsoft.com/en-us/library/azure/hh974289.aspx) is comprised of atomic Tasks that do the actual work on the Asset file. 
 

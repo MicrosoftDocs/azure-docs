@@ -36,7 +36,7 @@ In this tutorial:
 - [Next steps][]
 
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 To use the new SSL certificate for localhost, you will need to install [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?LinkId=390521) or higher.
 

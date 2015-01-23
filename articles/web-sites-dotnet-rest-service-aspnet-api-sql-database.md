@@ -40,7 +40,7 @@ In this tutorial:
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/ -->
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Azure environment</h2>
 

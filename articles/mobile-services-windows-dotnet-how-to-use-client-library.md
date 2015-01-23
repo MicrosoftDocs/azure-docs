@@ -44,7 +44,7 @@ This guide shows you how to perform common scenarios using a .NET client for Azu
 	- [Customize serialization]
 - [Next steps]
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a>Setup and Prerequisites</h2>
 

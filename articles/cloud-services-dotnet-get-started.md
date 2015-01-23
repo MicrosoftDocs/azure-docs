@@ -62,7 +62,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Download and run the completed solution
 
