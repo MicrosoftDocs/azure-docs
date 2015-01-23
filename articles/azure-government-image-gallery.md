@@ -5,7 +5,7 @@
 
 #  Microsoft Azure Government Image Gallery
 
-<p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provide flexibility to deploy your own standardized images if needed.
+<p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 
 The below provides a list of available images within the Azure Government image gallery.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="./virtual-machines-linux-capture-image/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
 
