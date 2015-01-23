@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Azure Government Developers Guide" description="This provides a comparision of features and guidance on developing applications for Azure Government" metaKeywords="Azure Government AzureGov GovCloud" services="" solutions="" documentationCenter="" authors="Joharve2" videoId="" scriptId="" manager="carolz" editor=""/>
+<properties pageTitle="Azure Government Developers Guide" description="This provides a comparision of features and guidance on developing applications for Azure Government" services="" documentationCenter="" authors="Joharve2" manager="carolz" editor=""/>
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="1/21/2014" ms.author="jharve" />
+<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="1/21/2014" ms.author="jharve"/>
 
 
 #  Microsoft Azure Government Developer Guide 
