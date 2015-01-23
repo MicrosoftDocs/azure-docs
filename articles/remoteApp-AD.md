@@ -1,6 +1,6 @@
 <properties title="Configure Active Directory for Azure RemoteApp" pageTitle="Configure Active Directory for Azure RemoteApp" description="Learn how to set up Active Directory to work with Azure RemoteApp" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/23/2014" ms.author="elizapo" />
 
 #Configuring Active Directory for Azure RemoteApp
 
@@ -10,7 +10,7 @@ For a hybrid collection of RemoteApp, you need to set up an Active Directory dom
 ##Configure your on-premises Active Directory
 Start by configuring your on-premises Active Directory. You need to identify the UPN domain suffix to use, and then create Active Directory objects for RemoteApp. 
 
-Haven’t added Active Directory Domain Services to your Windows Server 2012 R2 environment yet? Check out [these instructions](http://technet.microsoft.com/en-us/library/cc731053(v=WS.10).aspx) for information on how to do just that.
+Haven’t added Active Directory Domain Services to your Windows Server 2012 R2 environment yet? Check out [these instructions](https://technet.microsoft.com/en-us/library/cc731053.aspx) for information on how to do just that.
 ###Examine and configure the UPN domain suffix
 If your forest is not configured with a UPN suffix that matches the Azure AD domain that you will use for RemoteApp, you need to add it. Determine if the necessary suffix is configured:
 
