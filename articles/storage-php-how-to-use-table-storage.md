@@ -1,6 +1,6 @@
-<properties urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="adinah" editor=""/>
+<properties pageTitle="How to use table storage (PHP) | Microsoft Azure" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." services="storage" documentationCenter="php" authors="tfitzmac" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz"/>
 
 # How to use the Table service from PHP
 
