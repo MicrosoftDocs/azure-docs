@@ -22,7 +22,7 @@ After a recommendation model is built, you can use it to predict items that a us
 
 To enable the previous scenario, do the following in the Machine Learning recommendation service:
 
-* Create a model: This is a logical container that holds the data (catalog and usage) and the prediction model(s). Each model container is identified via a unique ID, which is allocated when i iss created. This ID called the Model ID, and it is used by most of the APIs. 
+* Create a model: This is a logical container that holds the data (catalog and usage) and the prediction model(s). Each model container is identified via a unique ID, which is allocated when it is created. This ID called the Model ID, and it is used by most of the APIs. 
 * Upload to catalog: When a model container is created, you can associate to it a catalog.
 
 <b>Note</b>  Creating a model and uploading to a catalog are usually performed once for the model lifecycle.
