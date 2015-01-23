@@ -1,6 +1,6 @@
-<properties title="Usage analysis with Application Insights" pageTitle="Usage analysis with Application Insights" description="Overview of usage analytics with Application Insights" metaKeywords="application insights usage" authors="awills" manager="kamrani" />
+<properties pageTitle="Usage analysis with Application Insights" description="Overview of usage analytics with Application Insights" authors="awills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-17" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-17" ms.author="awills"/>
  
 # Usage analysis with Application Insights
 
