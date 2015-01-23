@@ -1,6 +1,6 @@
-<properties urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Azure feature guide" metaKeywords="" description="Learn how to develop and use Access Control with Java in Azure." metaCanonical="" services="active-directory" documentationCenter="java" title="" videoId="" scriptId="" authors="rmcmurray" solutions="" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="How to use Access Control (Java) - Azure feature guide" description="Learn how to develop and use Access Control with Java in Azure." services="active-directory" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse
 
