@@ -1,6 +1,6 @@
-<properties pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific" metaCanonical="" services="mobile-services, notification-hubs" documentationCenter="android" title="" authors="wesmc7777" solutions="Mobile" manager="dwrede" editor=""/>
+<properties pageTitle="Send push notifications to authenticated users" description="Learn how to send push notifications to specific" services="mobile-services, notification-hubs" documentationCenter="android" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
 
 # Send push notifications to authenticated users
 
