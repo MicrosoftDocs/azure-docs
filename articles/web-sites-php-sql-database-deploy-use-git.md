@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web w/ SQL + Git" pageTitle="PHP website with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites, sql-database" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId=""/>
+<properties pageTitle="PHP website with SQL Database and Git - Azure tutorial" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." services="web-sites, sql-database" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz"/>
 
 #Create a PHP website with a SQL Database and deploy using Git
 

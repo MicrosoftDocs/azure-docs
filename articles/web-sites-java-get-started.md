@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get started with Azure" pageTitle="Get started with Microsoft Azure Websites using Java" metaKeywords="" description="This tutorial shows you how to deploy a Java website to Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="java" title="" videoId="" scriptId="" authors="rmcmurray" solutions="" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Get started with Microsoft Azure Websites using Java" description="This tutorial shows you how to deploy a Java website to Microsoft Azure." services="web-sites" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # Get started with Azure websites and Java
 

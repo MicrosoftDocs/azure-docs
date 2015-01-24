@@ -1,6 +1,6 @@
-<properties pageTitle="Create a virtual machine running Windows in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows, using the Azure Marketplace in the Azure Preview Portal" services="virtual-machines" documentationCenter="" title="" authors="dlepow" solutions=""  manager="timlt" />
+<properties pageTitle="Create a virtual machine running Windows in the Azure Preview Portal" description="Learn how to create an Azure virtual machine (VM) running Windows, using the Azure Marketplace in the Azure Preview Portal" services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep,kathydav,rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep,kathydav,rasquill"/>
 
 <!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
 -->
