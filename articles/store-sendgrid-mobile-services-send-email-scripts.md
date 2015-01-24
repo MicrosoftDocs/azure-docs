@@ -1,6 +1,6 @@
-<properties urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="thinkingserious" solutions="" manager="sendgrid" editor=""/>
+<properties pageTitle="Send email using SendGrid - Azure Mobile Services" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." services="mobile-services" documentationCenter="" authors="thinkingserious" manager="sendgrid" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
 # Send email from Mobile Services with SendGrid

@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="Real-Time Event Processing with Stream Analytics | Azure" metaKeywords="" description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." metaCanonical="" services="stream-analytics,event-hubs,storage,sql-database" documentationCenter="" title="Reference Architecture: Real-Time Event Processing with Microsoft Azure Stream Analytics" authors="charlesfeddersen" solutions="" manager="paulettm" editor=""/>
+<properties pageTitle="Real-Time Event Processing with Stream Analytics | Azure" description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." services="stream-analytics,event-hubs,storage,sql-database" documentationCenter="" authors="charlesfeddersen" manager="paulettm" editor=""/>
 
-<tags ms.service="stream-analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="charlesf" />
+<tags ms.service="stream-analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="charlesf"/>
 
 # Reference Architecture: Real-Time Event Processing with Microsoft Azure Stream Analytics
 

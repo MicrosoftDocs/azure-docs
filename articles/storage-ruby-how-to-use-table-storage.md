@@ -1,6 +1,6 @@
-<properties urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="ruby" title="" authors="tfitzmac" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use table storage (Ruby) | Microsoft Azure" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." services="storage" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz"/>
 
 
 
