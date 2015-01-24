@@ -1,6 +1,6 @@
 	<properties pageTitle="How to setup VPN connections in Azure API Management" metaKeywords="" description="Learn how to setup a VPN connection in Azure API Management and access web services through it" metaCanonical="" services="" documentationCenter="API Management" title="How to setup VPN connections in Azure API Management" authors="antonba" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
 
 # How to setup VPN connections in Azure API Management
 
@@ -10,6 +10,7 @@ API Management's VPN support allows you to connect your API Management proxy to 
 
 -   [Enable VPN connections][]
 -   [Connect to a web service behind VPN][]
+-   [Related content][]
 
 ## <a name="enable-vpn"> </a>Enable VPN connections
 
@@ -23,17 +24,25 @@ Under the VPN section, switch **VPN connection** to **On**.
 
 You will now see a list of all regions where your API Management service is provisioned.
 
-Select a VPN and subnet for each region. The list of VPNs is populated based on the virtual networks available in your Azure subscription.
+Select a VPN and subnet for every region. The list of VPNs is populated based on the virtual networks available in your Azure subscription that are setup in the region you are configuring.
 
 ![Select VPN][api-management-setup-vpn-select]
 
-Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure management portal while it is updating.
+Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure management portal while it is updating. The service proxy will remain available and runtime calls should not be affected.
+
+Note that the VIP address of the proxy will change each time VPN is enabled or disabled.
 
 ## <a name="connect-vpn"> </a>Connect to a web service behind VPN
 
-After your API Management service is connected to the VPN, accessing web services within the virtual network is no different than accessing public services. Just type in the local address of your web service into the **Web service URL** field when creating a new API or editing an existing one.
+After your API Management service is connected to the VPN, accessing web services within the virtual network is no different than accessing public services. Just type in the local address or the host name (if a DNS server was configured for the Azure Virtual Network) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
 
 ![Add API from VPN][api-management-setup-vpn-add-api]
+
+
+## <a name="related-content"> </a>Related content
+
+
+ * [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -41,5 +50,8 @@ After your API Management service is connected to the VPN, accessing web service
 
 [Enable VPN connections]: #enable-vpn
 [Connect to a web service behind VPN]: #connect-vpn
+[Related content]: #related-content
 
 [Management Portal]: https://manage.windowsazure.com/
+
+[Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
