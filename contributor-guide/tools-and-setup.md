@@ -65,15 +65,16 @@ You might not need to follow all the steps in this article. It depends on the so
 
  ![GitHub profile example](./media/tools-and-setup/editicon.PNG)
 
- That opens the easy-to-use web editor that makes it easy to submit changes. 
+ That opens the easy-to-use web editor that makes it easy to submit changes. You don't need to follow the other steps in this article.
 
-- **All other changes:** If you want to make any of the following sorts of changes, you need to install the tools:
+- **All other changes:** You need to install the tools if you want to make any of the following sorts of changes:
 
  - Major changes to an article
  - Create and publish a new article
  - Add new images or update images
  - Update an article over a period of days without publishing changes each of those days
 
+ Go to the next section!
 
 ##Permissions in GitHub
 
@@ -122,7 +123,7 @@ We author content using simple "markdown" notation in the files, rather than com
 
 ##Fork the repository and copy it to your computer 
 
-1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers need to fork azure-content-pr. Community contributors need to fork azure-content.   
+1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers need to fork azure-content-pr. Community contributors need to fork azure-content. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.
 
 2. Next, copy the repository to your computer. To do this, open GitBash. At the command prompt, enter the following command. This command creates a azure-content(-pr) directory on your computer. If you’re using the default location, it will be at c:\users\<your Windows user name>\azure-content(-pr).  
 
