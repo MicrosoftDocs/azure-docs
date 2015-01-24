@@ -1,6 +1,6 @@
-<properties urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Integrate a cloud service with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn, cloud-services" documentationCenter=".net" title="" authors="cephalin" solutions="" manager="wpickett" editor="tysonn"/>
+<properties pageTitle="Integrate a cloud service with Azure CDN" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" services="cdn, cloud-services" documentationCenter=".net" authors="cephalin" manager="wpickett" editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Integrate a cloud service with Azure CDN #

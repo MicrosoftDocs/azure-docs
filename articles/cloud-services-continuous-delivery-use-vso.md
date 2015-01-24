@@ -1,6 +1,6 @@
-<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".net" title="" authors="ghogen" solutions="" manager="douge" editor=""/>
+<properties pageTitle="Continuous delivery with Visual Studio Online in Azure" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." services="web-sites" documentationCenter=".net" authors="ghogen" manager="douge" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"/>
 
 
 # Continuous delivery to Azure using Visual Studio Online

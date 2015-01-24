@@ -1,6 +1,6 @@
-<properties title="Detect, Triage and Diagnose with Application Insights" pageTitle="Detect, Triage, Diagnose" description="Analyse crashes and detect  and diagnose performance issues in your applications" metaKeywords="analytics monitoring application insights" authors="alancameronwills"  manager="kamrani" />
+<properties pageTitle="Detect, Triage, Diagnose" description="Analyse crashes and detect  and diagnose performance issues in your applications" authors="alancameronwills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills"/>
 
 # Detect, Triage and Diagnose with Application Insights
 
