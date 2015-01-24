@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.iOS" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="xamarin" services="mobile-services" title="" manager="dwrede" authors="lindydonna" editor=""/>
+<properties pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS." documentationCenter="xamarin" services="mobile-services" manager="dwrede" authors="lindydonna" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
 

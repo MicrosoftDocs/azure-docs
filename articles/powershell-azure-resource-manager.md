@@ -1,6 +1,6 @@
-<properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="" authors="sdkaczmarek" solutions="" manager="stevenka" editor="mollybos"/>
+<properties pageTitle="Using Windows PowerShell with Resource Manager" description="Use Windows PowerShell to create a resource group" services="" documentationCenter="" authors="sdkaczmarek" manager="stevenka" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="stevenka" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="stevenka"/>
 
 # Using Windows PowerShell with Resource Manager #
 

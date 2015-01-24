@@ -1,6 +1,6 @@
-<properties urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - Android" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices." metaCanonical="" services="mobile-services, notification-hubs" documentationCenter="" title="" authors="RickSaling" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Notification Hubs Breaking News Tutorial - Android" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices." services="mobile-services, notification-hubs" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal"/>
 
 
 # Use Notification Hubs to send breaking news

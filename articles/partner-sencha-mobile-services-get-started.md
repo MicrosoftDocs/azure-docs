@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Mobile Services and Sencha" metaKeywords="" description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="" title="" authors="" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Get Started with Azure Mobile Services and Sencha" description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework." services="mobile-services" documentationCenter="" authors="" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="sencha" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="sencha"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 

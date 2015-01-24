@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging, secure push" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethmanheim" manager="dwrede" editor="" services=""/>
+<properties pageTitle="Azure Notification Hubs Secure Push" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="" authors="sethmanheim" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"/>
 
 #Azure Notification Hubs Secure Push
 

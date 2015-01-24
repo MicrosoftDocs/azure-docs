@@ -1,6 +1,6 @@
-<properties urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="python" title="" authors="huguesv" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="Install Python and the SDK - Azure" description="Learn how to install Python and the SDK to use with Azure." services="" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo"/>
 
 
 

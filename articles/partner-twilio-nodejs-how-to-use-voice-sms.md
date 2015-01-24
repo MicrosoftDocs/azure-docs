@@ -1,6 +1,6 @@
-<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="Using Twilio for Voice, VoIP, and SMS Messaging in Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="" authors="devinrader" solutions="" manager="twilio" editor=""/>
+<properties pageTitle="Using Twilio for Voice, VoIP, and SMS Messaging in Azure" description="" services="" documentationCenter="nodejs" authors="devinrader" manager="twilio" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com"/>
 
 
 # Using Twilio for Voice, VoIP, and SMS Messaging in Azure
