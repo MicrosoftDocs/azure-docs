@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="ruby" title="" authors="tfitzmac" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use Service Bus queues (Ruby) - Azure" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." services="service-bus" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz"/>
 
 
 

@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Multi-Shard Querying" description="Run queries across shards using Elastic Scale APIs." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties pageTitle="Multi-Shard Querying" description="Run queries across shards using Elastic Scale APIs." services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh"/>
 
 #Multi-Shard Querying
 **Multi-shard querying** is used for tasks such as data collection/reporting that require running a query that stretches across several shards. (Contrast this to [data-dependent routing](./sql-database-elastic-scale-data-dependent-routing.md), which performs all work on a single shard.) 

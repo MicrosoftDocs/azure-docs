@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="ruby" title="" authors="tfitzmac" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use Service Bus topics (Ruby) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." services="service-bus" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz"/>
 
 
 

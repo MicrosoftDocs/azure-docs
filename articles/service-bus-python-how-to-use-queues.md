@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="python" title="" authors="huguesv" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use Service Bus queues (Python) - Azure" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." services="service-bus" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo"/>
 
 
 

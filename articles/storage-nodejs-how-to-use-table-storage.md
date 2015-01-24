@@ -1,6 +1,6 @@
-<properties urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="nodejs" title="" authors="MikeWasson" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use table storage (Node.js) | Microsoft Azure" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." services="storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
 
 # How to Use the Table Service from Node.js
 

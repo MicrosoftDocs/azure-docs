@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="php" title="" authors="sethmanheim" solutions="" manager="timlt" editor=""/>
+<properties pageTitle="How to use Service Bus topics (PHP) - Azure" description="Learn how to use Service Bus topics with PHP in Azure." services="service-bus" documentationCenter="php" authors="sethmanheim" manager="timlt" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm"/>
 
 
 # How to Use Service Bus Topics/Subscriptions

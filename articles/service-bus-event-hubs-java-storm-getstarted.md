@@ -1,6 +1,6 @@
-<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving them in an Apache Storm cluster" metaCanonical="" services="service-bus" documentationCenter="" title="" authors="fsautomata" solutions="" manager="timlt" editor=""/>
+<properties pageTitle="Get Started with Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving them in an Apache Storm cluster" services="service-bus" documentationCenter="" authors="fsautomata" manager="timlt" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="1/13/2015" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="1/13/2015" ms.author="sethm"/>
 
 # <a name="getting-started"> </a>Get started with Event Hubs
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="" authors="blackmist" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use Service Bus topics (Node.js) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." services="service-bus" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 

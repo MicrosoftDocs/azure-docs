@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Create a database in the Latest SQL Database Update V12 (preview)" description="Create a database in the Latest SQL Database Update V12 (preview)" metaKeywords="Azure SQL Database, Azure SQL Database update, Create Azure SQL Database, Azure SQL Database" services="sql-database" solutions="" documentationCenter="" authors="sonalmm" videoId="" scriptId="" manager="jeffreyg" editor=""/>
+<properties pageTitle="Create a database in the Latest SQL Database Update V12 (preview)" description="Create a database in the Latest SQL Database Update V12 (preview)" services="sql-database" documentationCenter="" authors="sonalmm" manager="jeffreyg" editor=""/>
 
-<tags ms.service="sql-database" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-management" ms.date="12/11/2014" ms.author="sonalm" />
+<tags ms.service="sql-database" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-management" ms.date="12/11/2014" ms.author="sonalm"/>
 
 
 # Create a database in the Latest SQL Database Update V12
