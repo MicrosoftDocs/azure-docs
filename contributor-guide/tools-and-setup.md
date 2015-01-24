@@ -148,7 +148,7 @@ Cache your credential so you don't have to type your user name and token every t
 
 1. Download (don't run) the .exe from http://gitcredentialstore.codeplex.com/releases/view/103679
 2. Open a command prompt
-3. Enter the following command, making changes for where you downloaded the executable on your computer. Also change "git.cmd" to "git.exe" if that's what you have on your computer.
+3. Enter the following command, making changes for where you downloaded the executable on your computer. Also change "git.cmd" to "git.exe" if that's what you have on your computer. If you get an error when you run the command as written, chances are that you need to change it ot "git.exe".
 
         cd c:\users\alias\downloads
         git-credential-winstore.exe -i "C:\Program Files (x86)\Git\cmd\git.cmd"​
