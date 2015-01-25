@@ -95,7 +95,7 @@ Next, you will update the app to allow authentication before requesting resource
 
     This creates a set of functions to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em>, or <em>aad</em>.
 
-	>[AZURE.NOTE]In a PhoneGap app, you must also add the following plugins to the project:
+	>[AZURE.IMPORTANT]In a PhoneGap app, you must also add the following plugins to the project:
 	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
 	><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
