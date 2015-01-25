@@ -14,21 +14,23 @@ To complete the procedure in this topic, you must have a Google account that has
 
    	![][1]
 
-2. Click **API & Auth**, click **Credentials**, then click **Create new Client ID**.
+2. Click **Consent screen**, select your **Email Address**, enter a **Product Name**, then click **Save**. 
+
+3. Click **API & Auth**, click **Credentials**, then click **Create new Client ID**.
 
    	![][2]
 
-3. Select **Web application**, type your mobile service URL in **Authorized JavaScript Origins**, replace the generated URL in **Authorized Redirect URI** with the URL of your mobile service appended with the path _/login/google_, and then click **Create client ID**.
+4. Select **Web application**, type your mobile service URL in **Authorized JavaScript Origins**, replace the generated URL in **Authorized Redirect URI** with the URL of your mobile service appended with the path _/login/google_, and then click **Create client ID**.
 
 	>[AZURE.NOTE] For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-google_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-google</code>. 
 
    	![][3]
 
-6. Under **Client ID for web applications**, make a note of the values of **Client ID** and **Client secret**. 
+5. Under **Client ID for web applications**, make a note of the values of **Client ID** and **Client secret**. 
 
    	![][4]
 
-    > [AZURE.NOTE] The client secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
+    > [AZURE.IMPORTANT] The client secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 You are now ready to use a Google login for authentication in your app by providing the client ID and client secret values to Mobile Services.
 
