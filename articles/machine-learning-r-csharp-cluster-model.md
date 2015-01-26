@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Cluster Model | Azure" description="Cluster Model" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
+<properties pageTitle="Cluster Model | Azure" description="Cluster Model" services="machine-learning" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe"/> 
 
 
 #Cluster Model    

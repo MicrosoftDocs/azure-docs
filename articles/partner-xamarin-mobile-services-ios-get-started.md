@@ -1,10 +1,10 @@
-<properties pageTitle="Get Started with Mobile Services for Xamarin iOS apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." metaCanonical="" services="mobile-services" documentationCenter="xamarin" title="" authors="conceptdev" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Get Started with Mobile Services for Xamarin iOS apps" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." services="mobile-services" documentationCenter="xamarin" authors="conceptdev" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.
 
@@ -26,7 +26,7 @@ Completing this tutorial requires XCode and [Xamarin Studio] for OS X or the Xam
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Create a new Xamarin.iOS app</h2>
 

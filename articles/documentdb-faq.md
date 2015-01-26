@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Frequently asked questions about DocumentDB | Azure" description="Answers to frequently asked questions about Azure DocumentDB nosql document database service. Learn about capacity and request units, and understand how to scale to your application needs." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq" services="documentdb" solutions="data-management" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" documentationCenter=""/>
+<properties pageTitle="Frequently asked questions about DocumentDB | Azure" description="Answers to frequently asked questions about Azure DocumentDB nosql document database service. Learn about capacity and request units, and understand how to scale to your application needs." services="documentdb" authors="spelluru" manager="jhubbard" editor="monicar" documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/22/2014" ms.author="spelluru" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/22/2014" ms.author="spelluru"/>
 
 
 #Frequently asked questions about DocumentDB

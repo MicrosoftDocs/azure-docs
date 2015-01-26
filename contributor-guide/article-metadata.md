@@ -13,7 +13,7 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 The properties section uses this syntax:
 
-    <properties pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
+    <properties title="" pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
 
 The tags section uses this syntax:
 
@@ -26,6 +26,8 @@ The tags section uses this syntax:
 - Leave a blank line after each metadata section and before your page title to ensure that the page title is correctly converted to HTML during the publishing process.
 
 ## Attributes and values for the properties section
+
+![](./media/article-metadata/checkmark-small.png)**title**: Include this attribute without a value, at this time. There is a bug in the publishing system that will block publication if you leave it out.
 
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The title you enter for this attribute appears in the browser address bar and as the title in a search result.
  
@@ -151,7 +153,7 @@ The tags section uses this syntax:
 
  - **infographic-page**: Azure.com only. A page that features a browsable infographic or poster, for instance http://azure.microsoft.com/en-us/documentation/infographics/windows-azure/
 
- - **reference**: An API reference page
+ - **reference**: An API reference page (including REST API) or PowerShell cmdlet reference page
 
  - **service-home-page**: Azure.com only.  A doc service home page, e.g. /documentation/services/virtual-machines/
 

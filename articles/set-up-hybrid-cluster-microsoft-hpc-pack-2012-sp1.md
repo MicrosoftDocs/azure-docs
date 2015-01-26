@@ -1,6 +1,6 @@
-<properties pageTitle="Set up a Hybrid Compute Cluster with Microsoft HPC Pack" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="cloud-services" documentationCenter="" title="" authors="dlepow" solutions="" manager="timlt" />
+<properties pageTitle="Set up a Hybrid Compute Cluster with Microsoft HPC Pack" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" services="cloud-services" documentationCenter="" authors="dlepow" manager="timlt"/>
 
-<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep" />
+<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep"/>
 
 
 #Set up a Hybrid Compute Cluster with Microsoft HPC Pack

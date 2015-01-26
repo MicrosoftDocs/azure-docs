@@ -1,6 +1,6 @@
-<properties pageTitle="Azure API Management Policy Reference" metaKeywords="" description="Learn about the policies available to configure API Management." metaCanonical="" services="api-management" documentationCenter="" title="" authors="steved0x" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Azure API Management Policy Reference" description="Learn about the policies available to configure API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
 

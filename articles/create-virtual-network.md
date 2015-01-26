@@ -1,6 +1,6 @@
-<properties urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines, virtual-network" documentationCenter="" title="" authors="cherylmc" solutions="" manager="adinah" editor=""/>
+<properties pageTitle="Tutorial: Create a cloud-only virtual network" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." services="virtual-machines, virtual-network" documentationCenter="" authors="cherylmc" manager="adinah" editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"/>
 
 <h1 id="vnettut1">Tutorial: Create a Cloud-Only Virtual Network in Azure</h1>
 

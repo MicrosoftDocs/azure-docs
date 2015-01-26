@@ -1,6 +1,6 @@
-<properties urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux vm" description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
+<properties pageTitle="Create a virtual machine running Linux in Azure" description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="1/19/2015" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="1/19/2015" ms.author="kathydav"/>
 
 #Create a Virtual Machine Running Linux 
 
@@ -35,9 +35,9 @@ Each virtual machine resides in a cloud service, either by itself, or grouped wi
 
 This tutorial uses the **From Gallery** method to create a virtual machine because it gives you more options than the **Quick Create** method. You can choose connected resources, the DNS name, and the network connectivity if needed.
 
-[WACOM.INCLUDE [virtual-machines-create-LinuxVM](../includes/virtual-machines-create-LinuxVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../includes/virtual-machines-create-LinuxVM.md)]
 
-[WACOM.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
+[AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
 > [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For more details on how to configure and connect with an SSH key, see [How to Use SSH with Linux on Azure](./virtual-machines-linux-use-ssh-key/).
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Migrate from IIS to Azure Websites with Migration Assistant" pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" metaKeywords="Azure Websites,migration,migrate,IIS" description="Shows how to use Azure Websites Migration Assistant to quickly migrate existing IIS websites to Azure Websites" metaCanonical="" services="web-sites" documentationCenter="" title="" authors="cephalin" solutions="" writer="cephalin" manager="wpickett" editor=""/>
+<properties pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" description="Shows how to use Azure Websites Migration Assistant to quickly migrate existing IIS websites to Azure Websites" services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin"/>
 
 # Migrate your IIS Websites to Azure Websites using the Migration Assistant #
 You can easily migrate to Azure Websites your existing websites that run on Internet Information Service (IIS) 6 or later. [Azure Websites Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to Azure Websites, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.

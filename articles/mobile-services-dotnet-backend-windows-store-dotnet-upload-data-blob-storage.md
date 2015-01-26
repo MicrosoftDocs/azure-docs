@@ -1,10 +1,10 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="windows" title="" authors="ggailey777" writer="glenga" services="mobile-services" manager="dwrede" editor=""/>
+<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." documentationCenter="windows" authors="ggailey777" writer="glenga" services="mobile-services" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 This topic shows you how to use Azure Mobile Services to enable your app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
 
@@ -27,7 +27,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
 ##<a name="install-storage-client"></a>Install the Storage client for Windows Store apps
 
@@ -43,7 +43,7 @@ To be able to use an SAS to upload images from your app to Blob storage, you mus
 
 Next, you will update the quickstart app to capture and upload images.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
  
 <!-- Anchors. -->

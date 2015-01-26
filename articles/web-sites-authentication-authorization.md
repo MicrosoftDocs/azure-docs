@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Authenticate and Authorize Line-of-Business Apps in Azure Websites" description="Learn the different authentication and authorization options for line-of-business applications that are deployed to Azure Websites" metaKeywords="Azure,Azure Websites,line-of-business,line of business,cloud services,enterprise,enterprise  application" services="web-sites" solutions="" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties pageTitle="Authenticate and Authorize Line-of-Business Apps in Azure Websites" description="Learn the different authentication and authorization options for line-of-business applications that are deployed to Azure Websites" services="web-sites" documentationCenter="" authors="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin"/>
 
 # Authenticate and Authorize Users in Line-of-Business Applications in Azure Websites #
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="ios" title="" authors="krisragh" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="How to use the iOS client library - Azure Mobile Services" description="Learn how to use the iOS client library for Azure Mobile Services." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 
 
@@ -35,7 +35,7 @@ This guide shows you how to perform common scenarios using the iOS client for Az
 	- [Customize data type serialization]
 - [Next steps][]-->
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="Setup"></a>Setup and Prerequisites
 

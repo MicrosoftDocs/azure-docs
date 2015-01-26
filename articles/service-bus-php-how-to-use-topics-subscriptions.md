@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="php" title="" authors="sethmanheim" solutions="" manager="timlt" editor=""/>
+<properties pageTitle="How to use Service Bus topics (PHP) - Azure" description="Learn how to use Service Bus topics with PHP in Azure." services="service-bus" documentationCenter="php" authors="sethmanheim" manager="timlt" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm"/>
 
 
 # How to Use Service Bus Topics/Subscriptions
@@ -24,7 +24,7 @@ subscriptions. The samples are written in PHP and use the [Azure SDK for PHP][do
 -   [How to: Delete Topics and Subscriptions](#DeleteTopicsAndSubscriptions)
 -   [Next Steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ##<a id="CreateApplication"></a>Create a PHP application
 
@@ -37,7 +37,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureApp"></a>Configure your application to use Service Bus
 

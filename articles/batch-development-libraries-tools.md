@@ -1,6 +1,6 @@
-<properties pageTitle="Azure Batch development libraries and tools" metaKeywords="" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" metaCanonical="" services="batch" documentationCenter="" title="" authors="dlepow" solutions="" manager="timlt" />
+<properties pageTitle="Azure Batch development libraries and tools" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" services="batch" documentationCenter="" authors="dlepow" manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep" />
+<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/21/2015" ms.author="danlep"/>
 
 
 # Azure Batch development libraries and tools 
@@ -16,8 +16,9 @@
 + [Batch Management Library](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet) – Manage Batch service accounts
 + [Batch Explorer](https://code.msdn.microsoft.com/windowsazure/Azure-Batch-Explorer-c1d37768) (MSDN) – GUI application  and sample to browse, access, and update major elements within a Batch account, including jobs and tasks, task virtual machines (TVMs) and pools, and files on a TVM.
 
-> [AZURE.TIP] Batch Explorer is a great tool if you are new to Batch or want to monitor or troubleshoot Batch activity. Because it's a code sample, the source code shows you how the features are implemented using the Batch .NET API. 
+> [AZURE.TIP] Batch Explorer is a great tool if you are new to Batch or want to monitor or troubleshoot Batch activity. Because it's a code sample, the source code shows you how the features are implemented using the Batch .NET API. See the [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx).
 
+<p>
 ## Batch Apps
 
 + [Batch Apps Cloud SDK](http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/) (NuGet) – Enable applications to offload jobs to the Batch service

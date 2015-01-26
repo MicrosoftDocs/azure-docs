@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
+<properties pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="larryfr"/>
 
 #Getting started using Storm with HDInsight (Hadoop)
 
@@ -32,7 +32,7 @@ You must have the following to successfully complete this tutorial.
 
 ##<a id="provision"></a>Provision a Storm cluster on the Azure portal
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 1. Sign in to the [Azure Management Portal][azureportal]
 

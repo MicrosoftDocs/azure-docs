@@ -1,6 +1,6 @@
-<properties urlDisplayName="Set up a hybrid cloud environment for testing" pageTitle="Set up a hybrid cloud environment for testing" metaKeywords="" description="Learn how to create a hybrid cloud environment for IT pro or development testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up a hybrid cloud environment for testing" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Set up a hybrid cloud environment for testing" description="Learn how to create a hybrid cloud environment for IT pro or development testing." services="virtual-network" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 <h1 id="hybcloudtest">Set up a hybrid cloud environment for testing</h1>
 

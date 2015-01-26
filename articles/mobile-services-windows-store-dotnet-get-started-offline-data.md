@@ -1,10 +1,10 @@
-<properties urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="windows" title="" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties pageTitle="Using offline data in Mobile Services (Windows Store) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
 
 # Using offline data sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 
 <div class="dev-onpage-video-clear clearfix">
@@ -240,7 +240,7 @@ In this section you reconnect the app to the mobile service. This simulates the 
 
 ##Summary
 
-[WACOM.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
 ## Next steps
 

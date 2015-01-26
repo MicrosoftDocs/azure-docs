@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metaKeywords="ava Messsage AMQP, Service Bus AMQP, download AMQP JMS library" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="java" title="" authors="sethmanheim" solutions="" writer="sethm" manager="timlt" editor="mattshel"/>
+<properties pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." services="service-bus" documentationCenter="java" authors="sethmanheim" writer="sethm" manager="timlt" editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"/>
 
 
 
@@ -18,6 +18,8 @@ This how-to guide explains how to use the Service Bus brokered messaging feature
 ##Getting Started with Service Bus
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled [How to Use Service Bus Queues](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/).
+
+**Note**: You must create the queue with partitioning disabled as partitioned queues and topics do not yet have AMQP support. For additional information, see [Partitioning Messaging Entities](http://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ##Downloading the AMQP 1.0 JMS client library
 

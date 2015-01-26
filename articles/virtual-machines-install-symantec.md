@@ -1,6 +1,6 @@
-<properties title="" pageTitle="How to install and configure Symantec Endpoint Protection on an Azure VM" description="Describes installing and configuring Symantec Endpoint Protection on a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="KBDAzure" manager="timlt" videoId="" scriptId="" editor=""/>
+<properties pageTitle="How to install and configure Symantec Endpoint Protection on an Azure VM" description="Describes installing and configuring Symantec Endpoint Protection on a VM in Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="kathydav"/>
 
 #How to install and configure Symantec Endpoint Protection on an Azure VM
 
@@ -63,6 +63,6 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 <!--Link references-->
 [How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
-[Manage Extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
+[Manage Extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 

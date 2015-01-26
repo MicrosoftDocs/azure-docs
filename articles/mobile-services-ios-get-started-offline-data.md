@@ -1,10 +1,10 @@
-<properties urlDisplayName="Using Offline Data" pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="ios" title="" authors="krisragh" manager="dwrede" editor="" services=""/>
+<properties pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam"/>
 
 # Get started with offline data sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 This tutorial covers the offline sync feature of Mobile Services on iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
 
@@ -30,6 +30,9 @@ This tutorial walks you through these basic steps:
 ## <a name="get-app"></a>Get the sample offline ToDo app
 
 In the [Mobile Services sample repository on GitHub], clone the repo and open the project [Offline iOS Sample] in Xcode.
+
+### Beta SDK
+To add offline support to an existing app, get the latest [beta iOS SDK](http://zumo.blob.core.windows.net/sdk/azuresdk-iOS-v2.0.0-beta2.zip).
 
 ## <a name="review-sync"></a>Review the Mobile Services sync code
 
@@ -103,7 +106,7 @@ When using the Core Data offline store, you need to define particular tables and
       * MS_TableOperations: For tracking the items that need to be synchronized with the server
       * MS_TableOperationErrors: For tracking any errors that happen during offline synchronization 
       * MS_TableConfig: For tracking the last updated time for the last sync operation for all pull operations
-      * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, **ms_version**, and **ms_deleted** are optional system properties. The property **ms_deleted** is used for [Soft Delete]; see below for more information.
+      * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, and **ms_version** are optional system properties. 
 
 >[AZURE.NOTE] The Mobile Services SDK reserves column names that being with **`ms_`**. You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote service.
 
@@ -158,13 +161,9 @@ When using the Core Data offline store, you need to define particular tables and
     | complete     | Boolean | todo item field                                 |
     | text         | String  | todo item field                                 |
     | ms_createdAt | Date    | *(optional)* maps to `__createdAt` system property |
-    | ms_deleted   | Boolean | *(optional)* used for [Soft Delete] feature      |
     | ms_updatedAt | Date    | *(optional)* maps to `__updatedAt` system property |
     | ms_version   | String  | *(optional)* used to detect conflicts, maps to `__version`            |
 
-
-
->[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
 
 ## <a name="setup-sync"></a>Change the sync behavior of the app
 
@@ -201,6 +200,33 @@ In this section, you will turn of Wi-Fi in the simulator to create an offline sc
 4. Turn on the Wi-Fi in the iOS simulator, then perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
 
 5. View the TodoItem data again. The new and changed TodoItems should now appear.
+
+## Summary
+
+In order to support the offline features of mobile services, we used the `MSSyncTable` interface and initialized `MSClient.syncContext` with a local store. In this case the local store was a Core Data-based database. 
+
+When using a Core Data local store, you must define several tables with the [correct system properties][Review the Core Data model].
+
+The normal CRUD operations for mobile services work as if the app is still connected but, all the operations occur against the local store.
+
+When we wanted to synchronize the local store with the server, we used the `MSSyncTable.pullWithQuery` and `MSClient.syncContext.pushWithCompletion` methods.
+
+*  To push changes to the server, we called `Review the Core Data model`. This method is a member of `MSSyncContext` instead of the sync table because it will push changes across all tables.
+
+    Only records that have been modified in some way locally (through CUD operations) will be sent to the server.
+   
+* To pull data from a table on the server to the app, we called `MSSyncTable.pullWithQuery`.
+
+    A pull always issues a push first. This is to ensure all tables in the local store along with relationships remain consistent.
+
+    Note that `pullWithQuery` can by used to filter the data that is stored on the client, by customizing the `query` parameter. 
+
+* To enable incremental sync, pass a query ID to `pullWithQuery`. The query ID is used to store the last updated timestamp from the results of the last pull operation. The query ID should be a descriptive string that is unique for each logical query in your app. If the query has a parameter, then the same parameter value has to be part of the query ID.
+
+    If you want to opt out of incremental sync, pass `nill` as the query ID. In this case, all records will be retrieved on every call to `pullWithQuery`, which is potentially inefficient.
+
+* To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+
 
 ## Next Steps
 

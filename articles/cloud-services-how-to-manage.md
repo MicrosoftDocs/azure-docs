@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="" authors="rwike77" solutions="" manager="timlt" editor=""/>
+<properties pageTitle="How to manage a cloud service - Azure" description="Learn how to manage cloud services in the Azure Management Portal." services="cloud-services" documentationCenter="" authors="rwike77" manager="timlt" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo"/>
 
 
 

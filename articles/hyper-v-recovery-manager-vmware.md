@@ -1,6 +1,6 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: Protection Between Two On-Premises VMWare sites with InMage" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, VMWare, InMage" description="InMage in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="" editor="jimbe" manager="jwhit" authors="rayne-wiselman" services="site-recovery" documentationCenter=""/>
+<properties pageTitle="Getting Started with Azure Site Recovery: Protection Between Two On-Premises VMWare sites with InMage" description="InMage in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." editor="jimbe" manager="jwhit" authors="rayne-wiselman" services="site-recovery" documentationCenter=""/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew"/>
 
 
 # Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMWare Site Protection

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="ios" title="" authors="krisragh" manager="dwrede" editor="" services=""/>
+<properties pageTitle="Handle Conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your iOS application" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 
 # Handling Conflicts with Offline Data Sync in Mobile Services

@@ -1,10 +1,10 @@
-<properties title="" pageTitle="About Puppet and Azure Virtual Machines" description="Describes installing and configuring Puppet on a VM in Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="KBDAzure" manager="timlt" videoId="" scriptId="" editor=""/>
+<properties pageTitle="About Puppet and Azure Virtual Machines" description="Describes installing and configuring Puppet on a VM in Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="07/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
 
 #About Puppet and Azure Virtual Machines
 
-<p>Puppet Enterprise is automation software for building, deploying, and managing your infrastructure. You can use it to manage your IT infrastructure lifecycle, including: discovery, provisioning, OS & application configuration management, orchestration, and reporting.   
+<p>Puppet Enterprise is automation software for building, deploying, and managing your infrastructure. You can use it to manage your IT infrastructure life-cycle, including: discovery, provisioning, OS & application configuration management, orchestration, and reporting.   
 
 Puppet is a client-server system. Puppet Master and the Puppet Enterprise Agent are both available for installation through Azure:
 
@@ -27,6 +27,6 @@ For instructions, download the "Getting Started Guide" available from the [Micro
 [New Integrations with Microsoft Azure and Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
 [How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
 [How to Log on to a Virtual Machine Running Linux]: ../virtual-machines-linux-how-to-log-on
-[Manage Extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 

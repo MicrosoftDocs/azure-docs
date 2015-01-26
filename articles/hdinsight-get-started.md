@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop with Hive in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution in the cloud. Learn how to provision clusters, query data with Hive, and output to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Get started using Hadoop with Hive in HDInsight | Azure" description="Get started using Hadoop in HDInsight, a big data solution in the cloud. Learn how to provision clusters, query data with Hive, and output to Excel for analysis." services="hdinsight" documentationCenter="" authors="nitinme" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme"/>
 
 
 # Get started using Hadoop with Hive in HDInsight to analyze mobile handset use
@@ -85,7 +85,7 @@ For more information, see
 
 When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision a HDInsight cluster version 3.1, which is based on Hadoop version 2.4. You can also create Hadoop clusters for other versions using the Azure portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page.
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 
 **To provision an HDInsight cluster** 

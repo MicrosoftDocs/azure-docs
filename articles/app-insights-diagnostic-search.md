@@ -1,6 +1,6 @@
-<properties title="Using Diagnostic Search in Application Insights" pageTitle="Using Diagnostic Search" description="Search and filter individual events, requests, and log traces." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
+<properties pageTitle="Using Diagnostic Search" description="Search and filter individual events, requests, and log traces." authors="alancameronwills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
 

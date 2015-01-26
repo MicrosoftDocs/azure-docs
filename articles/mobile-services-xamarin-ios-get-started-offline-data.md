@@ -1,10 +1,10 @@
-<properties urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="xamarin" title="" authors="lindydonna" editor="wesmc" manager="dwrede" services=""/>
+<properties pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" documentationCenter="xamarin" authors="lindydonna" editor="wesmc" manager="dwrede" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 This topic walks through the offline sync capabilities of Azure Mobile Services in the todo list quickstart app. Offline sync allows you to easily create apps that are usable even when the end user has no network access.
 
@@ -129,7 +129,7 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 ##Summary
 
-[WACOM.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
 ## Next steps
 

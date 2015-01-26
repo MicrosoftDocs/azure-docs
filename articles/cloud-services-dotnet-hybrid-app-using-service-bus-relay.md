@@ -1,6 +1,6 @@
-<properties urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".net" title="" authors="sethmanheim" solutions="" manager="timlt" editor="mattshel"/>
+<properties pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm"/>
 
 
 
@@ -23,7 +23,7 @@ You will learn:
 -   How to use the Azure Service Bus relay to share data between
     an Azure application and a web service hosted elsewhere.
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ###How the Service Bus relay helps with hybrid solutions
 

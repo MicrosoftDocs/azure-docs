@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="android" title="" authors="piyushjo" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Get Started with Azure Notification Hubs" description="Learn how to use Azure Notification Hubs to push notifications." services="notification-hubs" documentationCenter="android" authors="piyushjo" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="mobile-android" ms.workload="mobile" ms.date="10/03/2014" ms.author="piyushjo" />
+<tags ms.service="notification-hubs" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="mobile-android" ms.workload="mobile" ms.date="10/03/2014" ms.author="piyushjo"/>
 
 # Get started with Notification Hubs
 

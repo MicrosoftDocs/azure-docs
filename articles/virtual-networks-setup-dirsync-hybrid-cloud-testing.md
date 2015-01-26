@@ -1,6 +1,6 @@
-<properties urlDisplayName="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" pageTitle="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" metaKeywords="" description="Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" description="Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing." services="virtual-network" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 <h1 id="hybcloudtest">Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing</h1>
 
@@ -178,3 +178,4 @@ This environment is now ready for you to perform testing of Office 365 applicati
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [Set up a web-based LOB application in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+

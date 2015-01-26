@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="" authors="bwren" solutions="" manager="stevenka" editor=""/>
+<properties pageTitle="Get Started with Azure Automation" description="Learn how to import and run an automation job in Azure." services="automation" documentationCenter="" authors="bwren" manager="stevenka" editor=""/>
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/13/2015" ms.author="bwren" />
+<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/13/2015" ms.author="bwren"/>
 
 
 # Get started with Azure Automation
@@ -40,7 +40,7 @@ This tutorial walks you through the steps to create an automation account and th
 
 To complete this tutorial, you need an Azure account. If you have not already done so, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A85619ABF" target="_blank">sign up for a free trial</a>.
 
-[WACOM.INCLUDE [automation-note-authentication](../includes/automation-note-authentication.md)]
+[AZURE.INCLUDE [automation-note-authentication](../includes/automation-note-authentication.md)]
 
 
 ### High-level steps for this tutorial

@@ -1,6 +1,6 @@
-<properties title="Data retention and storage in Application Insights" pageTitle="Data retention and storage in Application Insights" description="Retention and privacy policy statement" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties pageTitle="Data retention and storage in Application Insights" description="Retention and privacy policy statement" authors="awills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-14" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-14" ms.author="awills"/>
 
 # Data retention and storage in Application Insights 
 

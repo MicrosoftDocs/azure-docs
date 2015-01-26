@@ -1,11 +1,11 @@
-<properties urlDisplayName="" pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="mobile-services" authors="lindydonna" solutions="" manager="dwrede" editor="" title="" documentationCenter="xamarin"/>
+<properties pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." services="mobile-services" authors="lindydonna" manager="dwrede" editor="" documentationCenter="xamarin"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam"/>
 
 
 # Refine Mobile Services queries with paging
 
-[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 This topic shows you how to use paging to manage the amount of data returned to your iOS app from Azure Mobile Services. In this tutorial, you will use the **Skip** and **Take** query properties on the client to request specific "pages" of data.
 

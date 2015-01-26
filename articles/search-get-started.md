@@ -1,10 +1,10 @@
-<properties title="" pageTitle="Get started with Azure Search" description="Get started with Azure Search" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" editor=""/>
+<properties pageTitle="Get started with Azure Search" description="Get started with Azure Search" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
 
 # Get started with Azure Search
 
-[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
 Microsoft Azure Search (Public Preview) is new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a REST API. To read more about why you would use Azure Search, see [Azure Search Scenarios and Capabilities](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
 

@@ -1,13 +1,13 @@
-<properties urlDisplayName="Website with MongoDB VM" pageTitle=".NET website with MongoDB on a virtual machine - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites, virtual-machines" documentationCenter=".net" title="" authors="cephalin" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle=".NET website with MongoDB on a virtual machine - Azure" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." services="web-sites, virtual-machines" documentationCenter=".net" authors="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
 
 
 # Create an Azure website that connects to MongoDB running on a virtual machine in Azure
 
 Using Git, you can deploy an ASP.NET application to an Azure website. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running in a virtual machine in Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to an Azure website using Git.
 
-[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
 
 

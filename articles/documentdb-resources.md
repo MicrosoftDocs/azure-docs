@@ -1,6 +1,6 @@
-<properties title="" pageTitle="DocumentDB resource model and concepts | Azure" description="DocumentDB nosql document database manages resources, uniquely identified by logical URIs developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId=""/>
+<properties pageTitle="DocumentDB resource model and concepts | Azure" description="DocumentDB nosql document database manages resources, uniquely identified by logical URIs developers can interact with using HTTP verbs, request/response headers, and status codes." services="documentdb" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru"/>
 
 #DocumentDB Resource Model and Concepts
 

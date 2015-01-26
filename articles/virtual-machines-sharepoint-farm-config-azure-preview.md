@@ -1,6 +1,6 @@
-<properties title="" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="JoeDavies-MSFT" videoId="" scriptId="" manager="timlt" editor=""/>
+<properties pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/24/2015" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 
 #SharePoint Server Farm Configuration Details#
@@ -110,4 +110,3 @@ Here are the configuration details:
 [SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
-

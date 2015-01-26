@@ -1,6 +1,6 @@
-<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Create Web and Worker Roles" description="" services="" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz"/>
 
 #How to create PHP web and worker roles
 

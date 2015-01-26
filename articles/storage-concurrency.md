@@ -1,6 +1,6 @@
-<properties title="" pageTitle="required" description="How to manage concurrency for the Blob, Queue, Table, and File services" metaKeywords="Optional" services="storage" solutions="Optional" documentationCenter="" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" editor=""/>
+<properties pageTitle="required" description="How to manage concurrency for the Blob, Queue, Table, and File services" services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram"/>
 
 #Managing Concurrency in Microsoft Azure Storage
 Modern Internet based applications usually have multiple users viewing and updating data simultaneously. This requires application developers to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. There are three main data concurrency strategies developers will typically consider:  
