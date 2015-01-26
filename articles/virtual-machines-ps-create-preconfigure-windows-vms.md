@@ -1,6 +1,6 @@
 <properties urlDisplayName="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" metaKeywords="" description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd" />
 
 <h1 id="azpswindowsvms">Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines</h1>
 
@@ -45,7 +45,7 @@ If you find the image you are looking for, open a fresh instance of the text edi
 	$family="<ImageFamily value>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-In some cases, such as the SharePoint Server 2013 Preview image, the image name is in the Label property instead of the ImageFamily value. If you did not find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.
+In some cases, the image name is in the Label property instead of the ImageFamily value. If you didn't find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.
 
 	Get-AzureVMImage | select Label -Unique
 
@@ -56,12 +56,12 @@ If you find the right image with this command, open a fresh instance of the text
 
 ##Step 4
 
-Build the rest of your command set by copying the appropriate set of blocks below into your new text file and then filling in the variable values and removing the < and > characters. See the two examples at the end of this article for an idea of the final result.
+Build the rest of your command set by copying the appropriate set of blocks below into your new text file and then filling in the variable values and removing the < and > characters. See the two [examples](#examples) at the end of this article for an idea of the final result.
 
 Start your command set by choosing one of these two command blocks (required).
 
 
-Option 1:Specify a virtual machine name and a size.
+Option 1: Specify a virtual machine name and a size.
 
 	$vmname="<machine name>"
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
@@ -91,6 +91,8 @@ Optionally, to add the Windows computer to an existing Active Directory domain, 
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
 
 Note that this requires you to specify the account name and password of an Active Directory domain account. If you are saving the resulting command set as a file, ensure that you store it in a secure location to protect the domain account name and password.
+
+For additional pre-configuration options for Windows-based virtual machines, see the syntax for the **Windows** and **WindowsDomain** parameter sets in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
 Optionally, assign the virtual machine a specific IP address, known as a static DIP.
 
@@ -147,16 +149,16 @@ Option 3: Create the virtual machine in an existing cloud service and virtual ne
 
 ##Step 5
 
-Review the Azure PowerShell command set you built in your text editor consisting of multiple blocks of commands from step 5. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
+Review the Azure PowerShell command set you built in your text editor consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
 Copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine.
 
-If you will be creating this VM again or a similar one, you can: 
+If you will be creating this virtual machine again or a similar one, you can: 
 
 - Save this command set as a text file or as a PowerShell script file (*.ps1)
 - Save this command set as an Azure automation runbook in the **Automation** section of the Azure Management Portal 
 
-##Examples
+##<a id="examples"></a>Examples
 
 Here are two examples of using the steps above to build Azure PowerShell command sets that create Windows-based Azure virtual machines.
 
@@ -164,7 +166,7 @@ Here are two examples of using the steps above to build Azure PowerShell command
 
 I need a PowerShell command set to create the initial virtual machine for an Active Directory domain controller that:
 
-- Uses the Windows Server 2012 R2 image
+- Uses the Windows Server 2012 R2 Datacenter image
 - Has the name AZDC1 
 - Is a standalone computer
 - Has an additional data disk of 20 GB
@@ -176,7 +178,6 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 	$family="Windows Server 2012 R2 Datacenter"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$image="a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"
 	$vmname="AZDC1"
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
@@ -203,7 +204,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 I need a PowerShell command set to create a virtual machine for a line-of-business server that:
 
-- Uses the Windows Server 2012 R2 image
+- Uses the Windows Server 2012 R2 Datacenter image
 - Has the name LOB1
 - Is a member of the corp.contoso.com domain
 - Has an additional data disk of 200 GB 
