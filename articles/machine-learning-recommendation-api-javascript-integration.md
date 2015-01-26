@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Recommendations - JavaScript Integration" pageTitle="Azure Machine Learning Recommendations - JavaScript Integration" description="Azure Machine Learning Recommendations - JavaScript Integration – documentation" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="javascript" ms.topic="article" ms.date="01/08/2015" ms.author="AharonGumnik" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="javascript" ms.topic="article" ms.date="01/25/2015" ms.author="AharonGumnik" />
 
 # Azure Machine Learning Recommendations - JavaScript Integration
 
@@ -56,30 +56,30 @@ In the second phase when you want to show the recommendations on the page you se
 ##3. Send Data Acquisition events using JavaScript
 The following steps facilitate sending events:
 
-1.	Include JQuery library.
+1.	Include JQuery library in your code. You can download it from nuget in the following URL.
 
-		<script src="http://msraas.cloudapp.net:8080/scripts/jquery-1.8.2.min.js"></script>
-2.	Include the JS code on your page.
+		http://www.nuget.org/packages/jQuery/1.8.2
+2.	Include the Recommendations Java Script library from the following URL: http://1drv.ms/1Aoa1Zp
 
 3.	Initialize Azure ML Recommendations library with the appropriate parameters.
 
 		<script>
-			CloudMLRecommendationsStart("<base64encoding of username:key>",
+			AzureMLRecommendationsStart("<base64encoding of username:key>",
 			"<model_id>");
 		</script>
 
 4.	Send the appropriate event. See detailed section below on all type of events (example of click event)
 
 		<script>
-			if (typeof CloudMLRecommendationsEvent=="undefined { 		
-        	        	CloudMLRecommendationsEvent = [];
+			if (typeof AzureMLRecommendationsEvent=="undefined") { 		
+        	        	AzureMLRecommendationsEvent = [];
 	                }
-			CloudMLRecommendationsEvent.push({ event: "click", item: "18321116" });
+			AzureMLRecommendationsEvent.push({ event: "click", item: "18321116" });
 		</script>
 
 
-###3.1.	Browser Support
-The library supports IE10+ and Chrome.
+###3.1.	Limitations and Browser Support
+This is a reference implementation and it is given as is. It should support all major browsers.
 
 ###3.2.	Type of Events
 There are 5 types of event that the library supports: Click, Recommendation Click, Add to Shop Cart, Remove from Shop Cart and Purchase. There is an additional event that is used to set the user context called Login.
@@ -95,15 +95,15 @@ Parameters:
 - itemCategory (string, optional) – the category of the item
 		
 		<script>
-			if (typeof CloudMLRecommendationsEvent == "undefined") { CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({ event: "click", item: "3111718" });
+			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({ event: "click", item: "3111718" });
 		</script>
 
 Or with optional data:
 
 		<script>
-			if (typeof CloudMLRecommendationsEvent === "undefined") { CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({event: "click", item: "3111718", itemName: "Plane", itemDescription: "It is a big plane", itemCategory: "Aviation"});
+			if (typeof AzureMLRecommendationsEvent === "undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "click", item: "3111718", itemName: "Plane", itemDescription: "It is a big plane", itemCategory: "Aviation"});
 		</script>
 
 
@@ -120,15 +120,15 @@ Parameters:
 - recoList (string array, optional) – the result of the recommendation request that generated the item that was clicked.
 		
 		<script>
-			if (typeof CloudMLRecommendationsEvent=="undefined") { CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({event: "recommendationclick", item: "18899918" });
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "recommendationclick", item: "18899918" });
 		</script>
 
 Or with optional data:
 
 		<script>
-			if (typeof CloudMLRecommendationsEvent == "undefined") { CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({ event: eventName, item: "198", itemName: "Plane2", itemDescription: "It is a big plane2", itemCategory: "Default2", seeds: ["Seed1", "Seed2"], recoList: ["199", "198", "197"] 				});
+			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({ event: eventName, item: "198", itemName: "Plane2", itemDescription: "It is a big plane2", itemCategory: "Default2", seeds: ["Seed1", "Seed2"], recoList: ["199", "198", "197"] 				});
 		</script>
 
 
@@ -142,8 +142,8 @@ Parameters:
 * itemCategory (string, optional) – the category of the item
 		
 		<script>
-			if (typeof CloudMLRecommendationsEvent == "undefined") { CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({event: "addshopcart", item: "13221118" });
+			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "addshopcart", item: "13221118" });
 		</script>
 
 ####3.2.4. Remove Shopping Cart Event
@@ -157,8 +157,8 @@ Parameters:
 * itemCategory (string, optional) – the category of the item
 		
 		<script>
-			if (typeof CloudMLRecommendationsEvent=="undefined") { CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({ event: "removeshopcart", item: "111118" });
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({ event: "removeshopcart", item: "111118" });
 		</script>
 
 ####3.2.5. Purchase Event
@@ -175,8 +175,8 @@ Purchased format:
 The example below shows purchase of 3 items (33, 34, 35), two with all fields populated (item, count, price) and one (item 34) without a price.
 
 		<script>
-			if ( typeof CloudMLRecommendationsEvent == "undefined"){ CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({ event: "purchase", items: [{ item: "33", count: "1", price: "10" }, { item: "34", count: "2" }, { item: "35", count: "1", price: "210" }] });
+			if ( typeof AzureMLRecommendationsEvent == "undefined"){ AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({ event: "purchase", items: [{ item: "33", count: "1", price: "10" }, { item: "34", count: "2" }, { item: "35", count: "1", price: "210" }] });
 		</script>
 
 ####3.2.6. User Login Event
@@ -188,20 +188,20 @@ Parameters:
 * event (string) – “userlogin”
 * user (string) – unique identification of the user.
 		<script>
-			if (typeof CloudMLRecommendationsEvent=="undefined") { CloudMLRecommendationsEvent = []; }
-			CloudMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
 		</script>
 
 ##4. Consume Recommendations via JavaScript
 The code that consumes the recommendation is triggered by some JavaScript event by the client’s webpage. The recommendation response includes the recommended items Ids, their names and their ratings. It’s best to use this option only for a list display of the recommended items – more complex handling (such as adding the item’s metadata) should be done on the server side integration.
 
 ###4.1 Consume I2I Recommendations
-To consume recommendations you need to include the required JavaScript libraries in your page and to call CloudMLRecommendationsStart. See section 2.
+To consume recommendations you need to include the required JavaScript libraries in your page and to call AzureMLRecommendationsStart. See section 2.
 
-To consume recommendations for a single item you need to call a method called: CloudMLRecommendationsGetI2IRecommendation
+To consume recommendations for a single item you need to call a method called: AzureMLRecommendationsGetI2IRecommendation.
 
-In Parameters:
-* items (list strings separated by comma) – One or more items to get recommendations for.
+Parameters:
+* items (array of strings) – One or more items to get recommendations for.
 * numberOfResults (int) – number of required results.
 * includeMetadata (boolean, optional) – if set to ‘true’ indicates that the metadata field must be populated in the result.
 * Processing function – a function that will handle the recommendations returned. The data is returned as an array of:
@@ -213,7 +213,7 @@ In Parameters:
 Example: The following code requests 8 recommendations for item "64f6eb0d-947a-4c18-a16c-888da9e228ba" (and by not specifying includeMetadata – it implicitly says that no metadata is required), it then concatenate the results into a buffer.
 
 		<script>
- 			var reco = CloudMLRecommendationsGetI2IRecommendation("64f6eb0d-947a-4c18-a16c-888da9e228ba", 8, function (reco) {
+ 			var reco = AzureMLRecommendationsGetI2IRecommendation(["64f6eb0d-947a-4c18-a16c-888da9e228ba"], 8, false, function (reco) {
  				var buff = "";
  				for (var ii = 0; ii < reco.length; ii++) {
    					buff += reco[ii].item + "," + reco[ii].name + "," + reco[ii].rating + "\n";
