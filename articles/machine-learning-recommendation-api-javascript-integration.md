@@ -71,7 +71,7 @@ The following steps facilitate sending events:
 4.	Send the appropriate event. See detailed section below on all type of events (example of click event)
 
 		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined { 		
+			if (typeof AzureMLRecommendationsEvent=="undefined") { 		
         	        	AzureMLRecommendationsEvent = [];
 	                }
 			AzureMLRecommendationsEvent.push({ event: "click", item: "18321116" });
@@ -201,7 +201,7 @@ To consume recommendations you need to include the required JavaScript libraries
 To consume recommendations for a single item you need to call a method called: AzureMLRecommendationsGetI2IRecommendation.
 
 Parameters:
-* items (list strings separated by comma) – One or more items to get recommendations for.
+* items (array of strings) – One or more items to get recommendations for.
 * numberOfResults (int) – number of required results.
 * includeMetadata (boolean, optional) – if set to ‘true’ indicates that the metadata field must be populated in the result.
 * Processing function – a function that will handle the recommendations returned. The data is returned as an array of:
@@ -213,7 +213,7 @@ Parameters:
 Example: The following code requests 8 recommendations for item "64f6eb0d-947a-4c18-a16c-888da9e228ba" (and by not specifying includeMetadata – it implicitly says that no metadata is required), it then concatenate the results into a buffer.
 
 		<script>
- 			var reco = AzureMLRecommendationsGetI2IRecommendation("64f6eb0d-947a-4c18-a16c-888da9e228ba", 8, function (reco) {
+ 			var reco = AzureMLRecommendationsGetI2IRecommendation(["64f6eb0d-947a-4c18-a16c-888da9e228ba"], 8, false, function (reco) {
  				var buff = "";
  				for (var ii = 0; ii < reco.length; ii++) {
    					buff += reco[ii].item + "," + reco[ii].name + "," + reco[ii].rating + "\n";
