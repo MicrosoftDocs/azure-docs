@@ -32,7 +32,7 @@ This tutorial walks you through these basic steps:
 In the [Mobile Services sample repository on GitHub], clone the repo and open the project [Offline iOS Sample] in Xcode.
 
 ### Beta SDK
-To add offline support to an existing app, get the latest [beta iOS SDK](http://zumo.blob.core.windows.net/sdk/azuresdk-iOS-v2.0.0-beta2.zip).
+To add offline support to an existing app, get the latest [beta iOS SDK](http://aka.ms/gc6fex).
 
 ## <a name="review-sync"></a>Review the Mobile Services sync code
 
