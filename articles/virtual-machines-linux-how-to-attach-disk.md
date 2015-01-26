@@ -1,6 +1,6 @@
-<properties urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
+<properties pageTitle="Attach a disk to a virtual machine running Linux in Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav"/>
 
 #How to Attach a Data Disk to a Linux Virtual Machine
 
@@ -13,7 +13,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 - [How to: Attach an existing disk](#attachexisting)
 - [How to: Initialize a new data disk in Linux](#initializeinlinux)
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 ##<a id="initializeinlinux"></a>How to: Initialize a new data disk in Linux
 
@@ -27,6 +27,9 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 		# sudo grep SCSI /var/log/messages
 
+	>[AZURE.NOTE] For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default. 
+
+
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
 
@@ -39,7 +42,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 		# sudo fdisk /dev/sdc
 
-	>[AZURE.NOTE] In this example you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
+	>[AZURE.NOTE] In this example, you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 
 4. Type **n** to create a new partition.

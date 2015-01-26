@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML" description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net#" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
+<properties pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML" description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net#" services="machine-learning" documentationCenter="" authors="" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt"/>
 
 
 

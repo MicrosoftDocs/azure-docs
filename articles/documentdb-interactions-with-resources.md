@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs." metaKeywords="" services="documentdb" solutions="data-management" authors="spelluru" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" documentationCenter=""/>
+<properties pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs." services="documentdb" authors="spelluru" manager="jhubbard" editor="cgronlun" documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru"/>
 
 #Interact with DocumentDB Resources 
 DocumentDB offers a simple and open RESTful programming model over HTTP. In its Preview release DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript – all of which are simple wrappers over the underlying REST APIs. In future releases, it will also provide C++ and Java SDKs. We encourage you to write your own SDKs for your specific programming environment and share it with the community as we have opened up our SDKs. 

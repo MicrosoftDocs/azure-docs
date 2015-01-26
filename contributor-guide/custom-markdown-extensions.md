@@ -1,6 +1,6 @@
 <properties title="required" pageTitle="Custom markdown extensions used in our technical articles" description="Lists the custom markdown extensions that enable embedded videos, notes and tips, reusable content, and other item in azure.microsoft.com technical articles." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="required" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="12/16/2014" ms.author="tysonn" />
+<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/22/2015" ms.author="tysonn" />
 
 #Custom markdown extensions used in our technical articles
 
@@ -100,7 +100,7 @@ Example
 
     [AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)] 
  
-The first part of the include should be the include name without the path and without the .md extension. The second part should be the relative path to the include in the /includes directory.
+The first part of the include is the include name without the path and without the .md extension. The second part is the relative path to the include in the /includes directory, with the .md extension.
 
 ###Rendering 
 

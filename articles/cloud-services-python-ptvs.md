@@ -1,6 +1,6 @@
-<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles." metaCanonical="" services="" documentationCenter="python" title="" authors="huguesv" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles." services="" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo"/>
 
 
 
@@ -23,7 +23,7 @@ This guide provides an overview of using Python web and worker roles using [Pyth
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="what-are-python-web-and-worker-roles"></a>What are Python web and worker roles?
 

@@ -15,11 +15,11 @@
 
 ##Authoring articles: tools, processes, guidance
 
-- Tools and setup for authoring in GitHub (pending)
+- [Tools and setup for authoring in GitHub](./tools-and-setup.md)
 
 - [Git commands for creating a new article or updating an existing article](./git-commands-for-master.md)
 
-- [Git commands for creating a new article or updating an existing article](./git-commands-for-sandbox.md)
+- [Git commands for staging an article on the internal preview site](./git-commands-for-sandbox.md)
 
 - [File names and locations for Azure technical articles](./file-names-and-locations.md)
 

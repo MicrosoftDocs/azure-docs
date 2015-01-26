@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="squillace" services=""/>
+<properties pageTitle="The Azure Cross-Platform Command-Line Interface" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" editor="tysonn" manager="timlt" documentationCenter="" authors="squillace" services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="1/16/2016" ms.author="rasquill" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="rasquill"/>
 
 #Install and Configure the Azure Cross-Platform Command-Line Interface
 

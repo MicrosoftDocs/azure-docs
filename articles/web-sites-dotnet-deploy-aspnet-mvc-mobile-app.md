@@ -1,6 +1,6 @@
-<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".net" title="" authors="cephalin" solutions="" manager="wpickett" editor="mollybos"/>
+<properties pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." services="web-sites" documentationCenter=".net" authors="cephalin" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"/>
 
 
 # Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Websites
@@ -11,7 +11,7 @@ Web application that is mobile-friendly and deploy it into Windows Azure. For th
 or the professional edition of Visual Studio if you already
 have that.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### What You'll Build
 
@@ -706,13 +706,13 @@ mobile-friendly Web applications. These include:
     `RequireConsistentDisplayMode` property
 -   Create views that target specific browsers, such as the iPhone
     browser
--   Apply Boostrap styling in Razor code
+-   Apply Bootstrap styling in Razor code
 
 See Also
 --------
 
--   [9 basic principles of responsive web design][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
--   [Bootstrap][BootstrapSite] site
+-   [9 basic principles of responsive web design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
+-   [Bootstrap][BootstrapSite]
 -   [Official Bootstrap Blog][]
 -   [Twitter Bootstrap Tutorial from Tutorial Republic][]
 -   [The Bootstrap Playground][]

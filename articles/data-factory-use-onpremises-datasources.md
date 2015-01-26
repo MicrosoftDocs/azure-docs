@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
 
@@ -90,6 +90,9 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 
 3. In the **Configure** blade, click **Install directly on this computer**. This will download the installation package for the gateway, install, configure, and register the gateway on the computer.
 
+	**NOTE: It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.**
+
+
 	![Gateway - Configure blade][image-data-factory-gateway-configure-blade]
 
 	This is the easiest way (one-click) to download, install, configure, and register the gateway in one single step. You can see the **Microsoft Data Management Gateway Configuration Manager** application is installed on your computer. You can also find the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
@@ -126,6 +129,8 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 	![Data Source Credentials Blade][image-data-factory-credentials-blade]
 
 13.	In the **Credentials** blade, click **Click here to set Credentials securely**. It will launch the following pop up dialog box.
+
+	**NOTE: It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.**
 
 	![One Click application install][image-data-factory-oneclick-install]
 
@@ -418,28 +423,28 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 2. Use the **New-AzureDataFactoryGateway** cmdlet to create a logical gateway as follows:
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName $df -Location “West US” -ResourceGroupName ADF –Description <desc>
+		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**Example command and output**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
-		Name            : MyGateway
-		Location        : West US
-		Description     : gateway for walkthrough
-		Version         :
-		Status          : NeedRegistration
-		VersionStatus   : None
-		CreateTime      : 9/28/2014 10:58:22
-		RegisterTime    :
-		LastConnectTime :
-		ExpiryTime      :
+		Name              : MyGateway
+		Description       : gateway for walkthrough
+		Version           :
+		Status            : NeedRegistration
+		VersionStatus     : None
+		CreateTime        : 9/28/2014 10:58:22
+		RegisterTime      :
+		LastConnectTime   :
+		ExpiryTime        :
+		ProvisioningState : Succeeded
 
 
 3. Use the **New-AzureDataFactoryGatewayKey** cmdlet to generate a registration key for the newly created gateway, and store the key in a local variable **$Key**:
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName $df 
+		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
 	**Example command output:**
@@ -456,7 +461,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 5. You can use the **Get-AzureDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
 
-		Get-AzureDataFactoryGateway -DataFactoryName $df -ResourceGroupName ADF
+		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
 You can remove a gateway using the **Remove-AzureDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzureDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 

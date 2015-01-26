@@ -19,7 +19,8 @@ Follow the steps in this article to stage content to the internal staging site p
 3. Create a local working branch from the upstream sandbox branch:
 
         git pull upstream sandbox:<sandbox-derived-branch>
-        git checkout <sandbox-derived-branch>git pull upstream sandbox
+        git checkout <sandbox-derived-branch>
+        git pull upstream sandbox
 
 4. If you get a merge conflict for files that aren’t yours, use these commands to copy the version of the conflicted file from the server to your local branch, resolving the conflict:
 
@@ -42,9 +43,9 @@ Follow the steps in this article to stage content to the internal staging site p
 
         git push origin <sandbox-derived-branch>
 
-8. Create a pull request:
+8. Create a pull request from your fork to the core repo, from your local sandbox-derived branch to the main sandbox branch:
 
-       upstream/sandbox <--- *your-fork/sandbox-derived-branch*
+ ![](./media/git-commands-for-sandbox/pullrequestsandbox.png)
 
 9. The pull request acceptor accepts the pull request.
 

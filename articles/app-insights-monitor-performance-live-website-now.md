@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK" metaKeywords="analytics monitoring application insights" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
+<properties pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK" authors="awills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills"/>
  
 
 # Install Application Insights Status Monitor to monitor website performance

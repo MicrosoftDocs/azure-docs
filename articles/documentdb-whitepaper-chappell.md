@@ -1,6 +1,6 @@
-<properties title="" pageTitle="DocumentDB whitepaper by David Chappell | Azure" description="Download a whitepaper by David Chappell description DocumentDB, a managed NoSQL database on Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="" videoId="" scriptId="" manager="jhubbard" editor=""/>
+<properties pageTitle="DocumentDB whitepaper by David Chappell | Azure" description="Download a whitepaper by David Chappell description DocumentDB, a managed NoSQL database on Azure." services="documentdb" documentationCenter="" authors="" manager="jhubbard" editor=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin"/>
 
 
 

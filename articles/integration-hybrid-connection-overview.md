@@ -1,6 +1,6 @@
-<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Hybrid Connections Overview | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="Learn about hybrid connections, including Security." metaCanonical="" services="biztalk-services" documentationCenter="" title="" authors="mandiohlinger" solutions="" manager="dwrede" editor="cgronlun"/>
+<properties pageTitle="Hybrid Connections Overview | Azure" description="Learn about hybrid connections, including Security." services="biztalk-services" documentationCenter="" authors="mandiohlinger" manager="dwrede" editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia"/>
 
 
 

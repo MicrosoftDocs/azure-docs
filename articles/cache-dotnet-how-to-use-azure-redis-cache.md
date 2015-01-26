@@ -1,6 +1,6 @@
-<properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="" title="" authors="steved0x" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="How to Use Azure Redis Cache" description="Learn how to create a use a cache in Azure Redis Cache" services="cache" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="1/20/2015" ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
 
@@ -290,6 +290,8 @@ Now that you've learned the basics of Azure Redis Cache,
 follow these links to learn how to do more complex caching tasks.
 
 -	Learn more about the StackExchange.Redis client: [StackExchange.Redis cache client documentation][]
+	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].
+	-	Azure Redis Cache can also be used with services such as Redsmin. For more information, see  [How to retrieve an Azure Redis connection string and use it with Redsmin][].
 -	See the [redis][] documentation and read about [redis data types][] and [a fifteen minute introduction to Redis data types][].
 -   See the MSDN Reference: [Azure Redis Cache][]
 
@@ -339,6 +341,9 @@ follow these links to learn how to do more complex caching tasks.
 
    
 <!-- LINKS -->
+[http://redis.io/clients]: http://redis.io/clients
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/en-us/library/azure/dn690470.aspx
+[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Azure Management Portal]: http://windows.azure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx

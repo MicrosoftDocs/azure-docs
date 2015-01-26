@@ -1,6 +1,6 @@
-<properties pageTitle="Managing Role-Based Access Control with Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Managing role-based access control with Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="" authors="guangyang" solutions="" manager="terrylan" editor="mollybos"/>
+<properties pageTitle="Managing Role-Based Access Control with Windows PowerShell" description="Managing role-based access control with Windows PowerShell" services="" documentationCenter="" authors="guangyang" manager="terrylan" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan"/>
 
 # Managing Role-Based Access Control with Windows PowerShell #
 

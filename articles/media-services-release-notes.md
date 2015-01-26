@@ -1,6 +1,6 @@
-<properties pageTitle="Media Services Release Notes" metaKeywords="Azure Media Services" description="Media Services Release Notes" metaCanonical="" services="media-services" documentationCenter="media" title="" authors="juliako" solutions="media" manager="dwrede" editor=""/>
+<properties pageTitle="Media Services Release Notes" description="Media Services Release Notes" services="media-services" documentationCenter="media" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/15/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="media" ms.devlang="dotnet" ms.topic="article" ms.date="10/15/2014" ms.author="juliako"/>
 
 
 # Azure Media Services Release Notes
@@ -11,6 +11,8 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [December 2014 Release](#december_changes_14)
+- [November 2014 Release](#november_changes_14)
 - [October 2014 Release](#october_changes_14)
 - [September 2014 Release](#september_changes_14)
 - [August 2014 Release](#august_changes_14)
@@ -45,20 +47,63 @@ These release notes summarize changes from previous releases and known issues.
 <tr><th>Issue</th><th>Description</yt></tr>
 <tr><td>Media Services objects in the SDK cannot be serialized and as a result do not work with Azure Caching.</td><td>If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.</td></tr>
 </table><br/>
+
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
-    
+
+##<a id="december_changes_14"></a>December 2014 Release
+
+###General Media Services Updates
+
+- Some updates and new features were added to the Azure Indexer Media processor. For more information, see [Azure Media Indexer Version 1.1.6.7 Release Notes](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
+- Added a new REST API that enables you to update encoding reserved units: [EncodingReservedUnitType with REST](http://msdn.microsoft.com/en-us/library/azure/dn859236.aspx).
+- Added CORS support for key delivery service.
+- Performance improvements of querying authorization policy options were done.
+- In China data center, the [Key Delivery URL](http://msdn.microsoft.com/en-us/library/azure/ef4dfeeb-48ae-4596-ab28-44d6b36d8769#get_delivery_service_url) is now per customer (just like in other data centers).
+- Added HLS auto target duration. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (FragmentsPerSegment) based on the keyframe interval (KeyFrameInterval ), also referred to as Group of Pictures – GOP, that is received from the Live encoder. For more information, see [Working with Azure Media Services Live Streaming].
+ 
+###Media Services .NET SDK Updates
+
+- [Azure Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) is now version 3.1.0.0.
+- Upgraded the .Net SDK dependency to .NET 4.5 Framework.
+- Added a new API that enables you to update encoding reserved units. For more information, see [Updating Reserved Unit Type and Increasing Encoding RUs using .NET](http://msdn.microsoft.com/en-us/library/azure/jj129582.aspx).
+- Added JWT (JSON Web Token) support for token authentication. For more information, see [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+- Added relative offsets for BeginDate and ExpirationDate in the PlayReady license template.
+
+
+##<a id="november_changes_14"></a>November 2014 Release
+
+- Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
+- Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
+- You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
+- Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](http://azure.microsoft.com/en-us/documentation/articles/media-services-manage-origins/). Use URLs created based on the new streaming endpoint to stream your content over SSL.
+   
 ##<a id="october_changes_14"></a>October 2014 Release
+
 ### <a id="new_encoder_release"></a>Media Services Encoder Release
 
 Announcing the new release of Media Services Azure Media Encoder. With the latest Azure Media Encoder you are only charged for output GBs, but otherwise the new encoder is feature compatible with Windows Azure Media Encoder. For more information [Media Services Pricing Details]).
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK 
 
+Media Services SDK for .NET Extensions is now version 2.0.0.3.
+
 Media Services SDK for .NET is now version 3.0.0.8.
 
-Media Services SDK for .NET Extensions is now version 2.0.0.3.
+The following changes were made:
+
+- Refactoring in retry policy classes.
+- Adding user agent string to http request headers.
+- Adding nuget restore build step.
+- Fixing scenario tests to use x509 cert from repository.
+- Validating settings when updating channel and streaming end.
+ 
+
+### New GitHub repository to host Media Services samples
+
+Samples are located in [Azure Media Services samples GitHub repository](https://github.com/Azure/Azure-Media-Services-Samples).
+
 
 ##<a id="september_changes_14"></a>September 2014 Release
 
@@ -92,11 +137,15 @@ Media Services SDK for .NET is now version 3.0.0.7
 	
 	* You must have the ownership of the custom domain name.
 	
-	* The ownership of the domain name must be validated by Azure Media Services. 
+	* The ownership of the domain name must be validated by Azure Media Services. To validate the domain, create a CName that maps <MediaServicesAccountId>.<parent domain> to verifydns.<mediaservices-dns-zone>. 
 	
+	* You must create another CName  that maps the custom host name (for example,  sports.contoso.com) to your Media Services StreamingEndpont’s host name (for example,  amstest.streaming.mediaservices.windows.net).
+
+
 	For more information, see the **CustomHostNames** property in the [StreamingEndpoint] topic.
 
 ### <a id="sept_14_preview_changes"></a>New features\scenarios that are part of the public preview release
+
 * Live Streaming Preview. For more information, see [Working with Azure Media Services Live Streaming].
 
 * Key Delivery Service. For more information, see [Using AES-128 Dynamic Encryption and Key Delivery Service].

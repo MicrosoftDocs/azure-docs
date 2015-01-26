@@ -1,7 +1,6 @@
-<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: On-Premises to Azure Protection with Hyper-V Replication" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises VMM Site to Azure protection with Hyper-V Replication
-" editor="jimbe" manager="jwhit" authors="raynew" />
+<properties pageTitle="Getting Started with Azure Site Recovery: On-Premises to Azure Protection with Hyper-V Replication" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure." editor="jimbe" manager="jwhit" authors="raynew"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="8/1/2015" ms.author="raynew" />
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="8/1/2015" ms.author="raynew"/>
 
 
 # Getting Started with Azure Site Recovery: On-Premises VMM Site to Azure protection with Hyper-V Replication
@@ -23,7 +22,7 @@
 
 
 <h2><a id="before"></a>Prerequisites</h2> 
-<div class="dev-callout"> 
+
 <P>Make sure you have everything in place before you begin the tutorial.</P>
 
 <UL>
@@ -39,7 +38,7 @@
 <LI><b>Virtual machine</b>—You'll need virtual machines that comply with Azure requirements. See <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.</LI>
 <LI>For a full list of virtual machine support requirements for failover to Azure, read  </LI>
 </UL>
-</div>
+
 
 <h2><a id="tutorial"></a>Tutorial steps</h2> 
 

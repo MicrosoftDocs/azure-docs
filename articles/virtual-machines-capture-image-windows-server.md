@@ -1,6 +1,6 @@
-<properties urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn"/>
+<properties pageTitle="Capture an image of a virtual machine running Windows Server" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav"/>
 
 #How to Capture a Windows Virtual Machine to Use as a Template#
 
@@ -51,7 +51,9 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 11.	Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps. Click **I have run Sysprep on the virtual machine** to indicate that you have done this.
 
-12.	Click the check mark to capture the image. When you capture an image of a generalized virtual machine, the virtual machine is deleted.
+12.	Click the check mark to capture the image. 
+
+  **NOTE: When you capture an image of a generalized virtual machine, the virtual machine is deleted.**
 
 	The new image is now available under **Images**.
 

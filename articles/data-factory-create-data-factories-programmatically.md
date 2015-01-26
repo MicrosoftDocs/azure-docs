@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Create, monitor, and manage Azure data factories by using Data Factory SDK" description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties pageTitle="Create, monitor, and manage Azure data factories by using Data Factory SDK" description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
 You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. See [Data Factory Class Library Reference][adf-class-library-reference] for details about Data Factory .NET SDK. 

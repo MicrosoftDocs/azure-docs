@@ -1,6 +1,6 @@
-<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="ruby" title="" authors="tfitzmac" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use blob storage (Ruby) | Microsoft Azure" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." services="storage" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz"/>
 
 
 
@@ -29,11 +29,11 @@ For more information on blobs, see the [Next Steps](#next-steps) section.
 * [Next Steps](#NextSteps)
 
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a id="CreateAccount"></a>Create an Azure storage account
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a id="CreateRubyApp"></a>Create a Ruby Application
 

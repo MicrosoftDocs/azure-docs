@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Add Application Insights SDK to your web project" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
+<properties pageTitle="Add Application Insights SDK to your web project" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." authors="awills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills"/>
 
 # Add Application Insights SDK to your web project
 

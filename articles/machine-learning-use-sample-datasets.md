@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Use the sample datasets in Machine Learning Studio | Azure" description="Use the sample datasets included in Azure Machine Learning Studio." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
+<properties pageTitle="Use the sample datasets in Machine Learning Studio | Azure" description="Use the sample datasets included in Azure Machine Learning Studio." services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/16/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/16/2014" ms.author="garye"/>
 
 
 # Use the sample datasets in Azure Machine Learning Studio

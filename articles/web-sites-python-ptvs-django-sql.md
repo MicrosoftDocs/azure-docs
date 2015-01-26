@@ -1,6 +1,6 @@
-<properties linkid="web-sites-python-ptvs-django-sql" title="" pageTitle="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="python" authors="huguesv" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties pageTitle="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL database instance and can be deployed to a web site." services="" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo"/>
 
 
 
@@ -28,7 +28,7 @@ See the [Python Developer Center][] for more articles that cover development of 
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Create the Project
 

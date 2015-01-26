@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Securing an Azure Website." description="Learn how to secure an Azure Website." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="" authors="blackmist" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties pageTitle="Securing an Azure Website." description="Learn how to secure an Azure Website." services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 #Securing a web application in an Azure Website

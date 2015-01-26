@@ -1,5 +1,5 @@
-<properties title="Azure Machine Learning Recommendations API Documentation" pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/15/2015" ms.author="AharonGumnik" />
+<properties pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" services="machine-learning" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun"/>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/20/2015" ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
@@ -12,59 +12,59 @@ This document depicts Azure ML Recommendations APIs.
 
 - [1. General Overview](#1-general-overview)
 - [2. Advanced Topics](#2-advanced-topics)
-	- [2.1. Recommendation Quality](#21-recommendation-quality)
-	- [2.2. Rank build](#22-rank-build)
-	- [2.3. Recommendation reasoning](#23-recommendation-reasoning)
+    - [2.1. Recommendation Quality](#21-recommendation-quality)
+    - [2.2. Rank Build](#22-rank-build)
+    - [2.3. Recommendation reasoning](#23-recommendation-reasoning)
 - [3. Limitations](#3-limitations)
-- [4. APIs – General Information](#4-apis--general-information)
-	- [4.1. Authentication](#41-authentication)
-	- [4.2. Service URI](#42-service-uri)
-	- [4.3. API Version](#43-api-version)
+- [4. APIs - General Information](#4-apis---general-information)
+    - [4.1. Authentication](#41-authentication)
+    - [4.2. Service URI](#42-service-uri)
+    - [4.3. API Version](#43-api-version)
 - [5. Model Basic](#5-model-basic)
-	- [5.1. Create Model](#51-create-a-model)
-	- [5.2. Get Model](#52-get-model)
-	- [5.3. Get All Models](#53-get-all-models)
-	- [5.4. Update Model](#54-update-model)
-	- [5.5. Delete Model](#55-delete-model)
+    - [5.1. Create Model](#51-create-model)
+    - [5.2. Get Model](#52-get-model)
+    - [5.3. Get All Models](#53-get-all-models)
+    - [5.4. Update Model](#54-update-model)
+    - [5.5. Delete Model](#55-delete-model)
 - [6. Model Advanced](#6-model-advanced)
-	- [6.1. Model Data Insight](#61-model-data-insight)
-	- [6.2. Model Insight](#62-model-insight)
-	- [6.3. Get Model Sample](#63-get-model-sample)
+    - [6.1. Model Data Insight](#61-model-data-insight)
+    - [6.2. Model Insight](#62-model-insight)
+    - [6.3. Get Model Sample](#63-get-model-sample)
 - [7. Model Business Rules](#7-model-business-rules)
-	- [7.1. Get Model Rules](#71-get-model-rules)
-	- [7.2. Add Rule](#72-add-rule)
-	- [7.3. Delete Rule](#73-delete-rule)
-	- [7.4. Delete All Rules](#74-delete-all-rules)
+    - [7.1. Get Model Rules](#71-get-model-rules)
+    - [7.2. Add Rule](#72-add-rule)
+    - [7.3. Delete Rule](#73-delete-rule)
+    - [7.4. Delete All Rules](#74-delete-all-rules)
 - [8. Catalog](#8-catalog)
-	- [8.1. Import catalog data](#81-import-catalog-data)
-	- [8.2. Get Catalog](#82-get-catalog)
-	- [8.3. Get Catalog Items by Token](#83-get-catalog-items-by-token)
+    - [8.1. Import Catalog Data](#81-import-catalog-data)
+    - [8.2. Get Catalog](#82-get-catalog)
+    - [8.3. Get Catalog Items by Token](#83-get-catalog-items-by-token)
 - [9. Usage Data](#9-usage-data)
-	- [9.1. Import usage data](#91-import-usage-data)
-		- [9.1.1. Uploading file](#911-uploading-file)
-		- [9.1.2. Using data acquisition](#912-using-data-acquisition)
-	- [9.2. List Model Usage Files](#92-list-model-usage-files)
-	- [9.3. Get Usage Statistics](#93-get-usage-statistics)
-	- [9.4. Get Usage File Sample](#94-get-usage-file-sample)
-	- [9.5. Get Model Usage File](#95-get-model-usage-file)
-	- [9.6. Delete Usage File](#96-delete-usage-file)
-	- [9.7. Delete All Usage Files](#97-delete-all-usage-files)
+    - [9.1. Import Usage Data](#91-import-usage-data)
+        - [9.1.1. Uploading File](#911-uploading-file)
+        - [9.1.2. Using Data Acquisition](#912-using-data-acquisition)
+  - [9.2. List Model Usage Files](#92-list-model-usage-files)
+  - [9.3. Get Usage Statistics](#93-get-usage-statistics)
+  - [9.4. Get Usage File Sample](#94-get-usage-file-sample)
+  - [9.5. Get Model Usage File](#95-get-model-usage-file)
+  - [9.6. Delete Usage File](#96-delete-usage-file)
+  - [9.7. Delete All Usage Files](#97-delete-all-usage-files)
 - [10. Features](#10-features)
-	- [10.1. Get Features Info](#101-get-feature-info)
-	- [10.2. Get Features Info (for specific rank build)](#101-get-feature-info-for-specific-rank-build)
+    - [10.1. Get Features Info](#101-get-features-info-for last rank build)
+    - [10.2. Get Features Info (For Specific Rank Build)](#102-get-features-info-for-specific-rank-build)
 - [11. Build](#11-build)
-	- [11.1. Build a model](#111-build-a-model)
-	- [11.2. Get Builds Status of a Model](#112-get-builds-status-of-a-model)
-	- [11.3. Get Builds Status of a User](#113-get-builds-status-of-a-user)
-	- [11.4. Delete Build](#114-delete-build)
-	- [11.5. Cancel Build](#115-cancel-build)
-	- [11.6. Get Build Parameters](#116-get-build-parameters)
+    - [11.1. Build a Model](#111-build-a-model)
+    - [11.2. Get Builds Status of a Model](#112-get-builds-status-of-a-model)
+    - [11.3. Get Builds Status of a User](#113-get-builds-status-of-a-user)
+    - [11.4. Delete Build](#114-delete-build)
+    - [11.5. Cancel Build](#115-cancel-build)
+    - [11.6. Get Build Parameters](#116-get-build-parameters)
 - [12. Recommendation](#12-recommendation)
-	- [12.1. Get Recommendations](#121-get-recommendations)
+    - [12.1. Get Recommendations](#121-get-recommendations)
 - [13. Notifications](#13-notifications)
-	- [13.1. Get Notifications](#131-get-notifications)
-	- [13.2. Delete Model Notifications](#132-delete-model-notifications)
-	- [13.3. Delete User Notifications](#133-delete-user-notifications)
+    - [13.1. Get Notifications](#131-get-notifications)
+    - [13.2. Delete Model Notifications](#132-delete-model-notifications)
+    - [13.3. Delete User Notifications](#133-delete-user-notifications)
 - [14. Legal](#14-legal)
 
 
@@ -87,18 +87,18 @@ Azure ML Recommendations API can be divided into 8 groups:
 
 ###2.1. Recommendation Quality
 
-Creating a recommendation model is usually enought to allow the system to provide recommendations, nevertheless recommendations quality varies in function of the usage processed and the coverage of the catalog. For example if you have a lot of cold items (items without significant usage) the system will have difficulties to provide recommendation for such item or to use such item as a recommended one. In order to overcome the cold item problem the system allows to use the meta data of the items to enhance the recommendations. This meta-data is refered as features, typical features are a book's author or a movie's actor. Features are provided via the catalog under the form of key value strings for full format of the catalog file please refere to the [import catalog section](#81-import-catalog-data). The following section explains the usage of features to enhance recommendation model.
+Creating a recommendation model is usually enough to allow the system to provide recommendations, nevertheless recommendations quality varies in function of the usage processed and the coverage of the catalog. For example if you have a lot of cold items (items without significant usage) the system will have difficulties to provide recommendation for such item or to use such item as a recommended one. In order to overcome the cold item problem the system allows to use the meta data of the items to enhance the recommendations. This meta-data is refered to as features. Typical features are a book's author or a movie's actor. Features are provided via the catalog under the form of key value strings. For the full format of the catalog file please refer to the [import catalog section](#81-import-catalog-data). The following section explains the usage of features to enhance the recommendation model.
 
-###2.2. Rank build
+###2.2. Rank Build
 
-Features can enhance recommendation model, but in order to do so it is needed to use meaningful features, for this purpose a new build was introduced - a Rank build. This build will rank the usefulness of features. A mainingfull feature is a feature with a rank score of 2 and up.
-After understanding which of the features is meaningful, trigger a recommendation build with the list (or sub list) of meaningfull features. It is possible to use these feature both for the enhacement of warm items and cold item. In order to use them for warm item the `UseFeatureInModel` should be set up. In order to use features for cold item, the `AllowColdItemPlacement` build parameter should be enabled.
+Features can enhance the recommendation model, but to do so it is needed to use meaningful features. For this purpose a new build was introduced - a Rank build. This build will rank the usefulness of features. A meanningful feature is a feature with a rank score of 2 and up.
+After understanding which of the features is meaningful, trigger a recommendation build with the list (or sub list) of meaningful features. It is possible to use these feature both for the enhacement of warm items and cold items. In order to use them for warm items the `UseFeatureInModel` should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
 Note: It is not possible to enable `AllowColdItemPlacement` without enabling `UseFeatureInModel`.
 
 ###2.3. Recommendation reasoning
 
-Recommendation reasoning is another aspect of feature usage. Indeed the Azure ML Recommendation engine can use features to provide recommendation explanations (a.k.a. reasoning), leading to more confidence in the recommended item from the recommendation consumer.
-To enable reasoning the `AllowFeatureCorrelation` and `ReasoningFeatureList` parameters should have been setup prior requesting a recommendation build.
+Recommendation reasoning is another aspect of feature usage. Indeed, the Azure ML Recommendation engine can use features to provide recommendation explanations (a.k.a. reasoning), leading to more confidence in the recommended item from the recommendation consumer.
+To enable reasoning the `AllowFeatureCorrelation` and `ReasoningFeatureList` parameters should be setup prior requesting a recommendation build.
 
 ##3. Limitations
 
@@ -108,7 +108,7 @@ To enable reasoning the `AllowFeatureCorrelation` and `ReasoningFeatureList` par
 - Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB
 - The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS
 
-##4. APIs – General Information
+##4. APIs - General Information
 
 ###4.1. Authentication
 Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either Basic or OAuth authentication methods.
@@ -123,7 +123,7 @@ Each API call will have at the end query parameter called apiVersion that should
 
 ##5. Model Basic
 
-###5.1. Create a model
+###5.1. Create Model
 Creating a “create model” request:
 
 | HTTP Method | URI |
@@ -978,7 +978,7 @@ HTTP Status code: 200
 
 ##8. Catalog
 
-###8.1.	Import catalog data
+###8.1.	Import Catalog Data
 
 If you upload several catalog files to the same model with several calls we will insert only the new catalog items. Existing items will remain with the original values. You cannot update catalog data using this method.
 
@@ -1046,7 +1046,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8.2.	Get catalog
+###8.2.	Get Catalog
 Retrieves all catalog items
 
 | HTTP Method | URI |
@@ -1204,8 +1204,8 @@ OData XML
 	</feed>
 
 ##9. Usage data
-###9.1.	Import usage data
-####9.1.1. Uploading file
+###9.1.	Import Usage Data
+####9.1.1. Uploading File
 This sections shows how to upload usage data using a file. You can call this API several times with usage data. All usage data will be saved for all calls.
 
 | HTTP Method | URI |
@@ -1253,7 +1253,7 @@ OData XML
 	</feed>
 
 
-####9.1.2. Using data acquisition
+####9.1.2. Using Data Acquisition
 This section shows how to send events in real time to Azure ML Recommendations usually from your web site.
 
 | HTTP Method | URI |
@@ -1646,7 +1646,7 @@ This section shows how to retrieve feature information, such as the imported fea
 Feature rank can changes according to the pattern the usage data, and type of items but for consistent usage/items the rank should only have small fluctuations.
 The rank of features is a non negative number, 0 means that the feature was not ranked (happens if you invoke this API prior the completion of the first rank build), the date of at which the rank was attributed is called the score freshness.
 
-###10.1. Get Features info (for last rank build)
+###10.1. Get Features Info (For Last Rank Build)
 Retrieve the feature information including ranking for the last successfull rank build.
 
 | HTTP Method | URI |
@@ -1727,7 +1727,7 @@ OData XML
 </feed>
 
 
-###10.2. Get Features info (for specific rank build)
+###10.2. Get Features Info (For Specific Rank Build)
 
 Retrieve the feature information including ranking for a specific rank build.
 
@@ -1816,14 +1816,14 @@ This section explains the different API related to builds. Currently two types o
 - Trigger a rank build (unless the score of your features is stable) and wait till you get the feature score.
 - Configure a recommendation build with the following parameters:
 	- `useFeatureInModel` - set to True
-	- `ModelingFeatureList` - set to a coma separated list of feature with a score of 2.0 or more
+	- `ModelingFeatureList` - set to a coma separated list of features with a score of 2.0 or more
 	- `AllowColdItemPlacement` - set to True
-	- Optionally you can setup the `EnableFeatureCorrelation` to True and the `ReasoningFeatureList` to the list of feature you want to use for explanations (usually the same list of features used in modeling or a sub list).
+	- Optionally you can setup the `EnableFeatureCorrelation` to True and the `ReasoningFeatureList` to the list of features you want to use for explanations (usually the same list of features used in modeling or a sub list).
 - Trigger the recommendation build with the configured parameters.
 
 Note: If you do not configure any parameters (e.g. invoke the recommendation build without parameters) or you do not disable explicitly the usage of features (e.g. `UseFeatureInModel` set to False), the system will setup the feature related parameters to the explained values above in case a rank build exists.
 
-There is no restriction to run concurrently a rank build and a recommendation build for the same model, nevertheless a you cannot build two build on the same type on the same model.
+There is no restriction on running concurrently a rank build and a recommendation build for the same model, nevertheless a you cannot run two builds of the same type on the same model in parallel.
 
 ####11.1 Build Parameters
 
@@ -1832,7 +1832,7 @@ Each build type can be configured via a set of parameters (depicted below). If y
 #####11.1.1. Usage Condenser
 Users or items with few usage point might contain more noise than information. The system attempts to predict the minimal number of usage points per user/item to be used in a model. This number will be within the range defined by ItemCutoffLowerBound and ItemCutoffUpperBound parameters for items, and the range defined by UserCutOffLowerBound and UserCutoffUpperBound parameters for users. The condenser effect on items or userscan be minimized by setting as least one of the corresponding bounds to zero.
 
-#####11.1.2. Rank build parameters
+#####11.1.2. Rank Build Parameters
 
 The table below depicts the build parameters for Rank build.
 
@@ -1942,7 +1942,7 @@ OData XML
   	</entry>
 	</feed>
 
-###11.3. Trigger build (Rank or Recommendation)
+###11.3. Trigger Build (Rank or Recommendation)
 
 | HTTP Method | URI |
 |:--------|:--------|

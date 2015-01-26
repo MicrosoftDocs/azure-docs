@@ -1,6 +1,6 @@
-<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Store project code in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="ggailey777" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Store project code in source control - Azure Mobile Services" description="Learn how to store your server script files and modules in a local Git repo on your computer." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
@@ -21,7 +21,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 ##<a name="enable-source-control"></a>Enable source control in your mobile service
 
-[WACOM.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
+[AZURE.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
 ##<a name="clone-repo"></a>Install Git and create the local repository
 

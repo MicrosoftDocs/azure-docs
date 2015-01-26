@@ -1,6 +1,6 @@
-<properties urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Use Content from a CDN in Your Web Application" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." metaCanonical="" services="cdn" documentationCenter=".net" title="" authors="cephalin" solutions="" manager="wpickett" editor="tysonn"/>
+<properties pageTitle="Use Content from a CDN in Your Web Application" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." services="cdn" documentationCenter=".net" authors="cephalin" manager="wpickett" editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin"/>
 
 # Serve Content from Azure CDN in Your Web Application #
 
@@ -29,14 +29,9 @@ This tutorial has the following prerequisites:
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) for blob management GUI
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (used by [Automate content upload from your ASP.NET application to your CDN endpoint](#upload))
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
-  <ul>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
-  <ul>
-</div>
+> [AZURE.NOTE] You need an Azure account to complete this tutorial:
+> + You can [open an Azure account for free](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
+> + You can [activate MSDN subscriber benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 <a name="static"></a>
 ## Serve static content from an Azure CDN endpoint ##

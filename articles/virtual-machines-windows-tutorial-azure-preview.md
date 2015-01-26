@@ -1,6 +1,6 @@
-<properties pageTitle="Create a virtual machine running Windows in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows, using the Azure Marketplace in the Azure Preview Portal" services="virtual-machines" documentationCenter="" title="" authors="dlepow" solutions=""  manager="timlt" />
+<properties pageTitle="Create a virtual machine running Windows in the Azure Preview Portal" description="Learn how to create an Azure virtual machine (VM) running Windows, using the Azure Marketplace in the Azure Preview Portal" services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep,kathydav,rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep,kathydav,rasquill"/>
 
 <!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
 -->
@@ -73,19 +73,23 @@ This section shows you how to log on to the VM so you can manage its settings an
 
 	![Browse to find the VM](./media/virtual-machines-windows-tutorial-azure-preview/browse_vm_preview_portal.png)
 
-3. On the VM blade, click **Connect** at the top.
+3. Then select your VM from the list. 
+
+	![Select your VM name from the list](./media/virtual-machines-windows-tutorial-azure-preview/vm_select_preview_portal.png)
+
+4. On the VM blade, click **Connect** at the top.
 
 	![Log on to the virtual machine](./media/virtual-machines-windows-tutorial-azure-preview/connect_vm_preview_portal.png)
 
-4. Click **Open** to use the Remote Desktop Protocol file that was automatically created for the virtual machine.
+5. Click **Open** to use the Remote Desktop Protocol file that was automatically created for the virtual machine.
 	
-5. Click **Connect** to proceed with the connection process.
+6. Click **Connect** to proceed with the connection process.
 
 	![Continue with connecting](./media/virtual-machines-log-on-windows-server/connectpublisher.png)
 
-6. Type the user name and password of the administrative account on the virtual machine, and then click **OK**.
+7. Type the user name and password of the administrative account on the virtual machine, and then click **OK**.
 	
-7. Click **Yes** to verify the identity of the virtual machine.
+8. Click **Yes** to verify the identity of the virtual machine.
 
 	![Verify the identity of the machine](./media/virtual-machines-log-on-windows-server/connectverify.png)
 

@@ -1,6 +1,6 @@
-<properties pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="windows" title="" authors="ggailey777" solutions="mobile" writer="" manager="dwrede" editor=""/>
+<properties pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
 
@@ -27,7 +27,7 @@ This tutorial walks you through the following steps of how to use the job schedu
 
 ##<a name="get-oauth-credentials"></a>Register for access to Twitter v1.1 APIs and store credentials
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 <ol start="7">
 <li><p>In Solution Explorer in Visual Studio, open the web.config file for the mobile service project, locate the <strong>MS_TwitterConsumerKey</strong> and <strong>MS_TwitterConsumerSecret</strong> app settings and replace the values of these keys with Twitter consumer key and consumer secret values that you set in the portal.</p></li>

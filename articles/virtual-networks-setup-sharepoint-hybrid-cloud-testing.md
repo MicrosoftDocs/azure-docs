@@ -1,6 +1,6 @@
-<properties urlDisplayName="Set up a SharePoint intranet farm in a hybrid cloud for testing" pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" metaKeywords="" description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up a SharePoint intranet farm in a hybrid cloud for testing" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." services="virtual-network" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd"/>
 
 <h1 id="sphybcloudtest">Set up a SharePoint intranet farm in a hybrid cloud for testing</h1>
 
