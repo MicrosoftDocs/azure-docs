@@ -9,30 +9,30 @@
 
 This document shows the usage of some Azure Machine Learning recommendations via a sample application.
 
-This application is not intended to include full functionality, nor does it use all the APIs. It demonstrates some common operations to perform when you first want to play with the Machine Learning Recommendation service. 
+This application is not intended to include full functionality, nor does it use all the APIs. It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service. 
 
-##Introduction to Machine Learning recommendations
+##Introduction to Machine Learning recommendation service
 
 Recommendations via the Machine Learning recommendation service are enabled when you build a recommendation model based on the following data:
 
-* A repository of the item you want to recommend, such as a catalog
+* A repository of the items you want to recommend, also known as a catalog
 * Data representing the usage of items per user or session (this can be acquired over time via data acquisition, not as part of the sample app)
 
 After a recommendation model is built, you can use it to predict items that a user might be interested in, according to a set of items (or a single item) the user selects.
 
 To enable the previous scenario, do the following in the Machine Learning recommendation service:
 
-* Create a model: This is a logical container that holds the data (catalog and usage) and the prediction model(s). Each model container is identified via a unique ID, which is allocated when it is created. This ID called the Model ID, and it is used by most of the APIs. 
+* Create a model: This is a logical container that holds the data (catalog and usage) and the prediction model(s). Each model container is identified via a unique ID, which is allocated when it is created. This ID is called the model ID, and it is used by most of the APIs. 
 * Upload to catalog: When a model container is created, you can associate to it a catalog.
 
-<b>Note</b>  Creating a model and uploading to a catalog are usually performed once for the model lifecycle.
+**Note**: Creating a model and uploading to a catalog are usually performed once for the model lifecycle.
 
 * Upload usage: This adds usage data to the model container.
 * Build a recommendation model: After you have enough data, you can build the recommendation model. This operation uses the top Machine Learning algorithms to create a recommendation model. Each build is associated with a unique ID. You need to keep a record of this ID because it is necessary for the functionality of some APIs.
 * Monitor the building process: A recommendation model build is an asynchronous operation, and it can take from several minutes to several hours, depending on the amount of data (catalog and usage) and the build parameters. Therefore, you need to monitor the build. A recommendation model is created only if its associated build completes successfully.
 * (Optional) Choose an active recommendation model build: This step is only necessary if you have more than one recommendation model built in your model container. Any request to get recommendations without indicating the active recommendation model is redirected automatically by the system to the default active build. 
 
-<b>Note</b>  An active recommendation model is production ready and it is built for production workload. This differs from a non-active recommendation model, which stays in a test-like environment (sometimes called staging).
+**Note**: An active recommendation model is production ready and it is built for production workload. This differs from a non-active recommendation model, which stays in a test-like environment (sometimes called staging).
 
 * Get recommendations: After you have a recommendation model, you can trigger recommendations for a single item or a list of items that you select. 
 
@@ -61,7 +61,7 @@ The application uses Machine Learning recommendation functionality via a subset 
 
 For a complete description of the APIs, please see the Microsoft Azure Marketplace documentation. 
 
-<b>Note<b/>  A model can have several builds over time (not simultaneously). Each build is created with the same or an updated catalog and additional usage data.
+**Note**: A model can have several builds over time (not simultaneously). Each build is created with the same or an updated catalog and additional usage data.
 
 ## Common pitfalls
 
