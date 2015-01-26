@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure Active Directory Connect" pageTitle="Azure Active Directory Connect" metaKeywords="" description="The Azure Active Directory Connect wizard is the single tool and guided experience for connecting your on-premises Windows Server Active Directory with Azure Active Directory" metaCanonical="" services="azure active directory connect" documentationCenter="" title="Azure Active Directory Connect" authors="gabag" solutions="" manager="terrylan" editor="" />
+<properties urlDisplayName="Azure Active Directory Connect" pageTitle="Azure Active Directory Connect" description="The Azure Active Directory Connect wizard is the single tool and guided experience for connecting your on-premises Windows Server Active Directory with Azure Active Directory" services="active-directory" documentationCenter="" authors="gabag" manager="terrylan" editor="" />
 
-<tags ms.service="azure active directory connect" ms.workload="azure active directory" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/15/2015" ms.author="gabag" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/26/2015" ms.author="gabag" />
 
 <h1 id="vnettut1">Azure Active Directory Connect</h1>
 
