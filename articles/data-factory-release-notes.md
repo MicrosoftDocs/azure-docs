@@ -12,7 +12,7 @@
 - The **Copy Activity** now supports copying data between on-premises SQL Server database and an Azure SQL database.  See [Copy Activity][adf-copy-activity] for details and [Github][adf-github-samples] for JSON samples.
 - **SqlSink** supports a new property: **WriteBatchTimeout**. This property gives you the flexibility to configure how long to wait for the batch insert operation to complete before the operation times out. For a hybrid copy (copy operation that involves an on-premises data source and a cloud data source), you must have the gateway of version 1.4 or higher to use this property. 
 - **SQL Server linked service** now supports **Windows Authentication**. 
-	- When creating a SQL Server linked service using the portal, you can now choose to use Windows Authentication and set appropriate credentials. This feature requires gateway of version 1.4 or highter and PowerShell version of 0.8.14 (Jan 2015) or higher. 
+	- When creating a SQL Server linked service using the portal, you can now choose to use Windows Authentication and set appropriate credentials. This feature requires gateway of version 1.4 or higher and PowerShell version of 0.8.14 (Jan 2015) or higher. 
 	- When creating a SQL Server linked service using Azure PowerShell, you can specify connection information in plain text or encrypt the connection information using updated [New-AzureDataFactoryEncryptValue cmdlet][adf-encrypt-value-cmdlet] and then use the encrypted string for the Connection String property in the linked service JSON payload. See [Linked Services][adf-msdn-linked-services] for details about defining a linked service in JSON.          
 
 ## Notes for 12/11/2014 release of Data Factory ##
