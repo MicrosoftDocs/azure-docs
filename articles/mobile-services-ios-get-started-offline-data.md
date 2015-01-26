@@ -32,7 +32,7 @@ This tutorial walks you through these basic steps:
 In the [Mobile Services sample repository on GitHub], clone the repo and open the project [Offline iOS Sample] in Xcode.
 
 ### Beta SDK
-To add offline support to an existing app, get the latest [beta iOS SDK](http://zumo.blob.core.windows.net/sdk/azuresdk-iOS-v2.0.0-beta2.zip).
+To add offline support to an existing app, get the latest [beta iOS SDK](http://aka.ms/gc6fex).
 
 ## <a name="review-sync"></a>Review the Mobile Services sync code
 
@@ -108,11 +108,11 @@ When using the Core Data offline store, you need to define particular tables and
       * MS_TableConfig: For tracking the last updated time for the last sync operation for all pull operations
       * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, and **ms_version** are optional system properties. 
 
->[AZURE.NOTE] The Mobile Services SDK reserves column names that being with **`ms_`**. You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote service.
+>[AZURE.NOTE] The Mobile Services SDK reserves column names that being with "**`ms_`**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote service.
 
 - When using the offline sync feature, you must define the system tables as shown below.
 
-    **System Tables**
+    ### System Tables
 
     **MS_TableOperations**
 
@@ -149,20 +149,20 @@ When using the Core Data offline store, you need to define particular tables and
     | table      | String      |
     | value      | String      |
 
-- The app also defines the TodoItem table with several optional system properties:
+    ### Data table
 
     ![][defining-core-data-todoitem-entity]
 
     **TodoItem**
 
-    | Attribute    |  Type   | Note                                            | 
-    |-----------   |  ------ | ----                                            |
-    | id           | String  | primary key in remote store                     |
-    | complete     | Boolean | todo item field                                 |
-    | text         | String  | todo item field                                 |
-    | ms_createdAt | Date    | *(optional)* maps to `__createdAt` system property |
-    | ms_updatedAt | Date    | *(optional)* maps to `__updatedAt` system property |
-    | ms_version   | String  | *(optional)* used to detect conflicts, maps to `__version`            |
+    | Attribute    |  Type   | Note                                                       | 
+    |-----------   |  ------ | -----------------------------------------------------------|
+    | id           | String  | primary key in remote store                                |
+    | complete     | Boolean | todo item field                                            |
+    | text         | String  | todo item field                                            |
+    | ms_createdAt | Date    | *(optional)* maps to `__createdAt` system property         |
+    | ms_updatedAt | Date    | *(optional)* maps to `__updatedAt` system property         |
+    | ms_version   | String  | *(optional)* used to detect conflicts, maps to `__version` |
 
 
 ## <a name="setup-sync"></a>Change the sync behavior of the app

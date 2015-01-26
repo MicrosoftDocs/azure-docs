@@ -1,6 +1,6 @@
 <properties pageTitle="Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing" description="Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing." services="virtual-network" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd"/>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 <h1 id="hybcloudtest">Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing</h1>
 
@@ -27,7 +27,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the Office 365 FastTrack trial.
 3.	Configure the DirSync server (DS1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ##Phase 1: Set up the hybrid cloud environment
 
@@ -172,3 +172,10 @@ This environment is now ready for you to perform testing of Office 365 applicati
 [Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](http://technet.microsoft.com/library/dn635310.aspx)
 
 [Solutions using Office Servers and the Cloud](http://technet.microsoft.com/library/dn262744.aspx)
+
+[Set up a hybrid cloud environment for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)
+
+[Set up a SharePoint intranet farm in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+
+[Set up a web-based LOB application in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+
