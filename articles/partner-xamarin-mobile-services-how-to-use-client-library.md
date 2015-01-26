@@ -1,6 +1,6 @@
-<properties urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="" authors="lindydonna" manager="dwrede" editor="" services="mobile-services" documentationCenter=""/>
+<properties pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" description="Learn how to use the Xamarin Component client for Azure Mobile Services." authors="lindydonna" manager="dwrede" editor="" services="mobile-services" documentationCenter=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam"/>
 
 # How to use the Xamarin Component client for Azure Mobile Services
 
@@ -34,7 +34,7 @@ This guide shows you how to perform common scenarios using the Xamarin Component
 - [How to: Design unit tests]
 - [Next steps]
 	
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a>Setup and Prerequisites</h2>
 

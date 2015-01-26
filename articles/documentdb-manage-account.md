@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter="" authors="docdbadmin" manager="jhubbard" editor="cgronlun" videoId="" scriptId=""/>
+<properties pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." services="documentdb" documentationCenter="" authors="docdbadmin" manager="jhubbard" editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="hawong" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="hawong"/>
 
 #How to manage a DocumentDB account
 

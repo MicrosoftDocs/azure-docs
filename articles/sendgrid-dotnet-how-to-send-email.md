@@ -1,6 +1,6 @@
-<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".net" title="" authors="thinkingserious" solutions="" manager="sendgrid" editor="erikre"/>
+<properties pageTitle="How to use the SendGrid email service (.NET) - Azure" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." services="" documentationCenter=".net" authors="thinkingserious" manager="sendgrid" editor="erikre"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/29/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/29/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
 
@@ -49,7 +49,7 @@ For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 <h2><a name="createaccount"></a>Create a SendGrid account</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="reference"></a>Reference the SendGrid .NET class library</h2>
 

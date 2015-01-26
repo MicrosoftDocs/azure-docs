@@ -1,6 +1,6 @@
-<properties urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="" authors="rwike77" solutions="" manager="timlt" editor=""/>
+<properties pageTitle="What is a cloud service - Azure service management" description="An introduction to the cloud service in Azure." services="cloud-services" documentationCenter="" authors="rwike77" manager="timlt" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo"/>
 
 
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId=""/>
+<properties pageTitle="How to use Azure service management APIs (PHP)" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." services="" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz"/>
 
 # How to use Service Management from PHP
 
@@ -41,7 +41,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 ##<a id="GetClientLibraries"></a>Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="Connect"></a>How to: Connect to service management
 

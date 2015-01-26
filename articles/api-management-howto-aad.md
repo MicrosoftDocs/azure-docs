@@ -1,6 +1,6 @@
-<properties pageTitle="How to authorize developer accounts using Azure Active Directory in Azure API Management" metaKeywords="" description="Learn how to authorize users using Azure Active Directory in API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to authorize developer accounts using Azure Active Directory in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="How to authorize developer accounts using Azure Active Directory in Azure API Management" description="Learn how to authorize users using Azure Active Directory in API Management." services="api-management" documentationCenter="API Management" authors="sdanie" manager="dwrede" editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/8/2015" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/8/2015" ms.author="sdanie"/>
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 

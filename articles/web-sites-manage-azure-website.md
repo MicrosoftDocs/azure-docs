@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="MikeWasson" videoId="" scriptId="" manager="wpickett" editor="" metaKeywords=""/>
+<properties pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" documentationCenter="" authors="MikeWasson" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson"/>
 
 # Manage an Azure website
 

@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Invoke MapReduce Program from Azure Data Factory" description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties pageTitle="Invoke MapReduce Program from Azure Data Factory" description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
 This article describes how to invoke a **MapReduce** program from an Azure Data Factory pipeline by using the **HDInsight Activity** with **MapReduce transformation**. 

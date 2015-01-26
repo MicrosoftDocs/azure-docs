@@ -1,6 +1,6 @@
-<properties urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="adinah" editor=""/>
+<properties pageTitle="How to use table storage (PHP) | Microsoft Azure" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." services="storage" documentationCenter="php" authors="tfitzmac" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz"/>
 
 # How to use the Table service from PHP
 
@@ -25,11 +25,11 @@ This guide will show you how to perform common scenarios using the Azure Table s
 * [How to: Delete a table](#DeleteTable)
 * [Next Steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a id="CreateAccount"></a>Create an Azure storage account
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ##<a id="CreateApplication"></a>Create a PHP application
 
@@ -39,7 +39,7 @@ In this guide, you will use Table service features which can be called from with
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureStorage"></a>Configure your application to access the Table service
 

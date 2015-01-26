@@ -1,6 +1,6 @@
-<properties linkid="develop-python-web-site-with-bottle" urlDisplayName="Websites with Bottle" pageTitle="Python Websites with Bottle - Azure tutorial" metaKeywords="Azure bottle, bottle website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="python" title="" authors="huguesv" solutions="" manager="" editor=""/>
+<properties pageTitle="Python Websites with Bottle - Azure tutorial" description="A tutorial that introduces you to running a Python website on Azure." services="web-sites" documentationCenter="python" authors="huguesv" manager="" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="12/17/2014" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="12/17/2014" ms.author="huvalo"/>
 
 
 
@@ -11,7 +11,7 @@ This tutorial describes how to get started running Python on Azure Websites.  Az
 
 You will create an application using the Bottle web framework (see alternate versions of this tutorial for [Django](../web-sites-python-create-deploy-django-app) and [Flask](../web-sites-python-create-deploy-flask-app)).  You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 
 + [Prerequisites](#prerequisites)
@@ -122,11 +122,11 @@ IIS configuration files.  The deployment script will use the appropriate web.x.y
 
 ### Optional files - Customizing deployment
 
-[WACOM.INCLUDE [web-sites-python-customizing-deployment](../includes/web-sites-python-customizing-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-customizing-deployment](../includes/web-sites-python-customizing-deployment.md)]
 
 ### Optional files - Python runtime
 
-[WACOM.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
+[AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
 ### Additional files on server
 
@@ -376,17 +376,17 @@ Browse to the Azure URL to view your changes.
 
 <h2><a name="troubleshooting-deployment"></a>Troubleshooting - Deployment</h2>
 
-[WACOM.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
 <h2><a name="troubleshooting-package-installation"></a>Troubleshooting - Package Installation</h2>
 
-[WACOM.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
+[AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
 <h2><a name="troubleshooting-virtual-environment"></a>Troubleshooting - Virtual Environment</h2>
 
-[WACOM.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
+[AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
 <h2><a name="next-steps"></a>Next Steps</h2>

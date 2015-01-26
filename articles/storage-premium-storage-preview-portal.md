@@ -1,6 +1,6 @@
-<properties urlDisplayName="Learn Azure Premium Storage for Disks" pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads" metaKeywords="Azure Storage, Premium, Storage Account, Page blobs" description="Learn Azure Premium Storage for Disks. Learn how to create a Premium Storage account." metaCanonical="" services="storage" documentationCenter="" title="" authors="Selcin" solutions="data-management" manager="adinah" editor="tysonn"/>
+<properties pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads" description="Learn Azure Premium Storage for Disks. Learn how to create a Premium Storage account." services="storage" documentationCenter="" authors="Selcin" manager="adinah" editor="tysonn"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="selcint" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="selcint"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
@@ -41,7 +41,7 @@ The following is a list of important things to consider before or when using Pre
 
 - To use Premium Storage, you need to have a Premium Storage account. To learn how to create a Premium Storage account, see [Creating and using Premium Storage Account for Disks](#howto1).
 
-- Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/), accessible via the [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) version 0.8.10 or later; and [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later. 
+- Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) version 0.8.10 or later. 
 
 - Premium Storage is available for limited preview in the following regions: West US, East US 2, and West Europe.
 

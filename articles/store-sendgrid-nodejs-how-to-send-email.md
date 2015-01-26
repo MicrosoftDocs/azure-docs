@@ -1,6 +1,6 @@
-<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="nodejs" title="" authors="thinkingserious" solutions="" manager="sendgrid" editor=""/>
+<properties pageTitle="How to use the SendGrid email service (Node.js) - Azure" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." services="" documentationCenter="nodejs" authors="thinkingserious" manager="sendgrid" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 
 
 
@@ -48,7 +48,7 @@ For more information, see [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="createaccount"> </a>Create a SendGrid Account
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="reference"> </a>Reference the SendGrid Node.js Module
 

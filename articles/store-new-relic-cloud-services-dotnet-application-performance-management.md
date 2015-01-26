@@ -1,6 +1,6 @@
-<properties urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".net" title="" authors="stepsic-microsoft-com" solutions="" manager="carolz" editor=""/>
+<properties pageTitle="Using New Relic with Azure - Azure feature guides" description="Learn how to use the New Relic service to manage and monitor your Azure application." services="" documentationCenter=".net" authors="stepsic-microsoft-com" manager="carolz" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic"/>
 
 
 

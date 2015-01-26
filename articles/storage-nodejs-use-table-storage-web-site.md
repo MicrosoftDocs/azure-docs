@@ -1,6 +1,6 @@
-<properties urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites, storage" documentationCenter="nodejs" title="" authors="MikeWasson" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="Node.js website with table storage | Microsoft Azure" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." services="web-sites, storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
 
 
 
@@ -40,7 +40,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 * A web browser
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Create a storage account
 
@@ -501,7 +501,7 @@ The steps in this section use the Azure command-line tools to create a new Azure
 
 If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to continue this tutorial.
 
-[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
+[AZURE.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
 ###Install the Azure command-line tool for Mac and Linux
 

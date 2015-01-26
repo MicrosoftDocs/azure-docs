@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C#" description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".net" title="" authors="sethmanheim" solutions="" manager="timlt" editor="mattshel"/>
+<properties pageTitle="How to use Service Bus relay (.NET) - Azure" description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm"/>
 
 
 
@@ -16,7 +16,7 @@ Foundation API with extensions contained in the Service Bus assembly
 that is part of the .NET Azure SDK. For more
 information on the Service Bus relay, see the "Next Steps" section.
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 <h2>What is the Service Bus Relay</h2>
 

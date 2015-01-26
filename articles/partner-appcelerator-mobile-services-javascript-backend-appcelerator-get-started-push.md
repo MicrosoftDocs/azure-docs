@@ -1,6 +1,6 @@
-<properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="mattchenderson" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." services="mobile-services" documentationCenter="" authors="mattchenderson" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender"/>
 
 # Get started with push notifications in Mobile Services (legacy push)
 <div class="dev-center-tutorial-selector sublanding">
@@ -40,13 +40,13 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Enable Google Cloud Messaging
 
 >[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##  <a name="gcm-module"></a>Create the GCM module for Titanium
@@ -221,7 +221,7 @@ You may then choose to deploy the module for all projects, or for a specific pro
 ## <a name="configure"></a>Configure Mobile Services to send push requests
 
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 5.	Enter the API Key value obtained from GCM in the previous procedure, and then click Save.
 

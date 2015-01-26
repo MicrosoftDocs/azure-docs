@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Monitor, diagnose, and troubleshoot Storage | Azure" description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues." metaKeywords="Azure storage  monitoring  diagnosing  logging  troubleshooting  performance  storage client library  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure" services="storage" solutions="" documentationCenter="" authors="dominicbetts" videoId="" scriptId="" manager="adinah" editor=""/>
+<properties pageTitle="Monitor, diagnose, and troubleshoot Storage | Azure" description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues." services="storage" documentationCenter="" authors="dominicbetts" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/16/2015" ms.author="v-dobett" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/16/2015" ms.author="v-dobett"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage 
 

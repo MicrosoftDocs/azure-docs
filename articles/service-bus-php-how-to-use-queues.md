@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="php" title="" authors="sethmanheim" solutions="" manager="timlt" editor=""/>
+<properties pageTitle="How to use Service Bus queues (PHP) - Azure" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." services="service-bus" documentationCenter="php" authors="sethmanheim" manager="timlt" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm"/>
 
 # How to Use Service Bus Queues
 
@@ -23,7 +23,7 @@ messages**, and **deleting queues**.
 -   [How to: Handle application crashes and unreadable messages](#HandleCrashes)
 -   [Next steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ##<a id="CreateApplication"></a>Create a PHP application
 
@@ -36,7 +36,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 ##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureApp"></a>Configure your application to use Service Bus
 

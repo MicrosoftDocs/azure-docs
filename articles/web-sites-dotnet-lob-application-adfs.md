@@ -1,6 +1,6 @@
-<properties title="" pageTitle="LOB App in Azure Websites with AD FS" description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." metaKeywords="Azure,Azure Websites,line of business,cloud services,enterprise,enterprise  application,adfs,ASP.NET,MVC" services="web-sites" solutions="" documentationCenter=".net" authors="cephalin" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties pageTitle="LOB App in Azure Websites with AD FS" description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." services="web-sites" documentationCenter=".net" authors="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS #
 
@@ -30,7 +30,7 @@ You will build a basic ASP.NET application in Azure Websites with the following 
 <a name="bkmk_need"></a>
 ## What you will need ##
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 You need the following to complete this tutorial:
 

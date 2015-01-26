@@ -1,11 +1,11 @@
-<properties urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services SDK for .NET- Azure" metaKeywords="Azure media services" description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services SDK for .NET" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get Started with Media Services SDK for .NET- Azure" description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako"/>
 
 
 # Delivering Video-on-Demand with Media Services SDK for .NET 
 
-[WACOM.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
+[AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]

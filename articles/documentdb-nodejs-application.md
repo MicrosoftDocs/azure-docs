@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started" services="documentdb" solutions="data-management" documentationCenter="" authors="ryancrawcour" manager="jhubbard" editor="cgronlun" scriptId=""/>
+<properties pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." services="documentdb" documentationCenter="" authors="ryancrawcour" manager="jhubbard" editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw"/>
 
 <a name="_Toc395783175">Build a Node.js web application using DocumentDB</a>
 =================================================================================================

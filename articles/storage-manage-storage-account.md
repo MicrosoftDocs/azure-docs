@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="" authors="tamram" solutions="" manager="adinah" editor="cgronlun"/>
+<properties pageTitle="How to manage storage accounts | Microsoft Azure" description="Learn how to manage storage accounts in Azure by using the Management Portal." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram"/>
 
 
 
@@ -14,7 +14,7 @@
 
 <h2><a id="georeplication"></a>How to: Replicate your storage account data for durability and high availability</h2>
 
-[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### To specify replication settings for a storage account ###
 

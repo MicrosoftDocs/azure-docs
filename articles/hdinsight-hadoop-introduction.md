@@ -1,6 +1,6 @@
-<properties urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Hadoop in HDInsight: Big data analysis in the cloud | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="cjgronlund" solutions="" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Introduction to Hadoop in HDInsight: Big data analysis in the cloud | Azure" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud to provide a software framework to manage, analyze, and report on big data." services="hdinsight" documentationCenter="" authors="cjgronlund" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="cgronlun" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="cgronlun"/>
 
 
 

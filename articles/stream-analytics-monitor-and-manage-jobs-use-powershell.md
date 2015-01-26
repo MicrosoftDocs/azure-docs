@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Stream Analytics monitor and manage jobs using PowerShell | Azure" description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="mumian" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Stream Analytics monitor and manage jobs using PowerShell | Azure" description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs" services="stream-analytics" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="12/9/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="12/9/2014" ms.author="jgao"/>
 
 
 #Monitor and manage Stream Analytics jobs using Azure PowerShell

@@ -1,6 +1,6 @@
-<properties title="" pageTitle="LOB App in Azure Websites with Azure AD" description="Learn how to create an ASP.NET LOB application in Azure Websites that authenticates with Azure Active Directory" metaKeywords="Azure,Azure Websites,line-of-business,line of business,cloud services,enterprise,enterprise  application,Azure Active Directory,Azure AD,ASP.NET,MVC" services="web-sites, active-directory" solutions="" documentationCenter=".net" authors="cephalin" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties pageTitle="LOB App in Azure Websites with Azure AD" description="Learn how to create an ASP.NET LOB application in Azure Websites that authenticates with Azure Active Directory" services="web-sites, active-directory" documentationCenter=".net" authors="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory #
 
@@ -32,7 +32,7 @@ You will build a simple LOB Create-Read-Update-Delete (CRUD) application in Azur
 <a name="bkmk_need"></a>
 ## What you will need ##
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 You need the following to complete this tutorial:
 

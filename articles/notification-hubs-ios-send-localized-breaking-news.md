@@ -1,6 +1,6 @@
-<properties urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services, notification-hubs" documentationCenter="" title="" authors="ysxu" solutions="" manager="dwrede" editor=""/>
+<properties pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
 # Use Notification Hubs to send localized breaking news to iOS devices
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -162,7 +162,7 @@ In order to adapt your client apps to receive localized messages, you have to re
 
 <h2><a name="send"></a>Send localized notifications from your back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 ## Next Steps

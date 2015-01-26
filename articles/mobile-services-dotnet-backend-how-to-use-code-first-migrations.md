@@ -1,6 +1,6 @@
-<properties pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" metaKeywords="" description="" metaCanonical="" services="mobile-services" documentationCenter="windows" title="" authors="ggailey777" solutions="mobile" writer="glenga" manager="dwrede" editor=""/>
+<properties pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" description="" services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
 
 # How to make data model changes to a .NET backend mobile service
 

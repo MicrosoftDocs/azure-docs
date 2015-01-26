@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started" pageTitle="Set up and query HBase tables using Hive in HDInsight | Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Set up and query HBase tables using Hive in HDInsight | Azure" description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." services="hdinsight" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/7/2015" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/7/2015" ms.author="bradsev"/>
 
 
 
@@ -37,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 This section describes how to provision an HBase cluster using the Azure Management portal.
 
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **To provision an HDInsight cluster in the Azure Management portal** 
 

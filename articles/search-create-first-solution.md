@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" editor=""/>
+<properties pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
 
 # Create your first search solution using Azure Search
 
@@ -41,7 +41,7 @@ This solution contains two projects:
 +	**CatalogIndex** creates an Azure Search index and loads data from a SQL Server database included with the project.
 +	**AdventureWorksWeb** is an MVC4-based application that queries the Azure Search index. This tutorial assumes that you have a working knowledge of ASP.NET MVC.
 
-[WACOM.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
 
 <h2 id="sub-2">Create an Azure Search index</h2>
