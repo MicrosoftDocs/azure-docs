@@ -1,14 +1,21 @@
-<properties title="" pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
+<properties 
+   pageTitle="article-title" 
+   description="Article description that will be displayed on landing pages and in some search results" 
+   services="service-name" 
+   documentationCenter="dev-center-name" 
+   authors="GitHub-alias-of-author" 
+   manager="manager-alias" 
+   editor=""/>
 
-<tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
+<tags
+   ms.service="required"
+   ms.devlang="may be required"
+   ms.topic="article"
+   ms.tgt_pltfrm="may be required"
+   ms.workload="required" 
+   ms.date="mm/dd/yyyy"
+   ms.author="Your MSFT alias or your full email address"/>
 
-<!--This is a basic template that shows you how to use markdown to create a topic that includes a TOC, sections with sub-headings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For more complex markdown, see [the markdown extensions guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).-->
-
-<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
-
-<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
-
-<!--The next line, with one pound sign at the beginning, is the page title--> 
 # Markdown Template (Article Title) 
 
 To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
@@ -16,15 +23,6 @@ To copy the markdown from this template, copy the article in your local repo, or
   ![][8]
 
 Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
-
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-+ [Subheading 1] 
-+ [Subheading 2]
-+ [Subheading 3]
-+ [Next steps]
-
-
 
 ## Subheading 1
 
@@ -100,12 +98,6 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 ## Next steps
 
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
-
-<!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
-[Next steps]: #next-steps
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
