@@ -20,11 +20,18 @@ The properties section uses this syntax:
        documentationCenter="dev-center-name" 
        authors="GitHub-alias-of-author" 
        manager="manager-alias" 
-       editor="" />
+       editor=""/>
 
 The tags section uses this syntax:
 
-    <tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
+    <tags
+       ms.service="required"
+       ms.devlang="may be required"
+       ms.topic="article"
+       ms.tgt_pltfrm="may be required"
+       ms.workload="required" 
+       ms.date="mm/dd/yyyy"
+       ms.author="Your MSFT alias or your full email address"/>
 
 ##Usage
 
