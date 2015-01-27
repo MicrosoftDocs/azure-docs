@@ -1,6 +1,20 @@
-<properties pageTitle="Store project code in source control - Azure Mobile Services" description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Store project code in source control - Azure Mobile Services" 
+	description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/5/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/5/2014" 
+	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend">JavaScript backend</a>
