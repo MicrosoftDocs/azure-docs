@@ -1,6 +1,20 @@
-<properties pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" 
+	description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
 #Analyzing sensor data using Hive with HDInsight
 
