@@ -2,7 +2,7 @@
 	pageTitle="Get started with Azure API Management" 
 	description="Learn how to create APIs, operations, and get started with API Management." 
 	services="api-management" 
-	documentationCenter="API Management" 
+	documentationCenter="" 
 	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
