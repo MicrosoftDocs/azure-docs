@@ -1,6 +1,20 @@
-<properties pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="hdinsight" editor="cgronlun" manager="paulettm" authors="bradsev" documentationCenter=""/>
+<properties 
+	pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" 
+	description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="bradsev"/>
 
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
