@@ -112,5 +112,6 @@ Web sites and web applications
 [trace]: ../app-insights-search-diagnostic-logs/
 [api]: http://msdn.microsoft.com/library/azure/dn887942.aspx
 [detect]: ../app-insights-detect-triage-diagnose/
-
+[java]: ../app-insights-java-get-started/
+[javalogs]: ../app-insights-java-trace-logs/
 
