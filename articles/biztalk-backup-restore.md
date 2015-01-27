@@ -1,6 +1,21 @@
-<properties pageTitle="BizTalk Services: Backup and Restore | Azure" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." services="biztalk-services" documentationCenter="" authors="mandiohlinger" writer="mandia" manager="dwrede" editor="cgronlun"/>
+<properties 
+	pageTitle="BizTalk Services: Backup and Restore | Azure" 
+	description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="mandiohlinger" 
+	writer="mandia" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia"/>
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="mandia"/>
 
 
 # BizTalk Services: Backup and Restore
