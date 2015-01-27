@@ -1,4 +1,4 @@
-<properties pageTitle="How to create and deploy a cloud service - Azure" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." services="cloud-services" documentationCenter="" authors="rwike77" manager="timlt" editor=""/>
+<properties pageTitle="How to create and deploy a cloud service - Azure" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." services="cloud-services" documentationCenter="" authors="Thraka" manager="timlt" editor=""/>
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo"/>
 
