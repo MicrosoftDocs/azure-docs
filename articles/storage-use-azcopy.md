@@ -1,6 +1,20 @@
-<properties pageTitle="How to use AzCopy with Microsoft Azure Storage" description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor="cgronlun"/>
+<properties 
+	pageTitle="How to use AzCopy with Microsoft Azure Storage" 
+	description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/5/2015" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/5/2015" 
+	ms.author="tamram"/>
 
 # Getting Started with the AzCopy Command-Line Utility
 
