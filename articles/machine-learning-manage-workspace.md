@@ -1,6 +1,20 @@
-<properties pageTitle="Manage a Machine Learning workspace | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Manage a Machine Learning workspace | Azure" 
+	description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="Garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 # Manage an Azure Machine Learning workspace 
