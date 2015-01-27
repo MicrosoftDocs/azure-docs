@@ -1,6 +1,19 @@
-<properties pageTitle="Azure Search Service REST API: 2014-10-20-Preview" description="Azure Search Service REST API: 2014-10-20-Preview" services="" documentationCenter="" authors="HeidiSteen" manager="mblythe"/>
+<properties 
+	pageTitle="Azure Search Service REST API: 2014-10-20-Preview" 
+	description="Azure Search Service REST API: 2014-10-20-Preview" 
+	services="" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe"/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure Search Service REST API: 2014-10-20-Preview #
 
