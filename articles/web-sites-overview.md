@@ -1,6 +1,20 @@
-<properties pageTitle="What are Websites" description="Learn how to configure Websites in Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." authors="cephalin" manager="wpickett" editor="" services="web-sites" documentationCenter=""/>
+<properties 
+	pageTitle="What are Websites" 
+	description="Learn how to configure Websites in Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="" 
+	services="web-sites" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/11/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="cephalin"/>
 
 
 
