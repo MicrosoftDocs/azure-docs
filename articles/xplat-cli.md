@@ -1,6 +1,20 @@
-<properties pageTitle="The Azure Cross-Platform Command-Line Interface" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" editor="tysonn" manager="timlt" documentationCenter="" authors="squillace" services=""/>
+<properties 
+	pageTitle="The Azure Cross-Platform Command-Line Interface" 
+	description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="rasquill"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/16/2015" 
+	ms.author="rasquill"/>
 
 #Install and Configure the Azure Cross-Platform Command-Line Interface
 
