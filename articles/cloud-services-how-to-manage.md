@@ -1,6 +1,20 @@
-<properties pageTitle="How to manage a cloud service - Azure" description="Learn how to manage cloud services in the Azure Management Portal." services="cloud-services" documentationCenter="" authors="Thraka" manager="timlt" editor=""/>
+<properties 
+	pageTitle="How to manage a cloud service - Azure" 
+	description="Learn how to manage cloud services in the Azure Management Portal." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/23/2014" 
+	ms.author="adegeo"/>
 
 
 
