@@ -1,6 +1,20 @@
-<properties pageTitle="Use Python with Hive and Pig in Azure HDInsight" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Use Python with Hive and Pig in Azure HDInsight" 
+	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
 
