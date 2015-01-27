@@ -1,6 +1,6 @@
-<properties pageTitle="How to use end user analytics" description="End user analytics for Microsoft Azure websites." authors="alancameronwills" manager="kamrani"/>
+<properties pageTitle="How to use end user analytics" description="End user analytics for Microsoft Azure websites." services="application-insights" authors="alancameronwills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills"/>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
 
 # Performance analytics for Microsoft Azure websites
 
