@@ -1,6 +1,21 @@
-<properties pageTitle="Call a custom API from a Windows Store client - Mobile Services" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Call a custom API from a Windows Store client - Mobile Services" 
+	description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	writer="glenga" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Call a custom API from the client
 
