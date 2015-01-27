@@ -1,6 +1,20 @@
-<properties pageTitle="How to use blob storage (Ruby) | Microsoft Azure" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." services="storage" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use blob storage (Ruby) | Microsoft Azure" 
+	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." 
+	services="storage" 
+	documentationCenter="ruby" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 
 
