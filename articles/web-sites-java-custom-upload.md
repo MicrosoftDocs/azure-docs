@@ -1,6 +1,20 @@
-<properties pageTitle="Upload a custom Java website to Azure" description="This tutorial shows you how to upload a custom Java website to Azure." services="web-sites" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Upload a custom Java website to Azure" 
+	description="This tutorial shows you how to upload a custom Java website to Azure." 
+	services="web-sites" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Upload a custom Java website to Azure
 
