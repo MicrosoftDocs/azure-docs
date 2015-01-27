@@ -3,7 +3,7 @@
 	description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="" 
+	authors="weedqian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
