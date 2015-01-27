@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." services="mobile-services" documentationCenter="" authors="mattchenderson" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # Get started with push notifications in Mobile Services (legacy push)
 <div class="dev-center-tutorial-selector sublanding">
