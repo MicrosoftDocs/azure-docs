@@ -2,7 +2,7 @@
 	pageTitle="Get started with Azure API Management" 
 	description="Learn how to create APIs, operations, and get started with API Management." 
 	services="api-management" 
-	documentationCenter="API Management" 
+	documentationCenter="" 
 	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
@@ -20,7 +20,7 @@
 
 This guide shows you how to quickly get started using API Management and make your first API call.
 
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 The first step in working with API Management is to create a service instance. Log in to the [Management Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
