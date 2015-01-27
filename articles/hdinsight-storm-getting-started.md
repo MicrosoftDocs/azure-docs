@@ -1,6 +1,20 @@
-<properties pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" 
+	description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/19/2014" 
+	ms.author="larryfr"/>
 
 #Getting started using Storm with HDInsight (Hadoop)
 
