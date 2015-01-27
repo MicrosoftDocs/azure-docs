@@ -2,7 +2,7 @@
 	pageTitle="How to setup VPN connections in Azure API Management"
 	description="Learn how to setup a VPN connection in Azure API Management and access web services through it."
 	services="api-management"
-	documentationCenter="API Management"
+	documentationCenter=""
 	authors="antonba"
 	manager="dwrede"
 	editor=""/>
