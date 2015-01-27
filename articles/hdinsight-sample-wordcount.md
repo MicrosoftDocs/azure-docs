@@ -1,6 +1,20 @@
-<properties pageTitle="Run an Hadoop MapReduce word count example in HDInsight | Azure" description="Run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file." editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" authors="bradsev"/>
+<properties 
+	pageTitle="Run an Hadoop MapReduce word count example in HDInsight | Azure" 
+	description="Run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 #Run a MapReduce word count example on an Hadoop cluster in HDInsight
  
