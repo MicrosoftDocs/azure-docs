@@ -1,6 +1,20 @@
-<properties pageTitle="Provision a SQL Server virtual machine in Azure" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." services="virtual-machines" documentationCenter="" authors="Selcin" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Provision a SQL Server virtual machine in Azure" 
+	description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="Selcin" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="selcint"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/30/2014" 
+	ms.author="selcint"/>
 
 
 
