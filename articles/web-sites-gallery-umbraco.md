@@ -1,6 +1,20 @@
-<properties pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" description="required" services="web-sites" documentationCenter="" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" 
+	description="required" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Create an Umbraco website from the gallery in Microsoft Azure#
 
