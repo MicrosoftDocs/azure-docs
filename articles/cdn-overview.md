@@ -1,6 +1,20 @@
-<properties pageTitle="Azure CDN Overview" description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content." services="cdn" documentationCenter=".NET" authors="akucer" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Azure CDN Overview" 
+	description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="akucer" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="akucer"/>
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="akucer"/>
 
 #Overview of the Azure Content Delivery Network (CDN)
 
