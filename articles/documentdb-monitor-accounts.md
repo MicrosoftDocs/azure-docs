@@ -1,6 +1,20 @@
-<properties pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." services="documentdb" documentationCenter="" authors="mimig1" manager="jhubbard" editor="cgronlun"/>
+<properties 
+	pageTitle="Monitor a DocumentDB account | Azure" 
+	description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="mimig"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #Monitor a DocumentDB account  
 
