@@ -1,5 +1,19 @@
-<properties pageTitle="How to use multiple clients with a single mobile service backend | Azure Mobile" description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor="mollybos"/>
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/15/2014" ms.author="glenga"/>
+<properties 
+	pageTitle="How to use multiple clients with a single mobile service backend | Azure Mobile" 
+	description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/15/2014" 
+	ms.author="glenga"/>
 
 # Supporting multiple device platforms from a single mobile service
  
