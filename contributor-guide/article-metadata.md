@@ -13,11 +13,25 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 The properties section uses this syntax:
 
-    <properties title="" pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
+    <properties 
+       pageTitle="article-title" 
+       description="Article description that will be displayed on landing pages and in some search results" 
+       services="service-name" 
+       documentationCenter="dev-center-name" 
+       authors="GitHub-alias-of-author" 
+       manager="manager-alias" 
+       editor=""/>
 
 The tags section uses this syntax:
 
-    <tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
+    <tags
+       ms.service="required"
+       ms.devlang="may be required"
+       ms.topic="article"
+       ms.tgt_pltfrm="may be required"
+       ms.workload="required" 
+       ms.date="mm/dd/yyyy"
+       ms.author="Your MSFT alias or your full email address"/>
 
 ##Usage
 
@@ -26,8 +40,6 @@ The tags section uses this syntax:
 - Leave a blank line after each metadata section and before your page title to ensure that the page title is correctly converted to HTML during the publishing process.
 
 ## Attributes and values for the properties section
-
-![](./media/article-metadata/checkmark-small.png)**title**: Include this attribute without a value, at this time. There is a bug in the publishing system that will block publication if you leave it out.
 
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The title you enter for this attribute appears in the browser address bar and as the title in a search result.
  
@@ -75,6 +87,8 @@ The tags section uses this syntax:
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
+
+![](./media/article-metadata/checkmark-small.png)**editor**: not required.
 
 ## Attributes and values for the tags section
 
