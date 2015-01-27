@@ -1,6 +1,21 @@
-<properties pageTitle="Use Mobile Services to store data in Table Storage | Mobile Services" description="Learn how to use Mobile Services to store data in Table Storage." documentationCenter="ios" authors="ysxu" writer="yuaxu" services="mobile-services, storage" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Use Mobile Services to store data in Table Storage | Mobile Services" 
+	description="Learn how to use Mobile Services to store data in Table Storage." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	writer="yuaxu" 
+	services="mobile-services, storage" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="yuaxu"/>
 
 # Store data with Azure Table Storage using Mobile Services
 
