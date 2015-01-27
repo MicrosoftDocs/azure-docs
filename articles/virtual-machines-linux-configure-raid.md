@@ -1,6 +1,21 @@
-<properties pageTitle="Configure software RAID on avirtual machine running Linux in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." services="virtual-machines" documentationCenter="" authors="szarkos" writer="szark" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Configure software RAID on avirtual machine running Linux in Azure" 
+	description="Learn how to use mdadm to configure RAID on Linux in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	writer="szark" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="szark"/>
 
 
 
