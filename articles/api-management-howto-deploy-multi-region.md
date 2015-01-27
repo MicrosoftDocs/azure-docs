@@ -2,7 +2,7 @@
 	pageTitle="How to deploy an Azure API Management service instance to multiple Azure regions"
 	description="Learn how to deploy an Azure API Management service instance to multiple Azure regions." 
 	services="api-management"
-	documentationCenter="API Management"
+	documentationCenter=""
 	authors="steved0x"
 	manager="dwrede"
 	editor=""/>
