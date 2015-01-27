@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Service Bus queues (PHP) - Azure" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." services="service-bus" documentationCenter="php" authors="sethmanheim" manager="timlt" editor=""/>
+<properties 
+	pageTitle="How to use Service Bus queues (PHP) - Azure" 
+	description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." 
+	services="service-bus" 
+	documentationCenter="php" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/13/2014" 
+	ms.author="sethm"/>
 
 # How to Use Service Bus Queues
 
