@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="java" title="" authors="rmcmurray" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId=""/>
+<properties pageTitle="How to use Service Bus topics (Java) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." services="service-bus" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -24,7 +24,7 @@ messages to a topic**, **receiving messages from a subscription**, and
 -   [How to: Delete Topics and Subscriptions][]
 -   [Next Steps][]
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="bkmk_ConfigYourApp"> </a>Configure Your Application to Use Service Bus
 

@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Azure RemoteApp FAQ" description="Learn about Azure RemoteApp." metaKeywords="" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" editor=""/>
+<properties pageTitle="Azure RemoteApp FAQ" description="Learn about Azure RemoteApp." services="remoteapp" documentationCenter="" authors="lizap" manager="mbaldwin" editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo"/>
 
 #Azure RemoteApp FAQ
 We've heard the following questions about Azure RemoteApp. Have others? Visit the [RemoteApp forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureRemoteApp) and let us know what you need to know.

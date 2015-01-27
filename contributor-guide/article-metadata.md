@@ -13,11 +13,25 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 The properties section uses this syntax:
 
-    <properties title="required" pageTitle="required" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="Your GitHub account" videoId="" scriptId="" manager="required" />
+    <properties 
+       pageTitle="article-title" 
+       description="Article description that will be displayed on landing pages and in some search results" 
+       services="service-name" 
+       documentationCenter="dev-center-name" 
+       authors="GitHub-alias-of-author" 
+       manager="manager-alias" 
+       editor=""/>
 
 The tags section uses this syntax:
 
-    <tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
+    <tags
+       ms.service="required"
+       ms.devlang="may be required"
+       ms.topic="article"
+       ms.tgt_pltfrm="may be required"
+       ms.workload="required" 
+       ms.date="mm/dd/yyyy"
+       ms.author="Your MSFT alias or your full email address"/>
 
 ##Usage
 
@@ -27,16 +41,12 @@ The tags section uses this syntax:
 
 ## Attributes and values for the properties section
 
-![](./media/article-metadata/checkmark-small.png)**title**: no longer required. Leave value empty.
-
 ![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The title you enter for this attribute appears in the browser address bar and as the title in a search result.
  
 ![](./media/article-metadata/checkmark-small.png)**description**: Required; important to SEO and site functionalities. Up to 150 characters. The value you enter should be rich in keywords for the topic covered. The value is:
 
 - Sometimes displayed as the search results description in search results
 - Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
-
-![](./media/article-metadata/checkmark-small.png)**metaKeywords**: no longer required. Checking to see if we can leave it out.
 
 ![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. Values:
 
@@ -59,9 +69,6 @@ The tags section uses this syntax:
 - virtual-network
 - visual-studio-online
 - web-sites
- 
-
-![](./media/article-metadata/checkmark-small.png)**solutions**: no longer required. Checking to see if we can leave it out.
 
 ![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. Values:
 
@@ -79,11 +86,9 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
-![](./media/article-metadata/checkmark-small.png)**videoId**: Unique identifier for a single video that is associated with the article. This property is not currently used.
- 
-![](./media/article-metadata/checkmark-small.png)**scriptId**: Unique identifier for a single script that is associated with the article. This property is not currently used.
-
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
+
+![](./media/article-metadata/checkmark-small.png)**editor**: not required.
 
 ## Attributes and values for the tags section
 
@@ -162,7 +167,7 @@ The tags section uses this syntax:
 
  - **infographic-page**: Azure.com only. A page that features a browsable infographic or poster, for instance http://azure.microsoft.com/en-us/documentation/infographics/windows-azure/
 
- - **reference**: An API reference page
+ - **reference**: An API reference page (including REST API) or PowerShell cmdlet reference page
 
  - **service-home-page**: Azure.com only.  A doc service home page, e.g. /documentation/services/virtual-machines/
 

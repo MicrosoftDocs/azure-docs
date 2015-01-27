@@ -1,4 +1,4 @@
-<properties title="Application Insights - Monitor usage and crashes in Windows Store and Phone apps" pageTitle="Monitor usage and crashes in Windows Store and Phone apps" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties pageTitle="Monitor usage and crashes in Windows Store and Phone apps" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." services="application-insights" authors="alancameronwills" manager="kamrani"/>
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
 
@@ -14,9 +14,6 @@ Application Insights lets you monitor your published application for:
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 
-* [Start monitoring your app](#start)
-* [Track usage](#usage)
-* [Detect and diagnose crashes](#crashes)
 
 ## <a name="start">Start monitoring your app</a>
 
@@ -159,7 +156,15 @@ See the other exceptions and events that occurred close to that exception:
 
 ![](./media/appinsights/appinsights-d26crashRelated.png)
 
+## <a name="debug"></a>Debug vs Release mode
 
+#### Debug
+
+If you build in debug mode, events are sent as soon as they are generated. If you lose internet connectivity and then exit the app before regaining connectivity, offline telemetry is discarded.
+
+#### Release
+
+If you build in release configuration, events are stored in the device and sent when the application resumes. Data is also sent on the application’s first use. If there is no internet connectivity upon startup, previous telemetry as well as telemetry for the current lifecycle is stored and sent on the next resume.
 
 ## <a name="next"></a>Next steps
 

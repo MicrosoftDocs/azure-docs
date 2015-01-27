@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (PHP)" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId=""/>
+<properties pageTitle="Single sign-on with Azure Active Directory (PHP)" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." services="active-directory" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz"/>
 
 # Web Single Sign-On with PHP and Azure Active Directory
 

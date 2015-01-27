@@ -1,4 +1,4 @@
-<properties title="" pageTitle="Build a Java web application using DocumentDB" description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter="" authors="aliuy" manager="jhubbard" editor="monicar" videoId="" scriptId=""/>
+<properties pageTitle="Build a Java web application using DocumentDB" description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." services="documentdb" documentationCenter="" authors="aliuy" manager="jhubbard" editor="monicar"/>
 
 <tags ms.service="" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="01/08/2014" ms.author="andrl"/>
 
@@ -55,9 +55,7 @@ To create the JSP application:
 
 	![](./media/documentdb-java-application/image10.png)
 
-2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down me
-3. nu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
-
+2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
 3. In Eclipse, in the Project Explorer view, expand your project. Right-click **WebContent**, click **New**, and then click **JSP File**.
 4. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following illustration, and then click **Next**.
 

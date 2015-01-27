@@ -1,6 +1,6 @@
-<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="python" title="" authors="rmcmurray" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties pageTitle="How to use blob storage (Python) | Microsoft Azure" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." services="storage" documentationCenter="python" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm"/>
 
 # How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the
@@ -21,11 +21,11 @@ see the [Next Steps][] section.
  [How To: Delete a Blob][]   
  [Next Steps][]
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"> </a>Create an Azure Storage Account
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-container"> </a>How to: Create a Container
 

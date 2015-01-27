@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Develop streaming data processing apps with SCP.NET on Storm | Azure" description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." services="hdinsight" solutions="" documentationCenter="" authors="" videoId="" scriptId="" manager="paulettm" editor="cgronlun" metaKeywords=""/>
+<properties pageTitle="Develop streaming data processing apps with SCP.NET on Storm | Azure" description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." services="hdinsight" documentationCenter="" authors="" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia"/>
 
 #Develop streaming data processing applications in C# with Stream Computing Platform and Storm in HDInsight
 
@@ -14,13 +14,13 @@ In this article, you will learn:
 
 * How to test an SCP solution
 
-* How to deploy an SCP solution to an HDInsight Storm cluster
+* How to deploy an SCP solution to a Storm cluster on HDInsight
 
 ##Prerequisites
 
 * An Azure subscription
 
-* An HDInsight Storm cluster
+* A Storm cluster on HDInsight
 
 * Visual Studio 2010 or 2013
 
@@ -32,9 +32,9 @@ In this article, you will learn:
 
 Apache Storm is a distributed computation system that runs on Hadoop clusters, and allows you to perform real-time data processing. While Storm runs in the Java Virtual Machine (JVM), it was designed so that solutions (known as **topologies**,) can be implemented in a variety of programming languages. You can even create a topology that is a mix of components written in multiple languages.
 
-SCP provides the libraries that make it easy to create Storm solutions using .NET. Azure HDInsight Storm clusters include the necessary server-side components to run SCP solutions that you create.
+SCP provides the libraries that make it easy to create Storm solutions using .NET. Storm clusters on HDInsight include the necessary server-side components to run SCP solutions that you create.
 
-For more information on HDInsight Storm, see the [HDInsight Storm Overview](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/).
+For more information on Storm on HDInsight, see the [HDInsight Storm Overview](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/).
 
 ###Design an SCP solution
 
@@ -55,7 +55,7 @@ Designing a solution involves the following:
 
 ##Install the SCP SDK
 
-The SCP SDK is provided on the HDInsight Storm cluster. After [creating an HDInsight Storm cluster](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-getting-started/), use the following steps to download the SDK to your local development environment.
+The SCP SDK is provided on the Storm cluster on HDInsight. After [creating a Storm cluster on HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-getting-started/), use the following steps to download the SDK to your local development environment.
 
 1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com).
 
@@ -517,11 +517,11 @@ The SCP SDK is provided on the HDInsight Storm cluster. After [creating an HDIns
             }
         }
 
-4. Connect to the HDInsight Storm cluster using Remote Desktop and copy the **bin\debug** folder for your local WordCount project to your HDInsight Storm cluster. For example, copy it to the **%storm_home%\examples** folder and rename it to **WordCount**.
+4. Connect to the Storm cluster using Remote Desktop and copy the **bin\debug** folder for your local WordCount project to your Storm cluster. For example, copy it to the **%storm_home%\examples** folder and rename it to **WordCount**.
 
 3. Copy the **WordCount.spec** to the HDInsight server too. Put it in the **%storm_home%\examples** directory.
 
-4. On the HDInsight Storm cluster, use the **Storm Command-Line** icon on the desktop to open a command-line, and then use the following command to start the WordCount topology.
+4. On the Storm cluster, use the **Storm Command-Line** icon on the desktop to open a command-line, and then use the following command to start the WordCount topology.
 
         bin\runspec examples\WordCount.spec temp examples\WordCount
 
@@ -808,7 +808,7 @@ Frequently used paramters
 |**"output.schema"**|	Output schema
 |**"nontransactional.ack.enabled"**|	Whether ack is enabled for nontransactional topology
 
-Topology specifications can be submitted directly to storm cluster for execution via the ***runspec*** command, which is located in the **%storm_home%\bin** directory on HDInsight Storm clusters.  
+Topology specifications can be submitted directly to storm cluster for execution via the ***runspec*** command, which is located in the **%storm_home%\bin** directory on Storm clusters.  
 
     usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
      ex: runSpec examples\HelloWorld\HelloWorld.spec target examples\HelloWorld\Target
@@ -939,7 +939,7 @@ The following is an example of a spec file that used host mode for the HelloWorl
 
 ##SCP programming examples
 
-The following example applications written with SCP can be found on your HDInsight Storm cluster at **%storm_home%\examples**.
+The following example applications written with SCP can be found on your Storm cluster on HDInsight at **%storm_home%\examples**.
 
 * **HelloWorld** - HelloWorld is a very simple example of SCP.Net, and is similar to the word count example used earlier in this article. It uses a non-transactional topology, with a spout named **generator**, and two bolts named **splitter** and **counter**. The spout **generator** will randomly generate some sentences, and emit these sentences to **splitter**. The bolt **splitter** will split the sentences into words and emit these words to the **counter** bolt. The bolt **counter** uses a dictionary to record the occurrence number of each word.
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="java" title="" authors="rmcmurray" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId=""/>
+<properties pageTitle="Tomcat on a virtual machine - Azure tutorial" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # How to run a Java application server on a virtual machine
 
@@ -18,7 +18,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ![Virtual machine running Apache Tomcat][virtual_machine_tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
 

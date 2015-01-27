@@ -10,6 +10,7 @@ Overview
 </li>
 <li> <a href="../app-insights-detect-triage-diagnose/">Detect, triage and diagnose</a>
 </li>
+<li><a href="../app-insights-overview-usage/">Know your users</a></li>
 </ul>
 
 
@@ -111,5 +112,6 @@ Web sites and web applications
 [trace]: ../app-insights-search-diagnostic-logs/
 [api]: http://msdn.microsoft.com/library/azure/dn887942.aspx
 [detect]: ../app-insights-detect-triage-diagnose/
-
+[java]: ../app-insights-java-get-started/
+[javalogs]: ../app-insights-java-trace-logs/
 

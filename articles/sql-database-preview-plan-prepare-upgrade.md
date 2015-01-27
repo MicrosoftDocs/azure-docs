@@ -1,4 +1,4 @@
-<properties title="" pageTitle="Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)" description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." metaKeywords="Azure, SQL DB, Update, Preview, Plan" services="sql-database" documentationCenter="" authors="MightyPen" manager="jeffreyg" videoId="" scriptId="" editor=""/>
+<properties pageTitle="Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)" description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." services="sql-database" documentationCenter="" authors="MightyPen" manager="jeffreyg" editor=""/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
 

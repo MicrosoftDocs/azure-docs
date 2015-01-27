@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" manager="timlt" editor=""/>
+<properties pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
 
 
 # Planned maintenance for Azure virtual machines
@@ -19,7 +19,7 @@
 ## Virtual Machine Configurations
 There are two kinds of Virtual Machine configurations: multi-instance and single-instance.  Multi-instance virtual machines are configured by placing identical virtual machines into an Availability Set. The Multi-Instance configuration provides redundancy and is recommended to ensure the availability of your application. All virtual machines in the Availability Set should be nearly identical and serve the same purpose to your application. For more information on configuring your virtual machines for high availability, refer to “<a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-manage-availability/">Manage the Availability of your Virtual Machines</a>”. 
 
-By contrast, single-instance virtual machines are standalone virtual machines that are not placed into an Availability Set. By themselves, single-instance virtual machines do not qualify for the Service Level Agreement (SLA) which requires two or more virtual machines deployed under the same Availability Set. For more information on SLA, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](../../support/legal/sla/).
+By contrast, single-instance virtual machines are standalone virtual machines that are not placed into an Availability Set. By themselves, single-instance virtual machines do not qualify for the Service Level Agreement (SLA) which requires two or more virtual machines deployed under the same Availability Set. For more information on SLA, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](http://azure.microsoft.com/en-us/support/legal/sla/).
 
 
 ## Multi-Instance Update

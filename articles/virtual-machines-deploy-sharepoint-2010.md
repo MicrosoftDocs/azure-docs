@@ -1,6 +1,6 @@
-<properties urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor=""/>
+<properties pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="josephd"/>
 
 
 
@@ -123,7 +123,7 @@ You can deploy SharePoint 2010 on Azure by following these steps:
 </ul>
 </li>
 
-<li>To create a VM with the base operating system, on the Azure Management Portal, click <strong>NEW</strong>, then click <strong>COMPUTE</strong>, then click <strong>VIRTUAL MACHINE</strong>, and then click <strong>FROM GALLERY</strong>.</li>
+<li>To create a VM with the base operating system, on the Azure Management Portal, click <strong>NEW > COMPUTE > VIRTUAL MACHINE > FROM GALLERY</strong>.</li>
 
 <li>The <strong>Choose an image</strong> dialog box appears. Click the <strong>Windows Server 2008 R2 SP1</strong> platform image, and then click the right arrow.</li>
 
@@ -501,8 +501,8 @@ Successful deployment of SharePoint Server on Azure Virtual Machines requires so
 
 <ul>
 <li>
-<p>Azure Training Kit: Hands-on lab and presentation</p>
-<p><a href="http://windowsazure-trainingkit.github.com/labs.htm">http://windowsazure-trainingkit.github.com/labs.htm</a></p>
+<p>SharePoint on Azure Infrastructure Services</p>
+<p><a href="http://msdn.microsoft.com/library/dn275955.aspx">http://msdn.microsoft.com/library/dn275955.aspx</a></p>
 </li>
 <li>
 <p>Getting Started with Azure PowerShell</p>

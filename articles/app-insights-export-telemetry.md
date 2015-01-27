@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Export telemetry from Application Insights" description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." metaKeywords="application insights export" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
+<properties pageTitle="Export telemetry from Application Insights" description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." services="application-insights" authors="alancameronwills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-26" ms.author="awills" />
  
 # Export telemetry from Application Insights
 
@@ -16,11 +16,21 @@ On your application's Overview blade in the Application Insights portal, open Co
 
 Add an export, and choose an [Azure storage account](http://azure.microsoft.com/documentation/articles/storage-introduction/) where you want to put the data:
 
-![Click Add, then click Export Destination and then either create a new store or choose an existing store](./media/appinsights/appinsights-22-2add-export.png)
+![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/appinsights/appinsights-22-2add-export.png)
+
+Choose the event types you'd like to export:
+
+![Click Choose event types](./media/appinsights/appinsights-22-3add-export.png)
+
 
 Once you’ve created your export, it starts going. (You only get data that arrives after you create the export.)
 
 To stop the stream, delete the export. Doing so doesn’t delete your data.
+
+If you want to change the event types later, just edit it:
+
+![Click Choose event types](./media/appinsights/appinsights-22-4edit-export.png)
+
 
 ## <a name="get"></a> Get your telemetry
 When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 

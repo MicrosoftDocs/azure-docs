@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP website with MySQL and FTP - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="PHP website with MySQL and FTP - Azure tutorial" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." services="web-sites" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz"/>
 
 
 #Create a PHP-MySQL Azure Website and Deploy Using FTP
@@ -16,7 +16,7 @@ By following this tutorial, you will build a simple registration web application
 
 ![Azure PHP Web Site][running-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Create an Azure Website and set up FTP publishing
 

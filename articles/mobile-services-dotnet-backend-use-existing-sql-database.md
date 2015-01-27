@@ -1,6 +1,6 @@
-<properties urlDisplayName="Build a service using an existing SQL database with the Mobile Services .NET backend" pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend - Azure Mobile Services" metaKeywords="" description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service" metaCanonical="" services="mobile-services, biztalk-services" documentationCenter="windows" title="" authors="ggailey777" solutions="" manager="dwrede" editor="mollybos"/>
+<properties pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend - Azure Mobile Services" description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 
 
 # Build a service using an existing SQL database with the Mobile Services .NET backend

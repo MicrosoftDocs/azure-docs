@@ -1,5 +1,5 @@
-<properties title="" pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="AharonGumnik" />
+<properties pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" services="machine-learning" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun"/>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/20/2015" ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
@@ -7,55 +7,67 @@ This document depicts Azure ML Recommendations APIs.
 
 ##Contents
 
+
+
+
 - [1. General Overview](#1-general-overview)
-- [2. Limitations](#2-limitations)
-- [3. APIs – General Information](#3-apis--general-information)
-	- [3.1. Authentication](#31-authentication)
-	- [3.2. Service URI](#32-service-uri)
-	- [3.3. API Version](#33-api-version)
-- [4. Model Basic](#4-model-basic)
-	- [4.1. Create Model](#41-create-a-model)
-	- [4.2. Get Model](#42-get-model)
-	- [4.3. Get All Models](#43-get-all-models)
-	- [4.4. Update Model](#44-update-model)
-	- [4.5. Delete Model](#45-delete-model)
-- [5. Model Advanced](#5-model-advanced)
-	- [5.1. Model Data Insight](#51-model-data-insight)
-	- [5.2. Model Insight](#52-model-insight)
-	- [5.3. Get Model Sample](#53-get-model-sample)
-- [6. Model Business Rules](#6-model-business-rules)
-	- [6.1. Get Model Rules](#61-get-model-rules)
-	- [6.2. Add Rule](#62-add-rule)
-	- [6.3. Delete Rule](#63-delete-rule)
-	- [6.4. Delete All Rules](#64-delete-all-rules)
-- [7. Catalog](#7-catalog)
-	- [7.1. Import catalog data](#71-import-catalog-data)
-	- [7.2. Get Catalog](#72-get-catalog)
-	- [7.3. Get Catalog Items by Token](#73-get-catalog-items-by-token)
-- [8. Usage Data](#8-usage-data)
-	- [8.1. Import usage data](#81-import-usage-data)
-		- [8.1.1. Uploading file](#811-uploading-file)
-		- [8.1.2. Using data acquisition](#812-using-data-acquisition)
-	- [8.2. List Model Usage Files](#82-list-model-usage-files)
-	- [8.3. Get Usage Statistics](#83-get-usage-statistics)
-	- [8.4. Get Usage File Sample](#84-get-usage-file-sample)
-	- [8.5. Get Model Usage File](#85-get-model-usage-file)
-	- [8.6. Delete Usage File](#86-delete-usage-file)
-	- [8.7. Delete All Usage Files](#87-delete-all-usage-files)
-- [9. Build](#9-build)
-	- [9.1. Build a model](#91-build-a-model)
-	- [9.2. Get Builds Status of a Model](#92-get-builds-status-of-a-model)
-	- [9.3. Get Builds Status of a User](#93-get-builds-status-of-a-user)
-	- [9.4. Delete Build](#94-delete-build)
-	- [9.5. Cancel Build](#95-cancel-build)
-	- [9.6. Get Build Parameters](#96-get-build-parameters)
-- [10. Recommendation](#10-recommendation)
-	- [10.1. Get Recommendations](#101-get-recommendations)
-- [11. Notifications](#11-notifications)
-	- [11.1. Get Notifications](#111-get-notifications)
-	- [11.2. Delete Model Notifications](#112-delete-model-notifications)
-	- [11.3. Delete User Notifications](#113-delete-user-notifications)
-- [12. Legal](#12-legal)
+- [2. Advanced Topics](#2-advanced-topics)
+    - [2.1. Recommendation Quality](#21-recommendation-quality)
+    - [2.2. Rank Build](#22-rank-build)
+    - [2.3. Recommendation reasoning](#23-recommendation-reasoning)
+- [3. Limitations](#3-limitations)
+- [4. APIs - General Information](#4-apis---general-information)
+    - [4.1. Authentication](#41-authentication)
+    - [4.2. Service URI](#42-service-uri)
+    - [4.3. API Version](#43-api-version)
+- [5. Model Basic](#5-model-basic)
+    - [5.1. Create Model](#51-create-model)
+    - [5.2. Get Model](#52-get-model)
+    - [5.3. Get All Models](#53-get-all-models)
+    - [5.4. Update Model](#54-update-model)
+    - [5.5. Delete Model](#55-delete-model)
+- [6. Model Advanced](#6-model-advanced)
+    - [6.1. Model Data Insight](#61-model-data-insight)
+    - [6.2. Model Insight](#62-model-insight)
+    - [6.3. Get Model Sample](#63-get-model-sample)
+- [7. Model Business Rules](#7-model-business-rules)
+    - [7.1. Get Model Rules](#71-get-model-rules)
+    - [7.2. Add Rule](#72-add-rule)
+    - [7.3. Delete Rule](#73-delete-rule)
+    - [7.4. Delete All Rules](#74-delete-all-rules)
+- [8. Catalog](#8-catalog)
+    - [8.1. Import Catalog Data](#81-import-catalog-data)
+    - [8.2. Get Catalog](#82-get-catalog)
+    - [8.3. Get Catalog Items by Token](#83-get-catalog-items-by-token)
+- [9. Usage Data](#9-usage-data)
+    - [9.1. Import Usage Data](#91-import-usage-data)
+        - [9.1.1. Uploading File](#911-uploading-file)
+        - [9.1.2. Using Data Acquisition](#912-using-data-acquisition)
+  - [9.2. List Model Usage Files](#92-list-model-usage-files)
+  - [9.3. Get Usage Statistics](#93-get-usage-statistics)
+  - [9.4. Get Usage File Sample](#94-get-usage-file-sample)
+  - [9.5. Get Model Usage File](#95-get-model-usage-file)
+  - [9.6. Delete Usage File](#96-delete-usage-file)
+  - [9.7. Delete All Usage Files](#97-delete-all-usage-files)
+- [10. Features](#10-features)
+    - [10.1. Get Features Info](#101-get-features-info-for last rank build)
+    - [10.2. Get Features Info (For Specific Rank Build)](#102-get-features-info-for-specific-rank-build)
+- [11. Build](#11-build)
+    - [11.1. Build a Model](#111-build-a-model)
+    - [11.2. Get Builds Status of a Model](#112-get-builds-status-of-a-model)
+    - [11.3. Get Builds Status of a User](#113-get-builds-status-of-a-user)
+    - [11.4. Delete Build](#114-delete-build)
+    - [11.5. Cancel Build](#115-cancel-build)
+    - [11.6. Get Build Parameters](#116-get-build-parameters)
+- [12. Recommendation](#12-recommendation)
+    - [12.1. Get Recommendations](#121-get-recommendations)
+- [13. Notifications](#13-notifications)
+    - [13.1. Get Notifications](#131-get-notifications)
+    - [13.2. Delete Model Notifications](#132-delete-model-notifications)
+    - [13.3. Delete User Notifications](#133-delete-user-notifications)
+- [14. Legal](#14-legal)
+
+
 
 ##1. General Overview
 This document is an API reference. You should start with the “Azure ML Recommendation – Quick Start” document.
@@ -71,31 +83,47 @@ Azure ML Recommendations API can be divided into 8 groups:
 7.	<ins>Recommendation</ins> – Once the build of a model ends you can consume recommendations using these APIs.
 8.	<ins>Notifications</ins> – Enables you to receive notifications on problems related to your API operations (e.g. you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised)
 
+##2. Advanced Topics
 
-##2. Limitations
+###2.1. Recommendation Quality
 
-* Maximum number of models per subscription: 10
-* Maximum number of items that a catalog can hold: 100,000
-* The maximum amount of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
-* Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB
-* The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS
+Creating a recommendation model is usually enough to allow the system to provide recommendations, nevertheless recommendations quality varies in function of the usage processed and the coverage of the catalog. For example if you have a lot of cold items (items without significant usage) the system will have difficulties to provide recommendation for such item or to use such item as a recommended one. In order to overcome the cold item problem the system allows to use the meta data of the items to enhance the recommendations. This meta-data is refered to as features. Typical features are a book's author or a movie's actor. Features are provided via the catalog under the form of key value strings. For the full format of the catalog file please refer to the [import catalog section](#81-import-catalog-data). The following section explains the usage of features to enhance the recommendation model.
 
-##3. APIs – General Information
+###2.2. Rank Build
 
-###3.1. Authentication
+Features can enhance the recommendation model, but to do so it is needed to use meaningful features. For this purpose a new build was introduced - a Rank build. This build will rank the usefulness of features. A meanningful feature is a feature with a rank score of 2 and up.
+After understanding which of the features is meaningful, trigger a recommendation build with the list (or sub list) of meaningful features. It is possible to use these feature both for the enhacement of warm items and cold items. In order to use them for warm items the `UseFeatureInModel` should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
+Note: It is not possible to enable `AllowColdItemPlacement` without enabling `UseFeatureInModel`.
+
+###2.3. Recommendation reasoning
+
+Recommendation reasoning is another aspect of feature usage. Indeed, the Azure ML Recommendation engine can use features to provide recommendation explanations (a.k.a. reasoning), leading to more confidence in the recommended item from the recommendation consumer.
+To enable reasoning the `AllowFeatureCorrelation` and `ReasoningFeatureList` parameters should be setup prior requesting a recommendation build.
+
+##3. Limitations
+
+- Maximum number of models per subscription: 10
+- Maximum number of items that a catalog can hold: 100,000
+- The maximum amount of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
+- Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB
+- The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS
+
+##4. APIs - General Information
+
+###4.1. Authentication
 Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either Basic or OAuth authentication methods.
 
-###3.2. Service URI
-The service root URIs for each of the Azure ML Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v1/)
+###4.2. Service URI
+The service root URIs for each of the Azure ML Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
 The full service URI is expressed using elements of the OData specification.  
 
-###3.3. API Version
+###4.3. API Version
 Each API call will have at the end query parameter called apiVersion that should be set to 1.0
 
-##4. Model Basic
+##5. Model Basic
 
-###4.1. Create a model
+###5.1. Create Model
 Creating a “create model” request:
 
 | HTTP Method | URI |
@@ -114,22 +142,22 @@ Creating a “create model” request:
 
 HTTP Status code: 200
 
+The `feed/entry/content/properties/id` – contains the model id
+
 OData XML
 
-	feed/entry/content/properties/id – contains the model id
-
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
 	  <subtitle type="text">Create A New Model</subtitle>
-	  <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'</id>
+	  <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-05T06:35:21Z</updated>
- 	 <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'" />
 	  <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">CreateANewModelEntity2</title>
     <updated>2014-10-05T06:35:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">a658c626-2baa-43a7-ac98-f6ee26120a12</d:Id>
@@ -146,7 +174,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###4.2. Get Model
+###5.2. Get Model
 Creating a “get model” request:
 
 | HTTP Method | URI |
@@ -164,32 +192,33 @@ Creating a “get model” request:
 
 HTTP Status code: 200
 
+The model data can be found under the following elements:
+
+- `feed/entry/content/properties/Id` – Model unique id
+- `feed/entry/content/properties/Name` – Model name
+- `feed/entry/content/properties/Date` – Model creation date
+- `feed/entry/content/properties/Status` – Model status. One of the following:
+    - Created - model is created and does not contains Catalog and Usage
+	- ReadyForBuild – model is created and contains Catalog and Usage
+- `feed/entry/content/properties/HasActiveBuild` – indicate if model was built successfully
+- `feed/entry/content/properties/BuildId` – Model active BuildId
+- `feed/entry/content/properties/Mpr` – Model MPR (see ModelInsight for more information)
+- `feed/entry/content/properties/UserName` – Model internal username
+
 OData XML
 
-	feed/entry/content/properties/Id – Model unique id
-	feed/entry/content/properties/Name – Model name
-	feed/entry/content/properties/Date – Model creation date
-	feed/entry/content/properties/Status – Model status. One of the following:
-    	- Created - model is created and does not contains Catalog and Usage
-		- ReadyForBuild – model is created and contains Catalog and Usage
-	feed/entry/content/properties/HasActiveBuild – indicate if model was built successfully
-	feed/entry/content/properties/BuildId – Model active BuildId
-	feed/entry/content/properties/Mpr – Model MPR (see ModelInsight for more information)
-	feed/entry/content/properties/UserName – Model internal username
-
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
 	  <subtitle type="text">Get A List Of All Models</subtitle>
-	  <id>https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'</id>
+	  <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-28T14:35:51Z</updated>
- 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'" />
 	  <entry>
-    <id>https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">GetAListOfAllModelsEntity</title>
     <updated>2014-10-28T14:35:51Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">68b232f2-1037-45f7-8f49-af822695ee63</d:Id>
@@ -209,7 +238,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###4.3.	Get All Models
+###5.3.	Get All Models
 Retrieves all models of current user
 
 | HTTP Method | URI |
@@ -226,35 +255,36 @@ Retrieves all models of current user
 
 HTTP Status code: 200
 
+- `feed/entry/content/properties/Id` – Model unique id
+- `feed/entry/content/properties/Name` – Model name
+- `feed/entry/content/properties/Date` – Model creation date
+- `feed/entry/content/properties/Status` – Model status. One of the following:
+  - Created - model is created and does not contains Catalog and Usage
+  - ReadyForBuild – model is created and contains Catalog and Usage
+- `feed/entry/content/properties/HasActiveBuild` – indicate if model was built successfully
+- `feed/entry/content/properties/BuildId` – Model active BuildId
+- `feed/entry/content/properties/Mpr` – Model MPR (see ModelInsight for more information)
+- `feed/entry/content/properties/UserName` – Model internal username
+- `feed/entry/content/properties/UsageFileNames` – List of model usage files separated by comma
+- `feed/entry/content/properties/CatalogId` – Model Catalog Id
+- `feed/entry/content/properties/Description` – Model description
+- `feed/entry/content/properties/CatalogFileName` – Model Catalog file name
+
 OData XML
 
-	feed/entry/content/properties/Id – Model unique id
-	feed/entry/content/properties/Name – Model name
-	feed/entry/content/properties/Date – Model creation date
-	feed/entry/content/properties/Status – Model status. One of the following:
-	•	Created - model is created and does not contains Catalog and Usage
-	•	ReadyForBuild – model is created and contains Catalog and Usage
-	feed/entry/content/properties/HasActiveBuild – indicate if model was built successfully
-	feed/entry/content/properties/BuildId – Model active BuildId
-	feed/entry/content/properties/Mpr – Model MPR (see ModelInsight for more information)
-	feed/entry/content/properties/UserName – Model internal username
-	feed/entry/content/properties/UsageFileNames – List of model usage files separated by comma
-	feed/entry/content/properties/CatalogId – Model Catalog Id
-	feed/entry/content/properties/Description – Model description
-	feed/entry/content/properties/CatalogFileName – Model Catalog file name
 
-    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get A List Of All Models</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-28T14:35:51Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetAListOfAllModelsEntity</title>
     <updated>2014-10-28T14:35:51Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Id m:type="Edm.String">68b232f2-1037-45f7-8f49-af822695ee63</d:Id>
@@ -274,7 +304,7 @@ OData XML
 		</entry>
 	</feed>
 
-###4.4.	Update Model
+###5.4.	Update Model
 
 You can update the model description or the active build id.<br>
 <ins>Active Build Id</ins> – Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicit set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use the default one will be used automatically.<br>
@@ -296,7 +326,7 @@ This mechanism enables you once you have a recommendation model in production to
 
 HTTP Status code: 200
 
-###4.5.	Delete Model
+###5.5.	Delete Model
 Delete existing model by Id
 
 | HTTP Method | URI |
@@ -316,18 +346,18 @@ HTTP Status code: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/DeleteModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
 	  <subtitle type="text">Delete Model by Id</subtitle>
-	  <id>https://api.datamarket.azure.com/amla/recommendations/v1/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'</id>
+	  <id>https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-28T10:39:33Z</updated>
- 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'" />
 	  <entry>
-    <id>https://api.datamarket.azure.com/amla/recommendations/v1/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">DeleteModelByIdEntity</title>
     <updated>2014-10-28T10:39:33Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
 		<d:string m:type="Edm.String"></d:string>
@@ -336,9 +366,9 @@ OData XML
 	  </entry>
 	</feed>
 
-##5. Model Advanced
+##6. Model Advanced
 
-###5.1.	Model Data Insight
+###6.1.	Model Data Insight
 This API returns statistical data on the usage data that this model was built with.
 
 | HTTP Method | URI |
@@ -356,94 +386,45 @@ This API returns statistical data on the usage data that this model was built wi
 
 HTTP Status code: 200
 
-OData XML
+The data is returned as a collection of properties
 
-The data is returned as a collection of:
-<pre>
-	feed/entry/id/content/properties/key
-	feed/entry/id/content/properties/value
-</pre>
+- `feed/entry/id/content/properties/key` - holds the property name
+- `feed/entry/id/content/properties/value` - hold the property value
 
 The table below depicts for each key what is the value it represents
-	<table>
-    	<tr>
-        	<th>Key</th>
-        	<th>Description</th>
-        </tr>
-        <tr>
-        	<td>AvgItemLength</td>
-        	<td>Average number of distinct users per item</td>
-        </tr>
-        <tr>
-        	<td>AvgUserLength</td>
-        	<td>Average number of distinct items per user</td>
-        </tr>
-        <tr>
-        	<td>DensificationNumberOfItems</td>
-        	<td>Number of items after pruning items that cannot be modelled</td>
-        </tr>
-        <tr>
-        	<td>DensificationNumberOfUsers</td>
-        	<td>Number of usage points after pruning users and items that can't be modelled</td>
-        </tr>
-        <tr>
-        	<td>DensificationNumberOfRecords</td>
-        	<td>Number of usage points after pruning users and items that can't be modelled</td>
-        </tr>
-        <tr>
-        	<td>MaxItemLength</td>
-        	<td>Number of distinct users for the most popular item</td>
-        </tr>
-        <tr>
-        	<td>MaxUserLength</td>
-        	<td>Maximal number of distinct items for a user</td>
-        </tr>
-        <tr>
-        	<td>MinItemLength</td>
-        	<td>Maximal number of distinct users for an item</td>
-        </tr>
-        <tr>
-        	<td>MinUserLength</td>
-        	<td>Minimal number of distinct items for a user</td>
-        </tr>
-        <tr>
-        	<td>RawNumberOfItems</td>
-        	<td>Number of items before pruning items that cannot be modelled</td>
-        </tr>
-        <tr>
-        	<td>RawNumberOfUsers</td>
-        	<td>Number of usage points before any pruning</td>
-        </tr>
-        <tr>
-        	<td>RawNumberOfRecords</td>
-        	<td>Number of usage points before any pruning</td>
-        </tr>
-        <tr>
-        	<td>SampelingNumberOfItems</td>
-        	<td>If sampling is turned on, number of items in the sample. Otherwise, ignore</td>
-        </tr>
-        <tr>
-        	<td>SampelingNumberOfRecords</td>
-        	<td>If sampling is turned on, number of users points the sample. Otherwise, ignore</td>
-        </tr>
-        <tr>
-        	<td>SampelingNumberOfUsers</td>
-        	<td>If sampling is turned on, number of users points the sample. Otherwise, ignore</td>
-        </tr>
-    </table>
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+|Key|Description|
+|:-----|:----|
+| AvgItemLength | Average number of distinct users per item |
+| AvgUserLength | Average number of distinct items per user |
+| DensificationNumberOfItems | Number of items after pruning items that cannot be modelled |
+| DensificationNumberOfUsers | Number of usage points after pruning users and items that can't be modelled |
+| DensificationNumberOfRecords | Number of usage points after pruning users and items that can't be modelled |
+| MaxItemLength | Number of distinct users for the most popular item |
+| MaxUserLength | Maximal number of distinct items for a user |
+| MinItemLength | Maximal number of distinct users for an item |
+| MinUserLength | Minimal number of distinct items for a user |
+| RawNumberOfItems | Number of items before pruning items that cannot be modelled |
+| RawNumberOfUsers | Number of usage points before any pruning |
+| RawNumberOfRecords | Number of usage points before any pruning |
+| SamplingNumberOfItems | N/A |
+| SamplingNumberOfRecords | N/A |
+| SamplingNumberOfUsers | N/A |
+
+OData XML
+
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Get data insight statistics</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-10-27T14:21:21Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
 	<entry>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">GetDataInsightStatisticsEntity</title>
     <updated>2014-10-27T14:21:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">AvgItemLength</d:Key>
@@ -452,10 +433,10 @@ The table below depicts for each key what is the value it represents
     </content>
 	</entry>
 	<entry>
-    <id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
     <title type="text">GetDataInsightStatisticsEntity</title>
     <updated>2014-10-27T14:21:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">AvgUserLength</d:Key>
@@ -464,10 +445,10 @@ The table below depicts for each key what is the value it represents
     </content>
     </entry>
     <entry>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
     <title type="text">GetDataInsightStatisticsEntity</title>
     <updated>2014-10-27T14:21:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">DensificationNumberOfItems</d:Key>
@@ -476,10 +457,10 @@ The table below depicts for each key what is the value it represents
     </content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 	<title type="text">GetDataInsightStatisticsEntity</title>
 	<updated>2014-10-27T14:21:21Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">DensificationNumberOfRecords</d:Key>
@@ -488,10 +469,10 @@ The table below depicts for each key what is the value it represents
     </content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
 	<title type="text">GetDataInsightStatisticsEntity</title>
 	<updated>2014-10-27T14:21:21Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
 	<content type="application/xml">
 		<m:properties>
 			<d:Key m:type="Edm.String">DensificationNumberOfUsers</d:Key>
@@ -500,10 +481,10 @@ The table below depicts for each key what is the value it represents
     </content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
+    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MaxItemLength</d:Key>
@@ -512,10 +493,10 @@ The table below depicts for each key what is the value it represents
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
+    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
     	<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MaxUserLength</d:Key>
@@ -524,10 +505,10 @@ The table below depicts for each key what is the value it represents
     	</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MinItemLength</d:Key>
@@ -536,10 +517,10 @@ The table below depicts for each key what is the value it represents
     	</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MinUserLength</d:Key>
@@ -548,10 +529,10 @@ The table below depicts for each key what is the value it represents
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">RawNumberOfItems</d:Key>
@@ -560,10 +541,10 @@ The table below depicts for each key what is the value it represents
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">RawNumberOfRecords</d:Key>
@@ -572,10 +553,10 @@ The table below depicts for each key what is the value it represents
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">RawNumberOfUsers</d:Key>
@@ -584,10 +565,10 @@ The table below depicts for each key what is the value it represents
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">SampelingNumberOfItems</d:Key>
@@ -596,10 +577,10 @@ The table below depicts for each key what is the value it represents
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">SampelingNumberOfRecords</d:Key>
@@ -608,10 +589,10 @@ The table below depicts for each key what is the value it represents
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">SampelingNumberOfUsers</d:Key>
@@ -621,7 +602,7 @@ The table below depicts for each key what is the value it represents
     </entry>
     </feed>
 
-###5.2.	Model Insight
+###6.2.	Model Insight
 This API returns model insight on the active build or if given on a specific build.
 
 | HTTP Method | URI |
@@ -640,46 +621,35 @@ This API returns model insight on the active build or if given on a specific bui
 
 HTTP Status code: 200
 
-OData XML
+The data is returned as a collection of properties
 
-The data is returned as a collection of:
-<pre>
-	feed/entry/id/content/properties/key
-	feed/entry/id/content/properties/value
-</pre>
+- `feed/entry/id/content/properties/key`
+- `feed/entry/id/content/properties/value`
+
 
 The table below depicts for each key what is the value it represents
-	<table>
-    	<tr>
-        	<th>Key</th>
-        	<th>Description</th>
-        </tr>
-        <tr>
-        	<td>CatalogCoverage</td>
-        	<td>What part of the catalog can be modelled with usage patterns. The rest of the items will need content-based features</td>
-        </tr>
-        <tr>
-        	<td>Mpr</td>
-        	<td>Mean percentile ranking of the model. Lower is better.</td>
-        </tr>
-        <tr>
-        	<td>NumberOfDimensions</td>
-        	<td>Number of dimensions used by the matrix factorization algorithm</td>
-        </tr>
-    </table>
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+| Key | Description |
+|:---- |:----|
+| CatalogCoverage | What part of the catalog can be modelled with usage patterns. The rest of the items will need content-based features |
+| Mpr | Mean percentile ranking of the model. Lower is better. |
+| NumberOfDimensions | Number of dimensions used by the matrix factorization algorithm |
+
+
+OData XML
+
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Get model insight statistics</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-10-27T14:27:11Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">GetModelInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:27:11Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">CatalogCoverage</d:Key>
@@ -688,10 +658,10 @@ The table below depicts for each key what is the value it represents
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetModelInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:27:11Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">Mpr</d:Key>
@@ -700,10 +670,10 @@ The table below depicts for each key what is the value it represents
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 		<title type="text">GetModelInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:27:11Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">NumberOfDimensions</d:Key>
@@ -713,7 +683,7 @@ The table below depicts for each key what is the value it represents
 	</entry>
 	</feed>
 
-###5.3.	Get Model Sample
+###6.3.	Get Model Sample
 Get a sample of the recommendation model.
 
 | HTTP Method | URI |
@@ -731,8 +701,10 @@ Get a sample of the recommendation model.
 
 HTTP Status code: 200
 
-OData XML<br>
+OData XML
+
 Response is returned in raw text format
+
 <pre>
 Level 1
 ---------------
@@ -862,10 +834,10 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
-##6. Model Business Rules
+##7. Model Business Rules
 There are 2 types of rules that you can add, <strong>Blocklist</strong> and <strong>Upsale</strong>. Blocklist enables you to provide a list of items that you do not want them to return in the recommendations results. Upsale enables you to enforce items to return in the recommendations results
 
-###6.1.	Get Model Rules
+###7.1.	Get Model Rules
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -882,24 +854,24 @@ There are 2 types of rules that you can add, <strong>Blocklist</strong> and <str
 
 HTTP Status code: 200
 
+- `feed/entry/content/properties/Id` – The unique identifier of this rule
+- `feed/entry/content/properties/Type` – The type of the rule. BlockList or Upsale
+- `feed/entry/content/properties/Parameter` – The rule parameter
+
 OData XML
 
-	feed/entry/content/properties/Id – The unique identifier of this rule
-	feed/entry/content/properties/Type – The type of the rule. BlockList or Upsale
-	feed/entry/content/properties/Parameter – The rule parameter
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Get a list of rules for a model</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-11-05T12:58:57Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'" />
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">GetAListOfRulesForAModelEntity</title>
 		<updated>2014-11-05T12:58:57Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">1000043</d:Id>
@@ -909,10 +881,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetAListOfRulesForAModelEntity</title>
 		<updated>2014-11-05T12:58:57Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">1000044</d:Id>
@@ -923,7 +895,8 @@ OData XML
 	</entry>
 	</feed>
 
-###6.2.	Add Rule
+###7.2.	Add Rule
+
 | HTTP Method | URI |
 |:--------|:--------|
 |POST     |`<rootURI>/AddRule?apiVersion=%271.0%27`|
@@ -934,26 +907,30 @@ OData XML
 |||
 | Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
 
+**Response**:
+
 HTTP Status code: 200
+
+The API returns the newly created rule with its details. The rules property can be retrieved from the following paths.
+
+- `feed/entry/content/properties/Id` – The unique identifier of this rule
+- `feed/entry/content/properties/Type` – The type of the rule. BlockList or Upsale
+- `feed/entry/content/properties/Parameter` – The rule parameter
 
 OData XML
 
-	feed/entry/content/properties/Id – The unique identifier of this rule
-	feed/entry/content/properties/Type – The type of the rule. BlockList or Upsale
-	feed/entry/content/properties/Parameter – The rule parameter
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/AddRule" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/AddRule" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Add A Rule</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v1/AddRule?apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-11-05T11:13:28Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/AddRule?apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'" />
 	<entry>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">AddARuleEntity</title>
 		<updated>2014-11-05T11:13:28Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">1000041</d:Id>
@@ -964,7 +941,8 @@ OData XML
 	</entry>
 	</feed>
 
-###6.3.	Delete Rule
+###7.3.	Delete Rule
+
 | HTTP Method | URI |
 |:--------|:--------|
 |GET     |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27`|
@@ -981,7 +959,7 @@ OData XML
 
 HTTP Status code: 200
 
-###6.4.	Delete All Rules
+###7.4.	Delete All Rules
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -998,11 +976,31 @@ HTTP Status code: 200
 
 HTTP Status code: 200
 
-##7. Catalog
+##8. Catalog
 
-###7.1.	Import catalog data
+###8.1.	Import Catalog Data
 
 If you upload several catalog files to the same model with several calls we will insert only the new catalog items. Existing items will remain with the original values. You cannot update catalog data using this method.
+
+The catalog data should follow the following format:
+
+- Without features - `<Item Id>,<Item Name>,<Item Category>[,<Description>]`
+
+- With features - `<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
+
+Note: The maximum file size is 200MB.
+
+** Format details **
+
+| Name | Mandatory | Type |  Description |
+|:---|:---|:---|:---|
+| Item Id |Yes | Alphanumeric, Max Length 50 | Unique identifier of an Item |
+| Item Name | Yes | Alphanumeric, Max Length 255 | The Item Name | 
+| Item Category | Yes | Alphanumeric, Max Length 255 | The category to which this item belongs (e.g. Cooking Books, Drama…) can be empty |
+| Description | No unless features are present (but can be empty) | Alphanumeric, Max Length 4000 | A description of this item |
+| Features list | No | Alphanumeric, Max Length 4000 | A comma separated list of feature name=feature value that can be used to enhance model recommendation, see [Advanced Topics](21-advanced-topics) section | 
+
+
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1014,30 +1012,31 @@ If you upload several catalog files to the same model with several calls we will
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
-| Request Body | The catalog data. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The Item Name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The category to which this item belongs (e.g. Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, Max Length 4000</td><td>A description of this item</td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| Request Body | Example (with features):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book  description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Response**:
 
 HTTP Status code: 200
 
+The API returns a reports of the import.
+- `feed\entry\content\properties\LineCount` – number of lines accepted
+- `feed\entry\content\properties\ErrorCount` – number of lines that were not inserted due to an error
+
 OData XML
 
-	feed\entry\content\properties\LineCount – number of lines accepted
-	feed\entry\content\properties\ErrorCount – number of lines that were not inserted due to an error
-
-    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Import catalog file</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-10-05T06:58:04Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'" />
 	<entry>
-   	<id>https://api.datamarket.azure.com/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+   	<id>https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">ImportCatalogFileEntity2</title>
 		<updated>2014-10-05T06:58:04Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:LineCount m:type="Edm.String">4</d:LineCount>
@@ -1047,7 +1046,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7.2.	Get catalog
+###8.2.	Get Catalog
 Retrieves all catalog items
 
 | HTTP Method | URI |
@@ -1065,29 +1064,30 @@ Retrieves all catalog items
 
 HTTP Status code: 200
 
+The response includes one entry per catalog item, each entry has the following data:
+
+- `feed/entry/content/properties/ExternalId` – Catalog item external Id, the one provided by the customer
+- `feed/entry/content/properties/InternalId` – Catalog item internal Id, the one that Azure ML Recommendations has generated
+- `feed/entry/content/properties/Name` – Catalog item name
+- `feed/entry/content/properties/Category` – Catalog item category
+- `feed/entry/content/properties/Description` – Catalog item description
+- `feed/entry/content/properties/Metadata` – Catalog item metadata
+
+
 OData XML
 
-	The response includes one entry per catalog item, each entry has the following data:
-
-	feed/entry/content/properties/ExternalId – Catalog item external Id, the one provided by the customer
-	feed/entry/content/properties/InternalId – Catalog item internal Id, the one that Azure ML Recommendations has generated
-	feed/entry/content/properties/Name – Catalog item name
-	feed/entry/content/properties/Category – Catalog item category
-	feed/entry/content/properties/Description – Catalog item description
-	feed/entry/content/properties/Metadata – Catalog item metadata
-
-    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get All Catalog Items</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'" />
 		<entry>
-        	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+        	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">552A1940-21E4-4399-82BB-594B46D7ED54</d:ExternalId>
@@ -1100,10 +1100,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">2406E770-769C-4189-89DE-1C9283F93A96</d:ExternalId>
@@ -1116,10 +1116,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">3BB5CB44-D143-4BDD-A55C-443964BF4B23</d:ExternalId>
@@ -1132,10 +1132,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">21BF8088-B6C0-4509-870C-E1C7AC78304A</d:ExternalId>
@@ -1149,7 +1149,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7.3.	Get Catalog Items by Token
+###8.3.	Get Catalog Items by Token
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1167,29 +1167,29 @@ OData XML
 
 HTTP Status code: 200
 
+The response includes one entry per catalog item, each entry has the following data:
+
+- `feed/entry/content/properties/ExternalId` – Catalog item external Id, the one provided by the customer
+- `feed/entry/content/properties/InternalId` – Catalog item internal Id, the one that Azure ML Recommendations has generated
+- `feed/entry/content/properties/Name` – Catalog item name
+- `feed/entry/content/properties/Category` – Catalog item category
+- `feed/entry/content/properties/Description` – Catalog item description
+- `feed/entry/content/properties/Metadata` – Catalog item metadata
+
 OData XML
 
-	The response includes one entry per catalog item, each entry has the following data:
-
-	feed/entry/content/properties/ExternalId – Catalog item external Id, the one provided by the customer
-	feed/entry/content/properties/InternalId – Catalog item internal Id, the one that Azure ML Recommendations has generated
-	feed/entry/content/properties/Name – Catalog item name
-	feed/entry/content/properties/Category – Catalog item category
-	feed/entry/content/properties/Description – Catalog item description
-	feed/entry/content/properties/Metadata – Catalog item metadata
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalogItemsByToken" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get Catalog items that contain a token</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-29T11:48:19Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">CatalogItemsThatContainATokenEntity</title>
 			<updated>2014-10-29T11:48:19Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     		<content type="application/xml">
       			<m:properties>
 					<d:Id m:type="Edm.String">2406E770-769C-4189-89DE-1C9283F93A96</d:Id>
@@ -1203,9 +1203,9 @@ OData XML
 		</entry>
 	</feed>
 
-##8. Usage data
-###8.1.	Import usage data
-####8.1.1. Uploading file
+##9. Usage data
+###9.1.	Import Usage Data
+####9.1.1. Uploading File
 This sections shows how to upload usage data using a file. You can call this API several times with usage data. All usage data will be saved for all calls.
 
 | HTTP Method | URI |
@@ -1224,25 +1224,24 @@ This sections shows how to upload usage data using a file. You can call this API
 
 HTTP Status code: 200
 
+- `Feed\entry\content\properties\LineCount` – number of lines accepted
+- `Feed\entry\content\properties\ErrorCount` – number of lines that were not inserted due to an error
+- `Feed\entry\content\properties\FileId` – the file identifier
+
 OData XML
 
-	Feed\entry\content\properties\LineCount – number of lines accepted
-	Feed\entry\content\properties\ErrorCount – number of lines that were not inserted due to an error
-	Feed\entry\content\properties\FileId – the file identifier
-
-
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Add bulk usage data (usage file)</subtitle>
-  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T07:21:44Z</updated>
-  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">AddBulkUsageDataUsageFileEntity2</title>
     <updated>2014-10-05T07:21:44Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:LineCount m:type="Edm.String">33</d:LineCount>
@@ -1254,7 +1253,7 @@ OData XML
 	</feed>
 
 
-####8.1.2. Using data acquisition
+####9.1.2. Using Data Acquisition
 This section shows how to send events in real time to Azure ML Recommendations usually from your web site.
 
 | HTTP Method | URI |
@@ -1264,102 +1263,102 @@ This section shows how to send events in real time to Azure ML Recommendations u
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
 |	apiVersion		| 1.0 |
-
-Request body
-
-	Event data entry for each event you want to send. You should send for the same user or browser session the same id in the SessionId field.
+|Request body| Event data entry for each event you want to send. You should send for the same user or browser session the same id in the SessionId field. (see sample of event body below)|
 
 
-	Example of Click:
-	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  	<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-  	<SessionId>11112222</SessionId>
-  	<EventData>
-    <EventData>
-      <Name>Click</Name>
-      <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    </EventData>
-  	</EventData>
-	</Event> 
+- Example for event 'Click':
 
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+		<Name>Click</Name>
+		<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+		</EventData>
+		</EventData>
+		</Event>
 
-	Example of Recommendation Click:
-	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  	<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-  	<SessionId>11112222</SessionId>
-  	<EventData>
-    <EventData>
-      <Name>RecommendationClick</Name>
-      <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    </EventData>
-  	</EventData>
-	</Event>
+- Example for event 'Recommendation Click':
 
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+  		<SessionId>11112222</SessionId>
+  		<EventData>
+    	<EventData>
+      	<Name>RecommendationClick</Name>
+      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+    	</EventData>
+  		</EventData>
+		</Event>
 
-	Example of Adding to shop cart:
-	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  	<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-  	<SessionId>11112222</SessionId>
-  	<EventData>
-    <EventData>
-      <Name>AddShopCart</Name>
-      <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    </EventData>
-  	</EventData>
-	</Event>
+- Example for event 'Adding to shop cart':
 
-	Example of Removing from shop cart:
-	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  	<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-  	<SessionId>11112222</SessionId>
-  	<EventData>
-    <EventData>
-      <Name>RemoveShopCart</Name>
-      <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    </EventData>
-  	</EventData>
-	</Event>
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+  		<SessionId>11112222</SessionId>
+  		<EventData>
+    	<EventData>
+      	<Name>AddShopCart</Name>
+      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+    	</EventData>
+  		</EventData>
+		</Event>
 
-	Example of Purchase:
-	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">   
-	<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>   
-	<SessionId>11112222</SessionId>   
-	<EventData>     
-	<EventData>       
-		<Name>Purchase</Name> 
-		<PurchaseItems>
+- Example for event 'Removing from shop cart':
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+  		<SessionId>11112222</SessionId>
+  		<EventData>
+    	<EventData>
+      	<Name>RemoveShopCart</Name>
+      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+    	</EventData>
+  		</EventData>
+		</Event>
+
+- Example for event 'Purchase':
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Purchase</Name> 
 			<PurchaseItems>
-				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>       
+			<PurchaseItems>
+				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
 				<Count>3</Count>
 			</PurchaseItems>
 		</PurchaseItems>
-	</EventData>     
-	</EventData> 
-	</Event>
+		</EventData>
+		</EventData>
+		</Event>
 
-	Example of sending 2 events “Click” and “AddShopCart:
-	<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  	<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-  	<SessionId>11112222</SessionId>
-  	<EventData>
-    <EventData>
-      <Name>Click</Name>
-      <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-      <ItemName>itemName</ItemName>
-      <ItemDescription>item description</ItemDescription>
-      <ItemCategory>category</ItemCategory>
-    </EventData>
-    <EventData>
-      <Name>AddShopCart</Name>
-      <ItemId>552A1940-21E4-4399-82BB-594B46D7ED54</ItemId>
-    </EventData>
-  	</EventData>
-	</Event>
+- Example sending 2 events 'Click' and 'AddShopCart':
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+  		<SessionId>11112222</SessionId>
+  		<EventData>
+    	<EventData>
+      	<Name>Click</Name>
+      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+      	<ItemName>itemName</ItemName>
+      	<ItemDescription>item description</ItemDescription>
+      	<ItemCategory>category</ItemCategory>
+    	</EventData>
+    	<EventData>
+      	<Name>AddShopCart</Name>
+      	<ItemId>552A1940-21E4-4399-82BB-594B46D7ED54</ItemId>
+    	</EventData>
+  		</EventData>
+		</Event>
 
 **Response**:
 HTTP Status code: 200
 
-###8.2.	List Model Usage Files
+###9.2.	List Model Usage Files
 Retrieve metadata of all model usage files
 
 | HTTP Method | URI |
@@ -1377,26 +1376,27 @@ Retrieve metadata of all model usage files
 
 HTTP Status code: 200
 
+The response includes one entry per usage file, each entry has the following data:
+
+- `feed\entry\content\properties\Id` – Usage file Id
+- `feed\entry\content\properties\Length` – Usage file Length in MB
+- `feed\entry\content\properties\DateModified` – Date when Usage file was created
+- `feed\entry\content\properties\UseInModel` – Is usage files used in model
+
 OData XML
 
-	The response includes one entry per usage file, each entry has the following data:
-	feed\entry\content\properties\Id – Usage file Id
-	feed\entry\content\properties\Length – Usage file Length in MB
-	feed\entry\content\properties\DateModified – Date when Usage file was created
-	feed\entry\content\properties\UseInModel – Is usage files used in model
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/ListModelUsageFiles" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get a list of model's usage files info</subtitle>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-30T09:40:25Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetAListOfModelsUsageFilesInfoEntity</title>
 			<updated>2014-10-30T09:40:25Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Id m:type="Edm.String">4c067b42-e975-4cb2-8c98-a6ab80ed6d63</d:Id>
@@ -1407,10 +1407,10 @@ OData XML
 			</content>
 		</entry>
 	<entry>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetAListOfModelsUsageFilesInfoEntity</title>
 		<updated>2014-10-30T09:40:25Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">3126d816-4e80-4248-8339-1ebbdb9d544d</d:Id>
@@ -1422,7 +1422,7 @@ OData XML
 	</entry>
 </feed>
 
-###8.3.	Get Usage Statistics
+###9.3.	Get Usage Statistics
 Get usage statistics:
 
 | HTTP Method | URI |
@@ -1443,26 +1443,25 @@ Get usage statistics:
 
 HTTP Status code: 200
 
+A collection of key/value that each one contains the sum of events for a specific event type grouped by hour.
+
+- `feed\entry[i]\content\properties\Key` – contains the time (grouped by hours) and the event type.
+- `feed\entry[i]\content\properties\Value` – total event count
+
 OData XML
 
-	A collection of key/value that each one contains the sum of events for a specific event type grouped by hour.
-	The key:
-		feed\entry[i]\content\properties\Key – contains the time (grouped by hours) and the event type.
-	The value:
-		feed\entry[i]\content\properties\Value – total event count
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get usage statistics</subtitle>
-        <id>https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'</id>
+        <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-11-18T11:39:16Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'" />
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/9/2014 8:00:00 AM;Click</d:Event>
@@ -1471,10 +1470,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/9/2014 8:00:00 AM;RecommendationClick</d:Event>
@@ -1483,10 +1482,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
         <content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/1/2014 8:00:00 AM;RemoveShopCart</d:Event>
@@ -1495,10 +1494,10 @@ OData XML
         </content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/5/2014 8:00:00 AM;RemoveShopCart</d:Event>
@@ -1508,7 +1507,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8.4.	Get Usage File Sample
+###9.4.	Get Usage File Sample
 Retrieve first 2KB of usage file content:
 
 | HTTP Method | URI |
@@ -1527,8 +1526,8 @@ Retrieve first 2KB of usage file content:
 
 HTTP Status code: 200
 
-OData XML<br>
-Response is returned in raw text format:<pre>
+Response is returned in raw text format:
+<pre>
 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
@@ -1546,7 +1545,8 @@ Response is returned in raw text format:<pre>
 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
 </pre>
 
-###8.5.	Get Model Usage File
+
+###9.5.	Get Model Usage File
 Retrieves full content of usage file:
 
 | HTTP Method | URI |
@@ -1566,8 +1566,8 @@ Retrieves full content of usage file:
 
 HTTP Status code: 200
 
-OData XML<br>
-Response is returned in raw text format:<pre>
+Response is returned in raw text format:
+<pre>
 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
@@ -1603,7 +1603,7 @@ Response is returned in raw text format:<pre>
 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
 </pre>
 
-###8.6.	Delete Usage File
+###9.6.	Delete Usage File
 Delete specified model usage file
 
 | HTTP Method | URI |
@@ -1623,7 +1623,7 @@ Delete specified model usage file
 HTTP Status code: 200
 
 
-###8.7.	Delete All Usage Files
+###9.7.	Delete All Usage Files
 Delete all model usage files
 
 | HTTP Method | URI |
@@ -1641,9 +1641,234 @@ Delete all model usage files
 
 HTTP Status code: 200
 
-##9. Build
+##10. Features
+This section shows how to retrieve feature information, such as the imported feature and their values, their rank and when this rank was allocated. Feature are imported as part of the catalog data, then their rank is associated when a rank build is done.
+Feature rank can changes according to the pattern the usage data, and type of items but for consistent usage/items the rank should only have small fluctuations.
+The rank of features is a non negative number, 0 means that the feature was not ranked (happens if you invoke this API prior the completion of the first rank build), the date of at which the rank was attributed is called the score freshness.
 
-###9.1.	Build a model
+###10.1. Get Features Info (For Last Rank Build)
+Retrieve the feature information including ranking for the last successfull rank build.
+
+| HTTP Method | URI |
+|:--------|:--------|
+|GET      |`<rootURI>/Model/Features?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/Model/Features?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&apiVersion=%271.0%27`
+
+| Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+| modelId |	The unique identifier of the model.  |
+|samplingSize| The number of values to include for each fatures according to the data present in the catalog. <br/>Possible values are:<br> -1 - all samples <br>0 - no sampling <br>N - return N samples for each feature name.|
+| apiVersion | 1.0 |
+|||
+| Request Body | NONE |
+
+
+**Response**:
+
+HTTP Status code: 200
+
+The response contains a list of feature info entries. Each entry contains:
+
+- `feed/entry/content/m:properties/d:Name` - The feature name
+- `feed/entry/content/m:properties/d:RankUpdateDate` - The date at which the rank was allocated to this feature a.k.a. score freshnesfeature. An historical date ('0001-01-01T00:00:00') means that no rank build was performed.
+- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is consifered as good feature.
+- `feed/entry/content/m:properties/d:SampleValues` - A comma separated list of values up to the sampling size requested.
+
+OData XML
+
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<title type="text" />
+	<subtitle type="text">Get the features of a model</subtitle>
+	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'</id>
+	<rights type="text" />
+	<updated>2015-01-08T13:15:02Z</updated>
+	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'" />
+	<entry>
+		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+		<title type="text">ModelFeaturesEntity</title>
+		<updated>2015-01-08T13:15:02Z</updated>
+		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<content type="application/xml">
+			<m:properties>
+				<d:Name m:type="Edm.String">Author</d:Name>
+				<d:RankUpdateDate m:type="Edm.String">0001-01-01T00:00:00</d:RankUpdateDate>
+				<d:Rank m:type="Edm.String">0</d:Rank>
+				<d:SampleValues m:type="Edm.String">A. A. Attanasio, A. A. Milne, A. Bates, A. C. Bhaktivedanta Swami Prabhupada et al., A. C. Crispin, A. C. Doyle, A. C. H. Smith, A. E. Parker, A. J. Holt, A. J. Matthews</d:SampleValues>
+			</m:properties>
+		</content>
+	</entry>
+	<entry>
+		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+		<title type="text">ModelFeaturesEntity</title>
+		<updated>2015-01-08T13:15:02Z</updated>
+		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<content type="application/xml">
+			<m:properties>
+				<d:Name m:type="Edm.String">Publisher</d:Name>
+				<d:RankUpdateDate m:type="Edm.String">0001-01-01T00:00:00</d:RankUpdateDate>
+				<d:Rank m:type="Edm.String">0</d:Rank>
+				<d:SampleValues m:type="Edm.String">A. Mondadori, Abacus, Abacus Press, Abacus Uk, Abstract Studio, Acacia Press, Academy Chicago Publishers, Ace Books, ACE Charter, Actar</d:SampleValues>
+			</m:properties>
+		</content>
+	</entry>
+	<entry>
+		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+		<title type="text">ModelFeaturesEntity</title>
+		<updated>2015-01-08T13:15:02Z</updated>
+		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1"/>
+		<contenttype="application/xml">
+		<m:properties>
+			<d:Name m:type="Edm.String">Year</d:Name>
+			<d:RankUpdateDate m:type="Edm.String">0001-01-01T00:00:00</d:RankUpdateDate>
+			<d:Rank m:type="Edm.String">0</d:Rank>
+			<d:SampleValues m:type="Edm.String">0, 1920, 1926, 1927, 1929, 1930, 1932, 1942, 1943, 1946</d:SampleValues>
+		</m:properties>
+		</content>
+	</entry>
+</feed>
+
+
+###10.2. Get Features Info (For Specific Rank Build)
+
+Retrieve the feature information including ranking for a specific rank build.
+
+| HTTP Method | URI |
+|:--------|:--------|
+|GET      |`<rootURI>/Model/Features?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/Model/Features?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
+
+| Parameter Name	|	Valid Values	|
+|:--------			|:--------			|
+| modelId |	The unique identifier of the model.  |
+|samplingSize| The number of values to include for each fatures according to the data present in the catalog.<br/> Possible values are:<br> -1 - all samples <br>0 - no sampling <br>N - return N samples for each feature name.|
+|rankBuildId| The unique identifier of the rank build or -1 for the last rank build|
+| apiVersion | 1.0 |
+|||
+| Request Body | NONE |
+
+
+**Response**:
+
+HTTP Status code: 200
+
+The response contains a list of feature info entries. Each entry contains:
+
+- `feed/entry/content/m:properties/d:Name` - The feature name
+- `feed/entry/content/m:properties/d:RankUpdateDate` - The date at which the rank was allocated to this feature a.k.a. score freshnesfeature. An historical date ('0001-01-01T00:00:00') means that no rank build was performed.
+- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is consifered as good feature.
+- `feed/entry/content/m:properties/d:SampleValues` - A comma separated list of values up to the sampling size requested.
+
+OData
+
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+		<title type="text" />
+		<subtitle type="text">Get the features of a model</subtitle>
+		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'</id>
+		<rights type="text" />
+		<updated>2015-01-08T13:54:22Z</updated>
+		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'" />
+		<entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<title type="text">ModelFeaturesEntity</title>
+			<updated>2015-01-08T13:54:22Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Name m:type="Edm.String">Author</d:Name>
+					<d:RankUpdateDate m:type="Edm.String">2015-01-08T13:52:14.673</d:RankUpdateDate>
+					<d:Rank m:type="Edm.String">3.38867426</d:Rank>
+					<d:SampleValues m:type="Edm.String">A. A. Attanasio, A. A. Milne, A. Bates, A. C. Bhaktivedanta Swami Prabhupada et al., A. C. Crispin, A. C. Doyle, A. C. H. Smith, A. E. Parker, A. J. Holt, A. J. Matthews</d:SampleValues>
+				</m:properties>
+			</content>
+		</entry>
+		<entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+			<title type="text">ModelFeaturesEntity</title>
+			<updated>2015-01-08T13:54:22Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Name m:type="Edm.String">Publisher</d:Name>
+					<d:RankUpdateDate m:type="Edm.String">2015-01-08T13:52:14.673</d:RankUpdateDate>
+					<d:Rank m:type="Edm.String">1.67839336</d:Rank>
+					<d:SampleValues m:type="Edm.String">A. Mondadori, Abacus, Abacus Press, Abacus Uk, Abstract Studio, Acacia Press, Academy Chicago Publishers, Ace Books, ACE Charter, Actar</d:SampleValues>
+				</m:properties>
+			</content>
+		</entry>
+		<entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+			<title type="text">ModelFeaturesEntity</title>
+			<updated>2015-01-08T13:54:22Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Name m:type="Edm.String">Year</d:Name>
+					<d:RankUpdateDate m:type="Edm.String">2015-01-08T13:52:14.673</d:RankUpdateDate>
+					<d:Rank m:type="Edm.String">1.12352145</d:Rank>
+					<d:SampleValues m:type="Edm.String">0, 1920, 1926, 1927, 1929, 1930, 1932, 1942, 1943, 1946</d:SampleValues>
+				</m:properties>
+			</content>
+		</entry>
+	</feed>
+
+
+##11. Build
+
+This section explains the different API related to builds. Currently two types of build are possible: a recommendation build and a rank build. The recommendation build is used to generate a recommendation model used for predictions. A rank build is a technical build that allows you to learn about the usefulness of your features. Usually in order to get the best result for a recommendation model involving features you should follow the following steps:
+- Trigger a rank build (unless the score of your features is stable) and wait till you get the feature score.
+- Configure a recommendation build with the following parameters:
+	- `useFeatureInModel` - set to True
+	- `ModelingFeatureList` - set to a coma separated list of features with a score of 2.0 or more
+	- `AllowColdItemPlacement` - set to True
+	- Optionally you can setup the `EnableFeatureCorrelation` to True and the `ReasoningFeatureList` to the list of features you want to use for explanations (usually the same list of features used in modeling or a sub list).
+- Trigger the recommendation build with the configured parameters.
+
+Note: If you do not configure any parameters (e.g. invoke the recommendation build without parameters) or you do not disable explicitly the usage of features (e.g. `UseFeatureInModel` set to False), the system will setup the feature related parameters to the explained values above in case a rank build exists.
+
+There is no restriction on running concurrently a rank build and a recommendation build for the same model, nevertheless a you cannot run two builds of the same type on the same model in parallel.
+
+####11.1 Build Parameters
+
+Each build type can be configured via a set of parameters (depicted below). If you don't configure the parameters the system will automatically attribute values to the parameters according to the information present at the time you trigger a build.
+
+#####11.1.1. Usage Condenser
+Users or items with few usage point might contain more noise than information. The system attempts to predict the minimal number of usage points per user/item to be used in a model. This number will be within the range defined by ItemCutoffLowerBound and ItemCutoffUpperBound parameters for items, and the range defined by UserCutOffLowerBound and UserCutoffUpperBound parameters for users. The condenser effect on items or userscan be minimized by setting as least one of the corresponding bounds to zero.
+
+#####11.1.2. Rank Build Parameters
+
+The table below depicts the build parameters for Rank build.
+
+|Key|Description|Type|Valid Value|
+|:-----|:----|:----|:---|
+|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
+| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
+|ItemCutOffLowerBound| Defines the item lower bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+
+#####11.1.3. Recommendation build parameters
+The table below depicts the build parameters for recommendation build.
+
+|Key|Description|Type|Valid Value|
+|:-----|:----|:----|:---|
+|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
+| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
+|ItemCutOffLowerBound| Defines the item lower bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+| Description | The build description | String | Any text, maximum 512 chars |
+| EnableModelingInsights | Allows to compute metrics on the recommendation model | Boolean | True/False |
+| UseFeaturesInModel | Indicate if features can be used in order to enhance recommendation model | Boolean | True/False |
+| ModelingFeatureList | A comma separated list of feature name to be use in recommendation build, in order to enhance the recommendation | String | The features name up to 512 chars |
+| AllowColdItemPlacement | Indicate if recommendation should also push cold item via feature similarity | Boolean | True/False |
+| EnableFeatureCorrelation | Indicate if features can be used in reasoning | Boolean | True/False |
+| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explations)  | String | The features name up to 512 chars |
+
+
+###11.2. Trigger a Recommendation Build
+
+By default this API will request to create a recommendation model, in order to create a rank build (in order to score  features), the build API with build type variant should be used.
+
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1655,41 +1880,43 @@ HTTP Status code: 200
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | apiVersion | 1.0 |
 |||
-| Request Body | If left empty then the build will be executed with the default build parameters<br><br>If you want to set the build parameters send the following XML in the body (see Get Build Parameters section for the parameters explanation):<br>`<BuildParametersList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><UseFeaturesInModel>false</UseFeaturesInModel><AllowColdItemPlacement>false</AllowColdItemPlacement><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableFeatureCorrelation>false</EnableFeatureCorrelation><RefreshFeatureScoreOnBuild>false</RefreshFeatureScoreOnBuild><ComputeUpd>false</ComputeUpd><EnableModelingInsights>true</EnableModelingInsights><ModelingFeatureList /><ReasoningFeatureList /></BuildParametersList>`|
+| Request Body | If left empty then the build will be executed with the default build parameters<br><br>If you want to set the build parameters send the parameters as XML into the body like in the following sample (see Build Parameters section for the parameters explanation)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasonningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Response**:
 
 HTTP Status code: 200
 
+This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
+
+You cannot consume recommendations till the build ends.
+
+Valid build status:
+
+- Create – model was created
+- Queued – model build was triggered and it is queued
+- Building – the model is being build
+- Success – the build ended successfully
+- Error – the build ended with a failure
+- Cancelled – build was canceled
+- Cancelling – build is being cancelled
+
+
+Note: the build id can be found under the path: `Feed\entry\content\properties\Id`
+
 OData XML
 
-	This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
-	You cannot consume recommendations till the build ends.
-
-	Valid build status:
-
-	* Create – model was created
-	* Queued – model build was triggered and it is queued
-	* Building – the model is being build
-	* Success – the build ended successfully
-	* Error – the build ended with a failure
-	* Cancelled – build was canceled
-	* Cancelling – build is being cancelled
-
-	Feed\entry\content\properties\Id – contains the build id
-
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Build a Model with RequestBody</subtitle>
-  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T08:56:34Z</updated>
-  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">BuildAModelEntity2</title>
     <updated>2014-10-05T08:56:34Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">1000272</d:Id>
@@ -1715,7 +1942,84 @@ OData XML
   	</entry>
 	</feed>
 
-###9.2.	Get Builds Status of a Model
+###11.3. Trigger Build (Rank or Recommendation)
+
+| HTTP Method | URI |
+|:--------|:--------|
+|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+| modelId |	The unique identifier of the model.  |
+| userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
+| buildType | The type of the build to invoke <br> - 'Ranking' for rank build <br/> - 'Recommendation' - for recommendation build
+| apiVersion | 1.0 |
+|||
+| Request Body | If left empty then the build will be executed with the default build parameters<br><br>If you want to set the build parameters send the parameters as XML into the body like in the following sample (see Build Parameters section for the parameters explanation)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+
+**Response**:
+
+HTTP Status code: 200
+
+This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
+
+You cannot consume recommendations till the build ends.
+
+Valid build status:
+
+- Create – model was created
+- Queued – model build was triggered and it is queued
+- Building – the model is being build
+- Success – the build ended successfully
+- Error – the build ended with a failure
+- Cancelled – build was canceled
+- Cancelling – build is being cancelled
+
+Note: the build id can be found under the path: `Feed\entry\content\properties\Id`
+
+OData XML
+
+    <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  	<title type="text" />
+  	<subtitle type="text">Build a Model with RequestBody</subtitle>
+  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
+  	<rights type="text" />
+  	<updated>2014-10-05T08:56:34Z</updated>
+  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
+  	<entry>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <title type="text">BuildAModelEntity2</title>
+    <updated>2014-10-05T08:56:34Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id m:type="Edm.String">1000272</d:Id>
+        <d:UserName m:type="Edm.String"></d:UserName>
+        <d:ModelId m:type="Edm.String">9559872f-7a53-4076-a3c7-19d9385c1265</d:ModelId>
+        <d:ModelName m:type="Edm.String">docTest</d:ModelName>
+        <d:Type m:type="Edm.String">Recommendation</d:Type>
+        <d:CreationTime m:type="Edm.String">2014-10-05T08:56:31.893</d:CreationTime>
+        <d:Progress_BuildId m:type="Edm.String">1000272</d:Progress_BuildId>
+        <d:Progress_ModelId m:type="Edm.String">9559872f-7a53-4076-a3c7-19d9385c1265</d:Progress_ModelId>
+        <d:Progress_UserName m:type="Edm.String">5-4058-ab36-1fe254f05102@dm.com</d:Progress_UserName>
+        <d:Progress_IsExecutionStarted m:type="Edm.String">false</d:Progress_IsExecutionStarted>
+        <d:Progress_IsExecutionEnded m:type="Edm.String">false</d:Progress_IsExecutionEnded>
+        <d:Progress_Percent m:type="Edm.String">0</d:Progress_Percent>
+        <d:Progress_StartTime m:type="Edm.String">0001-01-01T00:00:00</d:Progress_StartTime>
+        <d:Progress_EndTime m:type="Edm.String">0001-01-01T00:00:00</d:Progress_EndTime>
+        <d:Progress_UpdateDateUTC m:type="Edm.String"></d:Progress_UpdateDateUTC>
+        <d:Status m:type="Edm.String">Queued</d:Status>
+        <d:Key1 m:type="Edm.String">UseFeaturesInModel</d:Key1>
+        <d:Value1 m:type="Edm.String">False</d:Value1>
+      </m:properties>
+    </content>
+  	</entry>
+	</feed>
+
+
+
+
+###11.4.	Get Builds Status of a Model
 Retrieves builds and their status for a specified model
 
 | HTTP Method | URI |
@@ -1734,44 +2038,50 @@ Retrieves builds and their status for a specified model
 
 HTTP Status code: 200
 
+The response includes one entry per build, each entry has the following data:
+
+- `feed/entry/content/properties/UserName` – the name of the user
+- `feed/entry/content/properties/ModelName` – the name of the model
+- `feed/entry/content/properties/ModelId` – the model unique identifier
+- `feed/entry/content/properties/IsDeployed` – is the build deployed (a.k.a. active build)
+- `feed/entry/content/properties/BuildId` – the build unique identifier
+- `feed/entry/content/properties/BuildType` - the type of the build
+- `feed/entry/content/properties/Status` – build status. Can be one of the following: Error, Building, Queued, Cancelling, Cancelled, Success
+- `feed/entry/content/properties/StatusMessage` – detailed status message (applies only to specific states)
+- `feed/entry/content/properties/Progress` – build progress (%)
+- `feed/entry/content/properties/StartTime` – Build start time
+- `feed/entry/content/properties/EndTime` – Build end time
+- `feed/entry/content/properties/ExecutionTime` – Build duration
+- `feed/entry/content/properties/ProgressStep` – details about the current stage that a build in progress is in.
+
+Valid build status:
+- Created – build request entry was created
+- Queued – build request was triggered and it is queued
+- Building – the build is in process
+- Success – the build ended successfully
+- Error – the build ended with a failure
+- Cancelled – build was canceled
+- Cancelling – build is being cancelled
+
+Valid values for build type:
+- Rank - rank build
+- Recommendation - recommendation build
+
+
 OData XML
 
-	The response includes one entry per build, each entry has the following data:
-
-	feed/entry/content/properties/UserName – the name of the user
-	feed/entry/content/properties/ModelName – the name of the model
-	feed/entry/content/properties/ModelId – the model unique identifier
-	feed/entry/content/properties/IsDeployed – is the build deployed
-	feed/entry/content/properties/BuildId – the build unique identifier
-	feed/entry/content/properties/Status – build status. Can be one of the following: Error, Building, Queued, Cancelled, Cancelling, Success
-	feed/entry/content/properties/StatusMessage – detailed status message (applies only to specific states)
-	feed/entry/content/properties/Progress – build progress (%)
-	feed/entry/content/properties/StartTime – Build start time
-	feed/entry/content/properties/EndTime – Build end time
-	feed/entry/content/properties/ExecutionTime – Build duration
-	feed/entry/content/properties/ProgressStep – details about the current stage that a build in progress is in.
-
-    Valid build status:
-	* Create – model was created
-	* Queued – model build was triggered and it is queued
-	* Building – the model is being build
-	* Success – the build ended successfully
-	* Error – the build ended with a failure
-	* Cancelled – build was canceled
-	* Cancelling – build is being cancelled
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get builds status of a model</subtitle>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-11-05T17:51:10Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'" />
 		<entry>
-    		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetBuildsStatusEntity</title>
 			<updated>2014-11-05T17:51:10Z</updated>
-    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:UserName m:type="Edm.String">b-434e-b2c9-84935664ff20@dm.com</d:UserName>
@@ -1779,6 +2089,7 @@ OData XML
 					<d:ModelId m:type="Edm.String">1d20c34f-dca1-4eac-8e5d-f299e4e4ad66</d:ModelId>
 					<d:IsDeployed m:type="Edm.String">true</d:IsDeployed>
 					<d:BuildId m:type="Edm.String">1000272</d:BuildId>
+                    <d:BuildType m:type="Edm.String">Recommendation</d:BuildType>
 					<d:Status m:type="Edm.String">Success</d:Status>
 					<d:StatusMessage m:type="Edm.String"></d:StatusMessage>
 					<d:Progress m:type="Edm.String">0</d:Progress>
@@ -1793,7 +2104,7 @@ OData XML
 	</feed>
 
 
-###9.3. Get Builds Status of a User
+###11.5. Get Builds Status of a User
 Retrieves build statuses of all models of a user
 
 | HTTP Method | URI |
@@ -1811,44 +2122,51 @@ Retrieves build statuses of all models of a user
 
 HTTP Status code: 200
 
+The response includes one entry per build, each entry has the following data:
+
+- `feed/entry/content/properties/UserName` – the name of the user
+- `feed/entry/content/properties/ModelName` – the name of the model
+- `feed/entry/content/properties/ModelId` – the model unique identifier
+- `feed/entry/content/properties/IsDeployed` – is the build deployed
+- `feed/entry/content/properties/BuildId` – the build unique identifier
+- `feed/entry/content/properties/BuildType` - the type of the build
+- `feed/entry/content/properties/Status` – build status. Can be one of the following: Error, Building, Queued, Cancelled, Cancelling, Success
+- `feed/entry/content/properties/StatusMessage` – detailed status message (applies only to specific states)
+- `feed/entry/content/properties/Progress` – build progress (%)
+- `feed/entry/content/properties/StartTime` – Build start time
+- `feed/entry/content/properties/EndTime` – Build end time
+- `feed/entry/content/properties/ExecutionTime` – Build duration
+- `feed/entry/content/properties/ProgressStep` – details about the current stage that a build in progress is in.
+
+Valid build status:
+- Created – the build request entry was created
+- Queued – the build request was triggered and it is queued
+- Building – the build is in process
+- Success – the build ended successfully
+- Error – the build ended with a failure
+- Cancelled – build was canceled
+- Cancelling – build is being cancelled
+
+
+Valid values for build type:
+- Rank - rank build
+- Recommendation - recommendation build
+
+
 OData XML
 
-	The response includes one entry per build, each entry has the following data:
-
-	feed/entry/content/properties/UserName – the name of the user
-	feed/entry/content/properties/ModelName – the name of the model
-	feed/entry/content/properties/ModelId – the model unique identifier
-	feed/entry/content/properties/IsDeployed – is the build deployed
-	feed/entry/content/properties/BuildId – the build unique identifier
-	feed/entry/content/properties/Status – build status. Can be one of the following: Error, Building, Queued, Cancelled, Cancelling, Success
-	feed/entry/content/properties/StatusMessage – detailed status message (applies only to specific states)
-	feed/entry/content/properties/Progress – build progress (%)
-	feed/entry/content/properties/StartTime – Build start time
-	feed/entry/content/properties/EndTime – Build end time
-	feed/entry/content/properties/ExecutionTime – Build duration
-	feed/entry/content/properties/ProgressStep – details about the current stage that a build in progress is in.
-
-    Valid build status:
-	* Create – model was created
-	* Queued – model build was triggered and it is queued
-	* Building – the model is being build
-	* Success – the build ended successfully
-	* Error – the build ended with a failure
-	* Cancelled – build was canceled
-	* Cancelling – build is being cancelled
-
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetUserBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get builds status of a user</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-11-05T18:41:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetBuildsStatusEntity</title>
 			<updated>2014-11-05T18:41:21Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:UserName m:type="Edm.String">b-434e-b2c9-84935664ff20@dm.com</d:UserName>
@@ -1856,6 +2174,7 @@ OData XML
 					<d:ModelId m:type="Edm.String">1d20c34f-dca1-4eac-8e5d-f299e4e4ad66</d:ModelId>
 					<d:IsDeployed m:type="Edm.String">true</d:IsDeployed>
 					<d:BuildId m:type="Edm.String">1000272</d:BuildId>
+                    <d:BuildType m:type="Edm.String">Recommendation</d:BuildType>
 					<d:Status m:type="Edm.String">Success</d:Status>
 					<d:StatusMessage m:type="Edm.String"></d:StatusMessage>
 					<d:Progress m:type="Edm.String">0</d:Progress>
@@ -1870,7 +2189,7 @@ OData XML
 	</feed>
 
 
-###9.4. Delete Build
+###11.6. Delete Build
 Deletes a build.
 
 NOTE: You cannot delete an Active build. The model should be updated to a different Active Build before you delete it.
@@ -1904,12 +2223,12 @@ Cancel a build that is in building status
 
 HTTP Status code: 200
 
-###9.6. Get Build Parameters
+###11.7. Get Build Parameters
 Retrieves build parameters
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetBuildParameters?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetBuildParameters?buildId=%271500068%27&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetBuildParameters?buildId=%27<buildId>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetBuildParameters?buildId=%271000653%27&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -1920,116 +2239,43 @@ Retrieves build parameters
 
 HTTP Status code: 200
 
-OData XML
-
-A collection of key/value that each one contains one parameter:
-<pre>
-The key:
-	feed/entry/content/properties/Key – Build parameter name
-The value:
-	feed/entry/content/properties/Value – Build parameter value
-</pre>
+This API returns a collection of key/value elements, each element represents a parameter and its value:
+- `feed/entry/content/properties/Key` – Build parameter name
+- `feed/entry/content/properties/Value` – Build parameter value
 
 The table below depicts for each key what is the value it represents
-	<table>
-    	<tr>
-        	<th>Key</th>
-        	<th>Description</th>
-        	<th>Type</th>
-        	<th>Valid Value</th>
-        </tr>
-        <tr>
-        	<td>NumberOfModelIterations</td>
-        	<td>The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.</td>
-            <td>Integer</td>
-            <td>10-50</td>
-        </tr>
-        <tr>
-        	<td>NumberOfModelDimensions</td>
-        	<td>The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items.</td>
-            <td>Integer</td>
-            <td>10-40</td>
-        </tr>
-        <tr>
-        	<td>MinItemAppearance</td>
-        	<td>You can control the minimum number of appearances which an item is not included in the model. The higher the threshold, the better results you'll get from the model. However, if the threshold is too high, you may end up with not enough items to be of use for you.</td>
-            <td>Integer</td>
-            <td>0 or more</td>
-        </tr>
-        <tr>
-        	<td>MinUserAppearance</td>
-        	<td>You can control the minimum number of appearances which a user is not included in the model. The higher the threshold, the better results you'll get from the model. However, if the threshold is too high, you may end up with not enough items to be of use for you, or no recommendations for a specific user.</td>
-            <td>Integer</td>
-            <td>0-20</td>
-        </tr>
-        <tr>
-        	<td>Description</td>
-        	<td>The build description</td>
-            <td>String</td>
-            <td>Any text, maximum 255 chars</td>
-        </tr>
-        <tr>
-        	<td>UseFeaturesInModel</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>AllowColdItemPlacement</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>EnableFeatureCorrelation</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>RefreshFeatureScoreOnBuild</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>ComputeUpd</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>EnableModelingInsights</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>ModelingFeatureList</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-        	<td>ReasoningFeatureList</td>
-        	<td>For future use</td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+|Key|Description|Type|Valid Value|
+|:-----|:----|:----|:---|
+|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
+| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
+|ItemCutOffLowerBound| Defines the item lower bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+| Description | The build description | String | Any text, maximum 512 chars |
+| EnableModelingInsights | Allows to compute metrics on the recommendation model | Boolean | True/False |
+| UseFeaturesInModel | Indicate if features can be used in order to enhance recommendation model | Boolean | True/False |
+| ModelingFeatureList | A comma separated list of feature name to be use in recommendation build, in order to enhance the recommendation | String | The features name up to 512 chars |
+| AllowColdItemPlacement | Indicate if recommendation should also push cold item via feature similarity | Boolean | True/False |
+| EnableFeatureCorrelation | Indicate if features can be used in reasoning | Boolean | True/False |
+| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explations)  | String | The features name up to 512 chars |
+
+
+OData XML
+
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get build parameters</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
-		<updated>2014-11-02T11:23:53Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'" />
+		<updated>2015-01-08T13:50:57Z</updated>
+		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
-			<updated>2014-11-02T11:23:53Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">UseFeaturesInModel</d:Key>
@@ -2038,10 +2284,10 @@ The table below depicts for each key what is the value it represents
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
-			<updated>2014-11-02T11:23:53Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">AllowColdItemPlacement</d:Key>
@@ -2050,141 +2296,141 @@ The table below depicts for each key what is the value it represents
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
-    		<title type="text">GetBuildParametersEntity</title>
-    		<updated>2014-11-02T11:23:53Z</updated>
-    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
-    		<content type="application/xml">
-      			<m:properties>
-        			<d:Key m:type="Edm.String">EnableFeatureCorrelation</d:Key>
-        			<d:Value m:type="Edm.String">False</d:Value>
-      			</m:properties>
-    		</content>
-  		</entry>
-  		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
-			<updated>2014-11-02T11:23:53Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
 			<content type="application/xml">
-          		<m:properties>
-        			<d:Key m:type="Edm.String">RefreshFeatureScoreOnBuild</d:Key>
-        			<d:Value m:type="Edm.String">False</d:Value>
-      			</m:properties>
-    		</content>
-  		</entry>
-      	<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
-        	<title type="text">GetBuildParametersEntity</title>
-        	<updated>2014-11-02T11:23:53Z</updated>
-        	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
-        	<content type="application/xml">
-          		<m:properties>
-            		<d:Key m:type="Edm.String">ComputeUpd</d:Key>
-            		<d:Value m:type="Edm.String">False</d:Value>
-          		</m:properties>
-        	</content>
+				<m:properties>
+					<d:Key m:type="Edm.String">EnableFeatureCorrelation</d:Key>
+					<d:Value m:type="Edm.String">False</d:Value>
+				</m:properties>
+			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
-    		<updated>2014-11-02T11:23:53Z</updated>
-    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">EnableModelingInsights</d:Key>
-					<d:Value m:type="Edm.String">True</d:Value>
+					<d:Value m:type="Edm.String">False</d:Value>
 				</m:properties>
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
-			<updated>2014-11-02T11:23:53Z</updated>
-        	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
-        	<content type="application/xml">
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
+			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">NumberOfModelIterations</d:Key>
-					<d:Value m:type="Edm.String">40</d:Value>
+					<d:Value m:type="Edm.String">10</d:Value>
 				</m:properties>
-        	</content>
+			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
-			<title type="text">GetBuildParametersEntity</title>
-        	<updated>2014-11-02T11:23:53Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
+			<titletype="text">GetBuildParametersEntity</title>
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">NumberOfModelDimensions</d:Key>
-            		<d:Value m:type="Edm.String">20</d:Value>
+					<d:Value m:type="Edm.String">10</d:Value>
 				</m:properties>
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
-			<updated>2014-11-02T11:23:53Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
+			<updated>2015-01-08T13:50:57Z</updated>
+			<linkrel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
-					<d:Key m:type="Edm.String">MinItemAppearance</d:Key>
-					<d:Value m:type="Edm.String">5</d:Value>
+					<d:Key m:type="Edm.String">ItemCutOffLowerBound</d:Key>
+					<d:Value m:type="Edm.String">2</d:Value>
 				</m:properties>
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
-			<updated>2014-11-02T11:23:53Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
-					<d:Key m:type="Edm.String">MinUserAppearance</d:Key>
-					<d:Value m:type="Edm.String">5</d:Value>
+					<d:Key m:type="Edm.String">ItemCutOffUpperBound</d:Key>
+					<d:Value m:type="Edm.String">2147483647</d:Value>
 				</m:properties>
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
-        	<title type="text">GetBuildParametersEntity</title>
-        	<updated>2014-11-02T11:23:53Z</updated>
-        	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
-        	<content type="application/xml">
-          		<m:properties>
-            		<d:Key m:type="Edm.String">ModelingFeatureList</d:Key>
-            		<d:Value m:type="Edm.String"></d:Value>
-          		</m:properties>
-        	</content>
-      	</entry>
-      	<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
-        	<title type="text">GetBuildParametersEntity</title>
-        	<updated>2014-11-02T11:23:53Z</updated>
-        	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
-        	<content type="application/xml">
-          		<m:properties>
-            		<d:Key m:type="Edm.String">ReasoningFeatureList</d:Key>
-            		<d:Value m:type="Edm.String"></d:Value>
-          		</m:properties>
-        	</content>
-      	</entry>
-      	<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
-        	<title type="text">GetBuildParametersEntity</title>
-        	<updated>2014-11-02T11:23:53Z</updated>
-        	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetBuildParameters?buildId='1500075'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
-        	<content type="application/xml">
-          		<m:properties>
-            		<d:Key m:type="Edm.String">Description</d:Key>
-            		<d:Value m:type="Edm.String"></d:Value>
-          		</m:properties>
-        	</content>
-      	</entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
+			<title type="text">GetBuildParametersEntity</title>
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Key m:type="Edm.String">UserCutOffLowerBound</d:Key>
+					<d:Value m:type="Edm.String">2</d:Value>
+				</m:properties>
+			</content>
+		</entry>
+		<entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
+			<title type="text">GetBuildParametersEntity</title>
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Key m:type="Edm.String">UserCutOffUpperBound</d:Key>
+					<d:Value m:type="Edm.String">2147483647</d:Value>
+				</m:properties>
+			</content>
+		</entry>
+		<entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
+			<title type="text">GetBuildParametersEntity</title>
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Key m:type="Edm.String">ModelingFeatureList</d:Key>
+					<d:Value m:type="Edm.String"/>
+				</m:properties>
+			</content>
+		</entry>
+		<entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
+			<title type="text">GetBuildParametersEntity</title>
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Key m:type="Edm.String">ReasoningFeatureList</d:Key>
+					<d:Value m:type="Edm.String"/>
+				</m:properties>
+			</content>
+		</entry>
+		<entry>
+			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
+			<title type="text">GetBuildParametersEntity</title>
+			<updated>2015-01-08T13:50:57Z</updated>
+			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
+			<content type="application/xml">
+				<m:properties>
+					<d:Key m:type="Edm.String">Description</d:Key>
+					<d:Value m:type="Edm.String">rankBuild</d:Value>
+				</m:properties>
+			</content>
+		</entry>
 	</feed>
 
-##10. Recommendation
-###10.1. Get Recommendations
+##12. Recommendation
+###12.1. Get Recommendations
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2202,28 +2448,29 @@ The table below depicts for each key what is the value it represents
 
 HTTP Status code: 200
 
+
+The response includes one entry per recommended item, each entry has the following data:
+- `Feed\entry\content\properties\Id` – The recommended item id
+- `Feed\entry\content\properties\Name` – The name of the item
+- `Feed\entry\content\properties\Rating` – The rating of the recommendation, higher number means higher confidence
+- `Feed\entry\content\properties\Reasoning` – the recommendation reasoning (e.g. recommendation explanations)
+
+The example response below includes 10 recommended items:
+
 OData XML
 
-    The response includes one entry per recommended item, each entry has the following data:
-		* Feed\entry\content\properties\Id – The recommended item id
-		* Feed\entry\content\properties\Name – The name of the item 
-		* Feed\entry\content\properties\Rating – The rating of the recommendation, higher number means higher confidence
-		* Feed\entry\content\properties\Reasoning – the recommendation reasoning
-
-    The example response below includes 10 recommended items:
-
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
  	 <subtitle type="text">Get Recommendation</subtitle>
- 	 <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'</id>
+ 	 <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T12:28:48Z</updated>
-  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">159</d:Id>
@@ -2234,10 +2481,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">52</d:Id>
@@ -2248,10 +2495,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">35</d:Id>
@@ -2262,10 +2509,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">124</d:Id>
@@ -2276,10 +2523,10 @@ OData XML
     </content>
   	</entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">120</d:Id>
@@ -2290,10 +2537,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">96</d:Id>
@@ -2304,10 +2551,10 @@ OData XML
     </content>
   	</entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">69</d:Id>
@@ -2318,10 +2565,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">172</d:Id>
@@ -2332,10 +2579,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">155</d:Id>
@@ -2346,10 +2593,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v1/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">32</d:Id>
@@ -2361,14 +2608,14 @@ OData XML
  	 </entry>
 	</feed>
 
-##11. Notifications
+##13. Notifications
 Azure ML Recommendations creates notification when there are persistent errors that happen in the system. There are 3 type of notifications:
 1.	Build failure – this notification is triggered for every build failure.
 2.	Data Acquisition processing failure - this notification is triggered when we have more than 100 errors in the last 5 minutes in the processing of usage events per model.
 3.	Recommendation consumption failure - this notification is triggered when we have more than 100 errors in the last 5 minutes in the processing of recommendation requests per model.
 
 
-###11.1. Get Notifications
+###13.1. Get Notifications
 Retrieves all the notification for all models or for a single model.
 
 | HTTP Method | URI |
@@ -2396,18 +2643,18 @@ OData XML
 		* feed\entry\content\properties\DateCreated – the date that this notification was created in UTC format
 		* feed\entry\content\properties\NotificationType – the notification types, values: BuildFailure, RecommendationFailure, DataAquisitionFailure
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v1/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get a list of Notifications for a user</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-11-04T13:24:23Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'" />
 		<entry>
-				<id>https://api.datamarket.azure.com/amla/recommendations/v1/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+				<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetAListOfNotificationsForAUserEntity</title>
 			<updated>2014-11-04T13:24:23Z</updated>
-    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v1/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:UserName m:type="Edm.String">515506bc-3693-4dce-a5e2-81cb3e8efb56@dm.com</d:UserName>
@@ -2420,7 +2667,7 @@ OData XML
 		</entry>
 	</feed>
 
-###11.2. Delete Model Notifications
+###13.2. Delete Model Notifications
 Deletes all read notifications for a model
 
 | HTTP Method | URI |
@@ -2457,8 +2704,8 @@ Deletes all notifications for all models
 
 HTTP Status code: 200
 
-##12. Legal
+##14. Legal
 This document is provided “as-is”. Information and views expressed in this document, including URL and other Internet Web site references, may change without notice.<br><br>
 Some examples depicted herein are provided for illustration only and are fictitious. No real association or connection is intended or should be inferred.<br><br>
 This document does not provide you with any legal rights to any intellectual property in any Microsoft product. You may copy and use this document for your internal, reference purposes.<br><br>
-© 2014 Microsoft. All rights reserved.
+© 2015 Microsoft. All rights reserved.

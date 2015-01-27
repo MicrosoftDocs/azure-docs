@@ -1,22 +1,21 @@
-<properties title="" pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB, a NoSQL document database, and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." metaKeywords="" services="documentdb" solutions="data-management" authors="mimig1" manager="jhubbard" editor="monicar" videoId="" scriptId="" documentationCenter=""/>
+<properties pageTitle="Introduction to Microsoft Azure DocumentDB | Azure" description="Learn about Azure DocumentDB, a NoSQL document database, and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." services="documentdb" authors="mimig1" manager="jhubbard" editor="monicar" documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="mimig" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/26/2015" ms.author="mimig"/>
 
 #Introduction to Microsoft Azure DocumentDB
 
-This article provides an introduction to Microsoft Azure DocumentDB, a NoSQL document database service for developers, IT Pros, and business decision makers. By reading it, you'll be able to answer the following questions:  
+This article provides an introduction to Microsoft Azure DocumentDB, a NoSQL document database service for developers, IT Pros, and business decision makers. 
 
--	[Azure DocumentDB 101 with Ryan CrawCour (Video)](#video)
+We recommend getting started by watching the following video, where Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB. (Duration: 10:02)  
+
+> [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
+
+Then, return to this article, where you'll learn the answers to the following questions:  
+
 -	[What is DocumentDB and what value does it provide to cloud and mobile applications?](#what-is-docdb)
 -	[How is my data managed in DocumentDB and how do I access it?](#data-management)
 -	[How do I develop applications using DocumentDB?](#develop)
 -	[What are my next steps to build a DocumentDB application?](#next-steps)  
-
-##<a name="video"></a>Azure DocumentDB 101 with Ryan CrawCour (Video)
-
-In this video, Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB. (Duration: 10:02)  
-
-> [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
 ##<a name="what-is-docdb"></a>What is Azure DocumentDB?  
 

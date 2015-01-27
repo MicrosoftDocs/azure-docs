@@ -1,4 +1,4 @@
-<properties title="" pageTitle="Data retention and storage in Application Insights" description="Retention and privacy policy statement" metaKeywords="analytics monitoring application insights" authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
+<properties pageTitle="Data retention and storage in Application Insights" description="Retention and privacy policy statement" services="application-insights" authors="alancameronwills" manager="kamrani"/>
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-14" ms.author="awills" />
 

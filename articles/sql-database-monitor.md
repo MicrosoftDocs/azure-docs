@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to monitor" pageTitle="How to monitor a SQL Database - Azure service management" metaKeywords="" description="Learn how to monitor a SQL Database using the Azure Management Portal." metaCanonical="" services="sql-database" documentationCenter="" title="" authors="jeffgoll" solutions="" manager="jeffreyg" editor=""/>
+<properties pageTitle="How to monitor a SQL Database - Azure service management" description="Learn how to monitor a SQL Database using the Azure Management Portal." services="sql-database" documentationCenter="" authors="jeffgoll" manager="jeffreyg" editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="jeffreyg"/>
 
 
 

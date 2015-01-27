@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web w/ Storage" pageTitle="PHP website with table storage - Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." metaCanonical="" services="web-sites, storage" documentationCenter="php" title="" authors="tfitzmac" solutions="" manager="wpickett" editor=""/>
+<properties pageTitle="PHP website with table storage - Azure tutorial" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." services="web-sites, storage" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz"/>
 
 #Create a PHP Website using Azure Storage
 
@@ -17,7 +17,7 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ![Azure PHP web site][ws-storage-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Installing the Azure client libraries
 

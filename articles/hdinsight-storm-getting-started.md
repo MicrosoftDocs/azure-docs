@@ -1,6 +1,6 @@
-<properties title="" pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
+<properties pageTitle="Getting started using Apache Storm with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process data in realtime with HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="larryfr"/>
 
 #Getting started using Storm with HDInsight (Hadoop)
 
@@ -8,7 +8,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 ##In this tutorial, you will learn...
 
-* [How to provision an HDInsight Storm cluster](#provision)
+* [How to provision a Storm cluster on HDInsight](#provision)
 
 * [How to connect to the cluster](#connect)
 
@@ -32,7 +32,7 @@ You must have the following to successfully complete this tutorial.
 
 ##<a id="provision"></a>Provision a Storm cluster on the Azure portal
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 1. Sign in to the [Azure Management Portal][azureportal]
 
@@ -46,7 +46,7 @@ You must have the following to successfully complete this tutorial.
 
 5. Enter the number of **Data Nodes** to use for this cluster, and the **Region/Virtual Network** that this cluster will be created in. Click the arrow to continue.
 
-	> [WACOM.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
+	> [AZURE.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
 	![data nodes and region](./media/hdinsight-storm-getting-started/wizard2.png)
 
@@ -76,9 +76,9 @@ You must have the following to successfully complete this tutorial.
 
 	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the check mark to start provisioning the cluster.
 
-##Using HDInsight Storm
+##Using Storm on HDInsight
 
-For the preview release of HDInsight Storm, you must connect to the cluster using Remote Desktop to work with Storm. Use the following steps to connect to the HDInsight cluster and use the Storm command.
+For the preview release of Storm on HDInsight, you must connect to the cluster using Remote Desktop to work with Storm. Use the following steps to connect to the HDInsight cluster and use the Storm command.
 
 ###<a id="connect"></a>Connect to the cluster
 
@@ -94,7 +94,7 @@ For the preview release of HDInsight Storm, you must connect to the cluster usin
 
     ![connect](./media/hdinsight-storm-getting-started/connect.png)
 
-	> [WACOM.NOTE] You may receive several prompts to trust certificates while connecting to the remote machine.
+	> [AZURE.NOTE] You may receive several prompts to trust certificates while connecting to the remote machine.
 
 3. After connecting, use the __Hadoop Command Line__ icon on the desktop to open the Hadoop Command Line.
 
@@ -106,7 +106,7 @@ For the preview release of HDInsight Storm, you must connect to the cluster usin
 
 4. To see a list of commands available, enter `storm` without any parameters.
 
-The HDInsight cluster comes with several example Storm topologies. The sample **WordcountTopology** is used in the following steps. For more information on the examples provided with HDInsight Storm, see [Next Steps](#next).
+The HDInsight cluster comes with several example Storm topologies. The sample **WordcountTopology** is used in the following steps. For more information on the examples provided with Storm on HDInsight, see [Next Steps](#next).
 
 ###<a id="run"></a>To run a Storm topology
 
@@ -116,7 +116,7 @@ To run the **WordCountTopology**, use the following commands.
 
 This tells Storm that we want to run the **wordcount** topology from the **storm.starter.WordCountTopology** class, which is contained in the **storm-starter-&lt;version>-jar-with-dependencies.jar** file. This file is located in the contrib folder under the %storm_home% directory, along with the other Storm examples.
 
-> [WACOM.NOTE] The version of the JAR file containing the examples may change periodically. Specify the version of the file provided with your cluster when running this command.
+> [AZURE.NOTE] The version of the JAR file containing the examples may change periodically. Specify the version of the file provided with your cluster when running this command.
 
 Note that nothing is returned when you enter the command. **A Storm topology, once started, runs until you stop it.** The WordCountTopology will generate random sentences, and keep a count of how many times it encounters each word, until you stop it.
 
@@ -138,7 +138,7 @@ The WordCountTopology sample doesn't write output to a directory, but we can use
 
 	![selecting executors](./media/hdinsight-storm-getting-started/executors.png)
 
-	> [WACOM.NOTE] Depending on the number of nodes in your cluster, and the topology you are running, it may take several minutes before the topology begins processing. Refresh the page periodically until the **Emitted** and **Transferred** values start increasing.
+	> [AZURE.NOTE] Depending on the number of nodes in your cluster, and the topology you are running, it may take several minutes before the topology begins processing. Refresh the page periodically until the **Emitted** and **Transferred** values start increasing.
 
 6. You should see a page containing information similar to the following.
 
@@ -171,7 +171,7 @@ If you view the Storm UI web page immediately after this command, you will notic
 
 ##<a id="next"></a>Next steps
 
-* **Sample files** - The HDInsight Storm cluster provides several examples in the **%storm_home%\contrib** directory. Each example should contain the following.
+* **Sample files** - The Storm cluster provides several examples in the **%storm_home%\contrib** directory. Each example should contain the following.
 
 	* The source code - for example, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -181,7 +181,7 @@ If you view the Storm UI web page immediately after this command, you will notic
 
 	Use the 'jar' command to extract the source code or Java docs. For example, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.
 
-	> [WACOM.NOTE] Java docs consist of web pages. Once extracted, use a browser to view the **index.html** file.
+	> [AZURE.NOTE] Java docs consist of web pages. Once extracted, use a browser to view the **index.html** file.
 
 * [Analyzing sensor data with Storm and HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis)
 

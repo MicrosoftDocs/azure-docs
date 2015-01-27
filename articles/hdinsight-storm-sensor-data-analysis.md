@@ -1,10 +1,10 @@
-<properties title="" pageTitle="Analyzing sensor data with Apache Storm and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process sensor data in realtime with HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun" videoId="" scriptId=""/>
+<properties pageTitle="Analyzing sensor data with Apache Storm and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use  Apache Storm to process sensor data in realtime with HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr"/>
 
 #Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
 
-Learn how to use build a solution that uses an HDInsight Storm cluster to process sensor data from Azure Event Hub. During processing, the Storm topology will store incoming data into an HBase cluster. The topology will also use SignalR to provide near-real-time information through a web-based dashboard hosted on Azure Websites.
+Learn how to use build a solution that uses a Storm cluster on HDInsight to process sensor data from Azure Event Hub. During processing, the Storm topology will store incoming data into an HBase cluster. The topology will also use SignalR to provide near-real-time information through a web-based dashboard hosted on Azure Websites.
 
 > [AZURE.NOTE] A complete version of this project is available at [https://github.com/Blackmist/hdinsight-eventhub-example](https://github.com/Blackmist/hdinsight-eventhub-example).
 
@@ -557,7 +557,7 @@ In order for the topology running on the Storm cluster to communicate directly w
 
 11. Click **Save** on the bottom of the page.
 
-##Create the HDInsight Storm cluster
+##Create the Storm cluster on HDInsight
 
 1. Sign in to the [Azure Management Portal][azureportal]
 
@@ -1294,7 +1294,7 @@ Leave this prompt open in the HBase shell for now.
 
 ##Package and deploy the topology to HDInsight
 
-On your development environment, use the following steps to run the Temperature topology on your HDInsight Storm Cluster.
+On your development environment, use the following steps to run the Temperature topology on your  Storm Cluster.
 
 1. Use the following command to create a JAR package from your project.
 
@@ -1304,7 +1304,7 @@ On your development environment, use the following steps to run the Temperature 
 
 2. On your local development machine, start the **SendEvents** .NET application, so that we have some events to read.
 
-1. Connect to your HDInsight Storm cluster using Remote Desktop, and copy the **TemperatureMonitor-1.0-SNAPSHOT.jar** file to the **c:\apps\dist\storm&lt;version number>** directory.
+1. Connect to your Storm cluster using Remote Desktop, and copy the **TemperatureMonitor-1.0-SNAPSHOT.jar** file to the **c:\apps\dist\storm&lt;version number>** directory.
 
 2. Use the **HDInsight Command Line** icon on the cluster desktop to open a new command prompt, and use the following commands to run the topology.
 

@@ -1,6 +1,6 @@
-<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="devinrader" solutions="" manager="twilio" editor=""/>
+<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." services="mobile-services" documentationCenter="" authors="devinrader" manager="twilio" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com"/>
 
 
 <h1>How to use Twilio for voice and SMS capabilities from Mobile Services</h1>
@@ -193,7 +193,7 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
         });
     };
 
-[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls

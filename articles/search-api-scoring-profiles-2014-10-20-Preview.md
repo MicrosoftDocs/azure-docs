@@ -1,6 +1,6 @@
-<properties title="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" pageTitle="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" description="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties title="" pageTitle="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" description="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="12/19/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
       
 #Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)#
 
@@ -16,7 +16,7 @@ To give you an idea of what a scoring profile looks like, the following example 
 
     "scoringProfiles": [
       {
-        "name": geo,
+        "name": "geo",
         "text": {
           "weights": { "hotelName": 5 }
         },
@@ -28,8 +28,7 @@ To give you an idea of what a scoring profile looks like, the following example 
             "interpolation": "logarithmic",
             "distance": {
               "referencePointParameter": "currentLocation",
-              "boostingDistance": 10
-            }
+              "boostingDistance": 10 }
           }
         ]
       }
@@ -37,11 +36,11 @@ To give you an idea of what a scoring profile looks like, the following example 
 
 To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter, `scoringProfile=geo` in the request.
 
-    GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
+    GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-10-20-Preview
 
-This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#SearchDocs).
+This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#SearchDocs).
 
-Click Example [#bkmk_ex] to review a more detailed example of a scoring profile.
+Click [Example](#example)  to review a more detailed example of a scoring profile.
 
 ## What is default scoring? ##
 
@@ -59,6 +58,7 @@ You should create one or more scoring profiles when the default ranking behavior
 
 Relevancy-based ordering is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Search, scoring profiles drive the ‘relevance’ option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.
 
+<a name="example"></a>
 ## Example##
 
 As noted, customized scoring is implemented through scoring profiles defined in an index schema. 
@@ -142,7 +142,7 @@ The body of the scoring profile is constructed from weighted fields and function
 <tr>
 <td><b>Weights</b></td>
 <td>
-Specify name-value pairs that assign a relative weight to a field. In the Example [#bkmk_ex], the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, ‘rock’ appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+Specify name-value pairs that assign a relative weight to a field. In the Example [#bkmk_ex], the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
 </td>
 </tr>
 <tr>

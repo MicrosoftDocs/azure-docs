@@ -1,10 +1,12 @@
-<properties title="" pageTitle="Azure Search Service REST API: Version 2014-10-20-Preview" description="Azure Search Service REST API: Version 2014-10-20-Preview" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" editor=""/>
+<properties pageTitle="Azure Search Service REST API: 2014-10-20-Preview" description="Azure Search Service REST API: 2014-10-20-Preview" services="" documentationCenter="" authors="HeidiSteen" manager="mblythe"/>
 
-<tags ms.service="search" ms.devlang="" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="" ms.date="12/16/2014" ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
 
-# Azure Search Service REST API: Version 2014-10-20-Preview #
+# Azure Search Service REST API: 2014-10-20-Preview #
 
-This document describes the **2014-10-20-Preview** version of the Azure Search Service REST API. This is a prototype version of the API, subject to change at any time. Do not take a dependency on this API in production code.
+This document describes the **2014-10-20-Preview** version of the Azure Search Service REST API. This is a prototype version of the API, subject to change at any time. Do not take a dependency on this API in production code. 
+
+> [AZURE.NOTE] Since this is an experimental version, not all features described in this document are available in the Azure Portal user interface. Specifically, multi-language support through the `analyzer` option in fields, the new `tag` scoring function and the new `suggesters` capability are only exposed in the API for the time being. If you use the API to enable one of these capabilities, you'll be able to view index definitions in the portal but not to update them, and you won't see the new features visualized.
 
 Other API content related to this version includes the following:
 
@@ -41,7 +43,7 @@ A separate API is provided for service administration. Examples of service admin
 
 ### Endpoint ###
 
-The endpoint for service operations is the URL of the Azure Search service you provisioned: https://<yourService>.search.windows.net.
+The endpoint for service operations is the URL of the Azure Search service you provisioned: https://*your-service-name*.search.windows.net.
 
 
 ### Versions ###
@@ -62,7 +64,7 @@ Data operations performed against a Search service endpoint, including index man
 
 ###Summary of APIs###
 
-The Azure Search Service API supports two syntaxes for entity lookup. The following list shows both the simple and alternate OData syntax.
+The Azure Search Service API supports two syntaxes for entity lookup: simple and alternate OData syntax (see [Support for OData](http://msdn.microsoft.com/en-us/library/azure/dn798932.aspx) for details. The following list shows the simple syntax.
 
 [Create Index](#CreateIndex)
 
@@ -112,7 +114,7 @@ ________________________________________
 <a name="IndexOps"></a>
 # Index Operations #
 
-You can create and manage indexes in Azure Search service via simple HTTP requests (POST, GET, PUT, DELETE) against a given index resource. To create an index, you first POST a JSON document that describes the index schema. The schema defines the fields of the index, their data types, and how they can be used (for example, in full-text searches, filters, sorting, faceting, or suggestions). It also defines scoring profiles and other attributes to configure the behavior of the index. 
+You can create and manage indexes in Azure Search service via simple HTTP requests (POST, GET, PUT, DELETE) against a given index resource. To create an index, you first POST a JSON document that describes the index schema. The schema defines the fields of the index, their data types, and how they can be used (for example, in full-text searches, filters, sorting, faceting, or suggestions). It also defines scoring profiles, suggesters and other attributes to configure the behavior of the index. 
 
 The following example provides an illustration of a schema used for searching on hotel information with the Description field defined in two languages. Notice how attributes control how the field is used. For example the `hotelId` is used as the document key (`"key": true`) and is excluded from full-text searches (`"searchable": false`).
 
@@ -121,9 +123,9 @@ The following example provides an illustration of a schema used for searching on
     "fields": [
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
-      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
-      {"name": "hotelName", "type": "Edm.String", "suggestions": true},
+      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+      {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
       {"name": "parkingIncluded", "type": "Edm.Boolean"},
@@ -131,6 +133,13 @@ The following example provides an illustration of a schema used for searching on
       {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
       {"name": "rating", "type": "Edm.Int32"},
       {"name": "location", "type": "Edm.GeographyPoint"}
+     ],
+     "suggesters": [
+      {
+       "name": "sg",
+       "searchMode": "analyzingInfixMatching",
+       "sourceFields": ["hotelName"]
+      }
      ] 
     }
  
@@ -142,7 +151,7 @@ For a video introduction to indexing in Azure Search, see the [Channel 9 Cloud C
 <a name="CreateIndex"></a>
 ## Create Index ##
 
-You can create a new index within an Azure Search service using an HTTP POST request. The body of the request is a JSON document that specifies the index name, fields, attributes to control query behavior, scoring of results, and CORS options.
+You can create a new index within an Azure Search service using an HTTP POST request. The body of the request is a JSON document that specifies the index name, fields, attributes to control query behavior, scoring of results, suggesters and CORS options.
 
     POST https://[service name].search.windows.net/indexes?api-version=[api-version]
     Content-Type: application/json
@@ -199,6 +208,13 @@ The syntax for structuring the request payload is as follows. A sample request i
 		  "analyzer": "name of text analyzer"
         }
       ],
+      "suggesters": [
+        {
+          "name": "name of suggester",
+          "searchMode": "analyzingInfixMatching" (other modes may be added in the future),
+          "sourceFields": ["field1", "field2", ...]
+        }
+      ],
       "scoringProfiles": [
         {
           "name": "name of scoring profile",
@@ -228,7 +244,7 @@ The syntax for structuring the request payload is as follows. A sample request i
               },
 			  "tag": {
 				"tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
-			  }
+              }
             }
           ],
           "functionAggregation": (optional, applies only when functions are specified) 
@@ -264,7 +280,7 @@ The following attributes can be set when creating an index. For details about sc
 
   - **Note**: Fields of type `Edm.String` that are `filterable`, `sortable`, or `facetable` can be at most 32KB in length. This is because such fields are treated as a single search term, and the maximum length of a term in Azure Search is 32KB. If you need to store more text than this in a single string field, you will need to explicitly set `filterable`, `sortable`, and `facetable` to `false` in your index definition.
 
-`suggestions` - Sets whether the field can be used for auto-complete for type ahead. This can only be set for fields of type `Edm.String` or `Collection(Edm.String)`. `suggestions` is `false` by default since it requires extra space in your index. 
+`suggestions` - Sets whether the field can be used for auto-complete for type ahead. This can only be set for fields of type `Edm.String` or `Collection(Edm.String)`. `suggestions` is `false` by default since it requires extra space in your index. **Note**: Consider using the `suggesters` property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
 
   - **Note**: If a field has none of the above attributes set to `true` (`searchable`, `filterable`, `sortable`, `facetable`, or `suggestions`) the field is effectively excluded from the inverted index. This option is useful for fields that are not used in queries, but are needed in search results. Excluding such fields from the index improves performance.
 
@@ -289,7 +305,7 @@ The analyzer can be configured independently for each field in the index definit
 
 Below is the list of supported analyzers together with a short description of their features:
 
-<table>
+<table style="font-size:12">
     <tr>
 		<th>Language</th>
 		<th>Analyzer name</th>
@@ -587,6 +603,17 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
+	<td colspan="3">Additionally Azure Search provides language-agnostic analyzer configurations</td> 
+    <tr>
+		<td>Standard ASCII Folding</td>
+		<td>standardasciifolding.lucene</td>
+		<td>
+		<ul>
+			<li>Unicode text segmentation (Standard Tokenizer)</li>
+			<li>ASCII folding filter - converts Unicode characters that don't belong to the set of first 127 ASCII characters into their ASCII equivalents</li>
+		</ul>
+		</td>
+	</tr>
 </table>
 
 All analyzers with names annotated with <i>lucene</i> are powered by [Apache Lucene's language analyzers](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html).
@@ -599,6 +626,23 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
  - If you want to allow access to all origins, include `*` as a single item in the `allowedOrigins` array. Note that **this is not recommended practice for production search services.** However, it may be useful for development or debugging purposes.
 - `maxAgeInSeconds` (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
 
+<a name="suggester"</a>
+**Suggesters**
+
+A suggester enables auto-complete in searches. Typically partial search strings are sent to the suggestions API while the user is typing and the API returns a set of suggested phrases.
+
+Azure Search is transitioning to a new suggesters API. Version 2014-07-31-Preview had a narrower API for suggestions where a field could be marked with `"suggestions": true` and then prefix suggestions for short strings (3-25 characters) could be performed. Starting with version 2014-10-20-Preview Azure Search has a more powerful version of suggestions based on "suggesters" as described in this section. This new implementation can do prefix and infix matching and has better tolerance for mistakes in search strings. Starting with version 2014-10-20-Preview we strongly recommend the use of the new suggesters API.
+
+The current suggester support works best when used to suggest specific documents rather than loose terms/phrases. Good source fields for this type of suggesters are titles, names and other relatively short phrases that can identify an item. Examples of kinds of fields that tend to be less effective are very repetitive fields such as categories and tags or very long fields such as descriptions or comments fields.
+
+As part of the index definition you can add a single suggester to the `suggesters` collection. The properties that define a suggester are:
+
+- `name`: The name of the suggester. You use the name of the suggester when calling the `suggest` API.
+- `searchMode`: The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in middle of sentences.
+- `sourceFields`: A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. In the current preview version of suggesters only fields that don't have a custom analyzer set can be used.
+
+You can currently only have one suggester in the suggesters collections in the current version of the API. 
+
 <a name="CreateUpdateIndexExample"></a>
 **Request Body Example**
  
@@ -607,9 +651,9 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
       "fields": [
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "suggestions": true},
+        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+        {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
         {"name": "parkingIncluded", "type": "Edm.Boolean"},
@@ -617,6 +661,13 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
         {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
         {"name": "rating", "type": "Edm.Int32"},
         {"name": "location", "type": "Edm.GeographyPoint"}
+      ],
+      "suggesters": [
+        {
+          "name": "sg",
+          "searchMode": "analyzingInfixMatching",
+          "sourceFields": ["hotelName"]
+        }
       ] 
     }
 
@@ -635,7 +686,7 @@ You can update an existing index within Azure Search using an HTTP PUT request. 
     Content-Type: application/json
     api-key: [admin key]
 
-**Important:** In the Azure Search Public Preview, there is support for limited index schema updates. Any schema updates that would require re-indexing such as changing field types are not currently supported. New fields can be added at any time, although existing fields cannot be changed or deleted.
+**Important:** Support for index schema updates is limited to operations that don't require rebuilding the search index. Any schema updates that would require re-indexing such as changing field types are not currently supported. New fields can be added at any time, although existing fields cannot be changed or deleted. The same applies to suggesters; New fields may be added to a suggester at the time the fields are added, but fields cannot be removed from suggesters and existing fields cannot be added to suggesters.
 
 When adding a new field to an index, all existing documents in the index will automatically have a null value for that field. No additional storage space will be consumed until new documents are added to the index.
 
@@ -658,7 +709,7 @@ You will also need the service name to construct the request URL. You can get th
 
 **Request Body Syntax**
 
-When updating an existing index, the body must include the original schema definition, plus the new fields you are adding, as well as the modified scoring profiles and CORS options, if any. If you are not modifying the scoring profiles and CORS options, you must include the originals from when the index was created. In general the best pattern to use for updates is to retrieve the index definition with a GET, modify it, then update it with PUT.
+When updating an existing index, the body must include the original schema definition, plus the new fields you are adding, as well as the modified scoring profiles, suggesters and CORS options, if any. If you are not modifying the scoring profiles and CORS options, you must include the originals from when the index was created. In general the best pattern to use for updates is to retrieve the index definition with a GET, modify it, then update it with PUT.
 
 The schema syntax used to create an index is reproduced here for convenience. See [Create Index](#CreateIndex) for more details.
 
@@ -676,6 +727,13 @@ The schema syntax used to create an index is reproduced here for convenience. Se
           "key": true | false (default, only Edm.String fields can be keys),
           "retrievable": true (default) | false,
 		  "analyzer": "name of text analyzer"
+        }
+      ],
+      "suggesters": [
+        {
+          "name": "name of suggester",
+          "searchMode": "analyzingInfixMatching" (other modes may be added in the future),
+          "sourceFields": ["field1", "field2", ...]
         }
       ],
       "scoringProfiles": [
@@ -707,7 +765,7 @@ The schema syntax used to create an index is reproduced here for convenience. Se
               },
 			  "tag": {
 				"tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
-			  }
+              }
             }
           ],
           "functionAggregation": (optional, applies only when functions are specified) 
@@ -1100,6 +1158,10 @@ The request URI specifies which index to query, for all documents that match the
 
 `highlight=[string]` (optional) - a set of comma-separated field names used for hit highlights. Only `searchable` fields can be used for hit highlighting.
 
+  `highlightPreTag=[string]` (optional, defaults to `<em>`) - a string tag that prepends to hit highlights. Must be set with `highlightPostTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+
+  `highlightPostTag=[string]` (optional, defaults to `</em>`) - a string tag that appends to hit highlights. Must be set with `highlightPreTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+
 `scoringProfile=[string]` (optional) - the name of a scoring profile to evaluate match scores for matching documents in order to sort the results.
 
 `scoringParameter=[string]` (zero or more) - indicates the value for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format name:value. For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be &scoringParameter=mylocation:-122.2,44.8
@@ -1162,13 +1224,13 @@ Status Code: 200 OK is returned for a successful response.
 
 NOTE: Precision of DateTime fields is limited to milliseconds. If you push a timestamp that specifies values any smaller (for example, see the seconds portion of this timestamp: 10:30:09.7552052), the return value will be rounded up (or 10:30:09.7550000, per the example).
 
-2)	In a faceted search, search the Index and retrieve facets for categories as well as items counts with ratings between 1 to 3:
+2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
 
-    GET /indexes/hotels/docs?search=test&facet=category&facet=rating,values:1|2|3&api-version=2014-10-20-Preview
+    GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2014-10-20-Preview
 
-3)	Using a filter, narrow down the previous faceted query results after the user clicks on rating 3 and Category "Motel":
+3)	Using a filter, narrow down the previous faceted query results after the user clicks on rating 3 and category "Motel":
 
-    GET /indexes/hotels/docs?search=test&facet=category&facet=rating,values:1|2|3&$filter=rating eq 3 and category eq 'motel'&api-version=2014-10-20-Preview
+    GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2014-10-20-Preview
 
 4) In a faceted search, set an upper limit on unique terms returned in a query. The default is 10, but you can increase or decrease this value using the `count` parameter on the `facet` attribute:
 
@@ -1310,9 +1372,11 @@ The response body contains the count value as an integer formatted in plain text
 <a name="Suggestions"></a>
 ##Suggestions##
 
+> AZURE.NOTE Consider using the [suggesters](#suggesters) property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
+
 The **Suggestions** operation retrieves suggestions based on partial search input. It's typically used in search boxes to provide type-ahead suggestions as users are entering search terms.
 
-Suggested text may be repeated if multiple candidates match the same search input. You can use `$select` to retrieve other document fields (including the document key) so that you can tell which document is the source for each suggestion.
+Suggestions requests aim at suggesting target documents, so the suggested text may be repeated if multiple candidate documents match the same search input. You can use `$select` to retrieve other document fields (including the document key) so that you can tell which document is the source for each suggestion.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
     api-key: [admin key]
@@ -1327,11 +1391,17 @@ The request URI specifies the name of the index to query. It also includes the p
 
 `search=[string]` - the search text to use to suggest queries. Must be at least 3 characters, and no more than 25 characters.
 
+`highlightPreTag=[string]` (optional, default = ``) - a string tag that prepends to search hits. Must be set with `highlightPostTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+
+`highlightPostTag=[string]` (optional, default = ``) - a string tag that appends to search hits. Must be set with `highlightPreTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+
+`suggesterName=[string]` - (optional) the name of the suggester as specified in the `suggesters` collection that's part of the index definition. If this option is not used, suggestions are based on the previous version's implementation which operates on those fields marked with `"suggestions": true` and only supports prefix matching.
+
 `fuzzy=[boolean]` (optional, default = false) - when set to true this API will find suggestions even if there's a substituted or missing character in the search text. While this provides a better experience in some scenarios it comes at a performance cost as fuzzy suggestion searches are slower and consume more resources.
 
 `searchFields=[string]` (optional) - the list of comma-separated field names to search for the specified search text. Target fields must be enabled for suggestions.
 
-`$top=#` (optional, default = 5) - the number of suggestions to retrieve. Must be a number between 1 and 10.
+`$top=#` (optional, default = 5) - the number of suggestions to retrieve. Must be a number between 1 and 100.
 
 `$filter=[string]` (optional) - an expression that filters the documents considered for suggestions.
 
@@ -1349,7 +1419,7 @@ The following list describes the required and optional request headers
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Suggestions** request can specify either an admin key or query key as the `api-key`.
 
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Preview Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+  You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Preview Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
 
 **Request Body**
 
@@ -1386,7 +1456,7 @@ If the projection option is used to retrieve fields they are included in each el
 
 Retrieve 5 suggestions where the partial search input is 'lux'
 
-    GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-10-20-Preview
+    GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
 
 
