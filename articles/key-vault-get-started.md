@@ -1,6 +1,19 @@
-<properties pageTitle="Get Started with Azure Key Vault | Overview" description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure." services="Key-Vault" documentationCenter="" authors="cabailey" manager="mbaldwin"/>
+<properties 
+	pageTitle="Get Started with Azure Key Vault | Overview" 
+	description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure." 
+	services="Key-Vault" 
+	documentationCenter="" 
+	authors="cabailey" 
+	manager="mbaldwin"/>
 
-<tags ms.service="key-vault" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/12/2015" ms.author="cabailey"/>
+<tags 
+	ms.service="key-vault" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="cabailey"/>
 
 # Get Started with Azure Key Vault #
 
