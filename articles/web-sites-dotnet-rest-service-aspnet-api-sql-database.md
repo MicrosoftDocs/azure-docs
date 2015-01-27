@@ -1,6 +1,20 @@
-<properties pageTitle=".NET REST service using Web API - Azure tutorial" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." services="web-sites" documentationCenter=".net" authors="riande" manager="wpickett" editor=""/>
+<properties 
+	pageTitle=".NET REST service using Web API - Azure tutorial" 
+	description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="riande" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/06/2014" 
+	ms.author="riande"/>
 
 # REST service using ASP.NET Web API and SQL Database 
 
