@@ -1,6 +1,20 @@
-<properties pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Planned maintenance for Azure virtual machines" 
+	description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kenazk" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="kenazk"/>
 
 
 # Planned maintenance for Azure virtual machines
