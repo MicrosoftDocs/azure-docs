@@ -1,6 +1,6 @@
-<properties pageTitle="Monitor any web site's availability and responsiveness" description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." authors="awills" manager="kamrani"/>
+<properties pageTitle="Monitor any web site's availability and responsiveness" description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." services="application-insights" authors="alancameronwills" manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills"/>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-27" ms.author="awills" />
  
 # Monitor any web site's availability and responsiveness
 
@@ -98,6 +98,8 @@ The result shows the reason for failure.
 
 For more detail, download the result file and inspect it in Visual Studio.
 
+*Looks OK but reported as a failure?* Check all the images, scripts, style sheets and any other files loaded by the page. If any of them fails, the test will be reported as failed, even if the main html page loads OK.
+
 
 
 ##<a name="multistep"></a>Multi-step web tests
@@ -146,6 +148,8 @@ Use Visual Studio Ultimate to record a web session.
 View your test results and any failures in the same way as for single-url tests. 
 
 A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
+
+Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images and so forth.
 
 
 ### Plugging time and random numbers into your multi-step test

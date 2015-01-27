@@ -1,6 +1,6 @@
 <properties pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 
 #SharePoint Server Farm Configuration Details#
@@ -57,7 +57,7 @@ Here are the configuration details:
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
 
-##High-availability##
+##High-availability SharePoint farm##
 
 The high-availability SharePoint farm consists of nine virtual machines in this configuration:
 
@@ -66,7 +66,7 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 Here are the configuration details:
 
 -	Azure Subscription: Specified during the initial configuration.
--	Azure Domain Names (also known as cloud services): Separate Domain Names are automatically created for each virtual machine.
+-	Azure Domain Names (also known as cloud services): Separate Domain Names are created according to the figure above.
 -	Storage account: Specified during the initial configuration.
 -	Virtual network	
 	-	Type: Cloud-only
@@ -77,7 +77,7 @@ Here are the configuration details:
 	-	*HostNamePrefix*-DC2 (AD DS domain controller)
 	-	*HostNamePrefix*-SQL1 (SQL Server 2014 server)
 	-	*HostNamePrefix*-SQL2 (SQL Server 2014 server)
-	-	*HostNamePrefix*-SQL0 (SQL Server 2014 server)
+	-	*HostNamePrefix*-SQL0 (Windows Server 2012 R2 server)
 	-	*HostNamePrefix*-WEB1 (SharePoint 2013 server)
 	-	*HostNamePrefix*-WEB2 (SharePoint 2013 server)
 	-	*HostNamePrefix*-APP1 (SharePoint 2013 server)
@@ -105,7 +105,8 @@ Here are the configuration details:
 	-	SharePoint farm account password: Specified during the initial configuration.		
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
-##Additional Resources
+##Additional Resources##
+
+[SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
-
