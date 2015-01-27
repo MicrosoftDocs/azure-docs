@@ -2,17 +2,17 @@
 	pageTitle="Build a Java web application using DocumentDB" 
 	description="This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Java application hosted on Azure Websites." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="" 
-	ms.devlang="may be required" 
+	ms.service="documentdb" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="may be required" 
-	ms.workload="required" 
+	ms.tgt_pltfrm="NA" 
+	ms.workload="data-services" 
 	ms.date="01/08/2014" 
 	ms.author="andrl"/>
 
