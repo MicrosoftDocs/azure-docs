@@ -1,6 +1,19 @@
-<properties pageTitle="Using Elastic Scale with Dapper" description="Using Elastic Scale with Dapper." services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Using Elastic Scale with Dapper" 
+	description="Using Elastic Scale with Dapper." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh@microsoft.com"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/18/2015" ms.author="sidneyh"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/18/2015" 
+	ms.author="sidneyh"/>
 
 # Using Elastic Scale with Dapper 
 
