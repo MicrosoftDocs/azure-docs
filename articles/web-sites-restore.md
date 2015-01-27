@@ -1,6 +1,21 @@
-<properties pageTitle="Restore a Microsoft Azure website" description="Learn how to restore your Azure websites from backup." services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Restore a Microsoft Azure website" 
+	description="Learn how to restore your Azure websites from backup." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Restore a Microsoft Azure website
 
