@@ -1,4 +1,4 @@
-<properties pageTitle="How to configure a cloud service - Azure" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." services="cloud-services" documentationCenter="" authors="davidmu1" manager="timlt" editor=""/>
+<properties pageTitle="How to configure a cloud service - Azure" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." services="cloud-services" documentationCenter="" authors="Thraka" manager="timlt" editor=""/>
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="adegeo"/>
 
