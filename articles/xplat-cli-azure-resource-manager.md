@@ -1,6 +1,20 @@
-<properties pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" editor="tysonn" manager="timlt" documentationCenter="" authors="squillace" services=""/>
+<properties 
+	pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" 
+	description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="rasquill"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="rasquill"/>
 
 #Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 

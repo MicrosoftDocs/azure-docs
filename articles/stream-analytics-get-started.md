@@ -1,6 +1,20 @@
-<properties pageTitle="Get started using Azure Stream Analytics | Azure" description="Get started using Azure Stream Analytics to process and transform events in Azure Service Bus Event Hub and store the results to Azure SQL Database." services="stream-analytics" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Get started using Azure Stream Analytics | Azure" 
+	description="Get started using Azure Stream Analytics to process and transform events in Azure Service Bus Event Hub and store the results to Azure SQL Database." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/02/2015" ms.author="jgao"/>
+<tags 
+	ms.service="stream-analytics" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/02/2015" 
+	ms.author="jgao"/>
 
 
 # Get started using Azure Stream Analytics

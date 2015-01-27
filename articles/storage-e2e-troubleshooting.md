@@ -1,6 +1,19 @@
-<properties pageTitle="End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer | Microsoft Azure" description="A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer" services="storage" documentationCenter="dotnet" authors="tamram" manager="adinah"/>
+<properties 
+	pageTitle="End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer | Microsoft Azure" 
+	description="A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer" 
+	services="storage" 
+	documentationCenter="dotnet" 
+	authors="tamram" 
+	manager="adinah"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/19/2015" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/19/2015" 
+	ms.author="tamram"/>
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer 
 

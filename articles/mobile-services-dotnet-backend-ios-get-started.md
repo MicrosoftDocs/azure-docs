@@ -1,6 +1,20 @@
-<properties pageTitle="Get Started with Azure Mobile Services for iOS apps" description="Follow this tutorial to get started using Azure Mobile Services for iOS development." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get Started with Azure Mobile Services for iOS apps" 
+	description="Follow this tutorial to get started using Azure Mobile Services for iOS development." 
+	services="" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 

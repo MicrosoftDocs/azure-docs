@@ -1,6 +1,20 @@
-<properties pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" 
+	description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # Accessing Azure Active Directory Graph Information
 

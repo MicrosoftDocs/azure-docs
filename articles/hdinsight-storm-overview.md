@@ -1,6 +1,20 @@
-<properties pageTitle="Learn about Apache Storm in HDInsight (hadoop)" description="Learn how you can use Apache Storm in HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Learn about Apache Storm in HDInsight (hadoop)" 
+	description="Learn how you can use Apache Storm in HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
 #Apache Storm on HDInsight overview
 

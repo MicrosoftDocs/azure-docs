@@ -1,6 +1,20 @@
-<properties pageTitle="How to use the iOS client library - Azure Mobile Services" description="Learn how to use the iOS client library for Azure Mobile Services." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to use the iOS client library - Azure Mobile Services" 
+	description="Learn how to use the iOS client library for Azure Mobile Services." 
+	services="" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 
 

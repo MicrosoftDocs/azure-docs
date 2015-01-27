@@ -1,6 +1,20 @@
-<properties pageTitle="How to use table storage (Python) | Microsoft Azure" description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." services="storage" documentationCenter="python" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use table storage (Python) | Microsoft Azure" 
+	description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="robmcm"/>
 
 
 

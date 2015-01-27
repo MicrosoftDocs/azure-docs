@@ -1,6 +1,20 @@
-<properties pageTitle="Capture an image of a virtual machine running Windows Server" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Capture an image of a virtual machine running Windows Server" 
+	description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="kathydav"/>
 
 #How to Capture a Windows Virtual Machine to Use as a Template#
 

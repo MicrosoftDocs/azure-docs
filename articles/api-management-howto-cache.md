@@ -1,6 +1,20 @@
-<properties pageTitle="How to cache operation results in Azure API Management" description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to cache operation results in Azure API Management" 
+	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # How to cache operation results in Azure API Management
 

@@ -1,6 +1,21 @@
-<properties writer="ricksal" pageTitle="Call a custom API from an Android client | Mobile Dev Center" description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	writer="ricksal" 
+	pageTitle="Call a custom API from an Android client | Mobile Dev Center" 
+	description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # Call a custom API from the client
 

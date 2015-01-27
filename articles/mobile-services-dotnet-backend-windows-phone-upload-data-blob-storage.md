@@ -1,6 +1,21 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." documentationCenter="windows" authors="ggailey777" writer="glenga" services="mobile-services" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" 
+	description="Learn how to use Mobile Services to upload images to Azure Blob Storage." 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	writer="glenga" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
 

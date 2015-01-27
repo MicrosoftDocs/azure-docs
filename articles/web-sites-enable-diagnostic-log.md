@@ -1,6 +1,20 @@
-<properties pageTitle="Enable diagnostic logging - Azure Websites" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." services="web-sites" documentationCenter=".net" authors="blackmist" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Enable diagnostic logging - Azure Websites" 
+	description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 

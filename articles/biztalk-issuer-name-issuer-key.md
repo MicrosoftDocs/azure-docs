@@ -1,6 +1,20 @@
-<properties pageTitle="Issuer Name and Issuer Key in BizTalk Services | Azure" description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services." services="biztalk-services" documentationCenter="" authors="mandiohlinger" manager="dwrede" editor="susanjo"/>
+<properties 
+	pageTitle="Issuer Name and Issuer Key in BizTalk Services | Azure" 
+	description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services." 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="mandiohlinger" 
+	manager="dwrede" 
+	editor="susanjo"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"/>
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2014" 
+	ms.author="mandia"/>
 
 
 

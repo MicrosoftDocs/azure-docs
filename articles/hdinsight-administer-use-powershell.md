@@ -1,6 +1,20 @@
-<properties pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" editor="cgronlun" manager="paulettm" authors="mumian" documentationCenter=""/>
+<properties 
+	pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" 
+	description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using Azure PowerShell
 

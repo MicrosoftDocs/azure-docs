@@ -1,6 +1,18 @@
-<properties pageTitle="Export telemetry from Application Insights" description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." services="application-insights" authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="Export telemetry from Application Insights" 
+	description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-26" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-26" 
+	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 

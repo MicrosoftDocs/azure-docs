@@ -1,6 +1,20 @@
-<properties pageTitle="Manage the availability of virtual machines - Azure" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Manage the availability of virtual machines - Azure" 
+	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kenazk" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="kenazk"/>
 
 #Manage the availability of virtual machines
 

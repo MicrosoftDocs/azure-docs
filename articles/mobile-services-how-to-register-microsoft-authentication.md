@@ -1,6 +1,20 @@
-<properties pageTitle="Register for Microsoft authentication - Mobile Services" description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." authors="ggailey777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Register for Microsoft authentication - Mobile Services" 
+	description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." 
+	authors="ggailey777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Register your apps to use a Microsoft Account login
 

@@ -1,6 +1,21 @@
-<properties pageTitle="Using tags to organize your Azure resources" description="" services="" documentationCenter="" authors="flanakin" writer="" manager="carolz" editor=""/>
+<properties 
+	pageTitle="Using tags to organize your Azure resources" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # Using tags to organize your Azure resources

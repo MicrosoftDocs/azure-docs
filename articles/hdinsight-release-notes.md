@@ -1,6 +1,20 @@
-<properties pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." services="hdinsight" documentationCenter="" editor="cgronlun" manager="paulettm" authors="bradsev"/>
+<properties 
+	pageTitle="HDInsight Release Notes | Azure" 
+	description="HDInsight release notes." 
+	services="hdinsight" 
+	documentationCenter="" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/05/2015" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/05/2015" 
+	ms.author="bradsev"/>
 
 
 #Microsoft HDInsight release notes

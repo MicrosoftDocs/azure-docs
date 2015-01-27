@@ -1,6 +1,20 @@
-<properties pageTitle="Script Action Development with HDInsight| Azure" description="Learn how to customize Hadoop clusters with Script Action." services="hdinsight" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Script Action Development with HDInsight| Azure" 
+	description="Learn how to customize Hadoop clusters with Script Action." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="bradsev"/> 
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/19/2014" 
+	ms.author="bradsev"/> 
 
 # Script Action Development with HDInsight 
 

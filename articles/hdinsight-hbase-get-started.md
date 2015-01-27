@@ -1,6 +1,20 @@
-<properties pageTitle="Set up and query HBase tables using Hive in HDInsight | Azure" description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." services="hdinsight" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Set up and query HBase tables using Hive in HDInsight | Azure" 
+	description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/7/2015" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/7/2015" 
+	ms.author="bradsev"/>
 
 
 

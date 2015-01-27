@@ -1,6 +1,19 @@
-<properties pageTitle="Azure Batch development libraries and tools" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" services="batch" documentationCenter="" authors="dlepow" manager="timlt"/>
+<properties 
+	pageTitle="Azure Batch development libraries and tools" 
+	description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/21/2015" ms.author="danlep"/>
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/21/2015" 
+	ms.author="danlep"/>
 
 
 # Azure Batch development libraries and tools 

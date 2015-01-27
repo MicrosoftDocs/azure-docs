@@ -1,6 +1,20 @@
-<properties pageTitle="Authorize users in scripts (Xamarin.iOS) - Azure Mobile Services" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.iOS." documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Authorize users in scripts (Xamarin.iOS) - Azure Mobile Services" 
+	description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.iOS." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 
 # Use scripts to authorize users in Mobile Services
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Authenticate your Windows Store app with Live Connect" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Authenticate your Windows Store app with Live Connect" 
+	description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Authenticate your Windows Store app with Live Connect single sign-on
 <div class="dev-center-tutorial-selector sublanding"> 

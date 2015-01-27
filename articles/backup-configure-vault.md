@@ -1,6 +1,20 @@
-<properties pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." services="site-recovery" documentationCenter="" authors="markgalioto" manager="jwhit" editor="tysonn"/>
+<properties 
+	pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" 
+	description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="markgalioto" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal"/>
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="markgal"/>
 
 
 

@@ -1,6 +1,18 @@
-<properties pageTitle="Get started with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." services="application-insights" authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="Get started with Application Insights" 
+	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-23" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
 
 # Get started with Application Insights
 

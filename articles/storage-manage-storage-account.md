@@ -1,6 +1,20 @@
-<properties pageTitle="How to manage storage accounts | Microsoft Azure" description="Learn how to manage storage accounts in Azure by using the Management Portal." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor="cgronlun"/>
+<properties 
+	pageTitle="How to manage storage accounts | Microsoft Azure" 
+	description="Learn how to manage storage accounts in Azure by using the Management Portal." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tamram"/>
 
 
 

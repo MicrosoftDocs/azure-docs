@@ -1,6 +1,20 @@
-<properties pageTitle="How to deploy an Azure Website" description="Learn what methods are available for deploying content to an Azure Website." services="web-sites" documentationCenter="" authors="tdykstra" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="How to deploy an Azure Website" 
+	description="Learn what methods are available for deploying content to an Azure Website." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/07/2015" ms.author="tdykstra"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="tdykstra"/>
 
 #How to Deploy an Azure Website
 

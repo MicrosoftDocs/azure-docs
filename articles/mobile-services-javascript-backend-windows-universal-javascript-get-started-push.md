@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with push notification using a JavaScript backend mobile service" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with push notification using a JavaScript backend mobile service" 
+	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/15/2014" 
+	ms.author="glenga"/>
 
 
 # Add push notifications to your Mobile Services app

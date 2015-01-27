@@ -1,6 +1,20 @@
-<properties pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" description="Learn how to validate and modify data sent using server scripts from your iOS app." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" 
+	description="Learn how to validate and modify data sent using server scripts from your iOS app." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # Validate and modify data in Mobile Services by using server scripts
 

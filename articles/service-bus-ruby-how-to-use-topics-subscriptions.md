@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Service Bus topics (Ruby) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." services="service-bus" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use Service Bus topics (Ruby) - Azure" 
+	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." 
+	services="service-bus" 
+	documentationCenter="ruby" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="tomfitz"/>
 
 
 

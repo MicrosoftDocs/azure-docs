@@ -1,6 +1,20 @@
-<properties pageTitle="How to use table storage  from .NET | Microsoft Azure" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".net" authors="tamram" manager="adinah" editor=""/>
+<properties 
+	pageTitle="How to use table storage  from .NET | Microsoft Azure" 
+	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." 
+	services="storage" 
+	documentationCenter=".net" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 
 # How to use Table Storage from .NET

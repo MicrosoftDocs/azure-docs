@@ -1,6 +1,20 @@
-<properties pageTitle="Enable remote desktop for cloud services (Node.js)" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." services="cloud-services" documentationCenter="nodejs" authors="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Enable remote desktop for cloud services (Node.js)" 
+	description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="wpickett"/>
 
 
 

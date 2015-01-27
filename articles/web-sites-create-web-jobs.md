@@ -1,6 +1,21 @@
-<properties pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" description="Learn how to run background tasks in Microsoft Azure Websites." services="web-sites" documentationCenter="" authors="cephalin" writer="timamm" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" 
+	description="Learn how to run background tasks in Microsoft Azure Websites." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="timamm" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2014" 
+	ms.author="cephalin"/>
 
 #Use WebJobs to run background tasks in Azure Websites
 

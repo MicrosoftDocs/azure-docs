@@ -1,6 +1,18 @@
-<properties pageTitle="Monitor any web site's availability and responsiveness" description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." services="application-insights" authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="Monitor any web site's availability and responsiveness" 
+	description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-27" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-27" 
+	ms.author="awills"/>
  
 # Monitor any web site's availability and responsiveness
 

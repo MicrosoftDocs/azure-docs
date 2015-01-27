@@ -1,6 +1,18 @@
-<properties pageTitle="Getting Started with Azure Site Recovery: On-Premises to Azure Hyper-V Site Protection" description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines between an on-premises Hyper-V site and Azure." editor="jimbe" manager="jwhit" authors="raynew"/>
+<properties 
+	pageTitle="Getting Started with Azure Site Recovery: On-Premises to Azure Hyper-V Site Protection" 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines between an on-premises Hyper-V site and Azure." 
+	editor="jimbe" 
+	manager="jwhit" 
+	authors="raynew"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew"/>
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="raynew"/>
 
 
 # Getting Started with Azure Site Recovery:  On-Premises to Azure Hyper-V Site Protection

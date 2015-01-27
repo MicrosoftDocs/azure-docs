@@ -1,6 +1,20 @@
-<properties pageTitle="How to create websites - Azure service management" description="Learn how to create a website using the Azure Management Portal." services="web-sites" documentationCenter="" authors="cephalin" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to create websites - Azure service management" 
+	description="Learn how to create a website using the Azure Management Portal." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #How to Create a Website
 

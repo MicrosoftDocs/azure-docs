@@ -1,6 +1,20 @@
-<properties pageTitle="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in Azure Table Storage and can be deployed to a web site." services="web-sites" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" 
+	description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in Azure Table Storage and can be deployed to a web site." 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 

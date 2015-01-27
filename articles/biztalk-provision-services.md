@@ -1,6 +1,20 @@
-<properties pageTitle="Create BizTalk Services in management portal | Azure" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." services="biztalk-services" documentationCenter="" authors="mandiohlinger" manager="dwrede" editor="cgronlun"/>
+<properties 
+	pageTitle="Create BizTalk Services in management portal | Azure" 
+	description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="mandiohlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"/>
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2014" 
+	ms.author="mandia"/>
 
 
 

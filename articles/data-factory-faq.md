@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Data Factory - Frequently Asked Questions" description="Frequently asked questions about Azure Data Factory." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Azure Data Factory - Frequently Asked Questions" 
+	description="Frequently asked questions about Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/08/2015" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/08/2015" 
+	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
 

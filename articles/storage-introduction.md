@@ -1,6 +1,20 @@
-<properties pageTitle="Introduction to Storage | Microsoft Azure" description="An overview of Microsoft Azure Storage." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/>
+<properties 
+	pageTitle="Introduction to Storage | Microsoft Azure" 
+	description="An overview of Microsoft Azure Storage." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/11/2014" 
+	ms.author="tamram"/>
 
 # Introduction to Microsoft Azure Storage
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles." services="" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" 
+	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 

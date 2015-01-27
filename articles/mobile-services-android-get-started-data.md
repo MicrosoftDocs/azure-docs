@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with data (Android) | Mobile Dev Center" description="Learn how to get started using Mobile Services to leverage data in your Android app." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with data (Android) | Mobile Dev Center" 
+	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # Add Mobile Services to an existing app
 

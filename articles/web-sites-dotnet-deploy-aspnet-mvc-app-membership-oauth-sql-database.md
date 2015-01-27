@@ -1,6 +1,21 @@
-<properties pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website" description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." services="web-sites, sql-database" documentationCenter=".net" authors="riande" writer="riande" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website" 
+	description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." 
+	services="web-sites, sql-database" 
+	documentationCenter=".net" 
+	authors="riande" 
+	writer="riande" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="1/14/2015" ms.author="riande"/> 
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="1/14/2015" 
+	ms.author="riande"/> 
 
 
 

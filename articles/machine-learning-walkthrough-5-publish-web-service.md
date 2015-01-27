@@ -1,6 +1,20 @@
-<properties pageTitle="Step 5: Publish the Machine Learning web service | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Step 5: Publish the Machine Learning web service | Azure" 
+	description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="Garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:

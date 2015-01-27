@@ -1,6 +1,20 @@
-<properties pageTitle="Working with the Mobile Services .NET Client Library" description="Learn how to use an .NET client for Azure Mobile Services." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Working with the Mobile Services .NET Client Library" 
+	description="Learn how to use an .NET client for Azure Mobile Services." 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="glenga"/>
 
 
 

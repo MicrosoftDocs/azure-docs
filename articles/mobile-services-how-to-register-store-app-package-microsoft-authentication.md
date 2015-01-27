@@ -1,6 +1,20 @@
-<properties pageTitle="Register your Windows Store app package for Microsoft authentication" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Register your Windows Store app package for Microsoft authentication" 
+	description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Register your Windows Store app package for Microsoft authentication
 

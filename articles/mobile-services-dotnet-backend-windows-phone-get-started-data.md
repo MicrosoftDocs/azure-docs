@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" 
+	description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # Add Mobile Services to an existing app
 

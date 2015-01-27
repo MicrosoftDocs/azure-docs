@@ -1,6 +1,20 @@
-<properties pageTitle="Move and process log files using Azure Data Factory" description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Move and process log files using Azure Data Factory" 
+	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory
 This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights. 

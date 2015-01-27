@@ -1,6 +1,20 @@
-<properties pageTitle="How to use the SendGrid email service (PHP) - Azure" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="php" services="" manager="sendgrid" editor="mollybos" authors="thinkingserious"/>
+<properties 
+	pageTitle="How to use the SendGrid email service (PHP) - Azure" 
+	description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
+	authors="thinkingserious"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 
 # How to Use the SendGrid Email Service from PHP
 
