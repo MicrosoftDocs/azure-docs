@@ -1,6 +1,20 @@
-<properties pageTitle="Walkthrough: Activate the Latest SQL Database Update V12 (preview)" description="Describes the steps for trying the preview release of Azure SQL Database V12, by using the new Azure portal UI." services="sql-database" documentationCenter="" authors="MightyPen" manager="jhubbard, jeffreyg" editor=""/>
+<properties 
+	pageTitle="Walkthrough: Activate the Latest SQL Database Update V12 (preview)" 
+	description="Describes the steps for trying the preview release of Azure SQL Database V12, by using the new Azure portal UI." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jhubbard, jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/18/2014" ms.author="genemi"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/18/2014" 
+	ms.author="genemi"/>
 
 # Walkthrough: Activate the Latest SQL Database Update V12 (preview)
 
