@@ -20,9 +20,9 @@ These detectors track changes in values over time and reports ongoing changes in
 
 ##API Definition##
 
-The service provides a REST based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc. We have an [Azure web application](http://anomalydetection-aml.azurewebsites.net/) that demonstrates the anomaly detection web service. 
+The service provides a REST based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc. We have an [Azure web application](http://anomalydetection-aml.azurewebsites.net/) that helps run the anomaly detection web service on your data and visualize the results. 
 
-You can also send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described above. The service runs on the AzureML Machine Learning platform which scales to your business needs seamlessly and provides SLA’s of 99.9%.
+You can also send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described above. The service runs on the AzureML Machine Learning platform which scales to your business needs seamlessly and provides SLA’s of 99.95%.
 
 The figure below shows an example of anomalies detected in a times series using the above framework. The time series has 2 distinct level changes, and 3 spikes. The red dots show the time at which the level change is detected, while the red upward arrows show the detected spikes.
 
