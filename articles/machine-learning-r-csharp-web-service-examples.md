@@ -1,6 +1,20 @@
-<properties pageTitle="Sample Web Services Built with R on Azure ML and Published to Marketplace | Azure" description="Sample Web Services Built with R on Azure ML and Published to Marketplace" services="machine-learning" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Sample Web Services Built with R on Azure ML and Published to Marketplace | Azure" 
+	description="Sample Web Services Built with R on Azure ML and Published to Marketplace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe"/> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2014" 
+	ms.author="jaymathe"/> 
 
 
 #Sample solutions using R on Machine Learning and published to Marketplace
