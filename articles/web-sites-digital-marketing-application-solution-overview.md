@@ -1,6 +1,20 @@
-<properties pageTitle="Create a Digital Marketing Campaign on Azure Websites" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." services="web-sites" documentationCenter="" authors="rothja" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Create a Digital Marketing Campaign on Azure Websites" 
+	description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/01/2014" 
+	ms.author="jroth"/>
 
 # Create a Digital Marketing Campaign on Azure Websites
 This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. A digital marketing campaign is typically a short-lived entity that is meant to drive a short-term marketing goal. There are two main scenarios to consider. In the first scenario, a third-party marketing firm creates and manages the campaign for their customer for the duration of the promotion. A second scenario involves the marketing firm creating and then transferring ownership of the digital marketing campaign resources to their customer. The customer then runs and manages the digital marketing campaign on their own. 
