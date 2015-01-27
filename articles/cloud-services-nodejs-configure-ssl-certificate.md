@@ -1,6 +1,20 @@
-<properties pageTitle="Configure SSL for a cloud service (Node.js) - Azure" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." services="cloud-services" documentationCenter="nodejs" authors="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Configure SSL for a cloud service (Node.js) - Azure" 
+	description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="wpickett"/>
 
 
 
