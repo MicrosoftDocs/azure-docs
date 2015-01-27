@@ -1,6 +1,20 @@
-<properties pageTitle="Search Service: workflow for developers" description="Search Service: workflow for developers" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties 
+	pageTitle="Search Service: workflow for developers" 
+	description="Search Service: workflow for developers" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure Search: development workflow
 
