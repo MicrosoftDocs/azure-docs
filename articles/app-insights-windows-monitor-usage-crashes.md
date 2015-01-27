@@ -14,11 +14,6 @@ Application Insights lets you monitor your published application for:
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 
-* [Start monitoring your app](#start)
-* [Track usage](#usage)
-* [Detect and diagnose crashes](#crashes)
-* [Debug vs Release mode](#debug)
-* [Next steps](#next)
 
 ## <a name="start">Start monitoring your app</a>
 
