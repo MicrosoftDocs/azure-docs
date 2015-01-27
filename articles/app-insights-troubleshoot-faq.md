@@ -1,6 +1,18 @@
-<properties pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" services="application-insights" authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="Troubleshooting and Q & A about Application Insights" 
+	description="Tips and troubleshooting" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
 
