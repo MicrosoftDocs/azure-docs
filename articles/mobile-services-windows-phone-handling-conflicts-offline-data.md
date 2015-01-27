@@ -1,6 +1,20 @@
-<properties pageTitle="Handle conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Handle conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 
 # Handling conflicts with offline data sync in Mobile Services
