@@ -1,6 +1,20 @@
-<properties pageTitle="What is a cloud service - Azure service management" description="An introduction to the cloud service in Azure." services="cloud-services" documentationCenter="" authors="Thraka" manager="timlt" editor=""/>
+<properties 
+	pageTitle="What is a cloud service - Azure service management" 
+	description="An introduction to the cloud service in Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/23/2014" 
+	ms.author="adegeo"/>
 
 
 
