@@ -1,6 +1,20 @@
-<properties pageTitle="Ruby on Rails Web App on Azure using Linux VM" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine." services="virtual-machines" documentationCenter="ruby" authors="blackmist" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Ruby on Rails Web App on Azure using Linux VM" 
+	description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine." 
+	services="virtual-machines" 
+	documentationCenter="ruby" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
