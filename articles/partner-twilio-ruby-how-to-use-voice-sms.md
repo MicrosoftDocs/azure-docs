@@ -1,6 +1,6 @@
-<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Ruby) - Azure" metaKeywords="Azure Ruby Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Ruby." metaCanonical="" services="" documentationCenter="Ruby" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties pageTitle="How to Use Twilio for Voice and SMS (Ruby) - Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Ruby." services="" documentationCenter="ruby" authors="devinrader" manager="twilio" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com"/>
 
 
 
@@ -85,7 +85,7 @@ SSH into your new VM and create a directory for your new app. Inside that direct
     gem 'sinatra'
     gem 'thin'
 
-On the command line run `bundle install`. This will install the dependecies above. Next create a file called `web.rb`. This will be where the code for your web app lives. Paste the following code into it:
+On the command line run `bundle install`. This will install the dependencies above. Next create a file called `web.rb`. This will be where the code for your web app lives. Paste the following code into it:
 
     require 'sinatra'
 
@@ -152,7 +152,7 @@ We would like to process incoming SMS messages, so let's update the URL to `http
 
     post '/sms_url' do
       "<Response>
-         <Sms>Hey, thanks for the ping! Twilio and Azure rock!</Sms>
+         <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
        </Response>"
     end
 

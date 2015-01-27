@@ -1,6 +1,6 @@
-<properties urlDisplayName="Website with WebMatrix" pageTitle="Node.js website with WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure website." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Node.js website with WebMatrix - Azure tutorial" description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure website." services="web-sites" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 # Build and deploy a Node.js website to Azure using WebMatrix
@@ -13,16 +13,13 @@ A screenshot of the completed application is below:
 
 ![Azure node Web site][webmatrix-node-completed]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Sign into Azure
 
 Follow these steps to create an Azure Website.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account that has the Azure Websites feature enabled.</p>
-<p>If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.</p>
-</div>
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account that has the Azure Websites feature enabled. <br /> If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
 <br />
 
 1. Launch WebMatrix

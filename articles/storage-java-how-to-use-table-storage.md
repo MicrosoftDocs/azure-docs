@@ -1,6 +1,6 @@
-<properties urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="How to use table storage (Java) | Microsoft Azure" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." services="storage" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # How to use Table Storage from Java
 
@@ -30,11 +30,11 @@ Note: An SDK is available for developers who are using Azure Storage on Android 
 * [How to: Delete a table](#DeleteTable)
 * [Next steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a name="CreateAccount"></a>Create an Azure storage account
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Create a Java application
 

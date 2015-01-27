@@ -1,6 +1,6 @@
-<properties pageTitle="Get Started with the Azure WebJobs SDK" metaKeywords="Azure tutorial, Azure WebJobs tutorial, Azure multi-tier tutorial, MVC tutorial, Azure blobs tutorial, Azure queues tutorial, Azure storage tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Get Started with the Azure WebJobs SDK" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Get Started with the Azure WebJobs SDK" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." services="web-sites, storage" documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra"/>
 
 # Get Started with the Azure WebJobs SDK
 
@@ -32,11 +32,12 @@ The tutorial assumes that you know how to work with [ASP.NET MVC](http://www.asp
 The tutorial instructions work with the following products:
 
 * Visual Studio 2013
+* Visual Studio 2013 Community
 * Visual Studio 2013 Express for Web
 
 If you don't have one of these, Visual Studio 2013 Express for Web will be installed automatically when you install the Azure SDK.
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <a id="learn"></a>What you'll learn
 
@@ -72,7 +73,7 @@ If traffic varies by time of day or day of week, and if the backend processing y
 
 This tutorial shows how to run the frontend in a website and the backend as a WebJob in the same website. For information about how to choose the best environment for your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 The tutorial instructions have been written using the next preview release of [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510328). The only difference for Visual Studio 2013 Update 3 is in the create-from-scratch section where you create the WebJob project: with Update 4 the WebJobs SDK packages are automatically included in the project; without Update 4 you have to install the packages manually.
 
@@ -106,7 +107,7 @@ In a real-world application, you typically create separate accounts for applicat
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
-	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [How To Manage Storage Accounts](/en-us/documentation/articles/storage-manage-storage-account/).
+	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
 5. Click **Create**. 
 
@@ -355,7 +356,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 	The **Replay Function** button on this page causes the WebJobs SDK framework to call the function again, and it gives you a chance to change the data passed to the function first.
 
->[WACOM.NOTE] When you're finished testing, delete the website and the SQL Database instance. The website is free, but the SQL Database instance and storage account accrue charges (minimal due to small size). Also, if you leave the site running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your website, and then click the **Delete** button at the bottom of the page. You can then select a check box to delete the SQL Database instance at the same time. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+>[AZURE.NOTE] When you're finished testing, delete the website and the SQL Database instance. The website is free, but the SQL Database instance and storage account accrue charges (minimal due to small size). Also, if you leave the site running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your website, and then click the **Delete** button at the bottom of the page. You can then select a check box to delete the SQL Database instance at the same time. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 
 ### Enable AlwaysOn for long-running processes
 
@@ -778,7 +779,14 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 
 	Blob names come from properties of the `BlobInformation` object received in the queue message (`BlobName` and `BlobNameWithoutExtension`). To get the full functionality of the Storage Client Library you can use the `CloudBlockBlob` class to work with blobs. If you want to reuse code that was written to work with `Stream` objects, you can use the `Stream` class. 
 
->[WACOM.NOTE] 
+For more information about how to write functions that use  WebJobs SDK attributes, see the following resources:
+
+* [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [How to use Azure blob storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
+* [How to use Azure table storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
+* [How to use Azure Service Bus with the WebJobs SDK](../websites-dotnet-webjobs-sdk-service-bus)
+
+>[AZURE.NOTE] 
 >* If your website runs on multiple VMs, this program will run on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).
 >* For information about how to implement graceful shutdown, see [Graceful Shutdown](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   
 >* The code in the `ConvertImageToThumbnailJPG` method (not shown) uses classes in the `System.Drawing` namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.

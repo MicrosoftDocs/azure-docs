@@ -1,19 +1,17 @@
-<properties urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+<properties pageTitle="Configure SSL for a cloud service - Azure" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." services="cloud-services" documentationCenter=".net" authors="Thraka" manager="timlt" editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo"/>
 
 
 
 
 # Configuring SSL for an application in Azure
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
-<div class="dev-callout">Note
-<p>The procedures in this task apply to Azure Cloud Services; for Websites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure website</a>.</p>
-</div>
+> [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for Websites, see [Configuring an SSL certificate for an Azure website](../articles/web-sites-configure-ssl-certificate/).
 
 This task includes the following steps:
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Administration" pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" metaKeywords="" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
 
 
 
@@ -60,7 +60,7 @@ For details on creating an Azure storage account, see [How to Create a Storage A
 
 	When using the Quick Create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name of the container to be used by default by the cluster, you must use the custom create option. 
 
-	> [WACOM.NOTE] Once an Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.
+	> [AZURE.NOTE] Once an Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.
 
 4. Click the newly created cluster.  It shows the landing page:
 
@@ -75,7 +75,7 @@ HDInsight works with a wide range of Hadoop components. For the list of the comp
 - Some native Java components, like Mahout, Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage (WASB), and submitted to HDInsight clusters using Hadoop job submission mechanisms. For more information see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]. 
 
 
-	>[WACOM.NOTE] If you have issues deploying jar files to HDInsight clusters or calling jar files on HDInsight clusters, contact [Microsoft Support][hdinsight-support].
+	>[AZURE.NOTE] If you have issues deploying jar files to HDInsight clusters or calling jar files on HDInsight clusters, contact [Microsoft Support][hdinsight-support].
 	
 	> Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
 
@@ -115,7 +115,7 @@ The credentials for the cluster that you provided at its creation give access to
 
 	The expiration date must be in the future, and at most seven days from now. And the time is the midnight of the selected date.
 
-> [WACOM.NOTE] Once RDP is enabled for a cluster, you must refresh the page before you can connect to the cluster.
+> [AZURE.NOTE] Once RDP is enabled for a cluster, you must refresh the page before you can connect to the cluster.
  
 **To connect to a cluster using RDP**
 
@@ -152,7 +152,7 @@ HDInsight clusters have the following HTTP Web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access from the Management portal. 
 
->[WACOM.NOTE] By granting/revoking the access, you will reset the cluster user username and password.
+>[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user username and password.
 
 **To grant/revoke HTTP Web services access**
 

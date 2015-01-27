@@ -1,14 +1,14 @@
-<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, FAcebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app 
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 This topic shows you how to authenticate users in Azure Mobile Services from your Windows Store app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
->[WACOM.NOTE]Authentication is not currently supported for Windows Phone Store 8.1 apps when using the Mobile Services JavaScript client library. If you have a universal Windows app project that uses the JavaScript client, you will not be able to authenticate users on Windows Phone at this time.
+>[AZURE.NOTE]Authentication is not currently supported for Windows Phone Store 8.1 apps when using the Mobile Services JavaScript client library. If you have a universal Windows app project that uses the JavaScript client, you will not be able to authenticate users on Windows Phone at this time.
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -21,13 +21,13 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 ## <a name="register"></a>Register your app for authentication and configure Mobile Services
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="3">
 <li><p>In Visual Studio 2013, open the project that you created when you completed the tutorial <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/">Get started with Mobile Services</a>.</p></li> 
@@ -40,11 +40,11 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ##<a name="add-authentication"></a>Add authentication to the app
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
 
 ##<a name="tokens"></a>Store the authorization tokens on the client
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
 
 ## <a name="next-steps"> </a>Next steps
 

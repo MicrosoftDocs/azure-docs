@@ -1,6 +1,6 @@
-<properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Azure Data Factory - Frequently Asked Questions" description="Frequently asked questions about Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties pageTitle="Azure Data Factory - Frequently Asked Questions" description="Frequently asked questions about Azure Data Factory." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/08/2015" ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
 
@@ -57,14 +57,12 @@ At public preview, Data Factory will only be available in US West.  The compute 
 
 **Q: What regions are supported by the Copy Activity ?**
 
-The Copy Activity supports copying data into the following regions: East US 2, West US, North Europe, West Europe, and South East Asia.
+The Copy Activity supports copying data into the following regions: East US, East US 2, West US,  Central US, North Europe, West Europe, and South East Asia.
 
 Copying data into other regions is also supported, by using one of the five regions above for routing the data.  Copy operation is metered based on the region where data is routed through.
 
 Region of copy destination | Region used for routing
 -------------------------- | -----------------------
-East US | East US 2
-Central US | East US 2
 North Central US | East US 2
 South Central US | West US
 East Asia | South East Asia
@@ -80,6 +78,29 @@ See the Geographic Availability section in the following article: or [HDInsight 
 
 The on-demand HDInsight cluster is created in the same region where the storage you specified to be used with the cluster exists.    
 
+**Q: How to associate additional storage accounts to your HDInsight cluster (BYOC, On-Demand)?**
+
+If you are using your own HDInsight Cluster (BYOC - Bring Your Own Cluster), see the following topics: 
+
+- [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores][hdinsight-alternate-storage]
+- [Use Additional Storage Accounts with HDInsight Hive][hdinsight-alternate-storage-2]
+
+If you are using an on-demand cluster that is created by the Data Factory service, you need to specify additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. In the JSON definition for the on-demand linked service, use **additionalLinkedServiceNames** property to specify alternate storage accounts as shown in the following JSON snippet:
+ 
+	{
+	    "name": "MyHDInsightOnDemandLinkedService",
+	    "properties":
+	    {
+	        "type": "HDInsightOnDemandLinkedService",
+	        "clusterSize": 1,
+	        "timeToLive": "00:01:00",
+	        "linkedServiceName": "LinkedService-SampleData",
+	        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+	    }
+	} 
+
+In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.
+
 ## See Also
 [Introduction to Azure Data Factory][adf-introduction]
 [Get started with Azure Data Factory][adfgetstarted]
@@ -94,3 +115,5 @@ The on-demand HDInsight cluster is created in the same region where the storage 
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/en-us/pricing/details/hdinsight/
+[hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+[hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx

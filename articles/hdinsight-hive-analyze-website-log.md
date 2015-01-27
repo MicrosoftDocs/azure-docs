@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hive in HDInsight Hadoop for website log analysis" pageTitle="Use Hive in HDInsight Hadoop for website log analysis| Azure" metaKeywords="" description="Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hive in HDInsight Hadoop for website log analysis" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Use Hive in HDInsight Hadoop for website log analysis| Azure" description="Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data." services="hdinsight" documentationCenter="" authors="nitinme" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme"/>
 
 # Use Hive with HDInsight to analyze logs from websites
 

@@ -1,6 +1,6 @@
-<properties title="Error During Authentication Detection" pageTitle="Error During Authentication Detection" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+<properties pageTitle="Error During Authentication Detection" description="" services="active-directory" documentationCenter="" authors="kempb" manager="douge" editor=""/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb"/>
 
 ###Error During Authentication Detection 
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   
@@ -9,7 +9,7 @@ While detecting previous authentication code, the wizard detected an incompatibl
 
 ####Project Types
 
-The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, it will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, it will be considered an MVC project.  Anything else is considered not supported by the wizard.  WebForms projects are not currently supported.
+The wizard checks which type of project youâ€™re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, it will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, it will be considered an MVC project.  Anything else is considered not supported by the wizard.  WebForms projects are not currently supported.
 
 #####Compatible Authentication Code
 

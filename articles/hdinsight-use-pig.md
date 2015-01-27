@@ -1,6 +1,6 @@
-<properties urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Use Hadoop Pig in HDInsight | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Use Hadoop Pig in HDInsight | Azure" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao"/>
 
 
 
@@ -60,7 +60,7 @@ The syntax to access the files in the blob storage is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
+> [AZURE.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
 
 A file stored in the default file system container can be accessed from HDInsight using any of the following URIs as well (using sample.log as an example.  This file is the data file used in this tutorial):
 
@@ -200,7 +200,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 
 	You will be prompted to enter your Azure account credentials. This method of adding a subscription connection times out, and after 12 hours, you will have to run the cmdlet again. 
 
-	> [WACOM.NOTE] If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select the current subscription.
+	> [AZURE.NOTE] If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select the current subscription.
 2. In the script pane, copy and paste the following lines:
 
 		$clusterName = "<HDInsightClusterName>" 	#Specify the cluster name
@@ -242,7 +242,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 		Write-Host "Display the standard output ..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
-	> [WACOM.NOTE] One of the Get-AzureHDInsightJobOut cmdlets is commented for shortening the output in the following screenshot.   
+	> [AZURE.NOTE] One of the Get-AzureHDInsightJobOut cmdlets is commented for shortening the output in the following screenshot.   
 
 7. Press **F5** to run the script:
 

@@ -1,6 +1,6 @@
-<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+<properties pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" services="batch" documentationCenter=".net" authors="yidingzhou" manager="timlt" editor=""/>
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/02/2014" ms.author="yidingz, karran.batta" />
+<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, kabatta"/>
 
 #Getting Started with the Azure Batch Library for .NET  
 
@@ -17,13 +17,13 @@ For background information and scenarios for Azure Batch, see [Azure Batch techn
 This tutorial will show you how to create a console application that sets up distributed computation among a pool of virtual machines by using the Azure Batch service. The tasks that are created in this tutorial evaluate text from files in Azure storage and return the words that are most commonly used. The samples are written in C# code and use the Azure Batch Library for .NET.
 
 
->[WACOM.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). 
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). 
 >
->You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Storage package and dependencies.
+>You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Batch package and dependencies.
 >
->Please make sure your Nuget Package Manager version is 2.8 or later. You can find the version number from Visual Studio -> "Help" -> "About Microsoft Visual Studio" dialog. If you have an older version of Nuget Package Manager, you need to update your Visual Studio or you might have issue download the correct version of Nuget dependencies.
+>Please make sure your Nuget Package Manager version is 2.8 or later. You can find the version number from Visual Studio -> "Help" -> "About Microsoft Visual Studio" dialog. If you have an older version of Nuget Package Manager, you need to update your Visual Studio or you might have problems downloading the correct version of Nuget dependencies.
 > 
->Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on msdn for a sample simliar to the code discussed here.
+>Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on MSDN for a sample similar to the code discussed here.
 
 
 
@@ -303,10 +303,10 @@ You will need a storage account to continue complete the rest of this tutorial. 
 		Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications. Select from a range of frameworks and templates to create a web site in seconds. Use any tool or OS to develop your site with .NET, PHP, Node.js or Python. Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team. Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.
 
 
->[WACOM.NOTE] In a production environment, it is recommended that you use a shared access signature.
+>[AZURE.NOTE] In a production environment, it is recommended that you use a shared access signature.
 
 
->[WACOM.NOTE] Azure Storage team has a [blog post](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listing Azure Storage explorers that can help uploading files.
+>[AZURE.NOTE] Azure Storage team has a [blog post](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listing Azure Storage explorers that can help uploading files.
 
 
 
@@ -416,7 +416,7 @@ Batch Apps is a feature of Azure Batch that provides an application-centric way 
 
 In the Batch Apps scenario, you write code using the Batch Apps Cloud SDK to partition jobs into parallel tasks, describe any dependencies between these tasks, and specify how to execute each task.  This code is deployed to the Batch account.  Clients can then execute jobs simply by specifying the kind of job and the input files to a REST API.
 
->[WACOM.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). You can use NuGet to obtain both the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> assembly and the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. You can also download the Visual Studio Extension for Batch Apps which includes a project template to cloud-enable applications and ability to deploy an application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">here</a> or via searching for **Batch Apps** in Visual Studio via the Extensions and Updates menu item.  You can also find <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">end-to-end samples on MSDN.</a>
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). You can use NuGet to obtain both the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> assembly and the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. You can also download the Visual Studio Extension for Batch Apps which includes a project template to cloud-enable applications and ability to deploy an application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">here</a> or via searching for **Batch Apps** in Visual Studio via the Extensions and Updates menu item.  You can also find <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">end-to-end samples on MSDN.</a>
 >
 
 ###Fundamentals of Azure Batch Apps 

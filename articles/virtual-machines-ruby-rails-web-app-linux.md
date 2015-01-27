@@ -1,6 +1,6 @@
-<properties urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="Ruby on Rails Web App on Azure using Linux VM" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine." services="virtual-machines" documentationCenter="ruby" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 
@@ -54,17 +54,13 @@ The following is a screenshot of the completed application:
 
 		gem install rails --no-rdoc --no-ri
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>This command may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows:</p>
-	<pre class="prettyprint">sudo gem install rails</pre>
-	</div>
+	> [AZURE.NOTE] This command may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows:
+	>
+	>````` 
+	sudo gem install rails
+	`````
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Version 3.2.12 of the Rails gem was used for this tutorial.</p>
-
-	</div>
+	> [AZURE.NOTE] Version 3.2.12 of the Rails gem was used for this tutorial.
 
 3. You must also install a JavaScript interpreter, which will be used by Rails to compile CoffeeScript assets used by your Rails application. A list of supported interpreters is available at [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
 	
@@ -78,10 +74,7 @@ The following is a screenshot of the completed application:
 
 	This command creates a new directory named **blog_app**, and populates it with the files and sub-directories required by a Rails application.
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and during this time may appear to hang.</p>
-	</div>
+	> [AZURE.NOTE] This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and during this time may appear to hang.
 
 2. Change directories to the the **blog_app** directory, and then use the following command to create a basic blog scaffolding:
 
@@ -127,15 +120,9 @@ Perform the following steps to start the Rails server in your development enviro
 
 Follow the instructions given [here][vm-instructions] to create an Azure virtual machine that hosts Linux.
 
-<div class="dev-callout">
-<strong>Note</strong>
+> [AZURE.NOTE] the steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.
 
-<p>the steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.</p></div>
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>You <strong>only</strong> need to create the virtual machine. Stop after learning how to connect to the virtual machine using SSH.</p>
-</div> 
+> [AZURE.IMPORTANT] You **only** need to create the virtual machine. Stop after learning how to connect to the virtual machine using SSH.
 
 After creating the Azure Virtual Machine, perform the following steps to install Ruby and Rails on the virtual machine:
 
@@ -147,10 +134,7 @@ After creating the Azure Virtual Machine, perform the following steps to install
 
 		ssh railsdev@railsvm.cloudapp.net -p 61830
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If you are using Windows as your development environment, you can use a utility such as <b>PuTTY</b> for SSH functionality. PuTTY can be obtained from the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY download page</a>.</p>
-	</div>
+	> [AZURE.NOTE] If you are using Windows as your development environment, you can use a utility such as **PuTTY** for SSH functionality. PuTTY can be obtained from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 2. From the SSH session, use the following commands to install Ruby on the VM:
 
@@ -180,10 +164,7 @@ For example:
 
 	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you are using Windows as your development environment, you can use a utility such as <b>pscp</b> for scp functionality. Pscp can be obtained from the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY download page</a>.</p>
-</div>
+> [AZURE.NOTE] If you are using Windows as your development environment, you can use a utility such as **pscp** for scp functionality. Pscp can be obtained from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 The parameters used for this command have the following effect:
 

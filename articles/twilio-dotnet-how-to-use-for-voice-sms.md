@@ -1,6 +1,6 @@
-<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." services="" documentationCenter=".net" authors="devinrader" manager="twilio" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="MicrosoftHelp@twilio.com"/>
 
 
 
@@ -74,13 +74,8 @@ When you're ready to get a Twilio account, sign up at [Try Twilio] [try_twilio].
 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page] [twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
-<h2><a id="VerifyPhoneNumbers"></a>Verify Phone Numbers</h2>
-Various phone numbers need to be verified with Twilio for your account. For example, if you want to place outbound phone calls, the phone number must be verified as an outbound caller ID with Twilio. Similarly, if you want a phone number to receive SMS messages, the receiving phone number must be verified with Twilio. For information on how to verify a phone number, see [Manage numbers] [verify_phone]. Some of the code below relies on phone numbers that you will need to verify with Twilio.
-
-As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
-
 <h2><a id="create_app"></a>Create an Azure Application</h2>
-An Azure application that hosts a Twilio enabled application is no different from any other Azure application. You simply add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
+An Azure application that hosts a Twilio enabled application is no different from any other Azure application. You add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
 For information on creating an initial Azure project, see [Creating an Azure project with Visual Studio][vs_project].
 
 <h2><a id="configure_app"></a>Configure Your Application to use Twilio Libraries</h2>
@@ -122,10 +117,7 @@ The libraries can be [installed using the NuGet package manager extension](http:
 
 By default, Microsoft Visual Studio 2010 installs version 1.2 of NuGet. Installing the Twilio libraries requires version 1.6 of NuGet or higher. For information on installing or updating NuGet, see [http://nuget.org/][nuget].
 
-<div class="dev-callout">
-<b>Note</b>
-<p>To install the latest verison of NuGet, you must first uninstall the loaded version using the Visual Studio Extension Manager. To do so, you must run Visual Studio as administrator. Otherwise, the Uninstall button is disabled.</p>
-</div>
+> [AZURE.NOTE] To install the latest verison of NuGet, you must first uninstall the loaded version using the Visual Studio Extension Manager. To do so, you must run Visual Studio as administrator. Otherwise, the Uninstall button is disabled.
 
 <h3><a id="use_nuget"></a>To add the Twilio libraries to your Visual Studio project:</h3>
 
@@ -184,7 +176,7 @@ The following screenshot shows how to send an SMS message using the **TwilioRest
         client = new TwilioRestClient(accountSID, authToken);
 
         // Send an SMS message.
-        SMSMessage result = client.SendSmsMessage(
+        Message result = client.SendMessage(
             "+14155992671", "+12069419717", "This is my SMS message.");
 
         if (result.RestException != null)
@@ -196,10 +188,7 @@ The following screenshot shows how to send an SMS message using the **TwilioRest
 <h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own website</h2>
 When your application initiates a call to the Twilio API - for example, via the **client.InitiateOutboundCall** method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in [How to: Make an outgoing call](#howto_make_call) uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url] to return the response. 
 
-<div class="dev-callout">
-<b>Note</b>
-<p>While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message](twimlet_message_url) to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.</p>
-</div>
+> [AZURE.NOTE] While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message](twimlet_message_url) to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you'll be hosting the URL from an ASP.NET generic handler.
 
@@ -290,7 +279,7 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
 
 For additional information about using Twilio on Azure with ASP.NET, see [How to make a phone call using Twilio in a web role on Azure][howto_phonecall_dotnet].
 
-[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 

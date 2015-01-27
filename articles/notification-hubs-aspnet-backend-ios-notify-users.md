@@ -1,11 +1,11 @@
-<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+<properties pageTitle="Azure Notification Hubs Notify Users" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="ios" authors="ysxu" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu"/>
 
 #Azure Notification Hubs Notify Users
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+    	<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
@@ -19,7 +19,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
 Please follow sections 1 through 5 in [Getting Started with Notification Hubs (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/). For additional resources on iOS device provisioning, check out the guide at [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modify your iOS app
 

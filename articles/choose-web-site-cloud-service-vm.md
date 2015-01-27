@@ -1,6 +1,6 @@
-<properties pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+<properties pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." services="web-sites, virtual-machines, cloud-services" documentationCenter="" authors="tdykstra" manager="wpickett" editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"/>
 
 # Azure Websites, Cloud Services, and Virtual Machines comparison
 
@@ -42,7 +42,7 @@ Here are some common application scenarios with recommendations as to which Azur
 
 ### <a id="onprem"></a> I need a web front end with background processing and database backend to run business applications integrated with on premise assets.
 
-Azure Websites is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class management portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The new [Webjobs][] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and [VNET features](../fundamentals-networking/) make it easy to connect back to on-premises resources. Azure Websites provides three 9's SLA and enables you to:
+Azure Websites is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class management portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The new [Webjobs][] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and [VNET features](../fundamentals-introduction-to-azure/#networking/) make it easy to connect back to on-premises resources. Azure Websites provides three 9's SLA and enables you to:
 
 * Run your applications reliably on a self-healing, auto-patching cloud platform. 
 * Scale automatically across a global network of datacenters.
@@ -321,6 +321,11 @@ The following table compares the capabilities of Websites, Cloud Services, and V
    <td valign="middle"></td>
 </tr>
 </table>
+
+
+> [AZURE.NOTE]
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+
 
 ## <a id="nextsteps"></a> Next Steps
 

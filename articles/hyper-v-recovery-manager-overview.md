@@ -1,14 +1,15 @@
-<properties urlDisplayName="Azure Site Recovery Overview" pageTitle="Azure Site Recovery Overview" metaKeywords="Azure Site Recovery, on-premises, clouds, Azure, VMM, Hyper-V" description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Azure Site Recovery Overview" editor="jimbe" manager="johndaw" authors="raynew" />
+<properties pageTitle="Azure Site Recovery Overview" description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." editor="jimbe" manager="jwhit" authors="rayne-wiselman" services="site-recovery" documentationCenter=""/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew"/>
 
 # Azure Site Recovery Overview
 
-<div class="dev-callout"> 
+
 <p>Azure Site Recovery orchestrates replication and failover in a number of scenarios:</p>
 
 
 <ul>
+<li>**On-premises Hyper-V site to Azure protection with Hyper-V replication** — Orchestrate replication, failover, and recovery from an on-premises site with one or more Hyper-V servers but without System Center VMM. Virtual machine data is replicated from a source Hyper-V host server to Azure. Read <a href="http://go.microsoft.com/fwlink/?LinkId=522298">Getting started with Azure Site Recovery: Protection Between an On-Premises Hyper-V Site and Azure with Hyper-V Replication</a>.</li>
 <li>**On-premises VMM site to on-premises VMM site protection with Hyper-V replication** — Orchestrate replication, failover, and recovery between on-premises VMM sites. Virtual machine data is replicated from a source Hyper-V host server to a target host server. Read <a href="http://go.microsoft.com/fwlink/?LinkId=398765">Getting started with Azure Site Recovery: Protection Between Two On-Premises VMM Sites with Hyper-V Replication</a>.</li>
 
 <li>**On-premises VMM site to on-premises VMM site protection with SAN replication** — Orchestrates end-to-end replication, failover, and recovery using storage array-based replication between SAN devices that host virtual machine data in source and target on-premises sites. Read <a href="http://go.microsoft.com/fwlink/?LinkId=518683">Getting started with Azure Site Recovery: : Protection Between Two On-Premises VMM Sites with SAN replication</a>.</li>

@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create a LAMP Stack with Microsoft Azure" pageTitle="How to create a LAMP Stack with Microsoft Azure" metaKeywords="Azure LAMP stack vm, LAMP stack vm, Azure LAMP stack" description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="ningk" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="How to create a LAMP Stack with Microsoft Azure" description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
 
 #How to create a LAMP Stack with Microsoft Azure 
 
@@ -15,6 +15,10 @@ You will learn:
 -	How to install software that is needed by your LAMP server on the virtual machine.
 
 It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/en-us/overview/what-is-azure/).
+
+In addition to this topic, the following video presents details about using the LAMP stack on Microsoft Azure:  
+
+> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
 
 ##Phase 1: Create an image
 In this phase, you will create virtual machine using a Linux image in Azure.  

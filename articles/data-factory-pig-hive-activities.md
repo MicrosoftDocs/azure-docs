@@ -1,6 +1,6 @@
-<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Use Pig and Hive with Azure Data Factory" description="Learn how to process data by running Pig and Hive scripts on an Azure HDInsight cluster from an Azure data factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties pageTitle="Use Pig and Hive with Azure Data Factory" description="Learn how to process data by running Pig and Hive scripts on an Azure HDInsight cluster from an Azure data factory." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. 
@@ -53,7 +53,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 - You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
 
 
-## <a name="HiveJSON"></a> ## Hive JSON example
+## <a name="HiveJSON"></a> Hive JSON example
 
 
     {
@@ -82,7 +82,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 - You can specify Hive script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
 - You specify parameters for the Hive script by using the **extendedProperties**. More details are provided later in this article. 
 
-> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
+> [AZURE.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
 
 ## <a name="ScriptInBlob"></a>Using Pig and Hive scripts that are stored in Azure Blob storage
@@ -131,7 +131,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 
   
 
-> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
+> [AZURE.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
 ## <a name="ParameterizeQueries"></a>Parameterized Pig and Hive Queries
 The Data Factory Pig and Hive activities enable you to specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties**. The extendedProperties section consists of the name of the parameter, and value of the parameter.
@@ -281,7 +281,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": "4",
-        		"jobsContainer": "adfjobs",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}
@@ -375,9 +374,9 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     	
 3. Schedule the pipeline.
     	
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-27 –EndDateTime 2014-09-30 –Name ADFTutorialHivePipeline 
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-27Z –EndDateTime 2014-09-30Z –Name ADFTutorialHivePipeline 
 
-	> [WACOM.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. 
+	> [AZURE.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. 
 	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
   	
 	The output table is scheduled to be produced every day, so there will be three slices produced. 

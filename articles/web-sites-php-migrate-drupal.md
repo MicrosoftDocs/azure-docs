@@ -1,13 +1,13 @@
-<properties urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="Migrating Drupal to Azure Websites" metaKeywords="Drupal, PHP, Web Sites" description="Migrate a Drupal PHP site to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Migrating Drupal to Azure Websites" description="Migrate a Drupal PHP site to Azure Websites." services="web-sites" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/11/2014" ms.author="tomfitz" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/11/2014" ms.author="tomfitz"/>
 
 
 # Migrating Drupal to Azure Websites
 
 Because Azure Websites supports both PHP and MySQL, it is relatively straightforward to migrate a Drupal site to Azure Websites. And, because Drupal and PHP run on any platform, the process should work for moving Drupal to Azure Websites regardless of your current platform. With this said, Drupal installations can vary widely, so there could be some unique migration steps not covered in the following material. Note that the Drush tool is not used, because it is not supported on Azure Websites.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > If you are moving a large and complex Drupal application, another option is to consider using Azure Cloud Services. For more information about the differences between Websites and Cloud Services, see <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Azure Websites, Cloud Services, and VMs: When to use which?</a>. For help on moving Drupal to Cloud Services, see <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Migrating a Drupal Site from LAMP to Windows Azure</a>.
 
 ## Table of Contents
@@ -68,7 +68,7 @@ If you are using FTP, get the FTP hostname and username from you website’s das
 
 If you are using Git, you should have set up a Git repository in the previous steps. You must install Git on your local machine. Then, follow the instructions provided after you created the repository.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Depending on your Git settings, you might have to edit your .gitignore file (a hidden file and a sibling to the .git folder created in your local root directory after you executed git commit). This specifies files in your Drupal application that may be ignored. If this contains files that should be deployed, remove those entries so that these files are not ignored.
 
 After you have deployed Drupal to Azure Websites, you can continue to deploy updates via Git or FTP.

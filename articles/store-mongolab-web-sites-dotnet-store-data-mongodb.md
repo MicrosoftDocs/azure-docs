@@ -1,6 +1,6 @@
-<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Create a Website that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+<properties pageTitle="Create a Website that uses MongoDB on MongoLab (.NET)" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." services="web-sites" documentationCenter=".net" authors="chrischang12" manager="partners@mongolab.com" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com"/>
 
 
 
@@ -49,7 +49,7 @@ Now, on to the full tutorial...
 
 <h2><a name="provision"></a>Provision the database</h2>
 
-[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
+[AZURE.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 <h2><a name="create"></a>Create the app</h2>
 
@@ -404,11 +404,11 @@ Alternatively, you can also configure a Website directly from Visual Studio. Whe
 
 ### Get the MongoLab connection string
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 ### Add the connection string to the website's environment variables
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ### Publish the website
 1. In Visual Studio, right-click the **mongoNotes** project in the Solution Explorer and select **Publish**. The Publish dialog displays:  
@@ -421,7 +421,7 @@ Alternatively, you can also configure a Website directly from Visual Studio. Whe
 
 <h2><a name="manage"></a>Manage the database</h2>
 
-[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
+[AZURE.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 Congratulations! You've just launched a C# ASP.NET application backed by a MongoLab-hosted MongoDB database! Now that you have a MongoLab database, you can contact [support@mongolab.com](mailto:support@mongolab.com) with any questions or concerns about your database, or for help with MongoDB or the C# driver itself. Good luck out there!
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" metaKeywords="Cloud Services, Virtual Machines, Web Sites, Virtual Network, SQL Database, Subscription, Storage" description="Provides a list of common Azure subscription and service limits along with maximum values." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
+<properties pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" description="Provides a list of common Azure subscription and service limits along with maximum values." services="web-sites, virtual-machines, cloud-services" documentationCenter="" authors="rothja" manager="jeffreyg" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
 
@@ -19,7 +19,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 - [Service Bus Limits](#servicebuslimits)
 - [Active Directory Limits](#adlimits)
 
-> [WACOM.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
+> [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
 ##<a name="subscription"></a>Subscription Limits
 
@@ -90,6 +90,12 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
+   <td valign="middle"><p>300</p></td>
+   <td valign="middle"><p>300</p></td>
+</tr>
+
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
@@ -158,7 +164,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 ##<a name="websiteslimits"></a>Websites Limits
 
-[WACOM.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
 ##<a name="networkinglimits"></a>Networking Limits
 
@@ -273,11 +279,11 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 ##<a name="batchlimits"></a>Batch Preview Limits
 
-[WACOM.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+[AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ##<a name="documentdblimits"></a>DocumentDB Preview Limits
 
-[WACOM.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+[AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 ##<a name="sqldblimits"></a>SQL Database Limits
 
@@ -290,11 +296,11 @@ For SQL Database Limits, please see the following topics:
 
 ##<a name="mediaserviceslimits"></a>Media Services Limits
 
-[WACOM.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
 ##<a name="servicebuslimits"></a>Service Bus Limits
 
-[WACOM.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
 ##<a name="adlimits"></a>Active Directory Limits
 

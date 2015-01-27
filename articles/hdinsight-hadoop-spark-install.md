@@ -1,10 +1,10 @@
-<properties linkid="install Spark on HDInsight cluster" urlDisplayName="Use Script Action in HDInsight to install Spark on Hadoop cluster" pageTitle="Use Script Action in HDInsight to install Spark on Hadoop cluster| Azure" metaKeywords="" description="Learn how to customize HDInsight cluster to install Spark. You'll use a Script Action configuration option to use a script to install Spark" metaCanonical="" services="hdinsight" documentationCenter="" title="Install and use Spark on HDInsight clusters" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Use Script Action in HDInsight to install Spark on Hadoop cluster| Azure" description="Learn how to customize HDInsight cluster to install Spark. You'll use a Script Action configuration option to use a script to install Spark" services="hdinsight" documentationCenter="" authors="nitinme" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/19/2014" ms.author="nitinme"/>
 
-# Install and use Spark 1.0 on HDInsight clusters (Preview)
+# Install and use Spark 1.0 on HDInsight Hadoop clusters
 
-You can install Spark on an HDInsight cluster, while it is being deployed, using **Script Action** cluster customization. Script action lets you run scripts to customize a cluster, as the cluster is being created. For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
+You can install Spark on any type of cluster in Hadoop on HDInsight using **Script Action** cluster customization. Script action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
 
 In this topic, you will learn how to install Spark 1.0 using Script Action. Once you have installed Spark, you'll also learn how to run a Spark query on HDInsight clusters.
 
@@ -14,6 +14,7 @@ In this topic, you will learn how to install Spark 1.0 using Script Action. Once
 - [What is Spark?](#whatis)
 - [How do I install Spark?](#install)
 - [How do I use Spark in HDInsight?](#usespark)
+- [Install Spark on HDInsight Hadoop clusters using PowerShell](#usingPS)
 - [Install Spark on HDInsight Hadoop clusters using the .NET SDK](#usingSDK) 
 
 
@@ -27,75 +28,30 @@ This topic provides instructions on how to customize an HDInsight cluster to ins
 
 ## <a name="install"></a>How do I install Spark?
 
-A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at *https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv01/spark-installer-v01.ps1*. This section provides instructions on how to use the sample script from PowerShell to provision a cluster that has Spark installed. Azure HDInsight provides a cmdlet **Add-AzureHDInsightScriptAction** to invoke scripts using Script Action to customize a cluster.
+A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1). This section provides instructions on how to use the sample script while provisioning the cluster using the Azure Management Portal. 
 
- 
+> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
 
-> [WACOM.NOTE] The sample script can be used to install Spark only on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/#portal). 
+2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the Script Action, as shown below:
 
-
-Before performing the instructions in this section, make sure you have installed and configured PowerShell. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
-
-Perform the following steps:
-
-1. Open an Azure PowerShell window and declare the following variables:
-
-		# PROVIDE VALUES FOR THESE VARIABLES
-		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
-		$clusterName = "<HDInsightClusterName>"			# The HDInsight cluster name
-		$storageAccountName = "<StorageAccountName>"	# Azure storage account that hosts the default container
-		$storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
-		$containerName = $clusterName
-		$location = "<MicrosoftDataCenter>"				# The location of the HDInsight cluster. It must in the same data center as the storage account.
-		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
-		$version = "<HDInsightClusterVersion>"          # For example "3.1"
+	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
 	
-2. Specify the configuration values such as nodes in the cluster and the default storage to be used.
+	<table border='1'>
+		<tr><th>Property</th><th>Value</th></tr>
+		<tr><td>Name</td>
+			<td>Specify a name for the script action. For example, <b>Install Spark</b>.</td></tr>
+		<tr><td>Script URI</td>
+			<td>Specify the URI to the script that is invoked to customize the cluster. For example, <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1</i></td></tr>
+		<tr><td>Node Type</td>
+			<td>Specifies the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.
+		<tr><td>Parameters</td>
+			<td>Specify the parameters, if required by the script. The script to install Spark does not require any parameters so you can leave this blank.</td></tr>
+	</table>	
 
-		# SPECIFY THE CONFIGURATION OPTIONS
-		Select-AzureSubscriptionName $subscriptionName
-		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-		$config.DefaultStorageAccount.StorageContainerName=$containerName
-	
-3. Use **Add-AzureHDInsightScriptAction** cmdlet to to add Script Action to cluster configuration. Later, when the cluster is being created, the Script Action gets executed. 
+	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start provisioning the cluster.
 
-		# ADD SCRIPT ACTION TO CLUSTER CONFIGURATION
-		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv01/spark-installer-v01.ps1
-
-	**Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
-
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parameter</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Definition</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Config</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">The configuration object to which script action information is added</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name of the script action</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifies the nodes on which the customization script is run. The valid values are HeadNode (to install on the headnode) or DataNode (to install on all the datanodes). You can use either or both values.</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifies the URI to the script that is executed</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parameters</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parameters required by the script. The sample script used in this topic does not require any parameters, and hence you do not see this parameter in the snippet above.
-	</td></tr>
-	</table>
-	
-4. Finally, start provisioning a customized cluster with Spark installed.  
-	
-		# START PROVISIONING A CLUSTER WITH SPARK INSTALLED
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
-
-When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
-
-
+You can also use the script to install Spark on HDInsight using PowerShell or the HDInsight .NET SDK. Instructions for these procedures are provided later in this topic.
 
 ## <a name="usespark"></a>How do I use Spark in HDInsight?
 Spark provides APIs in Scala, Python, and Java. You can also use the interactive Spark shell to run Spark queries. This section provides introduction on how to use these two approaches to work with Spark:
@@ -184,7 +140,7 @@ In this section, you use <a href="http://www.scala-sbt.org/0.13/docs/index.html"
 
 
 
-	>[WACOM.NOTE] Make sure you retain the empty lines in the file.
+	>[AZURE.NOTE] Make sure you retain the empty lines in the file.
 
 	
 3. Under the **SimpleScalaApp** folder, create a directory structure **\src\main\scala** and paste the Scala program (**SimpleApp.scala**) you created earlier under \src\main\scala folder.
@@ -211,6 +167,69 @@ In this section you will remote into the cluster that has Spark installed and th
 
 
 		Lines with a: 21374, Lines with b: 11430
+
+## <a name="usingPS"></a>Install Spark on HDInsight Hadoop clusters using PowerShell
+
+In this section we use the **<a href = "http://msdn.microsoft.com/en-us/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured PowerShell. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
+
+Perform the following steps:
+
+1. Open an Azure PowerShell window and declare the following variables:
+
+		# PROVIDE VALUES FOR THESE VARIABLES
+		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
+		$clusterName = "<HDInsightClusterName>"			# The HDInsight cluster name
+		$storageAccountName = "<StorageAccountName>"	# Azure storage account that hosts the default container
+		$storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
+		$containerName = $clusterName
+		$location = "<MicrosoftDataCenter>"				# The location of the HDInsight cluster. It must in the same data center as the storage account.
+		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
+		$version = "<HDInsightClusterVersion>"          # For example "3.1"
+	
+2. Specify the configuration values such as nodes in the cluster and the default storage to be used.
+
+		# SPECIFY THE CONFIGURATION OPTIONS
+		Select-AzureSubscription $subscriptionName
+		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
+		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
+		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
+		$config.DefaultStorageAccount.StorageContainerName=$containerName
+	
+3. Use **Add-AzureHDInsightScriptAction** cmdlet to to add Script Action to cluster configuration. Later, when the cluster is being created, the Script Action gets executed. 
+
+		# ADD SCRIPT ACTION TO CLUSTER CONFIGURATION
+		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
+
+	**Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
+
+	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parameter</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Definition</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Config</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">The configuration object to which script action information is added</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name of the script action</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifies the nodes on which the customization script is run. The valid values are HeadNode (to install on the headnode) or DataNode (to install on all the datanodes). You can use either or both values.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifies the URI to the script that is executed</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parameters</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parameters required by the script. The sample script used in this topic does not require any parameters, and hence you do not see this parameter in the snippet above.
+	</td></tr>
+	</table>
+	
+4. Finally, start provisioning a customized cluster with Spark installed.  
+	
+		# START PROVISIONING A CLUSTER WITH SPARK INSTALLED
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
+
+When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
 
 
 ## <a name="usingSDK"></a>Install Spark on HDInsight Hadoop clusters using the .NET SDK
@@ -259,11 +278,11 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 
 5. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.
 
-6. Run the following commands in the console to install the packages.
+6. Run the following commands in the console to install the package.
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
-	This command adds .NET libraries and references to them to the current Visual Studio project.
+	This command adds the .NET libraries and references to them from the current Visual Studio project.
 
 7. From Solution Explorer, double-click **Program.cs** to open it.
 
@@ -280,7 +299,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 
         // PROVIDE VALUES FOR THE VARIABLES
         string thumbprint = "<CertificateThumbprint>";  
-        string subscriptionid = "<AzureSubscriptionID>";
+        string subscriptionId = "<AzureSubscriptionID>";
         string location = "<MicrosoftDataCenterLocation>";
         string storageaccountname = "<AzureStorageAccountName>.blob.core.windows.net";
         string storageaccountkey = "<AzureStorageAccountKey>";
@@ -289,17 +308,16 @@ Create a self-signed certificate, install it on your workstation, and upload it 
         int clustersize = <NumberOfNodesInTheCluster>;
 
         // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE 
-        var store = new X509Store(StoreLocation.LocalMachine);
+        X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
-        var cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
+        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
 
         // CREATE AN HDINSIGHT CLIENT OBJECT
-        var creds = new HDInsightCertificateCredential(Guid.Parse(subscriptionId), cert);
+        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
         var client = HDInsightClient.Connect(creds);
 		client.IgnoreSslErrors = true;
         
-            
-		// PROVIDE THE CLUSTER INFORMATION
+        // PROVIDE THE CLUSTER INFORMATION
 		var clusterInfo = new ClusterCreateParameters()
         {
             Name = clusterName,
@@ -319,7 +337,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
         clusterInfo.ConfigActions.Add(new ScriptAction(
           "Install Spark", // Name of the config action
           new ClusterNodeType[] { ClusterNodeType.HeadNode }, // List of nodes to install Spark on
-          new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv01/spark-installer-v01.ps1"), // Location of the script to install Spark
+          new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1"), // Location of the script to install Spark
 		  null //because the script used does not require any parameters.
         ));
 
@@ -339,7 +357,9 @@ Provide a cluster name and press ENTER to provision a cluster with Spark install
 
 
 ## See also##
-[Install R on HDInsight clusters][hdinsight-install-r] provides instructions on how to use cluster customization to install and use R on HDinsight Hadoop clusters. R is an open source language and environment for statistical computing and provides hundreds of build-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
+- [Install R on HDInsight clusters][hdinsight-install-r] provides instructions on how to use cluster customization to install and use R on HDinsight Hadoop clusters. R is an open source language and environment for statistical computing and provides hundreds of build-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
+- [Install Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and can be used with Azure HDInsight.
+- [Install Solr on HDInsight clusters](../hdinsight-hadoop-solr-install). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform search powerful search operations on data stored.
 
 
 
@@ -349,5 +369,3 @@ Provide a cluster name and press ENTER to provision a cluster with Spark install
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
-
-[img-hdi-scala-interactive]: ./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png "Output from running Scala interactive shell in an HDInsight cluster"

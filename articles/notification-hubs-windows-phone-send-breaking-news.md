@@ -1,6 +1,6 @@
-<properties pageTitle="Use Notification Hubs to send breaking news (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Use Notification Hubs to send breaking news (Windows Phone)" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga"/>
 
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -101,9 +101,7 @@ The first step is to add the UI elements to your existing main page that enable 
 
 4. In the above code, replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
 
-	<div class="dev-callout"><strong>Note</strong> 
-		<p>Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.</p>
-	</div> 
+	> [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
 
 4. In the App.xaml.cs project file, add the following property to the **App** class:
 
@@ -140,9 +138,7 @@ Your app is now able to store a set of categories in local storage on the device
 
 These steps register with the notification hub on startup using the categories that have been stored in local storage. 
 
-<div class="dev-callout"><strong>Note</strong> 
-	<p>Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
-</div>  
+> [AZURE.NOTE] Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
 
 1. Add the following code to the **Notifications** class:
 
@@ -182,7 +178,7 @@ The app is now complete and can store a set of categories in the device local st
 
 <h2><a name="send"></a>Send notifications from your back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ##<a name="test-app"></a>Run the app and generate notifications
 

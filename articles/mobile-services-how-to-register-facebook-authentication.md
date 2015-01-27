@@ -1,12 +1,12 @@
-<properties urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Facebook authentication with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Register for Facebook authentication - Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
 # Register your apps for Facebook authentication with Mobile Services
 
 This topic shows you how to register your apps to be able to use Facebook to authenticate with Azure Mobile Services. 
 
->[WACOM.NOTE] This tutorial is about [Azure Mobile Services], a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
+> [AZURE.NOTE] This tutorial is about [Azure Mobile Services], a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
 	
 To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
 
@@ -38,14 +38,13 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
    	![][5]
 
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
-    </div>
+	> [AZUTE.NOTE] **Security Note**
+	The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 
 8. Click the **Advanced** tab, type the URL of your mobile service appended with the path _/login/facebook_ in **Valid OAuth redirect URIs**, then click **Save Changes**. 
 
-	>[WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-facebook_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-facebook</code>.  
+	> [AZURE.NOTE] For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-facebook_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-facebook</code>.  
 	
 	![][7]
 

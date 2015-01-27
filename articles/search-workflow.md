@@ -1,10 +1,10 @@
-<properties title="Search Service: workflow for developers" pageTitle="Search Service: workflow for developers" description="Search Service: workflow for developers" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties pageTitle="Search Service: workflow for developers" description="Search Service: workflow for developers" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
 
 # Azure Search: development workflow
 
-[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
 This article provides a roadmap and a few best practices for creating and maintaining the Search service and its indexes. 
 
@@ -33,7 +33,7 @@ There is an overall status code for the POST request. Status codes are either HT
 
 Under heavy load, it's not uncommon to have some upload failures. Should this occur, the overall status code is 207, indicating a partial success, and the documents that failed indexing will have the 'status' property set to false.
 
-> [WACOM.NOTE] When the service receives documents, they are queued up for indexing and may not be immediately included in search results. When not under a heavy load, documents are typically indexed within a few seconds.
+> [AZURE.NOTE] When the service receives documents, they are queued up for indexing and may not be immediately included in search results. When not under a heavy load, documents are typically indexed within a few seconds.
 
 
 <h2 id="sub-3">Step 3: Query an index</h2>

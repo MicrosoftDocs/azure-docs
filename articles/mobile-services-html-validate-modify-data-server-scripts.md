@@ -1,10 +1,10 @@
-<properties urlDisplayName="Validate Data - HTML5" pageTitle="User server scripts to validate and modify data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="User server scripts to validate and modify data (HTML 5) | Mobile Dev Center" description="Learn how to validate and modify data sent using server scripts from your HTML app." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Validate and modify data in Mobile Services by using server scripts 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 This topic shows you how to leverage server scripts in Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your HTML app to take advantage of these new behaviors.
 
@@ -47,9 +47,7 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **TodoItem.text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** function is called to complete the insert.
 
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
+    > [AZURE.TIP] You can remove a registered script on the **Script** tab by clicking **Clear** and then **Save**.	
 
 ## <a name="update-client-validation"></a>Update the client
 
@@ -61,9 +59,7 @@ Now that the mobile service is validating data and sending error responses, you 
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
-	<div class="dev-callout"><b>Note</b>
-		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
-	</div>
+	> [AZURE.NOTE] On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
 
 	This starts a web server on your local computer to host the app.
 
@@ -90,9 +86,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
-<div class="dev-callout"><b>Note</b>
-<p>The <b>createdAt</b> timestamp property demonstrated here is now redundant. Mobile Services automatically creates a <b>__createdAt</b> system property for each table.</p>
-</div>
+> [AZURE.NOTE] The **createdAt** timestamp property demonstrated here is now redundant. Mobile Services automatically creates a **__createdAt** system property for each table.
 
 1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
 
@@ -109,9 +103,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 
     This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
-    </div>
+    > [AZURE.IMPORTANT] Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the **createdAt** column to the **TodoItem** table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.
 
 2. In the web browser, reload the page, then type text (shorter than 10 characters) in **Add new task** and click **Add**.
 
@@ -131,7 +123,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 		function refreshTodoItems() {
 			var query = todoItemTable.where(function () {
-                return (this.complete === false && this.createdAt !== null);
+                return (this.complete === false);
             });
 
 			query.read().then(function(todoItems) {

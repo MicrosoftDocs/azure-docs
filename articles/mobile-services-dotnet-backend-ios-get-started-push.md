@@ -1,11 +1,11 @@
-<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
 
 
 # Add push notifications to your Mobile Services app
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 This topic shows you how to use Azure Mobile Services to send push notifications to an iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
@@ -15,14 +15,11 @@ This tutorial walks you through these basic steps to enable push notifications:
 1. [Generate the certificate signing request]
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
-4. [Download the service locally]
-5. [Test the mobile service]
-6. [Update the server to send push notifications](#update-server)
-7. [Publish the mobile service to Azure]
-8. [Add push notifications to the app]
-9. [Update scripts to send push notifications]
-10. [Enable push notifications for local testing](#local-testing)
-11. [Test the app against the published mobile service]
+4. [Update the server to send push notifications](#update-server)
+5. [Publish the mobile service to Azure]
+6. [Add push notifications to the app]
+7. [Enable push notifications for local testing](#local-testing)
+8. [Test the app against the published mobile service]
 
 This tutorial requires the following:
 
@@ -31,25 +28,18 @@ This tutorial requires the following:
 + An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
-   > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
+   > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to your app][Get started with data].
 
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 
 ## Configure Mobile Services to send push requests
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
-<h2><a name="download-the-service"></a>Download the service to your local computer</h2>
-
-[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
-
-<h2><a name="test-the-service"></a>Test the mobile service</h2>
-
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ##<a id="update-server"></a>Update the server to send push notifications
 
@@ -84,7 +74,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Add push notifications to your app
 
@@ -139,13 +129,13 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             [alert show];
         }
 
-   > [WACOM.NOTE] You must add this code before calling the <strong>addItem</strong> method.
+   > [AZURE.NOTE] You must add this code before calling the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
 ##<a id="local-testing"></a> Enable push notifications for local testing
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## Test push notifications in your app
 
@@ -153,7 +143,7 @@ Your app is now updated to support push notifications.
 
   	![][23]
 
-    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 

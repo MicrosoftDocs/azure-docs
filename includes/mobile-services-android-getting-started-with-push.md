@@ -22,49 +22,20 @@
 
 4. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
-    </div>
+    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
 
 5.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
-		import com.microsoft.windowsazure.mobileservices.notifications.Registration;
 
 
 6. Add the following private variable to the class: replace _`<PROJECT_NUMBER>`_ with the Project Number assigned by Google to your app in the preceding procedure:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. Change the definition of the MobileServiceClient from private to public static, so it now looks like this:
+7. Change the definition of the *MobileServiceClient* from **private** to **public static**, so it now looks like this:
 
 		public static MobileServiceClient mClient;
-
-
-8. In ToDoActivity.java, add the following method to the ToDoActivity class to allow registering for notifications.
-
-        /**
-		 * Registers mobile services client to receive GCM push notifications
-		 * @param gcmRegistrationId The Google Cloud Messaging session Id returned 
-		 * by the call to GoogleCloudMessaging.register in NotificationsManager.handleNotifications
-		 */
-		public void registerForPush(String gcmRegistrationId)
-		{
-			String [] tags = {null};
-			ListenableFuture<Registration> reg = mClient.getPush().register(gcmRegistrationId, tags);
-			
-	    	Futures.addCallback(reg, new FutureCallback<Registration>() {
-	    		@Override
-	    		public void onFailure(Throwable exc) {
-	    			createAndShowDialog((Exception) exc, "Error");
-	    		}
-	    		
-	    		@Override
-	    		public void onSuccess(Registration reg) {
-	    			createAndShowDialog(reg.getRegistrationId() + " resistered", "Registration");
-	    		}
-	    	});
-		}
 
 
 
@@ -95,7 +66,7 @@
 		Context ctx;
 
 
-13. In the `MyHandler` class, add the following code to override the **onRegistered** method: which registers your device with the mobile service Notification Hub.
+13. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service Notification Hub.
 
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -148,7 +119,7 @@
 		}
 
 
-15. Back in the TodoActivity.java file, update the **onCreate** method of the ToDoActivity class to register the notification handler class. Make sure to add this code after the MobileServiceClient is instantiated.
+15. Back in the TodoActivity.java file, update the **onCreate** method of the *ToDoActivity* class to register the notification handler class. Make sure to add this code after the *MobileServiceClient* is instantiated.
 
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);

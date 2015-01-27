@@ -1,6 +1,6 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
+<properties pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" services="virtual-machines" documentationCenter="" authors="bureado" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel"/>
 
 # Using load-balanced sets to clusterize MySQL on Linux
 

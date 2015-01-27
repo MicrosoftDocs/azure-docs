@@ -1,6 +1,6 @@
-<properties urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
+<properties pageTitle="How to use queue storage from .NET | Microsoft Azure" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." services="storage" documentationCenter=".net" authors="tamram" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram"/>
 
 # How to use Queue Storage from .NET
 
@@ -11,7 +11,7 @@ and use the Azure Storage Client for .NET. The scenarios covered include **inser
 **creating and deleting queues**. For more information on queues, refer
 to the [Next steps][] section.
 
-> [WACOM.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/en-us/downloads/). See [How to: Programmatically access Queue storage][] below for more details on obtaining the Storage Client Library.
+> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/en-us/downloads/). See [How to: Programmatically access Queue storage][] below for more details on obtaining the Storage Client Library.
 
 <h2>Table of contents</h2>
 
@@ -30,15 +30,11 @@ to the [Next steps][] section.
 -   [How to: Delete a queue][]
 -   [Next steps][]
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <h2><a name="create-account"></a>Create an Azure Storage account</h2>
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <h2><a name="setup-connection-string"></a>Setup an Azure Storage Connection String</h2>
-
-[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
+[AZURE.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a>How to: Programmatically access Queue storage
 
@@ -299,7 +295,7 @@ to learn how to do more complex storage tasks.
   </ul>
 </li>
 <li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
+<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li>
 <li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>

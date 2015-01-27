@@ -1,9 +1,8 @@
-<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Learn how to log on to a virtual machine running Windows Server 2008 R2 by using the Azure Management Portal." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
 
+>[AZURE.NOTE] If you need to reset the user name or password, or enable RDP in the virtual machine, you can use the [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) extension. To check requirements or get troubleshooting tips for logging on, see [Connect to an Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
->[WACOM.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
-
-1. If you have not already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
+1. If you haven't already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the appropriate virtual machine.
 
@@ -11,18 +10,23 @@
 
 	![Log on to the virtual machine](./media/virtual-machines-log-on-win-server/connectwindows.png)
 
-4. Click **Open** to use the Remote Desktop Protocol file that was automatically created for the virtual machine.
+4. Click **Open** to use the Remote Desktop Protocol file that's automatically created for the virtual machine.
 	
-5. Click **Connect** to proceed with the connection process.
+5. Click **Connect** to continue.
 
 	![Continue with connecting](./media/virtual-machines-log-on-win-server/connectpublisher.png)
 
-6. Type the user name and password of the administrative account on the virtual machine, and then click **OK**.
-	
-	
-7. Click **Yes** to verify the identity of the virtual machine.
+6. Type the credentials for the administrative account on the virtual machine, and then click **OK**. 
 
-	![Verify the identity of the machine](./media/virtual-machines-log-on-win-server/connectverify.png)
+ >[AZURE.TIP] In most cases, you'll use the user name and password that was specified when the virtual machine was created. Check the user name to make sure it has the correct domain information:
 
-	You can now work with the virtual machine just as you would with any other server.
+>- If the VM belongs to a domain at your organization, make sure the user name includes the name of that domain.
+- If the VM doesn't belong to a domain, either remove any domain information by starting the line with '\' or use the VM name as the domain name. For example, `\MyUserName` or `MyTestVM\MyUserName`. 
+- If the VM is a domain controller, type the user name and password of a domain administrator account for that domain.
+
+Click **Yes** to verify the identity of the virtual machine.
+
+![Verify the identity of the machine](./media/virtual-machines-log-on-win-server/connectverify.png)
+
+You can now work with the virtual machine remotely.
 

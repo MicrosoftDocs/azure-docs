@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
+<properties pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" writer="ricksal" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal"/>
 
 # Add push notifications to your Mobile Services app
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app using Google Cloud Messaging (GCM). In this tutorial, you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
@@ -21,13 +21,13 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 ##Prerequisites
 
-[WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
->[WACOM.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of your app.
 
@@ -39,13 +39,11 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, then click **Save**.
 
-	>[WACOM.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
+	>[AZURE.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
-    <div class="dev-callout"><b>Important</b>
-	<p>When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.</p>
-    </div>
+	> [AZURE.IMPORTANT] When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.
 
 
 Both your mobile service and your app are now configured to work with GCM and Notification Hubs.
@@ -54,7 +52,7 @@ Both your mobile service and your app are now configured to work with GCM and No
 
 ###Verify Android SDK Version
 
-[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
+[AZURE.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. 
 
@@ -62,11 +60,11 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ###Add Google Play Services to the project
 
-[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ###Add code
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 
 ##<a id="update-scripts"></a>Update the registered insert script in the Management Portal

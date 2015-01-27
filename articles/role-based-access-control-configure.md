@@ -1,6 +1,6 @@
-<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Role Based Access Control in Azure Preview Portal" description="Describes how role based access control works and how to set it up" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+<properties pageTitle="Role Based Access Control in Azure Preview Portal" description="Describes how role based access control works and how to set it up" services="" documentationCenter="" authors="Justinha" manager="terrylan" editor=""/>
 
-<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
@@ -93,7 +93,7 @@ Let’s take a look at an example of how a resource owner in an organization can
 * [Remove access](#remove)
 * [Add or remove access for external user](#addremoveext)
 
-<h3><a id="add"></a>Add access</h2>
+<h3><a id="add"></a>Add access</h3>
 
 Here is a summary of the access requirements and how they are set up in Azure.
 
@@ -126,7 +126,7 @@ Role assignments can also be managed by using the Microsoft Azure module for Win
 
 For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/). 
 
-<h3><a id="remove"></a>Remove access</h2>
+<h3><a id="remove"></a>Remove access</h3>
 
 You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader > Brad Adams > Remove**.
 
@@ -136,7 +136,7 @@ Here is an example of how to remove Brad Adams by using the Remove-AzureRoleAssi
 
 	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
-<h3><a id="addremoveext"></a>Add or remove access for external user</h2>
+<h3><a id="addremoveext"></a>Add or remove access for external user</h3>
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
 To open the **Configure** tab in the full Azure portal, click **Active Directory**, and then click the name of the directory.

@@ -1,14 +1,14 @@
-<properties urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="adinah" />
+<properties pageTitle="How to use Azure File storage | Microsoft Azure" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." services="storage" documentationCenter=".net" authors="tamram" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram"/>
 
 # How to use Azure File storage
 
 In this getting started guide, we demonstrate the basics of using Microsoft Azure File storage. First we use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory. Then we show how to mount the file share from an Azure virtual machine, just as you would any SMB share.
 
-For users who may want to access files in a share from an on-premise application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
+For users who may want to access files in a share from an on-premises application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
 
-> [WACOM.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+> [AZURE.NOTE] Running the .NET code examples in this guide requires the Azure .NET Storage Client Library 4.x or later. The Storage Client Library is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
 
 ##Table of contents
@@ -18,13 +18,13 @@ For users who may want to access files in a share from an on-premise application
 -   [Create an Azure storage account][]
 -   [Use PowerShell to create a file share][]
 -	[Mount the share from an Azure virtual machine][]
--   [Create an on-premise application to access File storage][]
+-   [Create an on-premises application to access File storage][]
 -   [Next steps][]
 
 
 ##<a name="what-is-file-storage"></a>What is Azure File storage?
 
-File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File storage API.
+File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
 
 Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
@@ -32,7 +32,7 @@ Since a File storage share is a standard SMB 2.1 file share, applications runnin
 
 Common uses of File storage include:
 
-- Migrating on-premise applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+- Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
 - Storing shared application settings, for example in configuration files
 - Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
 - Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
@@ -73,9 +73,9 @@ For details about how to name shares, directories, and files, see [Naming and Re
 
 Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/en-us/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
 
-> [WACOM.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
+> [AZURE.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ##<a name="use-cmdlets"></a>Use PowerShell to create a file share
 
@@ -83,7 +83,7 @@ Azure File storage is currently in preview. To request access to the preview, na
 
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
 
-> [WACOM.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
+> [AZURE.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
 Open an Azure PowerShell window by clicking **Start** and typing **Windows Azure PowerShell**. The Azure PowerShell window loads the Azure Powershell module for you.
 
@@ -146,7 +146,7 @@ Once you have a remote connection to the virtual machine, you can execute the `n
 
 	net use z: \\<storage-account>.file.core.windows.net\<share-name>
 
-> [WACOM.NOTE] Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command. Replace `<storage-account>` with the name of your storage account, `<share-name>` with the name of your File storage share, and `<account-key>` with your storage account key:
+> [AZURE.NOTE] Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command. Replace `<storage-account>` with the name of your storage account, `<share-name>` with the name of your File storage share, and `<account-key>` with your storage account key:
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
@@ -154,11 +154,11 @@ You can now work with the File storage share from within the virtual machine as 
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
-##<a name="create-console-app"></a>Create a on-premise application to work with File storage
+##<a name="create-console-app"></a>Create a on-premises application to work with File storage
 
-You can mount a File storage share from within a virtual machine or a cloud service running in Azure, as demonstrated above. However, you cannot mount a File storge share from an on-premise application. To access share data from an on-premise application, you must use the File storage API. This example demonstrates how to work with a file share via the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
+You can mount a File storage share from within a virtual machine or a cloud service running in Azure, as demonstrated above. However, you cannot mount a File storge share from an on-premises application. To access share data from an on-premises application, you must use the File storage API. This example demonstrates how to work with a file share via the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
 
-To show how to use the API from an on-premise application, we'll create a simple console application running on the desktop.
+To show how to use the API from an on-premises application, we'll create a simple console application running on the desktop.
 
 ###Create the console application and obtain the assembly
 
@@ -182,7 +182,7 @@ Next, save your credentials in your project's app.config file. Edit the app.conf
 		</appSettings>
 	</configuration>
 
-> [WACOM.NOTE] The latest version of the Azure storage emulator does not support File storage. Your connection string must target an Azure storage account in the cloud with access to the Files preview.
+> [AZURE.NOTE] The latest version of the Azure storage emulator does not support File storage. Your connection string must target an Azure storage account in the cloud with access to the Files preview.
 
 
 ###Add namespace declarations
@@ -268,7 +268,7 @@ for more detailed information.
 [Create an Azure storage account]: #create-account
 [Use PowerShell to create a file share]: #use-cmdlets
 [Mount the share from an Azure virtual machine]: #mount-share
-[Create an on-premise application to access File storage]: #create-console-app
+[Create an on-premises application to access File storage]: #create-console-app
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 

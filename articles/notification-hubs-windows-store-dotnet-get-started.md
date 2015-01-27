@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get started with notification hubs" pageTitle="Get started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="Get started with Azure Notification Hubs" description="Learn how to use Azure Notification Hubs to push notifications." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor="dwrede"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
 
 # Getting Started with Notification Hubs
 
@@ -72,9 +72,8 @@ To send push notifications to Windows Store apps from Mobile Services, you must 
 
    	![][6]
 
- 	<div class="dev-callout"><b>Security Note</b>
-	<p>The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.</p>
-    </div>
+ 	> [AZURE.NOTE] **Security Note**
+	The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
 
 ##<a name="configure-hub"></a>Configure your Notification Hub
 
@@ -147,7 +146,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
 	
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your notification hub.
 
-    >[WACOM.NOTE]Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example). Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained in the previous section.
+    >[AZURE.NOTE]Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example). Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained in the previous section.
     
 5. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
@@ -207,7 +206,7 @@ You can send notifications using Notification Hubs from any back-end using the <
 
    	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." 
 
-	>[WACOM.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+	>[AZURE.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
 
 7. Then add the following lines in the **Main** method:
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
+<properties pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." editor="tysonn" manager="stevenka" documentationCenter="" services="" authors="coreyp69"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell#
 
@@ -26,7 +26,7 @@ This guide provides basic information about installing and setting up Azure Powe
 
 Azure is a subscription-based platform. This means that a subscription is required to use the platform. In most cases, it also means that the cmdlets require subscription information to perform the tasks with your subscription. (Some of the storage-related cmdlets can be used without this information.) You provide this by configuring your computer to connect to your subscription. Instructions are provided in this article, under "How to: Connect to your subscription."
 
-> [WACOM.NOTE] Beginning in version 0.8.5, the Azure PowerShell modules require Microsoft .NET Framework 4.5.
+> [AZURE.NOTE] Beginning in version 0.8.5, the Azure PowerShell modules require Microsoft .NET Framework 4.5.
 
 When you install the module, the installer checks your system for the required software and installs all dependencies, such as the correct version of Windows PowerShell and .NET Framework.
 
@@ -81,7 +81,7 @@ For more information about authentication and subscription management in Azure, 
         $cred = New-Object System.Management.Automation.PSCredential($userName, $securePassword)
         Add-AzureAccount -Credential $cred 
 
-	> [WACOM.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> [AZURE.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
 	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
 	> 
@@ -107,19 +107,13 @@ download the subscription information. The information is contained in a .publis
 
 - The **Import-AzurePublishSettingsFile** imports the .publishsettings file for use by the module. This file includes a management certificate that has security credentials. 
 
-<div class="dev-callout"> 
-<b>Note</b>
-<p>The cmdlets in the AzureResourceManager module require the Azure AD method (Add-AzureAccount). These cmdlets do not support publish settings files. For more information about the cmdlets in the AzureResourceManager module, see <a href="http://go.microsoft.com/fwlink/?LinkID=394765">Azure Resource Manager Cmdlets</a>.</p> 
-</div>
+> [AZURE.NOTE] The cmdlets in the AzureResourceManager module require the Azure AD method (Add-AzureAccount). These cmdlets do not support publish settings files. For more information about the cmdlets in the AzureResourceManager module, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765).
 
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>We recommend that you delete the publishing profile that you
+> [AZURE.IMPORTANT] We recommend that you delete the publishing profile that you
 downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those
 settings. Because the management certificate includes security credentials, it
 should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the <a href="http://manage.windowsazure.com/">Azure Management Portal</a> or the <a href="http://go.microsoft.com/fwlink/p/?LinkId=324875">Microsoft Online Services Customer Portal</a>.</p> 
-</div>
+about your subscriptions, you can get it from the [Azure Management Portal](http://manage.windowsazure.com/) or the [Microsoft Online Services Customer Portal](http://go.microsoft.com/fwlink/p/?LinkId=324875).
 
 1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com) using the credentials for your Azure account.
 
@@ -140,7 +134,7 @@ location and file name format is:
 
     `Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings`
 
-> [WACOM.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
+> [AZURE.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
 process to download a new .publishsettings file, and then import those
 settings. For information about adding co-administrators to help manage
 services for a subscription, see [Add and Remove Co-Administrators for Your Azure Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx).

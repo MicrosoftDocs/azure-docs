@@ -1,6 +1,6 @@
-<properties pageTitle="Azure API Management Policy Reference" metaKeywords="" description="Learn about the policies available to configure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Azure API Management Policy Reference" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Azure API Management Policy Reference" description="Learn about the policies available to configure API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
 
@@ -10,6 +10,7 @@ This topic provides a reference for the following API Management policies. For i
 	-	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
 	-	[Rate limit][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
 	-	[Caller IP restriction][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+	-	[Check header][] - Enforces existence and/or value of a HTTP Header.
 -	[Content transformation policies][]
 	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 	-	[Convert XML to JSON][] - Converts request or response body from XML to either "JSON" or "XML faithful" form of JSON.
@@ -31,6 +32,7 @@ This topic provides a reference for the following API Management policies. For i
 -	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
 -	[Rate limit][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
 -	[Caller IP restriction][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+-	[Check header][] - Enforces existence and/or value of a HTTP Header.
 
 ### <a name="usage-quota"> </a> Usage quota
 
@@ -205,6 +207,67 @@ This policy is only required when tight control over access is required (e.g. fo
 <tr>
   <td>address-range from="address" to="address"</td>
   <td>A range of IP addresses to allow or deny access for.</td>
+</tr>
+</tbody>
+</table>
+
+### <a name="check-header"> </a> Check header
+
+**Description:**
+Enforces existence and/or value of a HTTP Header. User can specify HTTP Status Code and Error Message to return if the header does not exist or contains an invalid value. 
+
+**Policy Statement:**
+
+	<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">
+  		<value>Value1</value>
+  		<value>Value2</value>
+	</check-header> 
+
+
+**Example:**
+
+	<check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">
+  		<value>f6dc69a089844cf6b2019bae6d36fac8</value>
+	</check-header> 
+
+
+**Where it can be applied:**
+Used in the inbound section in any scope.
+
+**When it should be applied:**
+When user wants to enforce existence and value of an HTTP Header.
+
+**Why it should be applied, why not:**
+If the user’s back-end requires certain HTTP headers to be set, or the user wants to authenticate the client by requiring the presence of additional headers.
+
+<table>
+<thead>
+<tr>
+  <th>Element/Attribute</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><origin>header-name="name"</origin></td>
+  <td>The name of the HTTP Header to check.</td>
+</tr>
+<tr>
+  <td><origin>failed-check-httpcode="status-code"</origin></td>
+  <td>HTTP Status code to return if the header doesn't exist or has an invalid value.</td>
+</tr>
+<tr>
+  <td><origin>failed-check-error-message="message"</origin></td>
+  <td>Error message to return in HTTP response body if the header doesn't exist or has an invalid value.</td>
+</tr>
+<tr>
+  <td><origin>value</origin></td>
+  <td>An acceptable value for the HTTP Header. May occur zero or more times. When multiple elements are specified and as long as one value matches, then the check is considered a success.</td>
+</tr>
+<tr>
+  <td>ignore-case</td>
+  <td>Can be set to True or False. If set to True case is ignored when the header value is compared against the set of acceptable values.</td>
 </tr>
 </tbody>
 </table>
@@ -445,18 +508,15 @@ Caches responses according to the specified cache settings. Must have a correspo
 
 **Policy Statement:** 
 
-	cache-store duration="seconds" caching-mode="cache-on | do-not-cache" />
+	<cache-store duration="seconds" caching-mode="cache-on | do-not-cache" />
 
 **Example:**
 
 	<policies>
 		<inbound>
        		<base />
-		      <cache-lookup vary-by-developer=*"true | false"* vary-by-developer-groups=*"true | false"* downstream-caching-type=*"none | private | public"*>
-    				<vary-by-header>Accept</vary-by-header> <!-- should be present in most cases -->
-    				<vary-by-header>Accept-Charset</vary-by-header> <!-- should be present in most cases -->
-    				<vary-by-header>header name</vary-by-header> <!-- optional, can repeated several times -->
-   					<vary-by-query-parameter>parameter name</vary-by-query-parameter> <!-- optional, can repeated several times -->
+		      <cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false">
+    				<vary-by-query-parameter>parameter name</vary-by-query-parameter> <!-- optional, can repeated several times -->
    			</cache-lookup>
        	</inbound>
  		<outbound>
@@ -500,9 +560,7 @@ Performs cache lookup and returns a valid cached response, when available. Appro
 
 **Policy Statement:** 
 
-	<cache-lookup vary-by-developer=*"true | false"* vary-by-developer-groups=*"true | false"* downstream-caching-type=*"none | private | public"*>
-    	<vary-by-header>Accept</vary-by-header> <!-- should be present in most cases -->
-    	<vary-by-header>Accept-Charset</vary-by-header> <!-- should be present in most cases -->
+	<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false">
     	<vary-by-header>header name</vary-by-header> <!-- optional, can repeated several times -->
    		<vary-by-query-parameter>parameter name</vary-by-query-parameter> <!-- optional, can repeated several times -->
     </cache-lookup>
@@ -512,11 +570,9 @@ Performs cache lookup and returns a valid cached response, when available. Appro
 	<policies>
       	<inbound>
       		<base />
-	    	<cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none">
+	    	<cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true">
       			<vary-by-query-parameter>version</vary-by-query-parameter>
-      			<vary-by-header>Accept</vary-by-header>
-      			<vary-by-header>Accept-Charset</vary-by-header>
-    		</cache-lookup>		 	
+      		</cache-lookup>		 	
 		</inbound>
  		<outbound>
  			<cache-store duration="seconds" caching-mode="cache-on | do-not-cache" />
@@ -555,20 +611,16 @@ Response caching reduces bandwidth and processing requirements imposed on the ba
    *public* - private and shared downstream caching is permitted.</td>
 </tr>
 <tr>
-  <td>vary-by-header: "Accept"</td>
-  <td>Start caching responses per value of <code>Accept</code> header</td>
-</tr>
-<tr>
-  <td>vary-by-header: Accept-Charset"</td>
-  <td>Start caching responses per value of <code>Accept-Charset</code> header</td>
-</tr>
-<tr>
   <td>vary-by-header: "header name"</td>
   <td>Start caching responses per value of specified header e.g., <code>Accept | Accept-Charset | Accept-Encoding | Accept-Language | Authorization | Expect | From | Host | If-Match</code>  </td>
 </tr>
 <tr>
   <td>vary-by-query-parameter: "parameter name"</td>
   <td>Start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. If none specified, all query parameters are used.</td>
+</tr>
+<tr>
+	<td>must-revalidate="true | false"</td>
+	<td>When downstream caching is enabled this attribute turns on or off "must-revalidate" cache control directive in proxy responses.</td>
 </tr>
 </tbody>
 </table>
@@ -791,6 +843,7 @@ Use in the inbound section and only in the *API* and *Operation* scopes.
 [Usage quota]: #usage-quota
 [Rate limit]: #rate-limit
 [Caller IP restriction]: #caller-ip-restriction
+[Check header]: #check-header
 
 [Content transformation policies]: #content-transformation-policies
 [Set HTTP header]: #set-http-header

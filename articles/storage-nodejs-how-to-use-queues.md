@@ -1,6 +1,6 @@
-<properties urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="How to use the queue service (Node.js) | Microsoft Azure" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." services="storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
 
 
 
@@ -33,11 +33,11 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 * [How To: Working with Shared Access Signatures][]
 * [Next Steps][]
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 <h2><a name="create-account"></a>Create an Azure Storage account</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
@@ -144,7 +144,7 @@ from the queue by calling the **peekMessages** method. By default,
 
 The `result` contains the message.
 
-> [WACOM.NOTE] Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
+> [AZURE.NOTE] Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
 
@@ -168,9 +168,9 @@ To dequeue a message, use **getMessage**. This makes the message invisible in th
 	  }
 	});
 
-> [WACOM.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
+> [AZURE.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message

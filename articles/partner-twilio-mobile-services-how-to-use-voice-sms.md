@@ -1,6 +1,6 @@
-<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." services="mobile-services" documentationCenter="" authors="devinrader" manager="twilio" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/03/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com"/>
 
 
 <h1>How to use Twilio for voice and SMS capabilities from Mobile Services</h1>
@@ -57,11 +57,6 @@ When you're ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. 
 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page][twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
-<h2><a id="VerifyPhoneNumbers"></a>Verify Phone Numbers</h2>
-Various phone numbers need to be verified with Twilio for your account. For example, if you want to place outbound phone calls, the phone number must be verified as an outbound caller ID with Twilio. Similarly, if you want a phone number to receive SMS messages, the receiving phone number must be verified with Twilio. For information on how to verify a phone number, see [Manage numbers] [verify_phone]. Some of the code below relies on phone numbers that you will need to verify with Twilio.
-
-As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
-
 <h2><a id="create_app"></a>Create a Mobile Service</h2>
 A Mobile Service that hosts a Twilio enabled application is no different from any other Mobile Service. You simply add the Twilio node.js library in order to reference it from your Mobile Service Custom API scripts. For information on creating an initial mobile service, see [Getting Started with Mobile Services](/en-us/documentation/articles/mobile-services-ios-get-started/).
 
@@ -96,7 +91,7 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 		  "keywords":[]
 		}
 
-	>[WACOM.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
+	>[AZURE.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported. 
 
 4. Commit this file update and push the update back to the mobile service.
 
@@ -161,10 +156,7 @@ The following code shows how to send an SMS message using the **sendSms**  funct
 
 When your application initiates a call to the Twilio API - for example, via the client.InitiateOutboundCall method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in How to: Make an outgoing call uses the Twilio-provided URL http://twimlets.com/message to return the response.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click <a href="http://twimlets.com/message">twimlet_message_url</a> to see an empty &lt;Response&gt; element; as another example, click <a href="http://twimlets.com/message?Message%5B0%5D=Hello%20World">twimlet_message_url_hello_world</a> to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.</p>
-</div>
+> [AZURE.NOTE] While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [twimlet_message_url](http://twimlets.com/message) to see an empty &lt;Response&gt; element; as another example, click [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you'll be hosting the URL from an ASP.NET generic handler.
 
@@ -201,7 +193,7 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
         });
     };
 
-[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls

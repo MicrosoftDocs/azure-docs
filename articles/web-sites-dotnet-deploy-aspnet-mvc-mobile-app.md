@@ -1,6 +1,6 @@
-<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." services="web-sites" documentationCenter=".net" authors="cephalin" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"/>
 
 
 # Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Websites
@@ -11,7 +11,7 @@ Web application that is mobile-friendly and deploy it into Windows Azure. For th
 or the professional edition of Visual Studio if you already
 have that.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### What You'll Build
 
@@ -132,7 +132,7 @@ image below shows the *AllTags* view in portrait mode (from choosing
 
 	![][AllTags]
 
->[WACOM.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
+>[AZURE.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
 
 The display is very readable on a mobile device. You can also already
 see some of the visual effects applied by the Bootstrap CSS framework.
@@ -260,7 +260,7 @@ condition you defined (that is, if the user agent contains the string
 "iPhone"), ASP.NET MVC will look for views whose name contains the
 "iPhone" suffix.
 
->[WACOM.NOTE] When adding mobile browser-specific display modes, such as for iPhone and Android, be sure to set the first argument to `0` (insert at the top of the list) to make sure that the browser-specific mode takes precedence over the mobile template (*.Mobile.cshtml). If the mobile template is at the top of the list instead, it will be selected over your intended display mode (the first match wins, and the mobile template matches all mobile browsers). 
+>[AZURE.NOTE] When adding mobile browser-specific display modes, such as for iPhone and Android, be sure to set the first argument to `0` (insert at the top of the list) to make sure that the browser-specific mode takes precedence over the mobile template (*.Mobile.cshtml). If the mobile template is at the top of the list instead, it will be selected over your intended display mode (the first match wins, and the mobile template matches all mobile browsers). 
 
 In the code, right-click `DefaultDisplayMode`, choose **Resolve**, and
 then choose `using System.Web.WebPages;`. This adds a reference to the
@@ -487,7 +487,7 @@ And the refreshed mobile browser looks as follows:
 
 ![][AllTagsFixed]
 
->[WACOM.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
+>[AZURE.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
 
 <h2><a name="bkmk_improvedates"></a> Improve the Dates List</h2>
 
@@ -706,13 +706,13 @@ mobile-friendly Web applications. These include:
     `RequireConsistentDisplayMode` property
 -   Create views that target specific browsers, such as the iPhone
     browser
--   Apply Boostrap styling in Razor code
+-   Apply Bootstrap styling in Razor code
 
 See Also
 --------
 
--   [9 basic principles of responsive web design][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
--   [Bootstrap][BootstrapSite] site
+-   [9 basic principles of responsive web design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
+-   [Bootstrap][BootstrapSite]
 -   [Official Bootstrap Blog][]
 -   [Twitter Bootstrap Tutorial from Tutorial Republic][]
 -   [The Bootstrap Playground][]

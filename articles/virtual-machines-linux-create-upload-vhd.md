@@ -1,12 +1,12 @@
-<properties urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Create and upload a Linux VHD in Azure" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="kathydav, szarkos"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
 This article shows you how to create and upload a virtual hard disk (VHD) so you can use it as your own image to create virtual machines in Azure. You'll learn how to prepare the operating system so you can use it to create multiple virtual machines based on that image.  
 
-> [WACOM.NOTE] You don't need any experience with Azure VMs to complete the steps in this article. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] You don't need any experience with Azure VMs to complete the steps in this article. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
 A virtual machine in Azure runs the operating system that's based on the image you choose when you create the virtual machine. Your images are stored in VHD format, in .vhd files in a storage account. For more information about disks and images in Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
@@ -48,7 +48,9 @@ Microsoft Azure supports a variety of Linux distributions (see [Endorsed Distrib
 - **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
 - **[Other - Non-Endorsed Distributions](../virtual-machines-linux-create-upload-vhd-generic)**
 
-After the steps in the guides above you should have a VHD file that is ready to upload into Azure.
+Please also see the **[Linux Installation Notes](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)** for additional tips on preparing Linux images for Azure.
+
+After following the steps in the guides above you should have a VHD file that is ready to upload into Azure.
 
 
 ## <a id="createstorage"> </a>Step 2: Create a storage account in Azure ##
@@ -119,7 +121,7 @@ Do one of the following:
 
 - Use the Linux command-line tool to upload the image. You can upload an image by using the following command:
 
-		# azure vm image create <image-name> --location <location-of-the-data-center> --OS Linux <source-path-to the vhd>
+		# azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
 
 
 

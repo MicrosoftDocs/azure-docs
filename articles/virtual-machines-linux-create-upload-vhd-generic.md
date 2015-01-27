@@ -1,6 +1,6 @@
-<properties urlDisplayName="Upload a Linux VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a Linux Operating System" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Create and upload a Linux VHD in Azure" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
@@ -22,7 +22,7 @@ It is for this reason that we recommend that you start with one of our [Linux on
 The rest of this article will focus on general guidance for running your Linux distribution on Azure.
 
 
-##General Linux Installation Notes##
+## <a id="linuxinstall"> </a>General Linux Installation Notes ##
 
 - The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
@@ -33,6 +33,58 @@ The rest of this article will focus on general guidance for running your Linux d
 - Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
+
+
+### Installing Linux Without Hyper-V ###
+
+In some cases, Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running an a Hyper-V environment.  When using a different virtualization system (i.e. Virtualbox, KVM, etc.) to prepare your Linux image, you may need to rebuild the initrd to ensure that at least the `hv_vmbus` and `hv_storvsc` kernel modules are available on the initial ramdisk.  This is a known issue at least on systems based on the upstream Red Hat distribution.
+
+The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Please consult your distribution's documentation or support for the proper procedure.  Here is one example for how to rebuild the initrd using the `mkinitrd` utility:
+
+First, back up the existing initrd image:
+
+	# cd /boot
+	# sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
+
+Next, rebuild the initrd with the `hv_vmbus` and `hv_storvsc` kernel modules:
+
+	# sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
+
+
+### Resizing VHDs ###
+
+VHD images on Azure must have a virtual size aligned to 1MB.  Typically, VHDs created using Hyper-V should already be aligned correctly.  If the VHD is not aligned correctly then you may receive an error message similar to the following when you attempt to create an *image* from your VHD:
+
+	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
+
+To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/en-us/library/hh848535.aspx) Powershell cmdlet.
+
+If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD:
+
+ 1. Resizing the VHD directly using tools such as `qemu-img` or `vbox-manage` may result in an unbootable VHD.  So it is recommended to first convert the VHD to a RAW disk image.  If the VM image was already created as RAW disk image (the default for some Hypervisors such as KVM) then you may skip this step:
+
+		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
+
+ 2. Calculate the required size of the disk image to ensure that the virtual size is aligned to 1MB.  The following bash shell script can assist with this.  The script uses "`qemu-img info`" to determine the virtual size of the disk image and then calculates the size to the next 1MB:
+
+		rawdisk="MyLinuxVM.raw"
+		vhddisk="MyLinuxVM.vhd"
+
+		MB=$((1024*1024))
+		size=$(qemu-img info -f raw --output json "$rawdisk" | \
+		       gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+
+		rounded_size=$((($size/$MB + 1)*$MB))
+		echo "Rounded Size = $rounded_size"
+
+ 3. Resize the raw disk using $rounded_size as set in the above script:
+ 
+		# qemu-img resize MyLinuxVM.raw $rounded_size
+
+ 4. Now, convert the RAW disk back to a fixed-size VHD:
+
+		# qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+
 
 
 ## Linux Kernel Requirements ##

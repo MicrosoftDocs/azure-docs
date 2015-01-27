@@ -3,7 +3,7 @@
 
   	![][23]
 
-    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 

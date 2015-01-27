@@ -1,6 +1,6 @@
-<properties title="Build an HBase application using Maven" pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
+<properties pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2014" ms.author="larryfr"/>
 
 ##Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
 
@@ -59,6 +59,14 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 	      </resources>
 		  <plugins>
 		    <plugin>
+        	  <groupId>org.apache.maven.plugins</groupId>
+        	  <artifactId>maven-compiler-plugin</artifactId>
+        	  <configuration>
+          	    <source>1.6</source>
+          	    <target>1.6</target>
+        	  </configuration>
+      		</plugin>
+		    <plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
 		      <artifactId>maven-shade-plugin</artifactId>
 		      <version>2.3</version>
@@ -82,9 +90,9 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	This configures a resource (__conf\hbase-site.xml__,) which contains configuration information for HBase.
 
-	> [WACOM.NOTE] You can also set configuration values via code. See comments in the __CreateTable__ example below for how to do this.
+	> [AZURE.NOTE] You can also set configuration values via code. See comments in the __CreateTable__ example below for how to do this.
 
-	This also configures the [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to prevent license duplication in the JAR that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
+	This also configures the [maven-compiler-plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plugin is used to compile the topology. The shade plugin is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 
 	The maven-shade-plugin will also produce an uberjar (or fatjar,) that contains all the dependencies required by the application.
 
@@ -132,7 +140,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	This file will be used to load the HBase configuration for an HDInsight cluster.
 
-	> [WACOM.NOTE] This is a very minimal hbase-site.xml file, containing the bare minimum settings for the HDInsight cluster. For a full version of the hbase-site.xml configuration file used by HDInsight, [remote desktop into the HDInsight cluster](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp), and the hbase-site.xml file is located in the C:\apps\dist\hbase-&lt;version number>-hadoop2\conf directory. The version number portion of the file path will change as HBase is updated on the cluster.
+	> [AZURE.NOTE] This is a very minimal hbase-site.xml file, containing the bare minimum settings for the HDInsight cluster. For a full version of the hbase-site.xml configuration file used by HDInsight, [remote desktop into the HDInsight cluster](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp), and the hbase-site.xml file is located in the C:\apps\dist\hbase-&lt;version number>-hadoop2\conf directory. The version number portion of the file path will change as HBase is updated on the cluster.
 
 3. Save the __hbase-site.xml__ file.
 
@@ -323,11 +331,11 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 3. Once the command completes, the __hbaseapp\target__ directory will contain a file named __hbaseapp-1.0-SNAPSHOT.jar__.
 
-	> [WACOM.NOTE] The __hbaseapp-1.0-SNAPSHOT.jar__ file is an uberjar (sometimes called a fatjar,) which contains all the dependencies required to run the application.
+	> [AZURE.NOTE] The __hbaseapp-1.0-SNAPSHOT.jar__ file is an uberjar (sometimes called a fatjar,) which contains all the dependencies required to run the application.
 
 ##Upload the JAR and start a job
 
-> [WACOM.NOTE] There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/). The steps below use [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/). The steps below use [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
 
 1. After installing and configuring [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/), create a new file named __hbase-runner.psm1__. Use the following as the contents of this file.
 

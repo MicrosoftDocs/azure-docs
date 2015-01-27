@@ -1,6 +1,6 @@
-<properties urlDisplayName="Notification Hubs" pageTitle="Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Notification Hubs - Node.js Dev Center" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." services="service-bus" documentationCenter="nodejs" authors="blackmist" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 
@@ -82,9 +82,7 @@ The connection **connectionstring** value can be obtained from the Azure Managem
 
 3. Select **View Connection String** from the **quick glance** section, and copy the connection string value.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>You can also retrieve the connection string using the <b>Get-AzureSbNamespace</b> cmdlet provided by Azure PowerShell or the <b>azure sb namespace show</b> command with the Azure Command-Line Tools.</p>
+> [AZURE.NOTE] You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by Azure PowerShell or the **azure sb namespace show** command with the Azure Command-Line Tools.
 
 </div>
 

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Deploy Azure WebJobs to Azure Websites" metaKeywords="Azure Websites, WebJobs, background tasks" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Deploy Azure WebJobs to Azure Websites" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." services="web-sites" documentationCenter="" authors="tdykstra" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/12/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/12/2014" ms.author="tdykstra"/>
 
 # How to Deploy Azure WebJobs to Azure Websites
 
@@ -132,7 +132,7 @@ For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [A
 * The scheduler job collection is named *WebJobs-{regionname}* where *{regionname}* refers to the region the website is hosted in. For example: WebJobs-WestUS.
 * The scheduler job is named *{websitename}-{webjobname}*. For example: MyWebSite-MyWebJob. 
  
->[WACOM.NOTE]
+>[AZURE.NOTE]
 > 
 >* For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 >* If you configure a **Recurring Job** and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free. Other frequencies (hours, days, and so forth) are free.
@@ -155,7 +155,7 @@ and stores scheduling information in a *webjob-publish-settings.json* file in th
 
 You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
 
->[WACOM.NOTE]
+>[AZURE.NOTE]
 >
 >* If you configure a **Recurring Job** and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free. Other frequencies (hours, days, and so forth) are free.
 

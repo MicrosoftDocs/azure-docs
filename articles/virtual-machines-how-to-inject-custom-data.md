@@ -1,6 +1,6 @@
-<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Injecting Custom Data into Azure Virtual Machines" description="This topic describes how to inject custom data into an Azure Virtual Machine when the instance is created and how to locate the custom data on either Windows or Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="timlt" editor="tysonn" videoId="" scriptId="" />
+<properties pageTitle="Injecting Custom Data into Azure Virtual Machines" description="This topic describes how to inject custom data into an Azure Virtual Machine when the instance is created and how to locate the custom data on either Windows or Linux." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill"/>
 
 
 
@@ -14,7 +14,7 @@ Injecting a script or other data into an Azure Virtual Machine when it is being 
 
 - Use special tools available on some systems to detect and handle custom data automatically.
 
-> [WACOM.NOTE] This topic expands upon [this Azure blog post](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) about this feature, and will be kept up-to-date as more functionality appears.
+> [AZURE.NOTE] This topic expands upon [this Azure blog post](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) about this feature, and will be kept up-to-date as more functionality appears.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 In this topic:
@@ -43,7 +43,7 @@ This feature is currently supported only in the [Microsoft Azure Cross-Platform 
  
 + If your Azure Virtual Machine is a Windows Virtual Machine, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin` and although it was base64-encoded to transfer from the local computer to the new Virtual Machine, it is automatically decoded and can be opened or used immediately. 
 
-   > [WACOM.NOTE] If the file exists, it is overwritten. The security on directory is set to **System:Full Control** and **Administrators:Full Control**.
+   > [AZURE.NOTE] If the file exists, it is overwritten. The security on directory is set to **System:Full Control** and **Administrators:Full Control**.
 
 + If your Azure Virtual Machine is a Linux Virtual Machine, then the custom data file will be located in the following two places, but the data will be base64-encoded, so you will need to decode the data first.
 

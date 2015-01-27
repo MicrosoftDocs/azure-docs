@@ -1,13 +1,13 @@
-<properties urlDisplayName="Work or school accounts" pageTitle="Sign up for Azure as an organization" metaKeywords="" description="Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD." metaCanonical="" services="active-directory" documentationCenter="" title="Sign up for Azure as an organization" authors="Justinha" solutions="" manager="terrylan" editor="Lisatoft" />
+<properties pageTitle="Sign up for Azure as an organization" description="Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD." services="active-directory" documentationCenter="" authors="TerryLanfear" manager="terrylan" editor="Lisatoft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
-
-
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="terrylan"/>
 
 
-<h1 id="signup">Sign up for Azure as an organization</h1>
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+
+<h1>Sign up for Azure as an organization</h1>
+
+[AZURE.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Until recently, you could only sign up for a new Microsoft Azure subscription using your Microsoft account (Windows Live ID). Azure now supports using either of the following two account methods to sign up:
 

@@ -1,6 +1,6 @@
-<properties title="What Is Azure Machine Learning Studio?" pageTitle="What Is Machine Learning Studio? | Azure" description="Overview of Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties pageTitle="What Is Machine Learning Studio? | Azure" description="Overview of Azure Machine Learning Studio" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye"/>
 
 # What Is Azure Machine Learning Studio?
 
@@ -27,7 +27,7 @@ When you first enter ML Studio, you see the following tabs on the left:
 - **WEB SERVICES** - A list of experiments that you have published. 
 - **SETTINGS** - A collection of settings that you can use to configure your account and resources. 
 
->[WACOM.NOTE] When you are constructing an experiment, a working list of available datasets and modules	is displayed to the left of the canvas. That is the list of components you use to build your model.
+>[AZURE.NOTE] When you are constructing an experiment, a working list of available datasets and modules	is displayed to the left of the canvas. That is the list of components you use to build your model.
 
 ## Components of an experiment
 

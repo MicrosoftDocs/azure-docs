@@ -1,6 +1,6 @@
-<properties title="Shard Map Management" pageTitle="Shard Map Management" description="How to use the ShardMapManager, Elastic Scale API for .NET" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, shardmapmanager" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties pageTitle="Shard Map Management" description="How to use the ShardMapManager, Elastic Scale API for .NET" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh"/>
 
 #Shard Map Management 
 In a sharded database environment, a **shard map** maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is crucial to managing shards in the Elastic Scale preview.

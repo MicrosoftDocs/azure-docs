@@ -1,11 +1,11 @@
-<properties urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties pageTitle="How to monitor a cloud service - Azure" description="Learn how to monitor cloud services by using the Azure Management Portal." services="cloud-services" documentationCenter="" authors="rboucher" manager="jwhit" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="robb"/>
 
 
 #How to Monitor Cloud Services
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+[AZURE.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 You can monitor key performance metrics for your cloud services in the Azure Management Portal. You can set the level of monitoring to minimal and verbose for each service role, and can customize the monitoring displays. Verbose monitoring data is stored in a storage account, which you can access outside the portal. 
 
@@ -23,7 +23,7 @@ Monitoring displays in the Management Portal are highly configurable. You can ch
 
 By default, minimal monitoring is provided for a new cloud service using performance counters gathered from the host operating system for the roles instances (virtual machines). The minimal metrics are limited to CPU Percentage, Data In, Data Out, Disk Read Throughput, and Disk Write Throughput. By configuring verbose monitoring, you can receive additional metrics based on performance data within the virtual machines (role instances). The verbose metrics enable closer analysis of issues that occur during application operations.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-diagnostics/">Enabling Diagnostics in Azure Cloud Services and Virtual Machines</a>.
 
 By default performance counter data from role instances is sampled and transferred from the role instance at 3-minute intervals. When you enable verbose monitoring, the raw performance counter data is aggregated for each role instance and across role instances for each role at intervals of 5 minutes, 1 hour, and 12 hours. The aggregated data is  purged after 10 days.
@@ -110,10 +110,7 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 
 	You can display up to 50 metrics in the metrics table.
 
-	<div class="dev-callout"> 
-	<b>Hint</b> 
-	<p>In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.</p> 
-</div>
+	> [AZURE.TIP] In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.
  
 	![Add metrics search](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 

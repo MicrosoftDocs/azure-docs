@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create" pageTitle="How to create websites - Azure service management" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="How to create websites - Azure service management" description="Learn how to create a website using the Azure Management Portal." services="web-sites" documentationCenter="" authors="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
 
 #How to Create a Website
 
@@ -43,7 +43,7 @@ Follow these steps to create a website in Azure.
 
 ##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Gallery
 
-[WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
+[AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="deleteawebsite"></a>How to: Delete a Website
 Websites are deleted using the **Delete** icon in the Azure Management Portal. The **Delete** icon is available in the Azure Portal when you click **Websites** to list all of your websites and at the bottom of each of the website management pages.

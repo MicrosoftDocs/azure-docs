@@ -1,6 +1,6 @@
-<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store app (legacy push)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store app (legacy push)." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app (legacy push)
 
@@ -19,7 +19,7 @@
 
 This topic shows how Visual Studio 2013 lets you use Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
+>[AZURE.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
 >
 >Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
 
@@ -33,7 +33,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="register"></a>Add and configure push notifications in the app</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
 <li><p>Expand <strong>services</strong>, <strong>mobile services</strong>, your service name, open the generated code file, and then inspect the <strong>UploadChannel</strong> method that obtains the installation ID and channel for the device and inserts this data into the new channels table.</p> 
@@ -43,9 +43,8 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <p>This file, which is stored in your mobile service, contains JavaScript code that is executed when a client sends a request to register a device by inserting data into the channels table.</p> 
 
-<div class="dev-callout"><b>Note</b>
-	<p>The initial version of this file contains code that checks for an existing registration for the device. It also contains code that sends a push notification when a new registration is added to the channels table. The code that sends a push notification can be included in any registered script file. The location of this script depends on how the notification is triggered. Scripts can be registered against an insert, update, delete or read operation against a table; as a scheduled job; or as a custom API. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkID=287178">Work with server scripts in Mobile Services</a>.</p>
-</div>
+> [AZURE.NOTE] The initial version of this file contains code that checks for an existing registration for the device. It also contains code that sends a push notification when a new registration is added to the channels table. The code that sends a push notification can be included in any registered script file. The location of this script depends on how the notification is triggered. Scripts can be registered against an insert, update, delete or read operation against a table; as a scheduled job; or as a custom API. For more information, see [Work with server scripts in Mobile Services](http://go.microsoft.com/fwlink/p/?LinkID=287178).
+
 </li> 
 <li><p>Press the F5 key to run the app and verify that a notification is immediately received from the mobile service.</p>
 <p>This notification was generated by inserting a row into the new channels table, which is the device registration.</p>
@@ -55,7 +54,7 @@ While the generated code makes it easy to demonstrate a notification when the ap
 
 <h2><a name="update-scripts"></a>Update the generated push notification code</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 <h2><a name="test"></a>Test push notifications in your app</h2>
 

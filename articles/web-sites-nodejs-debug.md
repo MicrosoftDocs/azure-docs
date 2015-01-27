@@ -1,6 +1,6 @@
-<properties urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="How to Debug Azure Websites in Node.js" description="Learn how to debug an Azure website in Node.js." services="web-sites" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 
@@ -28,17 +28,11 @@ The **IISNode.yml** file can also be used to control whether friendly errors or 
 
 Once this option is enabled, IISNode will return the last 64K of information sent to stderr instead of a friendly error such as "an internal server error occurred".
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While devErrorsEnabled is useful when diagnosing problems during development, enabling it in a production environment may result in development errors being sent to end users.</p>
-</div>
+> [AZURE.NOTE] While devErrorsEnabled is useful when diagnosing problems during development, enabling it in a production environment may result in development errors being sent to end users.
 
 If the **IISNode.yml** file did not already exist within your application, you must restart your website after publishing the updated application. If you are simply changing settings in an existing **IISNode.yml** file that has previously been published, no restart is required.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If your website was created using the Azure Command-Line Tools or Azure PowerShell Cmdlets, a default <strong>IISNode.yml</strong> file is automatically created.</p>
-</div>
+> [AZURE.NOTE] If your website was created using the Azure Command-Line Tools or Azure PowerShell Cmdlets, a default **IISNode.yml** file is automatically created.
 
 You can restart the website by selecting the site from the [Azure Management Portal], and then selecting the **RESTART** button:
 
@@ -48,10 +42,7 @@ If the Azure Command-Line Tools are installed in your development environment, y
 
 	azure site restart [sitename]
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While loggingEnabled and devErrorsEnabled are the most commonly used IISNode.yml configuration options for capturing diagnostic information, IISNode.yml can be used to configure a variety of options for your hosting environment. For a full list of the configuration options, see the <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a> file.</p>
-</div>
+> [AZURE.NOTE] While loggingEnabled and devErrorsEnabled are the most commonly used IISNode.yml configuration options for capturing diagnostic information, IISNode.yml can be used to configure a variety of options for your hosting environment. For a full list of the configuration options, see the [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml) file.
 
 ##<a id="viewlogs"></a>Accessing logs
 
@@ -65,10 +56,7 @@ Once installed, the tools can be accessed using the 'azure' command. The command
 
 To access the diagnostic information through FTP, visit the [Azure portal], select your website, and then select the **DASHBOARD**. In the **quick links** section, the **FTP DIAGNOSTIC LOGS** and **FTPS DIAGNOSTIC LOGS** links provide access to the logs using the FTP protocol.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you have not previously configured user name and password for FTP or deployment, you can do so from the <strong>QuickStart</strong> management page by selecting <strong>Set up deployment credentials</strong>.</p>
-</div>
+> [AZURE.NOTE] If you have not previously configured user name and password for FTP or deployment, you can do so from the **QuickStart** management page by selecting **Set up deployment credentials**.
 
 The FTP URL returned in the dashboard is for the **LogFiles** directory, which will contain the following sub-directories:
 

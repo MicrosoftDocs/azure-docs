@@ -1,6 +1,6 @@
-<properties urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"/>
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight
 
@@ -162,7 +162,7 @@ Create a console application to get Tweets, calculate Tweet sentiment score and 
 		Install-Package TweetinviAPI
 		Install-Package protobuf-net 
 
-	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 26th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
+	> [AZURE.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 26th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
 
 3. From **Solution Explorer**, right-click **References**, and then click **Add Reference**.
 4. In the left pane, expand **Assemblies**, and then click **Framework**.
@@ -551,7 +551,7 @@ In this section, you will create a ASP.NET MVC Web application to read the real-
 
 		Install-Package protobuf-net 
 
-	> [WACOM.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
+	> [AZURE.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
 
 **To add HBaseReader class:**
 

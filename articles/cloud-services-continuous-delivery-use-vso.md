@@ -1,6 +1,6 @@
-<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties pageTitle="Continuous delivery with Visual Studio Online in Azure" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." services="web-sites" documentationCenter=".net" authors="ghogen" manager="douge" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"/>
 
 
 # Continuous delivery to Azure using Visual Studio Online
@@ -9,11 +9,8 @@
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>You need an Visual Studio online account to complete this tutorial:</h5>
-<p>You can <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">open a Visual Studio Online account for free</a>.</p>
-</div>
+> [AZURE.NOTE] You need an Visual Studio online account to complete this tutorial:
+> You can [open a Visual Studio Online account for free](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Online, follow these steps:
 

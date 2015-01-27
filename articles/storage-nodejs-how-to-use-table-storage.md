@@ -1,6 +1,6 @@
-<properties urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="How to use table storage (Node.js) | Microsoft Azure" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." services="storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
 
 # How to Use the Table Service from Node.js
 
@@ -29,11 +29,11 @@ information on tables, see the [Next Steps][] section.
 * [How to: Work with Shared Access Signatures](#sas)
 * [Next Steps][]
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 <h2><a name="create-account"></a>Create an Azure Storage account</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
@@ -133,7 +133,7 @@ The following is an example of defining an entity. Note that **dueDate** is defi
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [WACOM.NOTE] There is also a **Timestamp** field for each record, which is set by Azure when an entity is inserted or updated.
+> [AZURE.NOTE] There is also a **Timestamp** field for each record, which is set by Azure when an entity is inserted or updated.
 
 You can also use the **entityGenerator** to create entities. The following example creates the same task entity using the **entityGenerator**.
 
@@ -156,7 +156,7 @@ the **insertEntity** method.
 
 If the operation is successful, `result` will contain the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` will contain information about the operation.
 
-> [WACOM.NOTE] By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or wish to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
+> [AZURE.NOTE] By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or wish to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -180,7 +180,7 @@ The following example demonstrates updating an entity using **updateEntity**:
       }
     });
 
-> [WACOM.NOTE] By default, updating an entity does not check to see if the data being updated has previously been modified by another process. To support concurrent updates:
+> [AZURE.NOTE] By default, updating an entity does not check to see if the data being updated has previously been modified by another process. To support concurrent updates:
 > 
 > 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity related operation and can be retrieved through `response['.metadata'].etag`.
 > 
@@ -284,7 +284,7 @@ Since **select** is not used, all fields will be returned. To perform the query 
 	  }
 	});
 
-If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, the second parameter should be *null*.
+If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` will be non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, the third parameter should be *null*.
 
 ###How to Query a Subset of Entity Properties
 
@@ -314,7 +314,7 @@ passed to the **deleteEntity** method.
 	  }
 	});
 
-> [WACOM.NOTE] You should consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [How To: Update an Entity][] for information in using ETags.
+> [AZURE.NOTE] You should consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [How To: Update an Entity][] for information in using ETags.
 
 ## <a name="delete-table"> </a>How to Delete a Table
 

@@ -1,14 +1,13 @@
-<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: On-Premises to Azure Protection with Hyper-V Replication" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises VMM Site to Azure protection with Hyper-V Replication
-" editor="jimbe" manager="johndaw" authors="raynew" />
+<properties pageTitle="Getting Started with Azure Site Recovery: On-Premises to Azure Protection with Hyper-V Replication" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure." editor="jimbe" manager="jwhit" authors="raynew"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="8/1/2015" ms.author="raynew"/>
 
 
 # Getting Started with Azure Site Recovery: On-Premises VMM Site to Azure protection with Hyper-V Replication
 
 
 
-<div class="dev-callout"> 
+
 
 <p>Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.<p>
 
@@ -17,13 +16,13 @@
 <UL>
 <LI>If you want more information for a full deployment read the <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=402679">Deployment</a> guides.</LI>
 <LI>You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.</LI>
-<LI>f you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
+<LI>If you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
 </UL>
-</div>
+
 
 
 <h2><a id="before"></a>Prerequisites</h2> 
-<div class="dev-callout"> 
+
 <P>Make sure you have everything in place before you begin the tutorial.</P>
 
 <UL>
@@ -132,11 +131,13 @@ This option isn’t relevant if you’re replicating from one on-premises site t
 <h2><a id="storage"></a>Step 3: Create an Azure storage account</h2>
 If you don't have an Azure storage account click **Add an Azure Storage Account**. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.
 
-<P>Use this tutorial to set up a quick proof-of-concept for Azure Site Recovery in an on-premises to Azure deployment. It uses the quickest path and default settings where possible. You'll create an Azure Site Recovery vault, install the Azure Site Recovery Provider in the source VMM server, install the Azure Recovery Services Agent on Hyper-V host servers in the VMM clouds, configure cloud protection settings, enable protection for virtual machines, and test your deployment.</P>![Storage account](./media/hyper-v-recovery-manager-configure-vault/SR_E2AStorageAgent.png)
+<P>Use this tutorial to set up a quick proof-of-concept for Azure Site Recovery in an on-premises to Azure deployment. It uses the quickest path and default settings where possible. You'll create an Azure Site Recovery vault, install the Azure Site Recovery Provider in the source VMM server, install the Azure Recovery Services Agent on Hyper-V host servers in the VMM clouds, configure cloud protection settings, enable protection for virtual machines, and test your deployment.</P>
+
+![Storage account](./media/hyper-v-recovery-manager-configure-vault/SR_E2AStorageAgent.png)
 
 <h2><a id="agent"></a>Step 4: Install the Azure Recovery Services Agent on Hyper-V hosts</h2>
 
-<p>Install the Azure Recovery Services agent on each Hyper-V host server located in the VMM clouds you want to protect.</p>
+Install the Azure Recovery Services agent on each Hyper-V host server located in the VMM clouds you want to protect.
 
 1. On the Quick Start page, click <b>Download Azure Site Recovery Services Agent and install on hosts</b> to obtain the latest version of the agent installation file.
 
@@ -154,24 +155,22 @@ If you don't have an Azure storage account click **Add an Azure Storage Account*
 
 After VMM servers are registered, you can configure cloud protection settings. You enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault.
 
-
 ![Published Cloud](./media/hyper-v-recovery-manager-configure-vault/SR_CloudsList.png)
 
 
 1. On the Quick Start page, click **Set up protection for VMM clouds**.
-
 2. On the **Protected Items** tab, click on the cloud you want to configure and go to the **Configuration** tab.
 3. In <b>Target</b>, select <b>Microsoft Azure</b>.
 4. In <b>Storage Account</b>, select the Azure storage you want to use to store Azure virtual machines.
 5. Set <b>Encrypt stored data</b> to <b>Off</b>. This setting specifies that data should be encrypted replicated between the on-premises site and Azure.
-6. In <b>Copy frequency</b> leave the default setting. This value specifies how frequently data should be synchronized between source and target locations.  
-7. In <b>Retain recovery points for</b>, leave the default setting. With a default value of zero only the latest recovery point for a primary virtual machine is stored on a replica host server. 
+6. In <b>Copy frequency</b> leave the default setting. This value specifies how frequently data should be synchronized between source and target locations.
+7. In <b>Retain recovery points for</b>, leave the default setting. With a default value of zero only the latest recovery point for a primary virtual machine is stored on a replica host server.
 8. In <b>Frequency of application-consistent snapshots</b>, leave the default setting. This value specifies how often to create snapshots. Snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.  If you do set a value, make sure it's less than the number of additional recovery points you configure.
 9. In <b>Replication start time</b>, specify when initial replication of data to Azure should start. The timezone on the Hyper-V host server will be used. We recommend that you schedule the initial replication during off-peak hours. 
 
 	![Cloud replication settings](./media/hyper-v-recovery-manager-configure-vault/SR_CloudSettingsE2A.png)
 
-<p>After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. All Hyper-V host servers in the VMM source cloud will be configured for replication.
+After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. All Hyper-V host servers in the VMM source cloud will be configured for replication.
 
 After saving, cloud settings can be modified on the <b>Configure</b> tab. To modify the target location or target storage you'll need to remove the cloud configuration, and then reconfigure the cloud. Note that if you change the storage account the change is only applied for virtual machines that are enabled for protection after the storage account has been modified. Existing virtual machines are not migrated to the new storage account.</p>
 
@@ -184,12 +183,10 @@ After saving, cloud settings can be modified on the <b>Configure</b> tab. To mod
 
 <h2><a id="virtualmachines"></a>Step 7: Enable protection for virtual machines</h2>
 
-<p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:</p>
+After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
 
-<ul>
-<li>Virtual machines must meet Azure requirements. Check these in <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.</li>
-<li>To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.</li>
-</ul>
+- Virtual machines must meet Azure requirements. Check these in <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.
+- To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
 ![Create virtual machine](./media/hyper-v-recovery-manager-configure-vault/SR_EnableVMME2ANew.png)
 
@@ -205,8 +202,8 @@ After saving, cloud settings can be modified on the <b>Configure</b> tab. To mod
 
 	![Verify virtual machines](./media/hyper-v-recovery-manager-configure-vault/SR_EnableVME2AProps.png)
 
-<P>Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.
-</p>
+Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.
+
 
 ![Virtual machine protection job](./media/hyper-v-recovery-manager-configure-vault/SR_VMJobs.png)
 
@@ -217,10 +214,23 @@ To test your deployment you can run a test failover for a single virtual machine
 <li>If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.</li>
 <li>After failover you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop. If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.</li>
 </UL>
-<UL>
-<li>For instructions on creating a recovery plan see <a href="http://go.microsoft.com/fwlink/?LinkId=511492">Create and customize recovery plans: On-Premises to Azure</a>.</li>
-<li>For instructions on running a test failover see <a href="http://go.microsoft.com/fwlink/?LinkId=511494">Test an on-premises to Azure deployment</a>.</li>
-</UL>
+
+1. On the **Recovery Plans** tab, add a new plan. Specify a name, **VMM** in **Source type**, and the source VMM server in **Source**, The target will be Azure.
+
+	![Create recovery plan](./media/hyper-v-recovery-manager-configure-vault/SRAzure_RP1.png)
+
+2. On the **Confirm Test Failover** page select **None**. Note that a test failover with this setting will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration. If you want to run the test with a specified Azure network, see a href="http://go.microsoft.com/fwlink/?LinkId=522292">Test an on-premises to Azure deployment</a>.
+
+	![No network](./media/hyper-v-recovery-manager-configure-vault/SRAzure_TestFailoverNoNetwork.png)
+
+
+3. When the failover reaches the **Complete testing** phase , click **Complete Test** to finish up the test failover. You can drill down to the **Job** tab to track failover progress and status, and to perform any actions that are needed.
+4. After the failover is complete do the following:
+	- Verify that the virtual machines start successfully
+	- Click **Notes** to record and save any observations associated with the test failover.
+	- Click **The test failover is complete**. Clean up the test environment to automatically power off the test virtual machine and delete the test Azure network.
+5. After he failover you'll be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
+
 
 <h3><a id="runtest"></a>Monitor activity</h3>
 <p>You can use the <b>Jobs</b> tab and <b>Dashboard</b> to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>

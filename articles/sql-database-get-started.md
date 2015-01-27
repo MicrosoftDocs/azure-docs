@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+<properties pageTitle="Getting started with SQL Database - Azure" description="Get started creating and managing SQL Databases in Azure." services="sql-database" documentationCenter="" authors="jeffgoll" writer="" manager="jeffreyg" editor="tysonn"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg"/>
 
 
 #Getting Started with Microsoft Azure SQL Database
@@ -60,7 +60,7 @@ Choosing this option lets you create a new server and a SQL database at the same
 
 * Choose **New SQL Database Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
 
-* When you are through, click the arrow to go to next page.
+* When you are done, click the arrow to go to next page.
 
 
 7. Fill out the Server Settings as follows: 
@@ -654,7 +654,7 @@ There are other methods for moving an on-premises database to SQL Database. If y
 
 * [Migrating Databases to SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
 * [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
-* [Deploy a SQL Server Database to an Azure Virtual Machine](http://msdn.microsoft.com/en-us/library/dn195938(v=sql.120).aspx)
+* [Deploy a SQL Server Database to an Azure Virtual Machine](http://msdn.microsoft.com/en-us/library/dn195938)
 
 
 

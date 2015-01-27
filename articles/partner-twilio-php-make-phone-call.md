@@ -1,6 +1,6 @@
-<properties title="How to make a phone call from Twilio (PHP) - Azure" pageTitle="How to make a phone call from Twilio (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, PHP twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application." documentationCenter="PHP" services="" solutions="" videoId="" scriptId="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" />
+<properties pageTitle="How to make a phone call from Twilio (PHP) - Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application." documentationCenter="php" services="" authors="devinrader" manager="twilio" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/25/2014" ms.author="microsofthelp@twilio.com"/>
 
 # How to Make a Phone Call Using Twilio in a PHP Application on Azure 
 
@@ -11,10 +11,8 @@ The following example shows you how you can use Twilio to make a call from a PHP
 You'll need to do the following to use the code in this topic:
 
 1. Acquire a Twilio account and authentication token. To get started with Twilio, evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. You can sign up for a trial account at [https://www.twilio.com/try-twilio][try_twilio]. For information about the API provided by Twilio, see [http://www.twilio.com/api][twilio_api].
-2. Verify your phone number as an outbound caller ID with Twilio. For information on how to verify your phone number, see [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. As an alternative to using an existing number, you can purchase a Twilio phone number.
-For purposes of this example, use the verified phone number as the **From** value of **callform.php** (described later).
-3. Obtain the Twilio library for PHP. You can download it from Github ([https://github.com/twilio/twilio-php][twilio_php_github]) or install it as a PEAR package. For more information, see [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
-4. Install the Azure SDK for PHP. For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP][setup_php_sdk].
+2. Obtain the Twilio library for PHP. You can download it from Github ([https://github.com/twilio/twilio-php][twilio_php_github]) or install it as a PEAR package. For more information, see [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
+3. Install the Azure SDK for PHP. For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP][setup_php_sdk].
 
 ## Create a web form for making a call
 

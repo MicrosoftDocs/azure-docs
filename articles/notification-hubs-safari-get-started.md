@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get Started with Azure Notification Hubs" description="Learn how to use Azure Notification Hubs to push notifications." services="notification-hubs" documentationCenter="" authors="mattchenderson" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
 
 # Get started with Notification Hubs
 
@@ -16,7 +16,7 @@
 <a href="/en-us/documentation/articles/notification-hubs-safari-get-started" title="Safari" class="current">Safari</a>
 </div>	
 
->[WACOM.NOTE] It looks like we don't have this content ready right now, but we wanted to let you know about it! If you're particularly interested in this topic, let us know by posting in the [Forums] or on [UserVoice].
+>[AZURE.NOTE] It looks like we don't have this content ready right now, but we wanted to let you know about it! If you're particularly interested in this topic, let us know by posting in the [Forums] or on [UserVoice].
 
 
 

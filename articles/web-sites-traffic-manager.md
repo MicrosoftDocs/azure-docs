@@ -1,10 +1,10 @@
-<properties urlDisplayName="Controlling Windows Azure Websites Traffic with Azure Traffic Manager" pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" metaKeywords="Azure Web Sites, Traffic Manager, request routing, round robin, failover, performance" description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Controlling Azure Websites Traffic with Azure Traffic Manager" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
 
 # Controlling Azure Websites Traffic with Azure Traffic Manager
 
-> [WACOM.NOTE] This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure Websites. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.
+> [AZURE.NOTE] This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure Websites. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.
 
 ## Introduction
 You can use Azure Traffic Manager to control how requests from web clients are distributed to Azure Websites. When Azure website endpoints are added to a Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your websites (running, stopped or deleted) so that it can decide which of those endpoints should receive traffic.

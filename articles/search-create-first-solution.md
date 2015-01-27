@@ -1,6 +1,6 @@
-<properties title="Create your first search solution using Azure Search" pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties pageTitle="Create your first search solution using Azure Search" description="Create your first search solution using Azure Search" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
 
 # Create your first search solution using Azure Search
 
@@ -41,7 +41,7 @@ This solution contains two projects:
 +	**CatalogIndex** creates an Azure Search index and loads data from a SQL Server database included with the project.
 +	**AdventureWorksWeb** is an MVC4-based application that queries the Azure Search index. This tutorial assumes that you have a working knowledge of ASP.NET MVC.
 
-[WACOM.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
 
 <h2 id="sub-2">Create an Azure Search index</h2>
@@ -63,7 +63,7 @@ After a few moments, it should complete with the text: "Complete.  Press <enter>
 
 Press **Enter** to close the application. At this point, you have successfully created the Azure Search index. 
 
-> [WACOM.NOTE] If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts. For the purposes of this demo, work around these errors by doing the following: 
+> [AZURE.NOTE] If you get errors that include "invalid value for key 'attachdbfilename'" or some other database attachment error, you might be running into UAC conflicts. For the purposes of this demo, work around these errors by doing the following: 
 > Copy the solution to a new or existing folder (such as Temp) that provides access to authenticated users. 
 > Use **Run as Administrator** to start Visual Studio. 
 > Open the solution, build it, and then press **F5** to create the index.

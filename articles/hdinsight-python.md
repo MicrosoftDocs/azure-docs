@@ -1,12 +1,12 @@
-<properties urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Use Python with Hive and Pig in Azure HDInsight" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
 
 Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using a variety of programming languages. In this article, you will learn how to use a Python UDF from Hive and Pig.
 
-> [WACOM.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, and 3.1.
+> [AZURE.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, and 3.1.
 
 ##Table of contents
 
@@ -41,7 +41,7 @@ Here's what this example does:
 
 2. The  **SELECT TRANSFORM ... USING 'D:\Python27\python.exe streaming.py'** statement selects data from the **hivesampletable**, and passes clientid, devicemake, and devicemodel to the **streaming.py** script.
 
-	> [WACOM.NOTE] The **USING** clause specifies the full path to python.exe, as it is not in the path.
+	> [AZURE.NOTE] The **USING** clause specifies the full path to python.exe, as it is not in the path.
 
 3. The **AS** clause describes the fields returned from **streaming.py**
 
@@ -157,13 +157,13 @@ These steps use Windows Azure PowerShell. If this is not already installed and c
 
 	This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
-	> [WACOM.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/) document.
+	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/) document.
 
 ###Using the Hive Dashboard (Hive example only)
 
 1. After uploading the file, open a browser and navigate to https://YourClusterName.azurehdinsight.net/. When prompted for credentials, enter the admin user name and password for your cluster.
 
-	> [WACOM.NOTE] You can also use the **Manage Cluster** link at the bottom of the HDInsight **Dashboard** in the Azure management portal to launch the Hive Dasboard.
+	> [AZURE.NOTE] You can also use the **Manage Cluster** link at the bottom of the HDInsight **Dashboard** in the Azure management portal to launch the Hive Dasboard.
 
 2. Using the **Hive Editor**, replace the `select * from hivesampletable` line with the following HiveQL.
 

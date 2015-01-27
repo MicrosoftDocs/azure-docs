@@ -16,7 +16,7 @@
 
 	This creates the new API.
 
-	> [WACOM.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service.
+	> [AZURE.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service.
 
 4. Click the new **completeall** entry in the API table.
 
@@ -39,7 +39,7 @@
 
 	This code uses the [mssql object] to access the **todoitem** table directly to set the completed flag on all items. Because the **exports.post** function is used, clients send a POST request to perform the operation. The number of changed rows is returned to the client as an integer value.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > The <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx" target="_blank">request</a> and <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx" target="_blank">response</a> object supplied to custom API functions are implemented by the <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js library</a>. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx" target="_blank">Custom API</a>. 
 
 Next, you will modify the quickstart app to add a new button and code that asynchronously calls the new custom API.

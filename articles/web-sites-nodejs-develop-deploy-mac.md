@@ -1,6 +1,6 @@
-<properties urlDisplayName="Website" pageTitle="Create a Node.js website on Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="Create a Node.js website on Mac - Azure tutorials" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." services="web-sites" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 
@@ -11,7 +11,8 @@
 
 This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to an Azure Website using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
-If you prefer to watch a video, the clip in the right follows the same steps as this tutorial.
+If you prefer to watch this tutorial as a video, the following clip shows similiar steps:
+[AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
  
 A screenshot of the completed application is below:
 
@@ -21,9 +22,10 @@ A screenshot of the completed application is below:
 
 Follow these steps to create an Azure Website, and then enable Git publishing for the website.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.</p>
-</div>
+> [AZURE.NOTE]
+> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
+> 
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
 1. Login to the [Azure Management Portal].
 
@@ -83,9 +85,8 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 		git init
 
-	<div class="dev-callout"><strong>Git command unavailable?</strong>
-	<p><a href="http://git-scm.com/" target="_blank">Git</a> is a distributed version control system that you can use to deploy your Azure Website. For installation instructions for your platform, see <a href="http://git-scm.com/download" target="_blank">the Git download page</a>.</p>
-	</div>
+	> [AZURE.NOTE] **Git command unavailable?**
+	[Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. For installation instructions for your platform, see [the Git download page](http://git-scm.com/download%20target="_blank").
 
 2. Use the following commands to add files to the repository:
 

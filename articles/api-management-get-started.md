@@ -1,6 +1,6 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with Azure API Management" description="Learn how to create APIs, operations, and get started with API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
 
 # Get started with Azure API Management
 
@@ -65,11 +65,12 @@ To create the **My Echo API**, click **APIs** from the **API Management** menu o
 
 ![Add new API][api-management-add-new-api]
 
-The following three fields are used to configure the new API.
+The following fields are used to configure the new API.
 
 -	Type **My Echo API** into the **Web API Title** textbox. **Web API Title** provides a unique and descriptive name for the API. It is displayed in the developer and management portals.
 -	Type **http://echoapi.cloudapp.net/api** into the **Web service URL**. **Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
 -	Type **myecho** into the **Web API URL suffix**. **Web API URL suffix** is appended to the base URL for the API management service. Your APIs will share a common base URL and be distinguished by a unique suffix appended after the base.
+-	**Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.
 
 Click **Save** to create the API. Once the new API is created, the summary page for the API is displayed in the management portal.
 
@@ -163,7 +164,7 @@ Now that **My Echo API** is associated with a product, developers can subscribe 
 
 In order to make calls to an API, developers must first be subscribed to a product that gives them access to it. Developers can subscribe to products in the Developer portal, or administrators can subscribe developers to products in the Management console. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe an account to the **Starter** product.
 
-Click **Developers** from the **API Management** menu on the left to view and configure the developers in this service instance.
+Click **Users** from the **API Management** menu on the left to view and configure the developers in this service instance.
 
 ![Developers][api-management-developers]
 
@@ -177,7 +178,7 @@ Click **Add Subscription**.
 
 ![Add subscription][api-management-add-subscription-window]
 
-Check the box for **Starter** and click **Subscribe**.
+Check the box for **Starter**, accept the default **Subscription name**,  and click **Subscribe**.
 
 ![Subscription added][api-management-subscription-added]
 

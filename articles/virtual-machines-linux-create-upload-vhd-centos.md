@@ -1,6 +1,6 @@
-<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="Create and upload a CentOS-based Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a CentOS-based Linux Operating System" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Create and upload a CentOS-based Linux VHD in Azure" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 # Prepare a CentOS-Based Virtual Machine for Azure
 
@@ -55,8 +55,9 @@ This article assumes that you have already installed a CentOS (or similar deriva
 6.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
 		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+
 
 7. Ensure the network service will start at boot time by running the following command:
 
@@ -296,6 +297,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 		gpgcheck=1
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
 
 
 	**Note:** The rest of this guide will assume you are using at least the [openlogic] repo, which will be used to install the Azure Linux agent below.

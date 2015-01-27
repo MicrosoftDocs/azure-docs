@@ -1,10 +1,10 @@
-<properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development." services="mobile-services" documentationCenter="" authors="mattchenderson" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 This tutorial will show you how to leverage Azure Mobile Services in your Appcelerator-built applications.
 
@@ -18,7 +18,7 @@ If building for Android, you will also need Android 4.3 or greater SDK.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Create a new Appcelerator app
 
@@ -75,7 +75,7 @@ This sends a POST request to the new mobile service hosted in Windows Azure. Dat
 ![][8]
 
 
->[WACOM.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
+>[AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 

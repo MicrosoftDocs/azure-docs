@@ -1,6 +1,6 @@
-<properties urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" description="Learn how to run background tasks in Microsoft Azure Websites." services="web-sites" documentationCenter="" authors="cephalin" writer="timamm" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="cephalin"/>
 
 #Use WebJobs to run background tasks in Azure Websites
 
@@ -59,9 +59,9 @@ The following file types are accepted:
 	
 2. To start or stop a continuously running task, select the task in the list and click **Start** or **Stop** in the command bar.
 
-> [WACOM.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On-demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
+> [AZURE.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On-demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your website. The Always On feature, available in Basic and Standard mode, prevents websites from being unloaded, even if they have been idle for some time. If your website is always loaded, your continuously running task may run more reliably. 
 
 ## <a name="CreateScheduled"></a>Create a Scheduled Task

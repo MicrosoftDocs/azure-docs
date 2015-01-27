@@ -1,7 +1,6 @@
+<properties pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
 
-<properties urlDisplayName="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" metaKeywords="" description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" metaCanonical="" services="" documentationCenter="Mobile" title="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" authors="glenga" solutions="" manager="dwrede" editor="mollybos" />
-
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 
   
 # Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections 
@@ -102,7 +101,7 @@ The Hybrid Connection Manager enables your on-premises machine to connect to Azu
 ### Associate hybrid connection with service
 1. In the **Mobile Services** tab of the portal, select an existing mobile services or create a new one. 
 
-	>[WACOM.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
 
 2. On the **Configure** tab for your mobile service, find the **Hybrid Connections** section and select **Add Hybrid Connection**.
 

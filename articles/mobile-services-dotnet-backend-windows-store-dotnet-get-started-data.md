@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with data (Windows Store) | Mobile Dev Center" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # Add Mobile Services to an existing app
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
@@ -15,7 +15,7 @@ This topic shows you how to use Azure Mobile Services as a backend data source f
 
 The mobile service that you will create in this tutorial is a .NET backend mobile service. .NET backend enables you to use .NET languages and Visual Studio for server-side business logic in the mobile service, and you can run and debug your mobile service on your local computer. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.
 
->[WACOM.NOTE]This topic shows you how to add Azure Mobile Services to a Windows Store project. You can use Visual Studio 2013 tools to add the same .NET backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data) of this tutorial.
+>[AZURE.NOTE]This topic shows you how to add Azure Mobile Services to a Windows Store project. You can use Visual Studio 2013 tools to add the same .NET backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data) of this tutorial.
 
 This tutorial walks you through these basic steps:
 
@@ -54,7 +54,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 ##<a name="create-service"></a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ##<a name="download-the-service-locally"></a>Download the mobile service project and add it to the solution
 
@@ -68,7 +68,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 3. Scroll down to the bottom of that **Get Started** section to the step titled **Publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. 
 
-    > [WACOM.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
+    > [AZURE.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
 
     ![][5]
 
@@ -180,11 +180,11 @@ In this section you will update the Windows Store app to use the mobile service 
 
 ##<a name="test-locally-hosted"></a>Test the Windows Store app with the service hosted locally
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
 
 ##<a name="publish-mobile-service"></a>Publish the mobile service to Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ##<a name="test-azure-hosted"></a>Test the mobile service published to Azure
 
@@ -214,7 +214,7 @@ In this section you will update the Windows Store app to use the mobile service 
 
 ##<a name="view-stored-data"></a>View the data stored in the SQL Database
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
 
 This concludes the **Get started with data** tutorial.
 

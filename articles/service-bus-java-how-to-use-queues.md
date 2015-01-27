@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties pageTitle="How to use Service Bus queues (Java) - Azure" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." services="service-bus" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # How to Use Service Bus Queues
 
@@ -22,7 +22,7 @@ messages**, and **deleting queues**.
 -   [How to: Handle Application Crashes and Unreadable Messages][]
 -   [Next Steps][]
 
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="bkmk_ConfigApp"> </a>Configure Your Application to Use Service Bus
 

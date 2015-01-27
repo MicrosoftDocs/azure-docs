@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure" pageTitle="How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure" metaKeywords="Azure Tomcat7 vm, Tomcat7 vm, Azure Tomcat7" description="Learn how to set up Tomcat7 with Microsoft Azure using an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="ningk" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure" description="Learn how to set up Tomcat7 with Microsoft Azure using an Azure virtual machine (VM) running Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
 
 #How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure 
 

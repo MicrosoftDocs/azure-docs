@@ -1,6 +1,6 @@
-<properties title="Azure SQL Elastic Scale FAQ" pageTitle="Azure SQL Elastic Scale FAQ" description="Frequently Asked Questions about Azure SQL Database Elastic Scale." metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh"/>
+<properties pageTitle="Azure SQL Elastic Scale FAQ" description="Frequently Asked Questions about Azure SQL Database Elastic Scale." services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh"/>
 
 # Azure SQL Database Elastic Scale FAQ 
 

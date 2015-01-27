@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties pageTitle="How to use Azure service management APIs (PHP)" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." services="" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz"/>
 
 # How to use Service Management from PHP
 
@@ -41,7 +41,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 ##<a id="GetClientLibraries"></a>Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="Connect"></a>How to: Connect to service management
 
@@ -116,12 +116,12 @@ When you create a cloud service, storage service, or affinity group, you will ne
 - West US 
 - East US
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > In the code examples that follow, locations are passed to methods as strings. However, you can also pass locations as enumerations using the <code>WindowsAzure\ServiceManagement\Models\Locations</code> class. For example, instead of passing "West US" to a method that accepts a location, you could pass <code>Locations::WEST_US</code>.
 
 ##<a id="CreateCloudService"></a>How to: Create a cloud service
 
-When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a *hosted service* in earlier Azure releases). The **createHostedServices** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (the base 64-endcoded hosted service name), and a **CreateServiceOptions** object. The [CreateServiceOptions] object allows you to set the location *or* the affinity group for your service. 
+When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service]  - known as a *hosted service* in earlier Azure releases. The **createHostedServices** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (the base 64-endcoded hosted service name), and a **CreateServiceOptions** object. The [CreateServiceOptions] object allows you to set the location *or* the affinity group for your service. 
 
 	require_once 'vendor\autoload.php';
 

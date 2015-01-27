@@ -1,6 +1,6 @@
-<properties urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties pageTitle="How to use the SendGrid email service (Java) - Azure" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." services="" documentationCenter="java" authors="thinkingserious" manager="sendgrid" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 # How to Send Email Using SendGrid from Java
 
@@ -44,7 +44,7 @@ For more information, see <http://sendgrid.com>.
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid account
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_HowToUseJavax"> </a>How to: Use the javax.mail libraries
 
@@ -55,6 +55,11 @@ to send email using SMTP is to do the following:
 
 1.  Specify the SMTP values, including the SMTP server, which for
     SendGrid is smtp.sendgrid.net.
+    
+        import java.util.Properties;
+        import javax.activation.*;
+        import javax.mail.*;
+        import javax.mail.internet.*;
 
         public class MyEmailer {
 	       private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
@@ -129,7 +134,7 @@ The following shows how to send an email.
     // Connect the transport object.
     transport.connect();
     // Send the message.
-    transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+    transport.sendMessage(message, message.getAllRecipients());
     // Close the connection.
     transport.close();
 

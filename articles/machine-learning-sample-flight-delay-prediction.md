@@ -1,6 +1,6 @@
-<properties title="Azure Machine Learning Sample: Flight delay prediction" pageTitle="Machine Learning Sample: Flight delay prediction | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts whether a scheduled passenger flight will be delayed by more than 15 minutes." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties pageTitle="Machine Learning Sample: Flight delay prediction | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts whether a scheduled passenger flight will be delayed by more than 15 minutes." services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye"/>
 
 
 # Azure Machine Learning sample: Flight delay prediction
@@ -94,12 +94,16 @@ The following sample experiment associated with this model is available in ML St
 
 The following sample datasets used by this experiment are available in ML Studio in the module palette under **Saved Datasets**.
 
-###Airport Codes Dataset
+<ul>
+<li><b>Airport Codes Dataset</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../includes/machine-learning-sample-dataset-airport-codes.md)]
+<p></p></li>
 
-###Flight Delays Data
+<li><b>Flight Delays Data</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../includes/machine-learning-sample-dataset-flight-delays-data.md)]
+<p></p></li>
 
-###Weather Dataset
+<li><b>Weather Dataset</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../includes/machine-learning-sample-dataset-weather-dataset.md)]
-
+<p></p></li>
+</ul>

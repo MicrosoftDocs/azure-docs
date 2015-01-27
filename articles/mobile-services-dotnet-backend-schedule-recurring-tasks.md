@@ -1,6 +1,6 @@
-<properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
+<properties pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
 
@@ -23,11 +23,11 @@ This tutorial walks you through the following steps of how to use the job schedu
 + [Test the scheduled job locally]
 + [Publish the service and register the job]
 
->[WACOM.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
+>[AZURE.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
 
 ##<a name="get-oauth-credentials"></a>Register for access to Twitter v1.1 APIs and store credentials
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 <ol start="7">
 <li><p>In Solution Explorer in Visual Studio, open the web.config file for the mobile service project, locate the <strong>MS_TwitterConsumerKey</strong> and <strong>MS_TwitterConsumerSecret</strong> app settings and replace the values of these keys with Twitter consumer key and consumer secret values that you set in the portal.</p></li>
@@ -87,7 +87,7 @@ Next, you need to create a new table in which to store tweets.
 
 	The Updates table, which is created in the database when the DbSet is first accessed, is used by the service to store tweet data.  
 
-	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
+	>[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
 
 Next, you create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
@@ -247,7 +247,7 @@ The job must be registered in the **Scheduler** tab so that Mobile Services can 
 
    	![][3]
 
-    >[WACOM.NOTE]When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.
+    >[AZURE.NOTE]When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.
 
 3. In the scheduler dialog, enter _Sample_ for the **Job Name**, set the schedule interval and units, then click the check button. 
    
@@ -261,7 +261,7 @@ The job must be registered in the **Scheduler** tab so that Mobile Services can 
 
    	This executes the job while it remains disabled in the scheduler. From this page, you can enable the job and change its schedule at any time.
 
-	>[WACOM.NOTE]A POST request can still be used to start the scheduled job. However, the authorization defaults to user, which means that the request must include the application key in the header.
+	>[AZURE.NOTE]A POST request can still be used to start the scheduled job. However, the authorization defaults to user, which means that the request must include the application key in the header.
 
 4. (Optional) In the [Azure Management Portal], click manage for the database associated with your mobile service.
 

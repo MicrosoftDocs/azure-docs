@@ -1,6 +1,6 @@
-<properties urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="need to identify contact" solutions="" manager="need to identify contact" editor="" />
+<properties pageTitle="How to use Blitline for image processing - Azure feature guide" description="Learn how to use the Blitline service to process images within an Azure application." services="" documentationCenter=".net" authors="blitline-dev" manager="jason@blitline.com" editor="jason@blitline.com"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="support@blitline.com"/>
 
 
 
@@ -42,7 +42,7 @@ To clarify what Blitline is useful for, it is often easier to identify what Blit
 
 ## <a id="createaccount"></a>Create a Blitline account
 
-[WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
+[AZURE.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
 ## <a id="createjob"></a>How to create a Blitline job
 

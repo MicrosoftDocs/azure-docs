@@ -1,6 +1,6 @@
-<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="twilio" editor="mollybos" />
+<properties pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." services="" documentationCenter="java" authors="devinrader" manager="twilio" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="microsofthelp@twilio.com"/>
 
 # How to Use Twilio for Voice and SMS Capabilities in Java
 
@@ -67,11 +67,6 @@ For more information about Twilio verbs, their attributes, and TwiML, see [TwiML
 When you're ready to get a Twilio account, sign up at [Try Twilio] [try_twilio]. You can start with a free account, and upgrade your account later.
 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page] [twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
-
-<h2><a id="VerifyPhoneNumbers"></a>Verify Phone Numbers</h2>
-Various phone numbers need to be verified with Twilio for your account. For example, if you want to place outbound phone calls, the phone number must be verified as an outbound caller ID with Twilio. Similarly, if you want a phone number to receive SMS messages, the receiving phone number must be verified with Twilio. For information on how to verify a phone number, see [Manage Numbers] [verify_phone]. Some of the code below relies on phone numbers that you will need to verify with Twilio.
-
-As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
 
 <h2><a id="create_app"></a>Create a Java Application</h2>
 1. Obtain the Twilio JAR and add it to your Java build path and your WAR deployment assembly. At [https://github.com/twilio/twilio-java][twilio_java], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
@@ -148,19 +143,15 @@ The following shows how to send an SMS message using the **SmsFactory** class. T
     Account account = client.getAccount();
 
     // Send an SMS message.
-    // Place the call From, To and Body values into a hash map. 
-    HashMap<String, String> smsParams = new HashMap<String, String>();
-    smsParams.put("From", "4155992671"); // The second parameter is a phone number provided
-                                         // by Twilio for trial accounts.
-    smsParams.put("To", "NNNNNNNNNN");   // Use your own value for the second parameter.
-    smsParams.put("Body", "This is my SMS message.");
-
-    // Create an instance of the SmsFactory class.
-    SmsFactory smsFactory = account.getSmsFactory();
-
-    // Send the message.
-    Sms sms = smsFactory.create(smsParams);
-
+    MessageFactory messageFactory = account.getMessageFactory();
+    
+    List<NameValuePair> params = new ArrayList<NameValuePair>();
+    params.add(new BasicNameValuePair("To", "+14159352345")); // Replace with a valid phone number for your account.
+    params.add(new BasicNameValuePair("From", "+14158141829")); // Replace with a valid phone number for your account.
+    params.add(new BasicNameValuePair("Body", "Where's Wallace?"));
+    
+    Message sms = messageFactory.create(params);
+        
 For more information about the parameters passed in to the **SmsFactory.create** method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 <h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own Website</h2>

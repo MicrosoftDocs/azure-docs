@@ -1,6 +1,6 @@
-<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="Get started using Azure Stream Analytics | Azure" metaKeywords="" description="Get started using Azure Stream Analytics to process and transform events in Azure Service Bus Event Hub and store the results to Azure SQL Database." metaCanonical="" services="stream-analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Get started using Azure Stream Analytics | Azure" description="Get started using Azure Stream Analytics to process and transform events in Azure Service Bus Event Hub and store the results to Azure SQL Database." services="stream-analytics" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/02/2015" ms.author="jgao"/>
 
 
 # Get started using Azure Stream Analytics
@@ -11,14 +11,27 @@ To get you started quickly using Stream Analytics, this tutorial will show you h
   
 ![Azure Stream Analytics get started flow][img.get.started.flowchart]
 
-##Generate Event Hub Sample Data
-This tutorial will leverage the Service Bus Event Hubs Getting Started application, a code sample in the MSDN CodeGallery, to create a new Event Hub, generate sample device temperature readings, and send the device reading data to the Event Hub.
+##In this article
+
+- [Generate Event Hub sample data](#generateData)
+- [Prepare an Azure SQL Database for storing output data](#prepareDatabase)
+- [Create a Stream Analytics job](#createJob)
+- [Start the job](#startJob)
+- [View job output](#viewJobOutput)
+- [Stop, update, and restart Job](#updateJob)
+- [View job output](#viewJobOutput2)
+- [Next steps](#nextsteps)
+
+
+##<a name="generateData"></a>Generate Event Hub sample data
+This tutorial will leverage the *Service Bus Event Hubs Getting Started* application, a code sample in the MSDN CodeGallery, to create a new Event Hub, generate sample device temperature readings, and send the device reading data to the Event Hub.
 
 ###Create a Service Bus namespace
 The sample application will create an Event Hub in a preexisting Service Bus namespace.  You can use a Service Bus namespace you've already provisioned or follow the steps below to create a new one:
 
 1.	Sign in to the [Azure Management portal][azure.management.portal].
-2.	Click **CREATE** in the bottom of the Service Bus page, and follow the instructions to create a namespace. Use **MESSAGING** as the type.
+2.	Click **SERVICE BUS** in the left pane to open the Service Bus page. 
+2.	Click **CREATE** on the bottom of page, and follow the instructions to create a namespace. Use **MESSAGING** as the type. It takes a few moments to get the namespace created.
 3.	Click the newly created namespace, and then click **CONNECTION INFORMATION** on the bottom of the page.
 4.	Copy the connection string. You will use it later in the tutorial.
 
@@ -26,20 +39,27 @@ The sample application will create an Event Hub in a preexisting Service Bus nam
 
 This sample application requires an Azure Storage account or a Storage Emulator for maintaining the application state. You can use an existing Storage account or follow the steps below to create one: 
 
-1.	From the portal, create a new Storage Account by clicking **NEW**, **DATA SERVICES**, **STORAGE**, **QUICK CREATE**, and follow the instructions.
+1.	From the Management portal, create a new Storage Account by clicking **NEW**, **DATA SERVICES**, **STORAGE**, **QUICK CREATE**, and follow the instructions. It takes a few moments to get the Storage account created.
 2.	Select the newly created storage account and then click **MANAGE ACCESS KEYS** at the bottom of the page.
 3.	Copy the storage account name and one of the access keys.
 
 ###Generate Event Hub sample data
 
-1.	Download and unzip [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097) to your workstation.
+1.	Download [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097), and then unzip it to your workstation.
 2.	Open the **EventHubSample.sln** solution file in Visual Studio.
 3.	Open **app.config**.
-4.	Specify both the Service Bus and the Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**. The storage account connection string will be in the following format: 	
+4.	Specify both the Service Bus and the Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**. 
+
+	The service bus connection string will be in the following format: 
+ 
+		Endpoint=sb://<namespaceName>.servicebus.windows.net/;SharedAccessKeyName=<yourAccessKeyName>;SharedAccessKey=<yourAccessKey> 
+
+
+	The storage account connection string will be in the following format: 	
 
 		DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<yourAccountKey>;
 5.	Build the solution.
-6.	Run the application from the bin folder.  The usage is as follows: 
+6.	Run the application from the bins folder.  The usage is as follows: 
 
 		BasicEventHubSample <eventhubname> <NumberOfMessagesToSend> <NumberOfPartitions> 
 
@@ -48,14 +68,14 @@ This sample application requires an Azure Storage account or a Storage Emulator 
 		BasicEventHubSample devicereadings 200 16
 
  	![insert image here][img.stream.analytics.event.hub.client.output] 
- 	
+7. After the events have been sent, press **ENTER** to close the application. 
 
 ###Create an Event Hub Shared Access Policy
 While there is already a Shared Access Policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the Event Hub only.
 
-1.	From the Service Bus workspace on the portal, click the Service Bus namespace name.
+1.	From the Management portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
 2.	Click **EVENT HUBS** at the top of the page.
-3.	Click **devicereadings**, the Event Hub for this tutorial.
+3.	Click **devicereadings**, the Event Hub for this tutorial. This is the default Event Hub name created by BasicEventHubSample.  
 4.	Click **CONFIGURE** at the top of the page.
 5.	Under Shared Access Policies, create a new policy with **Manage** permissions.
 
@@ -64,7 +84,7 @@ While there is already a Shared Access Policy on the Service Bus namespace that 
 7.	If the Event Hub is in a different subscription than the Stream Analytics job will be in, you will need to copy and save the connection information for later.  To do this, click **DASHBOARD**, and then click **CONNECTION INFORMATION** at the bottom of the page and save the Connection String.
 
 
-##Prepare an Azure SQL Database for storing output data
+##<a name="prepareDatabase"></a>Prepare an Azure SQL Database for storing output data
 Azure Stream Analytics can output data to Azure SQL Database, Azure Blob storage, and Azure Event Hub. In this tutorial, you will define a job that outputs to an Azure SQL Database. For more information, see Getting Started with Microsoft Azure SQL Database.
 
 ###Create Azure SQL Database
@@ -102,9 +122,9 @@ If you already have an Azure SQL Database to use for this tutorial, skip this se
 		CREATE CLUSTERED INDEX [AvgReadings]
 		    ON [dbo].[AvgReadings]([DeviceId] ASC);
 
-	>[WACOM.NOTE] Clustered indexes are required on all SQL Database tables in order to insert data.
+	>[AZURE.NOTE] Clustered indexes are required on all SQL Database tables in order to insert data.
 	   
-##Create a Stream Analytics job
+##<a name="createJob"></a>Create a Stream Analytics job
 
 After you have created the Azure Service Bus Event Hub, the Azure SQL database and the output tables, you are ready to create a Stream Analytics job.
 
@@ -135,7 +155,7 @@ After you have created the Azure Service Bus Event Hub, the Azure SQL database a
 
 		If your Event Hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter the **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.  
 
-		>[WACOM.NOTE] This sample uses the default number of partitions, which is 16.
+		>[AZURE.NOTE] This sample uses the default number of partitions, which is 16.
 		
 	- **EVENT HUB NAME**: Select the name of the Azure Event Hub you created. For this tutorial use **devicereadings**.
 	- **EVENT HUB POLICY NAME**: Select the Event Hub policy created earlier in this tutorial.
@@ -176,16 +196,16 @@ This tutorial will start with a simple pass-through query that outputs device te
 Make sure that the name of the input source matches the name of the input you specified earlier.
 3.	Click **SAVE** from the bottom of the page and **YES** to confirm.
 
-##Start the job
+##<a name="startJob"></a>Start the job
 As a default, Stream Analytics jobs start reading incoming events from the time that the job starts.  Because the Event Hub contains existing data to process, we need to configure the job to consume this historical data.  
 
-1.	Click **CONFIGURE** on the top of the page.
-2.	Change the **START OUTPUT** value to **CUSTOM TIME**, and specify a start time.  Make sure that the start time is sometime before the time that you ran BasicEventHubSample.  
-3.	Click **SAVE** from the bottom of the page and **YES** to confirm.
-3.	Click **DASHBOARD** on the top of the page, and then click **START** on the bottom of the page, and **YES** to confirm.  In the **quick glance** pane, the **STATUS** will change to **Starting** and may take a couple of minutes to complete the starting process and move into the **Running** state.   
+1.	Click **DASHBOARD** from the top of the page.
+2.	Click **START** from the bottom of the page.
+3.	Click **CUSTOM TIME**, and specify a start time.  Make sure that the start time is sometime before the time that you ran BasicEventHubSample.  
+3.	Click the check button on the bottom of the dialog. In the **quick glance** pane, the **STATUS** will change to **Starting** and may take a couple of minutes to complete the starting process and move into the **Running** state.   
 
 
-##View job output
+##<a name="viewJobOutput"></a>View job output
 
 1.	In Visual Studio or SQL Server Management Studio, connect to your SQL Database and run the following query: 
 
@@ -199,8 +219,9 @@ As a default, Stream Analytics jobs start reading incoming events from the time 
 	
 	If you have any issues with missing or unexpected output, view the Operation Logs for the job, linked on the right pane of the Dashboard page.
 
-##Stop, update, and restart Job
+##<a name="updateJob"></a>Stop, update, and restart Job
 Now let us do a more interesting query over the data.
+
 1.	From the **DASHBOARD** or **MONITOR** page, click **STOP**.
 2.	From the **QUERY** page, replace the existing query with the following and then click **SAVE**:
 
@@ -213,7 +234,7 @@ Now let us do a more interesting query over the data.
 
 4.	From the **DASHBOARD** page, click **START**.
 
-##View Job output
+##<a name="viewJobOutput2"></a>View Job output
 
 1.	In Visual Studio or SQL Server Management Studio, connect to the SQL Database and run the following query:
 

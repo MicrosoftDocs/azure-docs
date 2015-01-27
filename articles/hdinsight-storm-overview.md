@@ -1,20 +1,20 @@
-<properties title="Storm in HDInsight overview" pageTitle="Learn about Apache Storm in HDInsight (hadoop)" description="Learn how you can use Apache Storm in HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hdinsight real-time, azure hadoop storm real-time, aure hadoop real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Learn about Apache Storm in HDInsight (hadoop)" description="Learn how you can use Apache Storm in HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr"/>
 
-#HDinsight Storm overview
+#Apache Storm on HDInsight overview
 
 ##What is Storm?
 
 [Apache Storm][apachestorm] is a distributed, fault-tolerant, open source computation system that allows you to process data in realtime. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
-##What is Azure HDInsight Storm?
+##What is Storm on HDInsight?
 
-HDInsight Storm is offered as a managed cluster integrated into the Azure environment, where it may be used as part of a larger Azure solution. For example, Storm might consume data from services such as ServiceBus Queues or Event Hub, and use Websites or Cloud Services to provide data visualization. HDInsight Storm clusters may also be configured on an Azure Virtual Network, which reduces latency communicating with other resources on the same Virtual Network and can also allow secure communication with resources within a private datacenter.
+Storm is offered as a managed cluster integrated into the Azure environment, where it may be used as part of a larger Azure solution. For example, Storm might consume data from services such as ServiceBus Queues or Event Hub, and use Websites or Cloud Services to provide data visualization. Storm clusters may also be configured on an Azure Virtual Network, which reduces latency communicating with other resources on the same Virtual Network and can also allow secure communication with resources within a private datacenter.
 
 To get started using Storm, see [Getting started with Storm in HDInsight][gettingstarted].
 
-##How is data in HDInsight Storm processed?
+##How is data in Storm on HDInsight processed?
 
 A storm cluster process **topologies** instead of the MapReduce jobs that you may be familiar with from HDInsight or Hadoop. A Storm cluster contains two types of nodes, head nodes that run **Nimbus** and worker nodes that run **Supervisor**
 
@@ -32,7 +32,7 @@ A storm cluster process **topologies** instead of the MapReduce jobs that you ma
 
 * **Spout** - Consumes data from a data source and emits one or more **streams**
 
-	> [WACOM.NOTE] In many cases, data is read from a queue such as Kafka, Azure ServiceBus Queues or Event Hubs. The queue ensures that data is persisted in case of an outage.
+	> [AZURE.NOTE] In many cases, data is read from a queue such as Kafka, Azure ServiceBus Queues or Event Hubs. The queue ensures that data is persisted in case of an outage.
 
 * **Bolt** - Consumes **streams**, performs processing on **tuples**, and may emit **streams**. Bolts are also responsible for writing data to external storage, such as a queue, HDInsight HBase, a blob, or other data store
 
@@ -66,11 +66,11 @@ Storm can be used with machine learning solution that has previously been traine
 
 ##What programming languages can I use?
 
-The HDInsight Storm cluster provides support for .NET, Java, and Python out of the box. While Storm [supports other languages](https://storm.incubator.apache.org/about/multi-language.html), many of these will require you to install an additional programming language on the HDInsight cluster in addition to other configuration changes. 
+The Storm cluster on HDInsight provides support for .NET, Java, and Python out of the box. While Storm [supports other languages](https://storm.incubator.apache.org/about/multi-language.html), many of these will require you to install an additional programming language on the HDInsight cluster in addition to other configuration changes. 
 
 ###.NET
 
-SCP is a project that enables .NET developers to design and implement a topology (including spouts and bolts.) Support for SCP is provided by default with HDInsight Storm clusters.
+SCP is a project that enables .NET developers to design and implement a topology (including spouts and bolts.) Support for SCP is provided by default with Storm clusters.
 
 For more information on developing with SCP, see [Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight](/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application).
 
@@ -80,7 +80,7 @@ Most Java examples you encounter will be either plain Java, or Trident. Trident 
 
 For more information on Trident, see the [Trident tutorial](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) at apache.org.
 
-For examples of both raw Java and Trident topologies, see the **%storm_home%\contrib\storm-starter** directory on your HDInsight Storm cluster.
+For examples of both raw Java and Trident topologies, see the **%storm_home%\contrib\storm-starter** directory on your Storm cluster.
 
 ##What are some of the common development patterns?
 

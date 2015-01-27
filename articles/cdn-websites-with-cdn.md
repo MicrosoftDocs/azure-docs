@@ -1,6 +1,6 @@
-<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="Integrate an Azure Website with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="A tutorial that teaches you how to deploy a website that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+<properties pageTitle="Integrate an Azure Website with Azure CDN" description="A tutorial that teaches you how to deploy a website that serves content from an integrated Azure CDN endpoint" services="cdn, web-sites" documentationCenter=".net" authors="cephalin" manager="wpickett" editor="jimbe"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Integrate an Azure Website with Azure CDN #
@@ -35,14 +35,9 @@ This tutorial has the following prerequisites:
 -	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/)
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
-  <ul>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
-  <ul>
-</div>
+> [AZURE.NOTE] You need an Azure account to complete this tutorial:
+> + You can [open an Azure account for free](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
+> + You can [activate MSDN subscriber benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 <a name="deploy"></a>
 ## Deploy an Azure website with an integrated CDN endpoint ##
@@ -81,7 +76,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	>[WACOM.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	> [AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
@@ -91,7 +86,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[WACOM.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+	>[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
 2. Now, click the CDN endpoint address. If the endpoint is ready, you should see your website displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
 

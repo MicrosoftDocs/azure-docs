@@ -1,6 +1,6 @@
-<properties title="How to Scale Websites" pageTitle="How to Scale Websites" description="required" metaKeywords="scaling Azure websites" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties pageTitle="How to Scale Websites" description="required" services="web-sites" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
 
 # How to Scale Websites #
 
@@ -12,7 +12,7 @@ Changing modes and configuring them is easily done in the Scale tab of the manag
 
 For information about Web Hosting Plans, see [What is a Web Hosting Plan?](http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/) and [Azure Websites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Websites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
 
-> [WACOM.NOTE] Before switching a website from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Azure Websites subscription. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Before switching a website from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Azure Websites subscription. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 In this article:
 
@@ -55,7 +55,7 @@ In this article:
 	
 	![Save button][SaveButton]
  	
-	> [WACOM.NOTE] You can configure and save the **Web Hosting Plan**, **Instance Size**, and **Instance Count** settings separately if you wish.
+	> [AZURE.NOTE] You can configure and save the **Web Hosting Plan**, **Instance Size**, and **Instance Count** settings separately if you wish.
 	
 8. A confirmation message reminds you that sites in the same Web Hosting Plan as the current website will also change to the new mode. Choose **Yes** to complete the change. 
 	
@@ -68,7 +68,7 @@ In this article:
 ## Scaling to Standard Plan Mode
 <!-- ================================= -->
 
-> [WACOM.NOTE] Before switching a Web Hosting Plan to Standard mode, you should remove spending caps in place for your Microsoft Azure Websites subscription. Otherwise, you risk your site becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Before switching a Web Hosting Plan to Standard mode, you should remove spending caps in place for your Microsoft Azure Websites subscription. Otherwise, you risk your site becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 1. To scale to Standard, follow the same initial steps as when scaling to Shared or Basic, and then choose **Standard** for **Web Hosting Plan Mode**. 
 	
@@ -96,7 +96,7 @@ In this article:
 	
 6. Under **Recurring Schedules**, select **Differing scale between Day and Night** and/or **Differing Scale between Weekday and Weekend** to scale resources based on separate daytime and nighttime schedules and/or separate weekday and weekend schedules.
 	
-	> [WACOM.NOTE] For the purposes of this feature, the weekend starts at the end of day Friday (8:00 PM by default), and ends at the beginning of the day on Monday (8:00 AM by default). The weekend profile uses the same day start and end that you will define in the **Time** setting.
+	> [AZURE.NOTE] For the purposes of this feature, the weekend starts at the end of day Friday (8:00 PM by default), and ends at the beginning of the day on Monday (8:00 AM by default). The weekend profile uses the same day start and end that you will define in the **Time** setting.
 	
 7. Under **Time**, choose a start and end time for the day in half-hour increments, and a time zone. By default, the day starts at 8:00 AM and ends at 8:00 PM. Daylight Savings Time is respected for the time zone that you select. 
 	
@@ -128,7 +128,7 @@ In this article:
 	
 14. After you have finished making changes to the items in the **Edit Scale Settings for Schedule** list, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
 
-> [WACOM.NOTE] In the [Azure Preview Portal](https://portal.azure.com/), you can scale not only on CPU percentage, but also on the additional metrics of Memory Percentage, Disk Queue Length, HTTP Queue Length, Data In, and Data Out. You can also create one or more Scale up and Scale down rules that give you even more custom control over scaling. For more information, see [How to Scale a Website](http://azure.microsoft.com/en-us/documentation/articles/insights-how-to-scale/) in the Azure Preview Portal documentation.
+> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com/), you can scale not only on CPU percentage, but also on the additional metrics of Memory Percentage, Disk Queue Length, HTTP Queue Length, Data In, and Data Out. You can also create one or more Scale up and Scale down rules that give you even more custom control over scaling. For more information, see [How to Scale a Website](http://azure.microsoft.com/en-us/documentation/articles/insights-how-to-scale/) in the Azure Preview Portal documentation.
 
 <a name="ScalingSQLServer"></a>
 ##Scaling a SQL Server Database connected to your site	

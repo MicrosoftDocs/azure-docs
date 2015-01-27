@@ -1,6 +1,6 @@
-<properties pageTitle="Get Started with Azure Cloud Services and ASP.NET" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Get Started with Azure Cloud Services and ASP.NET" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Get Started with Azure Cloud Services and ASP.NET" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs." services="cloud-services, storage" documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra,riande" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra,riande"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
 
@@ -62,7 +62,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Download and run the completed solution
 
@@ -193,7 +193,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
-	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [How To Manage Storage Accounts](/en-us/documentation/articles/storage-manage-storage-account/).
+	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
 5. Click **Create Storage Account**. 
 
@@ -207,7 +207,7 @@ The web project and the worker role project each has its own database connection
 
 You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) for the web role and a cloud service environment setting for the worker role.
 
->[WACOM.NOTE] In this section and the next section you store credentials in project files. [Don't store sensitive data in public source code repositories](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+>[AZURE.NOTE] In this section and the next section you store credentials in project files. [Don't store sensitive data in public source code repositories](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 
 1. In the ContosoAdsWeb project, open the *Web.Release.config* transform file for the application *Web.config* file, delete the comment block that contains a `<connectionStrings>` element, and paste the following code in its place. 
 
@@ -335,7 +335,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 9. You can now test the app by creating, viewing, and editing some ads, as you did when you ran the application locally.
 
->[WACOM.NOTE] When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your cloud service, and then click the **Delete** button at the bottom of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+>[AZURE.NOTE] When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your cloud service, and then click the **Delete** button at the bottom of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 
 ## Create the application from scratch 
 
@@ -756,7 +756,7 @@ Sometimes the content of a queue message causes an error in processing. This is 
 
 This code reads the database to get the image URL, converts the image to a thumbnail, saves the thumbnail in a blob, updates the database with the thumbnail blob URL, and deletes the queue message.
 
->[WACOM.NOTE] The code in the `ConvertImageToThumbnailJPG` method uses classes in the System.Drawing namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
+>[AZURE.NOTE] The code in the `ConvertImageToThumbnailJPG` method uses classes in the System.Drawing namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
 
 ## Troubleshooting
 

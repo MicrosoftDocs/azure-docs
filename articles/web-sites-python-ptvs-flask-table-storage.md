@@ -1,6 +1,6 @@
-<properties linkid="web-sites-python-ptvs-flask-table-storage" title="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Flask application that stores data in Azure Table Storage and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+<properties pageTitle="Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Flask application that stores data in Azure Table Storage and can be deployed to a web site." services="" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo"/>
 
 
 
@@ -32,7 +32,7 @@ See the [Python Developer Center][] for more articles that cover development of 
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Create the Project
 
@@ -116,7 +116,7 @@ In this section, we'll configure our application to use the storage account we j
 
 It's easy to view and edit storage tables using Server Explorer in Visual Studio.  In this section we'll use Server Explorer to view the contents of the polls application tables.
 
-> [WACOM.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET][].
+> [AZURE.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET][].
 
 1.  Open **Server Explorer**.  Expand **Azure**, **Storage**, your storage account, then **Tables**.
 

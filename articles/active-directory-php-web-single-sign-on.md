@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (PHP)" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="PHP" title="Web Single Sign-On with PHP and Azure Active Directory" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties pageTitle="Single sign-on with Azure Active Directory (PHP)" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." services="active-directory" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz"/>
 
 # Web Single Sign-On with PHP and Azure Active Directory
 
@@ -91,7 +91,7 @@ This step will output information similar to the following:
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > You should save this output, especially the generated symmetric key. This key is only revealed to you during Service Principal creation, and you will be unable to retrieve it in the future. The other values are required for using the Graph API to read and write information in the directory.
 
 6. The final step sets the reply URL for your application. The reply URL is where responses are sent following authentication attempts. Type the following commands and press enter:
@@ -118,7 +118,8 @@ This step shows you how to add support for federated login using Windows Identit
 		federation.realm=spn:7829c758-2bef-43df-a685-717089474505
 		federation.reply=https://localhost/phpSample/index.php 
 
-		<div class="dev-callout"><strong>Note</strong><p>The <b>audienceuris</b> and <b>realm</b> values must be prefaced by "spn:".</p></div>
+
+	> [AZURE.NOTE] The **audienceuris** and **realm** values must be prefaced by "spn:".
 
 4. In Eclipse, right-click the **phpSample** project, click **New**, then click **PHP File**. 
 

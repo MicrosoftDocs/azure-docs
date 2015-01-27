@@ -1,15 +1,15 @@
-<properties pageTitle="Get started with push notification using a .NET backend mobile service" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+<properties pageTitle="Get started with push notification using a .NET backend mobile service" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
 
 
 # Add push notifications to your Mobile Services app
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 This topic shows you how to use Azure Mobile Services with a .NET backend to send push notifications to a universal Windows app. In this tutorial you enable push notifications using Azure Notification Hubs in a universal Windows app project. When complete, your mobile service will send a push notification from the .NET backend to all registered Windows Store and Windows Phone Store apps each time a record is inserted in the TodoList table. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[WACOM.NOTE]This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to add support for push notifications from Mobile Services to a universal Windows app. The same steps can be used to add push notifications from Mobile Services to a Windows Store or Windows Phone Store 8.1 app. If you cannot upgrade to Visual Studio Professional 2013 Update 3 or you prefer to manually add your mobile service project to a Windows Store app solution, see [this version](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push) of the topic.
+>[AZURE.NOTE]This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to add support for push notifications from Mobile Services to a universal Windows app. The same steps can be used to add push notifications from Mobile Services to a Windows Store or Windows Phone Store 8.1 app. If you cannot upgrade to Visual Studio Professional 2013 Update 3 or you prefer to manually add your mobile service project to a Windows Store app solution, see [this version](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push) of the topic.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -25,7 +25,7 @@ To complete this tutorial, you need the following:
 
 ##<a id="register"></a>Register your app for push notifications
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
 <li><p>Browse to the <code>\services\mobileServices\scripts</code> project folder, copy the generated &lt;<em>your_service_name</em>&gt;.push.register.js script file into the shared <code>\js</code> folder, and then delete this file from both of the individual Windows and WindowsPhone app projects.</p></li> 
@@ -42,15 +42,15 @@ Now that push notifications are enabled in the app, you must update the mobile s
 
 The following steps update the existing TodoItemController class to send a push notification to all registered devices when a new item is inserted. You can implement similar code in any custom [ApiController], [TableController], or anywhere else in your backend services. 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
 ##<a id="local-testing"></a> Enable push notifications for local testing
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
 The remaining steps in this section are optional. They allow you to test your app against your mobile service running on a local computer. If you plan to test push notifications using the mobile service running in Azure, you can just skip to the last section. This is because the Add Push Notification wizard already configured your app to connect to your service running in Azure.  
 
->[WACOM.NOTE]Never use a production mobile service for testing and development work. Always publish your mobile service project to a separate staging service for testing.
+>[AZURE.NOTE]Never use a production mobile service for testing and development work. Always publish your mobile service project to a separate staging service for testing.
 
 <ol start="5">
 <li><p>Browse to the <code>\services\mobileServices\settings</code> project folder, copy the generated &lt;<em>your_service_name</em>&gt;.js script file into the shared <code>\js</code> project folder, and then delete this file from both of the individual Windows and WindowsPhone app projects. Also delete this file from the <code>\services\mobileServices\scripts</code> folder in each app project if it exists there too.</p></li> 
@@ -65,7 +65,7 @@ var todolistClient = new WindowsAzure.MobileServiceClient(
 
 ##<a id="test"></a> Test push notifications in your app
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
 
 ## <a name="next-steps"> </a>Next steps
 

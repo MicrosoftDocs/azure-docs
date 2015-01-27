@@ -1,6 +1,6 @@
-<properties pageTitle="What is the Azure .NET SDK" metaKeywords="azure .net sdk" description="Learn what is included in the Azure .NET SDK." documentationCenter=".NET" title="What is the Azure SDK for .NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="What is the Azure .NET SDK" description="Learn what is included in the Azure .NET SDK." documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="mollybos" services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"/>
 
 # What is the Azure SDK for .NET?
 
@@ -45,7 +45,7 @@ This enables you to work with Azure Websites:
 * [Manage and troubleshoot Azure Websites in Server Explorer](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Run in debug mode remotely for Websites and WebJobs](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
 
->[WACOM.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
+>[AZURE.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
 
 ###<a id="tools"></a>Microsoft Azure Tools for Microsoft Visual Studio
 

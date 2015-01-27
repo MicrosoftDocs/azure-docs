@@ -1,6 +1,6 @@
-<properties urlDisplayName="Set up endpoints" pageTitle="Set up endpoints on a virtual machine in Azure" metaKeywords="Azure config setup, configuring vm connection" description="Learn how to setup communication with a virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Set up endpoints on a virtual machine in Azure" description="Learn how to setup communication with a virtual machine in Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav"/>
 
 #How to Set Up Endpoints to a Virtual Machine
 
@@ -50,7 +50,7 @@ Default values for the ports and protocol for these endpoints are provided when 
 
 ###Manage the ACL on an Endpoint###
 
-Follow these steps to add, modify, or remove an ACL on an endpoint.
+The Access Control List (ACL) on a network endpoint can restrict traffic based upon source IP, to secure the endpoints created on your Virtual Machine. Follow these steps to add, modify, or remove an ACL on an endpoint.
 
 **Note**: If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
 

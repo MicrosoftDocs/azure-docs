@@ -1,6 +1,6 @@
-<properties urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="Send email using SendGrid - Azure Mobile Services" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." services="mobile-services" documentationCenter="" authors="thinkingserious" manager="sendgrid" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
 # Send email from Mobile Services with SendGrid
@@ -19,7 +19,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="sign-up"></a>Create a new SendGrid account</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="add-script"></a>Register a new script that sends emails</h2>
 
@@ -74,9 +74,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	- **_from-address_**: the address from which the email originates. Consider using a registered domain address that belongs to your organization. 
 
-     <div class="dev-callout"><b>Note</b>
-     <p>If you do not have a registered domain, you can instead use the domain of your Mobile Service, in the format <strong>notifications@<i>your-mobile-service</i>.azure-mobile.net</strong>. However, messages sent to your mobile service domain are ignored.</p>
-    </div> 
+     > [AZURE.NOTE] If you do not have a registered domain, you can instead use the domain of your Mobile Service, in the format *notifications@_your-mobile-service_.azure-mobile.net*. However, messages sent to your mobile service domain are ignored.
 
 6. Click the **Save** button. You have now configured a script to send an email each time a record is inserted into the **TodoItem** table.
 

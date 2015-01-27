@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
 
 # Add Mobile Services to an existing app
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 This topic shows you how to add Azure Mobile Services as a backend data source for a Windows Phone 8.1 Silverlight app. In this tutorial, you will download a Visual Studio project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
@@ -34,7 +34,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    	![][1]
 
-	>[WACOM.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. To create a Windows Phone Store app, download the [Windows Phone Store app version](http://go.microsoft.com/fwlink/p/?LinkId=397372) of the GetStartedWithData sample app project.
+	>[AZURE.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. To create a Windows Phone Store app, download the [Windows Phone Store app version](http://go.microsoft.com/fwlink/p/?LinkId=397372) of the GetStartedWithData sample app project.
 
 2. Run Visual Studio with administrative privileges by right clicking Visual Studio and clicking **Run as administrator**.
 
@@ -56,7 +56,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 <h2><a name="create-service"></a>Create a new mobile service</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
 <h2><a name="download-the-service-locally"></a>Download the mobile service project and add it to the solution</h2>
@@ -71,7 +71,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 3. Also under that section, click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. 
 
-    > [WACOM.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
+    > [AZURE.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
 
     ![][5]
 
@@ -193,7 +193,7 @@ In this section you will use Visual Studio to test the app and mobile service lo
 
 #### Configure IIS Express to allow remote connections
 
-[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
+[AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
 
 #### Test the app against the mobile service in IIS Express
 
@@ -214,7 +214,7 @@ In this section you will use Visual Studio to test the app and mobile service lo
 
 8. In Visual Studio, press the F5 key or click **Start Debugging** from the Debug menu to run the app and host the mobile service locally in IIS Express. 
 
-    >[WACOM.NOTE] Make you you did run Visual Studio with the **Run as administrator** option. Otherwise, IIS Express may not load your applicationhost.config changes.
+    >[AZURE.NOTE] Make you you did run Visual Studio with the **Run as administrator** option. Otherwise, IIS Express may not load your applicationhost.config changes.
 
     ![][12]
 
@@ -232,7 +232,7 @@ In this section you will use Visual Studio to test the app and mobile service lo
 
 ##<a name="publish-mobile-service"></a>Publish the mobile service to Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
 ##<a name="test-azure-hosted"></a>Test the mobile service published to Azure

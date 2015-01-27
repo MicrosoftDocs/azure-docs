@@ -1,6 +1,6 @@
-<properties title="Azure Machine Learning Sample: Prediction of the number of bike rentals" pageTitle="Machine Learning Sample: Prediction of bike rentals | Azure" description="A sample Azure Machine Learning experiment to develop a regression model that predicts the number of bike rentals hourly." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties pageTitle="Machine Learning Sample: Prediction of bike rentals | Azure" description="A sample Azure Machine Learning experiment to develop a regression model that predicts the number of bike rentals hourly." services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye"/>
 
 
 # Azure Machine Learning sample: Prediction of the number of bike rentals
@@ -55,7 +55,9 @@ The following sample experiment associated with this model is available in ML St
 
 The following sample dataset used by this experiment is available in ML Studio in the module palette under **Saved Datasets**.
 
-###Bike Rental UCI dataset
+<ul>
+<li><b>Bike Rental UCI dataset</b><p></p>
 [AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
-
+<p></p></li>
+</ul>
 

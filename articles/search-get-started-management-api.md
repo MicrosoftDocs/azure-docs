@@ -1,6 +1,7 @@
-<properties title="Get started with Azure Search Management REST API" pageTitle="Get started with Azure Search Management REST API" description="Get started with Azure Search Management REST API" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties pageTitle="Get started with Azure Search Management REST API" description="Get started with Azure Search Management REST API" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/10/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
+
 # Get started with Azure Search Management REST API #
 
 The Azure Search REST management API is a programmatic alternative to performing administrative tasks in the portal. Service management operations include creating or deleting the service, scaling the service, and managing keys. This tutorial comes with a sample client application that demonstrates the service management API. It also includes configuration steps required to run the sample in your local development environment.
@@ -39,7 +40,7 @@ In this section, you will perform the following tasks:
 1. Configure the AD application by registering details about the sample client application you downloaded
 1. Load the sample client application with values it will use to gain authorization for its requests
 
-> [WACOM.NOTE] These links provide background on using Azure Active Directory for authenticating client requests to the resource manager: [Azure Resource Manager](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx), [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/en-us/library/azure/dn790557.aspx), and [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
+> [AZURE.NOTE] These links provide background on using Azure Active Directory for authenticating client requests to the resource manager: [Azure Resource Manager](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx), [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/en-us/library/azure/dn790557.aspx), and [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
 
 <h3>Create an Active Directory Service</h3>
 

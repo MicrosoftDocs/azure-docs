@@ -1,6 +1,6 @@
-<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
 
 # Register the current user for push notifications by using a mobile service
 
@@ -43,9 +43,7 @@ This topic shows you how to request push notification registration with Azure No
 
 	This updates the **deviceToken** property.
 
-	<div class="dev-callout"><b>Note</b>
-	<p>At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Get Started with Notification Hubs</a> tutorial, you must comment-out or remove that call.</p>
-	</div>
+	> [AZURE.NOTE] At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") tutorial, you must comment-out or remove that call.
 
 5.  (Optional) In the QSAppDelegate.m file, add the following handler method:
 
@@ -93,10 +91,8 @@ This topic shows you how to request push notification registration with Azure No
 			    }];
 			}
 
-	<div class="dev-callout"><b>Note</b>
-	<p>This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.</p>
-	</div>
-
+	> [AZURE.NOTE] This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.
+	
 Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
 
 <!-- Anchors. -->

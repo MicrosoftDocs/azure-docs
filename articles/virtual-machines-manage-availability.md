@@ -1,6 +1,6 @@
-<properties urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Manage the availability of virtual machines - Azure" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
 
 #Manage the availability of virtual machines
 
@@ -29,7 +29,7 @@ FDs define the group of virtual machines that share a common power source and ne
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[WACOM.NOTE] For instructions, see [How to Configure an Availability Set for Virtual Machines] [].
+>[AZURE.NOTE] For instructions, see [How to Configure an Availability Set for Virtual Machines] [].
 
 ### Configure each application tier into separate Availability Sets
 If the virtual machines in your availability set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier could be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.   

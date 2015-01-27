@@ -1,11 +1,172 @@
-<properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
+<properties pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." services="hdinsight" documentationCenter="" editor="cgronlun" manager="paulettm" authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/05/2015" ms.author="bradsev"/>
 
 
 #Microsoft HDInsight release notes
 
-## Notes for 11/021/2014 release of HDInsight ##
+## Notes for 1/5/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.420.1246118	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.420.1246118	(HDP 2.0.9.0-2097 - unchanged)
+* HDInsight 	3.1.2.420.1246118	(HDP 2.1.9.0-2196 - unchanged)
+
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Samples for Twitter trend analysis and Mahout based movie recommendations</td>
+<td><p>In this release, the HDInsight Query console has two additional samples:</p>
+
+<p><b>Twitter Trend Analysis</b><br>
+Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, learn how to use Hive to get a list of Twitter users that sent the most tweets containing a particular word. </p>
+
+<p><b>Mahout Movie Recommendation</b><br>
+Apache Mahout is an Apache Hadoop machine learning library. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this tutorial, use a recommendation engine to generate movie recommendations based on movies that your friends have seen.</p></td>
+<td>Query console</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Change to default value for hive config hive.auto.convert.join.noconditionaltask.size</td>
+<td><p>This size configuration applies to auto converted map joins. The value represents the sum of the sizes of tables that can be converted to hashmaps that fit in memory. In a prior release, this value increased from the default value of 10MB to 128MB. However, the new value of 128MB was causing jobs to fail due to lack of memory. This release reverts the default value back to 10MB. Customers can still choose to override this value during cluster creation given their queries and table sizes. For more information on this setting and how to override it, see <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.0.2/ds_Hive/optimize-joins.html#JoinOptimization-OptimizeAutoJoinConversion" target="_blank">Optimize Auto Join Conversion</a> in Hortonworks documentation. </p></td>
+<td>Hive</td>
+<td>Hadoop, Hbase</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
+
+## Notes for 12/23/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 	2.1.10.420.1246783	(HDP version unchanged)
+* HDInsight 	3.0.6.420.1246783	(HDP version unchanged)
+* HDInsight 	3.1.1.420.1246783	(HDP version unchanged)
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Intermittent Cluster Creation Failures due to excessive load</td>
+<td><p>Improved algorithm for downloading HDP packages during cluster creation enables more robust handling of failures due to excessive load. Expect a few more improvements in this area enabling better scaling for the increased load related to cluster creations.</p></td>
+<td>Service</td>
+<td>Hadoop, Hbase, Storm</td>
+<td>N/A</td>
+</tr>
+
+
+
+</table>
+<br>
+
+## Notes for 12/18/2014 release of HDInsight ##
+
+This release contains the following component updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td><a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">Cluster customization GA</a></td>
+<td><p>Customization provides the ability for you to customize your Azure HDInsight clusters with projects available from the Apache Hadoop ecosystem. With this new feature, you can now experiment and deploy Hadoop projects to Azure HDInsight. This is enabled through the <b>Script Action</b> feature that can modify Hadoop clusters in arbitrary ways using custom scripts. This customization is available on all types of HDInsight clusters including Hadoop, HBase, and Storm. To demonstrate the power of this capability, we have documented the process to install the popular <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>, and <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> modules. This release also adds the capability for customers to specify their custom script action via the Azure Management Portal, provides guidelines and best practices on how to build custom script actions using helper methods, and provides guidelines on how to test the script action. </p></td>
+<td>Feature GA</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+
+</table>
+<br>
+
+## Notes for 12/05/2014 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release are:
+
+* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351)
+* HDInsight 	3.0.5.406.1221105	(HDP 2.0.9.0-2097)
+* HDInsight 	3.1.1.406.1221105	(HDP 2.1.9.0-2196)
+* HDInsight SDK N/A
+
+This release contains the following component updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Component</th>
+<th>Cluster Type</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+<tr>
+<td>Bug Fix: Intermittent error while adding large number of partitions to a table in a Hive DDL. </td>
+<td><p>If there is an intermittent connection error with the Hive metastore database when adding a lot partitions to a Hive table, the Hive DDL can fail. The following statement will be seen in the hive error log if this failure occurs: </p><p>"ERROR [main]: ql.Driver (SessionState.java:printError(547)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:java.lang.RuntimeException: commitTransaction was called but openTransactionCalls = 0. This probably indicates that there are unbalanced calls to openTransaction/commitTransaction)"</p></td>
+<td>Hive</td>
+<td>Hadoop, Hbase</td>
+<td>HIVE-482 (This is an internal JIRA, so it cannot be quoted externally. Noted here for reference.)</td>
+</tr>
+
+<tr>
+<td>Bug Fix: Occasional hang in the HDInsight Query  Query Console</td>
+<td>When this happens, the following statement can be seen in the WebHCat log for the WebHCat launcher job: <p>"org.apache.hive.hcatalog.templeton.CatchallExceptionMapper | org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.yarn.exceptions.YarnRuntimeException): Could not load history file {wasb url to the history file}"</p></td>
+<td>WebHCat</td>
+<td>Hadoop</td>
+<td>HIVE-482 (This is an internal JIRA, so it cannot be quoted externally. Noted here for reference.)</td>
+</tr>
+
+<tr>
+<td>Bug Fix: Occasional spike in latency of Hbase queries</td>
+<td>If this happened, users would notice an occasional spike of 3 seconds in the latency of Hbase queries. </td>
+<td>HDInsight Cluster Gateway</td>
+<td>HBase</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDP Jar File Name Changes</td>
+<td>For HDI cluster version 3.0, there a couple of changes to internal jar files installed by HDP. jetty-6.1.26.jar
+ has been replaced with jetty-6.1.26.hwx.jar. jetty-util-6.1.26.jar has been replaced with jetty-util-6.1.26.hwx.jar. These changes apply to Hadoop, Mahout, WebHCat and Oozie projects.**</td>
+<td>Hadoop, Mahout, WebHCat, Oozie</td>
+<td>Hadoop, HBase</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
+
+
+## Notes for 11/21/2014 release of HDInsight ##
 
 The full version numbers for HDInsight clusters deployed with this release are:
 

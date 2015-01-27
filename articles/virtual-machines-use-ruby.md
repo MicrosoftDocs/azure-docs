@@ -1,6 +1,6 @@
-<properties urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="What is Azure Multi-Factor Authentication?" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." services="active-directory, multi-factor-authentication" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 
@@ -90,10 +90,7 @@ To manage Azure Services, you need to download and use the Azure gem, which cont
 		Successfully installed azure-0.5.0
 		7 gems installed
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>If you receive a permissions related error, use <code>sudo gem install azure</code> instead.</p>
-	</div>
+	> [AZURE.NOTE] If you receive a permissions related error, use <code>sudo gem install azure</code> instead.
 
 ### Require the gem
 
@@ -221,10 +218,7 @@ To delete a virtual machine, use the **delete\_virtual\_machine** method and pro
 	vm_mgr = Azure::VirtualMachineService.new
 	vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
-<div class="dev-callout">
-<b>Warning</b>
-<p>The <b>delete_virtual_machine</b> method deletes the cloud service and any disks associated with the virtual machine.</p>
-</div>
+> [AZURE.WARNING] The **delete_virtual_machine** method deletes the cloud service and any disks associated with the virtual machine.
 
 ###How to: Shutdown a virtual machine
 

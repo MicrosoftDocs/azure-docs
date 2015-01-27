@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Staged Deployment on Microsoft Azure Websites" description="Learn how to use staged publishing on Microsoft Azure Websites." services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin"/>
 
 <a name="Overview"></a>
 #Staged Deployment on Microsoft Azure Websites#
@@ -32,7 +32,7 @@ The website must be running in the **Standard** hosting plan to enable multiple 
 	
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 	
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> If the website is not already in **Standard** mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your website before continuing.
 	
 2. In the **Add New Deployment Slot** dialog, give the slot a name, and select whether to clone website configuration from another existing deployment slot. Click the check mark to continue. 
@@ -123,7 +123,7 @@ In the command bar at the bottom of the Azure Websites portal page, click **Dele
 
 - By default, your deployment slots (sites) share the same resources as your production slots (sites) and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
 	
-	> [WACOM.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different Web Hosting Plan. Note that the test and production slots must once again share the same Web Hosting Plan before you can swap the test slot into production.
+	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different Web Hosting Plan. Note that the test and production slots must once again share the same Web Hosting Plan before you can swap the test slot into production.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 

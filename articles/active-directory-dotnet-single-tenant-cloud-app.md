@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="Developing Single Tenant Applications with Azure Active Directory" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Developing Single Tenant Applications with Azure Active Directory" authors="" solutions="" manager="terrylan" editor="" />
+<properties pageTitle="Developing Single Tenant Applications with Azure Active Directory" description="" services="active-directory" documentationCenter="" authors="msmbaldwin" manager="terrylan" editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="mbaldwin" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="mbaldwin"/>
 
 # Developing Single Tenant Applications with Azure Active Directory
 
@@ -78,7 +78,8 @@ This step will output information similar to the following:
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-	<div class="dev-callout"><strong>Note</strong><p>You should save this output, especially the generated symmetric key. This key is only revealed to you during Service Principal creation, and you will be unable to retrieve it in the future. The other values are required for using the Graph API to read and write information in the directory.</p></div>
+	
+	> [AZURE.NOTE] You should save this output, especially the generated symmetric key. This key is only revealed to you during Service Principal creation, and you will be unable to retrieve it in the future. The other values are required for using the Graph API to read and write information in the directory.
 
 6. The final step sets the reply URL for your application. The reply URL is where responses are sent following authentication attempts. Type the following commands and press enter:
 
@@ -179,7 +180,7 @@ You will also add permissions to your application's Service Principal that you c
 
 		Get-MsolServicePrincipal -AppPrincipalId 7829c758-2bef-43df-a685-717089474505 
 
-	<div class="dev-callout"><strong>Note</strong><p>The **AppPrincipalId value above was returned when you created your Service Principal in Step 2.</p></div>
+	> [AZURE.NOTE] The **AppPrincipalId value above was returned when you created your Service Principal in Step 2.
 
 5. After you have added the role to your Service Principal, start Visual Studio and open the sample application's root **Web.config** file.
 

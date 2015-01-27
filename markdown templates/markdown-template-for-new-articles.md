@@ -1,32 +1,34 @@
-<properties title="required" pageTitle="required" description="required" metaKeywords="" services="" solutions="" documentationCenter="" authors="" videoId="" scriptId="" manager="required" />
+<properties 
+   pageTitle="article-title" 
+   description="Article description that will be displayed on landing pages and in some search results" 
+   services="service-name" 
+   documentationCenter="dev-center-name" 
+   authors="GitHub-alias-of-author" 
+   manager="manager-alias" 
+   editor=""/>
 
-<tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="09/31/2014" ms.author="required" />
+<tags
+   ms.service="required"
+   ms.devlang="may be required"
+   ms.topic="article"
+   ms.tgt_pltfrm="may be required"
+   ms.workload="required" 
+   ms.date="mm/dd/yyyy"
+   ms.author="Your MSFT alias or your full email address"/>
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+# Markdown Template (Article Title) 
 
-<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
+To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
 
-<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
+  ![][8]
 
-<!--The next line, with one pound sign at the beginning, is the page title--> 
-# H1 (Article Title) 
-
-<p> Intro paragraph: Lorem ipsum dolor amet, consectetur adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
-
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-+ [Subheading 1] 
-+ [Subheading 2]
-+ [Subheading 3]
-+ [Next steps]
-
-
+Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
 
 ## Subheading 1
 
 Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
 
-> [WACOM.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
 
 1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
 
@@ -70,7 +72,7 @@ Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odi
         }
 
 
-    > [WACOM.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
+    > [AZURE.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
 
 
 Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
@@ -97,17 +99,11 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
 
-<!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
-[Next steps]: #next-steps
-
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
-
+[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/

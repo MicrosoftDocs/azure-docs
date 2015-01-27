@@ -1,6 +1,6 @@
-<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
+<properties pageTitle="How to use blob storage (PHP) | Microsoft Azure" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="php" services="storage" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz"/>
 
 #How to use the Blob service from PHP
 
@@ -22,11 +22,11 @@ This guide will show you how to perform common scenarios using the Azure Blob se
 * [How to: Delete a Blob container](#DeleteContainer)
 * [Next steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>Create a PHP application</h2>
 
@@ -36,7 +36,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 <h2><a id="GetClientLibrary"></a>Get the Azure Client Libraries</h2>
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="ConfigureStorage"></a>Configure your application to access the Blob service</h2>
 
@@ -47,7 +47,7 @@ To use the Azure Blob service APIs, you need to:
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the `WindowsAzure.php` autoloader file.
 
 	require_once 'vendor\autoload.php';

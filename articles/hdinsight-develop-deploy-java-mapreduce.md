@@ -1,9 +1,9 @@
-<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="nitinme" />
+<properties pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" editor="cgronlun" manager="paulettm" authors="nitinme" documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/10/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/10/2014" ms.author="nitinme"/>
 
 # Develop Java MapReduce programs for Hadoop in HDInsight
-This tutorial walks you through an end-to-end scenario for developing a word counting Hadoop MapReduce job in Java using Apache Haven. The tutorial also shows how to test the application on the HDInsight Emulator and then deploy and run it on Azure HDInsight cluster.
+This tutorial walks you through an end-to-end scenario for developing a word counting Hadoop MapReduce job in Java using Apache Maven. The tutorial also shows how to test the application on the HDInsight Emulator and then deploy and run it on Azure HDInsight cluster.
 
 **Prerequisites:**
 
@@ -193,7 +193,7 @@ Create a word counting MapReduce application. It is a simple application that co
 
 3. Once the command completes, the __wordcountjava\target__ directory will contain a file named __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [WACOM.NOTE] The __wordcountjava-1.0-SNAPSHOT.jar__ file is an uberjar (sometimes called a fatjar,) which contains all the dependencies required to run the application.
+	> [AZURE.NOTE] The __wordcountjava-1.0-SNAPSHOT.jar__ file is an uberjar (sometimes called a fatjar,) which contains all the dependencies required to run the application.
 
 
 ##<a name="test"></a>Test the program on emulator
@@ -222,7 +222,7 @@ This tutorial uses the following HDFS folder structure:
 
 This tutorial uses the .txt files located in the %hadoop_home% directory as the data files.
 
-> [WACOM.NOTE] The Hadoop HDFS commands are case sensitive.
+> [AZURE.NOTE] The Hadoop HDFS commands are case sensitive.
 
 **To copy the data files to the emulator HDFS**
 

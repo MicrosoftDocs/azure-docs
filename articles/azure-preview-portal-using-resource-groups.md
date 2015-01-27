@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
+<properties pageTitle="Using Resource groups to manage your Azure resources" description="" services="" documentationCenter="" authors="davidmu1" writer="" manager="timlt" editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu"/>
 
 
 # Using resource groups to manage your Azure resources

@@ -1,11 +1,11 @@
-<properties urlDisplayName="Migrate from IIS to Azure Websites with Migration Assistant" pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" metaKeywords="Azure Websites,migration,migrate,IIS" description="Shows how to use Azure Websites Migration Assistant to quickly migrate existing IIS websites to Azure Websites" metaCanonical="" services="web-sites" documentationCenter="" title="Migrate your IIS Websites to Azure Websites using the Migration Assistant" authors="cephalin,anwestg"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+<properties pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" description="Shows how to use Azure Websites Migration Assistant to quickly migrate existing IIS websites to Azure Websites" services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin"/>
 
 # Migrate your IIS Websites to Azure Websites using the Migration Assistant #
 You can easily migrate to Azure Websites your existing websites that run on Internet Information Service (IIS) 6 or later. [Azure Websites Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to Azure Websites, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
 
->[WACOM.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently your websites on an IIS server that is Windows Server 2003, Azure Websites is a low-risk, low-cost, and low-friction way to keep your websites online, and Azure Websites Migration Assistant can help automate the migration process for you. 
+>[AZURE.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently your websites on an IIS server that is Windows Server 2003, Azure Websites is a low-risk, low-cost, and low-friction way to keep your websites online, and Azure Websites Migration Assistant can help automate the migration process for you. 
 
 ## Elements Verified During Compatibility Analysis ##
 The Azure Websites Migration Assistant creates a readiness report to identify any potential causes for concern or blocking issues which may prevent a successful migration from on-premises IIS to Azure Websites. Some of the key items to be aware of are:
@@ -46,7 +46,7 @@ This section steps through an example to to migrate a few websites that use a SQ
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[WACOM.NOTE] You can also click **Download for offline install** to download a ZIP file for installing on servers not connected to the interent. Or, you can click **Upload an existing migration readiness report**, which is an advanced option to work with an existing migration readiness report that you previously generated (explained later).
+	>[AZURE.NOTE] You can also click **Download for offline install** to download a ZIP file for installing on servers not connected to the interent. Or, you can click **Upload an existing migration readiness report**, which is an advanced option to work with an existing migration readiness report that you previously generated (explained later).
 
 5.	In the **Application Install** screen, click **Install** to install on your machine. It will also install corresponding dependencies like Web Deploy, DacFX, and IIS, if needed. 
 
@@ -91,7 +91,7 @@ This section steps through an example to to migrate a few websites that use a SQ
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[WACOM.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](http://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](http://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Once you make all the desired changes, click **Create** to start the migration process. The migration tool will create the Azure SQL Database and Azure Website, and then publish the website content and databases. The migration progress is clearly shown in the migration tool, and you will see a summary screen at the end, which details the sites migrated, whether they were successful, links to the newly-created Azure websites. 
 

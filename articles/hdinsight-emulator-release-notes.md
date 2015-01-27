@@ -1,6 +1,6 @@
-<properties urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="jgao" />
+<properties pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." editor="cgronlun" manager="paulettm" services="hdinsight" authors="mumian" documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao"/>
 
 
 
@@ -9,7 +9,7 @@
 
 
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > The easiest way to check the version number is to look in Add/Remove Programs at the entry for "Microsoft HDInsight Emulator for Azure" (for version 1.0.0.0 or greater) or "Microsoft HDInsight Developer Preview" (for versions less than 1.0.0.0). 
 
 ## v2.0.0.0, Released 8/29/2014

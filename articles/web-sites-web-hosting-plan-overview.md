@@ -1,6 +1,6 @@
-<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
+<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" services="web-sites" authors="adamabdelhamed" manager="wpickett" editor="" documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/17/2014" ms.author="adamab" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/17/2014" ms.author="adamab"/>
 
 # What is a Web Hosting Plan? #
 

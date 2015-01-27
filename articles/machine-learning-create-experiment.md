@@ -1,6 +1,6 @@
-<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Create a simple experiment in Machine Learning Studio | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties pageTitle="Create a simple experiment in Machine Learning Studio | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/07/2015" ms.author="garye"/>
 
 #Create a simple experiment in Azure Machine Learning Studio 
  
@@ -57,7 +57,7 @@ A dataset usually requires some pre-processing before it can be analyzed. You ma
 
 First we'll remove the "normalized-losses" column, and then we'll remove any row that has missing data. 
 
-1. Drag the **Project Columns** module to the experiment canvas and connect it to the output port of the **Automobile price data (Raw)** dataset. This module allows us to select which columns of data we want to include or exclude in the model. 
+1. Type "project columns" in the search box at the top of the module palette to find the **Project Columns** module, then drag it to the experiment canvas and connect it to the output port of the **Automobile price data (Raw)** dataset. This module allows us to select which columns of data we want to include or exclude in the model. 
 
 2. Select the **Project Columns** module and click **Launch column selector** in the properties pane. 
 
@@ -121,17 +121,19 @@ We want to predict the price of an automobile, which can be any value, so we'll 
 	
 2. Run the experiment. This allows the **Project Columns** and **Split** modules to pass along column definitions to the modules we'll be adding next.  
 
-2. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize a learning algorithm. 
+3. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize a learning algorithm. 
 
 	For this example experiment, select the **Linear Regression** module under the **Regression** category (you can also find the module by typing "Linear Regression" in the palette search box) and drag it to the experiment canvas.
 
-3. Find and drag the **Train Model** module to the experiment. Click **Launch column selector** and select the *price* column. This is the value that our model is going to predict.
+4. Find and drag the **Train Model** module to the experiment. Connect the left input port to the output of the **Linear Regression** module, and the right input port to the training data output (left port) of the **Split** module.
+
+5. Run the experiment to pass the column definitions through to the **Train Model** module.
+ 
+6. Select the **Train Model** module then click **Launch column selector** in the properties pane and select the *price* column. This is the value that our model is going to predict.
 
 	![Select "price" column][screen7]
 
-4. Connect the left input port to the output of the **Linear Regression** module, and the right input port to the training data output (left port) of the **Split** module.  
-
-5. Run the experiment. 
+7. Run the experiment. 
 
 The result is a trained regression model that can be used to score new samples to make predictions. 
 

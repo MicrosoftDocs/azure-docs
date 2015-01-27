@@ -1,6 +1,6 @@
-<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Compute-intensive Java application on a VM - Azure" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # How to run a compute-intensive task in Java on a virtual machine
 
@@ -26,7 +26,7 @@ The following is an example of the Java application monitoring the compute-inten
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
 
@@ -487,7 +487,7 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
  If you don't specify a number, it will run for 10 cities. As the solver finds current shortest routes, it will add them to the queue.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
  
 ### How to run the monitoring client application

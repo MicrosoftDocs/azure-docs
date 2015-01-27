@@ -1,6 +1,6 @@
-<properties pageTitle="Azure WebJobs Recommended Resources" metaKeywords="Azure WebJobs, Azure WebJobs SDK, Azure storage, Azure queues, Azure tables, Azure Service Bus" description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+<properties pageTitle="Azure WebJobs Recommended Resources" description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." services="web-sites, storage" documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra"/>
 
 #Azure WebJobs Recommended Resources
 
@@ -30,7 +30,11 @@ The WebJobs dashboard in the Azure management portal provides powerful managemen
 * [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk/)
 * [Announcing the 1.0.0 RTM of Microsoft Azure WebJobs SDK](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
 * [Get Started with the Azure WebJobs SDK](../websites-dotnet-webjobs-sdk-get-started/)
-* [How to work with Azure queue storage using the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [How to use Azure blob storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
+* [How to use Azure table storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
+* [How to use Azure Service Bus with the WebJobs SDK](../websites-dotnet-webjobs-sdk-service-bus)
+* [Azure WebJobs SDK Quick Reference (PDF download)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * Videos
 	* [WebJobs and the WebJobs SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 	* [Azure WebJobs video series on Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)

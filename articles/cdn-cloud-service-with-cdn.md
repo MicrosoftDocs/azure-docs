@@ -1,11 +1,11 @@
-<properties urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Integrate a cloud service with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
+<properties pageTitle="Integrate a cloud service with Azure CDN" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" services="cdn, cloud-services" documentationCenter=".net" authors="cephalin" manager="wpickett" editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Integrate a cloud service with Azure CDN #
 
-A cloud service cna be integrated with Azure CDN, serving any content from the cloud service's `~/CDN` path. This approach gives you the following advantages:
+A cloud service can be integrated with Azure CDN, serving any content from the cloud service's `~/CDN` path. This approach gives you the following advantages:
 
 - Easily deploy and update images, scripts, and stylesheets in your cloud service's project directories
 - Easily upgrade the NuGet packages in your cloud service, such as jQuery or Bootstrap versions 
@@ -34,14 +34,9 @@ This tutorial has the following prerequisites:
 -	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/)
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
-  <ul>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
-    <li>You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
-  <ul>
-</div>
+> [AZURE.NOTE] You need an Azure account to complete this tutorial:
+> + You can [open an Azure account for free](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
+> + You can [activate MSDN subscriber benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 <a name="deploy"></a>
 ## Deploy a cloud service with an integrated CDN endpoint ##
@@ -81,7 +76,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[WACOM.NOTE] The publishing process for cloud services takes a long time. The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles. For more information on this option, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/en-us/library/ff683672.aspx).
+	>[AZURE.NOTE] The publishing process for cloud services takes a long time. The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles. For more information on this option, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/en-us/library/ff683672.aspx).
 
 	When the **Windows Azure Activity Log** shows that publishing status is **Completed**, you will create a CDN endpoint that's integrated with this cloud service. 
 
@@ -90,7 +85,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
-	>[WACOM.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	>[AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 	Note that the CDN endpoint is tied to the path **cdn/** of your cloud service. You can either create a **cdn** folder in your **WebRole1** project, or you can use URL rewrite to strip all incoming links of this path. In this tutorial, you will take the latter route.
 
@@ -102,7 +97,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[WACOM.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+	>[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
 3. Ping your CDN endpoint to make sure that it's propagated to the CDN nodes. You may need to wait up to an hour before it will respond to pings.
 

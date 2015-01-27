@@ -1,6 +1,6 @@
-<properties pageTitle="How to delegate user registration and product subscription" metaKeywords="" description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="How to delegate user registration and product subscription" description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." services="api-management" documentationCenter="" authors="antonba" manager="dwrede" editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="antonba" />
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/14/2015" ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
 
@@ -115,17 +115,19 @@ These code samples show how to take the *delegation validation key*, which is se
 
 **C# code to generate hash of returnUrl**
 
-	using System.Security.Cryptography;
+    using System.Security.Cryptography;
 
-	string key = "delegation validation key";
-	string returnUrl = "returnUrl query parameter";
-	string salt = "salt query parameter";
-	string signature;
-	using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
-	{
-		signature = encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl));
-		// change to (salt + "\n" + productId + "\n" + userId) for point 2 above
-	}
+    string key = "delegation validation key";
+    string returnUrl = "returnUrl query parameter";
+    string salt = "salt query parameter";
+    string signature;
+    using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+    {
+        signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
+        // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+        // compare signature to sig query parameter
+    }
+
 
 **NodeJS code to generate hash of returnUrl**
 
@@ -137,7 +139,8 @@ These code samples show how to take the *delegation validation key*, which is se
 	
 	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 	var digest = hmac.update(salt + '\n' + returnUrl).digest();
-	// change to (salt + '\n' + productId + '\n' + userId) for point 2 above
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
 

@@ -1,6 +1,6 @@
-<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye"/>
 
 # Publishing Azure ML Web Services to the Azure Marketplace 
 
@@ -27,9 +27,8 @@ The following are the steps in publishing an Azure ML web service to Azure Marke
 
 1.	Create and publish an Azure ML RRS (Request-response service) web service.
 2.	From the Azure Management Portal, deploy the service into production.
-3.	Use the URL of the published web service to publish to Azure Marketplace.
-4.	Publishing process overview: http://msdn.microsoft.com/en-us/library/azure/hh580725.aspx 
-5.	Once submitted, your offer is reviewed and needs to be approved before your customers can start purchasing it. The publishing process can take a few business days. We are working on shortening it as much as possible, and will provide an update in upcoming communications.
+3.	Use the URL of the published web service to publish to [Azure Marketplace (DataMarket).] (https://datamarket.azure.com/home) 
+4.	Once submitted, your offer is reviewed and needs to be approved before your customers can start purchasing it. The publishing process can take a few business days. We are working on shortening it as much as possible, and will provide an update in upcoming communications.
 
 ## Guidelines for publishing to Azure Marketplace
 

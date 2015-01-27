@@ -1,6 +1,6 @@
-<properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." services="mobile-services" documentationCenter="" authors="mattchenderson" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender"/>
 
 # Get started with push notifications in Mobile Services (legacy push)
 <div class="dev-center-tutorial-selector sublanding">
@@ -16,7 +16,7 @@
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to both iOS and Android apps developed through Appcelerator Titanium Studio. In this tutorial you add push notifications using the Apple Push Notification service (APNS) and Google Cloud Messaging to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE] Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. This topic supports existing mobile services that have not yet been upgraded to use Notification Hubs integration. When you create a new mobile service, this integrated functionality is automatically enabled. You should upgrade your service to use Notification Hubs when possible. **We will work to get a tutorial available for Notification Hubs push with Appcelerator soon.**
+>[AZURE.NOTE] Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. This topic supports existing mobile services that have not yet been upgraded to use Notification Hubs integration. When you create a new mobile service, this integrated functionality is automatically enabled. You should upgrade your service to use Notification Hubs when possible. **We will work to get a tutorial available for Notification Hubs push with Appcelerator soon.**
 
 1.	[Generate the certificate signing request]
 2.	[Register your app and enable push notifications]
@@ -36,17 +36,17 @@ This tutorial requires the following:
 * iOS Developer Program membership
 * An active Google account
 
-> [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
+> [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Enable Google Cloud Messaging
 
->[WACOM.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##  <a name="gcm-module"></a>Create the GCM module for Titanium
@@ -73,7 +73,7 @@ You will need to install the Android NDK. Download the appropriate .zip file fro
 
     * **Deployment Targets:** In this case we select Android.
 
-    > [WACOM.NOTE] It is important that the name of our WorkSpace does not contain spaces, otherwise we will have problems when creating the compiled.
+    > [AZURE.NOTE] It is important that the name of our WorkSpace does not contain spaces, otherwise we will have problems when creating the compiled.
 
     ![][1]
 
@@ -123,11 +123,11 @@ You will need to install the Android NDK. Download the appropriate .zip file fro
 
 
 
-> [WACOM.NOTE] In the above code you must replace all instances of the text *com.winwire.notificationhub* with your application's package name (module Id).
+> [AZURE.NOTE] In the above code you must replace all instances of the text *com.winwire.notificationhub* with your application's package name (module Id).
 
 7. In your Notification Hub module right click on &quot;src&quot; folder and go to &quot;New&quot; and select &quot;folder&quot;. Give folder name as com.google.android.gcm.
 
-> [WACOM.NOTE] If you are unable to see &quot;folder&quot; in &quot;New&quot; options, then selects &quot;Other&quot; and expands General then select &quot;Folder&quot;.
+> [AZURE.NOTE] If you are unable to see &quot;folder&quot; in &quot;New&quot; options, then selects &quot;Other&quot; and expands General then select &quot;Folder&quot;.
 
 8. Now download &quot;.java&quot; files (gcm.zip) from here and copy those files into newly created folder (com.google.android.gcm).
 
@@ -202,7 +202,7 @@ You will need to install the Android NDK. Download the appropriate .zip file fro
 
 12. Now download module.zip and copy the files into folder with module id as its name.
 
-> [WACOM.NOTE] In the above files you must replace all instances of the text *com.winwire.notificationhub* with your application's package name (module Id). Also replace &quot;NotificationhubModule&quot; with ProjectName+Module (e.g., &quot;NotificationhubModule&quot;).
+> [AZURE.NOTE] In the above files you must replace all instances of the text *com.winwire.notificationhub* with your application's package name (module Id). Also replace &quot;NotificationhubModule&quot; with ProjectName+Module (e.g., &quot;NotificationhubModule&quot;).
 
 ### Building/Packaging a Module
 
@@ -221,7 +221,7 @@ You may then choose to deploy the module for all projects, or for a specific pro
 ## <a name="configure"></a>Configure Mobile Services to send push requests
 
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 5.	Enter the API Key value obtained from GCM in the previous procedure, and then click Save.
 
@@ -240,7 +240,7 @@ Your mobile service is now configured to work with both APNS and GCM.
         <property name="ApplicationId.icon type="int">2130837504</property>
         <property name="ApplicationId.component" type="string">ApplicationId/ApplicationId.AppNameActivity</property>
 
->[WACOM.NOTE] In above code you need to replace **ModuleId**, **ApplicationId**. Your Module ID, which you given at the time of GCM Module creation and Application Id, which is entered at the time of project creation.  Also make sure both **ModuleId** and **ApplicationId** are same. You also required changing **ApplicationId.AppNameActivity**. It should look like com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
+>[AZURE.NOTE] In above code you need to replace **ModuleId**, **ApplicationId**. Your Module ID, which you given at the time of GCM Module creation and Application Id, which is entered at the time of project creation.  Also make sure both **ModuleId** and **ApplicationId** are same. You also required changing **ApplicationId.AppNameActivity**. It should look like com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
 
 
 2.	Copy the GCM module you created earlier, and place it into the below location.	
@@ -268,7 +268,7 @@ Your mobile service is now configured to work with both APNS and GCM.
     
     </table>
 
->[WACOM.NOTE]  In Mac OS, Library is Hidden folder. To make it visible you need to run following command and then re-launch the Finder: `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
+>[AZURE.NOTE]  In Mac OS, Library is Hidden folder. To make it visible you need to run following command and then re-launch the Finder: `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
 
 3.	In Appcelerator Titanium Studio, open the index.js file and add the following code at the bottom. This code will register your device for push notifications.
 
@@ -417,7 +417,7 @@ Your app is now updated to support push notifications in both iOS and Android pl
             }, 2500);
         }
   
-   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.  
+   	> [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.  
 
 **For Android:**
 

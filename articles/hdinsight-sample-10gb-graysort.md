@@ -1,6 +1,6 @@
-<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties pageTitle="The 10GB GraySort sample | Azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev"/>
 
 # The 10GB GraySort Hadoop sample in HDInsight
  
@@ -61,7 +61,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 		# Create a MapReduce job definition for the TeraGen MapReduce program
 		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
+	> [AZURE.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
 	
 	The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *100000000* argument specifies the amount of data to generate. The final argument,  */example/data/10GB-sort-input*, specifies the output directory to which the results are saved (which contains the input for the following sort stage).
 

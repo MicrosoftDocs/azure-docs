@@ -1,6 +1,6 @@
-<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="glenga" manager="dwrede" services="notification-hubs" />
+<properties pageTitle="Azure Notification Hubs Notify Users" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="" authors="ggailey777" manager="dwrede" services="notification-hubs" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 
 #Azure Notification Hubs Notify Users
 
@@ -21,7 +21,7 @@ This tutorial is also the prerequisite to the **Secure Push** tutorial. After yo
 
 Before you begin this tutorial, you must reserve an application name, then create an Azure Notification Hub and connect it to that application. Please follow the steps in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/); specifically, the sections [Register your app for the Windows Store](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register) and [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). In particular, make sure that you have entered the **Package SID** and **Client Secret** values in the portal, in the **Configure** tab for your notification hub. This configuration procedure is described in the section [Configure your Notification Hub](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification will not succeed.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Create the Windows Phone Project
 

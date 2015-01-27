@@ -1,13 +1,13 @@
-<properties urlDisplayName="index" pageTitle="How to Manage Origins in a Media Services Account" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Manage Streaming Endpoints in a Media Services Account" authors="juliako"  solutions="" writer="juliako" manager="dwrede" editor=""  />
+<properties pageTitle="How to Manage Origins in a Media Services Account" description="" services="media-services" documentationCenter="" authors="juliako" writer="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 <h1><a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account</h1>
 
 Media Services enables you to add multiple streaming endpoints to your account and to configure the streaming endpoints. Each Media Services account has at least one streaming endpoint called **default** associated with it.
 
->[WACOM.NOTE] Streaming Endpoints used to be known as Origins. 
+>[AZURE.NOTE] Streaming Endpoints used to be known as Origins. 
 
 
 <h2>Adding and Deleting Streaming Endpoints</h2> 

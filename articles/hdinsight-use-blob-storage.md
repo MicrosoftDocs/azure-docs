@@ -1,6 +1,6 @@
-<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Query big data from Hadoop-compatible Blob storage | Azure" metaKeywords="" description="HDInsight uses Hadoop-compatible Blob storage as the big data store for HDFS. Learn how to query from Blob storage, and store results of your analysis." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Query big data from Hadoop-compatible Blob storage for analysis in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties pageTitle="Query big data from Hadoop-compatible Blob storage | Azure" description="HDInsight uses Hadoop-compatible Blob storage as the big data store for HDFS. Learn how to query from Blob storage, and store results of your analysis." services="storage, hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="mollybos"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao"/>
 
 
 #Query big data from Hadoop-compatible Blob storage for analysis in HDInsight
@@ -9,11 +9,10 @@ Low-cost Blob storage is a robust, general-purpose Hadoop-compatible Azure stora
 
 Storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
 
-> [WACOM.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. This means that any jobs submitted to an HDInsight cluster version 3.0 that explicitly use the “asv://” syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight clusters version 3.0 that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
+> [AZURE.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. This means that any jobs submitted to an HDInsight cluster version 3.0 that explicitly use the “asv://” syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight clusters version 3.0 that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
 
-> [WACOM.NOTE] HDInsight currently only supports block blobs.
+> HDInsight currently only supports block blobs.
 
-> [WACOM.NOTE]
 > Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Azure Blob storage.
 
 For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
@@ -48,7 +47,7 @@ In addition to this storage account, you can add additional storage accounts fro
 - **Containers in the storage accounts that are connected to an  cluster:** Because the account name and key are stored in the *core-site.xml*, you have full access to the blobs in those containers.
 - **Public containers or public blobs in the storage accounts that are NOT connected to an cluster:** You have read-only permission to the blobs in the containers.
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
         > Public container allows you to get a list of all blobs available in that container and get container metadata. Public blob allows  you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.
 
 - **Private containers in the storage accounts that are NOT connected to an cluster:** You can not access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. There is explained later in the article.
@@ -121,7 +120,7 @@ You also have the option to create your own Blob container or use an existing on
 	$containerName="<BlobContainerToBeCreated>" # The Blob container name that you will create
 
 	# Connect to your Azure account and selec the current subscription
-	Add-AzureAccount # The connection will expire in a few hours.
+	Add-AzureAccount # The connection will expire in 12 hours.
 	Select-AzureSubscription $subscriptionName #only required if you have multiple subscriptions
 	
 	# Create a storage context object
@@ -139,7 +138,7 @@ The URI scheme for accessing files in Blob storage is:
 	wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [WACOM.NOTE] The syntax for addressing the files on storage emulator (running on HDInsight emulator) is <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
+> [AZURE.NOTE] The syntax for addressing the files on storage emulator (running on HDInsight emulator) is <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
 
 
 
@@ -154,7 +153,7 @@ If neither &lt;BlobStorageContainerName&gt; nor &lt;StorageAccountName&gt; has b
 	wasb:///example/jars/hadoop-mapreduce-examples.jar
 	/example/jars/hadoop-mapreduce-examples.jar
 	
-> [WACOM.NOTE] The file name is <i>hadoop-examples.jar</i> on HDInsight clusters version 1.6 and 2.1.
+> [AZURE.NOTE] The file name is <i>hadoop-examples.jar</i> on HDInsight clusters version 1.6 and 2.1.
 
 
 The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage containers are just a key-value store, there is no true hierarchical file system. A "/" inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:

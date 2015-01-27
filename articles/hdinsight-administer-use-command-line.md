@@ -1,6 +1,6 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" editor="cgronlun" manager="paulettm" authors="mumian" documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Cross-platform Command-line Interface
 
@@ -39,7 +39,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 		npm install -g azure-cli
 
-	> [WACOM.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
 
 5.	Run the following command to verify the installation:
@@ -62,7 +62,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publishsettings once.
 
-> [WACOM.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
+> [AZURE.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
 
 
 **To download and import publishsettings**
@@ -87,7 +87,7 @@ Before using the command-line interface, you must configure connectivity between
 
 ##<a id="provision"></a> Provision an HDInsight cluster
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account is required before you can create an HDInsight cluster. 
@@ -97,7 +97,7 @@ After you have imported the publishsettings file, you can use the following comm
 	azure account storage create [options] <StorageAccountName>
 
 
-> [WACOM.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
+> [AZURE.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
 
 ><ul>
 <li>Southeast Asia</li>
@@ -108,7 +108,7 @@ After you have imported the publishsettings file, you can use the following comm
 </ul>
 
 
-For information on creating an Azure storage account using Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].
+For information on creating an Azure storage account using Azure Management portal, see [Create, manage, or delete a storage account][azure-create-storageaccount].
 
 If you have already had a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -119,7 +119,7 @@ If you have already had a storage account but do not know the account name and a
 	-- Lists the keys for a storage account
 	azure account storage keys list <StorageAccountName>
 
-For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
+For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account][azure-create-storageaccount].
 
 
 The *azure hdinsight cluster create* command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
@@ -201,7 +201,6 @@ In this article, you have learned how to perform different HDInsight cluster adm
 [azure-command-line-tools]: ../xplat-cli/
 [azure-command-line-tool]: ../command-line-tools/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-manage-storageaccount]: ../storage-manage-storage-account/
 [azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/

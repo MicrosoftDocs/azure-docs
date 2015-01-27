@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties pageTitle="How to manage a cloud service - Azure" description="Learn how to manage cloud services in the Azure Management Portal." services="cloud-services" documentationCenter="" authors="rwike77" manager="timlt" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="adegeo"/>
 
 
 
@@ -40,7 +40,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 7. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
 
-	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtu**al machines). That enables one virtual machine to process client requests while the other is being updated.
+	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
 
 8. Click **OK** (checkmark) to begin updating the service.
 
@@ -139,10 +139,10 @@ Use the following procedure to delete a deployment or your cloud service.
 
 3. To delete a deployment, click **Delete production deployment** or **Delete staging deployment**. Then, at the confirmation prompt, click **Yes**. 
 
-4. If you plan to delete the cloud service, repeat step??3, if needed, to delete your other deployment.
+4. If you plan to delete the cloud service, repeat step 3, if needed, to delete your other deployment.
 
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/">How to Monitor Cloud Services</a>.
 

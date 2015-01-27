@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="How to use Service Bus topics (Ruby) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." services="service-bus" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz"/>
 
 
 
@@ -25,7 +25,65 @@ This guide will show you how to use Service Bus topics and subscriptions from Ru
 * [How to Delete Topics and Subscriptions](#how-to-delete-topics-and-subscriptions)
 * [Next Steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+## <a name="what-are-service-bus-topics"></a>What are Service Bus Topics and Subscriptions
+
+Service Bus topics and subscriptions support a **publish/subscribe
+messaging communication** model. When using topics and subscriptions,
+components of a distributed application do not communicate directly with
+each other, they instead exchange messages via a topic, which acts as an
+intermediary.
+
+![TopicConcepts](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
+
+In contrast to Service Bus queues, where each message is processed by a
+single consumer, topics and subscriptions provide a **one-to-many** form
+of communication, using a publish/subscribe pattern. It is possible to
+register multiple subscriptions to a topic. When a message is sent to a
+topic, it is then made available to each subscription to handle/process
+independently.
+
+A topic subscription resembles a virtual queue that receives copies of
+the messages that were sent to the topic. You can optionally register
+filter rules for a topic on a per-subscription basis, which allows you
+to filter/restrict which messages to a topic are received by which topic
+subscriptions.
+
+Service Bus topics and subscriptions enable you to scale to process a
+very large number of messages across a very large number of users and
+applications.
+
+## <a id="create-a-service-namespace"</a>Create a Service Namespace
+
+To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
+your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+
+To create a namespace:
+
+1. Open an Azure Powershell console.
+
+2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+
+      New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
+
+      ![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
+
+## <a id="obtain-default-credentials"></a>Obtain Default Management Credentials for the Namespace
+
+In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace.
+
+1. Log on to the [Azure Management Portal](http://manage.windowsazure.com/).
+
+2. Select the service bus namespace that you created.
+
+     ![Select namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/selectns.png)
+
+3. At the bottom, select **Connection Information**.
+
+      ![Select connection](./media/service-bus-ruby-how-to-use-topics-subscriptions/selectconnection.png)
+
+4. Copy the default key. You will use this value in your code.
+
+       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
@@ -54,6 +112,8 @@ for information required to connect to your Azure service bus namespace. If thes
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
+
+Set the service bus namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net". 
 
 ## <a id="how-to-create-a-topic"></a>How to Create a Topic
 

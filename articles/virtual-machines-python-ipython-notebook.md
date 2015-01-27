@@ -1,6 +1,6 @@
-<properties urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="IPython Notebook - Azure tutorial" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." services="virtual-machines" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo"/>
 
 
 
@@ -32,7 +32,7 @@ libraries.  Since all installation is done in the cloud, users can access these
 resources without the need for any local configuration beyond a modern web
 browser.
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Create and Configure a VM on Azure
 
@@ -134,7 +134,7 @@ using the Windows PowerShell to run all command line actions.
 
 	* You will  need to add `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
 
-	> [WACOM.NOTE] When installing OpenSSL, use version 1.0.1g or higher as these include a fix for the Heartbleed security vulnerability.
+	> [AZURE.NOTE] When installing OpenSSL, use version 1.0.1g or higher as these include a fix for the Heartbleed security vulnerability.
 
 1.  Install the IPython using the command:
 

@@ -1,6 +1,6 @@
-<properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+<properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" description="Managing role-based access control with cross-platform command-line interface" services="" documentationCenter="" authors="guangyang" manager="terrylan" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan"/>
 
 # Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
 

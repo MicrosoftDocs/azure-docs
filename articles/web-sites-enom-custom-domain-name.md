@@ -1,19 +1,19 @@
-<properties title="Learn how to configure an Azure website to use a domain name registered with eNom" pageTitle="Configure an eNom domain name for an Azure website" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+<properties pageTitle="Configure an eNom domain name for an Azure website" description="" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"/>
 
 #Configuring a custom domain name for an Azure Website (eNom)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Custom Domain</a><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom" class="current">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name/" title="Websites" class="current">Website</a> | <a href="/en-us/documentation/articles/web-sites-enom-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Website using Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+[AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
 This article provides instructions on using a custom domain name purchased from [eNom](https://enom.com) with Azure Websites.
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 In this article:
 
@@ -24,11 +24,11 @@ In this article:
 
 <h2><a name="understanding-records"></a>Understanding DNS records</h2>
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+[AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 <h2><a name="bkmk_configsharedmode"></a>Configure your websites for basic, shared or standard mode</h2>
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a><h2>Add a DNS record for your custom domain</h2>
 
@@ -44,11 +44,11 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 	![zone file editor](./media/web-sites-custom-domain-name/e-editrecords.png)
 
-	> [WACOM.NOTE] Before adding entries to the zone file, note that eNom has already created DNS records for the root domain ('@') and a wildcard for sub-domains ('\*'). If you wish to redirect the root domain to your website, or use a wildcard A record, you should modify these entries instead of creating new ones.
+	> [AZURE.NOTE] Before adding entries to the zone file, note that eNom has already created DNS records for the root domain ('@') and a wildcard for sub-domains ('\*'). If you wish to redirect the root domain to your website, or use a wildcard A record, you should modify these entries instead of creating new ones.
 
 	* When adding a CNAME record, you must set the **Host Name** field to the sub-domain you wish to use. For example, **www**. You must set the **Address** field to the **.azurewebsites.net** domain name of your Azure Website. For example, **contoso.azurwebsites.net**.
 
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [AZURE.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * An **Alias** value of **www** with an **Other host** value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
@@ -60,10 +60,10 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 	* When adding an A record, you must set the **Host Name** field to either **@** (this represents root domain name, such as **contoso.com**,) * (a wildcard for matching multiple sub-domains,) or the specific sub-domain you wish to use (for example, **www**.) You must set the **Address** field to the IP address of your Azure Website.
 
-		> [WACOM.NOTE] When adding an A record, you must also add a CNAME record with a host of **awverify**, and a **Points to** of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net.
+		> [AZURE.NOTE] When adding an A record, you must also add a CNAME record with a host of **awverify**, and a **Points to** of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net.
 
 5. When you have finished adding or modifying records, click **Save** to save the changes.
 
 <h2><a name="enabledomain"></a>Enable the domain name on your website</h2>
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]

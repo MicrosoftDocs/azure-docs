@@ -1,6 +1,6 @@
-<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Create Encrypted Asset and Upload to Storage Azure" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -16,7 +16,7 @@ When you create assets, you can specify three different options for encryption.
 - **AssetCreationOptions.CommonEncryptionProtected**: for Common Encryption Protected (CENC) files. An example is a set of files that are already PlayReady encrypted. 
 - **AssetCreationOptions.StorageEncrypted**: storage encryption. Encrypts a clear input file before it is uploaded to Azure storage.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).
 
 The sample code below does the following: 

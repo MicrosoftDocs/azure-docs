@@ -1,11 +1,11 @@
-<properties title="Manage your Search service on Microsoft Azure" pageTitle="Manage your Search service on Microsoft Azure" description="Manage your Search service on Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties pageTitle="Manage your Search service on Microsoft Azure" description="Manage your Search service on Microsoft Azure" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article" ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
 
 
-[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
 Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
 
@@ -103,7 +103,7 @@ Using the Search Service API, you can get a count on documents and indexes. Ther
 +	[Get Index Statistics](http://msdn.microsoft.com/en-us/library/dn798942.aspx)
 +	[Count Documents](http://msdn.microsoft.com/en-us/library/dn798924.aspx)
 
-> [WACOM.NOTE] Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
+> [AZURE.NOTE] Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
 
 
 <!---->

@@ -1,19 +1,19 @@
-<properties title="Learn how to configure an Azure website to use a domain name registered with Network Solutions" pageTitle="Configure a Network Solutions domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+<properties pageTitle="Configure a Network Solutions domain name for an Azure website" description="" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"/>
 
 #Configuring a custom domain name for an Azure Website (Network Solutions)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Custom Domain</a><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name/" title="Websites" class="current">Website</a> | <a href="/en-us/documentation/articles/web-sites-network-solutions-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Website using Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+[AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
 This article provides instructions on using a custom domain name purchased from [Network Solutions](https://www.networksolutions.com) with Azure Websites.
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 In this article:
 
@@ -24,11 +24,11 @@ In this article:
 
 <h2><a name="understanding-records"></a>Understanding DNS records</h2>
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+[AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 <h2><a name="bkmk_configsharedmode"></a>Configure your websites for basic, shared or standard mode</h2>
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a><h2>Add a DNS record for your custom domain</h2>
 
@@ -53,13 +53,13 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 5. When you click the **Edit** button, you will be presented with a form that you can use to modify existing records, or add new ones. 
 
-	> [WACOM.NOTE] Before adding new entries, note that Network Solutions has already created some default DNS records for things like the root domain ('@') and a wildcard record ('*') for subdomains. If the record you wish to use already exists, please modify it instead of creating a new one.
+	> [AZURE.NOTE] Before adding new entries, note that Network Solutions has already created some default DNS records for things like the root domain ('@') and a wildcard record ('*') for subdomains. If the record you wish to use already exists, please modify it instead of creating a new one.
 
 	* When adding a CNAME record, you must set the **Alias** field to the sub-domain you wish to use. For example, **www**. You must select the circle field beside the **Other host** field, and set **Other host** to the **.azurewebsites.net** domain name of your Azure Website. For example, **contoso.azurwebsites.net**. Leave the **Refers to Host Name** as **Select**, as this field is not required when creating a CNAME record for use with Azure Websites.
 	
 		![cname form](./media/web-sites-custom-domain-name/ns-cname.png)
 
-		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
+		> [AZURE.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * An **Alias** value of **www** with an **Other host** value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
@@ -77,4 +77,4 @@ To associate your custom domain with an Azure Website, you must add a new entry 
 
 <h2><a name="enabledomain"></a>Enable the domain name on your website</h2>
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]

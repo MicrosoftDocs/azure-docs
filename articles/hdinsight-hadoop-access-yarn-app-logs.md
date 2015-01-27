@@ -1,6 +1,6 @@
-<properties linkid="access yarn application logs" urlDisplayName="access yarn application logs" pageTitle="Access HDInsight Application Logs Programmatically| Azure" metaKeywords="" description="Access HDInsight Application Logs Programmatically." metaCanonical="" services="hdinsight" documentationCenter="" title="Access HDInsight Application Logs Programmatically" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Access HDInsight Application Logs Programmatically| Azure" description="Access HDInsight Application Logs Programmatically." services="hdinsight" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bradsev"/>
 
 # Access HDInsight Application Logs Programmatically
 
@@ -73,7 +73,7 @@ To use the following code samples, you must satisfy the prerequisites outlined a
 
 The code below illustrates how to use the new APIs to enumerate applications and download the logs for completed applications.
 
-> [WACOM.NOTE] The APIs below will only work against "Running" Hadoop clusters with version 3.1.1.374 or greater. Add the following directives.
+> [AZURE.NOTE] The APIs below will only work against "Running" Hadoop clusters with version 3.1.1.374 or greater. Add the following directives.
 
 	using Microsoft.Hadoop.Client;
 	using Microsoft.WindowsAzure.Management.HDInsight;
@@ -129,8 +129,7 @@ These reference the newly defined APIs in the code below. The following code sni
 
 The above code lists/finds applications of interest using the Application History Client, and then downloads logs for those applications to a local folder. 
 
-Alternatively, the code snippet below downloads logs for an application whose "ApplicationId" (its unique identifier) is known:
-
+Alternatively, the code snippet below downloads logs for an application whose "ApplicationId" (its unique identifier) is known. The ApplicationId is a globally unique identifier of an application as assigned to it by the Resource Manager. It is constructed by using the start time of Resource Manager along with a monotonically increasing counter for applications submitted to it. The ApplicationId is of the form "application\_&lt;RM-start-time&gt;\_&lt;Counter&gt;". Please note that ApplicationId and JobId are distinct. The JobId is a MapReduce framework specific concept whereas ApplicationId is a framework agnostic YARN concept. In YARN, a JobId identifies a specific MapReduce Job as handled by the Application Master of a MapReduce application submitted to the Resource Manager.
 
 	// Download application logs for an application whose application Id is known
 	string applicationId = "application_1416017767088_0028";

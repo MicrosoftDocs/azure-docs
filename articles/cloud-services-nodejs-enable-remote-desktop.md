@@ -1,6 +1,6 @@
-<properties urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Enabling Remote Desktop in Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="Enable remote desktop for cloud services (Node.js)" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." services="cloud-services" documentationCenter="nodejs" authors="" manager="wpickett" editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett"/>
 
 
 
@@ -14,10 +14,7 @@ running in Azure. You can use a remote desktop connection to
 configure the virtual machine or troubleshoot problems with your
 application.
 
-<div class="dev-callout">
-	<b>Note</b>
-	<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service.</p>
-	</div>
+> [AZURE.NOTE] The steps in this article only apply to node applications hosted as an Azure Cloud Service.
 
 This task includes the following steps:
 

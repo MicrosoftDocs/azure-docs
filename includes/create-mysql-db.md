@@ -6,10 +6,7 @@ This guide will show you how to use [ClearDB] to create a MySQL database from th
 * [How to: Create a MySQL database from the Azure Store](#CreateFromStore)
 * [How to: Create a MySQL database as a linked resource for Azure Web Site](#CreateForWebSite)
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>When you create a MySQL database as part of the Website creation process, you can only create a free database. Creating a MySQL database from the Azure Store allows you to create a free database or choose from paid options.</p> 
-</div>
+> [AZURE.NOTE] When you create a MySQL database as part of the Website creation process, you can only create a free database. Creating a MySQL database from the Azure Store allows you to create a free database or choose from paid options.
 
 <h2><a id="CreateFromStore"></a>How to: Create a MySQL database from the Azure Store</h2>
 
@@ -74,7 +71,7 @@ To create a MySQL database as a linked resource when you create a [Azure Web Sit
 
 	![Shown connection string](./media/create-mysql-db/shown-conn-string.png)
 
-> [WACOM.NOTE] Connection strings are accessible to your website application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see [How to Configure Web Sites][configure].
+> [AZURE.NOTE] Connection strings are accessible to your website application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see [How to Configure Web Sites][configure].
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /en-us/documentation/services/web-sites/

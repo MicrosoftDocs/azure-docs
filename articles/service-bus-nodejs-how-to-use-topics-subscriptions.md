@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Topics/Subscriptions" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="How to use Service Bus topics (Node.js) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." services="service-bus" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 
 
 
@@ -31,7 +31,7 @@ and subscriptions, see the [Next Steps][] section.
 -   [How to: Delete Topics and Subscriptions](#delete)
 -   [Next Steps](#next-steps)
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ##<a name="create-app"></a> Create a Node.js Application
 
@@ -144,14 +144,11 @@ object. Subscriptions are named and can have an optional filter that
 restricts the set of messages delivered to the subscription's virtual
 queue.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Subscriptions are persistent and will continue to exist until
+> [AZURE.NOTE] Subscriptions are persistent and will continue to exist until
 either they, or the topic they are associated with, are deleted. If your
 application contains logic to create a subscription, it should first
 check if the subscription already exists by using the
-<strong>getSubscription</strong> method.</p>
-</div>
+**getSubscription** method.
 
 ### Create a Subscription with the default (MatchAll) Filter
 
@@ -183,7 +180,7 @@ Filters can be added to a subscription by using the **createRule**
 method of the **ServiceBusService** object. This method allows you to
 add new filters to an existing subscription.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 
 > Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the

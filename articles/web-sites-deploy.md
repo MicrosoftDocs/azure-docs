@@ -1,13 +1,13 @@
-<properties pageTitle="How to deploy an Azure Website" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="How to deploy an Azure Website" description="Learn what methods are available for deploying content to an Azure Website." services="web-sites" documentationCenter="" authors="tdykstra" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/07/2015" ms.author="tdykstra"/>
 
 #How to Deploy an Azure Website
 
 You have many options for deploying your own content to an Azure Website. This topic provides a brief overview of each option and links to more information.
 
 * [Deploying from a cloud-hosted source control system](#cloud)
-	* Visual Studio Online (VSO)
+	* Visual Studio Online
 	* Repository websites using Git
 	* Repository websites using Mercurial
 	* Dropbox
@@ -33,15 +33,14 @@ The best way to deploy a website is to set up a [continuous delivery workflow](h
 
 If you don't have source control set up yet, the easiest way to get started is to use a cloud-hosted source control system.
 
-###<a name="vso"></a>Visual Studio Online (VSO)
+###<a name="vso"></a>Visual Studio Online
 
-[Visual Studio Online](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration. The service is free for a team of up to 5 developers. You can set up VSO to do continuous delivery to an Azure Website, and your repository can use either [Git or TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+[Visual Studio Online](http://www.visualstudio.com/) (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration. The service is free for a team of up to 5 developers. You can do continuous delivery to an Azure Website, and your repository can use either [Git or TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 For more information, see the following resources:
 
-* [Deliver to Azure Continuously using VSO and TFVC](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs). Brief step-by-step tutorial that shows how to set up continuous delivery from VSO to an Azure Website, using TFVC. TFVC is the centralized source control option in VSO, as opposed to Git, which is the distributed source control option.
-* [Continuous delivery to Azure using VSO and TFVC](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/). Similar to the previous tutorial, but this one also goes through the steps for signing up for a VSO account and checking in a project to source control.
-* [Continuous delivery to Azure using Visual Studio Online and Git](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso-git/). Similar to the previous tutorial but uses Git instead of TFVC.
+* [Continuous delivery to Azure using Visual Studio Online and TFVC](../cloud-services-continuous-delivery-use-vso/). Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Online to an Azure Website, using TFVC. TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.
+* [Continuous delivery to Azure using Visual Studio Online and Git](../cloud-services-continuous-delivery-use-vso-git/). Similar to the previous tutorial but uses Git instead of TFVC.
 
 ###<a name="git"></a>Repository websites using Git
 
@@ -49,8 +48,9 @@ For more information, see the following resources:
 
 For more information, see the following resources:
 
-* [Publishing from Source Control to Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
+* [Publishing from Source Control to Azure Web Sites with Git](../web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
 * [Deploying to Web Sites with GitHub using Kudu](/en-us/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a website directly from GitHub to an Azure Website.
+* [Deploy to Azure Button for Azure Websites](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog about a method for triggering deployment from a Git repository.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ###<a name="mercurial"></a>Repository websites using Mercurial
@@ -59,15 +59,15 @@ If you use [Mercurial](http://mercurial.selenic.com/) as your source control sys
 
 For information about how to deploy using Mercurial, see the following resources:
 
-* [Publishing from Source Control to Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). Although this tutorial shows how to publish a Git repository, the process for Mercurial repositories hosted in CodePlex or BitBucket is similar.
+* [Publishing from Source Control to Azure Web Sites with Git](../web-sites-publish-source-control/). Although this tutorial shows how to publish a Git repository, the process for Mercurial repositories hosted in CodePlex or BitBucket is similar.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ###<a name="dropbox"></a>Dropbox
 
 [Dropbox](https://www.dropbox.com/) is not a source control system, but if you store your source code in Dropbox you can automate deployment from your Dropbox account.
 
-* [Deploy To Windows Azure Using Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Azure Management Portal to set up Dropbox deployment.
-* [Dropbox and Azure Web Sites](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a Dropbox folder to an Azure Website, and shows how quickly you can get a website up and running or maintain it using simple drag-and-drop deployment.
+* [Deploy To Azure Websites from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Azure Management Portal to set up Dropbox deployment.
+* [Dropbox Deployment to Azure Websites](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a Dropbox folder to an Azure Website, and shows how quickly you can get a website up and running or maintain it using simple drag-and-drop deployment.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 
@@ -78,7 +78,7 @@ For information about how to deploy using Mercurial, see the following resources
 
 ##<a name="ide"></a>Deploying from an IDE
 
-[Visual Studio](http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) and [WebMatrix](http://www.microsoft.com/web/webmatrix/) are Microsoft IDEs (integrated development environments) that you can use for web development. Both provide built-in features that make it easy to deploy to Azure Websites.  Both can use [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) to automate additional deployment-related tasks such as database deployment and connection string changes. Both can also deploy by using [FTP or FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)). 
+[Visual Studio](http://www.visualstudio.com/) and [WebMatrix](http://www.microsoft.com/web/webmatrix/) are Microsoft IDEs (integrated development environments) that you can use for web development. Both provide built-in features that make it easy to deploy to Azure Websites.  Both can use [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) to automate additional deployment-related tasks such as database deployment and connection string changes. Both can also deploy by using [FTP or FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)). 
 
 WebMatrix is quick to install and easy to learn, but Visual Studio offers many more features for working with Azure Websites. From within the Visual Studio IDE you can create, stop, start, and delete Azure Websites, you can view logs as they are created in real-time, you can debug remotely, and much more. Visual Studio also integrates with source control systems such as [Visual Studio Online](#vso), [Team Foundation Server](#tfs), and [Git repositories](#git).
 
@@ -86,12 +86,12 @@ WebMatrix is quick to install and easy to learn, but Visual Studio offers many m
 
 For information about how to deploy to Azure Websites from Visual Studio, see the following resources:
 
-* [Get started with Azure and ASP.NET](/en-us/develop/net/tutorials/get-started/). How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.
-* [How to Deploy Azure WebJobs to Azure Websites](/en-us/documentation/articles/websites-dotnet-deploy-webjobs/). How to configure Console Application projects so that they deploy as WebJobs.  
-* [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site](/en-us/develop/net/tutorials/web-site-with-sql-database/). How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.
+* [Get started with Azure and ASP.NET](../web-sites-dotnet-get-started/). How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.
+* [How to Deploy Azure WebJobs to Azure Websites](../websites-dotnet-deploy-webjobs/). How to configure Console Application projects so that they deploy as WebJobs.  
+* [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web Site](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.
 * [Web Deployment Overview for Visual Studio and ASP.NET](http://msdn.microsoft.com/en-us/library/dd394698.aspx). A basic introduction to web deployment using Visual Studio. Dated but includes information that is still relevant, including an overview of options for deploying a database along with the web application and a list of additional deployment tasks you might have to do or manually configure Visual Studio to do for you. This topic is about deployment in general, not just about deployment to Azure Websites.
-* [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. 
-* [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to the Git repository.
+* [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing. 
+* [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to the Git repository. Starting in Visual Studio 2013, Git support is built-in an doesn't require installation of a plug-in.
 
 ###<a name="webmatrix"></a>WebMatrix
 
@@ -110,8 +110,8 @@ Although it's easy to copy your website's files to Azure using FTP utilities, th
 
 For more information, see the following resources:
 
-* [Create a PHP-MySQL Azure Web Site and Deploy Using FTP](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/). 
-* [How to Manage Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage#ftp-credentials). Includes additional information not included in the PHP tutorial about how to set FTP credentials. 
+* [Create a PHP-MySQL Azure Web Site and Deploy Using FTP](../web-sites-php-mysql-deploy-use-ftp/). 
+* [How to Manage Web Sites](../web-sites-manage/#ftp-credentials). Includes additional information not included in the PHP tutorial about how to set FTP credentials. 
 
 
 ##<a name="onpremises"></a>Deploying from an on-premises source control system
@@ -124,7 +124,7 @@ Team Foundation Server is Microsoft's on-premises solution for source control an
 
 For more information, see the following resource:
 
-* [Continuous Delivery for Cloud Services in Azure](/en-us/develop/net/common-tasks/continuous-delivery/). This document is for an Azure Cloud Service, but some of its content is relevant to Websites.
+* [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery/). This document is for an Azure Cloud Service, but some of its content is relevant to Websites.
 
 ###<a name="gitmercurial"></a>On-premises Git or Mercurial repositories
 
@@ -132,8 +132,8 @@ In Azure you can enter the URL of any repository that uses Git or Mercurial in o
 
 For more information, see the following resources:
 
-* [Publishing from Source Control to Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
-* [Publishing to Azure Web Sites from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html). Blog by David Ebbo that explains the "External Repository" feature in Azure Websites.
+* [Publishing from Source Control to Azure Web Sites with Git](../web-sites-publish-source-control/). How to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
+* [Publishing to Azure Web Sites from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html). Blog that explains the "External Repository" feature in Azure Websites.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 * [Deploying TWO websites to Azure from one Git Repository](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Blog post by Scott Hanselman.
 
@@ -177,6 +177,7 @@ You can perform MSBuild or FTP deployment functions from [Windows PowerShell](ht
 For more information, see the following resource:
 
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
+* [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/en-us/library/dn642480.aspx). How to use Windows PowerShell deployment scripts that Visual Studio generates.
 
 ###<a name="api"></a>.NET management API
 
@@ -186,9 +187,9 @@ For more information, see the following resource:
 
 * [Automating everything with the Azure Management Libraries and .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Introduction to the .NET management API and links to more documentation.
 
-###<a name="cli"></a>Cross-platform command line (xpat-cli)
+###<a name="cli"></a>Cross-platform command line (xplat-cli)
 
-You can use the command line in Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure cross-platform command-line interface (xpat-cli). The xpat-cli can also be used on Windows machines.
+You can use the command line in Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure cross-platform command-line interface (xplat-cli). The xplat-cli can also be used on Windows machines.
 
 For more information, see the following resource:
 
@@ -200,6 +201,7 @@ For more information, see the following resource:
 
 For more information, see the following resource:
 
+* [Simple Azure Websites: Deployment](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.
 * [Web Deployment Tool](http://technet.microsoft.com/en-us/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
 * [Using Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Official documentation on the Microsoft IIS.NET site. Also dated but a good place to start.
 * [StackOverflow](http://www.stackoverflow.com). The best place to go for more current information about how to use Web Deploy from the command line.
@@ -207,8 +209,10 @@ For more information, see the following resource:
 
 ##<a name="nextsteps"></a>Next Steps
 
-In some scenarios you might want to be able to easily switch back and forth between a staging and a production version of your website. You can do this with the Azure Websites staged deployment feature. For more information, see [Staged Deployment on Microsoft Azure Web Sites](/en-us/documentation/articles/web-sites-staged-publishing/).
+In some scenarios you might want to be able to easily switch back and forth between a staging and a production version of your website. You can do this with the Azure Websites staged deployment feature. For more information, see [Staged Deployment on Microsoft Azure Web Sites](../web-sites-staged-publishing/).
 
-Having a backup and restore plan in place is an important part of any deployment workflow. For information about the Azure Websites backup and restore feature, see [Azure Web Sites Backups](/en-us/documentation/articles/web-sites-backup/).  
+Having a backup and restore plan in place is an important part of any deployment workflow. For information about the Azure Websites backup and restore feature, see [Azure Web Sites Backups](../web-sites-backup/).  
+
+For information about how to use Azure's Role-Based Access Control to manage access to website deployment, see [RBAC and Azure Websites Publishing](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
 
 For information about other deployment topics, see the Deploy section in [Azure Web Sites Documentation](/en-us/documentation/services/web-sites/).

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="wpickett" editor="" />
+<properties pageTitle="How to use Service Bus queues (Ruby) - Azure" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." services="service-bus" documentationCenter="ruby" authors="tfitzmac" manager="wpickett" editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz"/>
 
 
 
@@ -26,7 +26,69 @@ covered include **creating queues, sending and receiving messages**, and
 * [How to Handle Application Crashes and Unreadable Messages](#how-to-handle-application-crashes-and-unreadable-messages)
 * [Next Steps](#next-steps)
 
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
+<a id="what-are-service-bus-queues"></a>
+##What are Service Bus Queues?
+
+Service Bus Queues support a **brokered messaging communication**
+model. When using queues, components of a distributed application do not
+communicate directly with each other, they instead exchange messages via
+a queue, which acts as an intermediary. A message producer (sender)
+hands off a message to the queue and then continues its processing.
+Asynchronously, a message consumer (receiver) pulls the message from the
+queue and processes it. The producer does not have to wait for a reply
+from the consumer in order to continue to process and send further
+messages. Queues offer **First In, First Out (FIFO)** message delivery
+to one or more competing consumers. That is, messages are typically
+received and processed by the receivers in the order in which they were
+added to the queue, and each message is received and processed by only
+one message consumer.
+
+![QueueConcepts](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
+
+Service Bus queues are a general-purpose technology that can be used for
+a wide variety of scenarios:
+
+-   Communication between web and worker roles in a multi-tier 
+    Azure application
+-   Communication between on-premises apps and Azure hosted apps
+    in a hybrid solution
+-   Communication between components of a distributed application
+    running on-premises in different organizations or departments of an
+    organization
+
+Using queues can enable you to scale out your applications better, and
+enable more resiliency to your architecture.
+
+## <a id="create-a-service-namespace"></a>Create a Service Namespace
+To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within your application. You must create the 
+namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+
+To create a service namespace:
+
+1. Open an Azure Powershell console.
+
+2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+
+    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
+
+    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
+
+## <a id="obtain-default-credentials"></a>Obtain Default Management Credentials for the Namespace
+In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace.
+
+1. Log on to the [Azure Management Portal](http://manage.windowsazure.com/).
+
+2. Select the service bus namespace that you created.
+
+     ![Select namespace](./media/service-bus-ruby-how-to-use-queues/selectns.png)
+
+3. At the bottom, select **Connection Information**.
+
+      ![Select connection](./media/service-bus-ruby-how-to-use-queues/selectconnection.png)
+
+4. Copy the default key. You will use this value in your code.
+
+       ![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
@@ -55,6 +117,8 @@ for information required to connect to your Azure service bus namespace. If thes
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
+
+Set the service bus namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net". 
 
 ## <a id="how-to-create-a-queue"></a>How to Create a Queue
 

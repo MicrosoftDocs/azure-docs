@@ -1,6 +1,6 @@
-<properties urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties pageTitle="How to use SQL Database (.NET) - Azure feature guide" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." services="sql-database" documentationCenter=".net" authors="jeffreyg" manager="jeffreyg" editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="jeffreyg"/>
 
 
 
@@ -33,7 +33,7 @@ SQL Database provides a relational database management system for Azure and is b
 
 SQL Database provides relational data storage, access, and management services on Azure. To use it, you'll need an Azure subscription.
 
-1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com). To get started with a free account, click free trial in the upper right corner and follow the steps.
+1. Open a web browser, and browse to [http://azure.microsoft.com/](http://azure.microsoft.com). To get started with a free account, click free trial in the upper right corner and follow the steps.
 
 2. Your account is now created. You are ready to get started.
 

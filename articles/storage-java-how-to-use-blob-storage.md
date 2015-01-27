@@ -1,6 +1,6 @@
-<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="robmcm" solutions="" manager="adinah" editor="" />
+<properties pageTitle="How to use blob storage (Java) | Microsoft Azure" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." services="storage" documentationCenter="java" authors="rmcmurray" manager="adinah" editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # How to use Blob Storage from Java
 
@@ -24,11 +24,11 @@ Note: An SDK is available for developers who are using Azure Storage on Android 
 * [How to: Delete a blob container](#DeleteContainer)
 * [Next steps](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Create a Java application
 

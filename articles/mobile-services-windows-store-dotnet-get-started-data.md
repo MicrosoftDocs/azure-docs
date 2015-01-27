@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Get started with data (Windows Store) | Mobile Dev Center" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
 
 # Get started with data in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 
 <div class="dev-center-tutorial-subselector">
@@ -15,7 +15,7 @@
 
 This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then sign-in to the Azure Management Portal to view changes to data made when running the app.
 
->[WACOM.NOTE]This topic shows you how to use Visual Studio 2013 to add Azure Mobile Services to a Windows Store project. You can add the same JavaScript backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) of this tutorial. 
+>[AZURE.NOTE]This topic shows you how to use Visual Studio 2013 to add Azure Mobile Services to a Windows Store project. You can add the same JavaScript backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) of this tutorial. 
 
 This tutorial walks you through these basic steps:
 
@@ -50,7 +50,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 ##<a name="create-service"></a>Create a new mobile service from Visual Studio
 
-[WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7"><li><p>In Solution Explorer, open the App.xaml.cs code file, and notice the new static field that was added to the **App** class, which looks like the following example:</p> 
 
@@ -66,13 +66,13 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 ##<a name="add-table"></a>Add a new table for data storage
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[WACOM.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
+>[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
 
 #<a name="update-app"></a>Update the app to use the mobile service
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
+[AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
 ##<a name="test-app"></a>Test the app against your new mobile service
 

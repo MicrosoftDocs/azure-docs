@@ -1,6 +1,6 @@
-<properties pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Get started with Azure Websites for ASP.NET" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." services="web-sites" documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra"/>
 
 # Get started with Azure Websites and ASP.NET
 
@@ -18,7 +18,7 @@ You need an Azure account to complete this tutorial:
 * You can [open an Azure account for free](/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
 * You can [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites.
 
 The following illustration shows the completed application:
@@ -27,6 +27,7 @@ The following illustration shows the completed application:
 
 ### Tutorial segments
 
+* [Sign up for Microsoft Azure (Video)](#video)
 * [Set up the development environment](#set-up-the-development-environment)
 * [Create an ASP.NET web application in Visual Studio](#create-an-aspnet-web-application)
 * [Deploy the application to Azure](#deploy-the-application-to-azure)
@@ -34,7 +35,13 @@ The following illustration shows the completed application:
 * [Monitor and manage the site in the management portal](#monitor-and-manage-the-site-in-the-management-portal)
 * [Next steps](#next-steps)
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+##<a name="video"></a>Sign up for Microsoft Azure (Video)
+
+In this video, Scott Hanselman presents how easy it is to sign-up for a free trial of Microsoft Azure. (Duration: 1:58)
+
+> [AZURE.VIDEO sign-up-for-microsoft-azure]
+
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Create an ASP.NET web application
 

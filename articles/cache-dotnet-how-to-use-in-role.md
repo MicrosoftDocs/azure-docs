@@ -1,6 +1,6 @@
-<properties urlDisplayName="Caching" pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." services="cache" documentationCenter=".net" authors="steved0x" manager="dwrede" editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
 
 
 

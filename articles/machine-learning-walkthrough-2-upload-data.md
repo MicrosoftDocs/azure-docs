@@ -1,6 +1,6 @@
-<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="garye"/>
 
 This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
@@ -53,14 +53,15 @@ We can also do this using the Unix sed command:
 
 Once the data has been converted to CSV format, we need to upload it into ML Studio.  
 
-1.	In ML Studio, click **+NEW** at the bottom of the window.
-2.	Select **DATASET**.
-3.	Select **FROM LOCAL FILE**.
-4.	In the **Upload a new dataset dialog**, click **Browse** and find the **german.csv** file you created.
-5.	Enter a name for the dataset. For this example, we'll call it "UCI German Credit Card Data".
-6.	For data type, select "Generic CSV File With no header (.nh.csv)".
-7.	Add a description if you’d like.
-8.	Click **OK**.  
+1.	Sign in to ML Studio ([https://studio.azureml.net](https://studio.azureml.net)) using the Microsoft account you specified as the owner of the workspace, and click the **Studio** tab at the top.
+2.	Click **+NEW** at the bottom of the window.
+3.	Select **DATASET**.
+4.	Select **FROM LOCAL FILE**.
+5.	In the **Upload a new dataset dialog**, click **Browse** and find the **german.csv** file you created.
+6.	Enter a name for the dataset. For this example, we'll call it "UCI German Credit Card Data".
+7.	For data type, select "Generic CSV File With no header (.nh.csv)".
+8.	Add a description if you’d like.
+9.	Click **OK**.  
 
 ![Upload the dataset][1]  
 

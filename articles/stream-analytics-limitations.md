@@ -1,6 +1,6 @@
-<properties title="Azure Stream Analytics limitations in the preview release" pageTitle=" Stream Analytics limitations in the preview release | Azure" description="Learn the limitations in the public preview release of Azure Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties pageTitle="Stream Analytics limitations in the preview release | Azure" description="Learn the limitations in the public preview release of Azure Stream Analytics jobs" services="stream-analytics" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao"/>
 
 #Azure Stream Analytics Preview limitations and known issues
 

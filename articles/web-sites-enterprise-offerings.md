@@ -1,6 +1,6 @@
-<properties urlDisplayName="Azure Websites Enterprise Offerings" pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" metaKeywords="Azure Websites,solution" description="Shows how to use Azure Websites create enterprise website solutions for your business" metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Offerings for Enterprise Whitepaper" authors="cephalin,Apurva.Joshi"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+<properties pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" description="Shows how to use Azure Websites create enterprise website solutions for your business" services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin"/>
 
 # Azure Websites Offerings for Enterprise Whitepaper #
 

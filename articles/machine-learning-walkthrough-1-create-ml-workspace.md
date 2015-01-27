@@ -1,6 +1,6 @@
-<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Step 1: Create a Machine Learning workspace | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties pageTitle="Step 1: Create a Machine Learning workspace | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye"/>
 
 
 This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:

@@ -1,13 +1,13 @@
-<properties urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="Architecture overview that covers common design patterns" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+<properties pageTitle="Architecture" description="Architecture overview that covers common design patterns" services="" documentationCenter="" authors="Rboucher" manager="jwhit" editor="mattshel"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb"/>
 
 #Architecture
 Resources for building applications that use Microsoft Azure.
 
 ##Microsoft Architecture Blueprints
 
-Microsoft is now publishing a set of high level architecture blueprints showing how to build specific types of systems using Microsoft Azure services. Eac blueprint includes a 2D Visio based file that you can download and modify, a more colorful 3D PDF file to introduce the blueprint and a video that walks through the 3D PDF. See 
+Microsoft is now publishing a set of high level architecture blueprints showing how to build specific types of systems using Microsoft Azure services. Each blueprint includes a 2D Visio based file that you can download and modify, a more colorful 3D PDF file to introduce the blueprint and a video that walks through the 3D PDF. See 
 [Microsoft Architecture Blueprints](http://msdn.microsoft.com/dn630664).
 
 ![Microsoft Architecture Blueprint 3D diagram][BluePrint]

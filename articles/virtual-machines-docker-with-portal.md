@@ -1,6 +1,6 @@
-<properties title="How to use the Docker VM Extension with the Azure Portal" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" manager="timlt" />
+<properties pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/21/2014" ms.author="rasquill" />
+<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/21/2014" ms.author="rasquill"/>
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Using the Docker VM Extension with the Azure Portal
 
@@ -15,12 +15,12 @@ In this section
 + [Test Docker Client and Azure Docker Host]
 + [Next steps]
 
-> [WACOM.NOTE] This topic describes how to create a Docker VM in the Azure Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
+> [AZURE.NOTE] This topic describes how to create a Docker VM in the Azure Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
 
 ## <a id='createvm'>Create a new VM from the Image Gallery</a>
 The first step requires an Azure VM from a Linux image that supports the Docker VM Extension, using an Ubuntu 14.04 LTS image from the Image Gallery as an example server image and Ubuntu 14.04 Desktop as a client. In the portal, click **+ New** in the bottom left corner to create a new VM instance and select an Ubuntu 14.04 LTS image from the selections available or from the complete Image Gallery, as shown below. 
 
-> [WACOM.NOTE] Currently, only Ubuntu 14.04 LTS images more recent than July 2014 support the Docker VM Extension.
+> [AZURE.NOTE] Currently, only Ubuntu 14.04 LTS images more recent than July 2014 support the Docker VM Extension.
 
 ![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
 
@@ -30,7 +30,7 @@ After the VM has been created, ensure that Docker is installed on your client co
 
 Create the certificate and key files for Docker communication according to [Running Docker with https] and place them in the **`~/.docker`** directory on your client computer. 
 
-> [WACOM.NOTE] The Docker VM Extension in the portal currently requires credentials that are base64 encoded.
+> [AZURE.NOTE] The Docker VM Extension in the portal currently requires credentials that are base64 encoded.
 
 At the command line, use **`base64`** or another favorite encoding tool to create base64-encoded topics. Doing this with a simple set of certificate and key files might look similar to this:
 
@@ -65,7 +65,7 @@ In the form fields, enter the base64-encoded versions of your CA Certificate, yo
 
 ![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
 
-> [WACOM.NOTE] Note that (as in the preceding image) the 4243 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
+> [AZURE.NOTE] Note that (as in the preceding image) the 4243 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
 
 ## Add the Docker Communication Endpoint
 When viewing your VM in the resource group you've created, scroll down to click **Endpoints** to view the endpoints on the VM as shown here.
