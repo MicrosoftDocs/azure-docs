@@ -1,6 +1,20 @@
-<properties pageTitle="LOB App in Azure Websites with Azure AD" description="Learn how to create an ASP.NET LOB application in Azure Websites that authenticates with Azure Active Directory" services="web-sites, active-directory" documentationCenter=".net" authors="cephalin" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="LOB App in Azure Websites with Azure AD" 
+	description="Learn how to create an ASP.NET LOB application in Azure Websites that authenticates with Azure Active Directory" 
+	services="web-sites, active-directory" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="web" 
+	ms.date="12/23/2014" 
+	ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory #
 
