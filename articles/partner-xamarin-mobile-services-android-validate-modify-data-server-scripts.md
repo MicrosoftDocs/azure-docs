@@ -1,6 +1,20 @@
-<properties pageTitle="Use server scripts to validate and modify data (Xamarin Android) | Mobile Dev Center" description="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." documentationCenter="xamarin" services="mobile-services" authors="lindydonna" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Use server scripts to validate and modify data (Xamarin Android) | Mobile Dev Center" 
+	description="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." 
+	documentationCenter="xamarin" 
+	services="mobile-services" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # Validate and modify data in Mobile Services by using server scripts
 
