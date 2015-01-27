@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Command-Line Tools for Mac and Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." services="web-sites, virtual-machines, mobile-services, cloud-services" documentationCenter="" authors="squillace" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Azure Command-Line Tools for Mac and Linux" 
+	description="Learn about using the command-line tool for Mac and Linux in Azure." 
+	services="web-sites, virtual-machines, mobile-services, cloud-services" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="rasquill"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="rasquill"/>
 
 #Azure command-line tool for Mac and Linux
 
