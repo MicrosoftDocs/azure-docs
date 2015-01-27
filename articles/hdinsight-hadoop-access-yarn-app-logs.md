@@ -1,6 +1,20 @@
-<properties pageTitle="Access HDInsight Application Logs Programmatically| Azure" description="Access HDInsight Application Logs Programmatically." services="hdinsight" documentationCenter="" authors="bradsev" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Access HDInsight Application Logs Programmatically| Azure" 
+	description="Access HDInsight Application Logs Programmatically." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="bradsev"/>
 
 # Access HDInsight Application Logs Programmatically
 
