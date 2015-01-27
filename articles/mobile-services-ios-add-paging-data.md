@@ -1,6 +1,20 @@
-<properties pageTitle="Add paging to data (iOS) | Mobile Dev Center" description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Add paging to data (iOS) | Mobile Dev Center" 
+	description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # Refine Mobile Services queries with paging
 
