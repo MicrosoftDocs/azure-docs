@@ -2,9 +2,6 @@
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande"/>
 
-
-
-
 # REST service using ASP.NET Web API and SQL Database 
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra.***
@@ -26,6 +23,7 @@ You'll learn:
 You'll build a simple contact list web application that is built on ASP.NET MVC 5 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
 
 ![screenshot of web site][intro001]
+
 In this tutorial:
 
 * [Set up the development environment][setupdbenv]

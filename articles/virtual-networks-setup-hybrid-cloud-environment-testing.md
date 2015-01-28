@@ -1,6 +1,6 @@
 <properties pageTitle="Set up a hybrid cloud environment for testing" description="Learn how to create a hybrid cloud environment for IT pro or development testing." services="virtual-network" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd"/>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 <h1 id="hybcloudtest">Set up a hybrid cloud environment for testing</h1>
 
@@ -28,7 +28,7 @@ There are five major phases to setting up this hybrid cloud test environment:
 4.	Create the site-to-site VPN connection.
 5.	Configure DC2. 
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ##Phase 1: Configure the computers on the Corpnet subnet
 
