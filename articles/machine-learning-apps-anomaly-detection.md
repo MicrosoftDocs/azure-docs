@@ -52,7 +52,7 @@ The API takes 2 input parameters
 
 The API runs these detectors on your time series data and returns the anomaly scores at each point in time. This output can be parsed using a simple parser as shown in [https://adresultparser.codeplex.com/](https://adresultparser.codeplex.com/). This gives sample code that shows how to connect to the API and parse the output. The alerts generated can be visualized on a dashboard and/or passed on to human experts who can take corrective actions.
 
-Sample output for the sample input above:
+Sample output for the sample input above: 
 
 	"Time,Data,TSpike,ZSpike,Martingale values,Alert indicator,Martingale values(2),Alert indicator(2),;9/21/2014 11:05:00 AM,3,0,0,-0.687952590518378,0,-0.687952590518378,0,;9/21/2014 11:10:00 AM,9.09,0,0,-1.07030497733224,0,-0.884548154298423,0,;9/21/2014 11:15:00 AM,0,0,0,-1.05186237440962,0,-1.173800281031,0,;"
 
@@ -64,7 +64,7 @@ which is a representation of the following table:
 | 9/21/2014 11:10 | 9.09 | 0      | 0      | -1.070304977      | 0               | -0.884548154         | 0                  |  
 | 9/21/2014 11:15 | 0    | 0      | 0      | -1.051862374      | 0               | -1.173800281         | 0                  |  
 
-[1]: ./media/machine-learning-apps-anomaly-detection/anomalydetection.JPG
+[1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg
 
  
 
