@@ -1,6 +1,20 @@
-<properties pageTitle="API basics for Azure Batch" description="Concepts to introduce developers to the Azure Batch APIs and Batch service" services="batch" documentationCenter=".net" authors="yidingzhou" manager="timlt" editor=""/>
+<properties 
+	pageTitle="API basics for Azure Batch" 
+	description="Concepts to introduce developers to the Azure Batch APIs and Batch service" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, kabatta"/>
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="10/27/2014" 
+	ms.author="yidingz, kabatta"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 

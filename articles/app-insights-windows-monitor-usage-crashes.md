@@ -1,6 +1,18 @@
-<properties pageTitle="Monitor usage and crashes in Windows Store and Phone apps" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." services="application-insights" authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="Monitor usage and crashes in Windows Store and Phone apps" 
+	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
 
 # Application Insights - Monitor usage and crashes in Windows Store and Phone apps
 
@@ -14,11 +26,6 @@ Application Insights lets you monitor your published application for:
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 
-* [Start monitoring your app](#start)
-* [Track usage](#usage)
-* [Detect and diagnose crashes](#crashes)
-* [Debug vs Release mode](#debug)
-* [Next steps](#next)
 
 ## <a name="start">Start monitoring your app</a>
 

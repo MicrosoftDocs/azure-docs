@@ -1,6 +1,20 @@
-<properties pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure" description="Learn how to run a sample TBD." editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" authors="bradsev"/>
+<properties 
+	pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure" 
+	description="Learn how to run a sample TBD." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # The C# streaming wordcount Hadoop sample in HDInsight
  
@@ -74,8 +88,8 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 		Select-AzureSubscription $subscriptionName
               
 		# Blob storage container and account name
-		$storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+      $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary }
+      $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
  
 		# Retrieve the output
 		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 

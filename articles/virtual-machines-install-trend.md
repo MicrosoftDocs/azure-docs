@@ -1,6 +1,20 @@
-<properties pageTitle="How to install and configure Trend Micro Deep Security as a Service on an Azure VM" description="Describes installing and configuring Trend Micro security on a VM in Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="How to install and configure Trend Micro Deep Security as a Service on an Azure VM" 
+	description="Describes installing and configuring Trend Micro security on a VM in Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="kathydav"/>
 
 #How to install and configure Trend Micro Deep Security as a Service on an Azure VM
 

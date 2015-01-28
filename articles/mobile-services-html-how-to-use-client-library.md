@@ -1,6 +1,20 @@
-<properties pageTitle="How to use an HTML client - Azure Mobile Services" description="Learn how to use an HTML client for Azure Mobile Services." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to use an HTML client - Azure Mobile Services" 
+	description="Learn how to use an HTML client for Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 
 # How to use an HTML/JavaScript client for Azure Mobile Services

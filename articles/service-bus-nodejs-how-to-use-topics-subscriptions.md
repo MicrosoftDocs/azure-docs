@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Service Bus topics (Node.js) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." services="service-bus" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use Service Bus topics (Node.js) - Azure" 
+	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." 
+	services="service-bus" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 

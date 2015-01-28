@@ -1,6 +1,20 @@
-<properties pageTitle="Difference in Proportions Test | Azure" description="Difference in Proportions Test" services="machine-learning" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Difference in Proportions Test | Azure" 
+	description="Difference in Proportions Test" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe"/> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="jaymathe"/> 
 
 
 #Difference in Proportions Test

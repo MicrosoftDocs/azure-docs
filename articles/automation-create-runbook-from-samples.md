@@ -1,6 +1,20 @@
-<properties pageTitle="Get Started with Azure Automation" description="Learn how to import and run an automation job in Azure." services="automation" documentationCenter="" authors="bwren" manager="stevenka" editor=""/>
+<properties 
+	pageTitle="Get Started with Azure Automation" 
+	description="Learn how to import and run an automation job in Azure." 
+	services="automation" 
+	documentationCenter="" 
+	authors="bwren" 
+	manager="stevenka" 
+	editor=""/>
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/13/2015" ms.author="bwren"/>
+<tags 
+	ms.service="automation" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/13/2015" 
+	ms.author="bwren"/>
 
 
 # Get started with Azure Automation

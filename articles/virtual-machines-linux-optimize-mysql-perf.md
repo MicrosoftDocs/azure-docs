@@ -1,6 +1,20 @@
-<properties pageTitle="Optimizing MySQL Performance on Azure Linux VMs" description="Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Optimizing MySQL Performance on Azure Linux VMs" 
+	description="Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="NingKuang" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="ningk"/>
 
 #Optimizing MySQL Performance on Azure Linux VMs 
 

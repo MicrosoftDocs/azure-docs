@@ -1,6 +1,21 @@
-<properties pageTitle="Running a MariaDB (MySQL) cluster on Azure" description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines" services="virtual-machines" documentationCenter="" authors="sabbour" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Running a MariaDB (MySQL) cluster on Azure" 
+	description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="sabbour" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="12/3/2014" ms.author="v-ahsab" ms.prod="azure"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="infrastructure-services" 
+	ms.date="12/3/2014" 
+	ms.author="v-ahsab" 
+	ms.prod="azure"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # MariaDB (MySQL) cluster - Azure tutorial

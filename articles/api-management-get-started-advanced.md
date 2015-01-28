@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with advanced Azure API Management configuration" description="Learn how to trace calls, configure rate limit and quota policies, and customize the developer portal." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with advanced Azure API Management configuration" 
+	description="Learn how to trace calls, configure rate limit and quota policies, and customize the developer portal." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Get started with advanced Azure API Management configuration
 

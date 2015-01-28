@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" services="sql-database" documentationCenter="" authors="jeffgoll" manager="jeffreyg" editor=""/>
+<properties 
+	pageTitle="Get started with SQL database auditing | Azure" 
+	description="Get started with SQL database auditing" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="jeffreyg"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
  
 # Get started with SQL database auditing 
 <p> Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is generally available for Basic, Standard, and Premium service tiers.

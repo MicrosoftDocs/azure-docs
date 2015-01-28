@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Service Bus topics (Python) - Azure" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." services="service-bus" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use Service Bus topics (Python) - Azure" 
+	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." 
+	services="service-bus" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="huvalo"/>
 
 
 

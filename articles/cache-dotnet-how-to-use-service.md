@@ -1,6 +1,20 @@
-<properties pageTitle="How to Use Azure Managed Cache Service" description="" services="cache" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to Use Azure Managed Cache Service" 
+	description="" 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # How to Use Azure Managed Cache Service
 

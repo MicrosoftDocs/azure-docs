@@ -1,6 +1,20 @@
-<properties pageTitle="Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Azure" description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Azure" 
+	description="Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/05/2014" 
+	ms.author="spelluru"/>
 
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
 You can operationalize published [Azure Machine Learning][azure-machine-learning] models within Azure Data Factory pipelines.These pipelines are called predictive pipelines. To create a predictive pipeline, you will need:

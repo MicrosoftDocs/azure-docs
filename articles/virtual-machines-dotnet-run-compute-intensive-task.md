@@ -1,6 +1,20 @@
-<properties pageTitle="Compute intensive .NET task on a virtual machine - Azure" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." services="virtual-machines" documentationCenter=".net" authors="" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Compute intensive .NET task on a virtual machine - Azure" 
+	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." 
+	services="virtual-machines" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="wpickett"/>
 
 # How to run a compute-intensive task in .NET on an Azure virtual machine
 

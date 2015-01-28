@@ -1,6 +1,20 @@
-<properties pageTitle="How to make a phone call from Twilio (.NET) - Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." services="" documentationCenter=".net" authors="devinrader" manager="twilio" editor=""/>
+<properties 
+	pageTitle="How to make a phone call from Twilio (.NET) - Azure" 
+	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." 
+	services="" 
+	documentationCenter=".net" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="microsofthelp@twilio.com"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 
 

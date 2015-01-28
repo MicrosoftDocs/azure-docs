@@ -1,6 +1,20 @@
-<properties pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." authors="tamram" manager="adinah" editor="" services="storage" documentationCenter=""/>
+<properties 
+	pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" 
+	description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." 
+	authors="tamram" 
+	manager="adinah" 
+	editor="" 
+	services="storage" 
+	documentationCenter=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="tamram"/>
 
 
 # Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage

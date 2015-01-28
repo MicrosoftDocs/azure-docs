@@ -1,6 +1,20 @@
-<properties pageTitle="How to monitor websites - Azure service management" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." services="web-sites" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="How to monitor websites - Azure service management" 
+	description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 
 

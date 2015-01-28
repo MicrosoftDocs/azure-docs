@@ -1,6 +1,20 @@
-<properties pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." services="virtual-machines" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" 
+	description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="josephd" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/15/2015" 
+	ms.author="josephd"/>
 
 <h1 id="azpswindowsvms">Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines</h1>
 

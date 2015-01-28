@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Machine Learning FAQ | Azure" description="Frequently asked questions about Microsoft Azure Machine Learning" services="machine-learning" documentationCenter="" authors="pablissima" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Azure Machine Learning FAQ | Azure" 
+	description="Frequently asked questions about Microsoft Azure Machine Learning" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="pablissima" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="pamehta"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
  

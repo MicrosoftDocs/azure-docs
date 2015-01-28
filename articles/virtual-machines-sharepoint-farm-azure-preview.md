@@ -1,6 +1,20 @@
-<properties pageTitle="SharePoint Server Farm" description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
+<properties 
+	pageTitle="SharePoint Server Farm" 
+	description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="josephd"/>
 
 #SharePoint Server Farm#
 

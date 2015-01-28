@@ -1,6 +1,18 @@
-<properties pageTitle="Get started with Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." services="application-insights" authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="Get started with Application Insights" 
+	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-23" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
 
 # Get started with Application Insights
 
@@ -20,11 +32,11 @@ You'll need an account in [Microsoft Azure](http://azure.com). You might already
 
 What you want | What to do  | What you get
 ---|---|---
-<a href="../app-insights-start-monitoring-app-health-usage/"><img src="./media/appinsights/appinsights-gs-i-01-perf.png"/></a>|[Add Application Insights SDK to your web project][greenbrown]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-start-monitoring-app-health-usage/"><img src="./media/appinsights/appinsights-gs-r-01-perf.png"/></a>
-<a href="../app-insights-monitor-performance-live-website-now/"><img src="./media/appinsights/appinsights-gs-i-04-red2.png"/></a><br/><a href="../app-insights-monitor-performance-live-website-now/"><img src="./media/appinsights/appinsights-gs-i-03-red.png"/></a>|[Install Status Monitor on your IIS server][redfield]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-monitor-performance-live-website-now/"><img src="./media/appinsights/appinsights-gs-r-03-red.png"/></a>
-<a href="../app-insights-web-track-usage/"><img src="./media/appinsights/appinsights-gs-i-02-usage.png"/></a>|[Insert the Application Insights script into your web pages][usage]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-web-track-usage/"><img src="./media/appinsights/appinsights-gs-r-02-usage.png"/></a>
-<a href="../app-insights-monitor-web-app-availability/"><img src="./media/appinsights/appinsights-gs-i-05-avail.png"/></a>|[Create web tests][availability]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-monitor-web-app-availability/"><img src="./media/appinsights/appinsights-gs-r-05-avail.png"/></a>
-<a href="../app-insights-windows-monitor-usage-crashes/"><img src="./media/appinsights/appinsights-gs-i-06-device.png"/></a>|[Add Application Insights to your device app project][windows]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-windows-monitor-usage-crashes/"><img src="./media/appinsights/appinsights-gs-r-06-device.png"/></a>
+<a href="../app-insights-start-monitoring-app-health-usage/">![](./media/appinsights/appinsights-gs-i-01-perf.png)</a>|[Add Application Insights SDK to your web project][greenbrown]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-start-monitoring-app-health-usage/">![](./media/appinsights/appinsights-gs-r-01-perf.png)</a>
+<a href="../app-insights-monitor-performance-live-website-now/">![](./media/appinsights/appinsights-gs-i-04-red2.png)</a><br/><a href="../app-insights-monitor-performance-live-website-now/">![](./media/appinsights/appinsights-gs-i-03-red.png)</a>|[Install Status Monitor on your IIS server][redfield]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-monitor-performance-live-website-now/">![](./media/appinsights/appinsights-gs-r-03-red.png)</a>
+<a href="../app-insights-web-track-usage/">![](./media/appinsights/appinsights-gs-i-02-usage.png)</a>|[Insert the Application Insights script into your web pages][usage]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-web-track-usage/">![](./media/appinsights/appinsights-gs-r-02-usage.png)</a>
+<a href="../app-insights-monitor-web-app-availability/">![](./media/appinsights/appinsights-gs-i-05-avail.png)</a>|[Create web tests][availability]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-monitor-web-app-availability/">![](./media/appinsights/appinsights-gs-r-05-avail.png)</a>
+<a href="../app-insights-windows-monitor-usage-crashes/">![](./media/appinsights/appinsights-gs-i-06-device.png)</a>|[Add Application Insights to your device app project][windows]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-windows-monitor-usage-crashes/">![](./media/appinsights/appinsights-gs-r-06-device.png)</a>
 
 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="How to Use Twilio for Voice and SMS (PHP) - Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP." services="" documentationCenter="python" authors="devinrader" manager="twilio" editor=""/>
+<properties 
+	pageTitle="How to Use Twilio for Voice and SMS (PHP) - Azure" 
+	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP." 
+	services="" 
+	documentationCenter="python" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 

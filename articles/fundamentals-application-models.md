@@ -1,6 +1,19 @@
-<properties pageTitle="Compute Hosting Options Provided by Azure" description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." headerExpose="" footerExpose="" authors="adegeo" manager="timlt"/>
+<properties 
+	pageTitle="Compute Hosting Options Provided by Azure" 
+	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
+	headerExpose="" 
+	footerExpose="" 
+	authors="Thraka" 
+	manager="timlt"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/20/2015" ms.author="adegeo"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/20/2015" 
+	ms.author="adegeo"/>
 
 #Compute Hosting Options Provided by Azure
 

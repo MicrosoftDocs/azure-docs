@@ -1,6 +1,20 @@
-<properties pageTitle="Getting Started with Active Directory Authentication - What Happened" description="" services="active-directory" documentationCenter="" authors="kempb" manager="douge" editor=""/>
+<properties 
+	pageTitle="Getting Started with Active Directory Authentication - What Happened" 
+	description="" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb"/>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-active-directory-dotnet-getting-started/)

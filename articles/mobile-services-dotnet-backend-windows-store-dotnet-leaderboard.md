@@ -1,6 +1,20 @@
-<properties pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" 
+	description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." 
+	documentationCenter="windows" 
+	authors="MikeWasson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="mwasson"/>
 
 # Creating a Leaderboard App with Azure Mobile Services .NET Backend
 

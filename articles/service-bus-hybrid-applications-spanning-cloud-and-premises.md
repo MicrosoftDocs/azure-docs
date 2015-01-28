@@ -1,6 +1,20 @@
-<properties pageTitle="Enable Hybrid Applications Spanning Cloud and Premises" description="Learn how to build hybrid applications that span across the cloud and on premises." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="Enable Hybrid Applications Spanning Cloud and Premises" 
+	description="Learn how to build hybrid applications that span across the cloud and on premises." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="sethm"/>
 
 # Enable Hybrid Applications Spanning Cloud and Premises
 

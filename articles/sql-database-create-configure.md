@@ -1,6 +1,20 @@
-<properties pageTitle="How to Create and Configure an Azure SQL Database - Azure tutorial" description="How to create and configure an Azure SQL Database." services="sql-database" documentationCenter="" authors="sidneyh" manager="jhubbard" editor=""/>
+<properties 
+	pageTitle="How to Create and Configure an Azure SQL Database - Azure tutorial" 
+	description="How to create and configure an Azure SQL Database." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="sidneyh" 
+	manager="jhubbard" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="sidneyh"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="sidneyh"/>
 
 <h1><a id="configLogical"></a>How to Create and Configure an Azure SQL Database</h1>
 

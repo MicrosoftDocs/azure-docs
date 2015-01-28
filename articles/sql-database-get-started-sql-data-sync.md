@@ -1,6 +1,20 @@
-<properties pageTitle="Getting started with SQL Databases Data Sync" description="" services="sql-database" documentationCenter="" authors="spelluru" manager="jhubbard" editor=""/>
+<properties 
+	pageTitle="Getting started with SQL Databases Data Sync" 
+	description="" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="spelluru"/>
 
 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with authentication (Xamarin.Android) - Mobile Services" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.Android." services="mobile-services" documentationCenter="xamarin" manager="dwrede" authors="lindydonna" editor=""/>
+<properties 
+	pageTitle="Get started with authentication (Xamarin.Android) - Mobile Services" 
+	description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.Android." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	manager="dwrede" 
+	authors="lindydonna" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
 

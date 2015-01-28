@@ -1,6 +1,20 @@
-<properties pageTitle="Log on to a virtual machine running Linux in Azure" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Log on to a virtual machine running Linux in Azure" 
+	description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="kathydav"/>
 
 
 

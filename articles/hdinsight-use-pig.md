@@ -1,6 +1,20 @@
-<properties pageTitle="Use Hadoop Pig in HDInsight | Azure" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Use Hadoop Pig in HDInsight | Azure" 
+	description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="jgao"/>
 
 
 

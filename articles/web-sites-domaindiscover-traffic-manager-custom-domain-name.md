@@ -1,6 +1,20 @@
-<properties pageTitle="Configure a DomainDiscover domain name for an Azure website using Traffic Manager" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Configure a DomainDiscover domain name for an Azure website using Traffic Manager" 
+	description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr,jroth"/>
 
 #Configuring a custom domain name for a Windows Azure Website using Traffic Manager (DomainDiscover / TierraNet)
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Add paging to data (Android) | Mobile Dev Center" description="Learn how to use paging to manage the amount of data returned to your Android app from Mobile Services." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Add paging to data (Android) | Mobile Dev Center" 
+	description="Learn how to use paging to manage the amount of data returned to your Android app from Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="ricksal"/>
 
 # Refine Mobile Services queries with paging
 

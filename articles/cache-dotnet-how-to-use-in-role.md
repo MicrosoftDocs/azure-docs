@@ -1,6 +1,20 @@
-<properties pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." services="cache" documentationCenter=".net" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" 
+	description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 
 

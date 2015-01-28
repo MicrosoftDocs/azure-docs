@@ -1,6 +1,20 @@
-<properties pageTitle="The Docker Virtual Machine Extension for Linux on Azure" description="Describes Docker and containers, the Azure Virtual Machines extensions, and points to more resources to create Docker containers from both the xplat-cli and the Portal." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor=""/>
+<properties 
+	pageTitle="The Docker Virtual Machine Extension for Linux on Azure" 
+	description="Describes Docker and containers, the Azure Virtual Machines extensions, and points to more resources to create Docker containers from both the xplat-cli and the Portal." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/21/2014" ms.author="rasquill"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="infrastructure-services" 
+	ms.date="10/21/2014" 
+	ms.author="rasquill"/>
 
 # The Docker Virtual Machine Extension for Linux on Azure
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) to create a Docker VM that hosts any number of containers for your applications on Azure.

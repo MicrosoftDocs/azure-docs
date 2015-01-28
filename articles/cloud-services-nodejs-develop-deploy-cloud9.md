@@ -1,6 +1,20 @@
-<properties pageTitle="Node.js deploying with Cloud9 - Azure tutorial" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." services="cloud-services" documentationCenter="nodejs" authors="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Node.js deploying with Cloud9 - Azure tutorial" 
+	description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="wpickett"/>
 
 
 

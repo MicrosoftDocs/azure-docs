@@ -1,6 +1,20 @@
-<properties pageTitle="Javadocs - Azure resources" description="Javadoc API reference for the Azure SDK for Java." services="" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Javadocs - Azure resources" 
+	description="Javadoc API reference for the Azure SDK for Java." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Javadoc Content
 

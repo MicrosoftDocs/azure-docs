@@ -1,6 +1,20 @@
-<properties pageTitle="Working with the Mobile Services Android Client Library" description="Learn how to use an Android client for Azure Mobile Services." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Working with the Mobile Services Android Client Library" 
+	description="Learn how to use an Android client for Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="ricksal"/>
 
 # How to use the Android client library for Mobile Services
 

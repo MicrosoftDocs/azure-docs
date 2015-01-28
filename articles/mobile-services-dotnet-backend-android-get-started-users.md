@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with authentication (Android) | Mobile Dev Center" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." services="mobile-services" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with authentication (Android) | Mobile Dev Center" 
+	description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/27/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="mahender"/>
 
 # Add authentication to your Mobile Services app
 

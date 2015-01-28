@@ -1,6 +1,20 @@
-<properties pageTitle="Data Factory - Release Notes | Azure" description="Data Factory release notes" services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Data Factory - Release Notes | Azure" 
+	description="Data Factory release notes" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/25/2015" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/25/2015" 
+	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
 

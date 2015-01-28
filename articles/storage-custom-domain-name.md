@@ -1,6 +1,20 @@
-<properties pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/>
+<properties 
+	pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" 
+	description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/11/2014" 
+	ms.author="tamram"/>
 
 
 # Configure a custom domain name for blob data in an Azure storage account

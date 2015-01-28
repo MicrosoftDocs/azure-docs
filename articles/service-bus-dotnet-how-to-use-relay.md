@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Service Bus relay (.NET) - Azure" description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="How to use Service Bus relay (.NET) - Azure" 
+	description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="sethm"/>
 
 
 

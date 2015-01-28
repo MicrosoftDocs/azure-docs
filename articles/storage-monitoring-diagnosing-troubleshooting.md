@@ -1,6 +1,20 @@
-<properties pageTitle="Monitor, diagnose, and troubleshoot Storage | Azure" description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues." services="storage" documentationCenter="" authors="dominicbetts" manager="adinah" editor=""/>
+<properties 
+	pageTitle="Monitor, diagnose, and troubleshoot Storage | Azure" 
+	description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues." 
+	services="storage" 
+	documentationCenter="" 
+	authors="dominicbetts" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/16/2015" ms.author="v-dobett"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/16/2015" 
+	ms.author="v-dobett"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage 
 

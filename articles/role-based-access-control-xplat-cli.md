@@ -1,6 +1,20 @@
-<properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" description="Managing role-based access control with cross-platform command-line interface" services="" documentationCenter="" authors="guangyang" manager="terrylan" editor="mollybos"/>
+<properties 
+	pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" 
+	description="Managing role-based access control with cross-platform command-line interface" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="guayan"/>
 
 # Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
 

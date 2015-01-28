@@ -1,6 +1,20 @@
-<properties pageTitle="Create a virtual machine running Linux in Azure" description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Create a virtual machine running Linux in Azure" 
+	description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="1/19/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/19/2015" 
+	ms.author="kathydav"/>
 
 #Create a Virtual Machine Running Linux 
 
