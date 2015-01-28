@@ -18,14 +18,14 @@
 
 
 # Manage an Azure Machine Learning workspace 
-You can manage your Microsoft Azure Machine Learning Workspaces (Azure ML) to manage access, deploy production web services, and manage your Azure ML web services. In addition, the dashboard tab shows you overview workspace usage and a quick glance of workspace information.  
+You can manage your Machine Learning workspaces to manage access, deploy production web services, and manage your Machine Learning web services. In addition, the dashboard tab provides an overview of your workspace usage and a quick glance of your workspace information.  
 
-In the **WEB SERVICES** tab, you can Add, Update, or Delete an Azure ML web service.  
+On the **WEB SERVICES** tab, you can add, update, or delete a Machine Learning web service.  
 
-## To get to the manage workspace page ##
-1.	Sign in to your Microsoft Azure account.
+## To manage a workspace##
+1.	Sign-in to your Microsoft Azure account.
 2.	In the Microsoft Azure services panel, click **MACHINE LEARNING**.
-3.	In the **machine learning** list, click a workspace.  
+3.	In the **machine learning** list, click the name of the workspace you want to manage.  
   
 ![][1]
 
