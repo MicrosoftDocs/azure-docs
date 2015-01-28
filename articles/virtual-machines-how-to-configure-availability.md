@@ -4,6 +4,7 @@
 
 #How to Configure An Availability Set for Virtual Machines#
 
+
 An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the Availability of Virtual Machines] []. 
 
 It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load Balancing for Azure Infrastructure Services] [].
