@@ -54,9 +54,9 @@ Web sites and web applications
 <li> Getting started
 
 <ul>
-<li><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights SDK to your project</a>
+<li><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights SDK to your Visual Studio project</a>
 </li>
-<li><a href="../app-insights-monitor-performance-live-website-now/">Install Status Monitor to track web application performance and dependencies</a>
+<li><a href="../app-insights-monitor-performance-live-website-now/">Install Status Monitor to track ASP.NET application performance and dependencies</a>
 </li>
 <li><a href="../app-insights-web-track-usage/">Insert a script to monitor usage in web pages</a>
 </li>
@@ -64,15 +64,19 @@ Web sites and web applications
 </li>
 <li><a href="../insights-perf-analytics/">Enable Application Insights for Azure websites</a>
 </li>
+<li><a href="../app-insights-java-get-started/">Get started with Java applications</a>
+</li>
 </ul>
 </li>
 <li>Performance monitoring
 <ul>
 <li><a href="../app-insights-web-monitor-performance/">Detect performance issues in web applications</a>
 </li>
-<li><a href="../app-insights-search-diagnostic-logs/">Search traces and logs</a>
+<li><a href="../app-insights-search-diagnostic-logs/">Search ASP.NET traces and logs</a>
 </li>
-<li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">API for tracing and events</a>
+<li><a href="../app-insights-java-trace-logs/">Search Java traces and logs</a>
+</li>
+<li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">Telemetry API reference</a>
 </li>
 </ul>
 </li>

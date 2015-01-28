@@ -71,13 +71,33 @@ Calculated metrics are not included. For example, we don’t export average CPU 
 
 ### What does it look like?
 
-Unformatted JSON. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
+* Each blob is a text file that contains multiple '\n'-separated rows.
+* Each row is an unformatted JSON document. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
 
 ![View the telemetry with a suitable tool](./media/appinsights/appinsights-22-4json.png)
 
+
 ### How to process it?
 
-On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on.
+On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on. For example:
+
+    private IEnumerable<T> DeserializeMany<T>(string folderName)
+    {
+      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+      foreach (var file in files)
+      {
+         using (var fileReader = File.OpenText(file))
+         {
+            string fileContent = fileReader.ReadToEnd();
+            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+            foreach (var entity in entities)
+            {
+                yield return JsonConvert.DeserializeObject<T>(entity);
+            }
+         }
+      }
+    }
+
 
 On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
