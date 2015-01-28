@@ -25,16 +25,6 @@ You can set up web tests for any HTTP endpoint that is accessible from the publi
 *Is it an Azure website? Just [create the web test in the website blade][azurewebtest].*
 
 
-1. [Create a new resource?](#create)
-1. [Set up a web test](#setup)
-1. [View results](#monitor)
-2. [If you see failures...](#failures)
-2. [Multi step web tests](#multistep)
-1. [Edit or disable a test](#edit)
-
-
- [Video](#video)
- [Next steps](#next)
 
 ## Setting up a web test
 

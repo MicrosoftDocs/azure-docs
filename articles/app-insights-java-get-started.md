@@ -1,6 +1,18 @@
-<properties pageTitle="Get started with Application Insights in a Java web project" description="Monitor performance and usage of your Java website with Application Insights" services="application-insights" authors="alancameronwills" manager="kamrani" />
+<properties 
+	pageTitle="Get started with Application Insights in a Java web project" 
+	description="Monitor performance and usage of your Java website with Application Insights" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-29" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-29" 
+	ms.author="awills"/>
  
 # Get started with Application Insights in a Java web project
 
@@ -9,6 +21,7 @@ By adding Application Insights to your project, you can detect and diagnose perf
 In addition, you can set up web tests to monitor your application's availability, and insert code into your web pages to understand usage patterns.
 
 You'll need:
+
 * Oracle JRE 1.6 or later
 * A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
 
@@ -20,17 +33,20 @@ You'll need:
 
 1. Log into the [Microsoft Azure Portal](https://portal.azure.com)
 2. Create a new Application Insights resource
+
     ![Click + and choose Application Insights](./media/app-insights-java-get-started/01-create.png)
 3. Set the application type to Java web application.
+
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
 4. Find the instrumentation key of the new resource. You'll need to paste this into your code project shortly.
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
 ### Add the Application Insights SDK for Java to your project
 
 *Choose the appropriate way for your project.*
 
-#### Add the SDK using Maven
+#### If you're using Maven...
 
 If your project is already set up to use Maven for build, merge the following snippet of code to your pom.xml file.
 
@@ -48,11 +64,11 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
          <groupId>com.microsoft.azure</groupId>
          <artifactId>applicationinsights-core</artifactId>
-         <version>0.9.+</version>
+         <version>[0.9,)</version>
       </dependency>
     </ dependencies>
 
-#### Add the SDK using Gradle
+#### If you're using Gradle...
 
 If your project is already set up to use Gradle for build, merge the following snippet of code to your build.gradle file.
 
@@ -66,9 +82,9 @@ Then refresh the project dependencies, to get the binaries downloaded.
       compile group: 'com.microsoft.azure', name: 'applicationinsights-core', version: '0.9.+'
     }
 
-#### Manual download
+#### Otherwise ...
 
-Otherwise:
+Manually add the SDK:
 
 1. Download the [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
 2. Extract the following binaries from the zip file, and add them to your project:
@@ -117,7 +133,7 @@ Events can be displayed on the portal as an aggregated count, and you can also d
 
 #### Track exceptions
 
-Exception telemetry allows you to see how often different types of exceptions have occurred. You can also investigate the stack state of individual exceptions:
+Exception telemetry allows you to see how often different types of exceptions have occurred. You can also investigate the stack trace of individual exceptions:
 
 
     TelemetryClient client = new TelemetryClient();
@@ -154,6 +170,31 @@ For example:
     
     telemetry.trackEvent("WinGame", properties, measurements);
 
+## View your results in Application Insights
+
+Run your application.
+
+Return to your Application Insights resource in Microsoft Azure.
+
+Data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
+
+![Click through to more data](./media/appinsights/appinsights-41firstHealth.png)
+
+Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
+
+## Next steps
+
+#### Detect and diagnose issues
+
+* [Set up web tests][availability] to make sure your application stays live and responsive.
+* [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
+* [Search events and logs][diagnostic] to help diagnose problems.
+* [Capture Log4J or Logback traces][javalogs]
+
+#### Track usage
+
+* [Add web client telemetry][usage] to monitor page views and basic user metrics.
+* [Track custom events and metrics][track] to learn about how your application is used.
 
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]

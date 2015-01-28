@@ -14,7 +14,7 @@
 	ms.date="2015-01-09" 
 	ms.author="awills"/>
  
-# Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
+# Troubleshooting and Q & A - Application Insights on Microsoft Azure Preview
 
 + [Can I use Application Insights with...?](#platforms)
 + [I don't see any option to Add Application Insights to my project in Visual Studio](#q01)
