@@ -64,7 +64,7 @@ which is a representation of the following table:
 | 9/21/2014 11:10 | 9.09 | 0      | 0      | -1.070304977      | 0               | -0.884548154         | 0                  |  
 | 9/21/2014 11:15 | 0    | 0      | 0      | -1.051862374      | 0               | -1.173800281         | 0                  |  
 
-[1]: ./media/machine-learning-apps-anomaly-detection/anomalydetection.JPG
+[1]: ./media/machine-learning-apps-anomaly-detection/AnomalyDetection.JPG
 
  
 
