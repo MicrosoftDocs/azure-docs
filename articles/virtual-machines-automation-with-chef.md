@@ -20,7 +20,7 @@ Chef is a great tool for delivering automation and desired state configurations.
 
 With our latest cloud-api release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.
 
-In this article, I’ll show you how to setup your Chef environment to provision Azure Virtual Machines and walk you through creating a policy or “cookbook” and then deploying this cookbook to an Azure VM.
+In this article, I’ll show you how to setup your Chef environment to provision Azure Virtual Machines and walk you through creating a policy or “CookBook” and then deploying this cookbook to an Azure VM.
 
 Let’s begin!
 
@@ -221,6 +221,7 @@ Don’t forget we can also connect through an RDP session from the Azure Portal 
 
 I hope this has been helpful! Go  and start your Infrastructure as Code journey with Azure today!
 
+Diego Viso [MSFT]
 
 <!--Image references-->
 [2]: ./media/virtual-machines-automation-with-chef/2.png
