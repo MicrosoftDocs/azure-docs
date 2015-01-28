@@ -4,26 +4,26 @@
 
 
 # Azure Machine Learning API service operations 
-The typical Microsoft Azure Machine Learning (Azure ML) project involves the following high level steps:  
+The typical Azure Machine Learning project involves the following high-level steps:  
 
-1.	Getting, analyzing, and preparing data
-2.	Creating Machine Learning experiments leveraging various ML algorithms
-3.	Training, testing, and generating a trained model
-4.	Creating an operational workflow using the trained model and deploying the workflow into production
-5.	Monitoring the performance of the model and subsequent updates  
+1.	Get, analyze, and prepare data
+2.	Create Machine Learning experiments by leveraging various Machine Learning algorithms
+3.	Train, test, and generate a trained model
+4.	Create an operational workflow by using the trained model and deploying the workflow into production
+5.	Monitor the performance of the model and subsequent updates  
 
->The term “experiment” is used to describe an interactive workflow which can include data input and manipulation, trainers, and scorers in form of a Directed Acyclic Graph (DAG). Once the workflow is published as an Azure Web Service, it is no longer interactive meaning that, to change it, the model has to be updated then republished to update the Web Service and its behavior.  
+>The term “experiment” is used to describe an interactive workflow, which can include data input and manipulation, trainers, and scorers in form of a directed acyclic graph (DAG). When the workflow is published as an Azure Website, it is no longer interactive. This means that to change the model, it has to be updated then republished to update the website and its behavior.  
 
-Steps 1-3 are typically done by a data scientist through multiple iterations at the end of which an ML model is handed off to the engineering and operations teams to integrate into the production systems so the ML model can be used in production.  
+Steps 1-3 are typically done by a data scientist through multiple iterations. Upon completion, a Machine Learning model is handed off to the engineering and operations teams to integrate into the production systems so the Machine Learning model can be used in production.  
 
-The traditional process of integrating and deploying the ML model into a production system can take weeks or even months depending on the code used to build the models such as R, Python, C#, or Java, the platform integration and infrastructure considerations, and deployment planning.  
+The traditional process of integrating and deploying the Machine Learning model into a production system can take weeks or even months, depending on the code that is used to build the models (such as R, Python, C#, or Java), the platform integration and infrastructure considerations, and deployment planning.  
 
-Azure ML simplifies and streamlines this process by first making the model creation and evaluation an easy and intuitive experience, then providing a simple process to deploy the experiment as a Web Service in Azure thus significantly reducing the total time from model experimentation to running the model in production as a Web Service.  
+Machine Learning simplifies and streamlines this process by making the model creation and evaluation an easy and intuitive experience. Machine Learning then provides a simple process to deploy the experiment as a Web Service in Azure, thus significantly reducing the total time from model experimentation to running the model in production as a Web Service.  
 
-This document describes the concepts and steps in setting up an Azure ML Web Service from an ML experiment.  
+This document describes the concepts and steps for setting up a Machine Learning Web Service from a Machine Learning experiment.  
 
-# Overview of Azure ML Process  #
-Azure ML enables creation of Web Services from ML experiments defined in the Azure Machine Learning Studio (ML Studio). An Azure ML Web Service can be used to make predictions based on actual input data in real time or in batch mode.  
+# Overview of Azure Machine Learning process  #
+Machine Learning enables creation of Web Services from Machine Learning experiments, which are defined in the Machine Learning Studio. A Machine Learning Web Service can be used to make predictions based on actual input data in real-time or in batch mode.  
  
 The following diagram shows the steps at a high level in two parts: first building a model, and second publishing it as a Web Service. This document focuses on the right side of the Figure 1 diagram – Publishing a scoring Web Service - and explains the concepts involved in that process. 
 
