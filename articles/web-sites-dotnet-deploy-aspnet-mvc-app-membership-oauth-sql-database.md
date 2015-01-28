@@ -3,8 +3,8 @@
 	description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." 
 	services="web-sites, sql-database" 
 	documentationCenter=".net" 
-	authors="riande" 
-	writer="riande" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="1/14/2015" 
+	ms.date="1/28/2015" 
 	ms.author="riande"/> 
 
 
