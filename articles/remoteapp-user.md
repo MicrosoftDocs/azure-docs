@@ -1,4 +1,4 @@
-<properties title="Add a user in RemoteApp" pageTitle="Add a user in RemoteApp" description="Learn how to add users in RemoteApp" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties pageTitle="Add a user in RemoteApp" description="Learn how to add users in RemoteApp" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" />
 
