@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2014" 
+	ms.date="1/28/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory
@@ -37,7 +37,6 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
 	- **Scripts:** It includes Hive and Pig scripts that are used for processing the data and invoked from the pipelines
 	- **SampleData:** It includes sample data for this walkthrough
 	- **OnPremises:** It includes JSON files and script that are used for demonstrating accessing your on-premises data
-	- **AzureEnvironmentSetup.ps1:** This is the PowerShell script for setting up the Azure environment
 	- **uploadSampleDataAndScripts.ps1:** This script uploads the sample data & scripts to Azure.
 5. Make sure you have created the following Azure Resources:			
 	- Azure Storage Account.
@@ -47,13 +46,10 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
  	- **Azure Storage Account** - Account name and account key.  
 	- **Azure SQL Database** - Server, database, user name, and password.
 	- **Azure HDInsight Cluster**. - Name of the HDInsight cluster, user name, password, and account name and account key for the Azure storage associated with this cluster. If you want to use an on-demand HDInsight cluster instead of your own HDInsight cluster you can skip this step.  
- 8. Launch **Azure PowerShell** and navigate to **C:\ADFWalkthrough** and run the preparation script .**\AzureEnvironmentSetup.ps1**.
- 
-		You should have your subscription name and the Microsoft account associated with the subscription before running the script.
-
-		You need to setup the Azure Environment using the above script every time you launch the  Azure PowerShell. The config is not persisted across sessions and needs to be executed separately even when using multiple sessions simultaneously.
-
-		Alternatively, you can use the cmdlet **Add-AzureAccount** to sign in to Azure and select a subscription (if you have multiple subscriptions) by using **Select-AzureSubscription** cmdlet.
+8. Launch **Azure PowerShell** and execute the following commands. Keep the Azure PowerShell open. If you close and reopen, you need to run these commands again.
+	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign-in to the Azure Preview Portal.  
+	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
+	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure Preview Portal.
 	
 
 ## Overview
@@ -122,8 +118,7 @@ The tables, user-defined types and stored procedures are used when moving the Ma
 	> [AZURE.NOTE] This script requires you have sqlcmd utility installed on your machine. If you have SQL Server isntalled, you already have it. Otherwise, [download][sqlcmd-install] and install the utility. 
 	> Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.   
 2. Confirm that your local machine is allowed to access the Azure SQL Database. To enable access, use the **Azure Management Portal** or **sp_set_firewall_rule** on the master database to create a firewall rule for the IP address of your machine. It may take up to five minutes for this change to take effect. See [Setting firewall rules for Azure SQL][azure-sql-firewall].
-3. Launch **Azure PowerShell**. 
-4. Navigate to the location where you have extracted the samples (for example: **C:\ADFWalkthrough**)
+4. In Azure PowerShell, navigate to the location where you have extracted the samples (for example: **C:\ADFWalkthrough**)
 5. Run **uploadSampleDataAndScripts.ps1** 
 6. Once the script executes successfully, you will see the following:
 
@@ -193,7 +188,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
 	- Click **LogProcessingFactory** on the **Startboard** (home page)
 	- Click **BROWSE** on the left, click **Everything**, click **Data factories**, and click the data factory.
  
-
+	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LogProcessingFactory” is not available**, change the name (for example, yournameLogProcessingFactory). Use this name in place of LogProcessingFactory while performing steps in this tutorial.
  
 ### <a name="MainStep3"></a> Step 3: Create linked services
 
@@ -240,7 +235,10 @@ In this step, you will create the following linked services: StorageLinkedServic
 
 12. Confirm that you see all the three data stores you have created: **StorageLinkedService**, **HDInsightStorageLinkedService**, and **AzureSqlLinkedService**.
 13. You need to create another linked service, but this one is to a Compute service, specifically **Azure HDInsight cluster**. The portal does not support creating a compute linked service yet. Therefore, you need to use Azure PowerShell to create this linked service. 
-14. Switch to **Azure PowerShell** if you have it already open (or) launch **Azure PowerShell**.
+14. Switch to **Azure PowerShell** if you have it already open (or) launch **Azure PowerShell**. If you had closed and reopened Azure PowerShell, you need to run the following commands: 
+	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign-in to the Azure Preview Portal.  
+	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
+	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure Preview Portal. 
 15. Switch to **AzureResourceManager** mode as the Azure Data Factory cmdlets are available in this mode.
 
 		Switch-AzureMode AzureResourceManager
@@ -258,7 +256,7 @@ In this step, you will create the following linked services: StorageLinkedServic
 	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
     	    	"UserName": "<username>",
     	    	"Password": "<password>",
-    	    	"LinkedServiceName": "MyBlobStore"
+    	    	"LinkedServiceName": "HDInsightStorageLinkedService"
     		}
 		
 
@@ -304,34 +302,17 @@ The Azure Portal does not support creating data sets/tables yet, so you will nee
 
 3. Repeat the previous step to create the following tables:	
 		
-	- **PartitionedGameEventsTable**
-
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
-
-	- **RefGeoCodeDictionaryTable**
-
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
-
-	- **RefMarketingCampaignTable**
-
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
-
-	- **EnrichedGameEventsTable**
-
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
-
-	- **MarketingCampaignEffectivenessSQLTable**
-
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
-
-	- **MarketingCampaignEffectivenessBlobTable**
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
