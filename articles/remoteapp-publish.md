@@ -1,4 +1,4 @@
-<properties title="Publish an app in RemoteApp" pageTitle="Publish an app in RemoteApp" description="Learn how to publish applications and resources in RemoteApp" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties pageTitle="Publish an app in RemoteApp" description="Learn how to publish applications and resources in RemoteApp" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="elizapo" />
 

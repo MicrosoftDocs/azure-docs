@@ -18,7 +18,7 @@
 
 
 
-# Upgrade to the Latest SQL Database Update V12
+# Upgrade to the Latest SQL Database Update V12 (preview)
 
 
 [Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. First, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information. 

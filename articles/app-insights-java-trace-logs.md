@@ -1,19 +1,31 @@
-<properties pageTitle="Explore Java trace logs in Application Insights" description="Search Log4J or Logback traces in Application Insights" services="application-insights" authors="alancameronwills" manager="kamrani" />
+<properties 
+	pageTitle="Explore Java trace logs in Application Insights" 
+	description="Search Log4J or Logback traces in Application Insights" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-29" ms.author="awills" />
- 
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-29" 
+	ms.author="awills"/>
+
 # Explore Java trace logs in Application Insights
 
-If you’re using Log4J (v1.2 or v2.0) or Logback for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
+If you’re using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
-Install [Application Insights SDK for Java, if you haven't already done that][java].
+Install [Application Insights SDK for Java][java], if you haven't already done that.
 
 
 ## Add logging libraries to your project
 
 *Choose the appropriate way for your project.*
 
-#### Add the SDK using Maven
+#### If you're using Maven...
 
 If your project is already set up to use Maven for build, merge one of the following snippets of code into your pom.xml file.
 
@@ -25,7 +37,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-logback</artifactId>
-          <version>0.9.+</version>
+          <version>[0.9,)</version>
        </dependency>
     </ dependencies>
 
@@ -35,21 +47,21 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j2</artifactId>
-          <version>0.9.+</version>
+          <version>[0.9,)</version>
        </dependency>
     </ dependencies>
 
-*Log4J v2.0*
+*Log4J v1.2*
 
     <dependencies>
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
-          <version>0.9.+</version>
+          <version>[0.9,)</version>
        </dependency>
     </ dependencies>
 
-#### Add the SDK using Gradle
+#### If you're using Gradle...
 
 If your project is already set up to use Gradle for build, add one of the following lines to the `dependencies` group in your build.gradle file:
 
@@ -112,6 +124,10 @@ The Application Insights appenders can be referenced by any configured logger, a
 Now that you’ve configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Diagnostic Search][diagnostic] blade.
 
 ![In the Application Insights portal, open Diagnostic Search](./media/app-insights-java-get-started/10-diagnostics.png)
+
+## Next steps
+
+[Diagnostic search][diagnostic]
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
