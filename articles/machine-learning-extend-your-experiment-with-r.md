@@ -1,6 +1,21 @@
-<properties title="Extend your experiment with R" pageTitle="Extend your experiment with R | Azure" description="How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties
+	pageTitle="Extend your experiment with R | Azure"
+	description="How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module."
+	services="machine-learning"
+	documentationCenter=""
+	authors="Garyericson"
+	manager="paulettm"
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/09/2015" ms.author="garye" />
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/09/2015"
+	ms.author="garye" />
+
 
 #Extend your experiment with R 
 
