@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="1/28/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,7 +25,7 @@ See the [Policy Reference][] for a full list of policy statements and their sett
 
 Policies are applied inside the proxy which sits between the API consumer and the managed API. The proxy receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
-##How to configure policies
+## <a name="scopes"> </a>How to configure policies
 Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the Publisher Portal.
 
 ![Policies menu][policies-menu]
@@ -73,7 +73,7 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 
 When complete configuring the statements for the policy, click Save and the changes will be propagated to the API Management proxy immediately.
 
-#Understanding policy configuration
+#<a name="sections"> </a>Understanding policy configuration
 
 A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into an inbound (request) and outbound (policy) as shown in the configuration.
 
