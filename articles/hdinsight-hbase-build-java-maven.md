@@ -24,7 +24,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 ##Requirements
 
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or higher. If we want to avoid surprises we work our project with the JVM [Zulu](http://ob.tener.me/1ylhIeR) which is available Azure HDInsight (Hadoop).
+* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or higher
 
 * [Maven](http://maven.apache.org/)
 
