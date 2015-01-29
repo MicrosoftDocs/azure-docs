@@ -18,7 +18,7 @@
 	ms.author="juliako"/>
 
 
-<h1><a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account</h1>
+#<a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account
 
 Media Services enables you to add multiple streaming endpoints to your account and to configure the streaming endpoints. Each Media Services account has at least one streaming endpoint called **default** associated with it.
 
@@ -50,10 +50,10 @@ To change the number of streaming units, do the following:
 	The allocation of any new streaming units takes around 20 minutes to complete. 
 
 	 
-	>[Azure.Note] Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
+	>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
 
-	>[Azure.Note] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
-	>
+	>[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+	
 ##Configuring the Streaming Endpoint
 
 The CONFIGURE tab enables you to perform configurations as shown in this image. The description of the fields follows.
