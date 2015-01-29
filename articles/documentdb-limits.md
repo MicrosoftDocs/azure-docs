@@ -37,7 +37,7 @@ The following table describes the limits and quota enforcements of DocumentDB du
 |Maximum execution time for stored procedure and trigger     |5 seconds
 |Provisioned document storage / capacity unit |10 GB
 |Provisioned Request Units / sec / capacity unit     |2000
-|Maximum document storage per database (5 capacity units)    |50 GB
+|Maximum document storage per database (5 capacity units)    |500 GB
 |Maximum Length of the Id property    |255 characters
 |Default number of items per page     |100
 |Maximum items per page        |1000
