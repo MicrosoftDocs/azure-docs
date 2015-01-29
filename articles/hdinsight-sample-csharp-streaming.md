@@ -16,7 +16,7 @@
 	ms.date="11/10/2014" 
 	ms.author="bradsev"/>
 
-# The C# streaming wordcount Hadoop sample in HDInsight
+# The C# streaming wordcount MapReduce sample in Hadoop on HDInsight
  
 Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write MapReduce programs in C# that uses the Hadoop streaming interface and how to run the programs on Azure HDInsight using Azure PowerShell cmdlets. 
 
