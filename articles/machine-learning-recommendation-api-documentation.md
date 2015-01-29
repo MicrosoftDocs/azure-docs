@@ -64,7 +64,7 @@ This document depicts Azure ML Recommendations APIs.
   - [9.6. Delete Usage File](#96-delete-usage-file)
   - [9.7. Delete All Usage Files](#97-delete-all-usage-files)
 - [10. Features](#10-features)
-    - [10.1. Get Features Info](#101-get-features-info-for last rank build)
+    - [10.1. Get Features Info](#101-get-features-info-for-last-rank-build)
     - [10.2. Get Features Info (For Specific Rank Build)](#102-get-features-info-for-specific-rank-build)
 - [11. Build](#11-build)
     - [11.1. Build Parameters](#111-build-parameters)
@@ -1833,7 +1833,7 @@ OData
 
 This section explains the different API related to builds. Currently two types of build are possible: a recommendation build and a rank build. The recommendation build is used to generate a recommendation model used for predictions. A rank build is a technical build that allows you to learn about the usefulness of your features. Usually in order to get the best result for a recommendation model involving features you should follow the following steps:
 - Trigger a rank build (unless the score of your features is stable) and wait till you get the feature score.
-- Retrieve the rank of your features by calling the [Get Features Info](#101-get-features-info-for last rank build) API.
+- Retrieve the rank of your features by calling the [Get Features Info](#101-get-features-info-for-last-rank-build) API.
 - Configure a recommendation build with the following parameters:
 	- `useFeatureInModel` - set to True
 	- `ModelingFeatureList` - set to a coma separated list of features with a score of 2.0 or more (according to the rank you reteive in previous step).
