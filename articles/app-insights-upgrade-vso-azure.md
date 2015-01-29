@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Upgrade from the old Visual Studio Online version of Application Insights" 
-	description="Upgrade existing projects" services="application-insights" 
+	description="Upgrade existing projects"
 	services="application-insights" 
 	authors="alancameronwills" 
 	manager="kamrani"/>
