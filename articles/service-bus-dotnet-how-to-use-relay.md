@@ -268,7 +268,7 @@ Replace the placeholders with your Service Bus service namespace and SAS key.
             <behavior name="sbTokenProvider">
                 <transportClientEndpointBehavior>
                     <tokenProvider>
-                        <sharedAccessSignature keyName="RootManageSharedAccessKey" issuerSecret="yourKey" />
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>
@@ -340,7 +340,7 @@ and SAS key.
             <behavior name="sbTokenProvider">
                 <transportClientEndpointBehavior>
                     <tokenProvider>
-                        <sharedAccessSignature keyName="RootManageSharedAccessKey" issuerSecret="yourKey" />
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>
