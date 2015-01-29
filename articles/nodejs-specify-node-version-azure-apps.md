@@ -1,4 +1,4 @@
-<properties pageTitle="Specifying a Node.js Version" description="" services="" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Specifying a Node.js Version" description="Learn how to specify the version of Node.js used by Azure Web Sites and Cloud Services" services="" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
 
 <tags ms.service="" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 

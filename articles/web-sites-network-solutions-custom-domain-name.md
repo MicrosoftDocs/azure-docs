@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure a Network Solutions domain name for an Azure website" 
-	description="" 
+	description="Learn how to use a domain name from Network Solutions with Azure Web Sites" 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="blackmist" 
