@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="Using mobile services in Cordova projects" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="ghogen" 
+	authors="patshea" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/11/2014" 
-	ms.author="ghogen"/>
+	ms.author="patshea"/>
 
 ### Using Mobile Services with Cordova Projects in Visual Studio 2015 Preview
 
