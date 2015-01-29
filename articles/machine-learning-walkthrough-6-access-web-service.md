@@ -3,7 +3,7 @@
 	description="Step 6: Access an active Azure Machine Learning API web service" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

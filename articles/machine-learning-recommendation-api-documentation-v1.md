@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/14/2014" 
-	ms.author="AharonGumnik"/>
+	ms.author="v-ahgumn"/>
 
 #Azure Machine Learning Recommendations API Documentation
 Version: 1.0<br>

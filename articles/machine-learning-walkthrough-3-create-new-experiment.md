@@ -3,7 +3,7 @@
 	description="Step 3: Create a new training experiment in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="garye" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

@@ -3,7 +3,7 @@
 	description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

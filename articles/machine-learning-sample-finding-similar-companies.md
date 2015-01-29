@@ -3,7 +3,7 @@
 	description="A sample Azure Machine Learning experiment that uses a clustering model to find similar companies." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

@@ -1,6 +1,21 @@
-<properties title="Import your training data into Azure Machine Learning Studio" pageTitle="Import your training data into Machine Learning Studio | Azure" description="How to import your training data Azure Machine Learning Studio from various data sources" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties
+	pageTitle="Import your training data into Machine Learning Studio | Azure"
+	description="How to import your training data Azure Machine Learning Studio from various data sources"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/21/2015" ms.author="garye" />
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/21/2015"
+	ms.author="garye" />
+
 
 #Import your training data into Azure Machine Learning Studio
 

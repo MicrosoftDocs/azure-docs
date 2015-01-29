@@ -3,7 +3,7 @@
 	description="A sample Azure Machine Learning experiment to develop a regression model that predicts the number of bike rentals hourly." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
