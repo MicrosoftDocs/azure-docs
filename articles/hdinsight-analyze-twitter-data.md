@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/27/2015" 
+	ms.date="1/29/2015" 
 	ms.author="jgao"/>
 
 # Analyze Twitter data with Hadoop in HDInsight
@@ -22,7 +22,7 @@ Social websites are one of the major driving forces for Big Data adoption. Publi
 
 > [WACOM.NOTE] A similar sample is added to the HDInsight Sample Gallery. The following Channel 9 video shows how to run the sample:
 
-> [AZURE.VIDEO Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight]
+<center><iframe width="854" height="510" src="https://www.youtube.com/embed/7ePbHot1SN4" frameborder="0" allowfullscreen></iframe></center>
 
 ##In this article
 
