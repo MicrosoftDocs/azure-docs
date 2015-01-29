@@ -3,7 +3,7 @@
 	description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

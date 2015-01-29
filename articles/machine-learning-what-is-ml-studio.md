@@ -3,7 +3,7 @@
 	description="Overview of Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

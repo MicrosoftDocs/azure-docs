@@ -3,7 +3,7 @@
 	description="Publishing Azure ML Web Services to the Azure Marketplace" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

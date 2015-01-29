@@ -3,7 +3,7 @@
 	description="Step 2: Upload existing public data into Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

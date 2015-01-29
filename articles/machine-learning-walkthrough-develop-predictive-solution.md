@@ -3,7 +3,7 @@
 	description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

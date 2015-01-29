@@ -3,7 +3,7 @@
 	description="How to manage experiment iterations in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

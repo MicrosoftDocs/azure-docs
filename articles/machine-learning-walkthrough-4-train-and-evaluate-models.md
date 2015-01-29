@@ -3,7 +3,7 @@
 	description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="aryericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

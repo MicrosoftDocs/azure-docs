@@ -3,7 +3,7 @@
 	description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
