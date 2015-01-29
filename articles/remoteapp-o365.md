@@ -1,4 +1,4 @@
-<properties title="Using Office365 with Azure RemoteApp" pageTitle="Using Office3 65 with Azure RemoteApp" description="Learn how Office 365 and Azure RemoteApp work together" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties pageTitle="Using Office3 65 with Azure RemoteApp" description="Learn how Office 365 and Azure RemoteApp work together" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="elizapo" />
 
