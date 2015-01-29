@@ -7,9 +7,9 @@
 ##Questions about consuming from Marketplace
 
 
-**1. Why do I get the following error message after I enter input for the web service:
+**1. Why do I get the following error message after I enter input for the web service:**
 
-The request resulted in a back-end time out or back-end error. The team is investigating the issue. We are sorry for the inconvenience. (500)**
+**The request resulted in a back-end time out or back-end error. The team is investigating the issue. We are sorry for the inconvenience. (500)**
 
 Your input parameter(s) may not conform to the required format for the specific web service. Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.
 
@@ -17,9 +17,9 @@ Your input parameter(s) may not conform to the required format for the specific 
 
 You should use your Marketplace account as the username and the primary account key as the password. The primary account key can be found on the **Explore this dataset** page under the description of the web service (click the **show** button). The result may display in the browser or it may be available to  download, depending on which browser you are using.
 
-**3. Why do I get the following error message after I enter the input for the web service on the "Explore this dataset" page: 
+**3. Why do I get the following error message after I enter the input for the web service on the "Explore this dataset" page:** 
 
-An unexpected error occurred while processing your request. Please try again.**
+**An unexpected error occurred while processing your request. Please try again.**
 
 One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-r-csharp-web-service-examples/).
 
