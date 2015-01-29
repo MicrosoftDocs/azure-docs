@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure an eNom domain name for an Azure website" 
-	description="" 
+	description="Learn how to use a domain name from eNom with Azure Web Sites" 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="blackmist" 

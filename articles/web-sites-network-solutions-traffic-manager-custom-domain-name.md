@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure a Network Solutions domain name for an Azure website that uses Traffic Manager" 
-	description="" 
+	description="Learn how to use a domain name from GoDaddy with Azure Web Sites" 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="blackmist" 

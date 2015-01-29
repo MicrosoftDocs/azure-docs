@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure a Register.com domain name for an Azure website" 
-	description="" 
+	description="Learn how to use a domain name from Register.com with Azure Web Sites" 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="blackmist" 
