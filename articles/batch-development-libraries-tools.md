@@ -12,16 +12,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2015" 
+	ms.date="01/29/2015" 
 	ms.author="danlep"/>
 
 
 # Azure Batch development libraries and tools 
 <p> Get these libraries and tools to develop Azure Batch and Batch Apps applications.
-
-+ [Batch]
-+ [Batch Apps]
-+ [Additional resources]
 
 ## Batch
 
@@ -37,6 +33,8 @@
 + [Batch Apps Cloud SDK](http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/) (NuGet) – Enable applications to offload jobs to the Batch service
 + [Batch Apps Visual Studio Extension](https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a) (Visual Studio Gallery) – Cloud-enable applications in Visual Studio using the Batch Apps Cloud SDK
 + [Batch Apps Client SDK](http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/) (NuGet) – Interact with applications enabled to offload jobs to the Batch service
++ [Batch Apps Python Client](https://github.com/Azure/azure-batch-apps-python) (GitHub) - Python client module to interact with applications set up in a Batch Apps service
++ [Batch Apps Blender Sample](https://github.com/Azure/azure-batch-apps-blender) (GitHub) - Addon to Blender open source rendering software that uses the Batch Apps SDK and Python client to set up a cloud-based rendering platform
 
 
 ## Additional resources

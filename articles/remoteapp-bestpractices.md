@@ -1,4 +1,4 @@
-<properties title="Azure RemoteApp best practices" pageTitle="Azure RemoteApp best practices" description="Best practices for configuring and using RemoteApp." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties pageTitle="Azure RemoteApp best practices" description="Best practices for configuring and using RemoteApp." services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/31/2014" ms.author="elizapo" />
 

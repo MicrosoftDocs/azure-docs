@@ -171,9 +171,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 7. Verify that the app works with all the changes you've made so far. Run the app now in the simulator. Add items to the todo list, and then click on them. You'll see the (currently empty) item view controller.
 
-      ![][add-todo-item-view-controller-4]
-
-      ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4]          ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Add Item Details to Todo Item View Controller
 
