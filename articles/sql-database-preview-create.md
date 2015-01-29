@@ -31,7 +31,7 @@
 | 5. In **SQL Database blade**, click **SERVER**. A **Server** blade opens that provides two choices: either you can create a new server or use an existing server.| ![select type of server][4] |
 |5a. If you select **Use an existing server** option, select a server of your choice and click **Select**. Then, complete all the actions from step 6 on wards.| ![select a server from the list][5]| 
 |5b.   If you select **Create a new server**, the **New server** blade opens. Specify the server name, server admin login, and password. Click **Location**   to select the server location. | ![Complete create new server options][9]| 
-|5c.The **New server** blade gives you the choice to create the new server with V12 updates. To learn more about the features in V12 servers, review [What's new in Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/).| ![Select V12 server][6]|
+|5c.The **New server** blade gives you the choice to create the new server with V12 updates. To learn more about the features in V12 servers, review [What's new in Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/).| ![Select V12 server][6] <br/><br/>......<br/><br/> ![Do not select V12 server][14]|
 |5d. Make your selections on **New server** blade and click **OK**. That will take you back to **SQL Database** blade to complete the rest of the actions to create a database. | ![Complete New Server blade actions][8]|
 |6. Click **Select Source**. The different types of sources you can select from to create a database are: a blank database, a sample database or from a backup of a database.| ![Select the source for the database][10]|
 |7. Next, in **SQL database** blade, click **PRICING TIER**. You can select the recommended pricing tier or browse all available pricing tiers. After you make a choice, click **Select**. <p> For more information about pricing tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](http://azure.microsoft.com/en-us/documentation/articles/sql-database-upgrade-new-service-tiers/) and [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/en-us/library/azure/dn741336.aspx). |![Select a pricing tier][7]
@@ -50,12 +50,13 @@
 [2]: ./media/sql-database-preview-create/new.png
 [3]: ./media/sql-database-preview-create/sqldatabase.png
 [4]: ./media/sql-database-preview-create/databasename.png
-[5]: ./media/sql-database-preview-create/useexistingserver.png
-[6]: ./media/sql-database-preview-create/v12server.png
+[5]: ./media/sql-database-preview-create/useexistingserver.PNG
+[6]: ./media/sql-database-preview-create/v12server.PNG
 [7]: ./media/sql-database-preview-create/pricingtierdetails.png
 [8]: ./media/sql-database-preview-create/finishnewserverblade.png
 [9]: ./media/sql-database-preview-create/createnewserver.png
 [10]: ./media/sql-database-preview-create/selectsource.png
 [11]: ./media/sql-database-preview-create/resourcegroup.png
 [12]: ./media/sql-database-preview-create/create.png
-[13]: ./media/sql-database-preview-create/subscription.png
+[13]: ./media/sql-database-preview-create/subscription.PNG
+[14]: ./media/sql-database-preview-create/noV12.PNG
