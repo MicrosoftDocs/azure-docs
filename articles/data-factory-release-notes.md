@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2015" 
+	ms.date="01/29/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
 
-## Notes for 1/25/2015 release of Data Factory ##
+## Notes for 1/26/2015 release of Data Factory ##
 
 
 ### New changes
@@ -27,7 +27,7 @@
 - **SqlSink** supports a new property: **WriteBatchTimeout**. This property gives you the flexibility to configure how long to wait for the batch insert operation to complete before the operation times out. For a hybrid copy (copy operation that involves an on-premises data source and a cloud data source), you must have the gateway of version 1.4 or higher to use this property. 
 - **SQL Server linked service** now supports **Windows Authentication**. 
 	- When creating a SQL Server linked service using the portal, you can now choose to use Windows Authentication and set appropriate credentials. This requires you to have the gateway of version 1.4 or higher. 
-	- When creating a SQL Server linked service using Azure PowerShell, you can specify connection information in plain text or encrypt the connection information using updated [New-AzureDataFactoryEncryptValue cmdlet][adf-encrypt-value-cmdlet] and then use the encrypted string for the Connection String property in the linked service JSON payload. See [Linked Services][adf-msdn-linked-services] for details about defining a linked service in JSON. To use the encryption feature, you must have the gateway of version 1.4 or higher and Azure PowerShell version of 0.8.14 (Jan 2015) or higher.
+	- When creating a SQL Server linked service using Azure PowerShell, you can specify connection information in plain text or encrypt the connection information using updated [New-AzureDataFactoryEncryptValue cmdlet][adf-encrypt-value-cmdlet] and then use the encrypted string for the Connection String property in the linked service JSON payload. See [Linked Services][adf-msdn-linked-services] for details about defining a linked service in JSON. The encryption feature is not supported by the New-AzureDataFactoryEncryptValue cmdlet yet. 
 
 ## Notes for 12/11/2014 release of Data Factory ##
 
