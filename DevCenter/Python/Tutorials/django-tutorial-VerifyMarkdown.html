@@ -1,0 +1,548 @@
+<div title="This is rendered content from macro" class="umbMacroHolder" onresizestart="return false;" umbpageid="16279" umbversionid="d51f7ee2-604a-4605-9d5b-d4763a04c510" ismacro="true" umb_chunkname="article-left-menu" umb_chunkpath="devcenter/python" umb_hide="0" umb_macroalias="AzureChunkDisplayer"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+<h1>Creating Django applications with Python Tools for Visual Studio 2.0 Beta</h1>
+
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>In this tutorial, we'll use Python Tools for Visual Studio 2.0 Beta to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Windows Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to a Windows Azure Web Site and a Windows Azure Cloud Service.</p>
+<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/python/videos/django-tutorial-180x120.png') !important;" href="http://www.youtube.com/watch?v=S7A7VNnsA_8" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">24:01</span></div>
+</div>
+
+<p>This tutorial focuses on Python Tools for Visual Studio and Windows Azure. For more details on Django and the polls application built in this tutorial, see <a href="https://www.djangoproject.com/">https://www.djangoproject.com/</a>.</p>
+
+<div title="This is rendered content from macro" class="umbMacroHolder" onresizestart="return false;" umbpageid="16279" umbversionid="d51f7ee2-604a-4605-9d5b-d4763a04c510" ismacro="true" umb_chunkname="create-account-and-websites-note" umb_chunkpath="devcenter/shared" umb_hide="0" umb_macroalias="AzureChunkDisplayer"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+<h2>Requirements</h2>
+
+<p>To complete the tutorial, you'll need</p>
+
+<ul>
+<li><a href="http://pytools.codeplex.com">Python Tools for Visual Studio 2.0 Beta</a></li>
+<li><a href="http://www.python.org/download/">Python 2.7 (32-bit)</a></li>
+<li><a href="http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&amp;can=2&amp;q=">MySQL-python</a> (only needed for MySQL database)</li>
+<li>A supported Visual Studio SKU:
+<ul>
+<li>VS 2010 Pro or higher</li>
+<li>VS 2012 Pro or higher</li>
+<li>VS 2013 Pro or higher. Windows Azure Cloud Services publishing is not available (coming soon).</li>
+<li>VS 2013 Integrated Shell. Windows Azure Cloud Services and Windows Azure Web Sites publishing are not available. You will need to install <a href="http://www.microsoft.com/web/gallery/install.aspx?appid=IISExpress">IIS Express</a>.</li>
+</ul></li>
+<li>Windows Azure SDK 2.0 or later</li>
+</ul>
+
+<p>You can use the Web Platform installer to install the Windows Azure SDK. In Web Platform installer, search for these, which will install the SDK (not available for VS 2013 yet):</p>
+
+<ul>
+<li>Windows Azure SDK for .NET (VS 2010 SP1)</li>
+<li>Windows Azure SDK for .NET (VS 2012)</li>
+</ul>
+
+<h2>Create the project</h2>
+
+<p>Python Tools for Visual Studio supports Python Virtual Environments.  We'll create a django project and use a Virtual Environment to install our dependencies.  This is the recommended way to set up projects that are published to Windows Azure Web Sites or Cloud Services.</p>
+
+<ol>
+<li><p>Open Visual Studio, File/New Project, Django application, with the name <strong>tutorial</strong>.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-001-new-project.png" alt="" /></p></li>
+<li><p>Create a new virtual environment.  In solution explorer, right-click on <strong>Python Environments</strong> and select <strong>Add Virtual Environment</strong>.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-002-add-virtual-env.png" alt="" /></p></li>
+<li><p>Select Python 2.7 as the base Python Interpreter and accept the default name <strong>env</strong>. PTVS will install pip and/or virtualenv if you don't have them installed already.</p></li>
+<li><p>Right-click on <strong>env</strong> and Install Python package: <strong>django</strong></p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-003-install-django.png" alt="" /></p></li>
+<li><p>Django has a large number of files, so it will take some time to install. You can view the progress in the output window.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-004-install-django-output.png" alt="" /></p>
+
+<p><strong>Beta Note:</strong> In rare cases, you may see a failure in the output window. If this happens, check if the error is related to cleanup. Sometimes the cleanup will fail but installation will still be successful (scroll up in the output window to verify this). This is due to PTVS getting a lock on the newly created temporary files/folders, which prevents the pip cleanup step from deleting them.</p></li>
+<li><p>Right-click on <strong>env</strong> and Install Python package: <strong>pytz</strong> (optional but recommended, used by django for timezone support)</p></li>
+</ol>
+
+<p><strong>Note:</strong> In solution explorer, under References, you'll see a node for Django 1.4. This is used for Windows Azure Cloud Service deployment, to install Python and Django on the target machine. Don't delete the reference to Django 1.4 from the references note. Since we are using a virtual environment and installing our own Django package in it, the Django package installed in our virtual environment will be used.</p>
+
+<h2>Create the polls application</h2>
+
+<p>In this section we will add an application to handle voting in polls.</p>
+
+<p>A Django project can have multiple applications. In this tutorial, the name of our project is 'tutorial' and corresponds to the Visual Studio project. The name of the application we are adding is 'polls' and will be a folder under our project node.</p>
+
+<ol>
+<li><p>Select the <strong>project node</strong>, <strong>Add-&gt;Django app</strong>, with the name <strong>polls</strong>. This will create a folder for the application, with boilerplate code for commonly used application files.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-005-add-django-app.png" alt="" /></p></li>
+<li><p>In <strong>tutorial/settings.py</strong>, add the following to <strong>INSTALLED_APPS</strong>:</p>
+
+<pre class="prettyprint">'polls',
+</pre></li>
+<li><p>and uncomment from <strong>INSTALLED_APPS</strong>:</p>
+
+<pre class="prettyprint">'django.contrib.admin',
+</pre></li>
+<li><p>Replace <strong>tutorial/urls.py</strong> with the following code:</p>
+
+<pre class="prettyprint">from django.conf.urls import patterns, include, url
+
+
+from django.contrib import admin
+admin.autodiscover()
+
+
+urlpatterns = patterns('',
+    url(r'^', include('polls.urls', namespace="polls")),
+    url(r'^admin/', include(admin.site.urls)),
+)
+</pre></li>
+<li><p>Replace <strong>polls/models.py</strong> with the following code:</p>
+
+<pre class="prettyprint">from django.db import models
+
+
+class Poll(models.Model):
+    question = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+
+<pre class="prettyprint">def __unicode__(self):
+    return self.question
+</pre>
+
+class Choice(models.Model):
+    poll = models.ForeignKey(Poll)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+
+<pre class="prettyprint">def __unicode__(self):
+    return self.choice_text
+</pre>
+
+</pre></li>
+<li><p>Replace <strong>polls/views.py</strong> with the following code:</p>
+
+<pre class="prettyprint">from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from polls.models import Choice, Poll
+
+
+def vote(request, poll_id):
+    p = get_object_or_404(Poll, pk=poll_id)
+    try:
+        selected_choice = p.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):
+        # Redisplay the poll voting form.
+        return render(request, 'polls/detail.html', {
+            'poll': p,
+            'error_message': "You didn't select a choice.",
+        })
+    else:
+        selected_choice.votes += 1
+        selected_choice.save()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+</pre></li>
+<li><p>Add a new Python file <strong>polls/urls.py</strong> with the following code:</p>
+
+<pre class="prettyprint">from django.conf.urls import patterns, url
+from django.views.generic import DetailView, ListView
+from polls.models import Poll
+
+
+urlpatterns = patterns('',
+    url(r'^$',
+        ListView.as_view(
+            queryset=Poll.objects.order_by('-pub_date')[:5],
+            context_object_name='latest_poll_list',
+            template_name='polls/index.html'),
+        name='index'),
+    url(r'^(?P&lt;pk&gt;\d+)/$',
+        DetailView.as_view(
+            model=Poll,
+            template_name='polls/detail.html'),
+        name='detail'),
+    url(r'^(?P&lt;pk&gt;\d+)/results/$',
+        DetailView.as_view(
+            model=Poll,
+            template_name='polls/results.html'),
+        name='results'),
+    url(r'^(?P&lt;poll_id&gt;\d+)/vote/$', 'polls.views.vote', name='vote'),
+)
+</pre></li>
+<li><p>Create a new item <strong>polls/admin.py</strong> with the following code:</p>
+
+<pre class="prettyprint">from django.contrib import admin
+from polls.models import Choice, Poll
+
+
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+    extra = 3
+
+
+class PollAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['question']}),
+        ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
+    ]
+    inlines = [ChoiceInline]
+    list_display = ('question', 'pub_date')
+    list_filter = ['pub_date']
+    search_fields = ['question']
+    date_hierarchy = 'pub_date'
+
+
+admin.site.register(Poll, PollAdmin)
+</pre></li>
+<li><p>Under <strong>polls/templates</strong> folder, create a new folder named <strong>polls</strong>.</p></li>
+<li><p>Move the file <strong>polls/templates/index.html</strong> to the <strong>polls/templates/polls</strong> folder using drag &amp; drop or cut/paste.</p></li>
+<li><p>Replace <strong>polls/templates/polls/index.html</strong> with the following markup:</p>
+
+<pre class="prettyprint">&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+{% if latest_poll_list %}
+    &lt;ul&gt;
+    {% for poll in latest_poll_list %}
+        &lt;li&gt;&lt;a href="{% url 'polls:detail' poll.id %}"&gt;{{ poll.question }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+{% else %}
+    &lt;p&gt;No polls are available.&lt;/p&gt;
+{% endif %}
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></li>
+<li><p>Create a new Django HTML template <strong>polls/templates/polls/detail.html</strong> with the following:</p>
+
+<pre class="prettyprint">&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;{{ poll.question }}&lt;/h1&gt;
+{% if error_message %}&lt;p&gt;&lt;strong&gt;{{ error_message }}&lt;/strong&gt;&lt;/p&gt;{% endif %}
+&lt;form action="{% url 'polls:vote' poll.id %}" method="post"&gt;
+{% csrf_token %}
+{% for choice in poll.choice_set.all %}
+    &lt;input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" /&gt;
+    &lt;label for="choice{{ forloop.counter }}"&gt;{{ choice.choice_text }}&lt;/label&gt;&lt;br /&gt;
+{% endfor %}
+&lt;input type="submit" value="Vote" /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></li>
+<li><p>Create a new Django HTML template <strong>polls/templates/polls/results.html</strong> with the following:</p>
+
+<pre class="prettyprint">&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;{{ poll.question }}&lt;/h1&gt;
+&lt;ul&gt;
+{% for choice in poll.choice_set.all %}
+    &lt;li&gt;{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+&lt;a href="{% url 'polls:detail' poll.id %}"&gt;Vote again?&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></li>
+<li><p>You should now have the following files in your project:</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-006-solution-explorer.png" alt="" /></p></li>
+</ol>
+
+<h2>Create a sqlite3 database locally</h2>
+
+<p>Our web application is almost ready to use, but first we need to configure a database.  To test our web site locally, we'll create a sqlite3 database.  This is a very lightweight database which doesn't require any additional installation.  The database file will be created in the project folder.</p>
+
+<ol>
+<li><p>In <strong>tutorial/settings.py</strong>, add the following import to the top of the file:</p>
+
+<pre class="prettyprint">from os import path
+</pre></li>
+<li><p>Add the following definition near the top of the file, after the import:</p>
+
+<pre class="prettyprint">PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
+</pre></li>
+<li><p>Change the DATABASES section to the following code:</p>
+
+<pre class="prettyprint">DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': path.join(PROJECT_ROOT, 'db.sqlite3'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+</pre></li>
+<li><p>Right-click on the project node and select <strong>Django Sync DB</strong>.  A Django management interactive window will appear.  Since the database doesn't exist yet, it will prompt you to create administrator credentials.  Enter a user name and password. Email is optional.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-007-sqlite3.png" alt="" /></p></li>
+<li><p>Start the web site with F5 or CTRL-F5. This will launch the django development server and start your web browser. The root url for the web site displays the index of polls, but there aren't any in the database yet.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-008-dev-server.png" alt="" /></p></li>
+<li><p>Navigate to <strong>http://localhost:{port}/admin</strong>. You can get the port number from the development server console window. Login using the credentials you created in the previous step.</p></li>
+<li><p>Use the admin interface to add one or two polls.  Do not spend too much time adding polls to the local database. We'll switch to a cloud database later and repopulate the database then.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-009-admin-add-poll.png" alt="" /></p></li>
+<li><p>Navigate to <strong>http://localhost:{port}/</strong>.  You'll see an index of the polls you've added.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-010-index.png" alt="" /></p></li>
+<li><p>Click on one of the polls to go to the voting page.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-011-detail.png" alt="" /></p></li>
+<li><p>Submit your vote, and you'll be redirected to the results page where you should see the vote count incremented.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-012-results.png" alt="" /></p></li>
+</ol>
+
+<h2>Use stylesheets and other static files</h2>
+
+<p>In this section, we'll update the look of our site to use a stylesheet. Static files such as stylesheets are treated differently so it's important to store them in the right location.</p>
+
+<ol>
+<li><p>In <strong>tutorial/settings.py</strong>, change the assignment of <strong>STATIC_ROOT</strong> to:</p>
+
+<pre class="prettyprint">STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\','/')
+</pre></li>
+<li><p>Under <strong>polls</strong> folder, create a new folder named <strong>static</strong>.</p></li>
+<li><p>Under <strong>polls/static</strong> folder, create a new folder named <strong>polls</strong>.</p></li>
+<li><p>Under <strong>polls/static/polls</strong> folder, create a new folder named <strong>images</strong>.</p></li>
+<li><p>Add a new text file <strong>polls/static/polls/style.css</strong> with the following:</p>
+
+<pre class="prettyprint">body {
+    color: darkblue;
+    background: white url("images/background.jpg");
+}
+</pre></li>
+<li><p>Add an existing image to the <strong>polls/static/polls/images</strong> folder, and name it <strong>background.jpg</strong>.</p></li>
+<li><p>You should now have the following files in your project:</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-013-solution-explorer.png" alt="" /></p></li>
+<li><p>Edit the header of all templates to refer to the stylesheet with the following markup:</p>
+
+<pre class="prettyprint">&lt;head&gt;
+{% load staticfiles %}
+&lt;link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /&gt;
+&lt;/head&gt;
+</pre></li>
+<li><p>Run the web site again.  The index, poll and results pages will use the stylesheet we created, with dark blue text and a background image.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-014-detail-styled.png" alt="" /></p></li>
+</ol>
+
+<h2>Debugging</h2>
+
+<p>Python Tools for Visual Studio has special support for debugging Django templates.</p>
+
+<ol>
+<li><p>Open <strong>polls/templates/polls/index.html</strong> and place a breakpoint using <strong>F9</strong> on this line:</p>
+
+<pre class="prettyprint">{% if latest_poll_list %}
+</pre></li>
+<li><p>Start debugging using <strong>F5</strong>. Visual Studio will break in the template.</p></li>
+<li><p>Open the <strong>Locals Window</strong> from <strong>Debug-&gt;Windows-&gt;Locals</strong> and you'll see the <strong>latest_poll_list</strong> variable and its value.</p></li>
+<li><p>You can press <strong>F10</strong> to step just like in regular Python code.  Inside the for loop, you should see the value of <strong>poll</strong>:</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-015-debugging.png" alt="" /></p></li>
+</ol>
+
+<h2>Create a database on Windows Azure</h2>
+
+<p>Now that we've verified that our poll application works locally, let's switch to using a database hosted on Windows Azure.</p>
+
+<p>In the following 2 sections we'll show how to use a SQL database and a MySQL database.  Both of these are hosted services.</p>
+
+<p>Another option would be to create a Virtual Machine and install a database server.  See instructions <a href="http://www.windowsazure.com/en-us/manage/linux/common-tasks/mysql-on-a-linux-vm/">here</a> for setting up MySQL on an Azure Linux VM.</p>
+
+<p><strong>Note:</strong> It's possible to use a sqlite3 database on Windows Windows Azure (for development purposes only, we do not recommend using it in production). You'll need to add the <strong>db.sqlite3</strong> file to your project in order to deploy the database with your django application.</p>
+
+<h3>SQL Database</h3>
+
+<p>In this section, we'll create a SQL database on Windows Azure, add the necessary packages to our virtual environment and change our settings to use the new database.</p>
+
+<ol>
+<li><p>In the WindowsAzure Management Portal, select <strong>SQL DATABASES</strong>.</p></li>
+<li><p>First create a server to host the database.  Select <strong>SERVERS</strong> and <strong>ADD</strong>.</p></li>
+<li><p>In the <strong>CONFIGURE</strong> tab of the newly created server, you'll see your current client IP address displayed. Next to it, click on <strong>ADD TO THE ALLOWED IP ADDRESSES</strong>.</p>
+
+<p><strong>Note:</strong> Sometimes Windows Azure doesn't detect the client IP address correctly. If you get an error when you synchronize the database, you should copy/paste the IP address from the error message and add it to the allowed IP addresses.</p></li>
+<li><p>Next, we'll create the database. In the <strong>DATABASES</strong> tab, click on <strong>ADD</strong> from the bottom bar.</p></li>
+<li><p>In Visual Studio, we'll install the packages required to access SQL Server databases from Django into our virtual environment.</p></li>
+<li><p>Right-click on <strong>env</strong> and Install Python package: <strong>pyodbc</strong> using <strong>easy_install</strong>.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-016-install-pyodbc.png" alt="" /></p></li>
+<li><p>Right-click on <strong>env</strong> and Install Python package: <strong>django-pyodbc-azure</strong> using <strong>pip</strong>.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-017-install-django-pyodbc-azure.png" alt="" /></p></li>
+<li><p>Edit <strong>tutorial/settings.py</strong> and change the <strong>DATABASES</strong> definition to the following, replacing <strong>NAME</strong>, <strong>USER</strong>, <strong>PASSWORD</strong>, and <strong>HOST</strong> to the values listed in the ClearDB control panel:</p>
+
+<pre class="prettyprint">DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': '&lt;database name&gt;',
+        'USER': '&lt;user name&gt;@&lt;server name&gt;',
+        'PASSWORD': '&lt;user password&gt;',
+        'HOST': '&lt;server name&gt;.database.windows.net',
+        'PORT': '',
+        'OPTIONS': {
+            'driver': 'SQL Server Native Client 10.0',
+            'MARS_Connection': True,
+        },
+    }
+}
+</pre>
+
+<p>You'll have to make sure to use a driver that you have installed on your machine.  Open <strong>Administrative Tools</strong> from the start menu/screen, <strong>ODBC Data Sources (32-bit)</strong>. The drivers are listed under the <strong>Drivers</strong> tab.</p>
+
+<p>When running on a Windows Azure Web Site, both <strong>SQL Server Native Client 10.0</strong> and <strong>SQL Server Native Client 11.0</strong> will work.</p></li>
+<li><p>Synchronize the database and create admin credentials like we did for the local sqlite3 database.</p></li>
+</ol>
+
+<h3>MySQL Database</h3>
+
+<p>In this section, we'll create a MySQL database on Windows Azure, add the necessary packages to our virtual environment and change our settings to use the new database.</p>
+
+<p>In the Windows Azure Store, you can add various services to your account, including a MySQL database.  We can create a trial account for free, and small databases are free up to a certain size.</p>
+
+<ol>
+<li><p>In the Windows Azure Management Portal, select <strong>NEW</strong>-&gt;<strong>STORE</strong>-&gt;<strong>APP SERVICES</strong>-&gt;<strong>ClearDB MySQL Database</strong>.  Create a database with the free plan.</p></li>
+<li><p>Next, we'll install the packages required to access MySQL databases from Django into our virtual environment.</p></li>
+<li><p>Manually copy <strong>MySQL-python</strong> from your global CPython 2.7 installation's <strong>lib/site-packages</strong> into your virtual environment <strong>lib/site-packages</strong>:</p>
+
+<ol>
+<li>Copy all <strong>_mysql*.*</strong> files</li>
+<li>Copy <strong>MySQL_python-1.2.3-py2.7.egg-info</strong> folder</li>
+<li>Copy <strong>MySQLdb</strong> folder</li>
+</ol>
+
+<p>TIP: You can quickly navigate to your Python install folder using the Interpreters Window.  Open the Interpreters Window using <strong>Ctrl-K,`</strong> and click on the <strong>View in File Explorer</strong> link.</p></li>
+<li><p>Edit <strong>tutorial/settings.py</strong> and change the <strong>DATABASES</strong> definition to the following, replacing <strong>NAME</strong>, <strong>USER</strong>, <strong>PASSWORD</strong>, and <strong>HOST</strong> to the values listed in the ClearDB control panel:</p>
+
+<pre class="prettyprint">DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '&lt;database name&gt;',
+        'USER': '&lt;user name&gt;',
+        'PASSWORD': '&lt;user password&gt;',
+        'HOST': '&lt;host url&gt;',
+        'PORT': '',
+    }
+}
+</pre></li>
+<li><p>Synchronize the database and create admin credentials like we did for the local sqlite3 database.</p></li>
+</ol>
+
+<h2>Using the Django Shell</h2>
+
+<ol>
+<li><p>Right-click on the project node and select <strong>Validate Django App</strong>.</p>
+
+<p><strong>Beta Note:</strong> There is a bug in PTVS 2.0 Beta that prevents the shell from working if you use the <strong>Open Django Shell</strong> command without first using either <strong>Validate Django App</strong> or <strong>Django Sync DB</strong>. <strong>Validate Django App</strong> doesn't change any state, and launches the shell, so it is a good workaround. This will be fixed after Beta.</p></li>
+<li><p>In this interactive window, we can access our database using our models.  Enter the following code to add a poll to the database:</p>
+
+<pre class="prettyprint">from polls.models import Poll, Choice
+from django.utils import timezone
+
+
+p = Poll(question="Favorite way to host Django on Azure?", pub_date=timezone.now())
+p.save()
+
+
+p.choice_set.create(choice_text='Web Site', votes=0)
+p.choice_set.create(choice_text='Cloud Service', votes=0)
+p.choice_set.create(choice_text='Virtual Machine', votes=0)
+</pre>
+
+<p><img src="/Media/devcenter/python/django-tutorial-018-shell-add-poll.png" alt="" /></p></li>
+<li><p>The static analysis of the models provides a limited view of the full API.  In the interactive window, you'll get IntelliSense against the live objects, so this is a great way to explore the API.  Here are some things to try in the interactive window:</p>
+
+<pre class="prettyprint"># all poll objects
+Poll.objects.all()
+
+
+# primary key for poll
+p.id
+
+
+# all choice objects for the poll
+p.choice_set.all()
+
+
+# get object by primary key
+Poll.objects.get(pk=1)
+</pre>
+
+<p><img src="/Media/devcenter/python/django-tutorial-019-shell-query.png" alt="" /></p></li>
+<li><p>Start the web site.  You should see the poll we added using the Django shell.</p></li>
+</ol>
+
+<h2>Publish to Windows Azure</h2>
+
+<p>Now that our database is on Windows Azure, the next step is to host the web site itself on Windows Azure.</p>
+
+<p>Windows Azure has a few options for hosting Django applications:</p>
+
+<ul>
+<li>Web Site</li>
+<li>Cloud Service</li>
+<li>Virtual Machine</li>
+</ul>
+
+<p>Python Tools for Visual Studio has publishing capabilities to Windows Azure Web Sites and Cloud Services.  The next 2 sections describe these, and you can choose to go through either or both of them.</p>
+
+<p>In both cases, PTVS takes care of configuring IIS for you, and will generate a web.config file for you if one is not already in the project.  Static files will be collected automatically (manage.py collectstatic) as long as you have set STATIC_ROOT in your settings.py.</p>
+
+<p>Hosting Django in a Virtual Machine is out of scope for this tutorial.  It involves creating a VM with your desired operating system (Windows or Linux), installing Python and manually deploying the Django application. </p>
+
+<h3>Windows Azure Web Site</h3>
+
+<ol>
+<li><p>First we'll need to create a Web Site.  Using the Windows Azure Management Portal, click on <strong>NEW</strong>-&gt;<strong>COMPUTE</strong>-&gt;<strong>WEB SITE</strong>-&gt;<strong>QUICK CREATE</strong>.  Pick any name that's available.</p></li>
+<li><p>Once it is created, download the publish profile for the web site.</p></li>
+<li><p>In Visual Studio, right-click on the project node and select <strong>Publish</strong>.</p></li>
+<li><p>Import the web site publish profile file you downloaded previously.</p></li>
+<li><p>Accept the defaults and click <strong>Publish</strong> to initiate the publishing.</p></li>
+<li><p>When publishing has completed, a web browser will open to the published web site.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-020-website.png" alt="" /></p></li>
+</ol>
+
+<h3>Windows Azure Cloud Service</h3>
+
+<ol>
+<li>Right-click on the project node and <strong>Add Windows Azure Cloud Service Project</strong>.  This will add a new project to the solution, with the .Azure suffix. This new project is marked as the startup project in the solution.</li>
+</ol>
+
+<h4>Run in Emulator</h4>
+
+<p><strong>Beta Note:</strong> There are issues in PTVS 2.0 Beta with Virtual Environments and the Azure Emulator. These will be fixed after Beta.</p>
+
+<ol>
+<li><p>You'll need to <strong>restart Visual Studio as an Administrator</strong> to be able to run in the compute emulator.</p></li>
+<li><p>Start debugging with <strong>F5</strong> and the app will run and deploy in the compute emulator. Verify that the admin interface works and you can vote on polls.</p></li>
+<li><p>You can now restart Visual Studio if you wish to not continue as an administrator.</p></li>
+</ol>
+
+<h4>Publish</h4>
+
+<ol>
+<li><p>Next you'll publish the Cloud Service to Windows Azure. Right-click on the Cloud Service project and <strong>Publish</strong>.</p></li>
+<li><p>You'll need to import your Windows Azure subscription publish profile.  You can click on the link in the dialog to download the profile from the Azure portal.</p></li>
+<li><p>Select <strong>Create New</strong> in the Cloud Service combo box to create a new Cloud Service. You can use any name that is available.</p></li>
+<li><p>Click <strong>Publish</strong> to initiate the publishing.</p></li>
+<li><p>This will take longer than publishing to a Web Site, as it needs to provision a VM for the Cloud Service.</p></li>
+<li><p>When the operation has completed, open a web browser by clicking on the link in the deployment window.</p>
+
+<p><img src="/Media/devcenter/python/django-tutorial-021-cloudservice.png" alt="" /></p></li>
+</ol>
+
+<h2>Conclusion</h2>
+
+<p>In this tutorial, we've developed a Django application using Python Tools for Visual Studio.  We used 3 different databases: sqlite3, SQL Server and MySQL databases.  Finally, we published the application to Windows Azure Web Sites and Cloud Services.</p>
+
