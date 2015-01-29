@@ -1,6 +1,20 @@
-<properties pageTitle="DocumentDB limits for the preview release | Azure" description="Learn about the limits and quota enforcements of DocumentDB for the preview release." services="documentdb" authors="spelluru" manager="jhubbard" editor="cgronlun" documentationCenter=""/>
+<properties 
+	pageTitle="DocumentDB limits for the preview release | Azure" 
+	description="Learn about the limits and quota enforcements of DocumentDB for the preview release." 
+	services="documentdb" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2014" 
+	ms.author="spelluru"/>
 
 
 #DocumentDB Limits for the Preview Release
@@ -13,7 +27,7 @@ The following table describes the limits and quota enforcements of DocumentDB du
 |Number of users per database account – across all databases |500,000
 |Number of permissions per database account – across all databases   |2,000,000
 |Attachment storage per database account      |2 GB
-|Maximum number of capacity units per database account       |5
+|Maximum number of capacity units per database account       |50
 |Number of collections per capacity unit      |3
 |Minimum Allocated Storage per collection with minimum 1 document    |3.3 GB
 |Minimum Allocated Throughput per collection with minimum 1 document |667 RUs
@@ -23,11 +37,11 @@ The following table describes the limits and quota enforcements of DocumentDB du
 |Maximum execution time for stored procedure and trigger     |5 seconds
 |Provisioned document storage / capacity unit |10 GB
 |Provisioned Request Units / sec / capacity unit     |2000
-|Maximum document storage per database (5 capacity units)    |50 GB
+|Maximum document storage per database (5 capacity units)    |500 GB
 |Maximum Length of the Id property    |255 characters
 |Default number of items per page     |100
 |Maximum items per page        |1000
-|Maximum request size of document and attachment       |256KB
+|Maximum request size of document and attachment       |512KB
 |Maximum request size of stored procedure, trigger and UDF        |256KB
 |Maximum response size |1MB
 |Maximum number of unique paths per collection       |100

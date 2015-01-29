@@ -1,6 +1,21 @@
-<properties pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" 
+	description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 # Controlling Azure Websites Traffic with Azure Traffic Manager
 

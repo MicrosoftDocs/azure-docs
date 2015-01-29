@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with a the DocumentDB .NET SDK | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account." services="documentdb" documentationCenter="" authors="mimig1" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Get started with a the DocumentDB .NET SDK | Azure" 
+	description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="mimig"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="mimig"/>
 
 #Get started with the DocumentDB .NET SDK  
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Use the .Net backend to validate and modify data (Windows Phone 8) | Mobile Dev Center" description="Learn how to validate, modify, and augment data for your Windows Phone app with .Net backend Windows Azure Mobile Services." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Use the .Net backend to validate and modify data (Windows Phone 8) | Mobile Dev Center" 
+	description="Learn how to validate, modify, and augment data for your Windows Phone app with .Net backend Windows Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Validate and modify data in Mobile Services using the .NET Backend
 

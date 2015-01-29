@@ -1,11 +1,24 @@
-<properties pageTitle="Use ASP.NET session state with Azure Websites" description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." services="cache" documentationCenter=".net" authors="riande" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Use ASP.NET session state with Azure Websites" 
+	description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="riande" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/13/2014" ms.author="riande"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="1/13/2015" 
+	ms.author="Rick-Anderson"/>
 
 
 # How to Use ASP.NET Session State with Azure Websites
 
-*By [Rick Anderson](https://twitter.com/RickAndMSFT). Updated 1 July 2014.*
 
 This topic explains how to use the Azure Redis Cache Service (Preview) for session state.
 
@@ -84,7 +97,7 @@ The following code retrieves this value from session state.
 You can also use the Redis Cache to cache objects in your web app. For more info see [MVC movie app with Azure Redis Cache in 15 minutes](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 For more details about how to use ASP.NET session state, see [ASP.NET Session State Overview][].
 
-  
+  *By [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
   [installed the latest]: http://www.windowsazure.com/en-us/downloads/?sdk=net  
   [ASP.NET Session State Overview]: http://msdn.microsoft.com/en-us/library/ms178581.aspx

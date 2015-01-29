@@ -1,6 +1,20 @@
-<properties pageTitle="Web app with table storage (Node.js) | Microsoft Azure" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." services="cloud-services, storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Web app with table storage (Node.js) | Microsoft Azure" 
+	description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 

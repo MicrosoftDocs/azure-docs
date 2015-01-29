@@ -1,12 +1,26 @@
-<properties pageTitle="Get started with Azure API Management" description="Learn how to create APIs, operations, and get started with API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with Azure API Management" 
+	description="Learn how to create APIs, operations, and get started with API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/27/2015" 
+	ms.author="sdanie"/>
 
 # Get started with Azure API Management
 
 This guide shows you how to quickly get started using API Management and make your first API call.
 
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 The first step in working with API Management is to create a service instance. Log in to the [Management Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
@@ -24,9 +38,9 @@ Enter **Contoso Ltd.** for the **Organization Name**, and enter your email addre
 
 ![New API Management service][api-management-create-instance-step2]
 
-API Management service instances are available in two tiers: Developer and Standard. By default, new API Management service instances are created using the Developer tier. To select the Standard tier, check the **Advanced settings** checkbox and select the Standard tier on the following screen.
+API Management service instances are available in three tiers: Developer, Standard, and Premium. By default, new API Management service instances are created using the Developer tier. To select the Standard or Premium tier, check the **Advanced settings** checkbox and select the desired tier on the following screen.
 
->Microsoft Azure offers two tiers in which you can run your API Management service: Developer and Standard. The Developer Tier is for development, testing and pilot API programs where high availability is not a concern. In the Standard tier, you can scale your reserved unit count to handle more traffic. The Standard tier provides your API Management service with the most processing power and performance. This tutorial can be completed using either tier. For more information about API Management tiers, see [API Management pricing][].
+>Microsoft Azure offers three tiers in which you can run your API Management service: Developer, Standard, and Premium. The Developer Tier is for development, testing and pilot API programs where high availability is not a concern. In the Standard and Premium tiers, you can scale your reserved unit count to handle more traffic. The Standard and Premium tiers provide your API Management service with the most processing power and performance. This tutorial can be completed using any tier. For more information about API Management tiers, see [API Management pricing][].
 
 Click the check box to create your service instance.
 

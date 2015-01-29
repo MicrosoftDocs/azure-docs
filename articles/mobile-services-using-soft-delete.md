@@ -1,6 +1,20 @@
-<properties pageTitle="Using soft delete in Mobile Services (Windows Store) | Mobile Dev Center" description="Learn how to use Azure Mobile Services soft delete feature in your application" documentationCenter="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
+<properties 
+	pageTitle="Using soft delete in Mobile Services (Windows Store) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services soft delete feature in your application" 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # Using soft delete in Mobile Services
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Get Started with Azure Cloud Services and ASP.NET" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs." services="cloud-services, storage" documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Get Started with Azure Cloud Services and ASP.NET" 
+	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
+	services="cloud-services, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra,riande"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tdykstra,riande"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
 

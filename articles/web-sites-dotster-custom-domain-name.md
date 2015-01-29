@@ -1,6 +1,20 @@
-<properties pageTitle="Configure a Dotster domain name for an Azure website" description="Learn how to configure an Azure website to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Configure a Dotster domain name for an Azure website" 
+	description="Learn how to configure an Azure website to use a domain name registered with Dotster" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr,jroth"/>
 
 #Configuring a custom domain name for an Azure Website (Dotster)
 

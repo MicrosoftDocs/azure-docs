@@ -1,6 +1,20 @@
-<properties pageTitle="Attach a disk to a virtual machine running Linux in Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Attach a disk to a virtual machine running Linux in Azure" 
+	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="kathydav"/>
 
 #How to Attach a Data Disk to a Linux Virtual Machine
 

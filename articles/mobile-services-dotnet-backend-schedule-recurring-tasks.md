@@ -1,6 +1,21 @@
-<properties pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" 
+	description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	writer="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
 

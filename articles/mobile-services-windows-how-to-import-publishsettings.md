@@ -1,6 +1,20 @@
-<properties pageTitle="Import your publish settings file in Visual Studio 2013 | Mobile Services" description="Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013." documentationCenter="windows" services="mobile-services" manager="dwrede" editor="" authors="ggailey777"/>
+<properties 
+	pageTitle="Import your publish settings file in Visual Studio 2013 | Mobile Services" 
+	description="Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013." 
+	documentationCenter="windows" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor="" 
+	authors="ggailey777"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Import your subscription publish settings file in Visual Studio 2013
 

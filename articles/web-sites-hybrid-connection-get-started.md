@@ -1,6 +1,20 @@
-<properties pageTitle="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" services="web-sites" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" 
+	description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Connect an Azure website to an on-premises resource using Hybrid Connections
 

@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Media Services (Java) - Azure feature guide" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." services="media-services" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="How to use Media Services (Java) - Azure feature guide" 
+	description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." 
+	services="media-services" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="robmcm"/>
 
 #How to Use Media Services
 

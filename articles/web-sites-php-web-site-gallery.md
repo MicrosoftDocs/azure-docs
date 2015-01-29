@@ -1,6 +1,20 @@
-<properties pageTitle="WordPress Website from Gallery - Azure tutorial" description="A tutorial that teaches you how to create a new Azure website for a WordPress blog, and then deploy it through the Management Portal." services="web-sites" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="WordPress Website from Gallery - Azure tutorial" 
+	description="A tutorial that teaches you how to create a new Azure website for a WordPress blog, and then deploy it through the Management Portal." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="tomfitz"/>
 
 
 

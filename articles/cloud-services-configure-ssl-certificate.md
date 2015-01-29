@@ -1,6 +1,20 @@
-<properties pageTitle="Configure SSL for a cloud service - Azure" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." services="cloud-services" documentationCenter=".net" authors="Thraka" manager="timlt" editor="mollybos"/>
+<properties 
+	pageTitle="Configure SSL for a cloud service - Azure" 
+	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="adegeo"/>
 
 
 

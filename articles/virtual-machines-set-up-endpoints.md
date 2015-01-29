@@ -1,6 +1,20 @@
-<properties pageTitle="Set up endpoints on a virtual machine in Azure" description="Learn how to setup communication with a virtual machine in Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Set up endpoints on a virtual machine in Azure" 
+	description="Learn how to setup communication with a virtual machine in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/29/2014" 
+	ms.author="kathydav"/>
 
 #How to Set Up Endpoints to a Virtual Machine
 

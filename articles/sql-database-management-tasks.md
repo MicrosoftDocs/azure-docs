@@ -1,6 +1,22 @@
-<properties pageTitle="How to Manage SQL Database" description="Learn how to manage Azure SQL database." headerExpose="" footerExpose="" authors="jeffgoll" manager="jeffreyg" editor="" services="sql-database" documentationCenter=""/>
+<properties 
+	pageTitle="How to Manage SQL Database" 
+	description="Learn how to manage Azure SQL database." 
+	headerExpose="" 
+	footerExpose="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor="" 
+	services="sql-database" 
+	documentationCenter=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="jeffreyg"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
 
 
 <h1><a id="swap"></a>How to Manage SQL Database</h1>

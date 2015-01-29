@@ -1,6 +1,20 @@
-<properties pageTitle="How to use diagnostics (.NET) - Azure feature guide" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." services="cloud-services" documentationCenter=".net" authors="rboucher" manager="jwhit" editor=""/>
+<properties 
+	pageTitle="How to use diagnostics (.NET) - Azure feature guide" 
+	description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/11/2014" ms.author="robb"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/11/2014" 
+	ms.author="robb"/>
 
 
 

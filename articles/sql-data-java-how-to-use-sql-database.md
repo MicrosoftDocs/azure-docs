@@ -1,6 +1,20 @@
-<properties pageTitle="How to use SQL Azure (Java) - Azure feature guide" description="Learn how to use the Azure SQL Database from Java code." services="sql-database" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="How to use SQL Azure (Java) - Azure feature guide" 
+	description="Learn how to use the Azure SQL Database from Java code." 
+	services="sql-database" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # How to Use Azure SQL Database in Java
 

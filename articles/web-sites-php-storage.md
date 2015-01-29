@@ -1,6 +1,20 @@
-<properties pageTitle="PHP website with table storage - Azure tutorial" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." services="web-sites, storage" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="PHP website with table storage - Azure tutorial" 
+	description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." 
+	services="web-sites, storage" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 #Create a PHP Website using Azure Storage
 

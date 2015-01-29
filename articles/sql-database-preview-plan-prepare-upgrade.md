@@ -1,21 +1,32 @@
-<properties pageTitle="Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)" description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." services="sql-database" documentationCenter="" authors="MightyPen" manager="jeffreyg" editor=""/>
+<properties 
+	pageTitle="Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)" 
+	description="Describes the planning, preparations, and limitations involving an upgrade to the Latest Azure SQL Database Update (preview)." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="genemi"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="genemi"/>
+
 
 # Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)
-
-<!--
-Latest Edit Datetime:  GM,  2014-12-15  Monday  16:52pm.
-sql-database-preview-plan-prepare-upgrade.md
-sql-database- , -preview- :  Set of topics using -preview- as their group identifier node.
--->
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 preview.
 
 A new [Azure portal](http://portal.azure.com/) is available to support your upgrade to the latest preview.
 
 > [AZURE.NOTE]
-> Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
+> Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.<br/><br/>
+> For version family V12, you can determine whether your geographic region is at preview status or at GA status by examining the regions table in [What's new in Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable).
+
 
 The following table lists and describes other Help topics for this latest preview.
 
@@ -107,11 +118,10 @@ Be aware of the following limitations of the latest preview:
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
 | Alert rules | Alert rules cannot be added to a V12 database. |
 | System views | The following system views exist in a V12 server, but they are not functional and they always return an empty set: <br/><br/> * sys.resource_stats <br/> * sys.event_log <br/> * sys.database_connection_stats |
-| 50% discount semi-hidden | During the preview period, there is a 50% discount on databases with the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force. |
-| 50% discount not reflected in the pricing tier cards in the preview portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force. <br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the General Availability rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
+| 50% discount not reflected in the pricing tier cards in the Azure portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force.<br/><br/> The 50% discount remains in effect in all geographic regions until 2015-March-31, when it expires for all regions. The discount is effect even in regions that have been announced at general availability (GA) status.<br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the general availability (GA) rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
 
 
-### Restore to V12 of a deleted V11 database
+### C.1 Restore to V12 of a deleted V11 database
 
 The following scenario explains that a deleted V11 Azure SQL database can be restored onto a V12 Azure SQL Database server.
 

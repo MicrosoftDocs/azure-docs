@@ -1,6 +1,20 @@
-<properties pageTitle="How to monitor a cloud service - Azure" description="Learn how to monitor cloud services by using the Azure Management Portal." services="cloud-services" documentationCenter="" authors="rboucher" manager="jwhit" editor=""/>
+<properties 
+	pageTitle="How to monitor a cloud service - Azure" 
+	description="Learn how to monitor cloud services by using the Azure Management Portal." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="robb"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/23/2014" 
+	ms.author="robb"/>
 
 
 #How to Monitor Cloud Services

@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with custom authentication | Mobile Dev Center" description="Learn how to authenticate users with a username and password." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Get started with custom authentication | Mobile Dev Center" 
+	description="Learn how to authenticate users with a username and password." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Get started with custom authentication
 

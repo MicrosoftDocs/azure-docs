@@ -1,6 +1,20 @@
-<properties pageTitle="Push notifications to users (Android ) | Mobile Dev Center" description="Learn how to use Mobile Services to push notifications to users of your Android app." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Push notifications to users (Android ) | Mobile Dev Center" 
+	description="Learn how to use Mobile Services to push notifications to users of your Android app." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="ricksal"/>
 
 # Push notifications to users by using Mobile Services
 

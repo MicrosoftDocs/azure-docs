@@ -1,6 +1,20 @@
-<properties pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="01/16/2015" 
+	ms.author="krisragh,donnam"/>
 
 # Get started with offline data sync in Mobile Services
 

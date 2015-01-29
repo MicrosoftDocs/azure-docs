@@ -1,6 +1,20 @@
-<properties pageTitle="Use the autoscaling application block (.NET) - Azure" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." services="cloud-services" documentationCenter=".net" authors="squillace" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Use the autoscaling application block (.NET) - Azure" 
+	description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="squillace" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/14/2014" ms.author="rasquill"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="rasquill"/>
 
 
 

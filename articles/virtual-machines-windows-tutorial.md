@@ -1,6 +1,20 @@
-<properties pageTitle="Create a virtual machine running Windows in Azure" description="Learn to create Windows virtual machine (VM) in Azure, then log on and attach a data disk" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Create a virtual machine running Windows in Azure" 
+	description="Learn to create Windows virtual machine (VM) in Azure, then log on and attach a data disk" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/20/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/20/2015" 
+	ms.author="kathydav"/>
 
 
 

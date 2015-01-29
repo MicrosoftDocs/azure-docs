@@ -1,6 +1,20 @@
-<properties pageTitle=".NET website with WebMatrix - Azure tutorials" description="Learn how to develop and deploy an Azure website with WebMatrix." services="web-sites" documentationCenter=".net" authors="tfitzmac" manager="wpickett" editor=""/>
+<properties 
+	pageTitle=".NET website with WebMatrix - Azure tutorials" 
+	description="Learn how to develop and deploy an Azure website with WebMatrix." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 

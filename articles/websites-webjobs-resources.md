@@ -1,6 +1,20 @@
-<properties pageTitle="Azure WebJobs Recommended Resources" description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." services="web-sites, storage" documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="jimbe"/>
+<properties 
+	pageTitle="Azure WebJobs Recommended Resources" 
+	description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tdykstra"/>
 
 #Azure WebJobs Recommended Resources
 

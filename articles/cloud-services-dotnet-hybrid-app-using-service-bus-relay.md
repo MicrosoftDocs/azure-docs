@@ -1,6 +1,20 @@
-<properties pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" 
+	description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="sethm"/>
 
 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Using offline data in Mobile Services (Xamarin Android) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin Android application" documentationCenter="xamarin" authors="lindydonna" editor="wesmc" manager="dwrede" services=""/>
+<properties 
+	pageTitle="Using offline data in Mobile Services (Xamarin Android) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin Android application" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	editor="wesmc" 
+	manager="dwrede" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
 

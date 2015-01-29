@@ -1,6 +1,20 @@
-<properties pageTitle="Node.js website with table storage | Microsoft Azure" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." services="web-sites, storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Node.js website with table storage | Microsoft Azure" 
+	description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." 
+	services="web-sites, storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 

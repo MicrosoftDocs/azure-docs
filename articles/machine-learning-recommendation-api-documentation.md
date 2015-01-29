@@ -1,5 +1,19 @@
-<properties pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" services="machine-learning" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun"/>
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/20/2015" ms.author="AharonGumnik"/>
+<properties 
+	pageTitle="Azure Machine Learning Recommendations API Documentation" 
+	description="Azure Machine Learning Recommendations API Documentation" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
+	editor="cgronlun"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/20/2015" 
+	ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
 

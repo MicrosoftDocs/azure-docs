@@ -1,6 +1,20 @@
-<properties pageTitle="What is Azure Multi-Factor Authentication?" description="" services="multi-factor-authentication" documentationCenter="" authors="billmath" manager="terrylan" editor="lisatoft"/>
+<properties 
+	pageTitle="What is Azure Multi-Factor Authentication?" 
+	description="" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="terrylan" 
+	editor="lisatoft"/>
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="billmath"/>
+<tags 
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="billmath"/>
 
 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Node.js website with MongoDB on MongoLab - Azure" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." services="web-sites, virtual-machines" documentationCenter="nodejs" authors="chrischang12" manager="partners@mongolab.com" editor=""/>
+<properties 
+	pageTitle="Node.js website with MongoDB on MongoLab - Azure" 
+	description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." 
+	services="web-sites, virtual-machines" 
+	documentationCenter="nodejs" 
+	authors="chrischang12" 
+	manager="partners@mongolab.com" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="chris@mongolab.com"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="chris@mongolab.com"/>
 
 
 

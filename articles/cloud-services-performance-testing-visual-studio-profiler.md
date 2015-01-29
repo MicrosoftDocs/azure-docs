@@ -1,6 +1,26 @@
-<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" authors="kempb" manager="douge" editor="" services="cloud-services" documentationCenter=""/>
+<properties 
+	urldisplayname="Team Foundation Service" 
+	headerexpose="" 
+	pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" 
+	metakeywords="" 
+	footerexpose="" 
+	description="" 
+	umbraconavihide="0" 
+	disquscomments="1" 
+	authors="kempb" 
+	manager="douge" 
+	editor="" 
+	services="cloud-services" 
+	documentationCenter=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/3/2014" 
+	ms.author="kempb"/>
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 

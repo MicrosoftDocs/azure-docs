@@ -1,6 +1,20 @@
-<properties pageTitle="Get started using Hadoop with Hive in HDInsight | Azure" description="Get started using Hadoop in HDInsight, a big data solution in the cloud. Learn how to provision clusters, query data with Hive, and output to Excel for analysis." services="hdinsight" documentationCenter="" authors="nitinme" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Get started using Hadoop with Hive in HDInsight | Azure" 
+	description="Get started using Hadoop in HDInsight, a big data solution in the cloud. Learn how to provision clusters, query data with Hive, and output to Excel for analysis." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="nitinme"/>
 
 
 # Get started using Hadoop with Hive in HDInsight to analyze mobile handset use

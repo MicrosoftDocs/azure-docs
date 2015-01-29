@@ -1,6 +1,20 @@
-<properties pageTitle="Common operations in the Machine Learning Recommendations API | Azure" description="Azure ML Recommendation Sample Application" services="machine-learning" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Common operations in the Machine Learning Recommendations API | Azure" 
+	description="Azure ML Recommendation Sample Application" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe"/> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="jaymathe"/> 
 
 
 # Common operations in the Machine Learning Recommendations API

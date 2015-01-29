@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Azure storage for SQL Server backup and restore | Azure" description="" services="storage" documentationCenter="" authors="jeffgoll" manager="jeffreyg" editor="tysonn"/>
+<properties 
+	pageTitle="How to use Azure storage for SQL Server backup and restore | Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/30/2014" 
+	ms.author="jeffreyg"/>
 
 
 

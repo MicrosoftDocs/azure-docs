@@ -1,6 +1,18 @@
-<properties pageTitle="Export telemetry from Application Insights" description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." authors="awills" manager="kamrani"/>
+<properties 
+	pageTitle="Export telemetry from Application Insights" 
+	description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-26" 
+	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
@@ -16,11 +28,21 @@ On your application's Overview blade in the Application Insights portal, open Co
 
 Add an export, and choose an [Azure storage account](http://azure.microsoft.com/documentation/articles/storage-introduction/) where you want to put the data:
 
-![Click Add, then click Export Destination and then either create a new store or choose an existing store](./media/appinsights/appinsights-22-2add-export.png)
+![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/appinsights/appinsights-22-2add-export.png)
+
+Choose the event types you'd like to export:
+
+![Click Choose event types](./media/appinsights/appinsights-22-3add-export.png)
+
 
 Once you’ve created your export, it starts going. (You only get data that arrives after you create the export.)
 
 To stop the stream, delete the export. Doing so doesn’t delete your data.
+
+If you want to change the event types later, just edit it:
+
+![Click Choose event types](./media/appinsights/appinsights-22-4edit-export.png)
+
 
 ## <a name="get"></a> Get your telemetry
 When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
@@ -49,13 +71,33 @@ Calculated metrics are not included. For example, we don’t export average CPU 
 
 ### What does it look like?
 
-Unformatted JSON. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
+* Each blob is a text file that contains multiple '\n'-separated rows.
+* Each row is an unformatted JSON document. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
 
 ![View the telemetry with a suitable tool](./media/appinsights/appinsights-22-4json.png)
 
+
 ### How to process it?
 
-On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on.
+On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on. For example:
+
+    private IEnumerable<T> DeserializeMany<T>(string folderName)
+    {
+      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+      foreach (var file in files)
+      {
+         using (var fileReader = File.OpenText(file))
+         {
+            string fileContent = fileReader.ReadToEnd();
+            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+            foreach (var entity in entities)
+            {
+                yield return JsonConvert.DeserializeObject<T>(entity);
+            }
+         }
+      }
+    }
+
 
 On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 

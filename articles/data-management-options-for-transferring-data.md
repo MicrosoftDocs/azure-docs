@@ -1,6 +1,20 @@
-<properties pageTitle="Options for transferring stored data to the cloud | Azure" description="Guidance for choosing the best option for transferring data from on-premises other cloud sources into Microsoft Azure for advanced analytics." services="data-factory, hdinsight, machine-learning, storage, sql-database" documentationCenter="" authors="cjgronlund" manager="paulettm" editor=""/>
+<properties 
+	pageTitle="Options for transferring stored data to the cloud | Azure" 
+	description="Guidance for choosing the best option for transferring data from on-premises other cloud sources into Microsoft Azure for advanced analytics." 
+	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
+	documentationCenter="" 
+	authors="cjgronlund" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-data" ms.date="1/7/2014" ms.author="cgronlun"/>
+<tags 
+	ms.service="multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-data" 
+	ms.date="1/7/2014" 
+	ms.author="cgronlun"/>
 
 # Options for transferring stored data to the Azure cloud
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace | Azure" description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace" services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace | Azure" 
+	description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="Garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/25/2014" ms.author="garye"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2014" 
+	ms.author="garye"/>
 
 
 #Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace

@@ -1,6 +1,20 @@
-<properties pageTitle="Introduction to Linux in Azure - Azure Tutorial" description="Learn about using Linux virtual machines on Azure." services="virtual-machines" documentationCenter="python" authors="szarkos" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Introduction to Linux in Azure - Azure Tutorial" 
+	description="Learn about using Linux virtual machines on Azure." 
+	services="virtual-machines" 
+	documentationCenter="python" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/13/2014" 
+	ms.author="szark"/>
 
 
 
