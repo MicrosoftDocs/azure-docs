@@ -1,8 +1,20 @@
-<properties pageTitle="Troubleshooting and Q & A about Application Insights" description="Tips and troubleshooting" authors="awills" manager="kamrani"/>
+<properties 
+	pageTitle="Troubleshooting and Q & A about Application Insights" 
+	description="Tips and troubleshooting" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
-# Troubleshooting and Q&A - Application Insights on Microsoft Azure Preview
+# Troubleshooting and Q & A - Application Insights on Microsoft Azure Preview
 
 + [Can I use Application Insights with...?](#platforms)
 + [I don't see any option to Add Application Insights to my project in Visual Studio](#q01)
@@ -28,6 +40,8 @@
 +	[Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 +	[WordPress](https://wordpress.org/plugins/application-insights/)
 +	[Angular](http://ngmodules.org/modules/angular-appinsights)
++	[Cordova](#cordova)
++	[Windows Store JavaScript apps](#cordova)
 +	[Log4Net, NLog, or System.Diagnostics.Trace][diagnostic]
 +	[Windows Store and Phone apps][windows]
 +	[An IIS website that's already running][redfield]
@@ -143,6 +157,10 @@ Web availability tests depend on incoming access to your web server on port 80.
 
 Take a look at [Data Retention and Privacy][data].
 
+## <a name="cordova"></a>Can I use Application Insights with Cordova or Windows Store JavaScript apps?
+
+Yes - you can use the standard client-side [web app script][usage] with one addition: Explicitly set the endpoint url (that is, the destination for the telemetry): 
+   https://dc.services.visualstudio.com/v2/track
 
 
 ## <a name="q17"></a> Have I enabled everything in Application Insights?

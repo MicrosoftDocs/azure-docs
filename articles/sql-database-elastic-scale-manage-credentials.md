@@ -1,6 +1,20 @@
-<properties pageTitle="Managing Elastic Scale Credentials" description="How to set the right level of credentials, admin to read-only, for Elastic Scale apps." services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties 
+	pageTitle="Managing Elastic Scale Credentials" 
+	description="How to set the right level of credentials, admin to read-only, for Elastic Scale apps." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="stuartozer" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="stuartozer"/>
 
 #Managing Elastic Scale Credentials  
 

@@ -1,6 +1,20 @@
-<properties pageTitle="How to use the queue service (Python) | Microsoft Azure" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." services="storage" documentationCenter="python" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use the queue service (Python) | Microsoft Azure" 
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="robmcm"/>
 
 
 

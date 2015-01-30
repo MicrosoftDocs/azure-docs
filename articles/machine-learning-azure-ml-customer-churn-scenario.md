@@ -1,6 +1,20 @@
-<properties pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" services="machine-learning" documentationCenter="" authors="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" 
+	description="Case study of developing an integrated model for analyzing and scoring customer churn" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="barga"/>
 
 # Analyzing Customer Churn by using Azure Machine Learning
 

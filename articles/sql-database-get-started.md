@@ -1,6 +1,21 @@
-<properties pageTitle="Getting started with SQL Database - Azure" description="Get started creating and managing SQL Databases in Azure." services="sql-database" documentationCenter="" authors="jeffgoll" writer="" manager="jeffreyg" editor="tysonn"/>
+<properties 
+	pageTitle="Getting started with SQL Database - Azure" 
+	description="Get started creating and managing SQL Databases in Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	writer="" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="jeffreyg"/>
 
 
 #Getting Started with Microsoft Azure SQL Database

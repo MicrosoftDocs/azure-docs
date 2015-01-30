@@ -1,5 +1,19 @@
-<properties pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" services="machine-learning" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun"/>
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/20/2015" ms.author="AharonGumnik"/>
+<properties 
+	pageTitle="Azure Machine Learning Recommendations API Documentation" 
+	description="Azure Machine Learning Recommendations API Documentation" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
+	editor="cgronlun"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/20/2015" 
+	ms.author="v-ahgumn"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
@@ -50,15 +64,20 @@ This document depicts Azure ML Recommendations APIs.
   - [9.6. Delete Usage File](#96-delete-usage-file)
   - [9.7. Delete All Usage Files](#97-delete-all-usage-files)
 - [10. Features](#10-features)
-    - [10.1. Get Features Info](#101-get-features-info-for last rank build)
+    - [10.1. Get Features Info](#101-get-features-info-for-last-rank-build)
     - [10.2. Get Features Info (For Specific Rank Build)](#102-get-features-info-for-specific-rank-build)
 - [11. Build](#11-build)
-    - [11.1. Build a Model](#111-build-a-model)
-    - [11.2. Get Builds Status of a Model](#112-get-builds-status-of-a-model)
-    - [11.3. Get Builds Status of a User](#113-get-builds-status-of-a-user)
-    - [11.4. Delete Build](#114-delete-build)
-    - [11.5. Cancel Build](#115-cancel-build)
-    - [11.6. Get Build Parameters](#116-get-build-parameters)
+    - [11.1. Build Parameters](#111-build-parameters)
+    	- [11.1.1 Usage Condenser](#1111-usage-condenser)
+    	- [11.1.2 Rank build Parameters](#1112-rank-build-parameters)
+    	- [11.1.3 Recommendation build parameters](#1113-recommendation-build-parameters)
+    - [11.2. Trigger a Recommendation Build](#112-trigger-a-recommendation-build)
+    - [11.3. Trigger Build (Rank or Recommendation)](#113-trigger-build-%28rank-or-recommendation%29)
+    - [11.4. Get Builds Status of a Model](#114-get-builds-status-of-a-model)
+    - [11.5. Get Builds Status of a User](#115-get-builds-status-of-a-user)
+    - [11.6. Delete Build](#116-delete-build)
+    - [11.7. Get Build Parameters](#117-get-build-parameters)
+    - [11.8. Cancel Build](#118-cancel-build)
 - [12. Recommendation](#12-recommendation)
     - [12.1. Get Recommendations](#121-get-recommendations)
 - [13. Notifications](#13-notifications)
@@ -91,8 +110,8 @@ Creating a recommendation model is usually enough to allow the system to provide
 
 ###2.2. Rank Build
 
-Features can enhance the recommendation model, but to do so it is needed to use meaningful features. For this purpose a new build was introduced - a Rank build. This build will rank the usefulness of features. A meanningful feature is a feature with a rank score of 2 and up.
-After understanding which of the features is meaningful, trigger a recommendation build with the list (or sub list) of meaningful features. It is possible to use these feature both for the enhacement of warm items and cold items. In order to use them for warm items the `UseFeatureInModel` should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
+Features can enhance the recommendation model, but to do so it is needed to use meaningful features. For this purpose a new build was introduced - a Rank build. This build will rank the usefulness of features. A meaningful feature is a feature with a rank score of 2 and up.
+After understanding which of the features is meaningful, trigger a recommendation build with the list (or sub list) of meaningful features. It is possible to use these feature both for the enhancement of warm items and cold items. In order to use them for warm items the `UseFeatureInModel` should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
 Note: It is not possible to enable `AllowColdItemPlacement` without enabling `UseFeatureInModel`.
 
 ###2.3. Recommendation reasoning
@@ -264,7 +283,7 @@ HTTP Status code: 200
 - `feed/entry/content/properties/HasActiveBuild` – indicate if model was built successfully
 - `feed/entry/content/properties/BuildId` – Model active BuildId
 - `feed/entry/content/properties/Mpr` – Model MPR (see ModelInsight for more information)
-- `feed/entry/content/properties/UserName` – Model internal username
+- `feed/entry/content/properties/UserName` – Model internal user name
 - `feed/entry/content/properties/UsageFileNames` – List of model usage files separated by comma
 - `feed/entry/content/properties/CatalogId` – Model Catalog Id
 - `feed/entry/content/properties/Description` – Model description
@@ -914,7 +933,7 @@ HTTP Status code: 200
 The API returns the newly created rule with its details. The rules property can be retrieved from the following paths.
 
 - `feed/entry/content/properties/Id` – The unique identifier of this rule
-- `feed/entry/content/properties/Type` – The type of the rule. BlockList or Upsale
+- `feed/entry/content/properties/Type` – The type of the rule. Blocklist or Upsale
 - `feed/entry/content/properties/Parameter` – The rule parameter
 
 OData XML
@@ -1647,7 +1666,7 @@ Feature rank can changes according to the pattern the usage data, and type of it
 The rank of features is a non negative number, 0 means that the feature was not ranked (happens if you invoke this API prior the completion of the first rank build), the date of at which the rank was attributed is called the score freshness.
 
 ###10.1. Get Features Info (For Last Rank Build)
-Retrieve the feature information including ranking for the last successfull rank build.
+Retrieve the feature information including ranking for the last successful rank build.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1670,7 +1689,7 @@ The response contains a list of feature info entries. Each entry contains:
 
 - `feed/entry/content/m:properties/d:Name` - The feature name
 - `feed/entry/content/m:properties/d:RankUpdateDate` - The date at which the rank was allocated to this feature a.k.a. score freshnesfeature. An historical date ('0001-01-01T00:00:00') means that no rank build was performed.
-- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is consifered as good feature.
+- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is considered as good feature.
 - `feed/entry/content/m:properties/d:SampleValues` - A comma separated list of values up to the sampling size requested.
 
 OData XML
@@ -1738,7 +1757,7 @@ Retrieve the feature information including ranking for a specific rank build.
 | Parameter Name	|	Valid Values	|
 |:--------			|:--------			|
 | modelId |	The unique identifier of the model.  |
-|samplingSize| The number of values to include for each fatures according to the data present in the catalog.<br/> Possible values are:<br> -1 - all samples <br>0 - no sampling <br>N - return N samples for each feature name.|
+|samplingSize| The number of values to include for each feature according to the data present in the catalog.<br/> Possible values are:<br> -1 - all samples <br>0 - no sampling <br>N - return N samples for each feature name.|
 |rankBuildId| The unique identifier of the rank build or -1 for the last rank build|
 | apiVersion | 1.0 |
 |||
@@ -1753,7 +1772,7 @@ The response contains a list of feature info entries. Each entry contains:
 
 - `feed/entry/content/m:properties/d:Name` - The feature name
 - `feed/entry/content/m:properties/d:RankUpdateDate` - The date at which the rank was allocated to this feature a.k.a. score freshnesfeature. An historical date ('0001-01-01T00:00:00') means that no rank build was performed.
-- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is consifered as good feature.
+- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is considered as good feature.
 - `feed/entry/content/m:properties/d:SampleValues` - A comma separated list of values up to the sampling size requested.
 
 OData
@@ -1814,14 +1833,15 @@ OData
 
 This section explains the different API related to builds. Currently two types of build are possible: a recommendation build and a rank build. The recommendation build is used to generate a recommendation model used for predictions. A rank build is a technical build that allows you to learn about the usefulness of your features. Usually in order to get the best result for a recommendation model involving features you should follow the following steps:
 - Trigger a rank build (unless the score of your features is stable) and wait till you get the feature score.
+- Retrieve the rank of your features by calling the [Get Features Info](#101-get-features-info-for-last-rank-build) API.
 - Configure a recommendation build with the following parameters:
 	- `useFeatureInModel` - set to True
-	- `ModelingFeatureList` - set to a coma separated list of features with a score of 2.0 or more
+	- `ModelingFeatureList` - set to a comma separated list of features with a score of 2.0 or more (according to the ranks you retrieved in previous step).
 	- `AllowColdItemPlacement` - set to True
-	- Optionally you can setup the `EnableFeatureCorrelation` to True and the `ReasoningFeatureList` to the list of features you want to use for explanations (usually the same list of features used in modeling or a sub list).
+	- Optionally you can set up the `EnableFeatureCorrelation` to True and the `ReasoningFeatureList` to the list of features you want to use for explanations (usually the same list of features used in modelling or a sub list).
 - Trigger the recommendation build with the configured parameters.
 
-Note: If you do not configure any parameters (e.g. invoke the recommendation build without parameters) or you do not disable explicitly the usage of features (e.g. `UseFeatureInModel` set to False), the system will setup the feature related parameters to the explained values above in case a rank build exists.
+Note: If you do not configure any parameters (e.g. invoke the recommendation build without parameters) or you do not disable explicitly the usage of features (e.g. `UseFeatureInModel` set to False), the system will set up the feature related parameters to the explained values above in case a rank build exists.
 
 There is no restriction on running concurrently a rank build and a recommendation build for the same model, nevertheless a you cannot run two builds of the same type on the same model in parallel.
 
@@ -1840,10 +1860,10 @@ The table below depicts the build parameters for Rank build.
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
 | NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
-|ItemCutOffLowerBound| Defines the item lower bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|ItemCutOffUpperBound| Defines the item upper bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffLowerBound| Defines the user lower bound the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffUpperBound| Defines the user upper the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
 
 #####11.1.3. Recommendation build parameters
 The table below depicts the build parameters for recommendation build.
@@ -1852,17 +1872,17 @@ The table below depicts the build parameters for recommendation build.
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
 | NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
-|ItemCutOffLowerBound| Defines the item lower bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|ItemCutOffUpperBound| Defines the item upper bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffLowerBound| Defines the user lower bound the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffUpperBound| Defines the user upper the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
 | Description | The build description | String | Any text, maximum 512 chars |
 | EnableModelingInsights | Allows to compute metrics on the recommendation model | Boolean | True/False |
 | UseFeaturesInModel | Indicate if features can be used in order to enhance recommendation model | Boolean | True/False |
 | ModelingFeatureList | A comma separated list of feature name to be use in recommendation build, in order to enhance the recommendation | String | The features name up to 512 chars |
 | AllowColdItemPlacement | Indicate if recommendation should also push cold item via feature similarity | Boolean | True/False |
 | EnableFeatureCorrelation | Indicate if features can be used in reasoning | Boolean | True/False |
-| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explations)  | String | The features name up to 512 chars |
+| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explanations)  | String | The features name up to 512 chars |
 
 
 ###11.2. Trigger a Recommendation Build
@@ -1897,7 +1917,7 @@ Valid build status:
 - Building – the model is being build
 - Success – the build ended successfully
 - Error – the build ended with a failure
-- Cancelled – build was canceled
+- Cancelled – build was cancelled
 - Cancelling – build is being cancelled
 
 
@@ -1972,7 +1992,7 @@ Valid build status:
 - Building – the model is being build
 - Success – the build ended successfully
 - Error – the build ended with a failure
-- Cancelled – build was canceled
+- Cancelled – build was cancelled
 - Cancelling – build is being cancelled
 
 Note: the build id can be found under the path: `Feed\entry\content\properties\Id`
@@ -2019,7 +2039,7 @@ OData XML
 
 
 
-###11.4.	Get Builds Status of a Model
+###11.4. Get Builds Status of a Model
 Retrieves builds and their status for a specified model
 
 | HTTP Method | URI |
@@ -2060,7 +2080,7 @@ Valid build status:
 - Building – the build is in process
 - Success – the build ended successfully
 - Error – the build ended with a failure
-- Cancelled – build was canceled
+- Cancelled – build was cancelled
 - Cancelling – build is being cancelled
 
 Valid values for build type:
@@ -2144,7 +2164,7 @@ Valid build status:
 - Building – the build is in process
 - Success – the build ended successfully
 - Error – the build ended with a failure
-- Cancelled – build was canceled
+- Cancelled – build was cancelled
 - Cancelling – build is being cancelled
 
 
@@ -2207,7 +2227,7 @@ NOTE: You cannot delete an Active build. The model should be updated to a differ
 
 HTTP Status code: 200
 
-###9.5. Cancel Build
+###11.7. Cancel Build
 Cancel a build that is in building status
 
 | HTTP Method | URI |
@@ -2249,17 +2269,17 @@ The table below depicts for each key what is the value it represents
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
 | NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
-|ItemCutOffLowerBound| Defines the item lower bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|ItemCutOffUpperBound| Defines the item upper bound for the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffLowerBound| Defines the user lower bound the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffUpperBound| Defines the user upper the consender. see usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
 | Description | The build description | String | Any text, maximum 512 chars |
 | EnableModelingInsights | Allows to compute metrics on the recommendation model | Boolean | True/False |
 | UseFeaturesInModel | Indicate if features can be used in order to enhance recommendation model | Boolean | True/False |
 | ModelingFeatureList | A comma separated list of feature name to be use in recommendation build, in order to enhance the recommendation | String | The features name up to 512 chars |
 | AllowColdItemPlacement | Indicate if recommendation should also push cold item via feature similarity | Boolean | True/False |
 | EnableFeatureCorrelation | Indicate if features can be used in reasoning | Boolean | True/False |
-| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explations)  | String | The features name up to 512 chars |
+| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explanations)  | String | The features name up to 512 chars |
 
 
 OData XML

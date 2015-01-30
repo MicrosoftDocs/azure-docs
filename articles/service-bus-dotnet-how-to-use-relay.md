@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Service Bus relay (.NET) - Azure" description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="How to use Service Bus relay (.NET) - Azure" 
+	description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -254,7 +268,7 @@ Replace the placeholders with your Service Bus service namespace and SAS key.
             <behavior name="sbTokenProvider">
                 <transportClientEndpointBehavior>
                     <tokenProvider>
-                        <sharedAccessSignature keyName="RootManageSharedAccessKey" issuerSecret="yourKey" />
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>
@@ -326,7 +340,7 @@ and SAS key.
             <behavior name="sbTokenProvider">
                 <transportClientEndpointBehavior>
                     <tokenProvider>
-                        <sharedAccessSignature keyName="RootManageSharedAccessKey" issuerSecret="yourKey" />
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
                     </tokenProvider>
                 </transportClientEndpointBehavior>
             </behavior>

@@ -1,6 +1,20 @@
-<properties pageTitle="Adding a Shard To an Elastic Scale Application" description="How to use Elastic Scale APIs to add new shards to a shard set." services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties 
+	pageTitle="Adding a Shard To an Elastic Scale Application" 
+	description="How to use Elastic Scale APIs to add new shards to a shard set." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="torsteng" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="torsteng@microsoft.com"/>
 
 # Adding a Shard To an Elastic Scale Application 
 

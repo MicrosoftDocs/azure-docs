@@ -1,6 +1,20 @@
-<properties pageTitle="How to use SQL Database (PHP) - Azure feature guides" description="Learn how to create and connect to an Azure SQL Database from PHP." services="sql-database" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="How to use SQL Database (PHP) - Azure feature guides" 
+	description="Learn how to create and connect to an Azure SQL Database from PHP." 
+	services="sql-database" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/29/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/29/2014" 
+	ms.author="tomfitz"/>
 
 #How to Access Azure SQL Database from PHP 
 

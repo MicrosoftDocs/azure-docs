@@ -1,6 +1,20 @@
-<properties pageTitle="How to use blob storage (Node.js) | Microsoft Azure" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." services="storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use blob storage (Node.js) | Microsoft Azure" 
+	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="How to configure websites - Azure service management" description="Learn how to configure websites in Azure, including how to configure a website to use a SQL Database or MySQL database." services="web-sites" documentationCenter="" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="How to configure websites - Azure service management" 
+	description="Learn how to configure websites in Azure, including how to configure a website to use a SQL Database or MySQL database." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="mwasson"/>
 
 
 # How to Configure Websites #

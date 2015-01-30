@@ -1,6 +1,20 @@
-<properties pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" 
+	description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Build a Service Using MongoDB as a Data Store with the .NET Backend
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" 
+	description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
 

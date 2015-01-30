@@ -1,6 +1,20 @@
-<properties pageTitle="How to scale a cloud service - Azure" description="Learn how to scale a cloud service and linked resources in Azure." services="cloud-services" documentationCenter="" authors="davidmu1" manager="timlt" editor=""/>
+<properties 
+	pageTitle="How to scale a cloud service - Azure" 
+	description="Learn how to scale a cloud service and linked resources in Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="adegeo"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 

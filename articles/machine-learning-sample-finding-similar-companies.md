@@ -1,6 +1,20 @@
-<properties pageTitle="Machine Learning Sample: Finding similar companies | Azure" description="A sample Azure Machine Learning experiment that uses a clustering model to find similar companies." services="machine-learning" documentationCenter="" authors="Garyericson" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Machine Learning Sample: Finding similar companies | Azure" 
+	description="A sample Azure Machine Learning experiment that uses a clustering model to find similar companies." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/10/2014" ms.author="garye"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="garye"/>
 
 
 # Azure Machine Learning sample: Finding similar companies
@@ -35,9 +49,9 @@ Cluster 1: Information Technology
 
 Cluster 2: Energy, Utilities, Telecommunication Services
 
-**Note** The clustering is not clear-cut. Cluster 0 has several information technology and energy companies, and Industrials and Materials are divided between cluster 0 and cluster 1
+> [AZURE.NOTE] The clustering is not clear-cut. Cluster 0 has several information technology and energy companies, and Industrials and Materials are divided between cluster 0 and cluster 1
 
-**Note** The clustering can vary from run to run. 
+> [AZURE.NOTE] The clustering can vary from run to run. 
 
 
 

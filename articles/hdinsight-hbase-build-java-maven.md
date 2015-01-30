@@ -1,10 +1,24 @@
-<properties pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor=""/>
+<properties 
+	pageTitle="Build an HBase application using Maven" 
+	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="larryfr"/>
 
 ##Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
 
-Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java using Apache Maven. Then use the application with Azure HDInsight (Hadoop.)
+Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java using Apache Maven. Then use the application with Azure HDInsight (Hadoop).
 
 [Maven](http://maven.apache.org/) is a software project management and comprehension tool that allows you to build software, documentation, and reporting for Java projects. In this article, you will learn how to use it to create a basic Java application that that creates, queries, and deletes an HBase table on an Azure HDInsight cluster.
 

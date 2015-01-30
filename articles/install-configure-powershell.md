@@ -1,6 +1,20 @@
-<properties pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." editor="tysonn" manager="stevenka" documentationCenter="" services="" authors="coreyp69"/>
+<properties 
+	pageTitle="How to install and configure Azure PowerShell" 
+	description="Learn how to install and configure Azure PowerShell." 
+	editor="tysonn" 
+	manager="stevenka" 
+	documentationCenter="" 
+	services="" 
+	authors="coreyp69"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="coreyp"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell#
 

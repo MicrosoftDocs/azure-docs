@@ -1,18 +1,29 @@
-<properties pageTitle="Upgrade to the Latest SQL Database Update V12 (preview)" description="Upgrade to the Latest SQL Database Update V12 (preview)" services="sql-database" documentationCenter="" authors="sonalmm" manager="jeffreyg" editor=""/>
+<properties 
+	pageTitle="Upgrade to the Latest SQL Database Update V12 (preview)" 
+	description="Upgrade to the Latest SQL Database Update V12 (preview)" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="sonalmm" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-management" ms.date="12/11/2014" ms.author="sonalm"/>
+<tags 
+	ms.service="sql-database" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-management" 
+	ms.date="12/11/2014" 
+	ms.author="sonalm"/>
 
 
 
-# Upgrade to the Latest SQL Database Update V12
+# Upgrade to the Latest SQL Database Update V12 (preview)
 
-- How to update a server in place with the  SQL Database Update features
-
-- How to copy a database to a new server with SQL Database Update features enabled **(feature coming soon)**
 
 [Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. First, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information. 
 
-## How to Upgrade a Server In Place with the Latest SQL Database Update Features ##
+## How to Upgrade a Server In Place with the Latest SQL Database Update ##
 
 | Upgrade  | Screen shot |
 | :--- | :--- |
@@ -40,10 +51,6 @@ Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a 
 | 7. Once you have completed the actions that prepares your server for the upgrade, type the name of the server to upgrade and Click **OK**. | ![Confirm the server name to upgrade][7] |
 | 8. The upgrade process is initiated. Upgrade can take up to 24 hours. During this time all databases on this server will remain online but server and database management actions will be restricted. Once the process is complete, the status **Enabled** is displayed on the server blade. | ![Confirms preview features are enabled][8] |
  
-
-##How to Copy a Database to a New Server with SQL Database Update  V12 (preview) Features Enabled **(coming soon)**
-
-The scenario of copying your database to a new server is not available at this time. However, the copy feature will be available during the preview time frame. Please check again. 
 
 # Related Links  #
 

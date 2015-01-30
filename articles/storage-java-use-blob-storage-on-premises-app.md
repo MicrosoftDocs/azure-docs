@@ -1,6 +1,20 @@
-<properties pageTitle="On-premises application with blob storage (Java) | Microsoft Azure" description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java." services="storage" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="On-premises application with blob storage (Java) | Microsoft Azure" 
+	description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # On-Premises Application with Blob Storage
 

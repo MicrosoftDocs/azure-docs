@@ -1,6 +1,20 @@
-<properties pageTitle="Copy data with Azure Data Factory" description="Learn how to use Copy Activity in Azure Data Factory to copy data from a data source to another data source." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Copy data with Azure Data Factory" 
+	description="Learn how to use Copy Activity in Azure Data Factory to copy data from a data source to another data source." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/08/2015" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/08/2015" 
+	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
 You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:

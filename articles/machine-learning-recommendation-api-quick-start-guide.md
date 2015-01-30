@@ -1,6 +1,20 @@
-<properties pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" description="Azure Machine Learning Recommendations - Quick Start Guide" services="machine-learning" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" 
+	description="Azure Machine Learning Recommendations - Quick Start Guide" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/15/2015" ms.author="jaymathe"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/15/2015" 
+	ms.author="jaymathe"/>
 
 # Quick start guide for the Machine Learning Recommendations API
 

@@ -1,18 +1,34 @@
-<properties pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." services="virtual-machines" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" 
+	description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="josephd"/>
 
-<h1 id="azpswindowsvms">Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines</h1>
+#Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
 
 These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-##Step 1
+For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
+
+##Step 1: Install Azure PowerShell
 
 If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an administrator-level Azure PowerShell command prompt.
 
-##Step 2
+##Step 2: Set your subscription and storage account
 
 Set your Azure subscription and storage account by running theses commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
 
@@ -23,7 +39,7 @@ Set your Azure subscription and storage account by running theses commands at th
 
 You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you issue the **Select-AzureSubscription** command. You can also store these commands in a text file for future use.
 
-##Step 3
+##Step 3: Determine the ImageFamily
 
 Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create. Here are some examples from the Gallery in the Azure Management Portal.
 
@@ -43,7 +59,7 @@ Here are some examples of ImageFamily values for Windows-based computers:
 If you find the image you are looking for, open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the ImageFamily value. 
 
 	$family="<ImageFamily value>"
-	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 In some cases, the image name is in the Label property instead of the ImageFamily value. If you didn't find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.
 
@@ -54,7 +70,7 @@ If you find the right image with this command, open a fresh instance of the text
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-##Step 4
+##Step 4: Build your command set
 
 Build the rest of your command set by copying the appropriate set of blocks below into your new text file and then filling in the variable values and removing the < and > characters. See the two [examples](#examples) at the end of this article for an idea of the final result.
 
@@ -73,6 +89,8 @@ Option 2: Specify a name, size, and availability set name.
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availset="<set name>"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
+
+For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 Optionally, for a standalone Windows computer, specify the local administrator account and password.
 
@@ -146,8 +164,7 @@ Option 3: Create the virtual machine in an existing cloud service and virtual ne
 	$vnetname="<name of the virtual network>"
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-
-##Step 5
+##Step 5: Run your command set
 
 Review the Azure PowerShell command set you built in your text editor consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
@@ -177,7 +194,7 @@ I need a PowerShell command set to create the initial virtual machine for an Act
 Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
 
 	$family="Windows Server 2012 R2 Datacenter"
-	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vmname="AZDC1"
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
@@ -214,7 +231,7 @@ I need a PowerShell command set to create a virtual machine for a line-of-busine
 Here is the corresponding Azure PowerShell command set to create this virtual machine.
 
 	$family="Windows Server 2012 R2 Datacenter"
-	$image = Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vmname="LOB1"
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
@@ -249,3 +266,5 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
 [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
+
+[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/)

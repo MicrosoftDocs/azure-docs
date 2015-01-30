@@ -1,6 +1,20 @@
-<properties pageTitle="How to use blob storage (Python) | Microsoft Azure" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." services="storage" documentationCenter="python" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use blob storage (Python) | Microsoft Azure" 
+	description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="robmcm"/>
 
 # How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the

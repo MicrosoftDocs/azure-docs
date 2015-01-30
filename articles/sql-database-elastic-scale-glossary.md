@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Elastic Scale Glossary" description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties 
+	pageTitle="Azure Elastic Scale Glossary" 
+	description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="sidneyh"/>
 
 #Elastic Scale Glossary
 The following terms are defined for the Elastic Scale feature of Azure SQL Database.

@@ -1,6 +1,20 @@
-<properties pageTitle="Installing the Azure SDK 2.4 for Visual Studio 14 CTP2" description="Install Azure SDK 2.4 and Visual Studio 14 CTP2" services="" documentationCenter=".net" authors="ghogen" manager="douge" editor=""/>
+<properties 
+	pageTitle="Installing the Azure SDK 2.4 for Visual Studio 14 CTP2" 
+	description="Install Azure SDK 2.4 and Visual Studio 14 CTP2" 
+	services="" 
+	documentationCenter=".net" 
+	authors="ghogen" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="ghogen"/>
 
 # Installing the Azure SDK 2.4 for Visual Studio "14" CTP
 

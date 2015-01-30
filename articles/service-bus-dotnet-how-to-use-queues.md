@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Service Bus queues (.NET) - Azure" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="How to use Service Bus queues (.NET) - Azure" 
+	description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="sethm"/>
 
 
 

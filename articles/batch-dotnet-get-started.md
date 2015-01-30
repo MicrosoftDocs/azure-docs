@@ -1,6 +1,20 @@
-<properties pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" description="required" services="batch" documentationCenter=".net" authors="yidingzhou" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" 
+	description="required" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, kabatta"/>
+<tags 
+	ms.service="batch" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="12/03/2014" 
+	ms.author="yidingz, kabatta"/>
 
 #Getting Started with the Azure Batch Library for .NET  
 

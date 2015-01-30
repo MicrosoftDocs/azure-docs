@@ -1,6 +1,21 @@
-<properties title="Import your training data into Azure Machine Learning Studio" pageTitle="Import your training data into Machine Learning Studio | Azure" description="How to import your training data Azure Machine Learning Studio from various data sources" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties
+	pageTitle="Import your training data into Machine Learning Studio | Azure"
+	description="How to import your training data Azure Machine Learning Studio from various data sources"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/21/2015" ms.author="garye" />
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/21/2015"
+	ms.author="garye" />
+
 
 #Import your training data into Azure Machine Learning Studio
 
@@ -11,7 +26,7 @@ There are a number of sample datasets available in ML Studio that you can use fo
 To use your own data in ML Studio, you can upload a data file from your local hard drive to create a dataset module in your workspace. 
 Or you can access data from one of several online sources using the **Reader** module:
 
-- Windows Azure BLOB storage or table, or a SQL database
+- Azure BLOB storage or table, or a SQL database
 - HDInsight using a Hive query
 - A web URL using HTTP
 - An OData feed
@@ -94,9 +109,9 @@ See the module reference topic for the **Reader** module for more information.
 
 You can import data from three Azure sources:
 
-- **Windows Azure BLOB Storage** - If you use the ARFF format for storage, columns are mapped by using the header metadata. If you use TSV or CSV formats, mappings are inferred by sampling column data. 
-- **Windows Azure Table Storage** - The **Reader** module scans your data to identify column data types. If your data is fairly homogenous and predictable you can limit the number of rows that are scanned.
-- **Windows Azure SQL Database** - The **Reader** module leverages the SQL Azure Transact client API to import data using a database query that you provide.
+- **Azure BLOB Storage** - If you use the ARFF format for storage, columns are mapped by using the header metadata. If you use TSV or CSV formats, mappings are inferred by sampling column data. 
+- **Azure Table Storage** - The **Reader** module scans your data to identify column data types. If your data is fairly homogenous and predictable you can limit the number of rows that are scanned.
+- **Azure SQL Database** - The **Reader** module leverages the SQL Azure Transact client API to import data using a database query that you provide.
 
 For BLOB and table storage you supply a Shared Access Signature URI (SAS URI) or Azure storage account information to provide access to the data. For an Azure SQL database you supply your database and account information, plus a database query that identifies the data you want to import.
 

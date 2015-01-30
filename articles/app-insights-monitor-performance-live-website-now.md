@@ -1,6 +1,18 @@
-<properties pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK" authors="awills" manager="kamrani"/>
+<properties 
+	pageTitle="Diagnose performance issues on a running website" 
+	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
  
 
 # Install Application Insights Status Monitor to monitor website performance
@@ -92,6 +104,21 @@ You can drill down to specific exceptions (from the last seven days) and get sta
    * In Computer management control panel, add this identity to the Performance Monitor Users group.
   * See [Troubleshooting][qna].
 
+## System Requirements
+
+OS support for Application Insights Status Monitor on Server: 
+
+- Windows Server 2008
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows server 2012 R2
+
+with latest SP and .NET framework 4.0 and 4.5
+
+On the client side Windows 7, 8 and 8.1, again with .NET framework 4.0 and 4.5
+
+IIS support is: IIS 7, 7.5, 8, 8.5
+(IIS is required)
 
 ## <a name="next"></a>Next steps
 

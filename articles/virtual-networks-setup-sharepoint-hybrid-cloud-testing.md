@@ -1,9 +1,23 @@
-<properties pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." services="virtual-network" documentationCenter="" authors="josephd" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" 
+	description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="josephd"/>
 
 
-<h1 id="sphybcloudtest">Set up a SharePoint intranet farm in a hybrid cloud for testing</h1>
+#Set up a SharePoint intranet farm in a hybrid cloud for testing
 
 This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint farm hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -71,8 +85,8 @@ Next, connect to the new SQL1 virtual machine *using the local administrator acc
 3.	When prompted to open SQL1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use these:
-- Name: **SQL1\\**[Local administrator account name]
-- Password: [Local administrator account password]
+	- Name: **SQL1\\**[Local administrator account name]
+	- Password: [Local administrator account password]
 6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
 Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
@@ -109,10 +123,10 @@ Next, configure SQL Server 2014 to use the F: drive for new databases and for us
 3.	In the Object Explorer tree pane, right-click **SQL1**, and then click **Properties**.
 4.	In the **Server Properties** window, click **Database Settings**.
 5.	Locate the **Database default locations** and set these values: 
-- For **Data**, type the path **f:\Data**.
-- For **Log**, type the path **f:\Log**.
-- For **Backup**, type the path **f:\Backup**.
-- Note that only new databases use these locations.
+	- For **Data**, type the path **f:\Data**.
+	- For **Log**, type the path **f:\Log**.
+	- For **Backup**, type the path **f:\Backup**.
+	- Note that only new databases use these locations.
 6.	Click the **OK** to close the window.
 7.	In the **Object Explorer** tree pane, open **Security**.
 8.	Right-click **Logins** and then click **New Login**.
@@ -142,16 +156,7 @@ First, create an Azure Virtual Machine for SP1 with these commands at the Azure 
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-Next, connect to the SP1 virtual machine.
-
-1.	On the Virtual Machines page of the Azure Management Portal, click **Running** in the STATUS column for the SP1 virtual machine.
-2.	In the task bar, click **Connect**. 
-3.	When prompted to open SP1.rdp, click **Open**.
-4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
-5.	When prompted for credentials, use these:
-- Name: **CORP\User1**
-- Password: [User1 account password]
-6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
+Next, connect to the SP1 virtual machine with the CORP\User1 credentials.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on SP1, run these commands.
 

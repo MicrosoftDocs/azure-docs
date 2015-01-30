@@ -1,6 +1,21 @@
-<properties pageTitle="Install an Active Directory forest on an Azure virtual network" description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." services="active-directory, virtual-network" documentationCenter="" authors="Justinha" writer="Justinha" manager="TerryLan" editor="LisaToft"/>
+<properties 
+	pageTitle="Install an Active Directory forest on an Azure virtual network" 
+	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="Justinha"/>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="Justinha"/>
 
 
 

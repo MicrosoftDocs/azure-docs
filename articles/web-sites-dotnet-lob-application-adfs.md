@@ -1,6 +1,20 @@
-<properties pageTitle="LOB App in Azure Websites with AD FS" description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." services="web-sites" documentationCenter=".net" authors="cephalin" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="LOB App in Azure Websites with AD FS" 
+	description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="web" 
+	ms.date="12/23/2014" 
+	ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS #
 

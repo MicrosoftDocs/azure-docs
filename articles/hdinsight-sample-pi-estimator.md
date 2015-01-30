@@ -1,6 +1,20 @@
-<properties pageTitle="The Pi estimator Hadoop sample in HDInsight | Azure" description="Learn how to run an Hadoop MapReduce sample on HDInsight." editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" authors="bradsev"/>
+<properties 
+	pageTitle="The Pi estimator Hadoop sample in HDInsight | Azure" 
+	description="Learn how to run an Hadoop MapReduce sample on HDInsight." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # The Pi estimator Hadoop sample in HDInsight
  

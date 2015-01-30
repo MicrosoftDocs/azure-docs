@@ -1,6 +1,20 @@
-<properties pageTitle="Create a Website on Azure - Azure SDK for Java" description="Learn how to create a website on Azure programmatically." services="" documentationCenter="Java" authors="v-donntr" manager="wpickett" editor="jimbe"/>
+<properties 
+	pageTitle="Create a Website on Azure - Azure SDK for Java" 
+	description="Learn how to create a website on Azure programmatically." 
+	services="" 
+	documentationCenter="Java" 
+	authors="v-donntr" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/09/2015" ms.author="v-donntr"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="01/09/2015" 
+	ms.author="v-donntr"/>
 
 
 # Creating a Website on Azure Using the Azure SDK for Java

@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with push notifications - Mobile Services" description="Learn how to use push notifications in Xamarin.Android apps with Azure Mobile Services." documentationCenter="xamarin" authors="lindydonna" manager="dwrede" services="mobile-services" editor=""/>
+<properties 
+	pageTitle="Get started with push notifications - Mobile Services" 
+	description="Learn how to use push notifications in Xamarin.Android apps with Azure Mobile Services." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="donnam"/>
 
 # Add push notifications to your Mobile Services app
 

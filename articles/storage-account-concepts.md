@@ -1,6 +1,22 @@
-<properties pageTitle="Storage Account Concepts | Azure" description="Learn about storage account concepts." headerExpose="" footerExpose="" services="storage" authors="tamram" manager="adinah" editor="" documentationCenter=""/>
+<properties 
+	pageTitle="Storage Account Concepts | Azure" 
+	description="Learn about storage account concepts." 
+	headerExpose="" 
+	footerExpose="" 
+	services="storage" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="" 
+	documentationCenter=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/10/2014" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 
 # About Azure Storage Accounts

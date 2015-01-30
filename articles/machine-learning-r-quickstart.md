@@ -1,6 +1,20 @@
-<properties pageTitle="Quick start guide to R for Azure Machine Learning Studio" description="How to use R in the Azure Machine Learning Studio" services="machine-learning" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Quick start guide to R for Azure Machine Learning Studio" 
+	description="How to use R in the Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="larryfr"/>
 
 #Quick Start Guide to R for Azure ML
 

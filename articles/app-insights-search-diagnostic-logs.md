@@ -1,6 +1,18 @@
-<properties pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." authors="awills" manager="kamrani"/>
+<properties 
+	pageTitle="Search diagnostic logs" 
+	description="Search logs generated with Trace, NLog, or Log4Net." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Search logs, exceptions and custom diagnostics in Application Insights
 

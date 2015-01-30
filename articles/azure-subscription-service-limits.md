@@ -1,6 +1,20 @@
-<properties pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" description="Provides a list of common Azure subscription and service limits along with maximum values." services="web-sites, virtual-machines, cloud-services" documentationCenter="" authors="rothja" manager="jeffreyg" editor="mollybos"/>
+<properties 
+	pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" 
+	description="Provides a list of common Azure subscription and service limits along with maximum values." 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
 

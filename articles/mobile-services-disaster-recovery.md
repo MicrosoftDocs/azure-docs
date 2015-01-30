@@ -1,6 +1,20 @@
-<properties pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" description="Learn how to recover your mobile service in the event of a disaster." services="mobile-services" documentationCenter="" authors="brettsam" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" 
+	description="Learn how to recover your mobile service in the event of a disaster." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="brettsam" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="brettsam"/>
 
 # Recover your mobile service in the event of a disaster
 

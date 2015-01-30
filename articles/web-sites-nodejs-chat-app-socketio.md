@@ -1,6 +1,20 @@
-<properties pageTitle="Node.js Website using Socket.io - Azure tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." services="web-sites" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Node.js Website using Socket.io - Azure tutorial" 
+	description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 

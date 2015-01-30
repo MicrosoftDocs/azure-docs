@@ -1,6 +1,20 @@
-<properties pageTitle="Shard Elasticity" description="Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily." services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties 
+	pageTitle="Shard Elasticity" 
+	description="Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="torsteng" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="torsteng"/>
 
 # Shard Elasticity 
 

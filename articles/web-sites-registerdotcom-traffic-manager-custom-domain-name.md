@@ -1,6 +1,20 @@
-<properties pageTitle="Configure a Register.com domain name for an Azure website that uses Traffic Manager" description="" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Configure a Register.com domain name for an Azure website that uses Traffic Manager" 
+	description="Learn how to use a domain name from Register.com with Azure Web Sites" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr, jroth"/>
 
 #Configuring a custom domain name for an Azure Website using Traffic Manager (Register.com)
 

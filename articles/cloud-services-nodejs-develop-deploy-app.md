@@ -1,6 +1,20 @@
-<properties pageTitle="Node.js Getting Started Guide - Azure Tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." services="cloud-services" documentationCenter="nodejs" authors="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Node.js Getting Started Guide - Azure Tutorial" 
+	description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="wpickett"/>
 
 
 

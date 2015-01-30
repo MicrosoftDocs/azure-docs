@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with data (WP8) - Azure Mobile Services" description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with data (WP8) - Azure Mobile Services" 
+	description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="glenga"/>
 
 
 # Add Mobile Services to an existing app

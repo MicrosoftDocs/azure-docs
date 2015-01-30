@@ -1,6 +1,20 @@
-<properties pageTitle="Migrating Drupal to Azure Websites" description="Migrate a Drupal PHP site to Azure Websites." services="web-sites" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Migrating Drupal to Azure Websites" 
+	description="Migrate a Drupal PHP site to Azure Websites." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/11/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="tomfitz"/>
 
 
 # Migrating Drupal to Azure Websites

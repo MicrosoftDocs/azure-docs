@@ -1,6 +1,18 @@
-<properties pageTitle="Track usage in web applications" description="Log user activities." authors="awills" manager="kamrani"/>
+<properties 
+	pageTitle="Track usage in web applications" 
+	description="Log user activities." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Track usage of web applications
 
@@ -8,28 +20,22 @@ Find out how your web application is being used. Set up usage analytics and you'
 
 Here you'll learn about collecting telemetry from the page running in the browser, but if you also set up server telemetry, the two streams will be integrated in  the Application Insights portal. 
 
-* [Set up web usage analytics](#webclient)
-* [Usage analytics](#usage)
-* [Custom page counts for single-page apps](#spa)
-* [Inspecting individual page events](#inspect)
-* [Detailed tracking with custom events and metrics](#custom)
-* [Video](#video)
 
 ## <a name="webclient"></a> Setting up web client analytics
 
 If you chose to add Application Insights when you were creating your web app, you can skip this step. A script will already have been inserted in your web client code. [Skip to the next step](#usage).
 
-#### Get an Application Insights resource in Azure
+#### Get an Application Insights resource in Microsoft Azure
 
-**If you're developing an ASP.NET app** and you haven't done this yet, [add Application Insights to your web project][start]. 
+If you haven't already configured your project for Application Insights, either: 
 
-In Solution Explorer, right-click your project and choose **Open Application Insights**.
+* [Add Application Insights to your Visual Studio project][start], and then in Solution Explorer, right-click your project and choose **Open Application Insights**.
 
-**If your website platform isn't ASP.NET:** Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
+or get one directly:
+
+* Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
 
 ![](./media/appinsights/appinsights-11newApp.png)
-
-(You can get back to it later with the Browse button.)
 
 
 #### Add our script to your web pages
@@ -40,7 +46,7 @@ In Quick Start, get the script for web pages.
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 
-(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an Angularjs module](http://ngmodules.org/modules/angular-appinsights).)
+(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)
 
 ## <a name="usage"></a>Usage analytics
 

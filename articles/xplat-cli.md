@@ -1,6 +1,20 @@
-<properties pageTitle="The Azure Cross-Platform Command-Line Interface" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" editor="tysonn" manager="timlt" documentationCenter="" authors="squillace" services=""/>
+<properties 
+	pageTitle="The Azure Cross-Platform Command-Line Interface" 
+	description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="1/16/2015" ms.author="rasquill"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/16/2015" 
+	ms.author="rasquill"/>
 
 #Install and Configure the Azure Cross-Platform Command-Line Interface
 
@@ -52,7 +66,8 @@ Most of the more recent of these distributions require installing **nodejs-legac
 	sudo npm install -g azure-cli
 
 Some of the older distributions, such as Ubuntu 12.04, require installing the current binary distribution of node.js. The following code shows how to do that by installing and using **curl**. 
-> [AZURE.NOTE] The commands here are taken from the Joyent installation instructions found [here](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). However, when using **sudo** as a pipe target you should always take care to check the scripts that you are installing and validate that they do exactly what you are expecting before running them through **sudo**.
+
+>[AZURE.NOTE] The commands here are taken from the Joyent installation instructions found [here](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). However, when using **sudo** as a pipe target you should always take care to check the scripts that you are installing and validate that they do exactly what you are expecting before running them through **sudo**.
 	
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -

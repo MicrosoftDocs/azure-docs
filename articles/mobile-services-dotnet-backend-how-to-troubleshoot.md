@@ -1,6 +1,20 @@
-<properties pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" services="" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" 
+	description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" 
+	services="" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="wesmc"/>
 # Troubleshoot the Mobile Services .NET Backend
 
 Developing with Mobile Services is usually easy and painless, but even then things can sometimes go wrong. This tutorial covers some techniques that let you troubleshoot common problems that can arise with the Mobile Services .NET backend. 
