@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="The 10GB GraySort sample | Azure" 
-	description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." 
+	description="Learn how to run a general purpose GraySort for very large amounts of data, usually a 100 TB minimum, on Hadoop with HDInsight using Azure PowerShell." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
