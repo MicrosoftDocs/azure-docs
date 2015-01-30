@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" 
-	description="required" 
+	description="Learn basic concepts about Azure Batch and how to use the Batch service with a simple scenario" 
 	services="batch" 
 	documentationCenter=".net" 
 	authors="yidingzhou" 
