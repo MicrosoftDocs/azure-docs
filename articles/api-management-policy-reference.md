@@ -24,6 +24,7 @@ This topic provides a reference for the following API Management policies. For i
 	-	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
 	-	[Rate limit][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
 	-	[Caller IP restriction][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+	-	[Validate JWT][] - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 	-	[Check header][] - Enforces existence and/or value of a HTTP Header.
 -	[Content transformation policies][]
 	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
@@ -46,6 +47,7 @@ This topic provides a reference for the following API Management policies. For i
 -	[Usage quota][] - Allows you to enforce a renewable or lifetime call volume and / or bandwidth quota.
 -	[Rate limit][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
 -	[Caller IP restriction][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+-	[Validate JWT][] - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 -	[Check header][] - Enforces existence and/or value of a HTTP Header.
 
 ### <a name="usage-quota"> </a> Usage quota
@@ -224,6 +226,119 @@ This policy is only required when tight control over access is required (e.g. fo
 </tr>
 </tbody>
 </table>
+
+### <a name="jwt"> </a> Validate JWT
+
+**Description:**
+Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter. 
+
+**Policy Statement:**
+
+	<validate-jwt header-name="Insert HTTP Header Name here" query-parameter-name="Insert Query Parameter here" clock-skew="" require-expiration-time="true | false" require-signed-tokens="true | false">
+ 		<issuer-signing-tokens>
+ 			<token>Base64 Encoded Signing Token</token>
+			<!-- if there are multiple possible allowed values, then add additional value elements -->
+ 		</issuer-signing-tokens>
+ 		<issuer-signing-keys>
+ 			<key>Base64 Encoded Key 1</key>
+ 			<!-- if there are multiple possible allowed values, then add additional value elements -->
+ 		</issuer-signing-keys>
+ 		<client-decryption-tokens>
+ 			<token>Base64 Encoded Decryption Token 1</token>
+ 			<!-- if there are multiple possible allowed values, then add additional value elements -->
+ 		</client-decryption-tokens>
+ 		<audiences>
+ 			<audience>Audience 1</audience>
+ 			<!-- if there are multiple possible allowed values, then add additional value elements -->
+ 		</audiences>
+ 		<issuers>
+ 			<issuer>Issuer 1</issuer>
+ 			<!-- if there are multiple possible allowed values, then add additional value elements -->
+ 		</issuers>
+ 		<required-claims>
+ 			<claim>Claim 1</claim>
+ 			<!-- if there are multiple possible allowed values, then add additional value elements -->
+ 		</required-claims>
+	</validate-jwt>
+
+
+**Example:**
+
+	<validate-jwt query-parameter-name="token" clock-skew="00:00:10">
+	    <issuer-signing-tokens>
+	        <token>gpiI+gEyBnmkDmTPghYnGvqqHNGpQ2FWTvSG/lpUznE=</token>
+	    </issuer-signing-tokens>
+	    <issuer-signing-keys />
+	    <client-decryption-tokens />
+	    <audiences>
+	        <audience>urn:microsoft:windows-azure:zumo</audience>
+	    </audiences>
+	    <issuers>
+	        <issuer>urn:microsoft:windows-azure:zumo</issuer>
+	    </issuers>
+	</validate-jwt>
+
+**Where it can be applied:**
+Used in the inbound section in any scope.
+
+**When it should be applied:**
+When user wants to enforce existence and validity of a JWT.
+
+**Why it should be applied, why not:**
+If the user wants to enforce existence and validity of a JWT.
+
+<table>
+<thead>
+<tr>
+  <th>Element/Attribute</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><origin>header-name="HTTP Header"</origin></td>
+  <td>The HTTP Header’s value to check. Exactly one of "header-name" or "query-paremeter-name" must be specified.</td>
+</tr>
+<tr>
+  <td><origin>query-paremeter-name="Query Parameter Name"</origin></td>
+  <td>HTTP Status code to return if check fails.</td>
+</tr>
+<tr>
+  <td><origin>clock-skew="Timespan"</origin></td>
+  <td>Optional. Provides some small leeway in case the token's expiration claim is past the current date / time. Default is 0 seconds.</td>
+</tr>
+<tr>
+  <td><origin>require-expiration-time</origin></td>
+  <td>Optional. Boolean. Specifies whether an expiration claim is required on the token. If set to false, then we will accept token's without an expiration claim. Default is true.</td>
+</tr>
+<tr>
+  <td><origin>require-signed-tokens</origin></td>
+  <td>Optional. Boolean. Specifies whether a token is required to be signed. If set to false, then we will accept unsigned tokens. Default is true</td>
+</tr>
+<tr>
+  <td><origin>issuer-signing-tokens</origin></td>
+  <td>Required. A list of Base64-encoded security tokens to validate signed tokens. If multiple security tokens are present, then each token is tried until either all are exhausted (in which case validation fails) or until one succeeds (useful for token rollover). If signed-tokens are not in use, then place an empty element <issuer-signing-tokens /></td>
+</tr>
+<tr>
+  <td><origin>issuer-signing-keys</origin></td>
+  <td>Required. A list of Base64-encoded security keys used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or until one succeeds (useful for token rollover). If signed-keys are not in use, then place an empty element <issuer-signing-keys /></td>
+</tr>
+<tr>
+  <td><origin>client-decryption-tokens</origin></td>
+  <td>Required. A list of base-64 encoded security tokens used to decrypt encrypted tokens. If multiple decryption tokens are present, then each token is tried until either all are exhausted (in which case validation fails) or until one succeeds (useful for token rollover). If decryption-tokens are not in use, then place an empty element <client-decryption-tokens /></td>
+</tr>
+<tr>
+  <td><origin>audiences</origin></td>
+  <td>Required. A list of acceptable audience claims that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified.</td>
+</tr>
+<tr>
+  <td><origin>issuers</origin></td>
+  <td>Required. A list of of acceptable principals that issued the JWT. If multiple issuer values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one issuer must be specified.</td>
+</tr>
+</tbody>
+</table>
+
 
 ### <a name="check-header"> </a> Check header
 
@@ -857,6 +972,7 @@ Use in the inbound section and only in the *API* and *Operation* scopes.
 [Usage quota]: #usage-quota
 [Rate limit]: #rate-limit
 [Caller IP restriction]: #caller-ip-restriction
+[Validate JWT]: #jwt
 [Check header]: #check-header
 
 [Content transformation policies]: #content-transformation-policies
