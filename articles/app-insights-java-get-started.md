@@ -178,7 +178,7 @@ Return to your Application Insights resource in Microsoft Azure.
 
 Data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![Click through to more data](./media/appinsights/appinsights-41firstHealth.png)
+![Click through to more data](./media/appinsights/appinsights-gs-r-10-java.png)
 
 Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
 

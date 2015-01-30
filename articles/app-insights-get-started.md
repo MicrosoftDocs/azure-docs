@@ -22,7 +22,7 @@ Detect issues, solve problems and continuously improve your applications. Quickl
 
 Configuration is very easy, and you'll see results within minutes.
 
-We currently support ASP.NET web applications and  WCF services, Windows Phone and Windows Store apps.
+We currently support ASP.NET and Java web applications, WCF services, Windows Phone and Windows Store apps.
 
 ## Get started
 
@@ -34,6 +34,8 @@ What you want | What to do  | What you get
 ---|---|---
 <a href="../app-insights-start-monitoring-app-health-usage/">![](./media/appinsights/appinsights-gs-i-01-perf.png)</a>|[Add Application Insights SDK to your web project][greenbrown]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-start-monitoring-app-health-usage/">![](./media/appinsights/appinsights-gs-r-01-perf.png)</a>
 <a href="../app-insights-monitor-performance-live-website-now/">![](./media/appinsights/appinsights-gs-i-04-red2.png)</a><br/><a href="../app-insights-monitor-performance-live-website-now/">![](./media/appinsights/appinsights-gs-i-03-red.png)</a>|[Install Status Monitor on your IIS server][redfield]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-monitor-performance-live-website-now/">![](./media/appinsights/appinsights-gs-r-03-red.png)</a>
+<a href="../insights-perf-analytics/">![](./media/appinsights/appinsights-gs-i-10-azure.png)</a>|[Enable Insights in your Azure website][azure]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../insights-perf-analytics/">![](./media/appinsights/appinsights-gs-r-03-red.png)</a>
+<a href="../app-insights-java-get-started/">![](./media/appinsights/appinsights-gs-i-11-java.png)</a>|[Add the SDK to your Java project][java]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-java-get-started/">![](./media/appinsights/appinsights-gs-r-10-java.png)</a>
 <a href="../app-insights-web-track-usage/">![](./media/appinsights/appinsights-gs-i-02-usage.png)</a>|[Insert the Application Insights script into your web pages][usage]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-web-track-usage/">![](./media/appinsights/appinsights-gs-r-02-usage.png)</a>
 <a href="../app-insights-monitor-web-app-availability/">![](./media/appinsights/appinsights-gs-i-05-avail.png)</a>|[Create web tests][availability]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-monitor-web-app-availability/">![](./media/appinsights/appinsights-gs-r-05-avail.png)</a>
 <a href="../app-insights-windows-monitor-usage-crashes/">![](./media/appinsights/appinsights-gs-i-06-device.png)</a>|[Add Application Insights to your device app project][windows]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-windows-monitor-usage-crashes/">![](./media/appinsights/appinsights-gs-r-06-device.png)</a>
