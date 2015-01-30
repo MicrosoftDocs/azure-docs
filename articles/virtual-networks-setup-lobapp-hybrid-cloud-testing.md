@@ -3,7 +3,7 @@
 	description="Learn how to create a web-based, line of business application in a hybrid cloud environment for IT pro or development testing." 
 	services="virtual-network" 
 	documentationCenter="" 
-	authors="josephd" 
+	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="1/30/2015" 
 	ms.author="josephd"/>
 
 <h1 id="hybcloudtest">Set up a web-based LOB application in a hybrid cloud for testing</h1>
@@ -78,8 +78,8 @@ Next, connect to the new SQL1 virtual machine *using the local administrator acc
 3.	When prompted to open SQL1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use these:
-- Name: **SQL1\\**[Local administrator account name]
-- Password: [Local administrator account password]
+	- Name: **SQL1\\**[Local administrator account name]
+	- Password: [Local administrator account password]
 6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
 Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
@@ -116,10 +116,10 @@ Next, configure SQL Server 2014 to use the F: drive for new databases and for us
 3.	In the Object Explorer tree pane, right-click **SQL1**, and then click **Properties**.
 4.	In the **Server Properties** window, click **Database Settings**.
 5.	Locate the **Database default locations** and set these values: 
-- For **Data**, type the path **f:\Data**.
-- For **Log**, type the path **f:\Log**.
-- For **Backup**, type the path **f:\Backup**.
-- Note: Only new databases use these locations.
+	- For **Data**, type the path **f:\Data**.
+	- For **Log**, type the path **f:\Log**.
+	- For **Backup**, type the path **f:\Backup**.
+	- Note: Only new databases use these locations.
 6.	Click the **OK** to close the window.
 7.	In the **Object Explorer** tree pane, open **Security**.
 8.	Right-click **Logins** and then click **New Login**.
@@ -145,16 +145,7 @@ First, create an Azure Virtual Machine for LOB1 with these commands at the Azure
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-Next, connect to the LOB1 virtual machine.
-
-1.	On the virtual machines page of the Azure Management Portal, click **Running** in the STATUS column for the LOB1 virtual machine.
-2.	In the task bar, click **Connect**. 
-3.	When prompted to open LOB1.rdp, click **Open**.
-4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
-5.	When prompted for credentials, use these:
-- Name: **CORP\User1**
-- Password: [User1 account password]
-6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
+Next, connect to the LOB1 virtual machine with the CORP\User1 account credentials.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on LOB1, run these commands.
 

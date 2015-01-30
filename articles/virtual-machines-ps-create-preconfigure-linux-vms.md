@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" 
-	description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." 
+	pageTitle="Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines" 
+	description="Learn how to use Azure PowerShell to create and preconfigure Linux-based virtual machines in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -16,13 +16,13 @@
 	ms.date="1/30/2015" 
 	ms.author="josephd"/>
 
-<h1 id="azpswindowsvms">Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines</h1>
+<h1 id="azpslinuxvms">Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines</h1>
 
-These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
+These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Linux-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Linux-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
+For the companion topic to configure Windows-based virtual machines, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-windows-vms/).
 
 ##Step 1: Install Azure PowerShell
 
@@ -41,41 +41,26 @@ You can get the correct subscription name from the SubscriptionName property of 
 
 ##Step 3: Determine the ImageFamily
 
-Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create. Here are some examples from the Gallery in the Azure Management Portal.
-
-![](./media/virtual-machines-use-PS-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
- 
-You can get the list of available ImageFamily values with this command.
+Next, you need to determine the ImageFamily value for the specific image corresponding to the Azure virtual machine you want to create. You can get the list of available ImageFamily values with this command.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
-Here are some examples of ImageFamily values for Windows-based computers:
+Here are some examples of ImageFamily values for Linux-based computers:
 
-- Windows Server 2012 R2 Datacenter 
-- Windows Server 2008 R2 SP1 
-- Windows Server Technical Preview 
-- SQL Server 2012 SP1 Enterprise on Windows Server 2012 
+- Ubuntu Server 12.10
+- CoreOS Alpha
+- SUSE Linux Enterprise Server 12
 
-If you find the image you are looking for, open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the ImageFamily value. 
-
+Open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the ImageFamily value.
+ 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-
-In some cases, the image name is in the Label property instead of the ImageFamily value. If you didn't find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.
-
-	Get-AzureVMImage | select Label -Unique
-
-If you find the right image with this command, open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the Label value. 
-
-	$label="<Label value>"
-	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ##Step 4: Build your command set
 
 Build the rest of your command set by copying the appropriate set of blocks below into your new text file and then filling in the variable values and removing the < and > characters. See the two [examples](#examples) at the end of this article for an idea of the final result.
 
 Start your command set by choosing one of these two command blocks (required).
-
 
 Option 1: Specify a virtual machine name and a size.
 
@@ -92,25 +77,25 @@ Option 2: Specify a name, size, and availability set name.
 
 For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Optionally, for a standalone Windows computer, specify the local administrator account and password.
+Specify the initial Linux user name and password (required). Choose a strong password. To check its strength, see [Password Checker: Using Strong Passwords](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
-	$localadminusername="<local administrator account name>"
-	$localadminpassword="<local administrator account password>"
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
+	$username="<user account name>"
+	$pass="<user account password>"
+	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
-Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the account credentials of a domain account.
+If you are saving the resulting command set as a file, ensure that you store it in a secure location to protect the account name and password.
 
-	$localadminusername="<local administrator account name>"
-	$localadminpassword="<local administrator account password>"
-	$domaindns="<FQDN of the domain that the machine is joining>"
-	$domacctdomain="<domain of the account that has permission to add the machine to the domain>"
-	$domacctname="<domain account name that has permission to add the machine to the domain>"
-	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
+Optionally, specify a set of SSH key pairs that are already deployed in the subscription.
 
-Note that this requires you to specify the account name and password of an Active Directory domain account. If you are saving the resulting command set as a file, ensure that you store it in a secure location to protect the domain account name and password.
+	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-For additional pre-configuration options for Windows-based virtual machines, see the syntax for the **Windows** and **WindowsDomain** parameter sets in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+For more information, see [How to Use SSH with Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/).
+
+Optionally, specify a list of SSH public keys that are already deployed in the subscription.
+
+	$vm1 | Add-AzureProvisioningConfig -Linux - SSHPublicKeys "<SSH public keys>"
+
+For additional pre-configuration options for Linux-based virtual machines, see the syntax for the **Linux** parameter set in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
 Optionally, assign the virtual machine a specific IP address, known as a static DIP.
 
@@ -132,8 +117,6 @@ Optionally, add a single data disk to the virtual machine.
 	$hcaching="<Specify one: ReadOnly, ReadWrite, None>"
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
-For an Active Directory domain controller, set $hcaching to "None".
-
 Optionally, add the virtual machine to an existing load-balanced set for external traffic.
 
 	$prot="<Specify one: tcp, udp>"
@@ -152,6 +135,10 @@ Option 1: Create the virtual machine in a new cloud service.
 
 	New-AzureVM –Location "<An Azure location, such as US West>" -VMs $vm1
 
+You can get the list of Azure locations with:
+
+	Get-AzureLocation | Select DisplayName
+
 Option 2: Create the virtual machine in an existing cloud service. 
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
@@ -168,7 +155,9 @@ Option 3: Create the virtual machine in an existing cloud service and virtual ne
 
 Review the Azure PowerShell command set you built in your text editor consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
-Copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine.
+Copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. If you create the virtual machine in the wrong subscription, storage account, cloud service, availability set, virtual network, or subnet, delete the virtual machine, correct the command block syntax, and then run the corrected command set. 
+
+After the virtual machine is created, see [How to Log on to a Virtual Machine Running Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-log-on/). 
 
 If you will be creating this virtual machine again or a similar one, you can: 
 
@@ -177,38 +166,38 @@ If you will be creating this virtual machine again or a similar one, you can:
 
 ##<a id="examples"></a>Examples
 
-Here are two examples of using the steps above to build Azure PowerShell command sets that create Windows-based Azure virtual machines.
+Here are two examples of using the steps above to build Azure PowerShell command sets that create Linux-based virtual machines in Azure.
 
 ###Example 1
 
-I need a PowerShell command set to create the initial virtual machine for an Active Directory domain controller that:
+I need a PowerShell command set to create the initial Linux virtual machine for a MySQL server that:
 
-- Uses the Windows Server 2012 R2 Datacenter image
-- Has the name AZDC1 
-- Is a standalone computer
-- Has an additional data disk of 20 GB
-- Has the static IP address 192.168.244.4
+- Uses the Ubuntu Server 12.10 image
+- Has the name AZMYSQL1 
+- Has an additional data disk of 500 GB
+- Has the static IP address of 192.168.244.4
 - Is in the BackEnd subnet of the AZDatacenter virtual network
 - Is in the Azure-TailspinToys cloud service
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
 
-	$family="Windows Server 2012 R2 Datacenter"
+	$family="Ubuntu Server 12.10"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vmname="AZDC1"
-	$vmsize="Medium"
+
+	$vmname="AZMYSQL1"
+	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$localadminusername="DCLocalAdmin"
-	$localadminpassword="DCeq7294*"
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
+	$username="Admin397A"
+	$pass="3A#q291{Y"
+	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
 
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.244.4
 
-	$disksize=20
-	$disklabel="DCData"
+	$disksize=500
+	$disklabel="MySQLData"
 	$lun=0
 	$hcaching="None"
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
@@ -219,43 +208,49 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 ###Example 2
 
-I need a PowerShell command set to create a virtual machine for a line-of-business server that:
+I need a PowerShell command set to create a Linux virtual machine for an Apache server that:
 
-- Uses the Windows Server 2012 R2 Datacenter image
+- Uses the SUSE Linux Enterprise Server 12 image
 - Has the name LOB1
-- Is a member of the corp.contoso.com domain
-- Has an additional data disk of 200 GB 
+- Has an additional data disk of 50 GB 
+- Is a member of the LOBServers load balancer set for standard web traffic
 - Is in the FrontEnd subnet of the AZDatacenter virtual network
 - Is in the Azure-TailspinToys cloud service
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine.
 
-	$family="Windows Server 2012 R2 Datacenter"
+	$family="SUSE Linux Enterprise Server 12"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+
 	$vmname="LOB1"
-	$vmsize="Large"
+	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$localadminusername="LOBLocalAdmin"
-	$localadminpassword="LOBmx7137*"
-	$domacctdomain="CORP"
-	$domacctname="admin7"
-	$domacctpassword="frank0987&"
-	$domaindns="corp.contoso.com"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $ localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
+	$username="Admin261Z"
+	$pass="9Z2:3Wqp1~"
+	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
 
-	$disksize=200
-	$disklabel="LOBData"
+	$disksize=50
+	$disklabel="LOBApp"
 	$lun=0
 	$hcaching="ReadWrite"
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
+	$prot="tcp"
+	$localport=80
+	$pubport=80
+	$endpointname="LOB1"
+	$lbsetname="LOBServers"
+	$probeprotocol="tcp"
+	$probeport=80
+	$probepath="/"
+	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
+
 	$svcname="Azure-TailspinToys"
 	$vnetname="AZDatacenter"
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
-
 
 ##Additional Resources
 
@@ -267,4 +262,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
 
-[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/)
+[How to Log on to a Virtual Machine Running Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-log-on/)
+
+[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-windows-vms/)
+
