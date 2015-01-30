@@ -3,8 +3,8 @@
 	description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="stuartozer" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/01/2015" 
+	ms.author="stuartozer"/>
 
 #Data-Dependent Routing
 

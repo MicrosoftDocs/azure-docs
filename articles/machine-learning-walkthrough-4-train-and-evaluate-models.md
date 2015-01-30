@@ -3,7 +3,7 @@
 	description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="aryericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
+	ms.date="01/29/2015" 
 	ms.author="garye"/>
 
 
@@ -42,7 +42,7 @@ This is the fourth step of the walkthrough, [Developing a Predictive Solution wi
 
 In this experiment we want to try different algorithms for our predictive model. We'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 
-There are a number of models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees. We'll use the appropriate modules to initialize the learning algorithms and use **Train Model** modules to train the models.   
+There are a number of models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees modules. We'll use the appropriate modules to initialize the learning algorithms and use **Train Model** modules to train the models.   
 
 ##Train the models
 First, let's set up the boosted decision tree model:  
@@ -51,7 +51,7 @@ First, let's set up the boosted decision tree model:
 2.	Find the **Train Model** module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the **Train Model** module.
 3.	Connect the output of the left **Execute R Script** module to the right input port ("Dataset") of the **Train Model** module.
 
-	>**Tip**: We don't need two of the inputs and one of the outputs of the **Execute R Script** module for this experiment, so we'll just leave them unattached. This is not uncommon for some modules.
+	> [AZURE.TIP] We don't need two of the inputs and one of the outputs of the **Execute R Script** module for this experiment, so we'll just leave them unattached. This is not uncommon for some modules.
 
 
 4.	Select the **Train Model** module. In the **Properties** pane, click **Launch column selector**, select **Include** in the first dropdown, select **column indices** in the second dropdown, and enter "21" in the text field (you can also select **Column name** and enter "Credit Risk"). This identifies column 21, the credit risk value, as the column for the model to predict.
@@ -116,7 +116,7 @@ Click **Scored dataset** or **Scored dataset to compare** to highlight the assoc
  
 By examining these values you can decide which model is closest to giving you the results you're looking for. You can go back and iterate on your experiment by changing values in the different models.  
 
->Tip: Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open.  
+> [AZURE.TIP] Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open.  
 
 You can also make a copy of any iteration of your experiment by clicking **SAVE AS** below the canvas. This makes a duplicate of the experiment, creating a new Run History to track your iterations of this version. The new copy is displayed in the **EXPERIMENTS** list alongside the original. This can be helpful if you want to start a new branch of experiment iterations.  
 

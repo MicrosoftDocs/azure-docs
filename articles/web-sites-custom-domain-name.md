@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure a custom domain name for an Azure website" 
-	description="" 
+	description="Learn how to use a custom domain name with Azure Web Sites" 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="blackmist" 

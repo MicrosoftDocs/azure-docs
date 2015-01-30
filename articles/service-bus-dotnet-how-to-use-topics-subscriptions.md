@@ -101,7 +101,7 @@ You then specify values in the service configuration (`*.cscfg`) file:
 	...
 	</ServiceConfiguration>
 
-Use the issuer and key values retrieved from the Management Portal as
+Use the key values retrieved from the Management Portal as
 described in the previous section.
 
 ### Configuring your connection string when using Websites or Virtual Machines

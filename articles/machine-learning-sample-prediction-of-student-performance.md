@@ -3,7 +3,7 @@
 	description="A sample Azure Machine Learning experiment to develop a model that predicts student performance on tests." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

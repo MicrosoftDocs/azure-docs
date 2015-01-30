@@ -3,7 +3,7 @@
 	description="Creating and managing Azure Machine Learning web services" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

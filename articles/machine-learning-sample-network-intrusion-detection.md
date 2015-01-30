@@ -3,7 +3,7 @@
 	description="A sample Azure Machine Learning experiment that uses a classification model to determine which network activities are a part of network intrusion." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

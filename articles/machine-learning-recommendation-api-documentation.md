@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
-	ms.author="AharonGumnik"/>
+	ms.date="01/20/2015" 
+	ms.author="v-ahgumn"/>
 
 #Azure Machine Learning Recommendations API Documentation
 

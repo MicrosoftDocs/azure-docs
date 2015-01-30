@@ -3,8 +3,8 @@
 	description="Using Elastic Scale with Dapper." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh@microsoft.com"/>
+	manager="stuartozer" 
+	authors="torsteng"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/18/2015" 
-	ms.author="sidneyh"/>
+	ms.date="02/01/2015" 
+	ms.author="torsteng"/>
 
 # Using Elastic Scale with Dapper 
 

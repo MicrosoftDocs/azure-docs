@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Survival Analysis | Azure" 
-	description="Survival Analysis" 
+	description="Survival Analysis event occurrence probability" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 

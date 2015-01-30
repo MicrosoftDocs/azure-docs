@@ -3,8 +3,8 @@
 	description="Security for Split-Merge services using Elastic Scale for Azure SQL Database" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/01/2015" 
+	ms.author="torsteng"/>
 
 # Elastic Scale Security Configurations  
 

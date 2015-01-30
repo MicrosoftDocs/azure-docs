@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="01/30/2015" 
 	ms.author="danlep"/>
 
 
@@ -21,15 +21,6 @@ Azure Batch helps you run large-scale parallel and high performance computing (H
  
 >[AZURE.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to sign up for the Batch Preview. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
-
-This article gives you an overview of:
- 
-* [Use cases](#BKMK_Scenarios)
-* [Developer scenarios](#BKMK_Approaches)
-* [Batch concepts](#BKMK_Entities)
-* [Workitem workflow](#BKMK_Workflow_workitems)
-* [Workflow to publish and run applications](#BKMK_Workflow_cloudappss)
-* [Additional resources](#BKMK_Resources)
 
 <h2 id="BKMK_Scenarios">Use cases</h2>
 

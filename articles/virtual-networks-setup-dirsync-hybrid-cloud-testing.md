@@ -3,7 +3,7 @@
 	description="Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing." 
 	services="virtual-network" 
 	documentationCenter="" 
-	authors="josephd" 
+	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="01/30/2015" 
 	ms.author="josephd"/>
 
-<h1 id="hybcloudtest">Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing</h1>
+#Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing
 
 This topic steps you through creating a hybrid cloud environment for testing Office 365 Directory Synchronization (DirSync) with password synchronization hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -64,7 +64,7 @@ Next, sign up for a new Office 365 FastTrack trial.
 3.	Click **Getting started with FastTrack**.
 4.	On the Getting Started with FastTrack page, under **First, sign up for an Office 365 trial**, click **For enterprises, sign up here**.
 5.	On the Step 1 page, fill in the page, specifying your new Microsoft account in **Business email address**, and then click **Next**.
-6.	On the Step 2 page, type the name of an initial Office 365 account in the first field, your fictitious company name, and then a password. Record the resulting email address (such as user123@contoso123.onmicrosoft.com) and the password in a secure location. You will need this information to complete the Active Directory Sync tool Configuration Wizard in Phase 3. Click **Nex**t.
+6.	On the Step 2 page, type the name of an initial Office 365 account in the first field, your fictitious company name, and then a password. Record the resulting email address (such as user123@contoso123.onmicrosoft.com) and the password in a secure location. You will need this information to complete the Active Directory Sync tool Configuration Wizard in Phase 3. Click **Next**.
 7.	On the Step 3 page, type the phone number of your text message-capable cellular or smart phone, and then click **Text me**.
 8.	After you receive the text message on your phone, type the verification code, and then click **Create my account**. 
 9.	When Office 365 is done creating your account, click **You're ready to go**.
@@ -78,7 +78,7 @@ This is your current configuration.
 
 First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network >"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
@@ -95,8 +95,8 @@ Next, connect to the DS1 virtual machine.
 3.	When prompted to open DS1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use these:
-- Name: **CORP\User1**
-- Password: [User1 account password]
+	- Name: **CORP\User1**
+	- Password: [User1 account password]
 6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on DS1, run these commands.
@@ -106,16 +106,9 @@ Next, configure a Windows Firewall rule to allow traffic for basic connectivity 
 
 The ping command should result in four successful replies from IP address 10.0.0.1.
 
-Next, install .NET 3.5 on DS1.
+Next, install .NET 3.5 on DS1 with this command at the Windows PowerShell command prompt.
 
-1.	In Server Manager, click **Add roles and features**.
-2.	On the Before you begin page, click **Next**.
-3.	On the Installation type page, click **Next**.
-4.	On the Select destination server page, click **Next**.
-5.	On the Select server roles page, click **Next**.
-6.	On the Select features page, select **.NET Framework 3.5 Features**, and then click **Next**.
-7.	On the Confirm installation selections page, click **OK**.
-8.	Click **Install**. A progress bar shows installation progress. When the installation is complete, and then click **Close**.
+	Add-WindowsFeature NET-Framework-Core
 
 Next, install Directory Sync on DS1.
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure an eNom domain name for an Azure website that uses Traffic Manager" 
-	description="" 
+	description="Learn how to use a domain name from eNom with Azure Web Sites" 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="blackmist" 

@@ -1,6 +1,20 @@
-<properties title="Machine Learning app: Text Analytics | Azure" pageTitle="Machine Learning app: Text Analytics Service for analyzing sentiment | Azure " description="Text Analytics API is a suite of text analytics built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction." services="machine-learning" documentationCenter="" authors="LuisCabrer" manager="paulettm" /> 
+<properties
+	pageTitle="Machine Learning app: Text Analytics Service for analyzing sentiment | Azure "
+	description="Text Analytics API is a suite of text analytics built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction."
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
+	editor="cgronlun"/> 
 
-<tags ms.service="machine-learning" ms.devlang="na" ms.topic="reference" ms.tgt_pltfrm="na" ms.workload="multiple" ms.date="01/27/2015" ms.author="luisca"/>
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/27/2015"
+	ms.author="luisca"/>
 
 
 # Machine Learning Text Analytics Service#
