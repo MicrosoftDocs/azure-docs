@@ -29,7 +29,7 @@ An Azure Machine Learning workspace (ML workspace) contains the tools you need t
 1. Click **CREATE AN ML WORKSPACE**.
 2. On the **QUICK CREATE** page:
 	1. Enter your workspace information.    
-	**Note**: The **WORKSPACE OWNER** is your Microsoft account name (name@outlook.com) or your organization account name.
+	> [AZURE.NOTE] The **WORKSPACE OWNER** is your Microsoft account name (name@outlook.com) or your organization account name.
 	2. Click **CREATE AN ML WORKSPACE**.
 3. After your Machine Learning workspace is created, you will see it listed on the **machine learning** page.
  

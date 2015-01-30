@@ -50,7 +50,7 @@ To use ML Studio, you need to have an ML workspace. This workspace contains the 
 3.	Click **CREATE AN ML WORKSPACE**.
 4.	In the **QUICK CREATE** page enter your workspace information and then click **CREATE AN ML WORKSPACE**.
 
-	>**NOTE** - The **WORKSPACE OWNER** is your Microsoft account (e.g., name@outlook.com) or organization account.
+	> [AZURE.NOTE] The **WORKSPACE OWNER** is your Microsoft account (e.g., name@outlook.com) or organization account.
 
 After your ML workspace is created, you will see it listed on the **machine learning** page.  
 
