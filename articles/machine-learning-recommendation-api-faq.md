@@ -13,10 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="01/30/2014" 
 	ms.author="jaymathe"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
+
+**Contents**
+
+* What is RECOMMENDATIONS?
+* What can I do with RECOMMENDATIONS?
+* Are there any limitations during the launch period?
+* Purchase and Billing
+ * How much does RECOMMENDATIONS cost during the launch period?
+ * Are there any costs associated with having RECOMMENDATIONS track and / or store user activity for me?
+ * Does RECOMMENDATIONS have a free trial?
+ * When will the launch period end?
+ * How much will it cost when it becomes generally available (GA)?
+ * When will I be billed for RECOMMENDATIONS?
+ * How do I upgrade to a higher tier services?
+ * When will my subscription to RECOMMENDATIONS end?
+ * How do I cancel my RECOMMENDATIONS subscription?
+* Getting started with RECOMMENDATIONS
+ * Is RECOMMENDATIONS for me?
+ * What are the prerequisites for setting up RECOMMENDATIONS?
+ * How do I set up RECOMMENDATIONS for the first time?
+ * Where can I find API documentation?
+ * What options do I have to upload catalog and usage data to RECOMMENDATIONS?
+* Maintenance and support
+ * How large can my data set be?
+ * Where can I get technical support for RECOMMENDATIONS?
+ * Where can I find the terms of use?
+* Legal 
 
 **What is RECOMMENDATIONS?**
 
