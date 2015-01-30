@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2014" 
+	ms.date="01/29/2015" 
 	ms.author="garye"/>
 
 
@@ -54,7 +54,7 @@ To use ML Studio, you need to have an ML workspace. This workspace contains the 
 
 After your ML workspace is created, you will see it listed on the **machine learning** page.  
 
->**Tip** - You can share the experiments you're working on by inviting others to your workspace. You can do this in ML Studio on the **SETTINGS** page. You just need the Microsoft account or organization account for each user.
+> [AZURE.TIP] You can share the experiments you're working on by inviting others to your workspace. You can do this in ML Studio on the **SETTINGS** page. You just need the Microsoft account or organization account for each user.
 
 ----------
 
