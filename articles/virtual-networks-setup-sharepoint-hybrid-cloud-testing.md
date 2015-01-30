@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/30/2015" 
+	ms.date="01/30/2015" 
 	ms.author="josephd"/>
 
 
-<h1 id="sphybcloudtest">Set up a SharePoint intranet farm in a hybrid cloud for testing</h1>
+#Set up a SharePoint intranet farm in a hybrid cloud for testing
 
 This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint farm hosted in Microsoft Azure. Here is the resulting configuration.
 

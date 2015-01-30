@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/30/2015" 
+	ms.date="01/30/2015" 
 	ms.author="josephd"/>
 
-<h1 id="hybcloudtest">Set up a hybrid cloud environment for testing</h1>
+#Set up a hybrid cloud environment for testing
 
 This topic steps you through creating a hybrid cloud environment with Microsoft Azure for testing. Here is the resulting configuration.
 
