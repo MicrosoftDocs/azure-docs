@@ -104,6 +104,21 @@ You can drill down to specific exceptions (from the last seven days) and get sta
    * In Computer management control panel, add this identity to the Performance Monitor Users group.
   * See [Troubleshooting][qna].
 
+## System Requirements
+
+OS support for Application Insights Status Monitor on Server: 
+
+- Windows Server 2008
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows server 2012 R2
+
+with latest SP and .NET framework 4.0 and 4.5
+
+On the client side Windows 7, 8 and 8.1, again with .NET framework 4.0 and 4.5
+
+IIS support is: IIS 7, 7.5, 8, 8.5
+(IIS is required)
 
 ## <a name="next"></a>Next steps
 
