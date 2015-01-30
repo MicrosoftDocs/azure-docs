@@ -1,6 +1,6 @@
-<properties pageTitle="What is in the RemoteApp template images?" description="Learn the template images included with RemoteApp." services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" />
+<properties pageTitle="What is in the RemoteApp template images?" description="Learn about the template images included with RemoteApp." services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/30/2015" ms.author="elizapo" />
 
 #What is in the RemoteApp template images?
 
@@ -53,6 +53,17 @@ This image is an extension of the vanilla image and has the following components
 - Visio
 - Word
 - Microsoft Office Proofing Tools 
+
+And the following applications, as well:
+
+- SQL Native client
+- ODBC Driver
+- SQL Server Data Mining client
+- MasterDataServices client
+- Microsoft Publisher
+- PowerQuery
+- PowerMap
+
 
 Full functionality of Office 365 ProPlus apps is available only for users who have an Office 365 ProPlus plan. For more details on the Office 365 subscription plans see [Office 365 service plans](http://technet.microsoft.com/library/office-365-plan-options.aspx). For more details on licensing in RemoteApp, see [How does licensing work in Azure RemoteApp?](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-licensing/) 
 
