@@ -16,27 +16,6 @@
 	ms.date="11/19/2014" 
 	ms.author="wpickett"/>
 
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-<li><a href="/en-us/documentation/api">Reference</a></li>
-<li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
-<li><a href="/en-us/develop/net/architecture/">Architecture</a></li>
-<li><a href="/en-us/develop/net/samples/">Samples</a></li>
-<li><a href="/en-us/develop/net/end-to-end-Apps/">Scenario-Based Tutorials</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-</div>
-</div>
-</div>
-
 # Multitenant Applications in Azure
 
 A multitenant application is a shared resource that allows separate users, or "tenants," to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
