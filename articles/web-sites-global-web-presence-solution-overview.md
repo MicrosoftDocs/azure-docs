@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Create a Global Web Presence on Azure Websites" 
 	description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." 
-	services="web-sites" 
-	documentationCenter="" 
-	authors="rothja" 
+	editor="jimbe" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	authors="cephalin" 
+	services="web-sites" 
+	documentationCenter=""/>
 
 <tags 
 	ms.service="web-sites" 
@@ -13,254 +13,128 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/01/2014" 
-	ms.author="jroth"/>
-
-
-
+	ms.date="02/02/2014" 
+	ms.author="cephalin"/>
 
 
 # Create a Global Web Presence on Azure Websites
 
-This guide provides a technical overview of how to host your organization's (.COM) site on Azure. This scenario is also referred to as a global web presence. This guide focuses on using [Azure Web Sites][websitesoverview], because Websites is the fastest and simplest way to create, migrate, scale, and manage a web application on Azure. However, some application requirements lend themselves better to [Azure Cloud Services][csoverview] or [Azure Virtual Machines][vmoverview] running IIS. These are also excellent choices for hosting web applications. If you are in the initial planning stages, please review the document [Azure Web Sites, Cloud Services, and VMs: When to use which?][chooseservice]. In the absence of a requirement to use Cloud Services or Virtual Machines, we recommend using Websites for hosting your global web presence. The rest of this document will provide guidance for using Websites with this scenario. 
+[Azure Websites] has all the capabilities you need to establish a global web presence for your .COM site. Regardless of the size of your organization, you need a robust, secure, and scalable platform to drive your business , your brand awareness, and your customer communications. Azure Websites can help maintain your corporate brand and identity with Microsoft backed business continuity.
 
-The following areas are addressed in this guide:
+> [AZURE.NOTE] If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
-- [Create an Azure Web Site](#createwebsite)
-- [Deploy the Web Site](#deploywebsite)
-- [Add a Custom Domain](#customdomain)
-- [Secure the Web Site with SSL](#ssl)
-- [Monitor the Site](#monitor)
+Below is an example of a .COM website running on Azure Websites. It demonstrates what you can do simply by composing Azure Websites together with other services with minimal technical investments. **Click on an element in the topography to read more about it.** 
 
-> [AZURE.NOTE]
-> This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.
-> 
-> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-##<a name="createwebsite"></a>Create an Azure Website
-Using the Azure Management Portal, you can create a new Azure Website in several ways. When you click the **New** button on the bottom of the portal, you are presented with the following dialog:
+> [WACOM.NOTE]
+> This guide presents some of the most common areas and tasks that are aligned with running a public-facing .COM site in Azure Websites. However, there are other common solutions that you can implement in Azure Websites. To review these solutions, see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.
 
-![GlobalWebCreate][GlobalWebCreate]
+### Create from scratch or bring existing assets
 
-There are three options for creating a new Website: **Quick Create**, **Custom Create**, and **From Gallery**. With each of these options, you should select an Azure region that aligns with the majority of your user base.
+Quickly create new sites from a popular CMS in the gallery or bring your existing web assets to Azure Websites from a variety of languages and frameworks.
 
-If you are migrating an existing site, the **Custom Create** option allows you to create or associate a SQL Database or MySQL database. This option also provides the ability to specify several source control options for deployment, such as GitHub or Team Foundation Server (TFS). If you are already managing your website using a source control mechanism, this provides a quick way to setup your Azure Website for deployment.
+The Azure gallery provides templates from the popular website content management systems (CMS), such as [Orchard], [Umbraco], [Drupal], and [WordPress]. You can create a website using your favorite CMS flavor. You can choose from various database backends to meet your needs, including [Azure SQL Database] and [MySQL].
 
-The **From Gallery** option allows you to setup a new site with one of several frameworks, such as Drupal or WordPress. This can be helpful to quickly set up a new site that you can then customize within the chosen framework.
+Your existing web assets can run on Azure Websites, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Azure Websites using your familiar [FTP] tools or your source control management system. Azure Websites supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-Like most services in Azure, you must select an Azure region for your new Website. Azure has multiple regions located around the world. Once you deploy your website to any one region, it is accessible globally on the internet. However, multiple regions provides greater flexibility. One obvious benefit is to deploy sites in regions that are closest to users. 
+### Publish reliably
 
-For details on the steps to create a new website, see [Get started with Azure Web Sites and ASP.NET][howtocreatewebsites].
+Publish your website reliably by continuously publishing directly from your existing source control system and live-testing your content. 
 
-##<a name="deploywebsite"></a>Deploy the Website
-There are several ways to deploy your website to Azure. If you selected a framework from the gallery, you already have a starter site deployed. However, to make any progress, you still must set up some type of editing and deployment procedure. Some of the deployment options include:
+During the planning, prototyping, and early development of a site, you can look at real working versions of the website before it goes live by [deploying to a staging slot] of your Azure Website. By integrating source control with Azure Websites, you can [continuously publish] to a staging slot, and swap it into production with no downtime when you are ready to do so. If anything goes wrong on the production site, you can also swap it out for a previous version of your site immediately. 
 
-- Use an FTP client.
-- Deploy from source control.
-- Publish from Visual Studio.
-- Publish from [WebMatrix][webmatrix].
+Also, when planning changes to a live website, you can easily [run A/B tests] on the proposed updates using the Test in Production feature in and analyze real user behavior to help you make informed decisions on site design.
 
-Each of these options have various strengths. The ability to publish from an FTP client is a simple and straight-forward solution to push new files up to your site. It also means that any existing publishing tools or processes that rely on FTP can continue to work with Azure Websites. Source control provides the best control over site content releases, because changes can be tracked, published, and rolled-back to earlier versions if necessary. The options to publish directly from Visual Studio or Web Matrix is a convenience for developers that use either tool. One useful scenario for this feature is during the early stages of a project or for prototyping. In both cases, frequent publishing and testing is potentially more convenient from within the development environment. 
+### Brand and secure
 
-Many of the deployment tasks here involve the use of information in the Azure Management Portal. Go to your website, select the **Dashboard** tab, and then look for the **quick glance** section. The following screenshot shows several options.
+Use the Websites domain for free or map to your registered domain name, then secure your brand with your CA-signed SSL certificate.
 
-![GlobalWebQuickGlance][GlobalWebQuickGlance]
+The **\*.azurewebsites.net** domain is complimentary when you run your website on Azure Websites. Or, you can map your website to a [custom domain] (e.g. contoso.com), which you obtained from any DNS registry, such as GoDaddy.
 
-Some source control tools and FTP clients require username/password access. For a new Website, credentials are not automatically created. However, you can easily do this by clicking **Reset your deployment credentials**. Once completed, you can use any FTP client to deploy your website by using these credentials along with the **FTP Host Name** on the same **Dashboard** page.
+If you collect any user information, perform ecommerce, or manage any other sensitive data, you can protect your brand reputation and your customers with [HTTPS]. The **\*.azurewebsites.net** domain name already comes with an SSL certificate, and if you use your custom domain, you can bring your SSL certificate for it to Azure Websites. There is a monthly charge (prorated hourly) associated with each SSL certificate. For more information, see [Websites Pricing Details].
 
-![GlobalWebFTPSettings][GlobalWebFTPSettings]
+### Go global
 
-Note that the Deployment/FTP user name is a combination of the Website name and the user name that you provided. So if your site were "http://contoso.azurewebsite.net" and if your user name were "myuser", the user name for deployment and FTP would be "contoso\myuser".
+Go global by serving regional sites with Azure Traffic Manager and delivering content lightning fast with Azure CDN.
 
-You can also choose to deploy through a source control management service, such as GitHub or TFS Online. Click the option to **Set up deployment from source control**. Then follow the instructions for source control system or service of your choice. For step-by-step instructions for publishing from a local Git repository, see [Publishing from Source Control to Azure Web Sites][publishingwithgit].
+To serve global customers in their respective regions, use [Azure Traffic Manager] to route site visitors to a regional site that provides the best performance. Alternatively, you can spread the site load evenly across multiple copies of your website hosted in multiple regions.
 
-If you plan to use Visual Studio to create and manage your site, you can choose to publish directly from Visual Studio. One method is to click the **Download the publish profile** option. This allows you to save a publishsettings file that can be imported into Visual Studio for web publishing. 
+Deliver your static content lightning fast to users globally by [integrating your website with Azure CDN]. Azure CDN caches static content in the [CDN node] closest to the user, which minimizes latency and connections to your website.
 
-> [AZURE.NOTE]
-> It is important to keep the <i>publishsettings</i> file safe and outside of source control, because it contains user names and passwords for both deployment and also any linked database connection strings.
+### Optimize
 
-It is also possible to import the subscription information directly into Visual Studio. For an example, consider a local ASP.NET project in Visual Studio. Right-click on the web project and select **Publish**. The **Import** button in the **Publish Web** dialog enables you to import either a file that contains your Azure subscription settings or the publishsettings file that you downloaded from the Websites dashboard. The following screenshot shows these options.
+Optimize your .COM site by scaling automatically with Autoscale, caching with Azure Redis Cache, running background tasks with WebJobs, and maintaining high availability with Azure Traffic Manager.
 
-![GlobalWebVSPublish][GlobalWebVSPublish]
+Azure Websites' ability to [scale up and out] meets the need of your .COM site, regardless of the size of your workload. Scale out your website manually through the [Azure Management Portal], programmatically through the [Service Management API] or [PowerShell scripting], or automatically through the Autoscale feature. In **Standard** hosting plan, Autoscale enables you to scale out a website automatically based on CPU utilization. For best practices, see [Troy Hunt]'s [10 things I learned about rapidly scaling websites with Azure].
 
-For more information about publishing to Azure from Visual Studio, see Deploying an ASP.NET Web Application to an Azure Website. 
+Make your website more responsive with the [Azure Redis Cache]. Use it to cache data from backend databases and other things such as the [ASP.NET session state] and [output cache].
 
-One more option for both development and deployment is WebMatrix from the Azure Management Portal.
+Maintain high availability of your website using [Azure Traffic Manager]. Using the **Failover** method, Traffic Manager automatically routes traffic to a secondary site if there is a problem on the primary site.
 
-![GlobalWebWebMatrix][GlobalWebWebMatrix]
+### Monitor and analyze
 
-For more information on this option, see [Develop and deploy a web site with Microsoft WebMatrix][aspnetgetstarted].
+Stay up-to-date on your website's performance with Azure or third-party tools. Receive alerts on critical website events. Gain user insight easily with Application Insight or with web log analytics from HDInsight. 
 
-Although these steps provide what you need for deploying your .COM site, you should also create a plan for managing the ongoing content publishing cycle. These options could range from rolling a custom solution, to periodic redeployments for a site that changes infrequently, to a full-featured content management system (CMS). If you're creating a new website, you should note that there are options in the gallery to use existing CMS frameworks, such as [Drupal][drupal] or [Umbraco][umbraco].
+Get a [quick glance] of the website's current performance metrics and resource quotas in the Azure Websites dashboard. For a 360° view of your application across availability, performance and usage, use [Azure Application Insights] to give you fast & powerful troubleshooting, diagnostics and usage insights. Or, use a third-party tool like [New Relic] to provide advanced monitoring data for your websites.
 
-##<a name="customdomain"></a>Add a Custom Domain
-If this is your global web presence, you will want to associate your registered domain name with the website. There are many third-party providers that provide domain registration services. Each of these providers supports the creation of different types of DNS records to manage your domain. A DNS record helps to map a user-friendly URL, such as "www.contoso.com", to the actual URL or IP address that hosts the site. 
+In the **Standard** hosting plan, monitor site responsiveness receive email notifications whenever your site becomes unresponsive. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure].
 
-> [AZURE.NOTE]
-> In the discussion below, there are two DNS record types of interest. First, a CNAME record can redirect from one URL, such as "www.contoso.com", to a different URL, such as "contoso.azurewebsites.net". Second, an A record can map a URL, such as "www.contoso.com", to an IP address, such as 172.16.48.1.
+### Use rich media and reach all devices
 
-For Azure Websites, you must first create a CNAME record to the Azure Website. This setting is done through the third-party registrar's site. The following is an example CNAME record.
+Make your .COM site attractive with rich media, such as:
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Type</th>
-   <th align="left" valign="top">Host</th>
-   <th align="left" valign="top">Answer</th>
-   <th align="left" valign="top">TTL</th>
-</tr>
-<tr>
-   <td valign="top"><strong>CNAME</strong></td>
-   <td valign="top">www.contoso.com</td>
-   <td valign="top">contoso.azurewebsites.net</td>
-   <td valign="top">8000</td>
-</tr>
-</table>
+-  Upload and stream videos globally with [Azure Media Services]
+-  Send emails to users with [SendGrid service in Azure Marketplace]
 
-If your domain is newly registered, it might take the domain a day or more to resolve on all DNS servers, which operate off of cached DNS entries. However, if your domain already exists, the CNAME change should happen within a minute. Note that the CNAME record provides a mapping between your domain (which must be qualified with a subdomain alias, such as "www") to the Azure Website URL. Neither side of the CNAME record includes the "http://" prefix.
+## More Resources
 
-In the Azure Management Portal, verify that you are running in **Shared** or Sta****ndard modes on the **Scale** tab (custom domains are not supported for **Free** websites). Then go to the **Configure** tab and click the **Manage Domains** button. This enables you to associate the website with the custom domain name. 
+- [Azure Websites Documentation](/en-us/documentation/services/websites/)
+- [Learning map for Azure Websites](/en-us/documentation/articles/websites-learning-map/)
+- [Azure Web Blog](/blog/topics/web/)
 
-![GlobalWebWebMatrix][GlobalWebWebMatrix]
 
-Before placing your custom domain in the list, you must first go to your DNS provider and create a CNAME record for your custom domain (www.contoso.com) that points to the URL for your Azure Website (contoso.azurewebsites.net). After this propagates, you can enter the custom domain in the dialog shown in the previous screenshot. The presence of the CNAME record for www.contoso.com that points to this website ensures that you have the authority to use that domain name with this website. At this point, you can create an A record with the IP address at the bottom of the dialog.
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Type</th>
-   <th align="left" valign="top">Host</th>
-   <th align="left" valign="top">Answer</th>
-   <th align="left" valign="top">TTL</th>
-</tr>
-<tr>
-   <td valign="top"><strong>A</strong></td>
-   <td valign="top">contoso.com</td>
-   <td valign="top">172.16.48.1</td>
-   <td valign="top">8000</td>
-</tr>
-</table>
+[Azure Websites]:/en-us/services/websites/
 
-For more information, see [Configuring a custom domain name for an Azure web site][customdns].
+[Orchard]:/en-us/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
+[Umbraco]:/en-us/documentation/articles/web-sites-gallery-umbraco/
+[Drupal]:/en-us/documentation/articles/web-sites-php-migrate-drupal/
+[WordPress]:/en-us/documentation/articles/web-sites-php-web-site-gallery/
+[MySQL]:/en-us/documentation/articles/web-sites-php-mysql-deploy-use-git/
+[Azure SQL Database]:/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+[FTP]:/en-us/documentation/articles/web-sites-deploy/#ftp
+[Visual Studio]:/en-us/documentation/articles/web-sites-dotnet-get-started/
+[Visual Studio Online]:/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/
+[Git]:/en-us/documentation/articles/web-sites-publish-source-control/
 
-##<a name="ssl"></a>Secure the Website with SSL
-If your site contains read-only information, there is no need to provide secure access to the site. However, if you collect any user information, perform ecommerce, or manage any other sensitive data, you should secure the site. Security is a big subject, and this paper cannot cover all of the best practices and techniques. However, it is important to highlight the process of enabling Secure Sockets Layer (SSL) for your Website. SSL allows users to connect to your site in an encrypted manner with HTTPS addresses instead of HTTP. There are specific steps required to use SSL with Azure Websites. 
+[deploying to a staging slot]:/en-us/documentation/articles/web-sites-staged-publishing/ 
+[continuously publish]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
+[run A/B tests]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
-Azure Websites automatically provides a secure connection to the actual site URL. For example, if your site were http://contoso.azurewebsites.net, you can connect over SSL simply by changing "http" to "https", as in **https**://contoso.azurewebsites.net.
+[custom domain]:/en-us/documentation/articles/web-sites-custom-domain-name/
+[HTTPS]:/en-us/documentation/articles/web-sites-configure-ssl-certificate/
+[Websites Pricing Details]:/en-us/pricing/details/web-sites/#service-ssl
 
-However, if you are using a custom domain name, you must take steps to upload a certificate and enable SSL through the Azure Management Portal for your website. The following steps provide a summary of this process, but you can find the detailed instructions in the topic [Configuring an SSL certificate for an Azure web site][ssl].
+[Azure Traffic Manager]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
+[integrating your website with Azure CDN]:/en-us/documentation/articles/cdn-websites-with-cdn/ 
+[CDN node]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-First, obtain an SSL certificate from a Certificate Authority. If you are going to secure your domain with multiple subdomains (for example www.contoso.com and staging.contoso.com), you'll need to get a wildcard certificate (*.contoso.com). These can cost more, so you must decide whether the flexibility of this type of certificate justifies the cost.
+[scale up and out]:/en-us/manage/services/web-sites/how-to-scale-websites/
+[Azure Management Portal]:http://manage.windowsazure.com/
+[Service Management API]:http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
+[PowerShell scripting]:http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[Troy Hunt]:https://twitter.com/troyhunt
+[10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[Azure Redis Cache]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[ASP.NET session state]:https://msdn.microsoft.com/en-us/library/azure/dn690522.aspx
+[output cache]:https://msdn.microsoft.com/en-us/library/azure/dn798898.aspx
 
-Once you get the certificate from the Certificate Authority, you cannot simply upload it to Azure in the same format. You must generate a .pfx file using the openssl command. The openssl command is part of the OpenSSL Project. The sources are distributed on the [OpenSSL website][openssl], but you can usually find a precompiled version of the tool on the internet as well. In the following example, a certificate, myserver.crt, and the private key file, myserver.key, are used to create a .pfx file.
+[quick glance]:/en-us/manage/services/web-sites/how-to-monitor-websites/
+[Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
+[New Relic]:/en-us/develop/net/how-to-guides/new-relic/
+[How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+[Azure Media Services]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
+[SendGrid service in Azure Marketplace]:/en-us/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-To upload the certificate to Azure, first go to the **Scale** tab and verify that you are running in **Standard** mode. SSL for custom domains is not supported for **Free** or **Shared** modes. On the **Configure** tab, click the **upload a certificate** button.
-
-![GlobalWebUplodateCert][GlobalWebUplodateCert]
-
-Then in the **ssl bindings** section, map the certificate to the domain name that it secures. There are two options for this mapping: SNI SSL and IP Based SSL.
-
-![GlobalWebSSLBindings][GlobalWebSSLBindings]
-
-The **IP Based SSL** option is the traditional way to map the public dedicated IP address to the domain name. This works with all browsers. The **SNI SSL** option allows multiple domains to share the same IP address and yet have different associated SSL certificates for each domain. SNI SSL does not work with some older browsers (for more information on compatibility, see the [Wikipedia entry for SNI SSL][sni]). There is a monthly charge (prorated hourly) associated with each SSL certificate, and the pricing varies depending on the choice of IP based or SNI SSL. For pricing information, see [Web Sites Pricing Details][sslpricing]. For more information on this process, see [Configuring an SSL certificate for an Azure web site][ssl].
-
-##<a name="monitor"></a>Monitor the Site
-After your site is actively handling user requests, it is important to use monitoring. For example, you might want to know whether user load is causing high CPU time, which could indicate the need to scale the site. Or application inefficiencies might increase the response time or lead to errors. This section covers some of the built-in monitoring capabilities on the Azure Management Portal.
-
-The **Monitor** tab contains some key metrics for your Website in graph format. 
-
-![GlobalWebMonitor1][GlobalWebMonitor1]
-
-You can customize the metrics in this graph using the Add Metrics button.
-
-![GlobalWebMonitor2][GlobalWebMonitor2]
-
-For sites running in **Standard** mode, you can also enable endpoint monitoring and alerting. On the **Configure** tab, go to the **monitoring** section, and configure an endpoint. This endpoint runs from one or more locations that you specify and periodically attempts to access your website. Both timing and error information is collected. 
-
-In the **Monitor** tab, this endpoint appears showing response time. If you select the endpoint metric, you can then add an alert rule by clicking the **Add Rule** icon.
-
-![GlobalWebMonitor3][GlobalWebMonitor3]
-
-The rule can email administrators or other individuals when the response time exceeds the specified threshold.
-
-![GlobalWebMonitor4][GlobalWebMonitor4]
-
-If you discover the site requires scaling, this can be done on the **Scale** tab either manually or through the Autoscale preview. The scale tab provides choices for both scale-up (larger dedicated machines) or scale-out (additional shared instances or dedicated instances of the same size). However, the Autoscale preview only supports scale-out. For more details on this option, see the For more information on website monitoring, see the "Scale with User Demand" section of the [Digital Marketing Campaign][scenariodigitalmarketing] scenario. Also see, [How to Monitor Web Sites][howtomonitor].
-
-##<a name="summary"></a>Summary
-To create your organization's (.COM) site, the standard tasks include choosing a development framework, site creation, deployment, custom domain assignment, and monitoring. For sites that must secure user data, SSL is highly recommended. This article has provided an overview of performing these tasks using Azure Websites. For more information, see the following technical articles referenced in the paper.
-
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Area</th>
-   <th align="left" valign="top">Resources</th>
-</tr>
-<tr>
-   <td valign="middle"><strong>Plan</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure Websites, Cloud Services, and VMs: When to use which?</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Create</strong></td>
-   <td valign="top">- <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/">Get started with Azure Websites and ASP.NET</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Deploy</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">Publishing from Source Control to Azure Websites</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Website</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/">Develop and deploy a website with Microsoft WebMatrix</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Custom Domains</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for an Azure website</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>SSL</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for an Azure website</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Monitor</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">How to Monitor Websites</a></td>
-</tr>
-</table>
-
-  [websitesoverview]:/en-us/documentation/services/web-sites/
-  [csoverview]:/en-us/documentation/services/cloud-services/
-  [vmoverview]:/en-us/documentation/services/virtual-machines/
-  [chooseservice]:/en-us/manage/services/web-sites/choose-web-app-service
-  
-  
-  [scenariodigitalmarketing]:/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [howtocreatewebsites]:/en-us/documentation/articles/web-sites-dotnet-get-started
-  [webmatrix]:http://www.microsoft.com/web/webmatrix/
-  [publishingwithgit]:/en-us/develop/net/common-tasks/publishing-with-git/
-  [aspnetgetstarted]:/en-us/develop/net/tutorials/get-started/
-  [drupal]:https://drupal.org/
-  [umbraco]:http://umbraco.com/
-  [customdns]:/en-us/develop/net/common-tasks/custom-dns-web-site/
-  [ssl]:/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [openssl]:http://www.openssl.org/
-  [sni]:http://en.wikipedia.org/wiki/Server_Name_Indication
-  [sslpricing]:/en-us/pricing/details/web-sites/#service-ssl
-  [howtomonitor]:/en-us/manage/services/web-sites/how-to-monitor-websites/
-  
- [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
-  [GlobalWebQuickGlance]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_QuickGlance.png
-  [GlobalWebMonitor1]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor1.png
-  [GlobalWebMonitor2]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor2.png
-  [GlobalWebMonitor3]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor3.png
-  [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
-  [GlobalWebVSPublish]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_VS_Publish.png
-  [GlobalWebSSLBindings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_SSL_Bindings.png
-  [GlobalWebUplodateCert]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Uplodate_Cert.png
-  [GlobalWebCustomDomain]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_CustomDomain.png
-  [GlobalWebWebMatrix]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_WebMatrix.png
-  [GlobalWebFTPSettings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_FTPSettings.png
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
