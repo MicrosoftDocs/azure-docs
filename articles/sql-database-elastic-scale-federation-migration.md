@@ -3,8 +3,8 @@
 	description="Outlines the steps to migrate an existing app built with Federations feature to Elastic Scale model." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="Joseidz" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/01/2015" 
+	ms.author="Joseidz"/>
 
 #Federations Migration 
 

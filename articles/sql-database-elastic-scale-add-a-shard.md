@@ -3,8 +3,8 @@
 	description="How to use Elastic Scale APIs to add new shards to a shard set." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/01/2015" 
+	ms.author="torsteng@microsoft.com"/>
 
 # Adding a Shard To an Elastic Scale Application 
 

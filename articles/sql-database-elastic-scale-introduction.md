@@ -3,8 +3,8 @@
 	description="Easily scale database resources in the cloud using Elastic Scale feature of Azure SQL Database." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="Joseidz" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/01/2015" 
+	ms.author="Joseidz"/>
 
 #Azure SQL Database Elastic Scale Overview 
 Welcome to the Azure SQL Database Elastic Scale Public Preview! 
