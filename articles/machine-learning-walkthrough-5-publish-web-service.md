@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2014" 
+	ms.date="01/29/2015" 
 	ms.author="garye"/>
 
 
@@ -78,7 +78,7 @@ Now we'll save the boosted tree model that we've trained. We can then remove the
 1.	Right-click the output port of the remaining **Train Model** module and select **Save as Trained Model**.
 2.	Enter a name and a description for the trained model. For this example we'll call it "Credit Risk Prediction".
 
-	>**Note**: Once we save this trained model, it appears in the module palette and is available to be used in other experiments.
+	> [AZURE.NOTE] Once we save this trained model, it appears in the module palette and is available to be used in other experiments.
 
 3.	Find this model in the module palette by typing "credit risk" In the **Search** box, and then drag the **Credit Risk Prediction** trained model onto the experiment canvas.
 4.	Delete the **Two-Class Boosted Decision** tree and the **Train Model** module.
@@ -102,7 +102,7 @@ One more thing: The original credit card data included the Credit Risk column. W
 6.	In this new dropdown, select **Exclude column names** and enter "Credit risk" in the text field (you could also specify the column by its column number, 21).
 7.	Click **OK**.
 
-	>**Tip**: The column selector follows the logic of the dropdowns in the sequence that they appear in. In this case, we've directed the **Project Columns** module to "pass through all columns except the 'Credit risk' column." If we had left out the first dropdown, the module would pass no columns through at all.
+	> [AZURE.TIP] The column selector follows the logic of the dropdowns in the sequence that they appear in. In this case, we've directed the **Project Columns** module to "pass through all columns except the 'Credit risk' column." If we had left out the first dropdown, the module would pass no columns through at all.
 
 8.	Connect the output of the **Project Columns** module to the right input of the **Score Model** module.  
 
@@ -115,11 +115,11 @@ In the original model, the data to be scored was passed into the right input por
 
 1.	Right-click the right input port of the **Score Model** module and select **Set as Publish Input**. The user's data will need to include all the data of the feature vector.
 
-	>**Tip**: If you have to perform any manipulation of the user's data before passing it to the scoring module (such as the way we used a **Normalize Data** module to prepare data for the SVM model), just leave the module in the web service and set the service input to the input port of that module.
+	> [AZURE.TIP] If you have to perform any manipulation of the user's data before passing it to the scoring module (such as the way we used a **Normalize Data** module to prepare data for the SVM model), just leave the module in the web service and set the service input to the input port of that module.
 
 2.	Right-click the output port and select **Set as Publish Output**. The output of the **Score Model** module will be returned by the service. This includes the feature vector, plus the credit risk prediction and the scoring probability value.
 
-	>**Tip**: If you want the web service to return only part of this data - for instance, you don't want to return the whole feature vector - you can add a **Project Columns** module after the **Score Model** module, configure it to exclude columns you don't want, and then set the output of the **Project Columns** module to be the web service output.  
+	> [AZURE.TIP] If you want the web service to return only part of this data - for instance, you don't want to return the whole feature vector - you can add a **Project Columns** module after the **Score Model** module, configure it to exclude columns you don't want, and then set the output of the **Project Columns** module to be the web service output.  
   
 
 You may be wondering why we left the UCI German Credit Card Data dataset and its associated modules connected to the **Score Model** module. The service is going to use the user's data, not the original dataset, so why leave them connected?
@@ -131,7 +131,7 @@ Run the experiment one last time (click **RUN**). If you want to verify that the
 ##Publish the web service
 To publish a web service derived from our experiment, click **PUBLISH WEB SERVICE** below the canvas and click **YES** when prompted. Machine Learning Studio publishes the experiment as a web service on the Machine Learning staging server, and takes you to the service dashboard.   
 
->**Tip**: You can update the web service after you've published it. For example, if you want to change your model, just edit the training experiment you saved earlier, tweak the model parameters, and save the trained model (overwriting the one you saved before). When you open the scoring experiment again, you'll see a notice telling you that something has changed (that will be your trained model) and you can update the experiment. When you publish the experiment again, it will replace the web service, now using your updated model.  
+> [AZURE.TIP] You can update the web service after you've published it. For example, if you want to change your model, just edit the training experiment you saved earlier, tweak the model parameters, and save the trained model (overwriting the one you saved before). When you open the scoring experiment again, you'll see a notice telling you that something has changed (that will be your trained model) and you can update the experiment. When you publish the experiment again, it will replace the web service, now using your updated model.  
 
 You can configure the service by clicking the **CONFIGURATION** tab. Here you can modify the service name (it's given the experiment name by default) and give it a description. You can also give more friendly labels for the input and output columns.  
 

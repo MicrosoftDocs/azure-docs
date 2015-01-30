@@ -49,9 +49,9 @@ Cluster 1: Information Technology
 
 Cluster 2: Energy, Utilities, Telecommunication Services
 
-**Note** The clustering is not clear-cut. Cluster 0 has several information technology and energy companies, and Industrials and Materials are divided between cluster 0 and cluster 1
+> [AZURE.NOTE] The clustering is not clear-cut. Cluster 0 has several information technology and energy companies, and Industrials and Materials are divided between cluster 0 and cluster 1
 
-**Note** The clustering can vary from run to run. 
+> [AZURE.NOTE] The clustering can vary from run to run. 
 
 
 

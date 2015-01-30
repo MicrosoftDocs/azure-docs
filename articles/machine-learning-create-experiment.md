@@ -67,7 +67,7 @@ Close the visualization window by clicking the "**x**" in the upper-right corner
 
 A dataset usually requires some preprocessing before it can be analyzed. You may have noticed the missing values present in the columns of various rows. To analyze the data, these missing values need to be cleaned. In our case, we'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so we'll exclude that column from the model altogether. 
 
->**Tip**: Cleaning the missing values from input data is a prerequisite for using most of the modules. 
+> [AZURE.TIP] Cleaning the missing values from input data is a prerequisite for using most of the modules. 
 
 First we'll remove the **normalized-losses** column, and then we'll remove any row that has missing data. 
 
@@ -85,7 +85,7 @@ First we'll remove the **normalized-losses** column, and then we'll remove any r
 
     ![Project Columns properties][screen4]
 
-    >**Tip**: You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the **Project Columns** module and type the comment "Exclude normalized-losses." 
+    > [AZURE.TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the **Project Columns** module and type the comment "Exclude normalized-losses." 
 
 3. Drag the **Missing Values Scrubber** module to the experiment canvas and connect it to the **Project Columns** module. In the **Properties** pane, select **Remove entire row** under **For missing values** to clean the data by removing rows that have missing values. Double-click the module and type the comment "Remove missing value rows."
 
@@ -115,7 +115,7 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 3. In the column selector, select **No columns** for **Begin With**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
 
-	>**Tip**: Because we've run the experiment, the column definitions for our data have passed from the original dataset through the **Missing Values Scrubber** module. When you connect **Project Columns** to **Missing Values Scrubber**, the **Project Columns** module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list. 
+	> [AZURE.TIP] Because we've run the experiment, the column definitions for our data have passed from the original dataset through the **Missing Values Scrubber** module. When you connect **Project Columns** to **Missing Values Scrubber**, the **Project Columns** module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list. 
 
 4. Click the check mark (OK) button.
 
@@ -131,7 +131,7 @@ We want to predict the price of an automobile, which can be any value, so we'll 
 
 1. Split the data into training and testing sets. Select and drag the **Split** module to the experiment canvas and connect it to the output of the last **Project Columns** module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75% of the data to train the model, and hold back 25% for testing.
 
-	>**Tip**: By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
+	> [AZURE.TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 	
 2. Run the experiment. This allows the **Project Columns** and **Split** modules to pass column definitions to the modules we'll be adding next.  
 
@@ -185,7 +185,7 @@ The final experiment should look like this:
 
 Now that you have your experiment set up, you can iterate to try to improve the model. For instance, you can change the features you use in your prediction. Or you can modify the properties of the **Linear Regression** algorithm or try a different algorithm altogether. You can even add multiple algorithms to your experiment at one time and compare two by using the **Evaluate Model** module. 
 
->**Tip**: Use the **SAVE AS** button under the experiment canvas to copy any iteration of your experiment. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. See the Machine Learning Studio Help topic **Viewing Run History** for more details.
+> [AZURE.TIP] Use the **SAVE AS** button under the experiment canvas to copy any iteration of your experiment. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. See the Machine Learning Studio Help topic **Viewing Run History** for more details.
 
 When you're satisfied with your model, you can publish it as a web service to be used to predict automobile prices by using new data. See the Machine Learning Studio Help topic **Publishing Experiments** for more details.
 
