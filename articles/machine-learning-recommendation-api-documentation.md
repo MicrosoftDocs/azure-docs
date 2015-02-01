@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
-	ms.author="v-ahgumn"/>
+	ms.date="02/01/2015" 
+	ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
@@ -262,7 +262,7 @@ Retrieves all models of current user
 
 | HTTP Method | URI |
 |:--------|:--------|
-|DELETE     |`<rootURI>/GetAllModels?apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetAllModels?apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetAllModels?apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetAllModels?apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -626,7 +626,7 @@ This API returns model insight on the active build or if given on a specific bui
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |With active build id:<br>`<rootURI>/GetDataInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetDataInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build id:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
+|GET     |With active build id:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build id:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -707,7 +707,7 @@ Get a sample of the recommendation model.
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build id:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -964,7 +964,7 @@ OData XML
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27`|
+|DELETE     |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -982,7 +982,7 @@ HTTP Status code: 200
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/DeleteAllRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`DeleteAllRules?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27`|
+|DELETE     |`<rootURI>/DeleteAllRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`DeleteAllRules?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -1013,11 +1013,11 @@ Note: The maximum file size is 200MB.
 
 | Name | Mandatory | Type |  Description |
 |:---|:---|:---|:---|
-| Item Id |Yes | Alphanumeric, Max Length 50 | Unique identifier of an Item |
-| Item Name | Yes | Alphanumeric, Max Length 255 | The Item Name | 
-| Item Category | Yes | Alphanumeric, Max Length 255 | The category to which this item belongs (e.g. Cooking Books, Drama…) can be empty |
-| Description | No unless features are present (but can be empty) | Alphanumeric, Max Length 4000 | A description of this item |
-| Features list | No | Alphanumeric, Max Length 4000 | A comma separated list of feature name=feature value that can be used to enhance model recommendation, see [Advanced Topics](21-advanced-topics) section | 
+| Item Id |Yes | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 50 | Unique identifier of an Item |
+| Item Name | Yes | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 255 | The Item Name | 
+| Item Category | Yes | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 255 | The category to which this item belongs (e.g. Cooking Books, Drama…) can be empty |
+| Description | No unless features are present (but can be empty) | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 4000 | A description of this item |
+| Features list | No | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 4000 | A comma separated list of feature name=feature value that can be used to enhance model recommendation, see [Advanced Topics](21-advanced-topics) section | 
 
 
 
@@ -1237,7 +1237,7 @@ This sections shows how to upload usage data using a file. You can call this API
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
-| Request Body | The usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Alphanumeric</td><td>Unique identifier of a User</td></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Request Body | The usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> </td><td>Unique identifier of a User</td></tr><tr><td>Item Id</td><td>Yes</td><td>Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Response**:
 
@@ -1277,7 +1277,7 @@ This section shows how to send events in real time to Azure ML Recommendations u
 
 | HTTP Method | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -1670,7 +1670,7 @@ Retrieve the feature information including ranking for the last successful rank 
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET      |`<rootURI>/Model/Features?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/Model/Features?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&apiVersion=%271.0%27`
+|GET      |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&apiVersion=%271.0%27`
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -1752,7 +1752,7 @@ Retrieve the feature information including ranking for a specific rank build.
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET      |`<rootURI>/Model/Features?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/Model/Features?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
+|GET      |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
 
 | Parameter Name	|	Valid Values	|
 |:--------			|:--------			|
@@ -2212,7 +2212,7 @@ OData XML
 ###11.6. Delete Build
 Deletes a build.
 
-NOTE: You cannot delete an Active build. The model should be updated to a different Active Build before you delete it.
+NOTE: <br>You cannot delete an Active build. The model should be updated to a different Active Build before you delete it.<br>You cannot delete an InProgress build. You should cancel the build first by calling <strong>Cancel Build</strong>.
 
 | HTTP Method | URI |
 |:--------|:--------|
