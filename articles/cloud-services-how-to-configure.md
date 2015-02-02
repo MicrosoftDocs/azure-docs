@@ -1,11 +1,10 @@
-<properties pageTitle="How to configure a cloud service - Azure" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." services="cloud-services" documentationCenter="" authors="Thraka" manager="timlt" editor=""/>
+<properties pageTitle="How to configure a cloud service - Azure" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." services="cloud-services" documentationCenter="" authors="davidmu1" manager="timlt" editor=""/>
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="adegeo"/>
 
 
 
-
-<h1><a id="configurecloudservice"></a>How to Configure Cloud Services</h1>
+#How to Configure Cloud Services
 
 You can configure the most commonly used settings for a cloud service in the Azure Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
@@ -15,11 +14,11 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 ##Table of Contents##
 
-* [How to: Update the cloud service configuration](#update)
+* [Update the cloud service configuration]()
 * [How to: Configure remote access to role instances](#remoteaccess)
 
 
-<h2><a id="update"></a>How to: Update the cloud service configuration</h2>
+##Update the cloud service configuration
 
 1. In the [Azure Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
 
