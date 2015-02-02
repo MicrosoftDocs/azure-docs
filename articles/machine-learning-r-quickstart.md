@@ -118,13 +118,13 @@ x <- 1.0
 z <- x + y
 ```
 
-This code fails to execute, resulting in an error condition. Clicking on **View error log** on the **properties pane** produces the display shown in Figure 2:
+This code fails to execute, resulting in an error condition. Clicking on **View error log** on the **properties pane** produces the display shown in Figure 2.
 
   ![Error message pop up][2]
 
 *Figure 2. Error message pop-up.*
 
-It looks like we need to look in output.log to see the R error message. Click on the Execute R Script and then click on the **View output.log** item on the **properties pane** to the right. A new browser window opens, and I see the following:
+It looks like we need to look in output.log to see the R error message. Click on the Execute R Script and then click on the **View output.log** item on the **properties pane** to the right. A new browser window opens, and I see the following.
 
 
 	[ModuleOutput] [1] 14000
@@ -174,7 +174,7 @@ The complete code for this section is in the zip file you downloaded earlier.
 
 ####<a id="loading"></a>Loading the dataset
 
-We will start by loading the **csdairydata.csv** file into our Azure Machine Learning Studio.
+We will start by loading the **csdairydata.csv** file into Azure Machine Learning Studio.
 
 - Start your Azure Machine Learning Studio environment.
 
@@ -218,30 +218,30 @@ At this point your experiment should look something like Figure 3.
 
 Let's have a look at the data we have loaded into our experiment. In the experiment, double-click on the output of the **cadairydata.csv dataset** and select **visualize**. You should see something like Figure 4.  
 
-![The summary of the cadairydata.csv dataset][4]
+![Summary of the cadairydata.csv dataset][4]
 
-*Figure 4. The summary of the cadairydata.csv dataset.*
+*Figure 4. Summary of the cadairydata.csv dataset.*
 
 In this view we see a lot of useful information. The **Feature Type** row shows us what data types Azure Machine Learning Studio assigns to the columns in our dataset. We also see the first several rows of that dataset. Having a quick look like this is a good sanity check before we start to do any serious work.
 
 ###	First R script
 
-Let's create a simple first R script to experiment with in Azure Machine Learning Studio. I have created and tested the following script in RStudio:  
+Let's create a simple first R script to experiment with in Azure Machine Learning Studio. I have created and tested the following script in RStudio.  
 
 ```r
 ## Only one of the following two lines should be used
-## If running in ML Studio use the first line with maml.mapInputPort().
-## If in RStudio used the second line with read.csv()
+## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+## If in RStudio, use the second line with read.csv()
 cadairydata <- maml.mapInputPort(1)
 # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
 str(cadairydata)
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
 ## The following line should be executed only when running in
-## Azure ML Studio.
+## Azure Machine Learning Studio
 maml.mapOutputPort('cadairydata')
 ```
 
-Now I need to transfer this script to my Azure Machine Learning Studio. I could simply cut and paste. However, in this case, I will transfer my R script via a zip file.
+Now I need to transfer this script to Azure Machine Learning Studio. I could simply cut and paste. However, in this case, I will transfer my R script via a zip file.
 
 ###	Data input to the Execute R Script module
 
@@ -253,10 +253,10 @@ Let's look at each of these inputs, going from left to right. You can see the na
 
 ####	Script Bundle
 
-The Script Bundle input allows you to pass the contents of a zip file into Execute R Script module. You can use one of the following commands to read the contents of the zip file into your R code:
+The Script Bundle input allows you to pass the contents of a zip file into Execute R Script module. You can use one of the following commands to read the contents of the zip file into your R code.
 
 ```r
-source("src/yourfile.R") # Reads an zipped R script
+source("src/yourfile.R") # Reads a zipped R script
 load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
@@ -292,7 +292,7 @@ You can pass a rectangular table of data to your R code by using the Dataset1 in
 cadairydata <- maml.mapInputPort(1)
 ```
 
-Execute your experiment by clicking on the **Run** button. When the execution finishes, click on the Execute R Script module and then click **View output log** on the properties pane. A new page should appear in your browser showing the contents of the Output.log file. When you scroll down you should see something like the following:
+Execute your experiment by clicking on the **Run** button. When the execution finishes, click on the Execute R Script module and then click **View output log** on the properties pane. A new page should appear in your browser showing the contents of the output.log file. When you scroll down you should see something like the following.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -328,7 +328,7 @@ The behavior of the Dataset2 input is identical to that of Dataset1. Using this 
 
 ####Output a dataframe
 
-You can output the contents of an R dataframe as a rectangular table through the Result Dataset1 port by using the `maml.mapOutputPort()` function. In our simple R script this is performed by the following line:
+You can output the contents of an R dataframe as a rectangular table through the Result Dataset1 port by using the `maml.mapOutputPort()` function. In our simple R script this is performed by the following line.
 
 ```r
 maml.mapOutputPort('cadairydata')
@@ -376,7 +376,7 @@ When tabular data is read into R from an external source, it is always a good id
 
 Fortunately, it is easy to convert one type to another, as long as mapping is possible. For example, you cannot convert 'Nevada' into a numeric value, but you can convert it to a factor (categorical variable). As another example, you can convert a numeric 1 into a character '1' or a factor.  
 
-The syntax for any of these conversions is simple: `as.datatype()`. These type conversion functions include the following:
+The syntax for any of these conversions is simple: `as.datatype()`. These type conversion functions include the following.
 
 * `as.numeric()`
 
@@ -392,15 +392,15 @@ I have deleted the line that created the scatterplot matrix and added a line con
 
 ```r
 ## Only one of the following two lines should be used
-## If running in ML Studio use the first line with maml.mapInputPort().
-## If in RStudio used the second line with read.csv()
+## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+## If in RStudio, use the second line with read.csv()
 cadairydata <- maml.mapInputPort(1)
 # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
 ## Ensure the coding is consistent and convert column to a factor
 cadairydata$Month <- as.factor(cadairydata$Month)
 str(cadairydata) # Check the result
 ## The following line should be executed only when running in
-## Azure ML Studio.
+## Azure Machine Learning Studio
 maml.mapOutputPort('cadairydata')
 ```
 
@@ -431,7 +431,7 @@ Our factor variable now has the desired 12 levels.
 
 R dataframes support powerful filtering capabilities. Datasets can be subsetted by using logical filters on either rows or columns. In many cases, complex filter criteria will be required. The references in [Appendix B - Further reading](#appendixb) contain extensive examples of filtering dataframes.  
 
-There is one bit of filtering we should do on our dataset. If you look at the columns in the cadariydata dataframe, you will see two unnecessary columns. The first column just holds a row number, which is not very useful. The second column, Year.Month, contains redundant information. We can easily exclude these columns by using the following R code.
+There is one bit of filtering we should do on our dataset. If you look at the columns in the cadairydata dataframe, you will see two unnecessary columns. The first column just holds a row number, which is not very useful. The second column, Year.Month, contains redundant information. We can easily exclude these columns by using the following R code.
 
 > [AZURE.NOTE] From now on in this section, I will just show you the additional code I am adding in the Execute R Script module. I will add each new line **before** the `str()` function. I use this function to verify my results in Azure Machine Learning Studio.
 
@@ -444,9 +444,9 @@ cadairydata <- cadairydata[, c(-1, -2)]
 
 Run this code in your experiment and check the result with **Visualize** on the R Device port. These results are shown in Figure 11.
 
-![The summary of the dataframe with two columns removed][12]
+![Summary of the dataframe with two columns removed][12]
 
-*Figure 11. The summary of the dataframe with two columns removed.*
+*Figure 11. Summary of the dataframe with two columns removed.*
 
 Good news! We get the expected results.
 
@@ -454,21 +454,21 @@ Good news! We get the expected results.
 
 To create time series models it will be convenient to have a column containing the months since the start of the time series. We will create a new column 'Month.Count'.
 
-To help organize the code we will create our first simple function, `num.month()`. We then apply this function to create a new column in the dataframe. The new code is as follows:
+To help organize the code we will create our first simple function, `num.month()`. We will then apply this function to create a new column in the dataframe. The new code is as follows.
 
 ```r
 ## Create a new column with the month count
 ## Function to find the number of months from the first
-## month of the time series.
+## month of the time series
 num.month <- function(Year, Month) {
-  ## Find the starting year.
+  ## Find the starting year
   min.year  <- min(Year)
 
-  ## Compute the number of months from the start of the time series.
+  ## Compute the number of months from the start of the time series
   12 * (Year - min.year) + Month - 1
 }
 
-# Compute the new column for the dataframe.
+# Compute the new column for the dataframe
 cadairydata$Month.Count <- num.month(cadairydata$Year, cadairydata$Month.Number)
 ```
 
@@ -484,7 +484,7 @@ It looks like everything is working. We have the new column with the expected va
 
 In this section we will perform some simple transformations on the values in some of the columns of our dataframe. The R language supports nearly arbitrary value transformations. The references in [Appendix B - Further Reading](#appendixb) contain extensive examples.
 
-If you look at the values in the summaries of our datafame you should see something odd here. Is more ice cream than milk produced in California? No, of course not, as this makes no sense, sad as this fact may be to some of us ice cream lovers. The units are different. The price is in units of US pounds, milk is in units of 1 M US pounds, ice cream is in units of 1,000 US gallons, and cottage cheese is in units of 1,000 US pounds. Assuming ice cream weighs about 6.5 pounds per gallon, we can easily do the multiplication to convert these values so they are all in equal units of 1,000 pounds.
+If you look at the values in the summaries of our dataframe you should see something odd here. Is more ice cream than milk produced in California? No, of course not, as this makes no sense, sad as this fact may be to some of us ice cream lovers. The units are different. The price is in units of US pounds, milk is in units of 1 M US pounds, ice cream is in units of 1,000 US gallons, and cottage cheese is in units of 1,000 US pounds. Assuming ice cream weighs about 6.5 pounds per gallon, we can easily do the multiplication to convert these values so they are all in equal units of 1,000 pounds.
 
 For our forecasting model we use a multiplicative model for trend and seasonal adjustment of this data. A log transformation allows us to use a linear model, simplifying this process. We can apply the log transformation in the same function where the multiplier is applied.
 
@@ -492,7 +492,7 @@ In the following code, I define a new function, `log.transform()`, and apply it 
 
 ```r
 log.transform <- function(invec, multiplier = 1) {
-  ## Function for the transformation which is the log
+  ## Function for the transformation, which is the log
   ## of the input value times a multiplier
 
   warningmessages <- c("ERROR: Non-numeric argument encountered in function log.transform",
@@ -501,21 +501,21 @@ log.transform <- function(invec, multiplier = 1) {
                        "ERROR: Invalid time seies value encountered in function log.transform"
                        )
 
-  ## Check the input arguments.
+  ## Check the input arguments
   if(!is.numeric(invec) | !is.numeric(multiplier)) {warning(warningmessages[1]); return(NA)}  
   if(any(invec < 0.0) | any(multiplier < 0.0)) {warning(warningmessages[2]); return(NA)}
   if(length(multiplier) != 1) {{warning(warningmessages[3]); return(NA)}}
 
-  ## Wrap the multiplication in tryCatch.
+  ## Wrap the multiplication in tryCatch
   ## If there is an exception, print the warningmessage to
-  ## standard error and return NA.
+  ## standard error and return NA
   tryCatch(log(multiplier * invec),
            error = function(e){warning(warningmessages[4]); NA})
 }
 
 
 ## Apply the transformation function to the 4 columns
-## of the dataframe with production data.
+## of the dataframe with production data
 multipliers  <- list(1.0, 6.5, 1000.0, 1000.0)
 cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
 
@@ -535,13 +535,13 @@ If you are not used to defensive programming in R, all this code may seem a bit 
 
 3. Checks are run on the arguments to the function. In each case, if an error is detected, a default value is returned and a message is produced by the `warming()` function. I am using `warning()` rather than `stop()` as the latter will terminate execution, exactly what I am trying to avoid. Note that I have written this code in a procedural style, as in this case a functional approach seemed complex and obscure.
 
-4. The log computations are wrapped in `tryCatch()` so that exceptions will not cause and abrupt halt to processing. Without `tryCatch()` most errors raised by R functions result in a stop signal, which does just that.
+4. The log computations are wrapped in `tryCatch()` so that exceptions will not cause an abrupt halt to processing. Without `tryCatch()` most errors raised by R functions result in a stop signal, which does just that.
 
 Execute this R code in your experiment and have a look at the printed output in the output.log file. You will now see the transformed values of the four columns using **Visualize** from the R Device menu, as shown in Figure 13.
 
-![The summary of the transformed values in the dataframe][14]
+![Summary of the transformed values in the dataframe][14]
 
-*Figure 13. The summary of the transformed values in the dataframe.*
+*Figure 13. Summary of the transformed values in the dataframe.*
 
 We see the values have been transformed. Milk production now greatly exceeds all other dairy product production, recalling that we are now looking at a log scale.
 
@@ -568,7 +568,7 @@ As I did for the first examples, as we progress through the example, at some poi
 
 ####	Reading the dataframe
 
-As a first step, let's read in a dataframe and make sure we get the expected results. The following code should do the job:
+As a first step, let's read in a dataframe and make sure we get the expected results. The following code should do the job.
 
 ```r
 # Comment the following if using RStudio
@@ -586,7 +586,7 @@ This data is of the expected types and format. Note that the 'Month' column is o
 
 ####Creating a time series object
 
-We need to add a time series object to our dataframe. Replace the current code in with the following, which adds a new column of class POSIXct.
+We need to add a time series object to our dataframe. Replace the current code with the following, which adds a new column of class POSIXct.
 
 ```r
 # Comment the following if using RStudio
@@ -609,7 +609,7 @@ We can see from the summary that the new column is in fact of class POSIXct.
 
 ###Exploring and transforming the data
 
-Let's explore some of the variables in this dataset. A scatterplot matrix is a good way to produce a quick look. I am replacing the `str()` function in the previous R code with the following line:
+Let's explore some of the variables in this dataset. A scatterplot matrix is a good way to produce a quick look. I am replacing the `str()` function in the previous R code with the following line.
 
 ```r
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
@@ -625,15 +625,15 @@ There is some odd-looking structure in the relationships between these variables
 
 ###Correlation analysis
 
-To perform correlation analysis we need to both de-trend and standardize the variables. We could simply use the R `scale()` function which both centers and scales variables. This function might well run faster. However, I want to show you an example of defensive programing in R.
+To perform correlation analysis we need to both de-trend and standardize the variables. We could simply use the R `scale()` function, which both centers and scales variables. This function might well run faster. However, I want to show you an example of defensive programing in R.
 
 The `ts.detrend()` function shown below performs both of these operations. The following two lines of code de-trend the data and then standardize the values.
 
 ```r
 ts.detrend <- function(ts, Time, min.length = 3){
-  ## Function to detrend and standardize a time series.
+  ## Function to de-trend and standardize a time series
 
-  ## Define some messages if they are NULL.  
+  ## Define some messages if they are NULL  
   messages <- c('ERROR: ts.detrend requires arguments ts and Time to have the same length',
                 'ERROR: ts.detrend requires argument ts to be of type numeric',
                 paste('WARNING: ts.detrend has encountered a time series with length less than', as.character(min.length)),
@@ -641,22 +641,22 @@ ts.detrend <- function(ts, Time, min.length = 3){
                 'ERROR: Detrend regression has failed in ts.detrend',
                 'ERROR: Exception occurred in ts.detrend while standardizing time series in function ts.detrend'
   )
-  # Create a vector of zeros to return as a default in some cases.
+  # Create a vector of zeros to return as a default in some cases
   zerovec  <- rep(length(ts), 0.0)
 
-  # The input arguments are not of the same length, return ts and quit.
+  # The input arguments are not of the same length, return ts and quit
   if(length(Time) != length(ts)) {warning(messages[1]); return(ts)}
 
-  # If the ts is not numeric, just return a zero vector and quit.
+  # If the ts is not numeric, just return a zero vector and quit
   if(!is.numeric(ts)) {warning(messages[2]); return(zerovec)}
 
-  # If the ts is too short, just return it and quit.
+  # If the ts is too short, just return it and quit
   if((ts.length <- length(ts)) < min.length) {warning(messages[3]); return(ts)}
 
-  ## Check that the Time variable is of class POSIXct.
+  ## Check that the Time variable is of class POSIXct
   if(class(cadairydata$Time)[[1]] != "POSIXct") {warning(messages[4]); return(ts)}
 
-  ## Detrent the time series using a linear model.
+  ## De-trend the time series by using a linear model
   ts.frame  <- data.frame(ts = ts, Time = Time)
   tryCatch({ts <- ts - fitted(lm(ts ~ Time, data = ts.frame))},
            error = function(e){warning(messages[5]); zerovec})
@@ -667,16 +667,16 @@ ts.detrend <- function(ts, Time, min.length = 3){
 
   ts
 }  
-## Apply the detrend.ts function to the variables of interest.
+## Apply the detrend.ts function to the variables of interest
 df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time))
 
-## Plot the results to look at the relationships.
+## Plot the results to look at the relationships
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 ```
 
 There is quite a bit happing in the `ts.detrend()` function. Most of this code is checking for potential problems with the arguments or dealing with exceptions, which can still arise during the computations. Only a few lines of this code actually do the computations.
 
-We have already discussed an example of defensive programming in [Value tansformations](#valuetransformations). Both computation blocks are wrapped in `tryCatch()`. For some errors it makes sense to return the original input vector, and in other cases, I return a vector of zeros.  
+We have already discussed an example of defensive programming in [Value transformations](#valuetransformations). Both computation blocks are wrapped in `tryCatch()`. For some errors it makes sense to return the original input vector, and in other cases, I return a vector of zeros.  
 
 Note that the linear regression used for de-trending is a time series regression. The predictor variable is a time series object.  
 
@@ -690,19 +690,19 @@ The final line of code creates a pairwise scatterplot. After running the R code,
 
 You can compare these results to those shown in Figure 17. With the trend removed and the variables standardized, we see a lot less structure in the relationships between these variables.
 
-The code to compute the correlations as R ccf objects is as follows:
+The code to compute the correlations as R ccf objects is as follows.
 
 ```r
 ## A function to compute pairwise correlations from a
-## list of time series value vectors.
+## list of time series value vectors
 pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
   ccf(ts.list[[pair.ind[1]]], ts.list[[pair.ind[2]]], lag.max = lag.max, plot = plot)
 }
 
-## A list of the pairwaise indices.
+## A list of the pairwise indices
 corpairs <- list(c(1,2), c(1,3), c(1,4), c(2,3), c(2,4), c(3,4))
 
-## Compute the list of ccf objects.
+## Compute the list of ccf objects
 cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)  
 
 cadairycorrelations
@@ -720,7 +720,7 @@ There is a correlation value for each lag. None of these correlation values is l
 
 We have computed the pairwise correlations as a list of R ccf objects. This presents a bit of a problem as the Result Dataset output port really requires a dataframe. Further, the ccf object is itself a list and we want only the values in the first element of this list, the correlations at the various lags.
 
-The following code extracts the lag values from the list of ccf objects, which are themselves lists:
+The following code extracts the lag values from the list of ccf objects, which are themselves lists.
 
 ```r
 df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
@@ -734,15 +734,15 @@ r.names  <- c("Corr Cot Cheese - Ice Cream",
               "Corr Milk Prod - Fat Price")
 
 ## Build a dataframe with the row names column and the
-## correlation data frame and assign the column names.
+## correlation data frame and assign the column names
 outframe <- cbind(r.names, df.correlations)
 colnames(outframe) <- c.names
 outframe
 
 
 ## WARNING!
-## The following line only works in Azure ML.
-## when running in RStudio, this code will result in an error.
+## The following line works only in Azure Machine Learning
+## When running in RStudio, this code will result in an error
 #maml.mapOutputPort('outframe')
 ```
 
@@ -778,10 +778,10 @@ Start by adding a **new Execute R Script module** to your experiment. Connect th
 
 *Figure 20. The experiment with the new Execute R Script module added.*
 
-As with the correlation analysis we just completed, we need to add a column with a POSIXct time series object. The following code will do just this:
+As with the correlation analysis we just completed, we need to add a column with a POSIXct time series object. The following code will do just this.
 
 ```r
-# If running in ML Studio uncomment the first line with maml.mapInputPort().
+# If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 cadairydata <- maml.mapInputPort(1)
 
 ## Create a new column as a POSIXct object
@@ -839,7 +839,7 @@ milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3), data = cad
 summary(milk.lm)
 ```
 
-This generates the following:
+This generates the following.
 
 ```
 ##
@@ -872,7 +872,7 @@ milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
 summary(milk.lm)
 ```
 
-This generates the following:
+This generates the following.
 
 ```
 ##
@@ -898,7 +898,7 @@ This generates the following:
 
 This looks better. All of the terms are significant. However, the 2e-16 value is a default value, and should not be taken too seriously.  
 
-As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning Execute R Script model (not RStudio) to create the model and make a plot.
+As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning Execute R Script model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
 
 ```r
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -924,7 +924,7 @@ milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
 summary(milk.lm2)
 ```
 
-This generates the following:
+This generates the following.
 
 ```
 ##
@@ -962,7 +962,7 @@ This generates the following:
 
 We see that the model no longer has an intercept term and has 12 significant month factors. This is exactly what we wanted to see.
 
-Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning Execute R Script to create the model and make a plot:
+Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning Execute R Script to create the model and make a plot.
 
 ```r
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
@@ -982,7 +982,7 @@ The fit to the data shown in Figure 24 is rather encouraging. Both the trend and
 As another check on our model, let's have a look at the residuals. The following code computes the predicted values from our two models, computes the residuals for the seasonal model, and then plots these residuals for the training data.
 
 ```r
-## Compute predictions from our models.
+## Compute predictions from our models
 predict1  <- predict(milk.lm, cadairydata)
 predict2  <- predict(milk.lm2, cadairydata)
 
@@ -999,9 +999,9 @@ The residual plot is shown in Figure 25.
 
 These residuals look reasonable. There is no particular structure, except the effect of the 2008-2009 recession, which our model does not account for particularly well.
 
-The plot shown in figure 25 is useful for detecting any time-dependent patterns in the residuals. The explicit approach of computing and plotting the residuals I used places the residuals in time order on the plot. If, on the other hand, I had plotted `milk.lm$residuals`, the plot would not have been in time order.
+The plot shown in Figure 25 is useful for detecting any time-dependent patterns in the residuals. The explicit approach of computing and plotting the residuals I used places the residuals in time order on the plot. If, on the other hand, I had plotted `milk.lm$residuals`, the plot would not have been in time order.
 
-You can also use `plot.lm()` to produce a series of diagnostic plots:
+You can also use `plot.lm()` to produce a series of diagnostic plots.
 
 ```r
 ## Show the diagnostic plots for the model
@@ -1010,13 +1010,13 @@ plot(milk.lm2, ask = FALSE)
 
 This code produces a series of diagnostic plots shown in Figure 26.
 
-![First of Diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-221.png)
+![First of diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-221.png)
 
-![Second of Diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-222.png)
+![Second of diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-222.png)
 
-![Third of Diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-223.png)
+![Third of diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-223.png)
 
-![Fourth of Diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-224.png)
+![Fourth of diagnostic plots for the seasonal model](./media/machine-learning-r-quickstart/unnamed-chunk-224.png)
 
 *Figure 26. Diagnostic plots for the seasonal model.*
 
@@ -1026,19 +1026,19 @@ There are a few highly influential points identified in these plots, but nothing
 
 There is just one more thing to do to complete our example. We need to compute forecasts and measure the error against the actual data. Our forecast will be for the 12 months of 2013. We can compute an error measure for this forecast to the actual data that is not part of our training dataset. Additionally, we can compare performance on the 18 years of training data to the 12 months of test data.  
 
-A number of metrics are used to measure the performance of time series models. In our case we will use the root mean square (RMS) error. The following function computes the RMS error between two series:  
+A number of metrics are used to measure the performance of time series models. In our case we will use the root mean square (RMS) error. The following function computes the RMS error between two series.  
 
 ```r
 RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
   ## Function to compute the RMS error or difference between two
-  ## series or vectors.
+  ## series or vectors
 
   messages <- c("ERROR: Input arguments to function RMS.error of wrong type encountered",
                 "ERROR: Input vector to function RMS.error is too short",
                 "ERROR: Input vectors to function RMS.error must be of same length",
                 "WARNING: Funtion rms.error has received invald input time series.")
 
-  ## Check the arguments.
+  ## Check the arguments
   if(!is.numeric(series1) | !is.numeric(series2) | !is.logical(is.log) | !is.numeric(min.length)) {
     warning(messages[1])
     return(NA)}
@@ -1051,7 +1051,7 @@ RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
     warning(messages[3])
     return(NA)}
 
-  ## If is.log is TRUE exponentiate the values, else just copy.
+  ## If is.log is TRUE exponentiate the values, else just copy
   if(is.log) {
     tryCatch( {
       temp1 <- exp(series1)
@@ -1063,11 +1063,11 @@ RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
     temp2 <- series2
   }
 
- ## Compute predictions from our models.
+ ## Compute predictions from our models
 predict1  <- predict(milk.lm, cadairydata)
 predict2  <- predict(milk.lm2, cadairydata)
 
-## Compute the RMS error in a dataframe.
+## Compute the RMS error in a dataframe
   tryCatch( {
     sqrt(sum((temp1 - temp2)^2) / length(temp1))},
     error = function(e){warning(messages[4]); NA})
@@ -1076,12 +1076,12 @@ predict2  <- predict(milk.lm2, cadairydata)
 
 As with the `log.transform()` function we discussed in the "Value transformations" section, there is quite a lot of error checking and exception recovery code in this function. The principles employed are the same. The work is done in two places wrapped in `tryCatch()`. First, the time series are exponentiated, since we have been working with the logs of the values. Second, the actual RMS error is computed.  
 
-Equipped with a function to measure the RMS error, let's build and output a dataframe containing the RMS errors. We will include terms for the trend model alone and the complete model with seasonal factors. The following code does the job by using the two linear models we have constructed:
+Equipped with a function to measure the RMS error, let's build and output a dataframe containing the RMS errors. We will include terms for the trend model alone and the complete model with seasonal factors. The following code does the job by using the two linear models we have constructed.
 
 ```r
-## Compute the RMS error in a dataframe.
+## Compute the RMS error in a dataframe
 ## Include the row names in the first column so they will
-## appear in the output of the Execute R Script.
+## appear in the output of the Execute R Script
 RMS.df  <-  data.frame(
 rowNames = c("Trend Model", "Seasonal Model"),
   Traing = c(
@@ -1094,7 +1094,7 @@ rowNames = c("Trend Model", "Seasonal Model"),
 RMS.df
 
 ## The following line should be executed only when running in
-## Azure ML Studio.
+## Azure Machine Learning Studio
 maml.mapOutputPort('RMS.df')
 ```
 
@@ -1128,7 +1128,7 @@ RStudio is quite well documented, so in this appendix I will provide some links 
 
 ##<a id="appendixb"></a>APPENDIX B - Further reading
 
-If you are not familiar with R, two introductions are available on CRAN.
+If you are not familiar with R, two introductions are available on CRAN:
 
 - R for Beginners by Emmanuel Paradis is a good place to start at http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
 
@@ -1136,20 +1136,19 @@ If you are not familiar with R, two introductions are available on CRAN.
 
 There are many books on R that can help you get started. Here are a few I find useful:
 
-- 'The Art of R Programming; A Tour of Statistical Software Design' by Norman Matloff is an excellent introduction to programming in R.  
+- The Art of R Programming: A Tour of Statistical Software Design by Norman Matloff is an excellent introduction to programming in R.  
 
-- The 'R Cookbook' by Paul Teetor provides a problem and solution approach to using R.  
+- R Cookbook by Paul Teetor provides a problem and solution approach to using R.  
 
-- 'R in Action' by Robert Ka
-- bacoff is another useful introductory book. The companion 'Quick R' website is a useful resource at http://www.statmethods.net/.
+- R in Action by Robert Kabacoff is another useful introductory book. The companion Quick R website is a useful resource at http://www.statmethods.net/.
 
-- 'R Inferno' by Patrick Burns is a surprisingly humorous book that deals with a number of tricky and difficult topics that can be encountered when programming in R. The book is available for free at http://www.burns-stat.com/documents/books/the-r-inferno/.
+- R Inferno by Patrick Burns is a surprisingly humorous book that deals with a number of tricky and difficult topics that can be encountered when programming in R. The book is available for free at http://www.burns-stat.com/documents/books/the-r-inferno/.
 
-- If you want a deep dive into advanced topics in R, have a look at the upcoming book 'Advanced R' by Hadley Wickham. The online version of this book is available for free at http://adv-r.had.co.nz/.
+- If you want a deep dive into advanced topics in R, have a look at the book Advanced R by Hadley Wickham. The online version of this book is available for free at http://adv-r.had.co.nz/.
 
 A catalogue of R time series packages can be found in the CRAN Task View for time series analysis: http://cran.r-project.org/web/views/TimeSeries.html. For information on specific time series object packages, you should refer to the documentation for that package.
 
-The book 'Introductory Time Series with R' by Paul Cowpertwait and Andrew Metcalfe provides an introduction to using R for time series analysis. Many more theoretical texts provide R examples.
+The book Introductory Time Series with R by Paul Cowpertwait and Andrew Metcalfe provides an introduction to using R for time series analysis. Many more theoretical texts provide R examples.
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png
