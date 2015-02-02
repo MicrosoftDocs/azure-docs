@@ -450,7 +450,7 @@ Should you need to cancel a job that hasn't finished processing, the following c
 
     mediaService.action(Job.cancel(jobId));
 
-##< id="additional-resources"></a>Additional Resources
+##Additional Resources
 
 For Media Services Javadoc documentation, see [Azure Libraries for Java documentation][].
 
