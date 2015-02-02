@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
+	ms.date="02/02/2015" 
 	ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -1013,11 +1013,11 @@ Note: The maximum file size is 200MB.
 
 | Name | Mandatory | Type |  Description |
 |:---|:---|:---|:---|
-| Item Id |Yes | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 50 | Unique identifier of an Item |
-| Item Name | Yes | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 255 | The Item Name | 
-| Item Category | Yes | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 255 | The category to which this item belongs (e.g. Cooking Books, Drama…) can be empty |
-| Description | No unless features are present (but can be empty) | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 4000 | A description of this item |
-| Features list | No | Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 4000 | A comma separated list of feature name=feature value that can be used to enhance model recommendation, see [Advanced Topics](21-advanced-topics) section | 
+| Item Id |Yes | [A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max Length 50 | Unique identifier of an Item |
+| Item Name | Yes | Any Alphanumeric Characters<br> Max Length 255 | The Item Name | 
+| Item Category | Yes | Any Alphanumeric Characters <br> Max Length 255 | The category to which this item belongs (e.g. Cooking Books, Drama…) can be empty |
+| Description | No unless features are present (but can be empty) | Any Alphanumeric Characters <br> Max Length 4000 | A description of this item |
+| Features list | No | Any Alphanumeric Characters <br> Max Length 4000 | A comma separated list of feature name=feature value that can be used to enhance model recommendation, see [Advanced Topics](21-advanced-topics) section |
 
 
 
@@ -1237,7 +1237,7 @@ This sections shows how to upload usage data using a file. You can call this API
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
-| Request Body | The usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> </td><td>Unique identifier of a User</td></tr><tr><td>Item Id</td><td>Yes</td><td>Any Alphanumeric Characters Except: <strong>&lt;&gt;&#44;&#59;&#124;</strong> Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Request Body | The usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max Lenght 255 </td><td>Unique identifier of a User</td></tr><tr><td>Item Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Response**:
 
