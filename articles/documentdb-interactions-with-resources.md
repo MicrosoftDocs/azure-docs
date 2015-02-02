@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="RESTful interactions with DocumentDB resources | Azure" 
-	description="Learn how to use HTTP methods to create, read, replace, get, and delete DocumentDB resources." 
+	description="Learn how to perform RESTful interactions with Microsoft Azure DocumentDB resources by using HTTP verbs." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
