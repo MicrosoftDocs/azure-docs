@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Troubleshooting and Q & A about Application Insights" 
-	description="Tips and troubleshooting" 
+	description="Something unclear or not working? Try here." 
 	services="application-insights" 
 	authors="alancameronwills" 
 	manager="kamrani"/>
@@ -15,23 +15,6 @@
 	ms.author="awills"/>
  
 # Troubleshooting and Q & A - Application Insights on Microsoft Azure Preview
-
-+ [Can I use Application Insights with...?](#platforms)
-+ [I don't see any option to Add Application Insights to my project in Visual Studio](#q01)
-+ [My new web project was created, but adding Application Insights failed.](#q02)
-+ [I added Application Insights successfully and ran my app, but I've never seen data in the portal.](#q03)
-+ [I see no data under Usage Analytics](#q04)
-+ [I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?](#q05)
-+ [How can I change the Azure resource my data appears under?](#update)
-+ [I get an error "Instrumentation key cannot be empty"](#emptykey)
-+ [On the Microsoft Azure Preview home screen, does that map show the status of my application?](#q06)
-+ [When I use add Application Insights to my application and open the Application Insights portal, it all looks completely different from your screenshots.](#q07)
-+ [Can I use Application Insights to monitor an intranet web server?](#q08)
-+ [What does Application Insights modify in my project?](#q14)
-+ [How long is data retained in the portal, and is it secure?](#data)
-+ [What ports should I open in my firewall?](#q16)
-+ [Have I enabled everything in Application Insights?](#q17)
-+ [Learn more](#next)
 
 ## <a name="platforms"</a>Can I use Application Insights with ...?
 
@@ -180,7 +163,29 @@ Yes - you can use the standard client-side [web app script][usage] with one addi
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
+##<a name="NuGetBuild"></a> I get "NuGet package(s) are missing" on my build server, though everything builds OK on my dev machines
 
+This error can occur in some situations if the relative paths to the package directory are different on the development and build machines.
+
+Explanation:
+
+During the installation of NuGet package Microsoft.ApplicationInsights.Web, a dependent package is installed, Microsoft.Diagnostics.Instrumentation.Extensions.Intercept. This modifies the project file, adding an import: 
+
+`<Import Project="**..\packages**\Microsoft .... Intercept.targets" />`
+
+And it also adds assembly references like:
+
+`< Reference .... >< HintPath>**..\packages**\...Intercept.dll ...`
+
+The problem is with the relative path names, which is correct in the dev machine, but can be wrong for the package cache on the build machine.
+
+Solution: 
+
+* After you have added Application Insights to your project (or installed the NuGets manually):
+* Edit the project file and globally replace "..\packages" with "$(PackageDir)".
+* Insert a default definition:
+    `<PackageDir Condition=" '$(PackageDir)' == '' ">..\packages</PackageDir>`
+* Define $(PackageDir) in an appropriate place in your build system - for example, as a parameter of the build definition.
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
