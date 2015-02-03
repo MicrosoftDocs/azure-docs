@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="Describes what happened to your Azure Mobile Services project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea" 
 	manager="douge" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="02/02/2015" 
+	ms.author="patshea"/>
 
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-mobile-services-javascript-getting-started/)
