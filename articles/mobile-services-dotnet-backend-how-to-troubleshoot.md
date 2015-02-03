@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" 
 	description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" 
-	services="" 
-	documentationCenter="windows" 
+	services="mobile-services" 
+	documentationCenter="" 
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="mollybos"/>
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
