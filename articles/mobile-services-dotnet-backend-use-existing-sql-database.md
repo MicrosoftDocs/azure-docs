@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend - Azure Mobile Services" 
 	description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service" 
-	services="mobile-services, biztalk-services" 
-	documentationCenter="windows" 
+	services="mobile-services" 
+	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor="mollybos"/>
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
