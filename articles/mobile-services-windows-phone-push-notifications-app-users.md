@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Push notifications to users (Windows Phone) | Mobile Dev Center" 
 	description="Learn how to use Mobile Services to push notifications to users of your Windows Phone app." 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="" 
+	services="mobile-services" 
+	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="10/07/2014" 
