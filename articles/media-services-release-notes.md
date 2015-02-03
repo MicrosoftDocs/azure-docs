@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [January 2015 Release](#january_changes_15)
 - [December 2014 Release](#december_changes_14)
 - [November 2014 Release](#november_changes_14)
 - [October 2014 Release](#october_changes_14)
@@ -65,6 +66,21 @@ These release notes summarize changes from previous releases and known issues.
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="january_changes_15"></a>January 2015 Release
+
+### General Media Services Updates
+
+Announcement of General Availability (GA) of content protection with dynamic encryption. For more information, see [Azure Media Services enhances streaming security with General Availability of DRM technology](http://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
+
+###Media Services .NET SDK Updates
+
+Azure Media Services .NET SDK is now version 3.1.0.1.
+
+This release marked the default Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate constructor as obsolete. The new constructor takes TokenType as an argument.
+
+	TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+
 
 ##<a id="december_changes_14"></a>December 2014 Release
 
