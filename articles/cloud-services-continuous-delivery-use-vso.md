@@ -3,7 +3,7 @@
 	description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." 
 	services="web-sites" 
 	documentationCenter=".net" 
-	authors="ghogen" 
+	authors="kempb" 
 	manager="douge" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="ghogen"/>
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 
 # Continuous delivery to Azure using Visual Studio Online

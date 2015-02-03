@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Getting Started with Active Directory Authentication - What Happened" 
-	description="" 
+	description="Describes what happened to your Azure Active Directory project in Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]

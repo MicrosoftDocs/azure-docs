@@ -3,7 +3,7 @@
 	description="Install Azure SDK 2.4 and Visual Studio 14 CTP2" 
 	services="" 
 	documentationCenter=".net" 
-	authors="ghogen" 
+	authors="kempb" 
 	manager="douge" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="ghogen"/>
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 # Installing the Azure SDK 2.4 for Visual Studio "14" CTP
 

@@ -3,7 +3,7 @@
 	description="Create a virtual machine for a website" 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="ghogen" 
+	authors="kempb" 
 	manager="douge" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="ghogen"/>
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 # Creating a virtual machine for a website with Visual Studio
 

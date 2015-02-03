@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="Information about the getting started with Azure Active Directory (Web API projects) wizard" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
