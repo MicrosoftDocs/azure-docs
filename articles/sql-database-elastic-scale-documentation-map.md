@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
+	ms.date="02/01/2015" 
 	ms.author="sidneyh"/>
 
 # Azure SQL Database Elastic Scale Topics

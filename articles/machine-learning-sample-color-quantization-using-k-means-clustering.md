@@ -3,7 +3,7 @@
 	description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

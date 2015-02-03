@@ -105,7 +105,7 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
-<!--Link references-->
+<!--Link references--In actual articles, you only need a single period before the slash.>
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/

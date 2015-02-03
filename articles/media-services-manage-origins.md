@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to Manage Origins in a Media Services Account" 
-	description="" 
+	pageTitle="How to Manage Streaming Endpoints in a Media Services Account" 
+	description="This topic shows how to manage Streaming Endpoints using the Azure Management Portal." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -20,9 +20,11 @@
 
 #<a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account
 
-Media Services enables you to add multiple streaming endpoints to your account and to configure the streaming endpoints. Each Media Services account has at least one streaming endpoint called **default** associated with it.
+In Media Services, a Streaming Endpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Currently, Microsoft Azure Media Services does not offer a seamless CDN integration, but you can utilize one of the CDN providers on the market (Azure CDN or Akamai). The outbound stream from the Streaming Endpoint service can be a live stream, or a video on demand Asset in your Media Services account. 
 
->[AZURE.NOTE] Streaming Endpoints used to be known as Origins. 
+In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which currently includes use dynamic packaging. 
+
+This topic shows how to manage Streaming Endpoints using the Azure Management Portal.
 
 
 ##Adding and Deleting Streaming Endpoints 

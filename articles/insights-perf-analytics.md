@@ -20,9 +20,8 @@ After enabling the Azure WebSite extension (detailed steps below) you’ll be ab
 
 Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
-![](./media/insights-perf-analytics/01-example.png)
+![](./media/insights-perf-analytics/01-example.png) 
 
-Application Insights is a preview service available in the Azure Preview portal designed to help development teams get 360° views of their applications across Availability, Performance and Usage with fast & powerful troubleshooting, diagnostics and usage insights.  
 
 
 ## Set up Performance Analytics

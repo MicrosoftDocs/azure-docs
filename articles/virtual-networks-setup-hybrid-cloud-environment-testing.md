@@ -3,7 +3,7 @@
 	description="Learn how to create a hybrid cloud environment for IT pro or development testing." 
 	services="virtual-network" 
 	documentationCenter="" 
-	authors="josephd" 
+	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="01/30/2015" 
 	ms.author="josephd"/>
 
-<h1 id="hybcloudtest">Set up a hybrid cloud environment for testing</h1>
+#Set up a hybrid cloud environment for testing
 
 This topic steps you through creating a hybrid cloud environment with Microsoft Azure for testing. Here is the resulting configuration.
 
@@ -296,7 +296,7 @@ Your hybrid cloud environment is now ready for testing.
 The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. This cost is billed against your free trial, MSDN subscription, or paid subscription. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/en-us/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
 
 1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, click **TestVNET**, and then click **Dashboard**.
-2.	In the task bar, click **Delete Gateway**. Click **Ye**s when prompted. Wait until the gateway is deleted and its status changes to **The Gateway Was Not Created**.
+2.	In the task bar, click **Delete Gateway**. Click **Yes** when prompted. Wait until the gateway is deleted and its status changes to **The Gateway Was Not Created**.
 
 If you delete the gateway and you want to restore the test environment, you must first create a new gateway.
 
@@ -305,7 +305,7 @@ If you delete the gateway and you want to restore the test environment, you must
 3.	From the Dashboard page, note the **Gateway IP Address**. This is the new public IP address of the Azure VPN gateway for the TestVNET virtual network. You need this IP address to re-configure RRAS1.
 4.	In the task bar, click **Manage Key**, and then click the copy icon next to the key to copy it to your clipboard. Paste this key value into a document and save it. You need this key value to re-configure RRAS1. 
 
-Next, log on to RRAS1 as the local administrator and run these commands at a Windows PowerShell command prompt to reconfigure RRAS1 with the new public IP address and preshared key.
+Next, log on to RRAS1 as the local administrator and run these commands at an administrator-level Windows PowerShell command prompt to reconfigure RRAS1 with the new public IP address and preshared key.
 
 	$PresharedKey="<Key value>"
 	Set-VpnS2SInterface -Name S2StoTestVNET -Destination "<IP address of the Azure VPN gateway>" -SharedSecret $PresharedKey

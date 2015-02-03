@@ -14,7 +14,7 @@
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="01/25/2015" 
-	ms.author="AharonGumnik"/>
+	ms.author="v-ahgumn"/>
 
 # Azure Machine Learning Recommendations - JavaScript Integration
 

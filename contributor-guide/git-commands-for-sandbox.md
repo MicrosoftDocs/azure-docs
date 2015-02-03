@@ -19,6 +19,10 @@ Follow the steps in this article to stage content to the internal staging site p
 3. Check out the sandbox branch:
 
         git checkout sandbox
+        
+   Note: If you just cloned, you probably only have the master branch on your computer. You can run 'git branch' to see the     list of branches on your local computer. If sandbox is missing, run:
+   
+        git checkout -b sandbox
 
 4. Create a local working branch from the upstream sandbox branch:
 

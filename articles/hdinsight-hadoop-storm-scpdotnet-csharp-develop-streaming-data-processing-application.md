@@ -97,7 +97,7 @@ The SCP SDK is provided on the Storm cluster on HDInsight. After [creating a Sto
 
 2. In **Solution Explorer**, right-click **References** and then select **Add reference**.
 
-3. Select the **Browse** button at the bottom of **Reference Manager**, and then browse to the SDK folder you downloaded earlier. Select **Microsoft.SCP.dll** and **Microsoft.SCPLogger.dll**, and then click **Add**. Click **Ok** to close the Reference Manager window.
+3. Select the **Browse** button at the bottom of **Reference Manager**, and then browse to the SDK folder you downloaded earlier. Select **Microsoft.SCPNet.dll** and **Microsoft.SCPLogger.dll**, and then click **Add**. Click **Ok** to close the Reference Manager window.
 
 ###Create the spout
 

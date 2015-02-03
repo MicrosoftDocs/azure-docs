@@ -3,7 +3,7 @@
 	description="A sample Azure Machine Learning experiment that uses sentiment classification to predict product reviews." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="Garyericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

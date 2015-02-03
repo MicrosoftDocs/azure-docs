@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" 
-	description="" 
+	pageTitle="How to make data model changes to a .NET backend mobile service" 
+	description="This topic describes data model initializers and how to make data model changes in a .NET backend mobile service." 
 	services="mobile-services" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="ggailey777" 
 	writer="glenga" 
 	manager="dwrede" 
@@ -23,7 +23,13 @@ This topic shows how to use Entity Framework Code First Migrations to make data 
 
 ## Data model initializers
 
-Mobile Services provides supports two data model initializer base classes in a .NET backend mobile service project. These initializers  both drop and recreate tables in the database whenever the Entity Framework detects a data model change in your [DbContext]. These initializers are designed to work both when you mobile service is running on a local computer and when it is hosted in Azure. Both initializer base classes delete from the database all tables, views, functions, and procedures in the schema used by the mobile service. 
+Mobile Services provides supports two data model initializer base classes in a .NET backend mobile service project. These initializers  both drop and recreate tables in the database whenever the Entity Framework detects a data model change in your [DbContext]. These initializers are designed to work both when you mobile service is running on a local computer and when it is hosted in Azure. 
+
+>[AZURE.NOTE]When you publish a .NET backend mobile service, the initializer is not run until a data access operation occurs. This means that for a newly published service, the data tables used for storage aren't created until a data access operation, such as a query, is requested by the client. 
+>
+>You can also execute a data access operation by using the built-in API help functionality, accessed from the **Try it out** link on the start page. For more information on using the API pages to test your mobile service, see the section Test the mobile service project locally in [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data/#test-the-service-locally).  
+
+Both initializer base classes delete from the database all tables, views, functions, and procedures in the schema used by the mobile service. 
 
 + **ClearDatabaseSchemaIfModelChanges** <br/> Schema objects are deleted only when Code First detects a change in the data model. The default initializer in a .NET backend project downloaded from the [Azure Management Portal] inherits from this base class.
  
@@ -33,7 +39,7 @@ In the downloaded quickstart project, the Code First initializer is defined in t
 
 You may continue to use initializers during local development of your mobile service, and the .NET backend tutorials assume that you are using initializers. However, for situations where you want to make data model changes and maintain existing data in the database, you must use Code First Migrations. 
 
->[AZURE.NOTE]When developing and testing your mobile service project against live Azure services, you should always use a mobile service instance that is dedicated for testing. You should never develop or test against a mobile service that is currently in production or being used by client apps. 
+>[AZURE.IMPORTANT]When developing and testing your mobile service project against live Azure services, you should always use a mobile service instance that is dedicated for testing. You should never develop or test against a mobile service that is currently in production or being used by client apps. 
 
 ## <a name="migrations"></a>Enable Code First Migrations
 

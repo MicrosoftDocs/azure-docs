@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="The 10GB GraySort sample | Azure" 
-	description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." 
+	description="Learn how to run a general purpose GraySort for very large amounts of data, usually a 100 TB minimum, on Hadoop with HDInsight using Azure PowerShell." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -36,7 +36,7 @@ The input and output format, used by all three applications, read and write the 
 * What a MapReduce program written in Java looks like.
 
 
-**Prerequisites**:	
+**Prerequisites**	
 
 - You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
 
