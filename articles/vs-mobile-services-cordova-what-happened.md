@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="" 
-	description="Describes what happened to your Azure Mobile Service project in Cordova" 
+	description="" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="kempb" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="patshea"/>
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-mobile-services-cordova-getting-started/)
