@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" 
 	description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="10/10/2014" 
