@@ -3,8 +3,8 @@
 	description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/03/2015" 
+	ms.author="torsteng"/>
 
 # Splitting and Merging with Elastic Scale
 
