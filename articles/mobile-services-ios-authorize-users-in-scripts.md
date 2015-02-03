@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Service-side authorization (iOS) | Mobile Dev Center" 
 	description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="krisragh" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="10/10/2014" 
