@@ -3,8 +3,8 @@
 	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
-	manager="wpickett" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/03/2015" 
+	ms.author="sethm"/>
 
 
 
