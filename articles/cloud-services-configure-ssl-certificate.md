@@ -15,14 +15,14 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 
 This task includes the following steps:
 
--   [Step 1: Get an SSL certificate][]
+-   [Step 1: Get an SSL certificate][step-1:-get-an-ssl-certificate]
 -   [Step 2: Modify the service definition and configuration files][]
 -   [Step 3: Upload the deployment package and certificate][]
 -   [Step 4: Connect to the role instance by using HTTPS][]
 
 This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
 
-<h2><a name="step1"> </a>Step 1: Get an SSL certificate</h2>
+##Step 1: Get an SSL certificate
 
 To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
 
@@ -37,7 +37,7 @@ For test purposes, you can create and use a self-signed certificate. A self-sign
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
-<h2><a name="step2"> </a>Step 2: Modify the service definition and configuration files</h2>
+##Step 2: Modify the service definition and configuration files
 
 Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.
 
@@ -91,8 +91,8 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     the service configuration file.
 
 4.  In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates**
-    section within the **Role** section, replacing the sample thumbprint
-    value shown below with that of your certificate:
+   	section within the **Role** section, replacing the sample thumbprint
+  	value shown below with that of your certificate:
 
         <Role name="Deployment">
         ...
@@ -112,7 +112,7 @@ you are using **cspack**, ensure that you don't use the
 **/generateConfigurationFile** flag, as that will overwrite the
 certificate information you just inserted.
 
-<h2><a name="step3"> </a>Step 3: Upload the deployment package and certificate</h2>
+##Step 3: Upload the deployment package and certificate
 
 Your deployment package has been updated to use the certificate, and an
 HTTPS endpoint has been added. Now you can upload the package and
@@ -138,7 +138,7 @@ certificate to Azure with the Management Portal.
 
 7.  Click the **Complete** button to create your cloud service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-<h2><a name="step4"> </a>Step 4: Connect to the role instance by using HTTPS</h2>
+##Step 4: Connect to the role instance by using HTTPS
 
 Now that your deployment is up and running in Azure, you can
 connect to it using HTTPS.
@@ -158,7 +158,7 @@ connect to it using HTTPS.
 
 If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Deploy your cloud service to the staging environment without including a certificate or any certificate information. Once deployed, you can determine the GUID-based URL, which is listed in the management portal's **Site URL** field. Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use the management portal to add the certificate to your staged cloud service, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package and CSCFG file.
 
-<h2><a name="additional_resources"> </a>Additional Resources</h2>
+##Additional Resources
 
 * [How to associate a certificate with a service][]
 
