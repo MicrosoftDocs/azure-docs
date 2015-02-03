@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (Xamarin.iOS) - Azure Mobile Services" 
+	pageTitle="Add Mobile Services to an existing app (Xamarin.iOS) - Azure Mobile Services" 
 	description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app." 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/24/2014" 
