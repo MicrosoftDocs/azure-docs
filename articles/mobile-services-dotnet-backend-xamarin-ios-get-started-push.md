@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" 
 	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Xamarin iOS app" 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/25/2014" 
