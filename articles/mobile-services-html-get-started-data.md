@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (HTML 5) | Mobile Dev Center" 
+	pageTitle="Add Mobile Services to an existing app (HTML 5) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your HTML app." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="09/24/2014" 
