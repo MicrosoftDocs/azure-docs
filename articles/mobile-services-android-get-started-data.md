@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (Android) | Mobile Dev Center" 
+	pageTitle="Add Mobile Services to an existing app (Android) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/16/2014" 
