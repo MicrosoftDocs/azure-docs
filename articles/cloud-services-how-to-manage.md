@@ -6,19 +6,12 @@
 
 
 
-#How to Manage Cloud Services
+# How to Manage Cloud Services
 
 In the **Cloud Services** area of the Azure Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
-##Table of Contents##
 
-* [How to: Update a cloud service role or deployment](#updaterole)
-* [How to: Swap deployments to promote a staged deployment to production](#swap)
-* [How to: Link a resource to a cloud service](#linkresources)
-* [How to: Delete deployments and a cloud service](#deletecloudservice)
-
-
-<h2><a id="updaterole"></a>How to: Update a cloud service role or deployment</h2>
+## How to: Update a cloud service role or deployment
 
 If you need to update the application code for your cloud service, use **Update** on the dashboard, **Cloud Services** page, or **Instances** page. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
 
@@ -46,7 +39,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 
 
-<h2><a id="swap"></a>How to: Swap deployments to promote a staged deployment to production</h2>
+## How to: Swap deployments to promote a staged deployment to production
 
 Use **Swap** to promote a staging deployment of a cloud service to production. When you decide to deploy a new release of a cloud service, you can stage and test your new release in your cloud service staging environment while your customers are using the current release in production. When you're ready to promote the new release to production, you can use **Swap** to switch the URLs by which the two deployments are addressed. 
 
@@ -68,7 +61,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 	To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
-<h2><a id="linkresources"></a>How to: Link a resource to a cloud service</h2>
+## How to: Link a resource to a cloud service
 
 To show your cloud service's dependencies on other resources, you can link an Azure SQL Database instance or a storage account to the cloud service. You can link and unlink resources on the **Linked Resources** page, and then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
 
@@ -80,7 +73,7 @@ You also can monitor, manage, and scale the database in the **Databases** node o
 
 The following procedure describes how to link a new SQL Database instance, deployed on a new SQL Database server, to a cloud service.
 
-###To link a SQL Database instance to a cloud service###
+### To link a SQL Database instance to a cloud service
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
@@ -108,7 +101,7 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 	When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](../cloud-services-how-to-scale/).
 
-###To unlink a linked resource###
+### To unlink a linked resource
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
@@ -120,7 +113,7 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 
 
-<h2><a id="deletecloudservice"></a>How to: Delete deployments and a cloud service</h2>
+## How to: Delete deployments and a cloud service
 
 Before you can delete a cloud service, you must delete each existing deployment.
 

@@ -21,15 +21,8 @@ You should consider the following information before you configure scaling for y
 - You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
 - To enable high availability of your application, you should ensure that it is deployed with two or more role instances or Virtual Machines. For more information, see [Service Level Agreements](https://www.windowsazure.com/en-us/support/legal/sla/).
 
-You can perform the following scaling actions for a cloud service:
 
-- [Manually scale an application running Web Roles or Worker Roles](#manualscale)
-- [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](#autoscale)
-- [Scale linked resources](#scalelink)
-- [Schedule the scaling of your application](#schedule)
-
-
-<h2><a id="manualscale"></a>Manually scale an application running Web Roles or Worker Roles</h2>
+## Manually scale an application running Web Roles or Worker Roles
 
 On the Scale page, you can manually increase or decrease the number of running instances in a cloud service.
 
@@ -53,14 +46,14 @@ On the Scale page, you can manually increase or decrease the number of running i
 
 4. Click **Save**. Role instances will be added or removed based on your selections.
 
-<h2><a id="autoscale"></a>Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines</h2>
+## Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines
 
 On the Scale page, you can configure your cloud service to automatically increase or decrease the number of instances or Virtual Machines that are used by your application. You can configure scaling based on the following parameters:
 
 - [Average CPU usage](#averagecpu) - If the average percentage of CPU usage goes above or below specified thresholds, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.
 - [Queue messages](#queuemessages) - If the number of messages in a queue goes above or below a specified threshold, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.
 
-<h3><a id="averagecpu"></a>Average CPU usage</h3>
+## Average CPU usage
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 2. Click **Scale**.
@@ -107,7 +100,7 @@ On the Scale page, you can configure your cloud service to automatically increas
 
 10. Click **Save**. The scaling action can take up to five minutes to finish.
 
-<h3><a id="queuemessages"></a>Queue messages</h3>
+## Queue messages
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 2. Click **Scale**.
@@ -159,7 +152,7 @@ On the Scale page, you can configure your cloud service to automatically increas
 
 12. Click **Save**. The scaling action can take up to five minutes to finish.
 
-<h2><a id="scalelink"></a>Scale linked resources</h2>
+## Scale linked resources
 
 Often when you scale a role, it's beneficial to scale the database that the application is using also. If you link the database to the cloud service, you change the SQL Database edition and resize the database on the Scale page.
 
@@ -172,7 +165,7 @@ Often when you scale a role, it's beneficial to scale the database that the appl
 4. Select the size of the database.
 5. Click **Save** to update the linked resources.
 
-<h2><a id="schedule"></a>Schedule the scaling of your application</h2>
+## Schedule the scaling of your application
 
 You can schedule automatic scaling of your application by configuring schedules for different times. The following options are available to you for automatic scaling:
 

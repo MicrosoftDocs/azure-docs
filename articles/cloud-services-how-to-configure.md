@@ -5,7 +5,7 @@
 
 
 
-<h1><a id="configurecloudservice"></a>How to Configure Cloud Services</h1>
+# How to Configure Cloud Services
 
 You can configure the most commonly used settings for a cloud service in the Azure Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
@@ -13,13 +13,7 @@ You can also enable a Remote Desktop connection to one or all roles running in y
 
 Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://www.windowsazure.com/en-us/support/legal/sla/).
 
-##Table of Contents##
-
-* [How to: Update the cloud service configuration](#update)
-* [How to: Configure remote access to role instances](#remoteaccess)
-
-
-<h2><a id="update"></a>How to: Update the cloud service configuration</h2>
+## How to: Update the cloud service configuration
 
 1. In the [Azure Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
 
@@ -48,7 +42,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 5. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) **Save** and **Discard** are added to the command bar after you change a setting.
 
-###To update a cloud service configuration file manually###
+### To update a cloud service configuration file manually
 
 1. Download a cloud service configuration file (.cscfg) with the current configuration. On the **Configure** page for the cloud service, click **Download**. Then click **Save**, or click **Save As** to save the file.
 
@@ -67,17 +61,17 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 	d. Click **OK** (checkmark). 
 
 
-<h2><a id="remoteaccess"></a>How to: Configure remote access to role instances</h2>
+## How to: Configure remote access to role instances
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. You can enable a Remote Desktop connection in your role during application design or after you have deployed the application to Azure (while the role is running).  Enabling a Remote Desktop connection in a running role through the Management Portal does not require you to redeploy your application.  To authenticate the Remote Desktop connection you can use a previously uploaded certificate or you can create a new certificate.
 
 On the **Configure** page for your cloud service, you can enable Remote Desktop or change the local Administrator account or password used to connect to the virtual machines, the certificate used in authentication, or the expiration date.
 
-###To configure Remote Access in the service definition file###
+### To configure Remote Access in the service definition file
 
 Add **Import** elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Azure, and specify the certificate in the service configuration file. For more information, see [Set Up a Remote Desktop Connection for a Role in Azure][].
 
-###To enable or modify Remote Access for role instances in the Management Portal###
+### To enable or modify Remote Access for role instances in the Management Portal
 
 1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
 
@@ -115,7 +109,7 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 	d. Click **Open** and then **Connect** to start the Remote Desktop connection.
 
-###To disable Remote Access for role instances in the Management Portal###
+### To disable Remote Access for role instances in the Management Portal
 
 1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
 

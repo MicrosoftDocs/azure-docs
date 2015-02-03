@@ -6,7 +6,7 @@
 
 
 
-#How to Create and Deploy a Cloud Service
+# How to Create and Deploy a Cloud Service
 
 The Azure Management Portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**. 
 
@@ -14,17 +14,7 @@ This topic explains how to use the Quick Create method to create a new cloud ser
 
 **Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
-##Table of Contents##
-
-* [Concepts](#concepts)
-* [Prepare your app](#prepare)
-* [Before you begin](#begin)
-* [How to: Create a cloud service using Quick Create](#quick)
-* [How to: Upload a certificate for a cloud service](#uploadcertificate)
-* [How to: Deploy a cloud service](#deploy)
-
-
-<h2><a id="concepts"></a>Concepts</h2>
+## Concepts
 Three components are required in order to deploy an application as a cloud service in Azure:
 
 >- **service definition file**   The cloud service definition file (.csdef) defines the service model, including the number of roles.
@@ -33,7 +23,7 @@ Three components are required in order to deploy an application as a cloud servi
 
 >- **service package**   The service package (.cspkg) contains the application code and the service definition file.
 
-<h2><a id="prepare"></a>Prepare your app</h2>
+## Prepare your app
 Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). Each cloud service package contains application files and configurations. The service configuration file provides the configuration settings.
 
 The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](http://www.windowsazure.com/en-us/develop/downloads/) page, in the language in which you prefer to develop your application code.
@@ -48,7 +38,7 @@ Three cloud service features require special configurations before you export a 
 
 - To create a cloud service with deployments of web roles or worker roles, you must create the service package. For more information about the files related to the package, see [Set Up a Cloud Service for Azure](http://msdn.microsoft.com/en-us/library/hh124108.aspx). To create the package file, see [Package a Windows Azure Application](http://msdn.microsoft.com/en-us/library/hh403979.aspx). If you are using Visual Studio to develop your application, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/en-us/library/ff683672.aspx).
 
-<h2><a id="begin"></a>Before you begin</h2>
+## Before you begin
 
 - If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
 
@@ -57,7 +47,7 @@ Three cloud service features require special configurations before you export a 
 - If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Management Portal, on the **Affinity Groups** page. For more information, see [Create an Affinity Group in the Management Portal](http://msdn.microsoft.com/en-us/library/jj156209.aspx).
 
 
-<h2><a id="quick"></a>How to: Create a cloud service using Quick Create</h2>
+## How to: Create a cloud service using Quick Create
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **New**>**Compute**>**Cloud Service**>**Quick Create**.
 
@@ -78,7 +68,7 @@ Three cloud service features require special configurations before you export a 
 	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
-<h2><a id="uploadcertificate"></a>How to: Upload a certificate for a cloud service</h2>
+## How to: Upload a certificate for a cloud service
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Certificates**.
 
@@ -99,7 +89,7 @@ Three cloud service features require special configurations before you export a 
 
 	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
-<h2><a id="deploy"></a>How to: Deploy a cloud service</h2>
+## How to: Deploy a cloud service
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Dashboard**.
 
@@ -127,7 +117,7 @@ Three cloud service features require special configurations before you export a 
 
 	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
-###To verify that your deployment completed successfully###
+### To verify that your deployment completed successfully
 
 1. Click **Dashboard**.
 
@@ -137,5 +127,5 @@ Three cloud service features require special configurations before you export a 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-	![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
