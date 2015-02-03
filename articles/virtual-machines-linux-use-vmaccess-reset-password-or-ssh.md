@@ -57,9 +57,9 @@ Type the user name and password and store them in variables, then create a singl
 
 Store the name, publisher and version number in variables: 
 
-	PS C:\> ExtensionName = 'VMAccessForLinux'
+	PS C:\> $ExtensionName = 'VMAccessForLinux'
 	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
+	PS C:\> $Version =  '1.1'
 
 With all the required values stored in variables, run the following command:
 
