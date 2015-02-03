@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Notification Hubs with Java" description="Learn how to use Azure Notification Hubs from a Java back-end." services="mobile-services,notification-hubs,push,java" documentationCenter="" authors="piyushjo" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to use Notification Hubs with Java" 
+	description="Learn how to use Azure Notification Hubs from a Java back-end." 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="01/12/2015" ms.author="piyushjo"/>
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="piyushjo"/>
 
 # How to use Notification Hubs from Java
 <div class="dev-center-tutorial-selector sublanding"> 
