@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="" 
-	description="Describes what happened in your Azure Mobile Services .NET project in Visual Studio" 
+	description="" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="kempb" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="patshea"/>
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
