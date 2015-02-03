@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Getting Started with Azure Storage" 
-	description="" 
+	description="Describes what happened when creating an Azure storage in a Visual Studio ASP.NET 5 project" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]

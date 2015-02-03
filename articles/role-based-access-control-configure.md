@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="Ibiza" 
 	ms.workload="infrastructure-services" 
-	ms.date="01/30/2015" 
+	ms.date="02/02/2015" 
 	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
@@ -23,7 +23,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Role-based access control in Azure Preview portal 
 
-<p> We’ve added support for role-based access control (RBAC) in the Azure Preview portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. 
+<p> We’ve added support for role-based access control (RBAC) in the Azure Preview portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. </p>
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 

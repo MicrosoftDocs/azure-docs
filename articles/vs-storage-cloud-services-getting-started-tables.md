@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Getting Started with Azure Storage" 
-	description="" 
+	description="How to get started using Azure table storage in a cloud service project in Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
