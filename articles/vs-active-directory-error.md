@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Error During Authentication Detection" 
-	description="" 
+	description="The active directory connection wizard detected an incompatible authentication type" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 ###Error During Authentication Detection 
