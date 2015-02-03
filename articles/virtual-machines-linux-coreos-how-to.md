@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,14 +13,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="10/27/2014" 
+	ms.date="01/02/2015" 
 	ms.author="rasquill"/>
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
-
-<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
-
-<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # How to Use CoreOS on Azure
@@ -116,18 +111,20 @@ coreos:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 1. Install the [Azure Cross-Platform Interface (xplat-cli)] if you have not already done so, and either login using a work or school ID, or download a .publishsettings file and import that into your account.
-2. Locate your CoreOS image. Currently, there is only one image -- **`2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0`** -- but to locate the images available at any time, type `azure vm image list | grep .*CoreOS.*` and you should see one or more results similar to:
-`data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0              Public    Linux`
-3. Create a Cloud Service for your basic cluster by typing
-`azure service create <cloud-service-name>` where *cloud-service-name* is the name for your CoreOS cloud service. This sample uses the name **`coreos-cluster`**; you will need to reuse the name that you choose to create your CoreOS vm instances inside the Cloud Service. 
+2. Locate your CoreOS image. To locate the images available at any time, type `azure vm image list | grep CoreOS` and you should see a list of results similar to:
 
-One note: If you observe your work so far in the [new portal](https://portal.azure.com), you'll find your Cloud Service name is both a resource group and domain, as the following image shows:
+	data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0              Public    Linux
+
+3. Create a Cloud Service for your basic cluster by typing
+`azure service create <cloud-service-name>` where *<cloud-service-name>* is the name for your CoreOS cloud service. This sample uses the name **`coreos-cluster`**; you will need to reuse the name that you choose to create your CoreOS vm instances inside the Cloud Service. 
+
+One note: If you observe your work so far in the [portal](https://portal.azure.com), you'll find your Cloud Service name is both a resource group and domain, as the following image shows:
 
 ![][CloudServiceInNewPortal]  
 4. Connect to your cloud service and create a new CoreOS vm inside by using the **azure vm create** command. You will pass the location of your X.509 certificate in the **--ssh-cert** option. Create your first VM image by typing the following, remembering to replace **coreos-cluster** with the cloud service name that you created:
 
 ```
-azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location='West US' 2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0 core
+azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location='West US' 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 core
 ```
 
 5. Create the second node by repeating the command in step 4, replacing the **--vm-name** value with **node-2** and the **--ssh** port value with 2022. 
@@ -142,17 +139,17 @@ You can see from the shot below how the CoreOS cluster appears in the new portal
 
 To test your cluster, make sure you are in your working directory and then connect to **node-1** using **ssh**, passing the private key by typing:
 
-`ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key`
+	ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
 
 Once connected, type `sudo fleetctl list-machines` to see whether the cluster has already identified all VMs in the cluster. You should receive a response similar to the following:
 
-```
-core@node-1 ~ $ sudo fleetctl list-machines
-MACHINE		IP		METADATA
-442e6cfb...	100.71.168.115	-
-a05e2d7c...	100.71.168.87	-
-f7de6717...	100.71.188.96	-
-```
+
+	core@node-1 ~ $ sudo fleetctl list-machines
+	MACHINE		IP		METADATA
+	442e6cfb...	100.71.168.115	-
+	a05e2d7c...	100.71.168.87	-
+	f7de6717...	100.71.188.96	-
+
 
 ### Test your CoreOS Cluster from localhost
 
@@ -184,12 +181,11 @@ Now you are ready to test remotely using the same **fleetctl** command you used 
 
 The results should be exactly the same:
 
-```
-MACHINE		IP		METADATA
-442e6cfb...	100.71.168.115	-
-a05e2d7c...	100.71.168.87	-
-f7de6717...	100.71.188.96	-
-```
+
+	MACHINE		IP		METADATA
+	442e6cfb...	100.71.168.115	-
+	a05e2d7c...	100.71.168.87	-
+	f7de6717...	100.71.188.96	-
 
 ## Next steps
 
