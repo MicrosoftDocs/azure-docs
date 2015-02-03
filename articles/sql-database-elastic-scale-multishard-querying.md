@@ -3,8 +3,8 @@
 	description="Run queries across shards using Elastic Scale APIs." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/03/2015" 
+	ms.author="torsteng"/>
 
 #Multi-Shard Querying
 **Multi-shard querying** is used for tasks such as data collection/reporting that require running a query that stretches across several shards. (Contrast this to [data-dependent routing](./sql-database-elastic-scale-data-dependent-routing.md), which performs all work on a single shard.) 
