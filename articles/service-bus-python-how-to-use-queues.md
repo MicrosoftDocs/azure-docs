@@ -3,8 +3,8 @@
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Python." 
 	services="service-bus" 
 	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/19/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/03/2015" 
+	ms.author="sethm"/>
 
 
 

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="sethm"/>
 
-# Connect millions of "things" to the cloud
+# Connect millions of things to the cloud
  
 Smart and connected "things" increasingly proliferate in modern technology ecosystems. Sensors in cars, homes, infrastructure, and appliances produce new opportunities to provide improved product quality, expanded services, and new customer engagement models. Azure Service Bus can help you connect this emerging "Internet of things."
 
