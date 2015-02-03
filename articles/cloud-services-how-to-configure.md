@@ -14,7 +14,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 ##Table of Contents##
 
-* [Update the cloud service configuration](#Update the cloud service configuration)
+* [Update the cloud service configuration](#update-the-cloud-service-configuration)
 * [How to: Configure remote access to role instances](#remoteaccess)
 
 
