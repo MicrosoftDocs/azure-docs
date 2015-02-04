@@ -12,7 +12,7 @@
 |​Linking to an MSDN library topic, a TechNet library topic, or KB article|​Use the actual link to the article or topic, but remove the language locale ("/en-us/") from the link. Removing the language locale from the link allows the correct translated content to be returned based on the language locale set on the user's operating system.|
 |Linking from an ACOM article to any other web page|Use the direct link|
 
-###Syntax for ACOM relative links
+###Markdown syntax for ACOM relative links
 
 To link to a page in the same directory as the current page (which should work for most articles), you can just use the single-dot notation. Include the markdown file name extension:
 
