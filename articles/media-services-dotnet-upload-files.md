@@ -55,33 +55,38 @@ The sample code below uses .NET SDK to perform the following tasks:
 - Creates a Locator instance that provides access to the asset.
 - Uploads a single media file into Media Services. 
 
-
-		static private IAsset CreateEmptyAsset(string assetName, AssetCreationOptions assetCreationOptions)
-		{
-		    var asset = _context.Assets.Create(assetName, assetCreationOptions);
-		
-		    Console.WriteLine("Asset name: " + asset.Name);
-		    Console.WriteLine("Time created: " + asset.Created.Date.ToString());
-		
-		    return asset;
-		}
 		
 		static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
 		{
-		    var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
-		    var asset = CreateEmptyAsset(assetName, assetCreationOptions);
-		
-		    var fileName = Path.GetFileName(singleFilePath);
-		
-		    var assetFile = asset.AssetFiles.Create(fileName);
-		
-		    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-		    Console.WriteLine("Upload {0}", assetFile.Name);
-		
-		    assetFile.Upload(singleFilePath);
-		    Console.WriteLine("Done uploading of {0} using Upload()", assetFile.Name);
-		
-		    return asset;
+            if (!File.Exists(singleFilePath))
+            {
+                Console.WriteLine("File does not exist.");
+                return null;
+            }
+
+            var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+
+            var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
+
+            Console.WriteLine("Created assetFile {0}", assetFile.Name);
+
+            var policy = _context.AccessPolicies.Create(
+                                    assetName,
+                                    TimeSpan.FromDays(30),
+                                    AccessPermissions.Write | AccessPermissions.List);
+
+            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
+
+            Console.WriteLine("Upload {0}", assetFile.Name);
+
+            assetFile.Upload(singleFilePath);
+            Console.WriteLine("Done uploading {0}", assetFile.Name);
+
+            locator.Delete();
+            policy.Delete();
+
+            return inputAsset;
 		}
 
 ###Upload multiple files
@@ -105,7 +110,7 @@ The code does the following:
 >[AZURE.NOTE] Use the UploadAsync method to ensure that the calls are not blocking and the files are uploaded in parallel.
  	
  	
-	static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions assetCreationOptions, string folderPath)
+	static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
 	{
 	    var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
 	
@@ -113,6 +118,7 @@ The code does the following:
 	
 	    var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
 	                                                        AccessPermissions.Write | AccessPermissions.List);
+
 	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
 	
 	    var blobTransferClient = new BlobTransferClient();
