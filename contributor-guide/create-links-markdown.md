@@ -14,10 +14,10 @@
 
 ###Markdown syntax for ACOM relative links
 
-To link to a page in the same directory as the current page (which should work for most articles), you can just use the single-dot notation. Include the markdown file name extension:
+To link to a page in the same directory as the current page (which should work for all our ACOM articles), use the single-dot notation. Include the markdown file name extension:
 
-    ./<article name.md>
-    ./media-services-create-account.md/
+    [link text](./<article name.md/>)
+    [Create a Media Services account!](./media-services-create-account.md/)
  
 To link to a page in a different directory, you need to use the ../ syntax to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
 
