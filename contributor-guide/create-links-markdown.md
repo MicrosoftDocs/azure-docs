@@ -14,18 +14,18 @@
 
 ###Markdown syntax for ACOM relative links
 
-To link to a page in the same directory as the current page (which should work for all our ACOM articles), use the single-dot notation. Include the markdown file name extension:
+To create an inline link to a page in the same directory as the current page (this is the case for all our ACOM technical articles), use the single-dot notation. Include the markdown file name extension:
 
     [link text](./<article name.md/>)
     [Create a Media Services account!](./media-services-create-account.md/)
  
-To link to a page in a different directory, you need to use the ../ syntax to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
+To link to a page in a different directory (to link from a tech doc to a feature page, for example), you need to use the ../ syntax to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
 
-    ../../services/virtual-machines/
+    [link text](../../services/virtual-machines/)
  
 To link to the .NET samples page from an article:
 
-     ../../../develop/net/samples/
+     [link text](../../../develop/net/samples/)
 
 To test your links, push your page to your fork, and view it in the rendered view. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
 
