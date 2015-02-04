@@ -25,7 +25,7 @@ To link to a page in a different directory (to link from a tech doc to a feature
  
 To link to the .NET samples page from an article:
 
-     [link text](../../../develop/net/samples/)
+    [link text](../../../develop/net/samples/)
 
 To test your links, push your page to your fork, and view it in the rendered view. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
 
