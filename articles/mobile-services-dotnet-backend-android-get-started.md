@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="10/20/2014" 
 	ms.author="glenga"/>
 
