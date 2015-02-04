@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Import your publish settings file in Visual Studio 2013 | Mobile Services" 
 	description="Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013." 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor="" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 

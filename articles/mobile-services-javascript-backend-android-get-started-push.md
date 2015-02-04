@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" 
+	pageTitle="Add push notifications to your Mobile Services app (Android JavaScript) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services,notification-hubs" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	writer="ricksal" 
@@ -11,7 +11,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/16/2014" 
