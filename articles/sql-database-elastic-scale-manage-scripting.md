@@ -3,8 +3,8 @@
 	description="Script Elastic Scale tasks with PowerShell and Azure Automation Service runbooks." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="Joseidz" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/03/2015" 
+	ms.author="Joseidz"/>
 
 # Managing Elastic Scale with Scripts
 

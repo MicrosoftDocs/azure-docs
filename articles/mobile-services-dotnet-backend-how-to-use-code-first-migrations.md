@@ -11,8 +11,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/27/2014" 
 	ms.author="glenga"/>

@@ -3,8 +3,8 @@
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
-	manager="wpickett" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/03/2015" 
+	ms.author="sethm"/>
 
 
 

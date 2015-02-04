@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/13/2014" 
+	ms.date="02/03/2015" 
 	ms.author="sethm"/>
 
 # How to Use Service Bus Queues
 
-This guide shows you how to use Service Bus queues with PHP. The samples are
+This guide shows you how to use Service Bus queues. The samples are
 written in PHP and use the [Azure SDK for PHP][download-sdk]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
