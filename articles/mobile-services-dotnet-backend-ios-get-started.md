@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with Azure Mobile Services for iOS apps" 
 	description="Follow this tutorial to get started using Azure Mobile Services for iOS development." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="krisragh" 
 	manager="dwrede" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="10/10/2014" 
 	ms.author="krisragh"/>
 

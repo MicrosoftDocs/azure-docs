@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (Windows Store) | Mobile Dev Center" 
+	pageTitle="Add Mobile Services to an existing app (Windows Store) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/27/2014" 

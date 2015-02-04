@@ -2,19 +2,19 @@
 	pageTitle="Azure Notification Hubs - Diagnosis Guidelines" 
 	description="Guidelines on how to diagnose common issues with Azure Notification Hubs." 
 	services="notification-hubs" 
-	documentationCenter="mobile" 
+	documentationCenter="" 
 	authors="piyushjo" 
 	manager="dwrede" 
-	editor="" />
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="01/27/2015" 
-	ms.author="piyushjo" />
+	ms.author="piyushjo"/>
 
 #Azure Notification Hubs - Diagnosis guidelines
 

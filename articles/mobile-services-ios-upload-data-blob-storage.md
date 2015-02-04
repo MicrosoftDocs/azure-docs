@@ -5,16 +5,17 @@
 	authors="ysxu" 
 	writer="yuaxu" 
 	manager="dwrede" 
-	services="mobile-services, storage" 
+	services="mobile-services" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
-	ms.author="yuaxu"/>
+	ms.author="yuaxu" 
+	ms.devlang=""/>
 
 # Upload data to Azure Storage using Mobile Services
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-upload-data-blob-storage" title="iOS" class="current">iOS</a></div>

@@ -3,9 +3,9 @@
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Java." 
 	services="service-bus" 
 	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="mollybos"/>
+	authors="sethmanheim" 
+	manager="timlt" 
+	/>
 
 <tags 
 	ms.service="service-bus" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
-	ms.author="robmcm"/>
+	ms.date="02/03/2015" 
+	ms.author="sethm"/>
 
 # How to Use Service Bus Queues
 

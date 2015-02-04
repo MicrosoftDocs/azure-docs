@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app (legacy push)." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/25/2014" 

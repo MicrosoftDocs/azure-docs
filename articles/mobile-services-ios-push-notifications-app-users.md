@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Push notifications to users (iOS) | Mobile Dev Center" 
 	description="Learn how to use Mobile Services to push notifications to users of your iOS app." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="krisragh" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="10/07/2014" 

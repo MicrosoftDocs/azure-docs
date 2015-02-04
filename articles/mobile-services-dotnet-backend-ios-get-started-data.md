@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (iOS) | Mobile Dev Center" 
+	pageTitle="Add Mobile Services to an existing app (iOS) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your iOS app." 
 	services="mobile-services" 
 	documentationCenter="ios" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="10/10/2014" 

@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with Azure Notification Hubs" description="Learn how to use Azure Notification Hubs to push notifications." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor="dwrede"/>
+<properties 
+	pageTitle="Get started with Azure Notification Hubs" 
+	description="Learn how to use Azure Notification Hubs to push notifications." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="dwrede"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 # Getting Started with Notification Hubs
 

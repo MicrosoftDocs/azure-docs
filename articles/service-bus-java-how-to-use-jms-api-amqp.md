@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="sethm"/>
 
 
 
 
-# How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0
+# How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
 
 ##Introduction
 

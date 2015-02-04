@@ -4,13 +4,13 @@
 	authors="ggailey777" 
 	manager="dwrede" 
 	services="mobile-services" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/20/2014" 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Notification Hubs - Enterprise Push Architecture"
+	pageTitle="Notification Hubs - Enterprise Push Architecture" 
 	description="Guidance on using Azure Notification Hubs in an enterprise environment" 
-	services="mobile-services,notification-hubs" 
+	services="notification-hubs" 
 	documentationCenter="" 
 	authors="piyushjo" 
 	manager="dwrede" 
-	editor="" />
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="" 
 	ms.topic="article" 
 	ms.date="01/15/2015" 
-	ms.author="piyushjo" />
+	ms.author="piyushjo"/>
 
 # Enterprise push architectural guidance
 

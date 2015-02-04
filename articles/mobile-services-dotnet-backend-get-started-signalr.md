@@ -1,16 +1,16 @@
 <properties 
 	pageTitle="Get started with realtime push using SignalR and Mobile Services | Mobile Dev Center" 
 	description="Learn how to get started with realtime push using SignalR and Mobile Services." 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/19/2014" 

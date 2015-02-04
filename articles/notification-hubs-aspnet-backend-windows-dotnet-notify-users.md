@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Notification Hubs Notify Users" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="" authors="ggailey777" manager="dwrede" services="notification-hubs" editor=""/>
+<properties 
+	pageTitle="Azure Notification Hubs Notify Users" 
+	description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	services="notification-hubs" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 #Azure Notification Hubs Notify Users
 

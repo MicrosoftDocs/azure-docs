@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/19/2015" 
+	ms.date="02/02/2015" 
 	ms.author="juliako"/>
 
 
@@ -91,6 +91,7 @@ The following is a complete list of HTTP verbs that can be used when making HTTP
 To make Media Services entities more discoverable, the $metadata operation can be used. It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on. The following example shows how to construct the URI: https://media.windows.net/API/$metadata.
 
 You should append "?api-version=2.x" to the end of the URI if you want to view the metadata in a browser, or do not include the x-ms-version header in your request.
+
 
 <!-- Anchors. -->
 

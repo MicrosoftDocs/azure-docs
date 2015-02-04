@@ -3,8 +3,8 @@
 	description="Elastic Scale makes it easy to scale, Entity Framework is easy to use for coding databases" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+	manager="stuartozer" 
+	authors="Joseidz" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
-	ms.author="sidneyh"/>
+	ms.date="02/03/2015" 
+	ms.author="Joseidz"/>
 
 #Using Elastic Scale with Entity Framework 
  
