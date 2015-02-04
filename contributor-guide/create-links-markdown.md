@@ -40,10 +40,12 @@ To test your links, push your page to your fork, and view it in the rendered vie
 |Linking to any other page on the web​|Use a direct link.|
 
 
-Links to Azure library topics
-If you want to link to an Azure library topic that lives under [this node](https://msdn.microsoft.com/library/azure), remember to specify the Azure chrome in the link (/azure/):
+##Remember the Azure library chrome!
+If you want to link to an Azure library topic that lives under [this node](https://msdn.microsoft.com/library/azure), remember to specify the Azure chrome in the link (/azure/). The Azure chrome shares the ACOM navigation options and displays only the Azure content of the MSDN library. A properly scoped link looks like this:
 
     http://msdn.microsoft.com/library/azure/dd163896.aspx
+
+Otherwise, the page will be rendered in the standard MSDN view, with the entire MSDN tree displayed.
 
 ##FWLinks
 
