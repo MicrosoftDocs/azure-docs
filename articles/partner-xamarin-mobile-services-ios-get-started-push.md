@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with push notifications (Xamarin.iOS) - Mobile Services" 
+	pageTitle="Add push notifications to your Mobile Services app (Xamarin.iOS) - Mobile Services" 
 	description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." 
 	documentationCenter="xamarin" 
 	authors="ysxu" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/20/2014" 

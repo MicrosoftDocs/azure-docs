@@ -4,15 +4,15 @@
 	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
-	services="mobile-services, notification-hubs" 
-	documentationCenter=""/>
+	services="mobile-services" 
+	documentationCenter="xamarin"/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/11/2014" 
 	ms.author="donnam"/>
 

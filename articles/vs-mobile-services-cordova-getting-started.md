@@ -9,9 +9,9 @@
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="02/02/2015" 
 	ms.author="patshea"/>

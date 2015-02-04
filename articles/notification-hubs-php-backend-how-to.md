@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Notification Hubs with PHP" description="Learn how to use Azure Notification Hubs from a PHP back-end." services="mobile-services, notification-hubs" documentationCenter="" authors="piyushjo" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to use Notification Hubs with PHP" 
+	description="Learn how to use Azure Notification Hubs from a PHP back-end." 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo"/>
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="php" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="piyushjo"/>
 
 # How to use Notification Hubs from PHP
 <div class="dev-center-tutorial-selector sublanding"> 
