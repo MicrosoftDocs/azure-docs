@@ -2,7 +2,7 @@
 	pageTitle="Indexing Media Files with Azure Media Indexer" 
 	description="Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer." 
 	services="media-services" 
-	documentationCenter="media" 
+	documentationCenter="" 
 	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="media" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/04/2015" 
@@ -21,7 +21,7 @@
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch. You can also index files that are publicly available on the Internet by specifying URLs of the files in the manifest file.
 
->[AZURE.NOTE]When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
+>[AZURE.NOTE] When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
 >
 An indexing job generates SAMI and TTML output files (among other files).  Both SAMI and TTML include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
 
