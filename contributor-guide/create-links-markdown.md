@@ -57,6 +57,9 @@ If you must use an FWLink on a web page, include the P parameter to make it a pe
 
 When you paste the target URL into the FWLink tool, remember to remove the locale if your target link is ACOM, or the MSDN or TechNet library.
 
+##Linking from the Help drawer
+
+See the [Help Drawer content guidance](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Help%20drawer%20content%20guidance.aspx) for linking information specific to the Help Drawer.
 
 ###Contributors' Guide Links
 
