@@ -4,14 +4,14 @@
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	writer="wesmc" 
-	services="mobile-services, storage" 
+	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="10/06/2014" 

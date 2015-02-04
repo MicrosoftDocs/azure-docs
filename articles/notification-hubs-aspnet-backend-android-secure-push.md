@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Notification Hubs Secure Push" description="Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#." documentationCenter="android" authors="sethmanheim" manager="timlt" editor="" services=""/>
+<properties 
+	pageTitle="Azure Notification Hubs Secure Push" 
+	description="Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#." 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="timlt" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"/>
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 #Azure Notification Hubs Secure Push
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with data (WP8) - Azure Mobile Services" 
+	pageTitle="Add Mobile Services to an existing app (WP8) - Azure Mobile Services" 
 	description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/19/2014" 
