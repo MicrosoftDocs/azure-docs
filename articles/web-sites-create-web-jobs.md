@@ -4,9 +4,9 @@
 	services="web-sites" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="timamm" 
+	writer="tdykstra" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="web-sites" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/12/2014" 
-	ms.author="cephalin"/>
+	ms.author="tdykstra"/>
 
 #Use WebJobs to run background tasks in Azure Websites
 
