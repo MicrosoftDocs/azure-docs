@@ -5,12 +5,37 @@
 
 #Create links in markdown
 
+##Guidelines for technical articles on azure.microsoft.com
+
 | Link scenario | Guidance  |
 |---------------|-----------|
-|Linking from an ACOM topic to another ACOM topic|Use relative links. Do not include the language locale in your relative links ("/en-us/").|
-|​Linking to a KB article, a TechNet library topic, or an MSDN library topic|​Use the actual link to the KB article or topic, but remove the language locale ("/en-us/") from the link. Removing the language locale from the link allows the correct translated content to be returned to the customer based on the language locale set in thier operating system.|
-|Linking from an ACOM topic to any other page|Use the direct link|
+|Linking from an ACOM article to another ACOM article|Use relative links. Do not include the language locale in your relative links ("/en-us/").|
+|​Linking to an MSDN library topic, a TechNet library topic, or KB article|​Use the actual link to the article or topic, but remove the language locale ("/en-us/") from the link. Removing the language locale from the link allows the correct translated content to be returned based on the language locale set on the user's operating system.|
+|Linking from an ACOM article to any other web page|Use the direct link|
 
+##Syntax for ACOM relative links
+
+To link to a page in the same directory as the current page (which should work for most articles), you can just use the single-dot notation. Include the markdown file name extension:
+
+    ./<article name.md>
+    ./media-services-create-account.md/
+ 
+To link to a page in a different directory, you need to use the ../ syntax to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
+
+    ../../services/virtual-machines/
+ 
+To link to the .NET samples page from an article:
+
+     ../../../develop/net/samples/
+
+To test your links, push your page to your fork, and view it in the rendered view. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
+
+##Guidelines for the Azure library on MSDN
+
+
+##FWLinks
+
+Try not to use FWLinks (our redirection system). They should be used only as a last resort when you need to create a link for a page whose URL you don't yet know. They are almost never needed for ACOM articles or MSDN library articles. For ACOM, you define the file name, so you can know what it will be ahead of time. For a library topic that is not yet published, you can create a link that uses the topic GUID so that you don't have to use an FWLink. 
 
 
 
