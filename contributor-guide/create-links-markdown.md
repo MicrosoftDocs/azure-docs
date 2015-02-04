@@ -29,6 +29,8 @@ To link to the .NET samples page from an article:
 
 To test your links, push your page to your fork, and view it in the rendered view. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
 
+Our [markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md/) shows an alternative way to format crosslinks in markdown, so all the crosslinks are coded together at the end of the article, even while they display inline. 
+
 ##Guidelines for the Azure library on MSDN
 
 | Link scenario | Guidance  |
