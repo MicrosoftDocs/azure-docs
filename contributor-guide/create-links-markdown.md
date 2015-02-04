@@ -3,8 +3,7 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="02/03/2015" ms.author="tysonn" />
 
-#Create links in markdown
-
+#Linking guidance for Azure technical content
 ##Guidelines for technical articles on azure.microsoft.com
 
 | Link scenario | Guidance  |
