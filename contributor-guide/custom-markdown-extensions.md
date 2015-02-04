@@ -11,7 +11,7 @@ Our articles use standard markdown for most article formatting - paragraphs, lin
 + [Embedded videos]
 + [Technology and platform selectors]
 
-For general markdown tips, see [the markdown cheat sheet](http://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
+For general markdown tips, see [the markdown cheat sheet](http://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
 
 
 ## Notes and tips
