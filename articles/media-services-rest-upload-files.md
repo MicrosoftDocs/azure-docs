@@ -19,6 +19,7 @@
 
 
 #Upload Files into a Media Services account using REST API
+[AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
 This article is part of the series that introduces Media Services Video on Demand workflow. The previous topic was [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/).
 
@@ -33,19 +34,23 @@ This article is part of the series that introduces Media Services Video on Deman
 
 In Media Services, you upload your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
-One of the values that you have to provide when creating an asset is asset creation options. The **Options** property is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values from this list:
-
- 
-- **None** = **0** - No encryption is used. Note that when using this option your content is not protected in transit or at rest in storage.
-
-	If you plan to deliver an MP4 using progressive download, use this option. 
-- **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
-- **CommonEncryption** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncrypted** = **4** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 
 ### Create an asset
 
 An asset is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
+
+One of the properties that you can specify when creating an asset is **Options**. **Options** is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values. 
+
+- **None** = **0**: No encryption will be used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
+	If you plan to deliver an MP4 using progressive download, use this option. 
+
+- **StorageEncrypted** = **1**: Specify if you want for your files to be encrypted with AES-256 bit encryption for upload and storage.
+
+- **CommonEncryptionProtected** = **2**: Specify if you are uploading files protected with a common encryption method (such as PlayReady). 
+
+- **EnvelopeEncryptionProtected** = **4**: Specify if you are uploading HLS encrypted with AES files. Note that the files must have been encoded and encrypted by Transform Manager.
+
+If your asset will use encryption, you must create a ContentKey and link it to your asset before uploading the asset files. For more information, see [Encrypt an Asset](https://msdn.microsoft.com/en-us/library/azure/jj129593.aspx#encrypt_an_asset).   
 
 The following example shows how to create an asset.
 
@@ -63,7 +68,7 @@ The following example shows how to create an asset.
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 45
 	
-	{"Name":"BigBuckBunny.mp4", "Options":"0"}
+	{"Name":"BigBuckBunny.mp4"}
 	
 
 **HTTP Response**
@@ -92,7 +97,7 @@ If successful, the following is returned:
 	   "Created":"2015-01-18T22:06:40.6010903Z",
 	   "LastModified":"2015-01-18T22:06:40.6010903Z",
 	   "AlternateId":null,
-	   "Name":"BigBuckBunny2.mp4",
+	   "Name":"BigBuckBunny.mp4",
 	   "Options":0,
 	   "Uri":"https://storagetestaccount001.blob.core.windows.net/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
 	   "StorageAccountName":"storagetestaccount001"
@@ -100,7 +105,9 @@ If successful, the following is returned:
 	
 ### Create an AssetFile
 
-The [AssetFile](http://msdn.microsoft.com/en-us/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many AssetFiles. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+The [AssetFile](http://msdn.microsoft.com/en-us/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+
+Note that the **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
 After you upload your digital media file into a blob container, you will use the **MERGE** HTTP request to update the AssetFile with information about your media file (as shown later in the topic). 
 

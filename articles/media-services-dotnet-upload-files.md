@@ -19,6 +19,8 @@
 
 
 #Upload Files into a Media Services account using .NET
+[AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
+
 
 This article is part of the series that introduces Media Services Video on Demand workflow. The previous topic was [Connecting to Media Services using .NET SDK](../media-services-dotnet-connect_programmatically/).
 
@@ -27,7 +29,7 @@ In Media Services, you upload (or ingest) your digital files into an asset. The 
 
 The files in the asset are called **Asset Files**. The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
-When you create assets, you can specify three different options for encryption. 
+When you create assets, you can specify four different options for encryption. 
 
 - **None** - No encryption is used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
 If you plan to deliver an MP4 using progressive download, use this option. 
@@ -36,6 +38,9 @@ If you plan to deliver an MP4 using progressive download, use this option.
 - **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
 
 Note that Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).
+
+If you specify for your asset to be encrypted, you will also need to associate your asset with a content key. In the case of the **StorageEncrypted** option, the Media Services SDK for .NET will create a **StorateEncrypted** content key for your asset.
+ 
 
 
 >[AZURE.NOTE]Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
@@ -297,8 +302,6 @@ The following example calls UploadFile function and specifies storage encryption
 
 
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
-
-You can also upload multiple files using **CreateFromFolder** or **CreateFromFolderAsync**. For more information, see [Microsoft.WindowsAzure.MediaServices.Client](https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mediaservices.client(v=azure.111).aspx).
 
 
 ##Next Steps
