@@ -40,22 +40,18 @@ Choose **.NET** or **REST API** for your development environment.
 
 Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.  
 
-[AZURE.INCLUDE [media-services-selector-setup-env](../includes/media-services-selector-connect.md)]
+[AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
 ##Uploading media 
 
 Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-setup-env](../includes/media-services-selector-upload-files)]
+[AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
 
 ##Indexing
 
-[Index your content using Portal](../media-services-manage-content) 
-
-or 
-
-[Index your content with .NET](https://msdn.microsoft.com/en-us/library/azure/dn783455.aspx)
+[AZURE.INCLUDE [media-services-selector-index-content](../includes/media-services-selector-index-content.md)]
 
 
 ##Encoding 
