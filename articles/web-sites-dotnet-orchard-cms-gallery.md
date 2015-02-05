@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="2/5/2015" 
 	ms.author="tomfitz"/>
 
 # Create an Orchard CMS website from the gallery in Azure
