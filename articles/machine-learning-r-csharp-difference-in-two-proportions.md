@@ -22,27 +22,27 @@
 
 
 
-Are two proportions statistically different? Suppose a user wants to compare two movies to determine if one movie has a significantly higher proportion of ‘likes’ when compared to the other. With a large sample, there could be a statistically significant difference between the proportions 0.50 and 0.51, while with a small sample there may not be enough data to determine if these proportions are actually different. 
+Are two proportions statistically different? Suppose a user wants to compare two movies to determine if one movie has a significantly higher proportion of ‘likes’ when compared to the other. With a large sample, there could be a statistically significant difference between the proportions 0.50 and 0.51. With a small sample, there may not be enough data to determine if these proportions are actually different. 
 
-This [web service]( https://datamarket.azure.com/dataset/aml_labs/prop_test) conducts a hypothesis test of the difference in two proportions based on user input of number of successes and total number of trials for the 2 comparison groups. A scenario would be where this web service could be called from within a movie comparison app, telling the user based on movie ratings whether one of the movies is really ‘liked’ more often that the other.
+This [web service]( https://datamarket.azure.com/dataset/aml_labs/prop_test) conducts a hypothesis test of the difference in two proportions based on user input of the number of successes and the total number of trials for the 2 comparison groups. In one possible scenario, this web service could be called from within a movie comparison app, telling the user whether one of the movies is really ‘liked’ more often than the other, based on movie ratings.
 
->While this web service could be consumed by users – potentially through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure set-up by the author of the web service.
+>This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.
 
 
-##Consumption of Web Service
+##Consumption of web service
 
 This service accepts 4 arguments and does a hypothesis test of proportions.
 
 The input arguments are:
 
-* Successes1: number of success events in sample 1
-* Successes2: number of success events in sample 2
-* Total1: size of sample 1
-* Total2: size of sample 2
+* Successes1 - Number of success events in sample 1.
+* Successes2 - Number of success events in sample 2.
+* Total1 -  Size of sample 1.
+* Total2 - Size of sample 2.
 
-The output of the service is the result of the hypothesis test along with the chi-square statistic, df, p-value, proportion in sample-1/2 and confidence interval bounds.
+The output of the service is the result of the hypothesis test along with the chi-square statistic, df, p-value, and proportion in sample 1/2 and confidence interval bounds.
 
->This service as hosted on the Microsoft Azure Marketplace is an OData service; these may be called through POST or GET methods. 
+>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods. 
 
 There are multiple ways of consuming the service in an automated fashion (an example app is [here](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx )).
 
@@ -76,14 +76,14 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	}
 
 
-##Creation of Web Service
+##Creation of web service
 
->This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
-From within Azure ML, a new blank experiment was created with two “Execute R Scripts”. In the first module the data schema is defined while the second module uses the prop.test command within R to perform the hypothesis test for 2 proportions. 
+From within Azure Machine Learning, a new blank experiment was created with two “Execute R Scripts”. In the first module the data schema is defined, while the second module uses the prop.test command within R to perform the hypothesis test for 2 proportions. 
 
 
-###Experiment Flow:
+###Experiment flow:
 
 ![Experiment flow][2]
 
@@ -114,10 +114,10 @@ From within Azure ML, a new blank experiment was created with two “Execute R S
 
 ##Limitations 
 
-This is a very simple example for test of difference in 2 proportions. As can be seen from the example code above, no error catching is implemented and the service assumes that all the variables are continuous.
+This is a very simple example for a test of difference in 2 proportions. As can be seen from the example code above, no error catching is implemented and the service assumes that all the variables are continuous.
 
 ##FAQ
-For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png
