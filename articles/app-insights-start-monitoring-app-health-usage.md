@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-12-11" 
+	ms.date="2015-02-03" 
 	ms.author="awills"/>
 
 # Add Application Insights SDK to your web project
@@ -83,6 +83,10 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 * Wait a few seconds and click Refresh.
 * Use the application, opening different pages so that it generates some telemetry.
 * See [Troubleshooting][qna].
+
+#### Trouble on your build server?
+
+Please see [this Troubleshooting item](../app-insights-troubleshoot-faq/#NuGetBuild).
 
 ## Next steps
 

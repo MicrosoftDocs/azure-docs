@@ -32,19 +32,19 @@ If there is no schema version, then your project sends data to the old Applicati
 2. Delete ApplicationInsights.config 
 3. Remove the Application Insights NuGet packages from the project. 
 To do this, right-click the project in Solution Explorer and choose Manage NuGet Packages.
-4. Right-click the project and [choose Add Application Insights][greenbrown].
+4. Right-click the project and [choose Add Application Insights][greenbrown]. This adds the SDK to your project, and also creates a new Application Insights resource in Azure.
 5. If your code includes calls to the old API such as LogEvent(), you’ll discover them when you try to build the solution. Update them to [use the new API][track].
-6. Replace the scripts in the <head> sections of your web pages. Typically there’s just one copy in a master page such as Views\Shared\_Layout.cshtml. [Get the new script from your Azure account][usage]. 
+6. If your project includes web pages, replace the scripts in the <head> sections. Typically there’s just one copy in a master page such as Views\Shared\_Layout.cshtml. [Get the new script from the Quick Start blade in your Application Insights resource in Azure][usage]. 
 If your web pages include telemetry calls in the body such as logEvent or logPage, [update them to use the new API][track].
-7. In your IIS server machine, uninstall Microsoft Monitoring Agent, and then [install Application Insights Status Monitor][redfield].
+7. If your app is a service running on IIS, uninstall Microsoft Monitoring Agent from the server, and then [install Application Insights Status Monitor][redfield].
 
 ## If you have a Java web service ...
 
 1. In your server machine, disable the old agent by removing references to the APM agent from the web service startup file. On a TomCat server, edit Catalina.bat. On a JBoss server, edit Run.bat. 
 2. Restart the web service.
-3. In your development machine, add the new [Java SDK][java] to your web project.
+3. In the Microsoft Azure portal, [add a new Application Insights resource][java]. In your development machine, add [the Java SDK][java] to your web project.
 You can now [send custom telemetry][track] from the server code.
-4. Replace the scripts in the <head> sections of your web pages. Typically there’s just one copy in a master page such as Views\Shared\_Layout.cshtml. [Get the new script from your Azure account][usage]. 
+4. Replace the scripts in the <head> sections of your web pages. (There might be just one copy in a server side include.) [Get the new script from the Quick Start blade in your new Application Insights resource in Azure][usage]. 
 If your web pages include telemetry calls in the body such as logEvent or logPage, [update them to use the new API][track].
 
 

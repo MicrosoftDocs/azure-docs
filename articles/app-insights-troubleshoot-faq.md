@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="2015-02-03" 
 	ms.author="awills"/>
  
 # Troubleshooting and Q & A - Application Insights on Microsoft Azure Preview
@@ -177,7 +177,7 @@ And it also adds assembly references like:
 
 `< Reference .... >< HintPath>**..\packages**\...Intercept.dll ...`
 
-The problem is with the relative path names, which is correct in the dev machine, but can be wrong for the package cache on the build machine.
+The problem is in the relative path name, which is correct in the dev machine, but can be wrong for the package cache on the build machine.
 
 Solution: 
 

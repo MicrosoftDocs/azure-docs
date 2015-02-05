@@ -45,6 +45,15 @@ Enable the Application Insights Extension on the Azure web site blade (not the A
 
 ![In your Azure website blade, click Extensions. In the Extensions blade, click Add, then Choose Extension, then Application Insights](./media/insights-perf-analytics/05-extend.png)
 
+*Can I automate this step?*
+
+Yes, there's a REST API for Azure websites. In PowerShell:
+
+    $extension = "https://<sitename>.scm.azurewebsites.net/api/siteextensions/Microsoft.ApplicationInsights.AzureWebSites"
+    Invoke-RestMethod -Uri $extension -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method PUT -Verbose
+
+
+
 ## Explore the data
 
 Use your website for a while to generate some data.

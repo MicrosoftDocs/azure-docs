@@ -11,35 +11,45 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="2015-02-04" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
 
-Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry events, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
+Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-## <a name="view"></a>View the telemetry sent by your application
+## When you see Diagnostic Search
 
-Diagnostic Search opens automatically when you click through from some charts on you Application Insights Overview blade. You can also open it explicitly:
+You can open diagnostic search explicitly:
 
-![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
-   
-The report lists telemetry over the time range and filters you choose. 
+![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
 
-![Open diagnostic search](./media/appinsights/appinsights-331filterTrace.png)
+
+It also opens when you click through some charts and grid items. In this case, its filters are pre-set to focus on the type of item you selected. 
+
+For example, if your application is a web service, the overview blade shows a chart of volume of requests. Click it and you get to a more detailed chart, with a listing showing how many requests have been made for each URL. Click any row, and you get a list of the individual requests for that URL:
+
+![Open diagnostic search](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+
+
+The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
+
+
+## Inspect individual items
 
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
 ![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
 
-To filter the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
+To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
 ## Filter event types
 
-Open the Filter blade and choose the event types you want to see.
+Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
 
 
-![Open diagnostic search](./media/appinsights/appinsights-321filter.png)
+![Choose Filter and select telemetry types](./media/app-insights-diagnostic-search/02-filter-req.png)
+
 
 The event types are:
 
@@ -53,16 +63,39 @@ The event types are:
 
 You can filter events on the values of their properties. The available properties depend on the event types you selected. 
 
-For example, pick out a specific type of exception.
+For example, pick out requests with a specifc response code.
 
-![Select facet values](./media/appinsights/appinsights-333facets.png)
+![Expand a property and choose a value](./media/app-insights-diagnostic-search/03-response500.png)
 
 Choosing no values of a particular property has the same effect as choosing all values; it switches off filtering on that property.
 
 
+### Narrow your search
+
+Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set. 
+
+In this example, it's clear that the Order/Payment request results in the majority of the 500 errors:
+
+![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
+
+## Inspect individual occurrences
+
+Add that request name to the filter set, and you can then inspect individual occurrences of that event.
+
+![Select a value](./media/app-insights-diagnostic-search/05-reqDetails.png)
+
+For Request events, the details show exceptions that occurred while the request was being processed.
+
+Click through an exception to see its detail.
+
+![Click an exception](./media/app-insights-diagnostic-search/06-callStack.png)
+
+
 ## <a name="search"></a>Search the data
 
-Set a time range and search for terms. Searches over a shorter range are faster. 
+You can search for terms in any of the property values. This is particularly useful if you have written [custom events][track] with property values. 
+
+You might want to set a time range, as searches over a shorter range are faster. 
 
 ![Open diagnostic search](./media/appinsights/appinsights-311search.png)
 
@@ -192,11 +225,11 @@ Here are the search expressions you can use:
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework. This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* Capture log traces from your favorite logging framework. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
 * Write code to send custom events, page views, and exceptions. 
 
-[Learn how to send logs and custom telemetry to Application Insights][trace]
- 
+[Learn how to send logs and custom telemetry to Application Insights][trace].
+
 
 ## <a name="questions"></a>Q & A
 
