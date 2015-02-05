@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Service-side authorization (Android) | Mobile Dev Center" 
 	description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 

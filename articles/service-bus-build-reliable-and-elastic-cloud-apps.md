@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="sethm"/>
 
 # Build reliable and elastic cloud apps with messaging 
  
-Dynamic demand is a reality for today's applications.  From seasonal and variable demand to unexpected social media trends modern applications must deal gracefully with spikes in load that can be both uncertain or expected.  The Platform as a Service (PaaS) nature of Azure Service Bus allows you to create applications that scale easily and recover from spikes or momentary outages of components.  
+Dynamic demand is a reality for today's applications.  From seasonal and variable demand to unexpected social media trends modern applications must deal gracefully with spikes in load that can be both uncertain or expected. The Platform as a Service (PaaS) nature of Azure Service Bus enables you to create applications that scale easily and that can recover from spikes or momentary outages of components.  
  
 [Build a .NET multi-tier application using Service Bus Queues](/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
  

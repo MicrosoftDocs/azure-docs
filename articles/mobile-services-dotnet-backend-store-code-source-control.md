@@ -2,7 +2,7 @@
 	pageTitle="Store project code in source control - Azure Mobile Services" 
 	description="Learn how to store your .NET backend project in and publish from a local Git repo on your computer." 
 	services="mobile-services" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/5/2014" 

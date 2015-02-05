@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="10/21/2014" 
+	ms.date="02/02/2015" 
 	ms.author="rasquill"/>
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Using the Docker VM Extension with the Azure Portal

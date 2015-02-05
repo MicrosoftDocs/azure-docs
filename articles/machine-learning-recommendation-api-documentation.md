@@ -12,28 +12,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="02/03/2015" 
 	ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
-This document depicts Azure ML Recommendations APIs.
+This document depicts Microsoft Azure Machine Learning Recommendations APIs.
 
 ##Contents
 
 
 
 
-- [1. General Overview](#1-general-overview)
-- [2. Advanced Topics](#2-advanced-topics)
-    - [2.1. Recommendation Quality](#21-recommendation-quality)
-    - [2.2. Rank Build](#22-rank-build)
+- [1. General overview](#1-general-overview)
+- [2. Advanced topics](#2-advanced-topics)
+    - [2.1. Recommendation quality](#21-recommendation-quality)
+    - [2.2. Rank build](#22-rank-build)
     - [2.3. Recommendation reasoning](#23-recommendation-reasoning)
 - [3. Limitations](#3-limitations)
-- [4. APIs - General Information](#4-apis---general-information)
+- [4. APIs - general information](#4-apis---general-information)
     - [4.1. Authentication](#41-authentication)
     - [4.2. Service URI](#42-service-uri)
-    - [4.3. API Version](#43-api-version)
+    - [4.3. API version](#43-api-version)
 - [5. Model Basic](#5-model-basic)
     - [5.1. Create Model](#51-create-model)
     - [5.2. Get Model](#52-get-model)
@@ -53,7 +53,7 @@ This document depicts Azure ML Recommendations APIs.
     - [8.1. Import Catalog Data](#81-import-catalog-data)
     - [8.2. Get Catalog](#82-get-catalog)
     - [8.3. Get Catalog Items by Token](#83-get-catalog-items-by-token)
-- [9. Usage Data](#9-usage-data)
+- [9. Usage data](#9-usage-data)
     - [9.1. Import Usage Data](#91-import-usage-data)
         - [9.1.1. Uploading File](#911-uploading-file)
         - [9.1.2. Using Data Acquisition](#912-using-data-acquisition)
@@ -67,9 +67,9 @@ This document depicts Azure ML Recommendations APIs.
     - [10.1. Get Features Info](#101-get-features-info-for-last-rank-build)
     - [10.2. Get Features Info (For Specific Rank Build)](#102-get-features-info-for-specific-rank-build)
 - [11. Build](#11-build)
-    - [11.1. Build Parameters](#111-build-parameters)
-    	- [11.1.1 Usage Condenser](#1111-usage-condenser)
-    	- [11.1.2 Rank build Parameters](#1112-rank-build-parameters)
+    - [11.1. Build parameters](#111-build-parameters)
+    	- [11.1.1 Usage condenser](#1111-usage-condenser)
+    	- [11.1.2 Rank build parameters](#1112-rank-build-parameters)
     	- [11.1.3 Recommendation build parameters](#1113-recommendation-build-parameters)
     - [11.2. Trigger a Recommendation Build](#112-trigger-a-recommendation-build)
     - [11.3. Trigger Build (Rank or Recommendation)](#113-trigger-build-%28rank-or-recommendation%29)
@@ -88,62 +88,62 @@ This document depicts Azure ML Recommendations APIs.
 
 
 
-##1. General Overview
-This document is an API reference. You should start with the “Azure ML Recommendation – Quick Start” document.
+##1. General overview
+This document is an API reference. You should start with the “Azure Machine Learning Recommendation – Quick Start” document.
 
-Azure ML Recommendations API can be divided into 8 groups:
+The Azure Machine Learning Recommendations API can be divided into 8 groups:
 
 1.	<ins>Model Basic</ins> – APIs that enable you to do the basic operations on model (e.g. create, update and delete a model).
-2.	<ins>Model Advanced</ins> – APIs that enable you to get advanced data insights on the model
-3.	<ins>Model Business Rules</ins> – APIs that enables you to manage business rules on the model recommendation results.
-4.	<ins>Catalog</ins> – APIs that enable you to do basic operations on a model catalog. A catalog contains Meta data information on the items of the usage data.
-5.	<ins>Usage Data</ins> – APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consist on rows that include pairs of <userId>,<itemId>
-6.	<ins>Build</ins> – APIs that enable to trigger a model build and do basic operation that are related to this build. You can trigger a model build once you have valuable usage data.
-7.	<ins>Recommendation</ins> – Once the build of a model ends you can consume recommendations using these APIs.
-8.	<ins>Notifications</ins> – Enables you to receive notifications on problems related to your API operations (e.g. you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised)
+2.	<ins>Model Advanced</ins> – APIs that enable you to get advanced data insights on the model.
+3.	<ins>Model Business Rules</ins> – APIs that enable you to manage business rules on the model recommendation results.
+4.	<ins>Catalog</ins> – APIs that enable you to do basic operations on a model catalog. A catalog contains metadata information on the items of the usage data.
+5.	<ins>Usage Data</ins> – APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consists of rows that include pairs of <userId>,<itemId>.
+6.	<ins>Build</ins> – APIs that enable you to trigger a model build and do basic operations that are related to this build. You can trigger a model build once you have valuable usage data.
+7.	<ins>Recommendation</ins> – APIs that enable you to consume recommendations once the build of a model ends.
+8.	<ins>Notifications</ins> – APIs that enable you to receive notifications on problems related to your API operations. (For example, you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised.)
 
-##2. Advanced Topics
+##2. Advanced topics
 
-###2.1. Recommendation Quality
+###2.1. Recommendation quality
 
-Creating a recommendation model is usually enough to allow the system to provide recommendations, nevertheless recommendations quality varies in function of the usage processed and the coverage of the catalog. For example if you have a lot of cold items (items without significant usage) the system will have difficulties to provide recommendation for such item or to use such item as a recommended one. In order to overcome the cold item problem the system allows to use the meta data of the items to enhance the recommendations. This meta-data is refered to as features. Typical features are a book's author or a movie's actor. Features are provided via the catalog under the form of key value strings. For the full format of the catalog file please refer to the [import catalog section](#81-import-catalog-data). The following section explains the usage of features to enhance the recommendation model.
+Creating a recommendation model is usually enough to allow the system to provide recommendations. Nevertheless, recommendation quality varies based on the usage processed and the coverage of the catalog. For example if you have a lot of cold items (items without significant usage), the system will have difficulties providing a recommendation for such an item or using such an item as a recommended one. In order to overcome the cold item problem, the system allows the use of metadata of the items to enhance the recommendations. This metadata is referred to as features. Typical features are a book's author or a movie's actor. Features are provided via the catalog in the form of key/value strings. For the full format of the catalog file, please refer to the [import catalog section](#81-import-catalog-data). The following section explains the usage of features to enhance the recommendation model.
 
-###2.2. Rank Build
+###2.2. Rank build
 
-Features can enhance the recommendation model, but to do so it is needed to use meaningful features. For this purpose a new build was introduced - a Rank build. This build will rank the usefulness of features. A meaningful feature is a feature with a rank score of 2 and up.
-After understanding which of the features is meaningful, trigger a recommendation build with the list (or sub list) of meaningful features. It is possible to use these feature both for the enhancement of warm items and cold items. In order to use them for warm items the `UseFeatureInModel` should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
+Features can enhance the recommendation model, but to do so requires the use of meaningful features. For this purpose a new build was introduced - a rank build. This build will rank the usefulness of features. A meaningful feature is a feature with a rank score of 2 and up.
+After understanding which of the features are meaningful, trigger a recommendation build with the list (or sublist) of meaningful features. It is possible to use these feature for the enhancement of both warm items and cold items. In order to use them for warm items, the `UseFeatureInModel` build parameter should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
 Note: It is not possible to enable `AllowColdItemPlacement` without enabling `UseFeatureInModel`.
 
 ###2.3. Recommendation reasoning
 
-Recommendation reasoning is another aspect of feature usage. Indeed, the Azure ML Recommendation engine can use features to provide recommendation explanations (a.k.a. reasoning), leading to more confidence in the recommended item from the recommendation consumer.
-To enable reasoning the `AllowFeatureCorrelation` and `ReasoningFeatureList` parameters should be setup prior requesting a recommendation build.
+Recommendation reasoning is another aspect of feature usage. Indeed, the Azure Machine Learning Recommendations engine can use features to provide recommendation explanations (a.k.a. reasoning), leading to more confidence in the recommended item from the recommendation consumer.
+To enable reasoning, the `AllowFeatureCorrelation` and `ReasoningFeatureList` parameters should be setup prior to requesting a recommendation build.
 
 ##3. Limitations
 
-- Maximum number of models per subscription: 10
-- Maximum number of items that a catalog can hold: 100,000
-- The maximum amount of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
-- Maximum size of data can be sent in POST (e.g. Import catalog data, import usage data) is 200MB
-- The number of transactions per second for a recommendation model build that is not active is ~2TPS, only recommendation model build that is active can hold up to 20TPS
+- The maximum number of models per subscription is 10.
+- The maximum number of items that a catalog can hold is 100,000.
+- The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
+- The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
+- The number of transactions per second for a recommendation model build that is not active is ~2TPS. A recommendation model build that is active can hold up to 20TPS.
 
-##4. APIs - General Information
+##4. APIs - general information
 
 ###4.1. Authentication
-Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either Basic or OAuth authentication methods.
+Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either the Basic or OAuth authentication method.
 
 ###4.2. Service URI
-The service root URIs for each of the Azure ML Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
+The service root URIs for the Azure Machine Learning Recommendations APIs are [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
 The full service URI is expressed using elements of the OData specification.  
 
-###4.3. API Version
-Each API call will have at the end query parameter called apiVersion that should be set to 1.0
+###4.3. API version
+Each API call will have, at the end, a query parameter called apiVersion that should be set to 1.0.
 
 ##5. Model Basic
 
 ###5.1. Create Model
-Creating a “create model” request:
+Creates a “create model” request.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -161,7 +161,7 @@ Creating a “create model” request:
 
 HTTP Status code: 200
 
-The `feed/entry/content/properties/id` – contains the model id
+- `feed/entry/content/properties/id` – Contains the model ID.
 
 OData XML
 
@@ -194,7 +194,7 @@ OData XML
 	</feed>
 
 ###5.2. Get Model
-Creating a “get model” request:
+Creates a “get model” request.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -202,7 +202,7 @@ Creating a “get model” request:
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id	|	The unique identifier of the model. |
+|	id	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -213,16 +213,16 @@ HTTP Status code: 200
 
 The model data can be found under the following elements:
 
-- `feed/entry/content/properties/Id` – Model unique id
-- `feed/entry/content/properties/Name` – Model name
-- `feed/entry/content/properties/Date` – Model creation date
+- `feed/entry/content/properties/Id` – Model unique ID.
+- `feed/entry/content/properties/Name` – Model name.
+- `feed/entry/content/properties/Date` – Model creation date.
 - `feed/entry/content/properties/Status` – Model status. One of the following:
-    - Created - model is created and does not contains Catalog and Usage
-	- ReadyForBuild – model is created and contains Catalog and Usage
-- `feed/entry/content/properties/HasActiveBuild` – indicate if model was built successfully
-- `feed/entry/content/properties/BuildId` – Model active BuildId
-- `feed/entry/content/properties/Mpr` – Model MPR (see ModelInsight for more information)
-- `feed/entry/content/properties/UserName` – Model internal username
+    - Created - Model is created and does not contain Catalog and Usage.
+	- ReadyForBuild – Model is created and contains Catalog and Usage.
+- `feed/entry/content/properties/HasActiveBuild` – Indicates if the model was built successfully.
+- `feed/entry/content/properties/BuildId` – Model active build ID.
+- `feed/entry/content/properties/Mpr` – Model mean percentile ranking (MPR - see ModelInsight for more information).
+- `feed/entry/content/properties/UserName` – Model internal user name.
 
 OData XML
 
@@ -258,7 +258,7 @@ OData XML
 	</feed>
 
 ###5.3.	Get All Models
-Retrieves all models of current user
+Retrieves all models of the current user.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -274,20 +274,20 @@ Retrieves all models of current user
 
 HTTP Status code: 200
 
-- `feed/entry/content/properties/Id` – Model unique id
-- `feed/entry/content/properties/Name` – Model name
-- `feed/entry/content/properties/Date` – Model creation date
+- `feed/entry/content/properties/Id` – Model unique ID.
+- `feed/entry/content/properties/Name` – Model name.
+- `feed/entry/content/properties/Date` – Model creation date.
 - `feed/entry/content/properties/Status` – Model status. One of the following:
-  - Created - model is created and does not contains Catalog and Usage
-  - ReadyForBuild – model is created and contains Catalog and Usage
-- `feed/entry/content/properties/HasActiveBuild` – indicate if model was built successfully
-- `feed/entry/content/properties/BuildId` – Model active BuildId
-- `feed/entry/content/properties/Mpr` – Model MPR (see ModelInsight for more information)
-- `feed/entry/content/properties/UserName` – Model internal user name
-- `feed/entry/content/properties/UsageFileNames` – List of model usage files separated by comma
-- `feed/entry/content/properties/CatalogId` – Model Catalog Id
-- `feed/entry/content/properties/Description` – Model description
-- `feed/entry/content/properties/CatalogFileName` – Model Catalog file name
+  - Created - Model is created and does not contain Catalog and Usage.
+  - ReadyForBuild – Model is created and contains Catalog and Usage.
+- `feed/entry/content/properties/HasActiveBuild` – Indicates if the model was built successfully.
+- `feed/entry/content/properties/BuildId` – Model active build ID.
+- `feed/entry/content/properties/Mpr` – Model MPR (see ModelInsight for more information).
+- `feed/entry/content/properties/UserName` – Model internal user name.
+- `feed/entry/content/properties/UsageFileNames` – List of model usage files separated by comma.
+- `feed/entry/content/properties/CatalogId` – Model catalog ID.
+- `feed/entry/content/properties/Description` – Model description.
+- `feed/entry/content/properties/CatalogFileName` – Model catalog file name.
 
 OData XML
 
@@ -325,9 +325,9 @@ OData XML
 
 ###5.4.	Update Model
 
-You can update the model description or the active build id.<br>
-<ins>Active Build Id</ins> – Every build for every model has a “build id”. The active “build id” is the first successfully build of every new model. Once you have an active build Id and you do additional builds for the same model you need to explicit set it as the default build id if you want to. When you consume recommendations, if you do not specify the build id that you want to use the default one will be used automatically.<br>
-This mechanism enables you once you have a recommendation model in production to build new models and test them before you promote them to production.
+You can update the model description or the active build ID.<br>
+<ins>Active build ID</ins> – Every build for every model has a build ID. The active build ID is the first successful build of every new model. Once you have an active build ID and you do additional builds for the same model, you need to explicitly set it as the default build ID if you want to. When you consume recommendations, if you do not specify the build ID that you want to use, the default one will be used automatically.<br>
+This mechanism enables you - once you have a recommendation model in production - to build new models and test them before you promote them to production.
 
 
 | HTTP Method | URI |
@@ -336,17 +336,17 @@ This mechanism enables you once you have a recommendation model in production to
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id		| The unique identifier of the model.  |
+|	id		| Unique identifier of the model.  |
 |	apiVersion		| 1.0 |
 |||
-| Request Body | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Note that the xml tags Description and ActiveBuildId are optional, If you do not want to set Description or ActiveBuildId remove the entire tag.|
+| Request Body | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Note that the XML tags Description and ActiveBuildId are optional. If you do not want to set Description or ActiveBuildId, remove the entire tag.|
 
 **Response**:
 
 HTTP Status code: 200
 
 ###5.5.	Delete Model
-Delete existing model by Id
+Deletes an existing model by ID.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -354,7 +354,7 @@ Delete existing model by Id
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id	|	The unique identifier of the model. |
+|	id	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -388,7 +388,7 @@ OData XML
 ##6. Model Advanced
 
 ###6.1.	Model Data Insight
-This API returns statistical data on the usage data that this model was built with.
+Returns statistical data on the usage data that this model was built with.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -396,7 +396,7 @@ This API returns statistical data on the usage data that this model was built wi
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
+|	modelId	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -405,27 +405,27 @@ This API returns statistical data on the usage data that this model was built wi
 
 HTTP Status code: 200
 
-The data is returned as a collection of properties
+The data is returned as a collection of properties.
 
-- `feed/entry/id/content/properties/key` - holds the property name
-- `feed/entry/id/content/properties/value` - hold the property value
+- `feed/entry/id/content/properties/key` - Holds the property name.
+- `feed/entry/id/content/properties/value` - Holds the property value.
 
-The table below depicts for each key what is the value it represents
+The table below depicts the value that each key represents.
 
 |Key|Description|
 |:-----|:----|
-| AvgItemLength | Average number of distinct users per item |
-| AvgUserLength | Average number of distinct items per user |
-| DensificationNumberOfItems | Number of items after pruning items that cannot be modelled |
-| DensificationNumberOfUsers | Number of usage points after pruning users and items that can't be modelled |
-| DensificationNumberOfRecords | Number of usage points after pruning users and items that can't be modelled |
-| MaxItemLength | Number of distinct users for the most popular item |
-| MaxUserLength | Maximal number of distinct items for a user |
-| MinItemLength | Maximal number of distinct users for an item |
-| MinUserLength | Minimal number of distinct items for a user |
-| RawNumberOfItems | Number of items before pruning items that cannot be modelled |
-| RawNumberOfUsers | Number of usage points before any pruning |
-| RawNumberOfRecords | Number of usage points before any pruning |
+| AvgItemLength | Average number of distinct users per item. |
+| AvgUserLength | Average number of distinct items per user. |
+| DensificationNumberOfItems | Number of items after pruning items that cannot be modelled. |
+| DensificationNumberOfUsers | Number of usage points after pruning users and items that can't be modelled. |
+| DensificationNumberOfRecords | Number of usage points after pruning users and items that can't be modelled. |
+| MaxItemLength | Number of distinct users for the most popular item. |
+| MaxUserLength | Maximal number of distinct items for a user. |
+| MinItemLength | Maximal number of distinct users for an item. |
+| MinUserLength | Minimal number of distinct items for a user. |
+| RawNumberOfItems | Number of items before pruning items that cannot be modelled. |
+| RawNumberOfUsers | Number of usage points before any pruning. |
+| RawNumberOfRecords | Number of usage points before any pruning. |
 | SamplingNumberOfItems | N/A |
 | SamplingNumberOfRecords | N/A |
 | SamplingNumberOfUsers | N/A |
@@ -622,16 +622,16 @@ OData XML
     </feed>
 
 ###6.2.	Model Insight
-This API returns model insight on the active build or if given on a specific build.
+Returns model insight on the active build or (if given) on a specific build.
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |With active build id:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build id:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
+|GET     |With active build ID:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build ID:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
-|	buildId	|	Optional – a number that identifies a successfully build. |
+|	modelId	|	Unique identifier of the model. |
+|	buildId	|	Optional – number that identifies a successful build. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -640,19 +640,19 @@ This API returns model insight on the active build or if given on a specific bui
 
 HTTP Status code: 200
 
-The data is returned as a collection of properties
+The data is returned as a collection of properties.
 
 - `feed/entry/id/content/properties/key`
 - `feed/entry/id/content/properties/value`
 
 
-The table below depicts for each key what is the value it represents
+The table below depicts the value that each key represents.
 
 | Key | Description |
 |:---- |:----|
-| CatalogCoverage | What part of the catalog can be modelled with usage patterns. The rest of the items will need content-based features |
+| CatalogCoverage | What part of the catalog can be modelled with usage patterns. The rest of the items will need content-based features. |
 | Mpr | Mean percentile ranking of the model. Lower is better. |
-| NumberOfDimensions | Number of dimensions used by the matrix factorization algorithm |
+| NumberOfDimensions | Number of dimensions used by the matrix factorization algorithm. |
 
 
 OData XML
@@ -703,15 +703,15 @@ OData XML
 	</feed>
 
 ###6.3.	Get Model Sample
-Get a sample of the recommendation model.
+Gets a sample of the recommendation model.
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build id:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build ID:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
+|	modelId	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -722,7 +722,7 @@ HTTP Status code: 200
 
 OData XML
 
-Response is returned in raw text format
+Response is returned in raw text format:
 
 <pre>
 Level 1
@@ -737,35 +737,35 @@ Level 1
 	56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai Rating: 0.5218
 	53156702-cc0c-443d-b718-6fb74b2491d3, Son of \ Rating: 0.5212
 	fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions Rating: 0.5188
-	8f5fe006-79e4-4679-816b-950989d1db4b, A Place I'Ve Never Been (Contemporary American Fiction) Rating: 0.5156
-	d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness : A Novel Rating: 0.5156
+	8f5fe006-79e4-4679-816b-950989d1db4b, A Place I've Never Been (Contemporary American Fiction) Rating: 0.5156
+	d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness: A Novel Rating: 0.5156
 50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path
 	cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel Rating: 0.5266
 	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5252
 	973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5244
 	e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams Rating: 0.5227
-	6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister : A Novel Rating: 0.5222
+	6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister: A Novel Rating: 0.5222
 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club)
 	5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) Rating: 0.537
 	5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel Rating: 0.5277
 	bc5b69db-733b-4346-adde-3927544258f7, Downtown Rating: 0.5275
-	31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day : A Tale of Blood and Sweatsocks Rating: 0.5252
-	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea Rating: 0.5238
-68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived
-	68f97068-ae1a-4163-9e94-396b800b743d, Modoc : The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379
+	31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day: A Tale of Blood and Sweatsocks Rating: 0.5252
+	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5238
+68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived
+	68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379
 	6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie Rating: 0.5345
 	cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods Rating: 0.5325
 	382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh Rating: 0.5309
 	6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek Rating: 0.5285
 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships
-	37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397
+	37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars, Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397
 	f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times Rating: 0.5207
 	ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves Rating: 0.5195
 	0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree Rating: 0.5194
-	883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark : Collected from American Folklore (Scary Stories) Rating: 0.5184
-ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball
-	d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956 : An Experiment in Literary Investigation I-II Rating: 0.5416
-	ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work : The Craft of Baseball Rating: 0.5403
+	883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark: Collected from American Folklore (Scary Stories) Rating: 0.5184
+ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball
+	d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416
+	ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball Rating: 0.5403
 	49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394
 	cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379
 	8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377
@@ -797,9 +797,9 @@ Level 2
 	e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) Rating: 0.5353
 	b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5332
 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
-	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm : A True Story of Men Against the Sea Rating: 0.5433
+	0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5433
 	c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days Rating: 0.543
-	a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit : Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327
+	a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit: Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327
 	6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307
 	798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301
 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
@@ -808,8 +808,8 @@ c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
 	73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403
 	d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539
 	b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367
-271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings
-	271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke : Or I Know Why the Winged Whale Sings Rating: 0.5445
+271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings
+	271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings Rating: 0.5445
 	2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329
 	d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude Rating: 0.5316
 	c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305
@@ -838,8 +838,8 @@ c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
 	0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen Rating: 0.5421
 	15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark Rating: 0.5409
 	329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth Rating: 0.54
-5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover))
-	5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune : A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462
+5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover))
+	5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462
 	ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5372
 	604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel Rating: 0.5341
 	8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5334
@@ -854,7 +854,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 ##7. Model Business Rules
-There are 2 types of rules that you can add, <strong>Blocklist</strong> and <strong>Upsale</strong>. Blocklist enables you to provide a list of items that you do not want them to return in the recommendations results. Upsale enables you to enforce items to return in the recommendations results
+There are 2 types of rules that you can add, <strong>BlockList</strong> and <strong>Upsale</strong>. BlockList enables you to provide a list of items that you do not want to return in the recommendation results. Upsale enables you to enforce items to return in the recommendation results.
 
 ###7.1.	Get Model Rules
 
@@ -864,7 +864,7 @@ There are 2 types of rules that you can add, <strong>Blocklist</strong> and <str
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
+|	modelId	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -873,9 +873,9 @@ There are 2 types of rules that you can add, <strong>Blocklist</strong> and <str
 
 HTTP Status code: 200
 
-- `feed/entry/content/properties/Id` – The unique identifier of this rule
-- `feed/entry/content/properties/Type` – The type of the rule. BlockList or Upsale
-- `feed/entry/content/properties/Parameter` – The rule parameter
+- `feed/entry/content/properties/Id` – Unique identifier of this rule.
+- `feed/entry/content/properties/Type` – Type of the rule: BlockList or Upsale.
+- `feed/entry/content/properties/Parameter` – Rule parameter.
 
 OData XML
 
@@ -924,17 +924,17 @@ OData XML
 |:--------			|:--------								|
 |	apiVersion		| 1.0 |
 |||
-| Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
+| Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
 
 **Response**:
 
 HTTP Status code: 200
 
-The API returns the newly created rule with its details. The rules property can be retrieved from the following paths.
+The API returns the newly created rule with its details. The rules property can be retrieved from the following paths:
 
-- `feed/entry/content/properties/Id` – The unique identifier of this rule
-- `feed/entry/content/properties/Type` – The type of the rule. Blocklist or Upsale
-- `feed/entry/content/properties/Parameter` – The rule parameter
+- `feed/entry/content/properties/Id` – Unique identifier of this rule.
+- `feed/entry/content/properties/Type` – Type of the rule: BlockList or Upsale.
+- `feed/entry/content/properties/Parameter` – Rule parameter.
 
 OData XML
 
@@ -968,8 +968,8 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
-|	filterId	|	The unique identifier of the filter. |
+|	modelId	|	Unique identifier of the model. |
+|	filterId	|	Unique identifier of the filter. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -986,7 +986,7 @@ HTTP Status code: 200
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
+|	modelId	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -999,7 +999,7 @@ HTTP Status code: 200
 
 ###8.1.	Import Catalog Data
 
-If you upload several catalog files to the same model with several calls we will insert only the new catalog items. Existing items will remain with the original values. You cannot update catalog data using this method.
+If you upload several catalog files to the same model with several calls, we will insert only the new catalog items. Existing items will remain with the original values. You cannot update catalog data by using this method.
 
 The catalog data should follow the following format:
 
@@ -1013,11 +1013,11 @@ Note: The maximum file size is 200MB.
 
 | Name | Mandatory | Type |  Description |
 |:---|:---|:---|:---|
-| Item Id |Yes | [A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max Length 50 | Unique identifier of an Item |
-| Item Name | Yes | Any Alphanumeric Characters<br> Max Length 255 | The Item Name | 
-| Item Category | Yes | Any Alphanumeric Characters <br> Max Length 255 | The category to which this item belongs (e.g. Cooking Books, Drama…) can be empty |
-| Description | No unless features are present (but can be empty) | Any Alphanumeric Characters <br> Max Length 4000 | A description of this item |
-| Features list | No | Any Alphanumeric Characters <br> Max Length 4000 | A comma separated list of feature name=feature value that can be used to enhance model recommendation, see [Advanced Topics](21-advanced-topics) section |
+| Item Id |Yes | [A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 | Unique identifier of an item. |
+| Item Name | Yes | Any alphanumeric characters<br> Max length: 255 | Item name. | 
+| Item Category | Yes | Any alphanumeric characters <br> Max length: 255 | Category to which this item belongs (e.g. Cooking Books, Drama…); can be empty. |
+| Description | No, unless features are present (but can be empty) | Any alphanumeric characters <br> Max length: 4000 | Description of this item. |
+| Features list | No | Any alphanumeric characters <br> Max length: 4000 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation; see [Advanced Topics](21-advanced-topics) section. |
 
 
 
@@ -1027,8 +1027,8 @@ Note: The maximum file size is 200MB.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model.  |
-| filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed<br>Max length: 50 |
+|	modelId	|	Unique identifier of the model.  |
+| filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | Example (with features):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book  description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
@@ -1038,9 +1038,9 @@ Note: The maximum file size is 200MB.
 
 HTTP Status code: 200
 
-The API returns a reports of the import.
-- `feed\entry\content\properties\LineCount` – number of lines accepted
-- `feed\entry\content\properties\ErrorCount` – number of lines that were not inserted due to an error
+The API returns a report of the import.
+- `feed\entry\content\properties\LineCount` – Number of lines accepted.
+- `feed\entry\content\properties\ErrorCount` – Number of lines that were not inserted due to an error.
 
 OData XML
 
@@ -1066,7 +1066,7 @@ OData XML
 	</feed>
 
 ###8.2.	Get Catalog
-Retrieves all catalog items
+Retrieves all catalog items.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1074,7 +1074,7 @@ Retrieves all catalog items
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
+|	modelId	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1083,14 +1083,14 @@ Retrieves all catalog items
 
 HTTP Status code: 200
 
-The response includes one entry per catalog item, each entry has the following data:
+The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/ExternalId` – Catalog item external Id, the one provided by the customer
-- `feed/entry/content/properties/InternalId` – Catalog item internal Id, the one that Azure ML Recommendations has generated
-- `feed/entry/content/properties/Name` – Catalog item name
-- `feed/entry/content/properties/Category` – Catalog item category
-- `feed/entry/content/properties/Description` – Catalog item description
-- `feed/entry/content/properties/Metadata` – Catalog item metadata
+- `feed/entry/content/properties/ExternalId` – Catalog item external ID, the one provided by the customer.
+- `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
+- `feed/entry/content/properties/Name` – Catalog item name.
+- `feed/entry/content/properties/Category` – Catalog item category.
+- `feed/entry/content/properties/Description` – Catalog item description.
+- `feed/entry/content/properties/Metadata` – Catalog item metadata.
 
 
 OData XML
@@ -1176,8 +1176,8 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model. |
-|	token	|	Token of catalog item’s name. Should contain at least 3 characters. |
+|	modelId	|	Unique identifier of the model. |
+|	token	|	Token of the catalog item’s name. Should contain at least 3 characters. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1186,14 +1186,14 @@ OData XML
 
 HTTP Status code: 200
 
-The response includes one entry per catalog item, each entry has the following data:
+The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/ExternalId` – Catalog item external Id, the one provided by the customer
-- `feed/entry/content/properties/InternalId` – Catalog item internal Id, the one that Azure ML Recommendations has generated
-- `feed/entry/content/properties/Name` – Catalog item name
-- `feed/entry/content/properties/Category` – Catalog item category
-- `feed/entry/content/properties/Description` – Catalog item description
-- `feed/entry/content/properties/Metadata` – Catalog item metadata
+- `feed/entry/content/properties/ExternalId` – Catalog item external ID, the one provided by the customer.
+- `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
+- `feed/entry/content/properties/Name` – Catalog item name.
+- `feed/entry/content/properties/Category` – Catalog item category.
+- `feed/entry/content/properties/Description` – Catalog item description.
+- `feed/entry/content/properties/Metadata` – Catalog item metadata.
 
 OData XML
 
@@ -1225,7 +1225,7 @@ OData XML
 ##9. Usage data
 ###9.1.	Import Usage Data
 ####9.1.1. Uploading File
-This sections shows how to upload usage data using a file. You can call this API several times with usage data. All usage data will be saved for all calls.
+This section shows how to upload usage data by using a file. You can call this API several times with usage data. All usage data will be saved for all calls.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1233,19 +1233,19 @@ This sections shows how to upload usage data using a file. You can call this API
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	The unique identifier of the model.  |
-| filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed<br>Max length: 50 |
+|	modelId	|	Unique identifier of the model.  |
+| filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
-| Request Body | The usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max Lenght 255 </td><td>Unique identifier of a User</td></tr><tr><td>Item Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Request Body | Usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 255 </td><td>Unique identifier of a user.</td></tr><tr><td>Item Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50</td><td>Unique identifier of an item.</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data.</td></tr><tr><td>Event</td><td>No; if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•	AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size: 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Response**:
 
 HTTP Status code: 200
 
-- `Feed\entry\content\properties\LineCount` – number of lines accepted
-- `Feed\entry\content\properties\ErrorCount` – number of lines that were not inserted due to an error
-- `Feed\entry\content\properties\FileId` – the file identifier
+- `Feed\entry\content\properties\LineCount` – Number of lines accepted.
+- `Feed\entry\content\properties\ErrorCount` – Number of lines that were not inserted due to an error.
+- `Feed\entry\content\properties\FileId` – File identifier.
 
 OData XML
 
@@ -1273,7 +1273,7 @@ OData XML
 
 
 ####9.1.2. Using Data Acquisition
-This section shows how to send events in real time to Azure ML Recommendations usually from your web site.
+This section shows how to send events in real time to Azure Machine Learning Recommendations, usually from your website.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1282,7 +1282,7 @@ This section shows how to send events in real time to Azure ML Recommendations u
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
 |	apiVersion		| 1.0 |
-|Request body| Event data entry for each event you want to send. You should send for the same user or browser session the same id in the SessionId field. (see sample of event body below)|
+|Request body| Event data entry for each event you want to send. You should send for the same user or browser session the same ID in the SessionId field. (See sample of event body below.)|
 
 
 - Example for event 'Click':
@@ -1298,7 +1298,7 @@ This section shows how to send events in real time to Azure ML Recommendations u
 		</EventData>
 		</Event>
 
-- Example for event 'Recommendation Click':
+- Example for event 'RecommendationClick':
 
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -1311,7 +1311,7 @@ This section shows how to send events in real time to Azure ML Recommendations u
   		</EventData>
 		</Event>
 
-- Example for event 'Adding to shop cart':
+- Example for event 'AddShopCart':
 
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -1324,7 +1324,7 @@ This section shows how to send events in real time to Azure ML Recommendations u
   		</EventData>
 		</Event>
 
-- Example for event 'Removing from shop cart':
+- Example for event 'RemoveShopCart':
 
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -1354,7 +1354,7 @@ This section shows how to send events in real time to Azure ML Recommendations u
 		</EventData>
 		</Event>
 
-- Example sending 2 events 'Click' and 'AddShopCart':
+- Example sending 2 events, 'Click' and 'AddShopCart':
 
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -1378,7 +1378,7 @@ This section shows how to send events in real time to Azure ML Recommendations u
 HTTP Status code: 200
 
 ###9.2.	List Model Usage Files
-Retrieve metadata of all model usage files
+Retrieves metadata of all model usage files.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1386,7 +1386,7 @@ Retrieve metadata of all model usage files
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	forModelId	|	The unique identifier of the model. |
+|	forModelId	|	Unique identifier of the model. |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1395,12 +1395,12 @@ Retrieve metadata of all model usage files
 
 HTTP Status code: 200
 
-The response includes one entry per usage file, each entry has the following data:
+The response includes one entry per usage file. Each entry has the following data:
 
-- `feed\entry\content\properties\Id` – Usage file Id
-- `feed\entry\content\properties\Length` – Usage file Length in MB
-- `feed\entry\content\properties\DateModified` – Date when Usage file was created
-- `feed\entry\content\properties\UseInModel` – Is usage files used in model
+- `feed\entry\content\properties\Id` – Usage file ID.
+- `feed\entry\content\properties\Length` – Usage file length in MB.
+- `feed\entry\content\properties\DateModified` – Date when the usage file was created.
+- `feed\entry\content\properties\UseInModel` – Whether the usage file is used in the model.
 
 OData XML
 
@@ -1442,7 +1442,7 @@ OData XML
 </feed>
 
 ###9.3.	Get Usage Statistics
-Get usage statistics:
+Gets usage statistics.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1450,10 +1450,10 @@ Get usage statistics:
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	The unique identifier of the model.  |
+| modelId |	Unique identifier of the model.  |
 | startDate |	Start date. Format: yyyy/MM/ddTHH:mm:ss |
 | endDate |	End date. Format: yyyy/MM/ddTHH:mm:ss |
-| eventTypes |	Comma separated string of event types or null to get all events.  |
+| eventTypes |	Comma-separated string of event types or null to get all events.  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1462,10 +1462,10 @@ Get usage statistics:
 
 HTTP Status code: 200
 
-A collection of key/value that each one contains the sum of events for a specific event type grouped by hour.
+A collection of key/value information. Each one contains the sum of events for a specific event type grouped by hour.
 
-- `feed\entry[i]\content\properties\Key` – contains the time (grouped by hours) and the event type.
-- `feed\entry[i]\content\properties\Value` – total event count
+- `feed\entry[i]\content\properties\Key` – Contains the time (grouped by hour) and the event type.
+- `feed\entry[i]\content\properties\Value` – Total event count.
 
 OData XML
 
@@ -1527,7 +1527,7 @@ OData XML
 	</feed>
 
 ###9.4.	Get Usage File Sample
-Retrieve first 2KB of usage file content:
+Retrieves the first 2KB of usage file content.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1535,8 +1535,8 @@ Retrieve first 2KB of usage file content:
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	The unique identifier of the model.  |
-| fileId |	The unique identifier of the model usage file.  |
+| modelId |	Unique identifier of the model.  |
+| fileId |	Unique identifier of the model usage file.  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1566,7 +1566,7 @@ Response is returned in raw text format:
 
 
 ###9.5.	Get Model Usage File
-Retrieves full content of usage file:
+Retrieves the full content of the usage file.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1574,8 +1574,8 @@ Retrieves full content of usage file:
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| mid |	The unique identifier of the model.  |
-| fid |	The unique identifier of the model usage file.  |
+| mid |	Unique identifier of the model.  |
+| fid |	Unique identifier of the model usage file.  |
 | download | 1 |
 | apiVersion | 1.0 |
 |||
@@ -1623,7 +1623,7 @@ Response is returned in raw text format:
 </pre>
 
 ###9.6.	Delete Usage File
-Delete specified model usage file
+Deletes the specified model usage file.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1631,8 +1631,8 @@ Delete specified model usage file
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	The unique identifier of the model.  |
-| fileId | The unique identifier of the file to be deleted |
+| modelId |	Unique identifier of the model.  |
+| fileId | Unique identifier of the file to be deleted. |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1643,7 +1643,7 @@ HTTP Status code: 200
 
 
 ###9.7.	Delete All Usage Files
-Delete all model usage files
+Deletes all model usage files.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1651,7 +1651,7 @@ Delete all model usage files
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	The unique identifier of the model.  |
+| modelId |	Unique identifier of the model.  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1661,12 +1661,12 @@ Delete all model usage files
 HTTP Status code: 200
 
 ##10. Features
-This section shows how to retrieve feature information, such as the imported feature and their values, their rank and when this rank was allocated. Feature are imported as part of the catalog data, then their rank is associated when a rank build is done.
-Feature rank can changes according to the pattern the usage data, and type of items but for consistent usage/items the rank should only have small fluctuations.
-The rank of features is a non negative number, 0 means that the feature was not ranked (happens if you invoke this API prior the completion of the first rank build), the date of at which the rank was attributed is called the score freshness.
+This section shows how to retrieve feature information, such as the imported features and their values, their rank, and when this rank was allocated. Features are imported as part of the catalog data, and then their rank is associated when a rank build is done.
+Feature rank can change according to the pattern of usage data and type of items. But for consistent usage/items, the rank should have only small fluctuations.
+The rank of features is a non-negative number. The  number 0 means that the feature was not ranked (happens if you invoke this API prior to the completion of the first rank build). The date at which the rank was attributed is called the score freshness.
 
 ###10.1. Get Features Info (For Last Rank Build)
-Retrieve the feature information including ranking for the last successful rank build.
+Retrieves the feature information, including ranking, for the last successful rank build.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1674,8 +1674,8 @@ Retrieve the feature information including ranking for the last successful rank 
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	The unique identifier of the model.  |
-|samplingSize| The number of values to include for each fatures according to the data present in the catalog. <br/>Possible values are:<br> -1 - all samples <br>0 - no sampling <br>N - return N samples for each feature name.|
+| modelId |	Unique identifier of the model.  |
+|samplingSize| Number of values to include for each feature according to the data present in the catalog. <br/>Possible values are:<br> -1 - All samples. <br>0 - No sampling. <br>N - Return N samples for each feature name.|
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1687,10 +1687,10 @@ HTTP Status code: 200
 
 The response contains a list of feature info entries. Each entry contains:
 
-- `feed/entry/content/m:properties/d:Name` - The feature name
-- `feed/entry/content/m:properties/d:RankUpdateDate` - The date at which the rank was allocated to this feature a.k.a. score freshnesfeature. An historical date ('0001-01-01T00:00:00') means that no rank build was performed.
-- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is considered as good feature.
-- `feed/entry/content/m:properties/d:SampleValues` - A comma separated list of values up to the sampling size requested.
+- `feed/entry/content/m:properties/d:Name` - Feature name.
+- `feed/entry/content/m:properties/d:RankUpdateDate` - Date at which the rank was allocated to this feature, a.k.a. score freshness feature. A historical date ('0001-01-01T00:00:00') means that no rank build was performed.
+- `feed/entry/content/m:properties/d:Rank` - Feature rank (float). A rank of 2.0 and up is considered a good feature.
+- `feed/entry/content/m:properties/d:SampleValues` - Comma-separated list of values up to the sampling size requested.
 
 OData XML
 
@@ -1748,7 +1748,7 @@ OData XML
 
 ###10.2. Get Features Info (For Specific Rank Build)
 
-Retrieve the feature information including ranking for a specific rank build.
+Retrieves the feature information, including the ranking for a specific rank build.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1756,9 +1756,9 @@ Retrieve the feature information including ranking for a specific rank build.
 
 | Parameter Name	|	Valid Values	|
 |:--------			|:--------			|
-| modelId |	The unique identifier of the model.  |
-|samplingSize| The number of values to include for each feature according to the data present in the catalog.<br/> Possible values are:<br> -1 - all samples <br>0 - no sampling <br>N - return N samples for each feature name.|
-|rankBuildId| The unique identifier of the rank build or -1 for the last rank build|
+| modelId |	Unique identifier of the model.  |
+|samplingSize| Number of values to include for each feature according to the data present in the catalog.<br/> Possible values are:<br> -1 - All samples. <br>0 - No sampling. <br>N - Return N samples for each feature name.|
+|rankBuildId| Unique identifier of the rank build or -1 for the last rank build.|
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1770,10 +1770,10 @@ HTTP Status code: 200
 
 The response contains a list of feature info entries. Each entry contains:
 
-- `feed/entry/content/m:properties/d:Name` - The feature name
-- `feed/entry/content/m:properties/d:RankUpdateDate` - The date at which the rank was allocated to this feature a.k.a. score freshnesfeature. An historical date ('0001-01-01T00:00:00') means that no rank build was performed.
-- `feed/entry/content/m:properties/d:Rank` - The feature rank (float). A rank of 2.0 and up is considered as good feature.
-- `feed/entry/content/m:properties/d:SampleValues` - A comma separated list of values up to the sampling size requested.
+- `feed/entry/content/m:properties/d:Name` - Feature name.
+- `feed/entry/content/m:properties/d:RankUpdateDate` - Date at which the rank was allocated to this feature, a.k.a. score freshness feature. A historical date ('0001-01-01T00:00:00') means that no rank build was performed.
+- `feed/entry/content/m:properties/d:Rank` - Feature rank (float). A rank of 2.0 and up is considered a good feature.
+- `feed/entry/content/m:properties/d:SampleValues` - Comma-separated list of values up to the sampling size requested.
 
 OData
 
@@ -1831,63 +1831,63 @@ OData
 
 ##11. Build
 
-This section explains the different API related to builds. Currently two types of build are possible: a recommendation build and a rank build. The recommendation build is used to generate a recommendation model used for predictions. A rank build is a technical build that allows you to learn about the usefulness of your features. Usually in order to get the best result for a recommendation model involving features you should follow the following steps:
+This section explains the different APIs related to builds. Currently, two types of builds are possible: a recommendation build and a rank build. The recommendation build is used to generate a recommendation model used for predictions. A rank build is a technical build that allows you to learn about the usefulness of your features. Usually, in order to get the best result for a recommendation model involving features, you should take the following steps:
 - Trigger a rank build (unless the score of your features is stable) and wait till you get the feature score.
 - Retrieve the rank of your features by calling the [Get Features Info](#101-get-features-info-for-last-rank-build) API.
 - Configure a recommendation build with the following parameters:
-	- `useFeatureInModel` - set to True
-	- `ModelingFeatureList` - set to a comma separated list of features with a score of 2.0 or more (according to the ranks you retrieved in previous step).
-	- `AllowColdItemPlacement` - set to True
-	- Optionally you can set up the `EnableFeatureCorrelation` to True and the `ReasoningFeatureList` to the list of features you want to use for explanations (usually the same list of features used in modelling or a sub list).
+	- `useFeatureInModel` - Set to True.
+	- `ModelingFeatureList` - Set to a comma-separated list of features with a score of 2.0 or more (according to the ranks you retrieved in the previous step).
+	- `AllowColdItemPlacement` - Set to True.
+	- Optionally you can set `EnableFeatureCorrelation` to True and `ReasoningFeatureList` to the list of features you want to use for explanations (usually the same list of features used in modelling or a sublist).
 - Trigger the recommendation build with the configured parameters.
 
-Note: If you do not configure any parameters (e.g. invoke the recommendation build without parameters) or you do not disable explicitly the usage of features (e.g. `UseFeatureInModel` set to False), the system will set up the feature related parameters to the explained values above in case a rank build exists.
+Note: If you do not configure any parameters (e.g. invoke the recommendation build without parameters) or you do not explicitly disable the usage of features (e.g. `UseFeatureInModel` set to False), the system will set up the feature-related parameters to the explained values above in case a rank build exists.
 
-There is no restriction on running concurrently a rank build and a recommendation build for the same model, nevertheless a you cannot run two builds of the same type on the same model in parallel.
+There is no restriction on running a rank build and a recommendation build concurrently for the same model. Nevertheless, you cannot run two builds of the same type on the same model in parallel.
 
-####11.1 Build Parameters
+####11.1 Build parameters
 
-Each build type can be configured via a set of parameters (depicted below). If you don't configure the parameters the system will automatically attribute values to the parameters according to the information present at the time you trigger a build.
+Each build type can be configured via a set of parameters (depicted below). If you don't configure the parameters, the system will automatically attribute values to the parameters according to the information present at the time you trigger a build.
 
-#####11.1.1. Usage Condenser
-Users or items with few usage point might contain more noise than information. The system attempts to predict the minimal number of usage points per user/item to be used in a model. This number will be within the range defined by ItemCutoffLowerBound and ItemCutoffUpperBound parameters for items, and the range defined by UserCutOffLowerBound and UserCutoffUpperBound parameters for users. The condenser effect on items or userscan be minimized by setting as least one of the corresponding bounds to zero.
+#####11.1.1. Usage condenser
+Users or items with few usage points might contain more noise than information. The system attempts to predict the minimal number of usage points per user/item to be used in a model. This number will be within the range defined by the ItemCutoffLowerBound and ItemCutoffUpperBound parameters for items, and the range defined by the UserCutOffLowerBound and UserCutoffUpperBound parameters for users. The condenser effect on items or users can be minimized by setting at least one of the corresponding bounds to zero.
 
-#####11.1.2. Rank Build Parameters
+#####11.1.2. Rank build parameters
 
-The table below depicts the build parameters for Rank build.
+The table below depicts the build parameters for a rank build.
 
 |Key|Description|Type|Valid Value|
 |:-----|:----|:----|:---|
-|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
-| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
-|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffLowerBound| Defines the user lower bound the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffUpperBound| Defines the user upper the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
+|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
+| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
+|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
 
 #####11.1.3. Recommendation build parameters
 The table below depicts the build parameters for recommendation build.
 
 |Key|Description|Type|Valid Value|
 |:-----|:----|:----|:---|
-|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
-| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
-|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffLowerBound| Defines the user lower bound the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffUpperBound| Defines the user upper the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-| Description | The build description | String | Any text, maximum 512 chars |
-| EnableModelingInsights | Allows to compute metrics on the recommendation model | Boolean | True/False |
-| UseFeaturesInModel | Indicate if features can be used in order to enhance recommendation model | Boolean | True/False |
-| ModelingFeatureList | A comma separated list of feature name to be use in recommendation build, in order to enhance the recommendation | String | The features name up to 512 chars |
-| AllowColdItemPlacement | Indicate if recommendation should also push cold item via feature similarity | Boolean | True/False |
-| EnableFeatureCorrelation | Indicate if features can be used in reasoning | Boolean | True/False |
-| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explanations)  | String | The features name up to 512 chars |
+|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
+| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
+|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+| Description | Build description. | String | Any text, maximum 512 chars |
+| EnableModelingInsights | Allows you to compute metrics on the recommendation model. | Boolean | True/False |
+| UseFeaturesInModel | Indicates if features can be used in order to enhance the recommendation model. | Boolean | True/False |
+| ModelingFeatureList | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. | String | Feature name, up to 512 chars |
+| AllowColdItemPlacement | Indicates if the recommendation should also push cold items via feature similarity. | Boolean | True/False |
+| EnableFeatureCorrelation | Indicates if features can be used in reasoning. | Boolean | True/False |
+| ReasoningFeatureList | Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).  | String | Feature name, up to 512 chars |
 
 
 ###11.2. Trigger a Recommendation Build
 
-By default this API will request to create a recommendation model, in order to create a rank build (in order to score  features), the build API with build type variant should be used.
+By default this API will request the creation of a recommendation model, in order to create a rank build (in order to score  features). The build API with build type variant should be used.
 
 
 | HTTP Method | URI |
@@ -1896,32 +1896,32 @@ By default this API will request to create a recommendation model, in order to c
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	The unique identifier of the model.  |
+| modelId |	Unique identifier of the model.  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | apiVersion | 1.0 |
 |||
-| Request Body | If left empty then the build will be executed with the default build parameters<br><br>If you want to set the build parameters send the parameters as XML into the body like in the following sample (see Build Parameters section for the parameters explanation)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasonningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| Request Body | If left empty then the build will be executed with the default build parameters.<br><br>If you want to set the build parameters, send the parameters as XML into the body as in the following sample. (See the "Build parameters" section for an explanation of the parameters.)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasonningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Response**:
 
 HTTP Status code: 200
 
-This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
+This is an asynchronous API. You will get a build ID as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build ID in the response. Note that a build can take from minutes to hours depending on the size of the data.
 
 You cannot consume recommendations till the build ends.
 
 Valid build status:
 
-- Create – model was created
-- Queued – model build was triggered and it is queued
-- Building – the model is being build
-- Success – the build ended successfully
-- Error – the build ended with a failure
-- Cancelled – build was cancelled
-- Cancelling – build is being cancelled
+- Create – Model was created.
+- Queued – Model build was triggered and it is queued.
+- Building – Model is being built.
+- Success – Build ended successfully.
+- Error – Build ended with a failure.
+- Cancelled – Build was cancelled.
+- Cancelling – Build is being cancelled.
 
 
-Note: the build id can be found under the path: `Feed\entry\content\properties\Id`
+Note that the build ID can be found under the following path: `Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -1970,32 +1970,32 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	The unique identifier of the model.  |
+| modelId |	Unique identifier of the model.  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
-| buildType | The type of the build to invoke <br> - 'Ranking' for rank build <br/> - 'Recommendation' - for recommendation build
+| buildType | Type of the build to invoke: <br> - 'Ranking' for rank build <br/> - 'Recommendation' for recommendation build
 | apiVersion | 1.0 |
 |||
-| Request Body | If left empty then the build will be executed with the default build parameters<br><br>If you want to set the build parameters send the parameters as XML into the body like in the following sample (see Build Parameters section for the parameters explanation)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| Request Body | If left empty then the build will be executed with the default build parameters.<br><br>If you want to set the build parameters, send the parameters as XML into the body as in the following sample. (See the "Build parameters" section for an explanation of the parameters.)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Response**:
 
 HTTP Status code: 200
 
-This is an asynchronous API. You will get a Build Id as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build Id in the response. Note that a build can take from minutes to hours depending on the size of the data.
+This is an asynchronous API. You will get a build ID as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build ID in the response. Note that a build can take from minutes to hours depending on the size of the data.
 
 You cannot consume recommendations till the build ends.
 
 Valid build status:
 
-- Create – model was created
-- Queued – model build was triggered and it is queued
-- Building – the model is being build
-- Success – the build ended successfully
-- Error – the build ended with a failure
-- Cancelled – build was cancelled
-- Cancelling – build is being cancelled
+- Create – Model was created.
+- Queued – Model build was triggered and it is queued.
+- Building – Model is being built.
+- Success – Build ended successfully.
+- Error – Build ended with a failure.
+- Cancelled – Build was cancelled.
+- Cancelling – Build is being cancelled.
 
-Note: the build id can be found under the path: `Feed\entry\content\properties\Id`
+Note that the build ID can be found under the following path: `Feed\entry\content\properties\Id`
 
 OData XML
 
@@ -2040,7 +2040,7 @@ OData XML
 
 
 ###11.4. Get Builds Status of a Model
-Retrieves builds and their status for a specified model
+Retrieves builds and their status for a specified model.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2049,7 +2049,7 @@ Retrieves builds and their status for a specified model
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId			|	The unique identifier of the model.	|
+|	modelId			|	Unique identifier of the model.	|
 |	onlyLastBuild	|	Indicates whether to return all the build history of the model or only the status of the most recent build.	|
 |	apiVersion		|	1.0									|
 
@@ -2058,34 +2058,34 @@ Retrieves builds and their status for a specified model
 
 HTTP Status code: 200
 
-The response includes one entry per build, each entry has the following data:
+The response includes one entry per build. Each entry has the following data:
 
-- `feed/entry/content/properties/UserName` – the name of the user
-- `feed/entry/content/properties/ModelName` – the name of the model
-- `feed/entry/content/properties/ModelId` – the model unique identifier
-- `feed/entry/content/properties/IsDeployed` – is the build deployed (a.k.a. active build)
-- `feed/entry/content/properties/BuildId` – the build unique identifier
-- `feed/entry/content/properties/BuildType` - the type of the build
-- `feed/entry/content/properties/Status` – build status. Can be one of the following: Error, Building, Queued, Cancelling, Cancelled, Success
-- `feed/entry/content/properties/StatusMessage` – detailed status message (applies only to specific states)
-- `feed/entry/content/properties/Progress` – build progress (%)
-- `feed/entry/content/properties/StartTime` – Build start time
-- `feed/entry/content/properties/EndTime` – Build end time
-- `feed/entry/content/properties/ExecutionTime` – Build duration
-- `feed/entry/content/properties/ProgressStep` – details about the current stage that a build in progress is in.
+- `feed/entry/content/properties/UserName` – Name of the user.
+- `feed/entry/content/properties/ModelName` – Name of the model.
+- `feed/entry/content/properties/ModelId` – Model unique identifier.
+- `feed/entry/content/properties/IsDeployed` – Whether the build is deployed (a.k.a. active build).
+- `feed/entry/content/properties/BuildId` – Build unique identifier.
+- `feed/entry/content/properties/BuildType` - Type of the build.
+- `feed/entry/content/properties/Status` – Build status. Can be one of the following: Error, Building, Queued, Cancelling, Cancelled, Success.
+- `feed/entry/content/properties/StatusMessage` – Detailed status message (applies only to specific states).
+- `feed/entry/content/properties/Progress` – Build progress (%).
+- `feed/entry/content/properties/StartTime` – Build start time.
+- `feed/entry/content/properties/EndTime` – Build end time.
+- `feed/entry/content/properties/ExecutionTime` – Build duration.
+- `feed/entry/content/properties/ProgressStep` – Details about the current stage of a build in progress.
 
 Valid build status:
-- Created – build request entry was created
-- Queued – build request was triggered and it is queued
-- Building – the build is in process
-- Success – the build ended successfully
-- Error – the build ended with a failure
-- Cancelled – build was cancelled
-- Cancelling – build is being cancelled
+- Created – Build request entry was created.
+- Queued – Build request was triggered and it is queued.
+- Building – Build is in process.
+- Success – Build ended successfully.
+- Error – Build ended with a failure.
+- Cancelled – Build was cancelled.
+- Cancelling – Build is being cancelled.
 
 Valid values for build type:
-- Rank - rank build
-- Recommendation - recommendation build
+- Rank - Rank build.
+- Recommendation - Recommendation build.
 
 
 OData XML
@@ -2125,7 +2125,7 @@ OData XML
 
 
 ###11.5. Get Builds Status of a User
-Retrieves build statuses of all models of a user
+Retrieves build statuses of all models of a user.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2142,35 +2142,35 @@ Retrieves build statuses of all models of a user
 
 HTTP Status code: 200
 
-The response includes one entry per build, each entry has the following data:
+The response includes one entry per build. Each entry has the following data:
 
-- `feed/entry/content/properties/UserName` – the name of the user
-- `feed/entry/content/properties/ModelName` – the name of the model
-- `feed/entry/content/properties/ModelId` – the model unique identifier
-- `feed/entry/content/properties/IsDeployed` – is the build deployed
-- `feed/entry/content/properties/BuildId` – the build unique identifier
-- `feed/entry/content/properties/BuildType` - the type of the build
-- `feed/entry/content/properties/Status` – build status. Can be one of the following: Error, Building, Queued, Cancelled, Cancelling, Success
-- `feed/entry/content/properties/StatusMessage` – detailed status message (applies only to specific states)
-- `feed/entry/content/properties/Progress` – build progress (%)
-- `feed/entry/content/properties/StartTime` – Build start time
-- `feed/entry/content/properties/EndTime` – Build end time
-- `feed/entry/content/properties/ExecutionTime` – Build duration
-- `feed/entry/content/properties/ProgressStep` – details about the current stage that a build in progress is in.
+- `feed/entry/content/properties/UserName` – Name of the user.
+- `feed/entry/content/properties/ModelName` – Name of the model.
+- `feed/entry/content/properties/ModelId` – Model unique identifier.
+- `feed/entry/content/properties/IsDeployed` – Whether the build is deployed.
+- `feed/entry/content/properties/BuildId` – Build unique identifier.
+- `feed/entry/content/properties/BuildType` - Type of the build.
+- `feed/entry/content/properties/Status` – Build status. Can be one of the following: Error, Building, Queued, Cancelled, Cancelling, Success.
+- `feed/entry/content/properties/StatusMessage` – Detailed status message (applies only to specific states).
+- `feed/entry/content/properties/Progress` – Build progress (%).
+- `feed/entry/content/properties/StartTime` – Build start time.
+- `feed/entry/content/properties/EndTime` – Build end time.
+- `feed/entry/content/properties/ExecutionTime` – Build duration.
+- `feed/entry/content/properties/ProgressStep` – Details about the current stage of a build in progress.
 
 Valid build status:
-- Created – the build request entry was created
-- Queued – the build request was triggered and it is queued
-- Building – the build is in process
-- Success – the build ended successfully
-- Error – the build ended with a failure
-- Cancelled – build was cancelled
-- Cancelling – build is being cancelled
+- Created – Build request entry was created.
+- Queued – Build request was triggered and it is queued.
+- Building – Build is in process.
+- Success – Build ended successfully.
+- Error – Build ended with a failure.
+- Cancelled – Build was cancelled.
+- Cancelling – Build is being cancelled.
 
 
 Valid values for build type:
-- Rank - rank build
-- Recommendation - recommendation build
+- Rank - Rank build.
+- Recommendation - Recommendation build.
 
 
 OData XML
@@ -2212,7 +2212,7 @@ OData XML
 ###11.6. Delete Build
 Deletes a build.
 
-NOTE: <br>You cannot delete an Active build. The model should be updated to a different Active Build before you delete it.<br>You cannot delete an InProgress build. You should cancel the build first by calling <strong>Cancel Build</strong>.
+NOTE: <br>You cannot delete an active build. The model should be updated to a different active build before you delete it.<br>You cannot delete an in-progress build. You should cancel the build first by calling <strong>Cancel Build</strong>.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2220,7 +2220,7 @@ NOTE: <br>You cannot delete an Active build. The model should be updated to a di
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| buildId | The unique identifier of the build. |
+| buildId | Unique identifier of the build. |
 | apiVersion | 1.0 |
 
 **Response:**
@@ -2228,7 +2228,7 @@ NOTE: <br>You cannot delete an Active build. The model should be updated to a di
 HTTP Status code: 200
 
 ###11.7. Cancel Build
-Cancel a build that is in building status
+Cancels a build that is in building status.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2236,7 +2236,7 @@ Cancel a build that is in building status
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| buildId | The unique identifier of the build. |
+| buildId | Unique identifier of the build. |
 | apiVersion | 1.0 |
 
 **Response:**
@@ -2244,7 +2244,7 @@ Cancel a build that is in building status
 HTTP Status code: 200
 
 ###11.7. Get Build Parameters
-Retrieves build parameters
+Retrieves build parameters.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2252,34 +2252,34 @@ Retrieves build parameters
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| buildId | The unique identifier of the build. |
+| buildId | Unique identifier of the build. |
 | apiVersion | 1.0 |
 
 **Response:**
 
 HTTP Status code: 200
 
-This API returns a collection of key/value elements, each element represents a parameter and its value:
-- `feed/entry/content/properties/Key` – Build parameter name
-- `feed/entry/content/properties/Value` – Build parameter value
+This API returns a collection of key/value elements. Each element represents a parameter and its value:
+- `feed/entry/content/properties/Key` – Build parameter name.
+- `feed/entry/content/properties/Value` – Build parameter value.
 
-The table below depicts for each key what is the value it represents
+The table below depicts the value that each key represents.
 
 |Key|Description|Type|Valid Value|
 |:-----|:----|:----|:---|
-|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number - the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
-| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
-|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffLowerBound| Defines the user lower bound the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-|UserCutOffUpperBound| Defines the user upper the condenser. See usage condenser above | Integer | 2 or more (0 disable condenser) |
-| Description | The build description | String | Any text, maximum 512 chars |
-| EnableModelingInsights | Allows to compute metrics on the recommendation model | Boolean | True/False |
-| UseFeaturesInModel | Indicate if features can be used in order to enhance recommendation model | Boolean | True/False |
-| ModelingFeatureList | A comma separated list of feature name to be use in recommendation build, in order to enhance the recommendation | String | The features name up to 512 chars |
-| AllowColdItemPlacement | Indicate if recommendation should also push cold item via feature similarity | Boolean | True/False |
-| EnableFeatureCorrelation | Indicate if features can be used in reasoning | Boolean | True/False |
-| ReasoningFeatureList | A comma separated list of feature name to be used for reasoning sentences (e.g. recommendation explanations)  | String | The features name up to 512 chars |
+|NumberOfModelIterations | The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the better accuracy you will get, but the compute time will take longer.| Integer | 10-50 |
+| NumberOfModelDimensions | The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. | Integer | 10-40 |
+|ItemCutOffLowerBound| Defines the item lower bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|ItemCutOffUpperBound| Defines the item upper bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|UserCutOffLowerBound| Defines the user lower bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+|UserCutOffUpperBound| Defines the user upper bound for the condenser. See usage condenser above. | Integer | 2 or more (0 disable condenser) |
+| Description | Build description. | String | Any text, maximum 512 chars |
+| EnableModelingInsights | Allows you to compute metrics on the recommendation model. | Boolean | True/False |
+| UseFeaturesInModel | Indicates if features can be used in order to enhance the recommendation model. | Boolean | True/False |
+| ModelingFeatureList | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. | String | Feature name, up to 512 chars |
+| AllowColdItemPlacement | Indicates if the recommendation should also push cold items via feature similarity. | Boolean | True/False |
+| EnableFeatureCorrelation | Indicates if features can be used in reasoning. | Boolean | True/False |
+| ReasoningFeatureList | Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).  | String | Feature name, up to 512 chars |
 
 
 OData XML
@@ -2458,10 +2458,10 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | The unique identifier of the model. |
-| itemIds | Comma separated list of the items to recommend for.<br>Max length: 200 |
-| numberOfResults | The number of required results. |
-| includeMetatadata | Future use, put always false. |
+| modelId | Unique identifier of the model. |
+| itemIds | Comma-separated list of the items to recommend for.<br>Max length: 200 |
+| numberOfResults | Number of required results. |
+| includeMetatadata | Future use, always false. |
 | apiVersion | 1.0 |
 
 **Response:**
@@ -2469,13 +2469,13 @@ OData XML
 HTTP Status code: 200
 
 
-The response includes one entry per recommended item, each entry has the following data:
-- `Feed\entry\content\properties\Id` – The recommended item id
-- `Feed\entry\content\properties\Name` – The name of the item
-- `Feed\entry\content\properties\Rating` – The rating of the recommendation, higher number means higher confidence
-- `Feed\entry\content\properties\Reasoning` – the recommendation reasoning (e.g. recommendation explanations)
+The response includes one entry per recommended item. Each entry has the following data:
+- `Feed\entry\content\properties\Id` – Recommended item ID.
+- `Feed\entry\content\properties\Name` – Name of the item.
+- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
 
-The example response below includes 10 recommended items:
+The example response below includes 10 recommended items.
 
 OData XML
 
@@ -2629,14 +2629,14 @@ OData XML
 	</feed>
 
 ##13. Notifications
-Azure ML Recommendations creates notification when there are persistent errors that happen in the system. There are 3 type of notifications:
-1.	Build failure – this notification is triggered for every build failure.
-2.	Data Acquisition processing failure - this notification is triggered when we have more than 100 errors in the last 5 minutes in the processing of usage events per model.
-3.	Recommendation consumption failure - this notification is triggered when we have more than 100 errors in the last 5 minutes in the processing of recommendation requests per model.
+Azure Machine Learning Recommendations creates notifications when persistent errors happen in the system. There are 3 types of notifications:
+1.	Build failure - This notification is triggered for every build failure.
+2.	Data acquisition processing failure - This notification is triggered when we have more than 100 errors in the last 5 minutes in the processing of usage events per model.
+3.	Recommendation consumption failure - This notification is triggered when we have more than 100 errors in the last 5 minutes in the processing of recommendation requests per model.
 
 
 ###13.1. Get Notifications
-Retrieves all the notification for all models or for a single model.
+Retrieves all the notifications for all models or for a single model.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2645,7 +2645,7 @@ Retrieves all the notification for all models or for a single model.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | Optional parameter, when omitted you will get all notifications for all models. <br>Valid value: The unique identifier of the model.|
+| modelId | Optional parameter. When omitted, you will get all notifications for all models. <br>Valid value: unique identifier of the model.|
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -2656,12 +2656,12 @@ HTTP Status code: 200
 
 OData XML
 
-    The response includes one entry per notification, each entry has the following data::
-		* feed\entry\content\properties\UserName – The internal user name identification
-		* feed\entry\content\properties\ModelId – The model id
-		* feed\entry\content\properties\Message – The notification message
-		* feed\entry\content\properties\DateCreated – the date that this notification was created in UTC format
-		* feed\entry\content\properties\NotificationType – the notification types, values: BuildFailure, RecommendationFailure, DataAquisitionFailure
+    The response includes one entry per notification. Each entry has the following data:
+		* feed\entry\content\properties\UserName – Internal user name identification.
+		* feed\entry\content\properties\ModelId – Model ID.
+		* feed\entry\content\properties\Message – Notification message.
+		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
+		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -2688,7 +2688,7 @@ OData XML
 	</feed>
 
 ###13.2. Delete Model Notifications
-Deletes all read notifications for a model
+Deletes all read notifications for a model.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -2697,7 +2697,7 @@ Deletes all read notifications for a model
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | The unique identifier of the model. |
+| modelId | Unique identifier of the model. |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -2707,7 +2707,7 @@ Deletes all read notifications for a model
 HTTP Status code: 200
 
 ###11.3. Delete User Notifications
-Deletes all notifications for all models
+Deletes all notifications for all models.
 
 | HTTP Method | URI |
 |:--------|:--------|

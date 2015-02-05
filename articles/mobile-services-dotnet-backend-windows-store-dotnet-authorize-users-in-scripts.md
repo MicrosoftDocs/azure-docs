@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" 
 	description="Learn how to authorize users in the .NET backend of Azure Mobile Services." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 

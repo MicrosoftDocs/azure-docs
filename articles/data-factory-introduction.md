@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2014" 
+	ms.date="02/04/2015" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service
@@ -122,7 +122,7 @@ A linked service is a service that is linked to an Azure data factory. A linked 
 
 
 - A data store such as Azure Storage, Azure SQL Database and on-premises SQL Server database
-- A compute service such as Azure HDInsight.
+- A compute service such as Azure HDInsight and Azure Machine Learning. 
 
 A data store is a container of data or datasets and Azure HDInsight is the only compute service supported at this time. You first create a linked service to point to a data store and then define data sets to represent the data from that data store. 
 
@@ -140,7 +140,13 @@ Typical steps for creating an Azure Data Factory instance are:
 4. Create a pipeline 
 
 ###Activity
-A data processing step in a pipeline that takes one or more input datasets and produces one or more output datasets.  Activities run in an execution environment (for example: Azure HDInsight cluster) and read/write data to a data store associated with the Azure Data Factory instance.
+A data processing step in a pipeline that takes one or more input datasets and produces one or more output datasets.  Activities run in an execution environment (for example: Azure HDInsight cluster) and read/write data to a data store associated with the Azure Data Factory instance. 
+
+Azure Data Factory supports the following activities in a pipeline: 
+
+- **Copy Activity** copies the data from a data store to another data store. See [Copy data with Azure Data Factory][copy-data-with-adf] for details about what data stores the Copy Activity supports. 
+- **HDInsight Activity** processes data by running Hive/Pig scripts or MapReduce programs on an HDInsight cluster. See [Use Pig and Hive with Data Factory][use-pig-hive] and [Invoke MapReduce Programs from Data Factory][run-map-reduce] for details. 
+- **Azure ML Batch Scoring Activity** invokes the Azure Machine Learning batch scoring API. See [Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning][azure-ml-adf] for details. 
  
 ###Data Hub
 An Azure Data Hub is a container for data storage and compute services. For example, a Hadoop cluster with HDFS as storage and Hive/Pig as compute (processing) is a data hub. Similarly, an enterprise data warehouse (EDW) can be modeled as a data hub (database as storage, stored procedures and/or ETL tool as compute services).  Pipelines use data stores and run on compute resources in a data hub. Only HDInsight hub is supported at this moment.
@@ -150,7 +156,7 @@ The Data Hub allows a data factory to be divided into logical or domain specific
 An important characteristic of Hub is that a pipeline runs on a single hub. This means that when defining a pipeline, all of the linked services referenced by tables or activities within that pipeline must have the same hub name as the pipeline itself. If the HubName property is not specified for a linked service, the linked service is placed in the “Default” Hub.
 
 ###Slice
-A table in an Azure data factory is composed of slices over the time axis. The width of a slice is determined by the schedule – hourly/daily. When the schedule is “hourly”, a slice is produced hourly with the start time and end time of a pipeline and so on.  
+A slice is a logical time based partitioning of the data produced by one or more activity runs. A table in an Azure data factory is composed of slices over the time axis. The width of a slice is determined by the schedule – hourly/daily. When the schedule is “hourly”, a slice is produced hourly with the start time and end time of a pipeline and so on.  
 
 Slices provide the ability for IT Professionals to work with a subset of overall data for a specific time window (for example: the slice that is produced for the duration (hour): 1:00 PM to 2:00 PM). They can also view all the downstream data slices for a given time internal and rerun a slice in case of a failure.
 
@@ -169,6 +175,11 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 [Power-Query-Azure-Blob]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx
 [Power-Query-Azure-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx
 [Power-Query-OnPrem-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx
+
+[copy-data-with-adf]: http://azure.microsoft.com/documentation/articles/data-factory-copy-activity/
+[use-pig-hive]: http://azure.microsoft.com/documentation/articles/data-factory-pig-hive-activities/
+[run-map-reduce]: http://azure.microsoft.com/documentation/articles/data-factory-map-reduce/
+[azure-ml-adf]: http://azure.microsoft.com/documentation/articles/data-factory-create-predictive-pipelines/
 
 [adf-tutorial]: ../data-factory-tutorial
 [datafactory-getstarted]: ../data-factory-get-started/

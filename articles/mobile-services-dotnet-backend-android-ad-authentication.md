@@ -5,15 +5,16 @@
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
-	ms.author="mahender"/>
+	ms.author="mahender" 
+	ms.devlang="java"/>
 
 # Authenticate your app with Active Directory
 

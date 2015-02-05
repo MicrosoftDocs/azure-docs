@@ -11,7 +11,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/16/2014" 

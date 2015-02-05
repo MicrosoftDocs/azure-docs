@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" 
 	description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." 
-	services="mobile-services, storage" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/26/2014" 

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with Azure Mobile Services for Android apps" 
 	description="Follow this tutorial to get started using Azure Mobile Services for Android development." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="hero-article" 
 	ms.date="10/16/2014" 

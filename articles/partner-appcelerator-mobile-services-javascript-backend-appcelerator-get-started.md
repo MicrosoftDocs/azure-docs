@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/24/2014" 
 	ms.author="mahender"/>
 

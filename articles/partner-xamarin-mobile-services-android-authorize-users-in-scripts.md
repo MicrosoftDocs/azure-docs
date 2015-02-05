@@ -5,12 +5,12 @@
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services" 
-	documentationCenter=""/>
+	documentationCenter="xamarin"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 

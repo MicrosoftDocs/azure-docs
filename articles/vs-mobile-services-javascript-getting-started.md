@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="How to get started with Mobile Services in a JavaScript project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="02/02/2015" 
+	ms.author="patshea"/>
 
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-mobile-services-javascript-getting-started/)
