@@ -564,7 +564,7 @@ To start with, you need to create the SQL Server database, table, user defined t
 	
 ### <a name="OnPremStep4"></a> Step 4: Monitor pipeline and view the result
 
-You can now use the same steps introduced in [Step 6: Moniotring tables and pipelines](#MainStep6)  to monitor the new pipeline and the data slices for the new on-premises ADF table.
+You can now use the same steps introduced in [Step 6: Monitoring tables and pipelines](#MainStep6)  to monitor the new pipeline and the data slices for the new on-premises ADF table.
  
 When you see the status of a slice of the table **MarketingCampaignEffectivenessOnPremSQLTable** turns into Ready, it means that the pipeline have completed the execution for the slice. To view the results, query the **MarketingCampaignEffectiveness** table in **MarketingCampaigns** database in your SQL Server.
  
