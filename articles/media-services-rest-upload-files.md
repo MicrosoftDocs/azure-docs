@@ -21,7 +21,7 @@
 #Upload Files into a Media Services account using REST API
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-This article is part of the series that introduces Media Services Video on Demand workflow. The previous topic was [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/).
+This article is part of the series that introduces [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow). The previous topic was [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/).
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >
@@ -32,7 +32,7 @@ This article is part of the series that introduces Media Services Video on Deman
 
 ## <a id="upload"></a>Create a new asset and upload a video file with REST API
 
-In Media Services, you upload your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
+In Media Services, you upload your digital files into an asset. The [Asset](https://msdn.microsoft.com/en-us/library/azure/hh974277.aspx) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
 
 ### Create an asset
@@ -50,13 +50,14 @@ One of the properties that you can specify when creating an asset is **Options**
 
 - **EnvelopeEncryptionProtected** = **4**: Specify if you are uploading HLS encrypted with AES files. Note that the files must have been encoded and encrypted by Transform Manager.
 
-If your asset will use encryption, you must create a ContentKey and link it to your asset before uploading the asset files. For more information, see [Encrypt an Asset](https://msdn.microsoft.com/en-us/library/azure/jj129593.aspx#encrypt_an_asset).   
+If your asset will use encryption, you must create a **ContentKey** and link it to your asset as described in the following topic:[How to create a ContentKey](../media-services-rest-create-contentkey). Note that after you upload the files into the asset, you need to update the encryption properties on the **AssetFile** entity with the values you got during the **Asset** encryption. Do it by using the **MERGE** HTTP request. 
+
 
 The following example shows how to create an asset.
 
 **HTTP Request**
 
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/Assets HTTP/1.1
+	POST https://media.windows.net/api/Assets HTTP/1.1
 	Content-Type: application/json
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
@@ -64,9 +65,7 @@ The following example shows how to create an asset.
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
 	x-ms-version: 2.8
-	x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 45
+	Host: media.windows.net
 	
 	{"Name":"BigBuckBunny.mp4"}
 	
@@ -86,10 +85,8 @@ If successful, the following is returned:
 	x-ms-request-id: e98be122-ae09-473a-8072-0ccd234a0657
 	X-Content-Type-Options: nosniff
 	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
 	Strict-Transport-Security: max-age=31536000; includeSubDomains
 	Date: Sun, 18 Jan 2015 22:06:40 GMT
-		
 	{  
 	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Assets/@Element",
 	   "Id":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
@@ -113,7 +110,7 @@ After you upload your digital media file into a blob container, you will use the
 
 **HTTP Request**
 
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/Files HTTP/1.1
+	POST https://media.windows.net/api/Files HTTP/1.1
 	Content-Type: application/json
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
@@ -121,7 +118,7 @@ After you upload your digital media file into a blob container, you will use the
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
 	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
+	Host: media.windows.net
 	Content-Length: 164
 	
 	{  
@@ -176,7 +173,7 @@ The following example shows how to create an AccessPolicy:
 		
 **HTTP Request**
 
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies HTTP/1.1
+	POST https://media.windows.net/api/AccessPolicies HTTP/1.1
 	Content-Type: application/json
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
@@ -184,8 +181,7 @@ The following example shows how to create an AccessPolicy:
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
 	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 74
+	Host: media.windows.net
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
@@ -203,7 +199,6 @@ The following example shows how to create an AccessPolicy:
 	x-ms-request-id: 74c74545-7e0a-4cd6-a440-c1c48074a970
 	X-Content-Type-Options: nosniff
 	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
 	Strict-Transport-Security: max-age=31536000; includeSubDomains
 	Date: Sun, 18 Jan 2015 22:18:06 GMT
 
@@ -236,7 +231,7 @@ The following example shows how to create a SAS URL Locator, as defined by the T
 	
 **HTTP Request**
 	
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/Locators HTTP/1.1
+	POST https://media.windows.net/api/Locators HTTP/1.1
 	Content-Type: application/json
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
@@ -244,9 +239,7 @@ The following example shows how to create a SAS URL Locator, as defined by the T
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
 	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 178
-	
+	Host: media.windows.net
 	{  
 	   "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
 	   "AssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
@@ -300,7 +293,7 @@ For more information on working with Azure storage blobs, see [Blob Service REST
 
 Now that you've uploaded your file, update the FileAsset size (and other) information. For example:
 	
-	MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
+	MERGE https://media.windows.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
 	Content-Type: application/json
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
@@ -308,7 +301,7 @@ Now that you've uploaded your file, update the FileAsset size (and other) inform
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
 	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
+	Host: media.windows.net
 	
 	{  
 	   "ContentFileSize":"1186540",
@@ -329,14 +322,14 @@ If successful, the following is returned:
 **HTTP Request**
 
 
-	DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
+	DELETE https://media.windows.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
 	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
+	Host: media.windows.net
 
 	
 **HTTP Response**
@@ -348,14 +341,14 @@ If successful, the following is returned:
 
 **HTTP Request**
 
-	DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
+	DELETE https://media.windows.net/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
 	x-ms-version: 2.8
-	Host: wamsbayclus001rest-hs.cloudapp.net
+	Host: media.windows.net
 
 **HTTP Response**
 
