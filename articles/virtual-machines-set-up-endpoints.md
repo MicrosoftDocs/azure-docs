@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
+	ms.date="02/04/2015" 
 	ms.author="kathydav"/>
 
 #How to Set Up Endpoints to a Virtual Machine
 
-**Note**: If you want to connect to your virtual machines directly by hostname or set up cross-premises connections, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
-
 All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, other resources on the Internet or other virtual networks require endpoints to handle the inbound network traffic to the virtual machine. 
 
-When you create a virtual machine in the Management Portal, you can create these endpoints, such as for Remote Desktop, Windows PowerShell Remoting, or Secure Shell (SSH). After you create the virtual machine, you can create additional endpoints as needed. You also can manage incoming traffic to the public port by configuring rules for the network access control list (ACL) of the endpoint. This article shows you how to do both of those tasks.
+> [AZURE.NOTE] If you want to connect to your virtual machines directly by hostname or set up cross-premises connections, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+
+When you create a virtual machine in the Management Portal, you can create these endpoints, such as for [Remote Desktop](http://windows.microsoft.com/en-us/windows/connect-using-remote-desktop-connection#connect-using-remote-desktop-connection=windows-7), [Windows PowerShell Remoting](https://technet.microsoft.com/en-us/magazine/ff700227.aspx), or [Secure Shell (SSH)](http://en.wikipedia.org/wiki/Secure_Shell). After you create the virtual machine, you can create additional endpoints as needed. You also can manage incoming traffic to the public port by configuring rules for the [network access control list (ACL)](http://en.wikipedia.org/wiki/Access_control_list) of the endpoint. This article shows you how to do both of those tasks.
 
 Each endpoint has a public port and a private port:
 
@@ -30,9 +30,10 @@ Each endpoint has a public port and a private port:
 
 - The public port is used by the Azure load balancer to communicate with the virtual machine from external resources. After you create an endpoint, you can use the network access control list (ACL) to define rules that help isolate and control the incoming traffic on the public port. For more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
-Default values for the ports and protocol for these endpoints are provided when the endpoints are created through the Management Portal. For all other endpoints, you specify the ports and protocol when you create the endpoint. Resources can connect to an endpoint by using either the TCP or UDP protocol. The TCP protocol includes HTTP and HTTPS communication.  
 
-**Important**: Firewall configuration is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall in the guest operating system. When you create an endpoint, you'll need to configure the appropriate ports in the firewall to allow the traffic you intend to route through the endpoint.
+Default values for the ports and protocol for these endpoints are provided when the endpoints are created through the Management Portal. For all other endpoints, you specify the ports and protocol when you create the endpoint. Resources can connect to an endpoint by using either the TCP or UDP protocol. The TCP protocol includes HTTP, typically port 80, and HTTPS communication, typically port 443.  
+
+**Important**: Firewall configuration is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting during initial Virtual Machine provisioning. For ports specified for all other endpoints, no configuration is done automatically to the firewall in the guest operating system. When you create an endpoint, you'll need to configure the appropriate ports in the firewall to allow the traffic you intend to route through the endpoint.
 
 ###Create an Endpoint###
 
@@ -66,7 +67,7 @@ Default values for the ports and protocol for these endpoints are provided when 
 
 The Access Control List (ACL) on a network endpoint can restrict traffic based upon source IP, to secure the endpoints created on your Virtual Machine. Follow these steps to add, modify, or remove an ACL on an endpoint.
 
-**Note**: If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
 
 1. If you have not already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
