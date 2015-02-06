@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/28/2014" 
+	ms.date="2/5/2015" 
 	ms.author="tomfitz"/>
 
 #How to create PHP web and worker roles
@@ -44,7 +44,7 @@ The [Azure SDK for PHP] consists of several components. This article will use tw
 
 The first step in creating a PHP web or worker role is to create an Azure Service project. an Azure Service project serves as a logical container for web and worker roles, and contains the project's [service definition (.csdef)] and [service configuration (.cscfg)] files. 
 
-To create a new Azure Servcie project, execute the following command:
+To create a new Azure Servcie project, run Azure PowerShell as an administrator, and execute the following command:
 
 	PS C:\>New-AzureServiceProject myProject
 
