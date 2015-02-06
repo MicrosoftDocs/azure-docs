@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="Ibiza" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/02/2015" 
+	ms.date="02/06/2015" 
 	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
@@ -69,7 +69,7 @@ Access does not need to be granted to the entire subscription. Roles can also be
 
 ![][2]
 
-<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-admininistrators</h2>
+<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-administrators</h2>
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
 However, the new RBAC model is supported only by the Azure Preview portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure Preview portal does not make that user a co-administrator of the subscription in the full Azure portal.
@@ -170,106 +170,31 @@ Azure role-based access control comes with the following built-in roles that can
 Click the corresponding link to see the **actions** and **not actions** properties of a role definition. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of a role definition specifies the actions that must be excluded from the allowed actions. 
 
 
-<table style=width:100%">
-<tr>
-<th>Role Name</th>
-<th>Description</th>
-</tr>
-<tr>
-<td><a href="APIMgmt">API Management Service Contributor</a></td>
-<td>Lets you manage API Management service, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="AppInsights">Application Insights Component Contributor</a></td>
-<td>Lets you manage Application Insights components, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="BizTalk">BizTalk Contributor</a></td>
-<td>Lets you manage BizTalk services, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="ClearDB">ClearDB MySQL DB Contributor</a></td>
-<td>Lets you manage ClearDB MySQL databases, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="Contributor">Contributor</a></td>
-<td>Contributors can manage everything except access.</td>
-</tr>
-<tr>
-<td><a href="DataFactory">Data Factory Contributor</a></td>
-<td>Lets you manage ClearDB MySQL databases, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="DocDBContrib">Document DB Account Contributor</a></td>
-<td> Lets you manage DocumentDB accounts, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="IntelliSysContrib">Intelligent Systems Account Contributor</a></td>
-<td>Lets you manage Intelligent Systems accounts, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="NewRelicContrib">NewRelic APM Account Contributor</a></td>
-<td>Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="Owner">Owner</a></td>
-<td>Owner can manage everything, including access.</td>
-</tr>
-<tr>
-<td><a href="Reader">Reader</a></td>
-<td>Readers can view everything, but can't make changes.</td>
-</tr>
-<tr>
-<td><a href="Redis">Redis Cache Contributor</a></td>
-<td>Lets you manage Redis caches, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="SQLDBContrib">SQL DB Contributor</a></td>
-<td>Lets you manage SQL databases, but not access to them. Also, you can’t manage their security-related policies or their parent SQL servers.</td>
-</tr>
-<tr>
-<td><a href="SQLSecMgr">SQL Security Manager</a></td>
-<td>Lets you manage the security-related policies of SQL servers and databases, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="SQLSrvContrib">SQL Server Contributor</a></td>
-<td>Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.</td>
-</tr>
-<tr>
-<td><a href="SchedContrib">Scheduler Job Collections Contributor</a></td>
-<td>Lets you manage Scheduler job collections, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="SearchContrib">Search Service Contributor</a></td>
-<td>Lets you manage Search services, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="StorageContrib">Storage Account Contributor</a></td>
-<td>Lets you manage storage accounts, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="UserAccessAdmin">User Access Administrator</a></td>
-<td>Lets you manage user access to Azure resources.</td>
-</tr>
-<tr>
-<td><a href="VMContrib">Virtual Machine Contributor</a></td>
-<td>Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.</td>
-</tr>
-<tr>
-<td><a href="VNetContrib">Virtual Network Contributor</a></td>
-<td>Lets you manage virtual networks, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="WebPlanContrib">Web Plan Contributor</a></td>
-<td>Lets you manage the web plans for websites, but not access to them.</td>
-</tr>
-<tr>
-<td><a href="WebsiteContrib">Website Contributor</a></td>
-<td>Lets you manage websites (not web plans), but not access to them.</td>
-</tr>
-
-</table>
-
+Role name  | Description  	
+------------- | -------------  
+[API Management Service Contributor](#APIMgmt) | Lets you manage API Management service, but not access to them.
+[Application Insights Component Contributor](#AppInsights) | Lets you manage Application Insights components, but not access to them.
+[BizTalk Contributor](#BizTalk) | Lets you manage BizTalk services, but not access to them.
+[ClearDB MySQL DB Contributor](#ClearDB) | Lets you manage ClearDB MySQL databases, but not access to them.
+[Contributor](#Contributor) | Contributors can manage everything except access.
+[Data Factory Contributor](#DataFactory) | Lets you manage data factories, but not access to them.
+[Document DB Account Contributor](#DocDBContrib) | Lets you manage DocumentDB accounts, but not access to them.
+[Intelligent Systems Account Contributor](#IntelliSysContrib) | Lets you manage Intelligent Systems accounts, but not access to them.
+[NewRelic APM Account Contributor](#NewRelicContrib) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
+[Owner](#Owner) | Owner can manage everything, including access.
+[Reader](#Reader) | Readers can view everything, but can't make changes.
+[Redis Cache Contributor](#Redis) | Lets you manage Redis caches, but not access to them.
+[SQL DB Contributor](#SQLDBContrib) | Lets you manage SQL databases, but not access to them. Also, you can’t manage their security-related policies or their parent SQL servers.
+[SQL Security Manager](#SQLSecMgr) | Lets you manage the security-related policies of SQL servers and databases, but not access to them.
+[SQL Server Contributor](#SQLSrvContrib) | Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.
+[Scheduler Job Collections Contributor](#SchedContrib) | Lets you manage Scheduler job collections, but not access to them.
+[Search Service Contributor](#SearchContrib) | Lets you manage Search services, but not access to them.
+[Storage Account Contributor](#StorageContrib) | Lets you manage storage accounts, but not access to them.
+[User Access Administrator](#UserAccessAdmin) | Lets you manage user access to Azure resources.
+[Virtual Machine Contributor](#VMContrib) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.
+[Virtual Network Contributor](#VNetContrib) | Lets you manage virtual networks, but not access to them.
+[Web Plan Contributor](#WebPlanContrib) | Lets you manage the web plans for websites, but not access to them.
+[Website Contributor](#WebsiteContrib) | Lets you manage websites (not web plans), but not access to them.
 
 
 <h3><a id="APIMgmt"></a>API Management Service Contributor</h3>
