@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="What's new in the Latest SQL Database Update V12 (preview)" 
-	description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." 
+	description="Lists and describes the latest enhancements to Azure SQL Database, the preview of version V12, that are available from Microsoft starting in December 2014 with more arriving in early 2015." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/09/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in the Latest SQL Database Update V12 (preview)
 
+<!--
+GeneMi , 2015-Feb-06  12:22pm
+DacFx import export update.
+Dynamic Data Masking, added. Commented out until Thur Feb/12!
+GA-per-Regions table updates.
+Clarify V11 db remains available during upgrade to V12.
+-->
 
 The latest Azure SQL Database Update V12 (preview) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
 
@@ -69,6 +76,10 @@ This section names and explains the new features in each category.
 
 ### 1.2 Category: Programming and application support
 
+<!-- DELAY MASKING announcement until 2015-Feb-12 Thursday.
+| . | ***February 2015:*** |
+| Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/). |
+-->
 
 | Feature | Description |
 | :--- | :--- |
@@ -85,14 +96,6 @@ This section names and explains the new features in each category.
 
 ### 1.3 Category: Better customer insights
 
-
-<!-- ----------------------------- ???
-GeneMi , 2014-Dec-07:
-
-A.  PM Sasha Nosov recommends that our Help documentation make no mention of XEvents ("session events"?). 
-
-B. "Change tracking" - as a feature name appears in two different rows in different categories in this topic draft. Yet I think both rows refer to the same feature. Is there any good reason to have two rows for Change Tracking?  Probably not.  Ask PMs.
------------------------ -->
 
 | Feature | Description |
 | :--- | :--- |
@@ -130,25 +133,23 @@ The V12 version of Azure SQL Database was released only for preview and testing 
 > [AZURE.NOTE]
 > [Pricing](http://azure.microsoft.com/pricing/details/sql-database/) during the preview has been at a discount. Pricing returns to the GA level for all regions on March 31, 2015.
 
-| Azure region | Release status of V12 | Date announced<br/>for GA |
+| Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA |
 | :--- | :--- | :--- |
-| South Central US | Preview | 2015-February-09, Monday |
-| Central US | Preview | 2015-February-09, Monday |
-| North Central US | Preview | 2015-February-09, Monday |
-| West US | Preview | 2015-February-09, Monday |
-| East US | Preview | 2015-February-09, Monday |
-| East US 2 | Preview | 2015-February-09, Monday |
-| US Gov Iowa | Not available | . |
-| US Gov Virginia | Not available | . |
-| East Asia | Preview | Not announced |
-| Southeast Asia | Preview | Not announced |
-| Japan West | Preview | Not announced |
-| Japan East | Preview | Not announced |
+| South Central US | General Availability (GA) | 2015-February-09, Monday |
+| Central US | General Availability (GA) | 2015-February-09, Monday |
+| North Central US | General Availability (GA) | 2015-February-09, Monday |
+| West US | General Availability (GA) | 2015-February-09, Monday |
+| East US | General Availability (GA) | 2015-February-09, Monday |
+| East US 2 | General Availability (GA) | 2015-February-09, Monday |
+| East Asia | Preview | First quarter 2015, estimated |
+| Southeast Asia | Preview | First quarter 2015, estimated |
+| Japan West | Preview | First quarter 2015, estimated |
+| Japan East | Preview | First quarter 2015, estimated |
 | North Europe | General Availability (GA) | 2015-January-29, Thursday |
 | West Europe | General Availability (GA) | 2015-January-29, Thursday |
-| Brazil South | Not available | . |
-| Australia East | Preview | Not announced |
-| Australia Southeast | Preview | Not announced |
+| Brazil South | Not available | Third quarter 2015, estimated |
+| Australia East | Preview | Second quarter 2015, estimated |
+| Australia Southeast | Preview | Second quarter 2015, estimated |
 
 For any region that has reached GA, all new subscriptions and their subsequent databases use the V12 service architecture and therefore have access to the latest features. The present article lists the new features brought by V12.
 
@@ -170,6 +171,9 @@ Be aware of the following cautions regarding upgrade and post-upgrade to Azure S
 #### 4.1 Cautions *during* upgrade to V12 preview
 
 
+> [AZURE.NOTE]
+> The pre-V12 database *remains available* for data access during the upgrade to V12.
+
 - For databases larger than 50 GB, the upgrade to V12 preview can take up to 24 hours.
 - During the upgrade of a database to a Azure SQL Database V12 preview server, you cannot perform the following actions on the server until the upgrade completes:
  - Create a new database.
@@ -185,10 +189,22 @@ Be aware of the following cautions regarding upgrade and post-upgrade to Azure S
 
 
 - Any database that is upgraded in-place to the V12 preview cannot be reverted back to the earlier version.
-- Database import and export, by use of the by use of Data Tier Application Framework (DACFx), is not supported.
- - However, import and export are supported by the following:<br/>- Azure portal on the web.<br/>- SQL Server Management Studio (SSMS).<br/>- Other tools in the V12 Azure SQL Database server.
 - Test databases, database copies, or new databases, are good candidates for upgrading to the V12 preview. Production databases that your business depends on should wait until after the preview period.
 - The 50% cost discount for Azure SQL Database V12 is in effect in all geographic regions until it expires on Tuesday 2015-March-31. The discount applies to regions, for both preview and GA status.
+
+#### 4.3 Export and import *after* upgrade to V12 preview
+
+You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
+
+- SQL Server Management Studio (SSMS)
+- Visual Studio 2013
+- Data-Tier Application Framework (DacFX)
+
+However, to use the tools, you must first install their latest updates to ensure they support the new V12 features:
+
+- [Cumulative Update 5 for SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3011055)
+- [Preview of SQL Server Database Tooling in Visual Studio 2013](http://www.microsoft.com/en-us/download/details.aspx?id=45319)
+- [Data-Tier Application Framework (DacFX) Preview for the latest Azure SQL Database Update V12](http://www.microsoft.com/en-us/download/details.aspx?id=45320)
 
 
 
