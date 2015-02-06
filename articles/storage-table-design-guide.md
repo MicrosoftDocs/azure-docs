@@ -35,90 +35,90 @@ What is the Table service? As you might expect from the name, the Table service 
 The following example shows a simple table design to store employee and department entities. Many of the examples shown later in this guide are based on this simple design.  
  
 <table>
-	<tr>
-		<th>PartitionKey</th>
-		<th>RowKey</th>
-		<th>Timestamp</th>
-		<th></th>
-	</tr>
-	<tr>
-		<td>Marketing</td>
-		<td>00001</td>
-		<td>2014-08-22T00:50:32Z</td>
-		<td>
-			<table>
-				<tr>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td>Don</td>
-					<td>Hall</td>
-					<td>34</td>
-					<td>donh@contoso.com</td>
-				</tr>
-			</table>
-	</tr>
-	<tr>
-		<td>Marketing</td>
-		<td>00002</td>
-		<td>2014-08-22T00:50:34Z</td>
-		<td>
-			<table>
-				<tr>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td>Jun</td>
-					<td>Cao</td>
-					<td>47</td>
-					<td>junc@contoso.com</td>
-				</tr>
-			</table>
-	</tr>
-	<tr>
-		<td>Marketing</td>
-		<td>Department</td>
-		<td>2014-08-22T00:50:30Z</td>
-		<td>
-			<table>
-				<tr>
-					<th>DepartmentName</th>
-					<th>EmployeeCount</th>
-				</tr>
-				<tr>
-					<td>Marketing</td>
-					<td>153</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td>Sales</td>
-		<td>00010</td>
-		<td>2014-08-22T00:50:44Z</td>
-		<td>
-			<table>
-				<tr>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td>Ken</td>
-					<td>Kwok</td>
-					<td>23</td>
-					<td>kenk@contoso.com</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
+<tr>
+<th>PartitionKey</th>
+<th>RowKey</th>
+<th>Timestamp</th>
+<th></th>
+</tr>
+<tr>
+<td>Marketing</td>
+<td>00001</td>
+<td>2014-08-22T00:50:32Z</td>
+<td>
+<table>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td>Don</td>
+<td>Hall</td>
+<td>34</td>
+<td>donh@contoso.com</td>
+</tr>
+</table>
+</tr>
+<tr>
+<td>Marketing</td>
+<td>00002</td>
+<td>2014-08-22T00:50:34Z</td>
+<td>
+<table>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td>Jun</td>
+<td>Cao</td>
+<td>47</td>
+<td>junc@contoso.com</td>
+</tr>
+</table>
+</tr>
+<tr>
+<td>Marketing</td>
+<td>Department</td>
+<td>2014-08-22T00:50:30Z</td>
+<td>
+<table>
+<tr>
+<th>DepartmentName</th>
+<th>EmployeeCount</th>
+</tr>
+<tr>
+<td>Marketing</td>
+<td>153</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>Sales</td>
+<td>00010</td>
+<td>2014-08-22T00:50:44Z</td>
+<td>
+<table>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td>Ken</td>
+<td>Kwok</td>
+<td>23</td>
+<td>kenk@contoso.com</td>
+</tr>
+</table>
+</td>
+</tr>
 </table>
 
 
@@ -336,56 +336,56 @@ For more information, see the "[Denormalization pattern](#Subheading7.5)" later 
 The following table summarizes the pros and cons of each of the approaches outlined above for storing employee and department entities that have a one-to-many relationship. You should also consider how often you expect to perform various operations: it may be acceptable to have a design that includes an expensive operation if that operation only happens infrequently.  
 
 <table>
-	<tr>
-		<th>Approach</th>
-		<th>Pros</th>
-		<th>Cons</th>
-	</tr>
-	<tr>
-		<td>Separate entity types, same partition, same table</td>
-		<td>
-			<ul>
-				<li>You can update a department entity with a single operation.</li>
-				<li>You can use an EGT to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example if you maintain a departmental employee count for each department.</li>
-			</ul>
-		</td>
-		<td>
-			<ul>
-				<li>You may need to retrieve both an employee and a department entity for some client activities.</li>
-				<li>Storage operations happen in the same partition. At high transaction volumes, this may result in a hotspot.</li>
-				<li>You cannot move an employee to a new department using an EGT.</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>Separate entity types, different partitions or tables or storage accounts</td>
-		<td>
-			<ul>
-				<li>You can update a department entity or employee entity with a single operation.</li>
-				<li>At high transaction volumes, this may help spread the load across more partitions.</li>
-			</ul>
-		</td>
-		<td>
-			<ul>
-				<li>You may need to retrieve both an employee and a department entity for some client activities.</li>
-				<li>You cannot use EGTs to maintain consistency when you update/insert/delete an employee and update a department. For example, updating an employee count in a department entity.</li>
-				<li>You cannot move an employee to a new department using an EGT.</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>Denormalize into single entity type</td>
-		<td>
-			<ul>
-				<li>You can retrieve all the information you need with a single request.</li>
-			</ul>
-		</td>
-		<td>
-			<ul>
-				<li>It may be expensive to maintain consistency if you need to update department information (this would require you to update all the employees in a department).</li>
-			</ul>
-		</td>
-	</tr>
+<tr>
+<th>Approach</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+<tr>
+<td>Separate entity types, same partition, same table</td>
+<td>
+<ul>
+<li>You can update a department entity with a single operation.</li>
+<li>You can use an EGT to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example if you maintain a departmental employee count for each department.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>You may need to retrieve both an employee and a department entity for some client activities.</li>
+<li>Storage operations happen in the same partition. At high transaction volumes, this may result in a hotspot.</li>
+<li>You cannot move an employee to a new department using an EGT.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Separate entity types, different partitions or tables or storage accounts</td>
+<td>
+<ul>
+<li>You can update a department entity or employee entity with a single operation.</li>
+<li>At high transaction volumes, this may help spread the load across more partitions.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>You may need to retrieve both an employee and a department entity for some client activities.</li>
+<li>You cannot use EGTs to maintain consistency when you update/insert/delete an employee and update a department. For example, updating an employee count in a department entity.</li>
+<li>You cannot move an employee to a new department using an EGT.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Denormalize into single entity type</td>
+<td>
+<ul>
+<li>You can retrieve all the information you need with a single request.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>It may be expensive to maintain consistency if you need to update department information (this would require you to update all the employees in a department).</li>
+</ul>
+</td>
+</tr>
 </table>
 	
 How you choose between these options, and which of the pros and cons are most significant, depends on your specific application scenarios. For example, how often do you modify department entities; do all your employee queries need the additional departmental information; how close are you to the scalability limits on your partitions or your storage account?  
@@ -1155,90 +1155,90 @@ You can use the **Merge** method of the **TableOperation** class to reduce the a
 The Table service is a *schema-less* table store that means that a single table can store entities of multiple types providing great flexibility in your design. The following example illustrates a table storing both employee and department entities:  
 
 <table>
-	<tr>
-		<th>PartitionKey</th>
-		<th>RowKey</th>
-		<th>Timestamp</th>
-		<th></th>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>DepartmentName</th>
-					<th>EmployeeCount</th>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
+<tr>
+<th>PartitionKey</th>
+<th>RowKey</th>
+<th>Timestamp</th>
+<th></th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>DepartmentName</th>
+<th>EmployeeCount</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</td>
+</tr>
 </table>	 	 	 
 
 Note that each entity must still have **PartitionKey**, **RowKey**, and **Timestamp** values, but may have any set of properties. Furthermore, there is nothing to indicate the type of an entity unless you choose to store that information somewhere. There are two options for identifying the entity type:  
@@ -1247,98 +1247,98 @@ Note that each entity must still have **PartitionKey**, **RowKey**, and **Timest
 -	Use a separate property to record the entity type as shown in the table below.  
 
 <table>
-	<tr>
-		<th>PartitionKey</th>
-		<th>RowKey</th>
-		<th>Timestamp</th>
-		<th></th>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>EntityType</th>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td>Employee</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>EntityType</th>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td>Employee</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>EntityType</th>
-					<th>DepartmentName</th>
-					<th>EmployeeCount</th>
-				</tr>
-				<tr>
-					<td>Department</td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-			<table>
-				<tr>
-					<th>EntityType</th>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Age</th>
-					<th>Email</th>
-				</tr>
-				<tr>
-					<td>Employee</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
+<tr>
+<th>PartitionKey</th>
+<th>RowKey</th>
+<th>Timestamp</th>
+<th></th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>EntityType</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td>Employee</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>EntityType</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td>Employee</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>EntityType</th>
+<th>DepartmentName</th>
+<th>EmployeeCount</th>
+</tr>
+<tr>
+<td>Department</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<table>
+<tr>
+<th>EntityType</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr>
+<td>Employee</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</td>
+</tr>
 </table>	 	 	 	 
 
 The first option, prepending the entity type to the **RowKey**, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
