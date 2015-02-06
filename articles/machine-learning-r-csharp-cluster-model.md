@@ -17,7 +17,7 @@
 	ms.author="jaymathe"/> 
 
 
-#Cluster model    
+#Cluster Model    
 
 
 
