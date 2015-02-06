@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -21,7 +21,7 @@
 
 # Django and MySQL on Azure with Python Tools 2.1 for Visual Studio 
 
-In this tutorial, we'll create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=oKCApIrS0Lo).
+In this tutorial, we'll use [Python Tools for Visual Studio][] to create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
 We'll learn how to use a MySQL service hosted on Azure, how to configure the application to use MySQL, and how to publish the application to an Azure Website.
 
@@ -203,6 +203,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510

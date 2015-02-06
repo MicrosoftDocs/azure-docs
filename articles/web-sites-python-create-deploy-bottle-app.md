@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -47,17 +47,17 @@ You will create an application using the Bottle web framework (see alternate ver
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- Python Tools for Visual Studio (optional)
+- [Python Tools 2.1 for Visual Studio][] (optional)
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
 ### Windows
 
-If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7](http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409) or [Azure SDK for Python 3.4](http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409) using Web Platform Installer.  This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).  Alternatively, you can get Python from [python.org](http://www.python.org/).
+If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7][] or [Azure SDK for Python 3.4][] using Web Platform Installer.  This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).  Alternatively, you can get Python from [python.org][].
 
-For Git, we recommend [Git for Windows](http://msysgit.github.io/) or [GitHub for Windows](https://windows.github.com/).  If you use Visual Studio, you can use the integrated Git support.
+For Git, we recommend [Git for Windows][] or [GitHub for Windows][].  If you use Visual Studio, you can use the integrated Git support.
 
-We also recommend installing [Python Tools for Visual Studio](http://pytools.codeplex.com).  This is optional, but if you have [Visual Studio](http://www.visualstudio.com/), including the free Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
+We also recommend installing [Python Tools 2.1 for Visual Studio][].  This is optional, but if you have [Visual Studio][], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
 
 ### Mac/Linux
 
@@ -119,7 +119,7 @@ Local development server support. Use this to run the application locally.
     \BottleWebProject.pyproj
     \BottleWebProject.sln
 
-Project files for use with [Python Tools for Visual Studio](http://pytools.codeplex.com).
+Project files for use with [Python Tools for Visual Studio][].
 
     \ptvs_virtualenv_proxy.py
 
@@ -193,7 +193,7 @@ Press F5 to start debugging, and your web browser will open automatically to the
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-You can set breakpoints in the sources, use the watch windows, etc.  See the [PTVS documentation](http://pytools.codeplex.com/documentation) for more information on the various features.
+You can set breakpoints in the sources, use the watch windows, etc.  See the [PTVS documentation][] for more information on the various features.
 
 ### Make changes
 
@@ -421,5 +421,14 @@ For information on using Azure Table Storage and MongoDB:
 [Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]: ../web-sites-python-ptvs-bottle-mongodb
 
 <!--External Link references-->
+[Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[python.org]: http://www.python.org/
+[Git for Windows]: http://msysgit.github.io/
+[GitHub for Windows]: https://windows.github.com/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Visual Studio]: http://www.visualstudio.com/
+[PTVS documentation]: http://pytools.codeplex.com/documentation
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
 [Bottle Documentation]: http://bottlepy.org/docs/dev/index.html

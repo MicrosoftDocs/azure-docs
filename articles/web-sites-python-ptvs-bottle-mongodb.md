@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -21,7 +21,7 @@
 
 # Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio
 
-In this tutorial, we'll create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
+In this tutorial, we'll use [Python Tools for Visual Studio][] to create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
 
 The polls application defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
 
@@ -220,6 +220,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
