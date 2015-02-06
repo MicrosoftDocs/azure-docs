@@ -17,6 +17,8 @@
 	ms.author="pamehta"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
  
 ###General questions
 
