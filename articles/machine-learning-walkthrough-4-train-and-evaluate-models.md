@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" 
-	description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" 
+	description="Solution walkthrough step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="aryericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

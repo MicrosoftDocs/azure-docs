@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Step 5: Publish the Machine Learning web service | Azure" 
-	description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" 
+	description="Solution walkthrough step 5: Publish a scoring experiment in Azure Machine Learning Studio as an Azure Machine Learning web service" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
