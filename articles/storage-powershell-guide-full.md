@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Using Azure PowerShell with Azure Storage" 
-   description="Learn how to use Azure PowerShell for Azure Storage" 
-   services="storage" 
-   documentationCenter="" 
-   authors="Selcin" 
-   manager="adinah" 
-   editor="tysonn"/>
+	pageTitle="Using Azure PowerShell with Azure Storage" 
+	description="Learn how to use Azure PowerShell for Azure Storage" 
+	services="storage" 
+	documentationCenter="na" 
+	authors="Selcin" 
+	manager="adinah"/>
 
-<tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage" 
-   ms.date="01/30/2015"
-   ms.author="selcint"/>
-
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="selcint"/>
 
 # Using Azure PowerShell with Azure Storage 
 
@@ -686,7 +684,7 @@ In this guide, you've learned how to manage Azure Storage with Azure PowerShell.
 - [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 - [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure Storage PowerShell Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
-- [Windows PowerShell Reference](http://msdn.microsoft.com/library/ms714469(v=vs.85).aspx)
+- [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)
 
 [Image1]: ./media/storage-powershell-guide-full/Subscription_currentportal.png
 [Image2]: ./media/storage-powershell-guide-full/Subscription_Previewportal.png
