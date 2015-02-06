@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="02/06/2015" 
 	ms.author="nitinme"/>
 
 # Use Hive with HDInsight to analyze logs from websites
