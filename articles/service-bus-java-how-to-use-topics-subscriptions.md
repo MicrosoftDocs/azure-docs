@@ -16,31 +16,17 @@
 	ms.date="02/03/2015" 
 	ms.author="sethm"/>
 
-# How to Use Service Bus Topics/Subscriptions
+# How to use Service Bus topics/subscriptions
 
-This guide will show you how to use Service Bus topics and
+This guide describes how to use Service Bus topics and
 subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics
 and subscriptions**, **creating subscription filters**, **sending
 messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
 
-## Table of Contents
-
--   [What are Service Bus Topics and Subscriptions?][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Topic][]
--   [How to: Create Subscriptions][]
--   [How to: Send Messages to a Topic][]
--   [How to: Receive Messages from a Subscription][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [How to: Delete Topics and Subscriptions][]
--   [Next Steps][]
-
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-## <a name="bkmk_ConfigYourApp"> </a>Configure Your Application to Use Service Bus
+## Configure your application to use Service Bus
 
 Add the following import statements to the top of the Java file:
 
@@ -52,7 +38,7 @@ Add the following import statements to the top of the Java file:
 
 Add the Azure Libraries for Java to your build path and include it in your project deployment assembly.
 
-## <a name="bkmk_HowToCreateTopic"> </a>How to Create a Topic
+## How to create a topic
 
 Management operations for Service Bus topics can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
@@ -98,14 +84,14 @@ Note that you can use the **listTopics** method on
 **ServiceBusContract** objects to check if a topic with a specified name
 already exists within a service namespace.
 
-## <a name="bkmk_HowToCreateSubscrip"> </a>How to Create Subscriptions
+## How to create subscriptions
 
 Topic subscriptions are also created with the **ServiceBusService**
 class. Subscriptions are named and can have an optional filter that
 restricts the set of messages passed to the subscription's virtual
 queue.
 
-### Create a Subscription with the default (MatchAll) Filter
+### Create a subscription with the default (MatchAll) filter
 
 The **MatchAll** filter is the default filter that is used if no filter
 is specified when a new subscription is created. When the **MatchAll**
@@ -118,7 +104,7 @@ filter.
     CreateSubscriptionResult result = 
         service.createSubscription("TestTopic", subInfo);
 
-### Create Subscriptions with Filters
+### Create subscriptions with filters
 
 You can also setup filters that allow you to scope which messages sent
 to a topic should show up within a specific topic subscription.
@@ -168,7 +154,7 @@ subscription, and selectively delivered to receivers subscribed to the
 "HighMessages" and "LowMessages" topic subscriptions (depending upon the
 message content).
 
-## <a name="bkmk_HowToSendMsgs"> </a>How to Send Messages to a Topic
+## How to send messages to a topic
 
 To send a message to a Service Bus Topic, your application will obtain a
 **ServiceBusContract** object. The below code demonstrates how to send a
@@ -210,7 +196,7 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a>How to Receive Messages from a Subscription
+## How to receive messages from a subscription
 
 The primary way to receive messages from a subscription is to use a
 **ServiceBusContract** object. Received messages can work in two
@@ -293,7 +279,7 @@ below performs a loop and processes messages in the "HighMessages" subscription 
 	    System.exit(-1);
 	} 
 
-## <a name="bkmk_HowToHandleAppCrash"> </a>How to Handle Application Crashes and Unreadable Messages
+## How to handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -321,7 +307,7 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
-## <a name="bkmk_HowToDeleteTopics"> </a>How to Delete Topics and Subscriptions
+## How to delete topics and subscriptions
 
 The primary way to delete topics and subscriptions is to use a
 **ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
@@ -335,7 +321,7 @@ with the topic. Subscriptions can also be deleted independently.
     // Delete a topic
 	service.deleteTopic("TestTopic");
 
-# <a name="bkmk_NextSteps"> </a>Next Steps
+# Next Steps
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Service Bus Queues, Topics, and Subscriptions][] for more information.

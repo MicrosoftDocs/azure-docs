@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Use the sample datasets in Machine Learning Studio | Azure" 
-	description="Use the sample datasets included in Azure Machine Learning Studio." 
+	description="Descriptions of the sample datasets that are included in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 

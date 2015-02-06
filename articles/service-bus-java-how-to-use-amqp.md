@@ -24,7 +24,7 @@
 	ms.author="sethm"/>
 
 
-# How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0
+# How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
 
 # Introduction
 
@@ -33,8 +33,6 @@ The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire
 The addition of AMQP 1.0 means that it’s now possible to leverage the queuing and publish/subscribe brokered messaging features of Service Bus from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks and operating systems.
 
 This How-To Guide explains how to use the Service Bus brokered messaging features (Queues and publish/subscribe Topics) from Java applications using the popular Java Message Service (JMS) API standard.
-
-# 
 
 # Getting started with Service Bus
 
@@ -168,7 +166,7 @@ The JNDI environment is configured by passing a hashtable of configuration infor
 	env.put(Context.PROVIDER_URL, "servicebus.properties"); 
 	InitialContext context = new InitialContext(env); 
 
-### A simple JMS application using a Service Bus Queue
+### A simple JMS application using a Service Bus queue
 
 The following example program sends JMS TextMessages to a Service Bus queue with the JNDI logical name of QUEUE, and receives the messages back.
 

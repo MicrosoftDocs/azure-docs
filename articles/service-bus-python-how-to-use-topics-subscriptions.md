@@ -28,26 +28,12 @@ messages** to a topic, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**. For more information on topics
 and subscriptions, see the [Next Steps](#Next_Steps) section.
 
-## Table of Contents
-
--   [What are Service Bus Topics and Subscriptions?](#what-are-service-bus-topics)
--   [Create a Service Namespace](#create-a-service-namespace)
--   [Obtain the Default Management Credentials for the Namespace](#obtain-default-credentials)
--   [How to: Create a Topic](#How_to_Create_a_Topic)
--   [How to: Create Subscriptions](#How_to_Create_Subscriptions)
--   [How to: Send Messages to a Topic](#How_to_Send_Messages_to_a_Topic)
--   [How to: Receive Messages from a Subscription](#How_to_Receive_Messages_from_a_Subscription)
--   [How to: Handle Application Crashes and Unreadable Messages](#How_to_Handle_Application_Crashes_and_Unreadable_Messages)
--   [How to: Delete Topics and Subscriptions](#How_to_Delete_Topics_and_Subscriptions)
--   [Next Steps](#Next_Steps)
-
-
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
 
 
-##<a name="How_to_Create_a_Topic"></a>How to Create a Topic
+## How to create a topic
 
 The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Azure Service Bus:
 
@@ -75,7 +61,7 @@ setting the maximum topic size to 5GB a time to live of 1 minute:
 
 	bus_service.create_topic('mytopic', topic_options)
 
-##<a name="How_to_Create_Subscriptions"></a>How to Create Subscriptions
+## How to create subscriptions
 
 Topic subscriptions are also created with the **ServiceBusService**
 object. Subscriptions are named and can have an optional filter that
@@ -85,7 +71,7 @@ queue.
 **Note**: Subscriptions are persistent and will continue to exist until
 either they, or the topic they are associated with, are deleted.
 
-### Create a Subscription with the default (MatchAll) Filter
+### Create a subscription with the default (MatchAll) filter
 
 The **MatchAll** filter is the default filter that is used if no filter
 is specified when a new subscription is created. When the **MatchAll**
@@ -96,7 +82,7 @@ filter.
 
 	bus_service.create_subscription('mytopic', 'AllMessages')
 
-### Create Subscriptions with Filters
+### Create subscriptions with filters
 
 You can also setup filters that allow you to scope which messages sent
 to a topic should show up within a specific topic subscription.
@@ -148,7 +134,7 @@ receivers subscribed to the 'AllMessages' topic subscription, and
 selectively delivered to receivers subscribed to the 'HighMessages' and
 'LowMessages' topic subscriptions (depending upon the message content).
 
-##<a name="How_to_Send_Messages_to_a_Topic"></a>How to Send Messages to a Topic
+## How to send messages to a topic
 
 To send a message to a Service Bus topic, your application must use the
 **send\_topic\_message** method of the **ServiceBusService** object.
@@ -169,7 +155,7 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
 
-##<a name="How_to_Receive_Messages_from_a_Subscription"></a>How to Receive Messages from a Subscription
+## How to receive messages from a subscription
 
 Messages are received from a subscription using the
 **receive\_subscription\_message** method on the **ServiceBusService**
@@ -210,7 +196,7 @@ it from the subscription.
 	msg.delete()
 
 
-  ##<a name="How_to_Handle_Application_Crashes_and_Unreadable_Messages"></a>How to Handle Application Crashes and Unreadable Messages
+## How to handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -238,7 +224,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-##<a name="How_to_Delete_Topics_and_Subscriptions"></a>How to Delete Topics and Subscriptions
+## How to delete topics and subscriptions
 
 Topics and subscriptions are persistent, and must be explicitly deleted
 either through the Azure Management portal or programmatically.
@@ -253,7 +239,7 @@ following code demonstrates how to delete a subscription named
 
 	bus_service.delete_subscription('mytopic', 'HighMessages')
 
-##<a name="Next_Steps"></a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.

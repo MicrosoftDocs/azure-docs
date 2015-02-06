@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" 
-	description="Publishing Azure ML Web Services to the Azure Marketplace" 
+	pageTitle="Publish Azure Machine Learning Web Service to the Azure Marketplace | Azure" 
+	description="How to publish your Azure Machine Learning Web Service to the Azure Marketplace" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -16,7 +16,7 @@
 	ms.date="10/03/2014" 
 	ms.author="garye"/>
 
-# Publishing Azure ML Web Services to the Azure Marketplace 
+# Publish Azure Machine Learning Web Service to the Azure Marketplace 
 
 The Azure Marketplace provides the ability to publish Azure Machine Learning web services as paid or free services for consumption by external customers. This article provides an overview of that process with links to guidelines to get you started. By using this process, you can make your web services available for other developers to consume in their applications.
 
