@@ -84,7 +84,7 @@ Installing node.js on RPM-based distributions requires enabling the EPEL reposit
 	yum install epel-release [enter]
 	yum install nodejs [enter] 
 	yum install npm [enter] 
-	npm install azure-cli –g  [enter]
+	npm install -g azure-cli  [enter]
 
 
 Once the xplat-cli has been installed, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access the xplat-cli commands. At the end of the installation, you should see something similar to the following:

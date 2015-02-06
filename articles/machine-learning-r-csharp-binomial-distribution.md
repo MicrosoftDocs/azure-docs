@@ -22,21 +22,21 @@
 
 
 
-The Binomial Distribution Suite is a set of sample web services ([Binomial Generator](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdp4), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdq5)) specifically three services that help generating and dealing with binomial distributions. The services allow generating a binomial distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.  Each of the services emits different outputs based on the selected service (see description below). The Binomial Distribution Suite is based on R functions qbinom, rbinom and pbinom that are included in R stats package. 
+The Binomial Distribution Suite is a set of sample web services ([Binomial Generator](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdp4), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/bdq5)) that help in generating and dealing with binomial distributions. The services allow generating a binomial distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile. Each of the services emits different outputs based on the selected service (see description below). The Binomial Distribution Suite is based on the R functions qbinom, rbinom, and pbinom, which are included in the R stats package. 
 
->While these web services could be consumed by users – potentially directly on the marketplace, through a mobile app, website, or even on a local computer for example, the purpose of the web service is also to serve as an example of how Azure ML can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within the Azure ML Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world – no infrastructure set-up by the author of the web service is required.
+>These web services could be consumed by users – potentially directly on the marketplace, through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world – no infrastructure setup by the author of the web service is required.
 
-##Consumption of Web Service
-The Binomial Distribution Suite includes the following 3 services:
+##Consumption of web service
+The Binomial Distribution Suite includes the following 3 services.
 
 ###Binomial Distribution Quantile Calculator
 This service accepts 4 arguments of a normal distribution and calculates the associated quantile.
 The input arguments are:
 
-- p – a single aggregated probability of multiple trials  
-- size – the number of trials
-- prob – the probability of success in a trial
-- Side – L for the lower side of the distribution, U for the upper side of the distribution 
+- p - A single aggregated probability of multiple trials.  
+- size - The number of trials.
+- prob - The probability of success in a trial.
+- Side - L for the lower side of the distribution, U for the upper side of the distribution. 
 
 The output of the service is the calculated quantile that is associated with the given probability.
 
@@ -44,10 +44,10 @@ The output of the service is the calculated quantile that is associated with the
 This service accepts 4 arguments of a binomial distribution and calculates the associated probability.
 The input arguments are:
 
-- q – a single quantile of  an event with binomial distribution 
-- size – the number of trials
-- prob – the probability of success in a trial
-- side – L for the lower side of the distribution, U for the upper side of the distribution or E that is equal to a single number of successes.
+- q - A single quantile of an event with binomial distribution. 
+- size - The number of trials.
+- prob - The probability of success in a trial.
+- side - L for the lower side of the distribution, U for the upper side of the distribution, or E that is equal to a single number of successes.
 
 The output of the service is the calculated probability that is associated with the given quantile.
 
@@ -55,13 +55,13 @@ The output of the service is the calculated probability that is associated with 
 This service accepts 3 arguments of a binomial distribution and generates a random sequence of numbers that are binomially distributed. 
 The following arguments should be provided to it within the request:
 
-- n – Number of observations 
-- size – number of trials
-- prob – probability of success
+- n - Number of observations. 
+- size - Number of trials.
+- prob - Probability of success.
 
 The output of the service is a sequence of length n with a binomial distribution based on the size and prob arguments.
 
->This service as hosted on the Microsoft Azure Marketplace is an OData service; these may be called through POST or GET methods. 
+>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods. 
 
 There are multiple ways of consuming the service in an automated fashion (example apps are here: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx),
 [Probability Calculator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx),
@@ -157,9 +157,9 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 
 
 
-##Creation of the web-service 
+##Creation of the web service 
 
->This web service was created using Azure ML. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 ###Binomial Distribution Quantile Calculator
 
@@ -264,10 +264,10 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     maml.mapOutputPort("output");
 
 ##Limitations 
-These are very simple examples surrounding the Binomial distribution. As can be seen from the example code above, little error catching is implemented.
+These are very simple examples surrounding the binomial distribution. As can be seen from the example code above, little error catching is implemented.
 
 ##FAQ
-For Frequently Asked Questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
 
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
