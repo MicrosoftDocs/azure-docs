@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What Is Machine Learning Studio? | Azure" 
-	description="Overview of Azure Machine Learning Studio" 
+	pageTitle="What Is Azure Machine Learning Studio? | Azure" 
+	description="Overview of Azure Machine Learning Studio and its basic components" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
