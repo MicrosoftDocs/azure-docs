@@ -29,6 +29,18 @@ Contribute to our samples on GitHub: [Microsoft Azure Active Directory Samples a
 
 These samples show how to write a web application directs the user’s browser to sign them in to Azure AD.
 
+
+
+| Language/Platform | Sample | Description
+| ----------------- | ------ | -----------
+| C#/.NET | [http://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet](WebApp-OpenIDConnect-DotNet) | Use OpenID Connect (ASP.Net OpenID Connect OWIN middleware) to authenticate users from an Azure AD tenant.
+| C#/.NET | [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](WebApp-MultiTenant-OpenIdConnect-DotNet) | A multi-tenant .NET MVC web application that uses OpenID Connect (ASP.Net OpenID Connect OWIN middleware) to authenticate users from multiple Azure AD tenants.
+| C#/.NET | [https://github.com/AzureADSamples/WebApp-WSFederation-DotNet](WebApp-WSFederation-DotNet) | Use WS-Federation (ASP.Net WS-Federation OWIN middleware) to authenticate users from an Azure AD tenant.
+
+
+
+
+
 <table>
           <tr>
             <th>
