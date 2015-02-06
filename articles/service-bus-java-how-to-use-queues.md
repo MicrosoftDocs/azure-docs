@@ -16,29 +16,16 @@
 	ms.date="02/03/2015" 
 	ms.author="sethm"/>
 
-# How to Use Service Bus Queues
+# How to use Service Bus queues
 
-This guide will show you how to use Service Bus queues. The samples are
+This guide describes how to use Service Bus queues. The samples are
 written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
 
-## Table of Contents
-
--   [What are Service Bus Queues?][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Security Token Provider][]
--   [How to: Create a Queue][How to: Create a Security Token Provider]
--   [How to: Send Messages to a Queue][]
--   [How to: Receive Messages from a Queue][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [Next Steps][]
-
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-## <a name="bkmk_ConfigApp"> </a>Configure Your Application to Use Service Bus
+## Configure your application to use Service Bus
 
 Add the following import statements to the top of the Java file:
 
@@ -48,7 +35,7 @@ Add the following import statements to the top of the Java file:
 	import com.microsoft.windowsazure.services.core.*; 
 	import javax.xml.datatype.*;
 	
-## <a name="bkmk_HowToCreateQueue"> </a>How to Create a Queue
+## How to create a queue
 
 Management operations for Service Bus queues can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
@@ -95,7 +82,7 @@ Note that you can use the **listQueues** method on **ServiceBusContract**
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
-## <a name="bkmk_HowToSendMsgs"> </a>How to Send Messages to a Queue
+## How to send messages to a queue
 
 To send a message to a Service Bus Queue, your application will obtain a
 **ServiceBusContract** object. The below code demonstrates how to send a
@@ -145,7 +132,7 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a>How to Receive Messages from a Queue
+## How to receive messages from a queue
 
 The primary way to receive messages from a queue is to use a
 **ServiceBusContract** object. Received messages can work in two
@@ -229,7 +216,7 @@ our "TestQueue":
 	    System.exit(-1);
 	} 	
 
-## <a name="bkmk_HowToHandleAppCrashes"> </a>How to Handle Application Crashes and Unreadable Messages
+## How to handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -257,7 +244,7 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
-## <a name="bkmk_NextSteps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
