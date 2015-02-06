@@ -86,7 +86,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 >This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
-From within Azure Machine Learning, a new blank experiment was created. Sample input data was uploaded with a predefined data schema. Linked to the data schema is an “Execute R Script” module that generates the ARIMA forecasting model by using ‘ets’ and ‘forecast’ functions from R. 
+From within Azure Machine Learning, a new blank experiment was created. Sample input data was uploaded with a predefined data schema. Linked to the data schema is an “Execute R Script” module that generates the ETS forecasting model by using ‘ets’ and ‘forecast’ functions from R. 
 
 
 ![Experiment flow][2]
