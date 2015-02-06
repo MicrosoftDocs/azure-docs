@@ -3,7 +3,7 @@
 	description="Step 1: Create a new Azure Machine Learning Studio workspace" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="aryericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

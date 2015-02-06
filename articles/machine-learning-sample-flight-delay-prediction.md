@@ -3,7 +3,7 @@
 	description="A sample Azure Machine Learning experiment to develop a model that predicts whether a scheduled passenger flight will be delayed by more than 15 minutes." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="aryericson" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
