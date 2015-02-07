@@ -17,8 +17,6 @@
 	ms.author="pamehta"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
-
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
  
 ###General questions
 
@@ -27,6 +25,8 @@
 Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in to Machine Learning, upload data, and immediately start machine learning experiments. The service provides visual composition, a large pallet of modules, and a library of starting templates to make common machine learning tasks simple and quick. 
 
 Turning a model into a web service is easy. With a few clicks, a predictive model build in Machine Learning Studio can be turned into a public REST API that encapsulates custom data, transformation logic, and sophisticated machine learning models.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
  
 **2. What is Machine Learning Studio?**
 

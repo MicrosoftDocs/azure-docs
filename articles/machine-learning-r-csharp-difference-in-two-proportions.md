@@ -20,9 +20,10 @@
 #Difference in Proportions Test
 
 
-
-
 Are two proportions statistically different? Suppose a user wants to compare two movies to determine if one movie has a significantly higher proportion of ‘likes’ when compared to the other. With a large sample, there could be a statistically significant difference between the proportions 0.50 and 0.51. With a small sample, there may not be enough data to determine if these proportions are actually different. 
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 This [web service]( https://datamarket.azure.com/dataset/aml_labs/prop_test) conducts a hypothesis test of the difference in two proportions based on user input of the number of successes and the total number of trials for the 2 comparison groups. In one possible scenario, this web service could be called from within a movie comparison app, telling the user whether one of the movies is really ‘liked’ more often than the other, based on movie ratings.
 

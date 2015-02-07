@@ -19,74 +19,8 @@
 
 This document depicts Microsoft Azure Machine Learning Recommendations APIs.
 
-##Contents
 
-
-
-
-- [1. General overview](#1-general-overview)
-- [2. Advanced topics](#2-advanced-topics)
-    - [2.1. Recommendation quality](#21-recommendation-quality)
-    - [2.2. Rank build](#22-rank-build)
-    - [2.3. Recommendation reasoning](#23-recommendation-reasoning)
-- [3. Limitations](#3-limitations)
-- [4. APIs - general information](#4-apis---general-information)
-    - [4.1. Authentication](#41-authentication)
-    - [4.2. Service URI](#42-service-uri)
-    - [4.3. API version](#43-api-version)
-- [5. Model Basic](#5-model-basic)
-    - [5.1. Create Model](#51-create-model)
-    - [5.2. Get Model](#52-get-model)
-    - [5.3. Get All Models](#53-get-all-models)
-    - [5.4. Update Model](#54-update-model)
-    - [5.5. Delete Model](#55-delete-model)
-- [6. Model Advanced](#6-model-advanced)
-    - [6.1. Model Data Insight](#61-model-data-insight)
-    - [6.2. Model Insight](#62-model-insight)
-    - [6.3. Get Model Sample](#63-get-model-sample)
-- [7. Model Business Rules](#7-model-business-rules)
-    - [7.1. Get Model Rules](#71-get-model-rules)
-    - [7.2. Add Rule](#72-add-rule)
-    - [7.3. Delete Rule](#73-delete-rule)
-    - [7.4. Delete All Rules](#74-delete-all-rules)
-- [8. Catalog](#8-catalog)
-    - [8.1. Import Catalog Data](#81-import-catalog-data)
-    - [8.2. Get Catalog](#82-get-catalog)
-    - [8.3. Get Catalog Items by Token](#83-get-catalog-items-by-token)
-- [9. Usage data](#9-usage-data)
-    - [9.1. Import Usage Data](#91-import-usage-data)
-        - [9.1.1. Uploading File](#911-uploading-file)
-        - [9.1.2. Using Data Acquisition](#912-using-data-acquisition)
-  - [9.2. List Model Usage Files](#92-list-model-usage-files)
-  - [9.3. Get Usage Statistics](#93-get-usage-statistics)
-  - [9.4. Get Usage File Sample](#94-get-usage-file-sample)
-  - [9.5. Get Model Usage File](#95-get-model-usage-file)
-  - [9.6. Delete Usage File](#96-delete-usage-file)
-  - [9.7. Delete All Usage Files](#97-delete-all-usage-files)
-- [10. Features](#10-features)
-    - [10.1. Get Features Info](#101-get-features-info-for-last-rank-build)
-    - [10.2. Get Features Info (For Specific Rank Build)](#102-get-features-info-for-specific-rank-build)
-- [11. Build](#11-build)
-    - [11.1. Build parameters](#111-build-parameters)
-    	- [11.1.1 Usage condenser](#1111-usage-condenser)
-    	- [11.1.2 Rank build parameters](#1112-rank-build-parameters)
-    	- [11.1.3 Recommendation build parameters](#1113-recommendation-build-parameters)
-    - [11.2. Trigger a Recommendation Build](#112-trigger-a-recommendation-build)
-    - [11.3. Trigger Build (Rank or Recommendation)](#113-trigger-build-%28rank-or-recommendation%29)
-    - [11.4. Get Builds Status of a Model](#114-get-builds-status-of-a-model)
-    - [11.5. Get Builds Status of a User](#115-get-builds-status-of-a-user)
-    - [11.6. Delete Build](#116-delete-build)
-    - [11.7. Get Build Parameters](#117-get-build-parameters)
-    - [11.8. Cancel Build](#118-cancel-build)
-- [12. Recommendation](#12-recommendation)
-    - [12.1. Get Recommendations](#121-get-recommendations)
-- [13. Notifications](#13-notifications)
-    - [13.1. Get Notifications](#131-get-notifications)
-    - [13.2. Delete Model Notifications](#132-delete-model-notifications)
-    - [13.3. Delete User Notifications](#133-delete-user-notifications)
-- [14. Legal](#14-legal)
-
-
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ##1. General overview
 This document is an API reference. You should start with the “Azure Machine Learning Recommendation – Quick Start” document.

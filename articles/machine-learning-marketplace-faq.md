@@ -27,6 +27,9 @@
 
 Your input parameter(s) may not conform to the required format for the specific web service. Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.
 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 **2. If I copy the API link for the web service that I see on the "Explore this dataset" page and paste it into another browser window, what credentials should I use to access the results, and how do I see them?**
 
 You should use your Marketplace account as the username and the primary account key as the password. The primary account key can be found on the **Explore this dataset** page under the description of the web service (click the **show** button). The result may display in the browser or it may be available to  download, depending on which browser you are using.

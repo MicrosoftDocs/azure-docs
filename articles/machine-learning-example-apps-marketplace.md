@@ -20,6 +20,8 @@
 
 Azure Machine Learning provides data scientists with a channel to monetize their know-how and creativity just as smartphone app developers do. By publishing your machine learning services in the Azure Marketplace, you enable anyone in the world to pay and subscribe to your published cloud APIs and use them in their apps.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
+
 But Azure Marketplace can offer much more than basic analytics APIs. For example, we built a set of finished end-to-end Machine Learning applications to solve specific business needs. These Machine Learning apps do not require a data scientist or Machine Learning expertise to use them. The science is already baked into our solutions. Users can simply supply their own data and start using the apps. 
 
 For example, these apps include :
