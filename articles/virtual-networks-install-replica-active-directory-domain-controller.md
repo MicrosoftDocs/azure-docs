@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/12/2014" 
+	ms.date="02/06/2015" 
 	ms.author="Justinha"/>
 
 
@@ -36,7 +36,8 @@ You might also be interested in these related topics:
 * [Step 2: Create an Azure virtual network](#createvnet)
 * [Step 3: Create Azure VMs for the DC roles](#createdcvms)
 * [Step 4: Install AD DS on Azure VMs](#installadds)
-* [Step 5: Create VMs for application servers](#createappvms)
+* [Step 5: Reconfigure DNS server for the virtual network](#reconfigDNS)
+* [Step 6: Create VMs for application servers](#createappvms)
 * [Additional Resources](#resources)
 
 <h2><a id="diagram"></a>Scenario Diagram</h2>
@@ -121,6 +122,16 @@ It’s a good idea to create a site in Active Directory that represents the netw
 </li>
 <li><p>Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the <b>Host Cache Preference</b> set to <b>None</b>. After you first sign in to the VM, open <b>Server Manager</b> > <b>File and Storage Services</b> to create a volume on this disk using NTFS.</p></li>
 <li><p>Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and <a href = "http://azure.microsoft.com/documentation/articles/install-configure-powershell/">install Azure PowerShell</a> and run the <a href = "http://msdn.microsoft.com/library/azure/dn630228.aspx">Set-AzureStaticVNetIP</a> cmdlet.</p></li>
+
+</ol>
+
+<h2><a id="installadds"></a>Step 4: Install AD DS on Azure VMs</h2>
+
+Sign in to a VM and verify that you have connectivity across the site-to-site VPN or ExpressRoute connection to resources on your on-premises network. Then install AD DS on the Azure VMs. You can use same process that you use to install an additional DC on your on-premises network (UI, Windows PowerShell, or an answer file). As you install AD DS, make sure you specify the new volume for the location of the AD database, logs and SYSVOL. If you need a refresher on AD DS installation, see  [Install Active Directory Domain Services (Level 100)](http://technet.microsoft.com/library/hh472162.aspx) or [Install a Replica Windows Server 2012 Domain Controller in an Existing Domain (Level 200)](http://technet.microsoft.com/library/jj574134.aspx).
+
+<h2><a id="reconfigDNS"></a>Step 5: Reconfigure DNS server for the virtual network</h2>
+
+<ol>
 <li><p>In the Azure Management portal, click the name of the virtual network, and then click the <b>Configure</b> tab to <a href = "http://msdn.microsoft.com/library/azure/dn275925.aspx">reconfigure the DNS server IP addresses for your virtual network</a> to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers. </p>
 </li>
 <li><p>To ensure that all the replica DC VMs on the virtual network are configured with to use DNS servers on the virtual network, click <b>Virtual Machines</b>, click the status column for each VM, and then click <b>Restart</b>. Wait until the VM shows <b>Running</b> state before you try to sign into it. 
@@ -128,11 +139,7 @@ It’s a good idea to create a site in Active Directory that represents the netw
 </li>
 </ol>
 
-<h2><a id="installadds"></a>Step 4: Install AD DS on Azure VMs</h2>
-
-Sign in to a VM and verify that you have connectivity across the site-to-site VPN or ExpressRoute connection to resources on your on-premises network. Then install AD DS on the Azure VMs. You can use same process that you use to install an additional DC on your on-premises network (UI, Windows PowerShell, or an answer file). As you install AD DS, make sure you specify the new volume for the location of the AD database, logs and SYSVOL. If you need a refresher on AD DS installation, see  [Install Active Directory Domain Services (Level 100)](http://technet.microsoft.com/library/hh472162.aspx) or [Install a Replica Windows Server 2012 Domain Controller in an Existing Domain (Level 200)](http://technet.microsoft.com/library/jj574134.aspx).
-
-<h2><a id="x=createappvms"></a>Step 5: Create VMs for application servers</h2>
+<h2><a id="createappvms"></a>Step 6: Create VMs for application servers</h2>
 
 <ol><li><p>Repeat the following steps to create VMs to run as application servers. Accept the default value for a setting unless another value is suggested or required.</p>
 
