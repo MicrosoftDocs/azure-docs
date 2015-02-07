@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="2015-02-06" 
 	ms.author="awills"/>
 
 # Application Insights - Monitor usage and crashes in Windows Store and Phone apps
@@ -42,9 +42,11 @@ If you're asked to sign in, use the credentials for your Azure account (which is
 
 ![](./media/appinsights/appinsights-d22-add.png)
 
+#### <a name="network"></a>2. Enable network access for your app
 
+If your app doesn't already [request outgoing network access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), you'll have to add that to its manifest as a [required capability](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
-#### <a name="run"></a>2. Run your project
+#### <a name="run"></a>3. Run your project
 
 [Run your application with F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) and use it, so as to generate some telemetry. 
 
@@ -54,7 +56,7 @@ In Visual Studio, you'll see a count of the events that have been received.
 
 In debug mode, telemetry is sent as soon as it's generated. In release mode, telemetry is stored on the device and sent only when the app resumes.
 
-#### <a name="monitor"></a>3. See monitor data
+#### <a name="monitor"></a>4. See monitor data
 
 Open Application Insights from your project.
 
@@ -71,7 +73,7 @@ Click any chart to see more detail.
 
 
 
-#### <a name="deploy"></a>4. Publish your application to Store
+#### <a name="deploy"></a>5. Publish your application to Store
 
 [Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
 

@@ -43,7 +43,7 @@ You can change the Time range covered by most of the charts or grids on any blad
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/03-range.png)
 
-Click Refresh if you're expecting some data that hasn't appeared yet. Charts don't update automatically. It can take a while for data to come through the analysis pipeline onto a chart.
+Click Refresh if you're expecting some data that hasn't appeared yet. Charts don't update automatically. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
 
 
 ## Metrics Explorer
@@ -82,12 +82,31 @@ Select an existing or new chart to edit what it shows:
 
 You can display more than one metric on a chart, though there are restrictions about the combinations that can be displayed together. As soon as you choose one metric, some of the others are disabled. 
 
+If you coded [custom metrics][track] into your app (calls to TrackMetric and TrackEvent) they will be listed here.
+
 #### Segment your data
 
 Select a chart or grid, switch on segmenting and pick a property to segment by:
 
 ![](./media/app-insights-metrics-explorer/15-segment.png)
 
+If you coded [custom metrics][track] into your app and they include property values, you'll be able to select the property in the list.
+
+Is the chart too small for segmented data? Adjust its height:
+
+
+![](./media/app-insights-metrics-explorer/18-height.png)
+
+
+#### Filter your data
+
+To see just the metrics for a selected set of property values:
+
+![Click Filter, expand a property, and check some values](./media/app-insights-metrics-explorer/19-filter.png)
+
+If you don't select any values for a particular property, it's the same as selecting them all: there is no filter on that property.
+
+Notice the counts of events alongside each property value. When you select values of one property, the counts alongside other property values are adjusted.
 
 #### Edit the chart type
 
@@ -95,6 +114,13 @@ In particular, notice that you can switch between grids and graphs:
 
 ![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
+#### Reset the blade
+
+When you click on a chart, for example on the overview blade, it opens a relevant set of charts and grids to show you more detail.
+
+If, after your edits, you'd like to get back to that default set, just click Reset.
+
+![In the buttons at the top of Metric Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
 ## <a name="alerts"></a> Set alerts
 
