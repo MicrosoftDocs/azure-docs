@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-04" 
+	ms.date="02/04/2015" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -53,11 +53,11 @@ Open the Filter blade and choose the event types you want to see. (If, later, yo
 
 The event types are:
 
-* **[Trace](#trace)** - Diagnostic logs including TrackTrace,  log4Net, NLog, and System.Diagnostic.Trace calls.
-* **[Request](#requests)** - HTTP requests received by your server application, including pages, scripts, images, style files and data. These events are used to create the request and response overview charts.
-* **[Page View](#pages)** - Telemetry sent by the web client, used to create page view reports. 
-* **[Custom Event](#events)** - If you inserted calls to TrackEvent() in order to [monitor usage][track], you can search them here.
-* **[Exception](#exceptions)** - Uncaught exceptions in the server, and those that you log by using TrackException().
+* **Trace** - Diagnostic logs including TrackTrace,  log4Net, NLog, and System.Diagnostic.Trace calls.
+* **Request** - HTTP requests received by your server application, including pages, scripts, images, style files and data. These events are used to create the request and response overview charts.
+* **Page View** - Telemetry sent by the web client, used to create page view reports. 
+* **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage][track], you can search them here.
+* **Exception** - Uncaught exceptions in the server, and those that you log by using TrackException().
 
 ### Filter on property values
 
@@ -201,24 +201,6 @@ Here are the search expressions you can use:
                         <p>Shorter form.</p>
                       </td>
                     </tr>
-       <!-- -- fielded search feature not ready yet --
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">message:slow</span>
-                        </p>
-                        <p>
-                          <span class="code">ipaddress:(10.0.0.* OR 192.168.0.*)</span>
-                        </p>
-                        <p>
-                          <span class="code">properties.logEventInfo.level:Error</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Match the specified field. By default, all fields are searched. To see what fields are available, select an event to look at its detail.</p>
-                      </td>
-                    </tr>
- -->
 </table>
 
 ## Send more telemetry to Application Insights
