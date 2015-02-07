@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-05" 
+	ms.date="02/05/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
