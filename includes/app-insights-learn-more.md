@@ -37,6 +37,8 @@ Problems? Questions?
 <ul>
 <li><a href="../app-insights-troubleshoot-faq/">Q & A and troubleshooting</a>
 </li>
+<li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
+</li>
 </ul>
 
 </td><td>
