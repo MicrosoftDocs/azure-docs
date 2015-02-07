@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="2015-01-29" 
 	ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
