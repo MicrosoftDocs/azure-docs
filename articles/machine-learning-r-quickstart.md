@@ -24,6 +24,8 @@ Stephen F Elston, Ph.D.
 
 Microsoft Azure Machine Learning contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Azure Machine Learning can be extended by using R. This combination provides the scalability and ease of deployment of Azure Machine Learning with the flexibility and deep analytics of R.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 This document will help you quickly start extending Azure Machine Learning by using the R language. This guide contains the information you will need to create, test and execute R code within Azure Machine Learning. As you work though this quick start guide, you will create a complete forecasting solution by using the R language in Azure Machine Learning.  
 
 ###Forecasting and the dataset

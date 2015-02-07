@@ -37,16 +37,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 [sample-experiments]: ../machine-learning-sample-experiments/
 -->
 
-### Contents
-- [Datasets associated with sample models]
-- [Datasets used in sample experiments]
-- [Miscellaneous sample datasets]
-
-[Datasets associated with sample models]: #datasets-associated-with-sample-models
-[Datasets used in sample experiments]: #datasets-used-in-sample-experiments
-[Miscellaneous sample datasets]: #miscellaneous-sample-datasets
-
-----------
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ## Datasets associated with sample models
 

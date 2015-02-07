@@ -25,6 +25,8 @@ This document shows the usage of some Azure Machine Learning recommendations via
 
 This application is not intended to include full functionality, nor does it use all the APIs. It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service. 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 ##Introduction to Machine Learning recommendation service
 
 Recommendations via the Machine Learning recommendation service are enabled when you build a recommendation model based on the following data:

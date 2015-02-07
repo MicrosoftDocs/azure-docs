@@ -20,10 +20,10 @@
 
 #Lexicon Based Sentiment Analysis 
 
- 
-
-
 How can you measure users’ opinions and attitudes toward brands or topics in online social networks, such as Facebook posts, tweets, reviews, etc.? Sentiment analysis provides a method for analyzing such questions.
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 There are generally two methods for sentiment analysis. One is using a supervised learning algorithm, and the other can be treated as unsupervised learning. A supervised learning algorithm generally builds a classification model on a large annotated corpus. Its accuracy is mainly based on the quality of the annotation, and usually the training process will take a long time. Besides that, when we apply the algorithm to another domain, the result is usually not good. Compared to supervised learning, lexicon-based unsupervised learning uses a sentiment dictionary, which doesn’t require storing a large data corpus and training - which makes the whole process much faster. 
 

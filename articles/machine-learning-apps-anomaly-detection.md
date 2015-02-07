@@ -7,6 +7,8 @@
 
 Anomaly Detection API is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
+
 This anomaly detection service can detect the following different types of anomalies on time series data:
 
 1. Positive and negative trends: When monitoring memory usage in computing, for instance, an upward trend is indicative of a memory leak,

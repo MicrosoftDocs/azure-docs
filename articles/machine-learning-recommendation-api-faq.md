@@ -18,36 +18,12 @@
 
 #Setting up and using Machine Learning Recommendations API FAQ
 
-**Contents**
-
-* What is RECOMMENDATIONS?
-* What can I do with RECOMMENDATIONS?
-* Are there any limitations during the launch period?
-* Purchase and Billing
- * How much does RECOMMENDATIONS cost during the launch period?
- * Are there any costs associated with having RECOMMENDATIONS track and / or store user activity for me?
- * Does RECOMMENDATIONS have a free trial?
- * When will the launch period end?
- * How much will it cost when it becomes generally available (GA)?
- * When will I be billed for RECOMMENDATIONS?
- * How do I upgrade to a higher tier services?
- * When will my subscription to RECOMMENDATIONS end?
- * How do I cancel my RECOMMENDATIONS subscription?
-* Getting started with RECOMMENDATIONS
- * Is RECOMMENDATIONS for me?
- * What are the prerequisites for setting up RECOMMENDATIONS?
- * How do I set up RECOMMENDATIONS for the first time?
- * Where can I find API documentation?
- * What options do I have to upload catalog and usage data to RECOMMENDATIONS?
-* Maintenance and support
- * How large can my data set be?
- * Where can I get technical support for RECOMMENDATIONS?
- * Where can I find the terms of use?
-* Legal 
 
 **What is RECOMMENDATIONS?**
 
 For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborating filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. RECOMMENDATIONS is currently in public preview, and it is on the way to becoming a generally available service.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 **What can I do with RECOMMENDATIONS?**
 
