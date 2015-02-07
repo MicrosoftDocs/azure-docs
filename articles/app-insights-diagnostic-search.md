@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="2015-02-04" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
