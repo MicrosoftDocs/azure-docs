@@ -45,7 +45,7 @@ In this example, we'll walk through creating a regression model that uses sample
 
 ### Step 1: Get data
 
-There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources. For this example, we will use the included sample dataset, **Automobile price data (Raw)**, which represents automobile price data.
+There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources (one excellent source is the [machine learning archive](http://archive.ics.uci.edu/ml/) at UC Irving). For this example, we will use the included sample dataset, **Automobile price data (Raw)**, which represents automobile price data.
 
 1. Start a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, and then select **EXPERIMENT**. Rename the experiment from **Untitled** to something meaningful, for example, **Automobile price prediction**.
 
@@ -57,7 +57,7 @@ There are a number of sample datasets included with Machine Learning Studio, and
 
 	![Dataset][screen1]
 
-To see what this data looks like, click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The far-right column (column 26 and titled "price") is the target variable we're going to try to predict. 
+To see what these data looks like, click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The far-right column (column 26 and titled "price") is the target variable we're going to try to predict. 
 
 ![Dataset visualization][screen1b]
 
