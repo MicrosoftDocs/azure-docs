@@ -17,7 +17,6 @@
 	ms.author="juliako"/>
 
 
-
 #Create ContentKeys with REST
 
 A **ContentKey** provides secure access to an **Asset**. You can choose to create new or deliver encrypted assets. 
@@ -68,15 +67,16 @@ The following are general steps for generating content keys that you will associ
 5. Create the Content key with the **EncryptedContentKey** (converted to base64-encoded string), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, and **Checksum** values you have received in previous steps.
 6. Associate the **ContentKey** entity with your **Asset** entity through the $links operation.
 
->[AZURE.NOTE]Examples that generate an AES key, encrypt the key, and calculate the checksum have been omitted from this topic. Only the examples that show how to interact with Media Services are provided.
+Note that examples that generate an AES key, encrypt the key, and calculate the checksum have been omitted from this topic. Only the examples that show how to interact with Media Services are provided.
 
-##Retrieve the ProtectionKeyId 
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](../media-services-rest-how-to-use).
 
 >After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
+
+##Retrieve the ProtectionKeyId 
  
 
 The following example shows how to retrieve the ProtectionKeyId, a certificate thumbprint, for the certificate you must use when encrypting your content key. Do this step to make sure that you already have the appropriate certificate on your machine.
@@ -152,6 +152,41 @@ Response:
 ##Create the ContentKey 
 
 After you have retrieved the X.509 certificate and used its public key to encrypt your content key, create a **ContentKey** entity and set its property values accordingly.
+
+One of the values that you must set is the content key type. The following enum describes the values that you can set. 
+
+    /// <summary>
+    /// Specifies the type of a content key.
+    /// </summary>
+    public enum ContentKeyType
+    {
+        /// <summary>
+        /// Specifies a content key for common encryption.
+        /// </summary>
+        /// <remarks>This is the default value.</remarks>
+        CommonEncryption = 0,
+
+        /// <summary>
+        /// Specifies a content key for storage encryption.
+        /// </summary>
+        StorageEncryption = 1,
+
+        /// <summary>
+        /// Specifies a content key for configuration encryption.
+        /// </summary>
+        ConfigurationEncryption = 2,
+
+        /// <summary>
+        /// Specifies a content key for url encryption.  Only used internally.
+        /// </summary>
+        UrlEncryption = 3,
+
+        /// <summary>
+        /// Specifies a content key for Envelope encryption.  Only used internally.
+        /// </summary>
+        EnvelopeEncryption = 4
+    }
+
 
 The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key Id is the X.509 certificate thumbprint.  
 
