@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Using Resource groups to manage your Azure resources" 
-	description="" 
-	services="" 
+	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
+	services="multiple" 
 	documentationCenter="" 
-	authors="davidmu1" 
-	writer="" 
-	manager="timlt" 
+	authors="" 
+	writer="tomfitz" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2014" 
-	ms.author="davidmu"/>
+	ms.date="02/09/2015" 
+	ms.author="tomfitz"/>
 
 
 # Using resource groups to manage your Azure resources
