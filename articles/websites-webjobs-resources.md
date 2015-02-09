@@ -28,7 +28,7 @@ Creating, deploying, and managing WebJobs is seamless with integrated tooling in
 
 The WebJobs dashboard in the Azure management portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output. 
 
-##<a name="getstarted"></a>Getting started with WebJobs
+##<a name="getstarted"></a>Getting started with WebJobs and the WebJobs SDK
 
 * [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [Azure WebJobs Features](/blog/2014/10/22/webjobs-goes-into-full-production/)
@@ -58,10 +58,17 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 	* [Introducing WebJobs Tooling for Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [WebJobs Tooling and Remote Debugging](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
+##<a name="schedule"></a>Scheduling WebJobs
+
+* [The Add Azure WebJob Dialog](../websites-dotnet-deploy-webjobs/#configure)
+* [Create a Scheduled WebJob in the Azure Management Portal](../web-sites-create-web-jobs/#CreateScheduled)
+
 ##<a name="debug"></a>Testing and debugging WebJobs
 
 * [New Developer and Debugging Features for Azure WebJobs in Visual Studio](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
-* [Troubleshooting Azure Web Sites in Visual Studio](../web-sites-dotnet-troubleshoot-visual-studio/)
+* [View the WebJobs Dashboard](../websites-dotnet-webjobs-sdk-get-started/#view-the-webjobs-sdk-dashboard)
+* [How to write logs using the WebJobs SDK and view them in the Dashboard](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs)
+* [Remote debugging WebJobs](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebugwj)
 * [Who wrote that blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting interactive code in the Cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
