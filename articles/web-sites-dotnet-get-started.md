@@ -18,6 +18,8 @@
 
 # Get started with Azure Websites and ASP.NET
 
+## Overview
+
 This tutorial shows how to create an ASP.NET web application and deploy it to an Azure Website by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 You'll learn:
@@ -38,16 +40,6 @@ You need an Azure account to complete this tutorial:
 The following illustration shows the completed application:
 
 ![Web site home page](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
-
-### Tutorial segments
-
-* [Sign up for Microsoft Azure (Video)](#video)
-* [Set up the development environment](#set-up-the-development-environment)
-* [Create an ASP.NET web application in Visual Studio](#create-an-aspnet-web-application)
-* [Deploy the application to Azure](#deploy-the-application-to-azure)
-* [Make a change and redeploy](#make-a-change-and-redeploy)
-* [Monitor and manage the site in the management portal](#monitor-and-manage-the-site-in-the-management-portal)
-* [Next steps](#next-steps)
 
 ##<a name="video"></a>Sign up for Microsoft Azure (Video)
 
