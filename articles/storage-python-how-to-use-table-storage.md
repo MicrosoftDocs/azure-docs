@@ -3,7 +3,7 @@
 	description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." 
 	services="storage" 
 	documentationCenter="python" 
-	authors="rmcmurray" 
+	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/19/2014" 
-	ms.author="robmcm"/>
+	ms.date="02/06/2015" 
+	ms.author="huvalo"/>
 
 
 
 
 
 # How to Use the Table Storage Service from Python
-This guide shows you how to perform common scenarios using the Windows
-Azure Table storage service. The samples are written written using the
-Python API. The scenarios covered include **creating and deleting a
+This guide shows you how to perform common scenarios using the Azure Table storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**. For more
 information on tables, see the [Next Steps][] section.
 
@@ -45,10 +43,9 @@ information on tables, see the [Next Steps][] section.
 
 [AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## <a name="create-account"> </a>Create an Azure Storage Account
 [AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 
 ## <a name="create-table"> </a>How to Create a Table
@@ -152,7 +149,7 @@ query performance, especially for large entities. Use the **select**
 parameter and pass the names of the properties you would like to bring over
 to the client.
 
-The query in the following code only returns the **Descriptions** of
+The query in the following code only returns the descriptions of
 entities in the table.
 
 *Please note that the following snippet only works against the cloud
@@ -198,3 +195,4 @@ to learn how to do more complex storage tasks.
   [How To: Delete a Table]: #delete-table
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Python Azure package]: https://pypi.python.org/pypi/azure  

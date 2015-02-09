@@ -150,7 +150,7 @@ To connect to an Azure Redis Cache and be returned an instance of a connected `C
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
->[AZURE.NOTE] Warning: Never store credentials is source code. To keep this sample simple, I’m showing them in the source code. See [Windows Azure Websites: How Application Strings and Connection Strings Work][] for information on how to store credentials.
+>[AZURE.NOTE] Warning: Never store credentials in source code. To keep this sample simple, I’m showing them in the source code. See [Windows Azure Websites: How Application Strings and Connection Strings Work][] for information on how to store credentials.
 
 If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 

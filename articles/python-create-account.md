@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/06/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 [AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
