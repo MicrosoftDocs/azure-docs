@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="How to use Service Bus topics (Python) - Azure" 
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." 
+	description="Learn how to use Azure Service Bus topics and subscriptions from Python." 
 	services="service-bus" 
 	documentationCenter="python" 
-	authors="sethmanheim" 
+	authors="huguesv" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
-	ms.author="sethm"/>
+	ms.date="02/06/2015" 
+	ms.author="huvalo"/>
 
 
 
 
 
 # How to Use Service Bus Topics/Subscriptions
-This guide will show you how to use Service Bus topics and subscriptions
-from Python applications. The scenarios covered include **creating
-topics and subscriptions, creating subscription filters, sending
+This guide will show you how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending
 messages** to a topic, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**. For more information on topics
 and subscriptions, see the [Next Steps](#Next_Steps) section.
@@ -44,7 +42,7 @@ and subscriptions, see the [Next Steps](#Next_Steps) section.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 
 ##<a name="How_to_Create_a_Topic"></a>How to Create a Topic
@@ -274,7 +272,7 @@ links to learn more.
   
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
   [Azure Management Portal]: http://manage.windowsazure.com
-  
+  [Python Azure package]: https://pypi.python.org/pypi/azure  
   
   
   
