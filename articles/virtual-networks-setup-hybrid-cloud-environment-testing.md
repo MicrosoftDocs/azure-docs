@@ -42,7 +42,9 @@ There are five major phases to setting up this hybrid cloud test environment:
 4.	Create the site-to-site VPN connection.
 5.	Configure DC2. 
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+
+>[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
 ##Phase 1: Configure the computers on the Corpnet subnet
 
@@ -291,9 +293,11 @@ Your hybrid cloud environment is now ready for testing.
 
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-##Minimizing the ongoing costs of the Azure VPN gateway
+##Minimizing the ongoing costs of this environment
 
-The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. This cost is billed against your free trial, MSDN subscription, or paid subscription. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/en-us/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
+To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them.
+
+The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/en-us/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
 
 1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, click **TestVNET**, and then click **Dashboard**.
 2.	In the task bar, click **Delete Gateway**. Click **Yes** when prompted. Wait until the gateway is deleted and its status changes to **The Gateway Was Not Created**.

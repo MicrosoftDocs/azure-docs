@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2015" 
+	ms.date="02/09/2015" 
 	ms.author="josephd"/>
 
 #Set up a simulated hybrid cloud environment for testing
@@ -42,7 +42,11 @@ There are four major phases to setting up this hybrid cloud test environment:
 3.	Create the VNet-to-VNet VPN connection.
 4.	Configure DC2. 
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+
+>[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
+
+
 
 ##Phase 1: Configure the TestLab virtual network
 
@@ -69,9 +73,9 @@ First, create a new virtual network named TestVNET.
 4.	Click the Next arrow.
 5.	On the DNS Servers and VPN Connectivity page, in **DNS Servers**, type **DC1** in **Select or enter name**, and then click the Next arrow.
 6.	On the Virtual Network Address Spaces page:
-- In **Address Space**, in **Starting IP**, select or type **192.168.0.0**.
-- In **Subnets**, click **Subnet-1** and replace the name with **TestSubnet**. 
-- In the **CIDR (Address Count)** column for the TestSubnet, click **/24 (256)**.
+	- In **Address Space**, in **Starting IP**, select or type **192.168.0.0**.
+	- In **Subnets**, click **Subnet-1** and replace the name with **TestSubnet**. 
+	- In the **CIDR (Address Count)** column for the TestSubnet, click **/24 (256)**.
 7.	Click the Complete icon. Wait until the virtual network is created before continuing.
 
 Next, use the instructions in [How to install and configure Azure PowerShell to install Azure PowerShell on your local computer](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
@@ -227,9 +231,11 @@ You can also build these configurations in this test environment:
 [Configure a VNet to VNet Connection](http://msdn.microsoft.com/library/azure/dn690122.aspx)
 
 
-##Minimizing the ongoing costs of the Azure VPN gateways
+##<a id="costs"></a>Minimizing the ongoing costs of this environment
 
-An Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. This cost is billed against your free trial, MSDN subscription, or paid subscription. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/en-us/pricing/details/virtual-network/). To minimize the costs of the two VPN gateways (one for TestLab and one for TestVNET), create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateways with these steps.
+To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. When you start the virtual machines on the Corpnet subnet again, start DC1 first.
+
+An Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/en-us/pricing/details/virtual-network/). To minimize the costs of the two VPN gateways (one for TestLab and one for TestVNET), create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateways with these steps.
  
 1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, click **TestLab**, and then click **Dashboard**.
 2.	In the task bar, click **Delete Gateway**. Click **Yes** when prompted. Wait until the gateway is deleted and its status changes to **The Gateway Was Not Created**.
