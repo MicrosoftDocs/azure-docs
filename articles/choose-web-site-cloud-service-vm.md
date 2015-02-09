@@ -32,12 +32,6 @@ The following diagram illustrates the relative degree of control versus ease of 
 
 ![ChoicesDiagram][ChoicesDiagram]
 
-## Table of contents
-
-- [Scenarios and recommendations](#scenarios)
-- [Feature comparison](#features)
-- [Next Steps](#nextsteps)
-
 ##<a name="scenarios"></a>Scenarios and recommendations
 
 Here are some common application scenarios with recommendations as to which Azure web hosting option might be most appropriate for each.
