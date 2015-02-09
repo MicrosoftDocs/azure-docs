@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -41,7 +41,7 @@ This guide provides an overview of using Python web and worker roles using [Pyth
 
 ##<a name="what-are-python-web-and-worker-roles"></a>What are Python web and worker roles?
 
-Azure provides three compute models for running applications: [Azure Web Sites][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support Python. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
+Azure provides three compute models for running applications: [Azure Websites][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support Python. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
 For more information, see [What is a Cloud Service?].
 
@@ -138,7 +138,7 @@ For more details on using Azure services from your web and worker roles, such as
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://pytools.codeplex.com
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
