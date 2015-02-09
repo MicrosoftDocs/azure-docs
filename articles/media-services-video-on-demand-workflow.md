@@ -48,15 +48,25 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
+##Processing media
 
-##Indexing
+###Get Media Processor
+
+[Get Media Processor using .NET](../media-services-get-media-processor/)
+
+###Indexing
 
 [AZURE.INCLUDE [media-services-selector-index-content](../includes/media-services-selector-index-content.md)]
 
+###Encoding 
 
-##Encoding 
+[AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-encode.md)]
 
 For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en-us/library/azure/dn621224.aspx).
+
+###Monitoring job progress
+
+[Monitoring job progress using .NET](../media-services-check-job-progress/)
 
 ##Configuring Content Protection 
 
@@ -64,15 +74,19 @@ For more information, see [Securing Media](https://msdn.microsoft.com/en-us/libr
 
 ##Configuring asset delivery policy
 
-See the following examples:
+Configure asset delivery policy using **.NET** or **REST API**.
 
-[Configure the delivery policy for an asset that is Encrypted with an AES](https://msdn.microsoft.com/en-us/library/azure/dn783457.aspx#configure_delivery_policy)
+[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../media-services-selector-configure_asset_delivery_policy.md)]
 
-[Configure the delivery policy for an asset that is protected with PlayReady](https://msdn.microsoft.com/en-us/library/azure/dn783467.aspx#configure_delivery_policy)
+##Publishing assets
+
+Publish assets using **Azure Management Portal**, **.NET**.
+
+[AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 
 
 
-[Create Azure Media Services Account]: ../media-services-create-account
+
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png

@@ -34,7 +34,7 @@ Currently you can perform the following content operations directly from the por
 - Publish/Unpublish content
 
 
-## How to: Upload content 
+##<a id="upload"></a>How to: Upload content 
 
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
@@ -55,7 +55,7 @@ Once the upload has completed, you will see the new asset listed in the Content 
 
 If the file size value does not get updated after the uploading process stops, press the **Sync Metadata** button. This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
-## How to: Index content
+##<a id="index"></a>How to: Index content
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783455.aspx).
 
@@ -69,7 +69,7 @@ To following steps demonstrate how to use the Management Portal to index your co
 	
 	![Process][process]
 
-## How to: Encode content
+##<a id="encode"></a>How to: Encode content
 
 In order to deliver digital video over the internet you must compress the media. Media Services provides a media encoder that allows you to specify how you want for your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.) 
 
@@ -120,7 +120,7 @@ This section describes the steps you can take to encode your content with Azure 
 
 	If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
-## How to: Publish content
+##<a id="publish"></a>How to: Publish content
 
 When you publish the content, you will be provided with a streaming or progressive download URL. You client would be able to playback your videos using this URL.
 
