@@ -153,6 +153,41 @@ Response:
 
 After you have retrieved the X.509 certificate and used its public key to encrypt your content key, create a **ContentKey** entity and set its property values accordingly.
 
+One of the values that you must set is the content key type. The following enum describes the values that you can set. 
+
+    /// <summary>
+    /// Specifies the type of a content key.
+    /// </summary>
+    public enum ContentKeyType
+    {
+        /// <summary>
+        /// Specifies a content key for common encryption.
+        /// </summary>
+        /// <remarks>This is the default value.</remarks>
+        CommonEncryption = 0,
+
+        /// <summary>
+        /// Specifies a content key for storage encryption.
+        /// </summary>
+        StorageEncryption = 1,
+
+        /// <summary>
+        /// Specifies a content key for configuration encryption.
+        /// </summary>
+        ConfigurationEncryption = 2,
+
+        /// <summary>
+        /// Specifies a content key for url encryption.  Only used internally.
+        /// </summary>
+        UrlEncryption = 3,
+
+        /// <summary>
+        /// Specifies a content key for Envelope encryption.  Only used internally.
+        /// </summary>
+        EnvelopeEncryption = 4
+    }
+
+
 The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key Id is the X.509 certificate thumbprint.  
 
 

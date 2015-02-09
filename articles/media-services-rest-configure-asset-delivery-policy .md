@@ -61,12 +61,12 @@ HDS
 
 
 
-##<a id="no_encryption"></a>Clear asset delivery policy 
+##Clear asset delivery policy 
 
 ###<a id="create_asset_delivery_policy"></a>Create asset delivery policy
 The following HTTP request creates an asset delivery policy that specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols. 
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see [enums used to create AssetDeliveryPolicy](#types_used_to_create_AssetDeliveryPolicy). 
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
 
 Request:
@@ -137,11 +137,11 @@ Response:
 	HTTP/1.1 204 No Content
 
 
-##<a id="envelope_dynamic_delivery_policy"></a>DynamicEnvelopeEncryption asset delivery policy 
+##DynamicEnvelopeEncryption asset delivery policy 
 
 ###Create content key of the EnvelopeEncryption type and link it to the asset
 
-When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](../media-services-dotnet-create-contentkey#envelope_contentkey)).
+When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](../media-services-rest-create-contentkey)).
 
 
 ###<a id="get_delivery_url"></a>Get delivery URL
@@ -188,7 +188,7 @@ Response:
 The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to the **HLS** protocol (in this example, other protocols will be blocked from streaming). 
 
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see [enums used to create AssetDeliveryPolicy](#types_used_to_create_AssetDeliveryPolicy). 
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
 Request:
 
@@ -230,11 +230,11 @@ Response:
 
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
-##<a id="playready_dynamic_delivery_policy"></a>DynamicCommonEncryption asset delivery policy 
+##DynamicCommonEncryption asset delivery policy 
 
 ###Create content key of the CommonEncryption type and link it to the asset
 
-When specifying DynamicEommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](../media-services-dotnet-create-contentkey#common_contentkey)).
+When specifying DynamicEommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](../media-services-rest-create-contentkey)).
 
 
 ###Get Delivery URL
@@ -245,7 +245,7 @@ Get the delivery URL for the PlayReady delivery method of the content key create
 
 The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to the **Smooth Streaming** protocol (in this example, other protocols will be blocked from streaming). 
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see [enums used to create AssetDeliveryPolicy](#types_used_to_create_AssetDeliveryPolicy). 
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
 
 Request:
@@ -270,8 +270,7 @@ Request:
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
 
-
-##Types used when defining AssetDeliveryPolicy
+##<a id="types></a>Types used when defining AssetDeliveryPolicy
 
 ###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 

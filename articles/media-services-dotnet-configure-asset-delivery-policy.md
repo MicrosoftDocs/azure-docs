@@ -53,11 +53,11 @@ HDS
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 
-##<a id="no_encryption"></a>Clear asset delivery policy 
+##Clear asset delivery policy 
 
 The following **ConfigureClearAssetDeliveryPolicy** method specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols. 
   
-For information on what values you can specify when creating an AssetDeliveryPolicy, see [enums used to create AssetDeliveryPolicy](#types_used_to_create_AssetDeliveryPolicy). 
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section. 
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -69,12 +69,12 @@ For information on what values you can specify when creating an AssetDeliveryPol
         asset.DeliveryPolicies.Add(policy);
     }
 
-##<a id="playready_dynamic_delivery_policy"></a>DynamicCommonEncryption asset delivery policy 
+##DynamicCommonEncryption asset delivery policy 
 
 
 The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](../media-services-dotnet-create-contentkey#common_contentkey)).
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see [enums used to create AssetDeliveryPolicy](#types_used_to_create_AssetDeliveryPolicy). 
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section. 
 
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
@@ -103,12 +103,12 @@ For information on what values you can specify when creating an AssetDeliveryPol
 
 
 
-##<a id="envelope_dynamic_delivery_policy"></a>DynamicEnvelopeEncryption asset delivery policy 
+##DynamicEnvelopeEncryption asset delivery policy 
 
 The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to HLS and DASH protocols (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](../media-services-dotnet-create-contentkey#envelope_contentkey)).
 
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see [enums used to create AssetDeliveryPolicy](#types_used_to_create_AssetDeliveryPolicy). 
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
@@ -148,7 +148,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
     }
 
 
-##<a id="types_used_to_create_AssetDeliveryPolicy"></a>Types used when defining AssetDeliveryPolicy
+##<a id="types"></a>Types used when defining AssetDeliveryPolicy
 
 ###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
