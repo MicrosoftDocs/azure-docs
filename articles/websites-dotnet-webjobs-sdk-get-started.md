@@ -18,6 +18,8 @@
 
 # Get Started with the Azure WebJobs SDK
 
+## Overview
+
 This tutorial shows how to create a multi-tier ASP.NET MVC application that uses the WebJobs SDK to work with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in an [Azure Website](/en-us/documentation/services/websites/). The application also uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279). 
 
 The sample application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full size image when they select an ad to see the details. Here's a screenshot:
@@ -27,17 +29,6 @@ The sample application is an advertising bulletin board. Users create an ad by e
 You can [download the Visual Studio project][download] from the MSDN Code Gallery. 
 
 [download]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [What You'll Learn](#learn)
-- [Application architecture](#contosoads)
-- [Set up the development environment](#setupdevenv)
-- [Build, run, and deploy the application](#storage)
-- [Create the application from scratch](#create)
-- [Review the application code](#code)
-- [Next Steps](#next-steps)
 
 ## <a id="prerequisites"></a>Prerequisites
 
