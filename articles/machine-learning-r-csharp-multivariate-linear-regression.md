@@ -21,8 +21,10 @@
  
 
  
-Suppose you have a dataset and would like to quickly predict a dependent variable (y) for each individual (i) based on independent variables. 
-Linear regression is a popular statistical technique used for such predictions. Here the dependent variable y is assumed to be a continuous value.    
+Suppose you have a dataset and would like to quickly predict a dependent variable (y) for each individual (i) based on independent variables. Linear regression is a popular statistical technique used for such predictions. Here the dependent variable y is assumed to be a continuous value.  
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]  
 
 A simple scenario could be where the researcher is trying to predict the weight of an individual (y) based on their height (x). A more advanced scenario could be where the researcher has additional information for the individual (such as weight, gender, race) and attempts to predict the weight of the individual. This [web service]( https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) fits the linear regression model to the data and outputs the predicted value (y) for each of the observations in the data.
 

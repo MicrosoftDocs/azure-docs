@@ -51,7 +51,7 @@ The *\articles* folder contains the documentation articles formatted as markdown
 
 ### \includes
 
-You can create reusable content sections to be included in one or more articles. see [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md).
+You can create reusable content sections to be included in one or more articles. See [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md).
 
 ### \markdown templates
 
@@ -196,7 +196,7 @@ If you are looking for a good editor, try [Markdown Pad][]. Below is a list of t
 
 ### Link and image references
 
-Markdown has a really nice feature that allows a user to insert a reference instead of a URL for images and links. sThe syntax for using this feature is:
+Markdown has a really nice feature that allows a user to insert a reference instead of a URL for images and links. The syntax for using this feature is:
 
 	The image below is from [Google][googleweb]
 	

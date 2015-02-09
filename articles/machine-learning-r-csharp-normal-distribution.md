@@ -22,6 +22,9 @@
 
 The Normal Distribution Suite is a set of sample web services ([Generator]( https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator]( https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml_labs/ndp5)) that help in generating and handling normal distributions. The services allow generating a normal distribution sequence of any length, calculating quantiles from a given probability, and calculating probability from a given quantile. Each of the services emits different outputs based on the selected service (see description below). The Normal Distribution Suite is based on the R functions qnorm, rnorm, and pnorm, which are included in R stats package.
 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 >This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.  
  
 

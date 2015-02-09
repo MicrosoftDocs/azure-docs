@@ -20,10 +20,10 @@
 
 #Binary Classifier
 
-  
-
-
 Suppose you have a dataset and would like to predict a binary dependent variable based on the independent variables. ‘Logistic Regression’ is a popular statistical technique used for such predictions. Here the dependent variable is binary or dichotomous, and p is the probability of presence of the characteristic of interest. 
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 A simple scenario could be where a researcher is trying to predict whether a prospective student is likely to accept an admission offer to a university based on information (GPA in high school, family income, resident state, gender). The predicted outcome is the probability of the prospective student accepting the admission offer. This [web service]( https://datamarket.azure.com/dataset/aml_labs/log_regression) fits the logistic regression model to the data and outputs the probability value (y) for each of the observations in the data.  
   

@@ -19,11 +19,10 @@
 
 #Survival Analysis 
 
-
-
-
-
 Under many scenarios, the main outcome under assessment is the time to an event of interest. In other words, the question “when this event will occur?” is asked. As examples, consider situations where the data describes the elapsed time (days, years, mileage, etc.) until the event of interest (disease relapse, PhD degree received, brake pad failure) occurs. Each instance in the data represents a specific object (a patient, a student, a car, etc.).
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 This [web service]( https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) answers the question “what is the probability that the event of interest will occur by time n for object x?” By providing a survival analysis model, this web service enables users to supply data to train the model and test it. The main theme of the experiment is to model the length of the elapsed time until the event of interest occurs. 
 

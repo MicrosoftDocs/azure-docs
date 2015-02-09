@@ -22,6 +22,8 @@ A predictive analytics experiment, at its core, consists of components to *creat
 
 In this article, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
+
 ##Five steps to create an experiment 
 
 Here are the five basic steps that you can follow to build an experiment in Machine Learning Studio to allow you to create, train, and score your model:  

@@ -39,7 +39,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
           <artifactId>applicationinsights-logging-logback</artifactId>
           <version>[0.9,)</version>
        </dependency>
-    </ dependencies>
+    </dependencies>
 
 *Log4J v2.0*
 
@@ -49,7 +49,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
           <artifactId>applicationinsights-logging-log4j2</artifactId>
           <version>[0.9,)</version>
        </dependency>
-    </ dependencies>
+    </dependencies>
 
 *Log4J v1.2*
 
@@ -59,7 +59,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
           <version>[0.9,)</version>
        </dependency>
-    </ dependencies>
+    </dependencies>
 
 #### If you're using Gradle...
 
@@ -71,7 +71,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '0.9.+'
 
-**Log4J v2**
+**Log4J v2.0**
 
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '0.9.+'
 
@@ -94,7 +94,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
     </root>
 
 
-*Log4J v2*
+*Log4J v2.0*
 
     
     <Appenders>

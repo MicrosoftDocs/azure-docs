@@ -19,9 +19,10 @@
 
 #Cluster Model    
 
+How can we predict groups of credit cardholders’ behaviors in order to reduce the charge-off risk of credit card issuers? How can we define groups of personality traits of employees in order to improve their performance at work? How can doctors classify patients into groups based on the characteristics of their diseases? In principle, all of these questions can be answered through cluster analysis.   
 
 
-How can we predict groups of credit cardholders’ behaviors in order to reduce the charge-off risk of credit card issuers? How can we define groups of personality traits of employees in order to improve their performance at work? How can doctors classify patients into groups based on the characteristics of their diseases? In principle, all of these questions can be answered through cluster analysis.    
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
    
 In practice, cluster analysis classifies a set of observations into two or more mutually exclusive unknown groups based on combinations of variables. The purpose of cluster analysis is to discover a system of organizing observations, usually people or their characteristics, into groups, where members of the groups share properties in common. This [service](https://datamarket.azure.com/dataset/aml_labs/k_cluster_model) uses the K-Means methodology, a commonly used clustering technique, to cluster arbitrary data into groups. This web service takes the data and the number of k clusters as input, and produces predictions of which of the k groups to which each observations belongs. 
 

@@ -26,7 +26,9 @@ Net# is a language developed by Microsoft that is used to define neural network 
 -	Basic concepts related to neural networks
 -	Neural network requirements and how to define the primary components
 -	The syntax and keywords of the Net# specification language
--	Examples of custom neural networks created using Net#  
+-	Examples of custom neural networks created using Net# 
+	
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]  
 
 ###Neural network basics
 A neural network structure consists of ***nodes*** that are organized in ***layers***, and weighted ***connections*** (or ***edges***) between the nodes. The connections are directional, and each connection has a ***source*** node and a ***destination*** node.  

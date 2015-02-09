@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="Ibiza" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/02/2015" 
+	ms.date="02/06/2015" 
 	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
@@ -69,7 +69,7 @@ Access does not need to be granted to the entire subscription. Roles can also be
 
 ![][2]
 
-<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-admininistrators</h2>
+<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-administrators</h2>
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
 However, the new RBAC model is supported only by the Azure Preview portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure Preview portal does not make that user a co-administrator of the subscription in the full Azure portal.
@@ -165,14 +165,40 @@ If you encounter a problem when you use role based access control feature while 
 
 <h2><a id="builtinroles"></a>Built-in roles</h2>
 
-Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services.You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available ones that can be performed on Azure resources.
+Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
 
-The **actions** property of a role definition specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of a role definition specifies the actions that must be excluded from the allowed actions. 
+Click the corresponding link to see the **actions** and **not actions** properties of a role definition. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of a role definition specifies the actions that must be excluded from the allowed actions. 
 
 
-<ol>
-<li><p>Built-in role name: API Management Service Contributor</p>
-<p>Description: Let's you manage API Management service, but not access to them.</p> 
+Role name  | Description  	
+------------- | -------------  
+[API Management Service Contributor](#APIMgmt) | Lets you manage API Management service, but not access to them.
+[Application Insights Component Contributor](#AppInsights) | Lets you manage Application Insights components, but not access to them.
+[BizTalk Contributor](#BizTalk) | Lets you manage BizTalk services, but not access to them.
+[ClearDB MySQL DB Contributor](#ClearDB) | Lets you manage ClearDB MySQL databases, but not access to them.
+[Contributor](#Contributor) | Contributors can manage everything except access.
+[Data Factory Contributor](#DataFactory) | Lets you manage data factories, but not access to them.
+[Document DB Account Contributor](#DocDBContrib) | Lets you manage DocumentDB accounts, but not access to them.
+[Intelligent Systems Account Contributor](#IntelliSysContrib) | Lets you manage Intelligent Systems accounts, but not access to them.
+[NewRelic APM Account Contributor](#NewRelicContrib) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
+[Owner](#Owner) | Owner can manage everything, including access.
+[Reader](#Reader) | Readers can view everything, but can't make changes.
+[Redis Cache Contributor](#Redis) | Lets you manage Redis caches, but not access to them.
+[SQL DB Contributor](#SQLDBContrib) | Lets you manage SQL databases, but not access to them. Also, you can’t manage their security-related policies or their parent SQL servers.
+[SQL Security Manager](#SQLSecMgr) | Lets you manage the security-related policies of SQL servers and databases, but not access to them.
+[SQL Server Contributor](#SQLSrvContrib) | Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.
+[Scheduler Job Collections Contributor](#SchedContrib) | Lets you manage Scheduler job collections, but not access to them.
+[Search Service Contributor](#SearchContrib) | Lets you manage Search services, but not access to them.
+[Storage Account Contributor](#StorageContrib) | Lets you manage storage accounts, but not access to them.
+[User Access Administrator](#UserAccessAdmin) | Lets you manage user access to Azure resources.
+[Virtual Machine Contributor](#VMContrib) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.
+[Virtual Network Contributor](#VNetContrib) | Lets you manage virtual networks, but not access to them.
+[Web Plan Contributor](#WebPlanContrib) | Lets you manage the web plans for websites, but not access to them.
+[Website Contributor](#WebsiteContrib) | Lets you manage websites (not web plans), but not access to them.
+
+
+<h3><a id="APIMgmt"></a>API Management Service Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -202,10 +228,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Application Insights Component Contributor</p>
-<p>Description: Lets you manage Application Insights components, but not access to them.</p> 
+<h3><a id="AppInsights"></a>Application Insights Component Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -238,10 +263,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: BizTalk Contributor</p>
-<p>Description: Lets you manage BizTalk services, but not access to them.</p> 
+<h3><a id="BizTalk"></a>BizTalk Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -271,10 +295,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: ClearDB MySQL DB Contributor</p>
-<p>Description: Lets you manage ClearDB MySQL databases, but not access to them.</p> 
+<h3><a id="ClearDB"></a>ClearDB MySQL DB Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -304,10 +327,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name:Contributor</p>
-<p>Description: Contributors can manage everything except access.</p> 
+<h3><a id="Contributor"></a>Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -328,10 +350,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Can’t Delete Roles and Role Assignments</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Data Factory Contributor</p>
-<p>Description: Lets you manage data factories, but not access to them.</p> 
+<h3><a id="DataFactory"></a>Data Factory Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <td>Microsoft.DataFactory/dataFactories/*</td>
@@ -358,10 +379,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Document DB Account Contributor</p>
-<p>Description: Lets you manage DocumentDB accounts, but not access to them.</p> 
+<h3><a id="DocDBContrib"></a>Document DB Account Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -391,10 +411,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Intelligent Systems Account Contributor</p>
-<p>Description: Lets you manage Intelligent Systems accounts, but not access to them.</p> 
+<h3><a id="IntelliSysContrib"></a>Intelligent Systems Account Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -424,10 +443,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: NewRelic APM Account Contributor</p>
-<p>Description: Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.</p> 
+<h3><a id="NewRelicContrib"></a>NewRelic APM Account Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -457,10 +475,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Owner</p>
-<p>Description: Owner can manage everything, including access.</p> 
+<h3><a id="Owner"></a>Owner</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -470,10 +487,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Resources of All Types</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Reader</p>
-<p>Description: Readers can view everything, but can't make changes.</p> 
+<h3><a id="Reader"></a>Reader</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -483,10 +499,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Read Resources of All Types. Can’t read secrets though.</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Redis Cache Contributor</p>
-<p>Description: Lets you manage Redis caches, but not access to them.</p> 
+<h3><a id="Redis"></a>Redis Cache Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <td>Microsoft.Cache/redis/*</td>
@@ -513,10 +528,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name:SQL DB Contributor</p>
-<p>Description: Lets you manage SQL databases, but not access to them. Also, you can’t manage their security-related policies or their parent SQL servers.</p> 
+<h3><a id="SQLDBContrib"></a>SQL DB Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -569,10 +583,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Can’t Manage SQL Database Security Metrics</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: SQL Security Manager</p>
-<p>Description: Lets you manage the security-related policies of SQL servers and databases, but not access to them.</p> 
+<h3><a id="SQLSecMgr"></a>SQL Security Manager</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -626,10 +639,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name:SQL Server Contributor</p>
-<p>Description: Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.</p> 
+<h3><a id="SQLSrvContrib"></a>SQL Server Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -682,10 +694,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Can’t Manage SQL Database Security Metrics</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Scheduler Job Collections Contributor</p>
-<p>Description: Lets you manage Scheduler job collections, but not access to them.</p> 
+<h3><a id="SchedContrib"></a>Scheduler Job Collections Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -715,10 +726,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Search Service Contributor</p>
-<p>Description: Lets you manage Search services, but not access to them.</p> 
+<h3><a id="SearchContrib"></a>Search Service Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -748,10 +758,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Storage Account Contributor</p>
-<p>Description: Lets you manage storage accounts, but not access to them.</p> 
+<h3><a id="StorageContrib"></a>Storage Account Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -781,10 +790,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: User Access Administrator</p>
-<p>Description: Lets you manage user access to Azure resources.</p> 
+<h3><a id="UserAccessAdmin"></a>User Access Administrator</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -802,10 +810,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Virtual Machine Contributor</p>
-<p>Description: Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.</p> 
+<h3><a id="VMContrib"></a>Virtual Machine Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -863,10 +870,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Virtual Network Contributor</p>
-<p>Description: Lets you manage virtual networks, but not access to them.</p> 
+<h3><a id="VNetContrib"></a>Virtual Network Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -896,10 +902,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Web Plan Contributor</p>
-<p>Description: Lets you manage the web plans for websites, but not access to them.</p> 
+<h3><a id="WebPlanContrib"></a>Web Plan Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -929,10 +934,9 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
 
-<li><p>Built-in role name: Website Contributor</p>
-<p>Description: Lets you manage websites (not web plans), but not access to them.</p> 
+<h3><a id="WebsiteContrib"></a>Website Contributor</h3>
+
 <table style=width:100%">
 <tr>
 <th colspan="2">Actions</th>
@@ -974,11 +978,6 @@ The **actions** property of a role definition specifies the allowed actions on A
 <td>Create and Manage Support Tickets</td>
 </tr>
 </table>
-</li>
-
-
-</ol>
-
 
 
 <h2><a id="feedback"></a>How to provide feedback</h2>

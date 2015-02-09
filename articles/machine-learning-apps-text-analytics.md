@@ -20,6 +20,8 @@
 # Machine Learning Text Analytics Service#
 
 Text Analytics API is a suite of text analytics [web services]( https://datamarket.azure.com/dataset/amla/text-analytics) built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction. No training data is needed to use this API, just bring your text data. We support English language only right now. This API uses advanced natural language processing techniques under the hood.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
  
 ## Sentiment analysis##
 The API returns a numeric score between 0 & 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings.
