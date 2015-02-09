@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="How to use the queue service (Python) | Microsoft Azure" 
-	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." 
+	description="Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages." 
 	services="storage" 
 	documentationCenter="python" 
-	authors="rmcmurray" 
+	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/19/2014" 
-	ms.author="robmcm"/>
+	ms.date="02/06/2015" 
+	ms.author="huvalo"/>
 
 
 
 # How to Use the Queue Storage Service from Python
-This guide shows you how to perform common scenarios using the Windows
-Azure Queue storage service. The samples are written using the Python
-API. The scenarios covered include **inserting**, **peeking**,
+This guide shows you how to perform common scenarios using the Azure Queue storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**. For more information on queues, refer to the [Next Steps][] section.
 
@@ -42,11 +40,10 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 [AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <a name="create-account"> </a>Create an Azure Storage Account
 [AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 ## <a name="create-queue"> </a>How To: Create a Queue
 
@@ -165,3 +162,4 @@ to learn how to do more complex storage tasks.
   [How To: Delete a Queue]: #delete-queue
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Python Azure package]: https://pypi.python.org/pypi/azure  

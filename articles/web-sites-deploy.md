@@ -18,28 +18,29 @@
 
 #How to Deploy an Azure Website
 
+## Overview
+
 You have many options for deploying your own content to an Azure Website. This topic provides a brief overview of each option and links to more information.
 
 * [Deploying from a cloud-hosted source control system](#cloud)
-	* Visual Studio Online
-	* Repository websites using Git
-	* Repository websites using Mercurial
-	* Dropbox
+	* [Visual Studio Online](#vso)
+	* [Repository websites using Git](#git)
+	* [Repository websites using Mercurial](#mercurial)
+	* [Dropbox](#dropbox)
 * [Deploying from an IDE](#ide)
-	* Visual Studio
-	* WebMatrix
+	* [Visual Studio](#vs)
+	* [WebMatrix](#webmatrix)
 * [Deploying by using an FTP utility](#ftp)
 * [Deploying from an on-premises source control system](#onpremises)
-	* Team Foundation Server (TFS)
-	* On-premises Git or Mercurial repositories
+	* [Team Foundation Server (TFS)](#tfs)
+	* [On-premises Git or Mercurial repositories](#onpremises)
 * [Using command-line tools and the Azure REST management API](#commandline)
-	* MSBuild
-	* FTP scripts
-	* Windows PowerShell
-	* .NET management API
-	* Cross-platform command line (xpat-cli)
-	* Web Deploy command line
-
+	* [MSBuild](#msbuild)
+	* [FTP scripts](#ftp2)
+	* [Windows PowerShell](#powershell)
+	* [.NET management API](#api)
+	* [Cross-platform command line (xpat-cli)](#cli)
+	* [Web Deploy command line](#webdeploy)
 
 ##<a name="cloud"></a>Deploying from a cloud-hosted source control system
 
