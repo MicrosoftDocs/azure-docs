@@ -18,17 +18,11 @@
 
 # What is the Azure SDK for .NET?
 
+## Overview
+
 The Azure SDK for .NET is a set of Visual Studio tools, command-line tools, runtime binaries, and client libraries that help you develop, test, and deploy apps that run in Azure. This article details what you get when you install the SDK. You can download the SDK from the [Azure Downloads page](/en-us/downloads/). 
 
 The Azure SDK for .NET also comprises client libraries for consuming Azure services. These libraries are installed separately using [NuGet](http://go.microsoft.com/fwlink/?LinkId=510472).
-
-## Table of contents
-
-- [What's included when you install the Azure SDK for .NET](#included)
-- [What's not included when you install the Azure SDK for .NET](#notincluded)
-- [FAQ](#faq)
-- [Versions](#versions)
-- [Resources](#resources)
 
 ##<a id="included"></a>What's included in the Azure SDK for .NET
 
