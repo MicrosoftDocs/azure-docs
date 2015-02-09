@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="02/10/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -59,6 +59,7 @@ Let's start by creating a DocumentDB account. If you already have an account, yo
 
 [AZURE.INCLUDE [documentdb-keys](../includes/documentdb-keys.md)]
 
+<br/>
 We will now walk through how to create a new ASP.NET MVC application from the ground-up. 
 
 ## <a name="_Toc395637762"></a>Create a new ASP.NET MVC application
