@@ -17,6 +17,7 @@
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
+## Overview
 You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
 
 - **Ingress to Azure**. In this scenario, data is copied from an on-premises data source (ex: SQL Server) to a Azure data store (ex: Azure blob, Azure table, or Azure SQL Database) for the following sub-scenarios:

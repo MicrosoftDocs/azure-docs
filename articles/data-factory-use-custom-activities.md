@@ -24,6 +24,7 @@ This article describes how to create a custom activity and use it in an Azure Da
 ## Prerequisites
 2.	Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the [walkthrough](#SupportedSourcesAndSinks) in this article.
 3.	Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package. 
+
 > [AZURE.NOTE] In the 12/11/2014 release of Azure Data Factory, a breaking change was introduced. The **ICustomActivity** interface was renamed to **IDotNetActivity**. The **type** of custom activity in the JSON definition has changed from **CustomActivity** to **DotNetActivity**. The **CustomActivity** and **CustomActivityProperties** classes were renamed to **DotNetActivity** and **DotNetActivityProperties** with the same set of properties.
 
 
