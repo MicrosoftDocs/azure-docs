@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/10/2015" 
 	ms.author="kathydav"/>
 
 #How to install and configure Trend Micro Deep Security as a Service on an Azure VM
