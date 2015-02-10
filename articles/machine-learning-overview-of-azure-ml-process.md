@@ -77,7 +77,7 @@ Machine Learning Studio provides a browser-based application to easily create an
 
 After the experiment is set up and successfully run to be trained on the data, it can be saved as a trained model and used for scoring. The trained model is used in a scoring experiment or a workflow and published as an Azure web service.  
 
-### Training experiment ###
+## Training experiment ##
 An experiment can include various modules for loading and manipulating data, applying Machine Learning algorithms, and evaluating results. A trained model uses the training dataset and a learning algorithm to predict a response.  
 
 When the model has successfully completed its run, it can be saved as a reusable component for scoring test datasets and queries.
@@ -92,7 +92,7 @@ The saved trained model is available in the Trained Models section of the applic
 
 Figure 3: List of Trained Models 
 
-### Scoring experiment ###
+## Scoring experiment ##
 A scoring experiment generates predictions by using the trained model and sample data.  
 
 Figure 1 shows usage of a score model in the experiment. In the Studio, it is part of the Machine Learning modules.
@@ -101,15 +101,15 @@ Figure 1 shows usage of a score model in the experiment. In the Studio, it is pa
 
 Figure 4: Score Model location
 
-#### Request-Response service vs. Batch Execution service ####
+### Request-Response service vs. Batch Execution service ###
 When building scoring experiments that will be published as web services, either service can be selected depending on the scoring scenario. If the scoring request will involve scoring a single record (such as a request to determine if customer A is going to switch carriers - a customer churn prediction), this can be scored in real time, and it would be created as an RRS web service. The service will return the result of the prediction model in real time. In the case of the previous churn prediction example, it could be a yes or no answer.  
 
 For scoring operations where many records need to be scored in one request (for example, where a batch of records that contain the customer data is sent to the service to be scored), then BES is the appropriate service. The request in this case will be an asynchronous request. All the records are processed and saved in a blob in Azure Storage before a response is returned after all processing is completed.  
   
-#### Using the trained model ####
+### Using the trained model ###
 To set up the scoring experiment, the trained model, **Adult Income Predictor** (shown in Figure 3), will be added to the experiment. Other modules used to train the trained model can now be removed. The final workflow will now look like Figure 5. 
 
-#### Input and output ports ####
+### Input and output ports ###
 After setting up the experiment with the trained model (see the **Training experiment** section earlier in this article for details) and scoring the updated experiment, the input and output ports have to be set. These ports specify the entry and exit points for the data in the prediction model and the result of the prediction. They also act as the interface definitions for the published web service. As shown in Figure 5, the input port of the score model can be set by right-clicking on the entry point.
 
 ![][5]  
@@ -122,10 +122,10 @@ The output port of the score model can be set similarly:
 
 Figure 6: Setting the output port  
 
-### Publishing the service ###
+## Publishing the service ##
 After setting the ports and running the experiment, the model can be published as a web service. The first step is publishing the service into the staging environment. It is tested there to ensure it returns the expected results before marking it ready for production deployment.  
 
-#### Publishing into staging ####
+### Publishing into staging ###
 As shown in Figure 7, clicking the **Publish Web Service** icon will deploy the web service into the staging environment. 
 
 ![][7]  
@@ -140,7 +140,7 @@ Figure 8: Web service Dashboard
 
 By clicking the **Test** link and providing the parameters for scoring, the web service can be tested in the staging environment. The test request is scored by using the model, and based on the data provided, the result of the scoring is returned. 
 
-#### Publishing into production ####
+### Publishing into production ###
 Publishing a web service into production makes it available to other applications to use it for prediction and scoring. After the deployment to staging is complete and tested successfully, the web service is marked for deployment to the production environment. 
 
 ![][9]  
@@ -153,18 +153,18 @@ This action does not actually perform the deployment. As shown in Figure 10, it 
 
 Figure 10: Deployment notification
 
-### Calling the web service ###
-#### RRS ####
+## Calling the web service ##
+### RRS ###
 RRS is a REST end point, and it can be called from client applications by using various programming languages. The API Help page provides a link to the sample code for calling the new web service. It provides code samples in C#, R, and Python.
 
 ![][11]  
 
 Figure 11: Sample code for calling RRS  
 
-### Non-scoring experiments ###
+## Non-scoring experiments ##
 In addition to building scoring web services, experiments can be created to perform other tasks, such as data extraction and transformation. In this case, the web service would not perform machine learning operations. It uses data manipulation capabilities in Machine Learning Studio to read from various data sources, convert data types, or filter and apply data and math manipulations.   
 
-#### Publishing a non-scoring web service ####
+### Publishing a non-scoring web service ###
 The steps for publishing a non-scoring web service are similar to that of the scoring service described earlier in this article. The main difference is that the output port is not defined for the score model.
 
 ## Updating a published service ##
@@ -174,7 +174,7 @@ A published web service may need to be updated for a variety of reasons, such as
 
 Figure 12: Editing the model and publishing the updated scoring web service  
 
-### Updating the trained model ###
+## Updating the trained model ##
 Changes to the training experiment require retraining the Trained model. To do this, the published model needs to be edited. The following example shows the scoring workflow shown in Figure 5 after the existing trained model is removed.
 
 ![][13]  
@@ -195,14 +195,14 @@ Clicking the Trained Model and setting the **Label** column name will resolve th
 
 Figure 15: Selecting the **income** column as the label  
 
-### Saving the updated trained model ###
+## Saving the updated trained model ##
 After all of the new modules are properly configured, the experiment should be saved and rerun successfully. The trained model can then be saved (as shown in Figure 2). The difference is that in this case, the check box has to be selected to update the existing trained model. 
 
 ![][16]  
 
 Figure 16: Update the existing trained model
 
-### Publishing the updated service ###
+## Publishing the updated service ##
 After the trained model is updated, the steps described in the **Publishing Machine Learning web service** section will be repeated:  
 
 -	Use the (now updated) trained model in the scoring experiment
