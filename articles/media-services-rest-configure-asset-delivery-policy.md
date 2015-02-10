@@ -234,7 +234,7 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
 
 ###Create content key of the CommonEncryption type and link it to the asset
 
-When specifying DynamicEommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](../media-services-rest-create-contentkey)).
+When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](../media-services-rest-create-contentkey)).
 
 
 ###Get Delivery URL

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="02/09/2015" 
 	ms.author="huvalo"/>
 
 
@@ -29,16 +29,7 @@ We'll learn how to create an Azure Storage account, how to configure the applica
 
 See the [Python Developer Center][] for more articles that cover development of Azure Websites with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services.  While this article focuses on Azure Websites, the steps are similar when developing [Azure Cloud Services][].
 
-+ [Prerequisites](#prerequisites)
-+ [Create the Project](#create-the-project)
-+ [Create an Azure Storage Account](#create-an-azure-storage-account)
-+ [Configure the Project](#configure-the-project)
-+ [Explore the Azure Table Storage](#explore-the-azure-table-storage)
-+ [Publish to an Azure Website](#publish-to-an-azure-website)
-+ [Configure the Azure Website](#configure-the-azure-website)
-+ [Next steps](#next-steps)
-
-##<a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
  - Visual Studio 2012 or 2013
  - [Python Tools 2.1 for Visual Studio][]
@@ -48,7 +39,7 @@ See the [Python Developer Center][] for more articles that cover development of 
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="create-the-project"></a>Create the Project
+## Create the Project
 
 In this section, we'll create a Visual Studio project using a sample template.  We'll create a virtual environment and install required packages.  Then we'll run the application locally using the default in-memory repository.
 
@@ -72,7 +63,7 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskInMemoryBrowser.png)
 
-##<a name="create-an-azure-storage-account"></a>Create an Azure Storage Account
+## Create an Azure Storage Account
 
 To use storage operations, you need an Azure storage account. You can create a storage account by following these steps.
 
@@ -94,7 +85,7 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 1.  Click **CREATE STORAGE ACCOUNT**.
 
-##<a name="configure-the-project"></a>Configure the Project
+## Configure the Project
 
 In this section, we'll configure our application to use the storage account we just created.  We'll see how to obtain connection settings from the Azure portal.  Then we'll run the application locally.
 
@@ -126,7 +117,7 @@ In this section, we'll configure our application to use the storage account we j
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageAbout.png)
 
-##<a name="explore-the-azure-table-storage"></a>Explore the Azure Table Storage
+## Explore the Azure Table Storage
 
 It's easy to view and edit storage tables using Server Explorer in Visual Studio.  In this section we'll use Server Explorer to view the contents of the polls application tables.
 
@@ -140,7 +131,7 @@ It's easy to view and edit storage tables using Server Explorer in Visual Studio
 
   	![Table Query Results](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorerTable.png)
 
-##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
+## Publish to an Azure Website
 
 PTVS provides an easy way to deploy your web application to an Azure Website.
 
@@ -162,7 +153,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
     That's because the environment variables are not set on the Azure Website, so it uses the default values specified in **settings.py**.
 
-##<a name="configure-the-azure-website"></a>Configure the Azure Website
+## Configure the Azure Website
 
 In this section, we'll configure environment variables for the site.
 
@@ -186,7 +177,7 @@ In this section, we'll configure environment variables for the site.
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureBrowser.png)
 
-##<a name="next-steps"></a>Next steps
+## Next steps
 
 Follow these links to learn more about Python Tools for Visual Studio, Flask and Azure Table Storage.
 
