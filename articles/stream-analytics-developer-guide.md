@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/28/2014" 
+	ms.date="2/10/2015" 
 	ms.author="jgao"/>
 
 
@@ -134,11 +134,11 @@ For more complex queries, the standard SQL clause WITH can be used to specify a 
 To learn more about the query language, see [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference]. 
 
 ##<a name="output"></a>Output
-The output source is where the results of the Stream Analytics job will be written to. Results are written continuously to the output source as the job processes input events.  The following output sources are supported:
+The output target is where the results of the Stream Analytics job will be written to. Results are written continuously to the output target as the job processes input events.  The following output targets are supported:
 
-- Azure Service Bus Event Hubs: Choose Event Hub as an output source for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
+- Azure Service Bus Event Hubs: Choose Event Hub as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
 - Azure Storage Blobs : Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure SQL Database: This output source is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
+- Azure SQL Database: This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
 ##<a name="scale"></a>Scale jobs
@@ -159,7 +159,7 @@ The following metrics are available for monitoring the usage and performance of 
 
 - Errors: number of error messages incurred by a Stream Analytics job
 - Input events: amount of data received by the Stream Analytics job, in terms of event count
-- Output events: amount of data sent by the Stream Analytics job to output source, in terms event count
+- Output events: amount of data sent by the Stream Analytics job to output target, in terms event count
 - Out of order events: number of events received out of order that were either dropped or given an adjusted timestamp, based on the out of order policy
 - Data conversion errors: number of data conversion errors incurred by a Stream Analytics job
 
