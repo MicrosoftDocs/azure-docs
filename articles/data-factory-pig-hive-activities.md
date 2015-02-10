@@ -32,7 +32,7 @@ Section | Description
 [Hive JSON example](#HiveJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Hive transformation. 
 [Using Pig and Hive scripts that are stored in Azure Blob storage](#ScriptInBlob) | Describes how to refer to Pig/Hive scripts stored in an Azure blob storage from an HDInsight Activity using Pig/Hive transformation.
 [Parameterized Pig and Hive Queries](#ParameterizeQueries) | Describes how to specify specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties** property in JSON.
-[Walkthrough: Use Hive with Azure Data Factory](#Waltkthrough) | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
+[Walkthrough: Use Hive with Azure Data Factory](#Walkthrough) | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
 
 
 
