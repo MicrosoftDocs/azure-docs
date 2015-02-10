@@ -2,16 +2,16 @@
    pageTitle="Create and upload a FreeBSD VHD to Azure" 
    description="Learn to create and upload an Azure virtual hard disk (VHD) that contains the FreeBSD operating system" 
    services="virtual-machines" 
-   documentationCenter="dev-center-name" 
-   authors="GitHub-alias-of-author" 
-   manager="manager-alias" 
+   documentationCenter="" 
+   authors="KylieLiang" 
+   manager="timlt" 
    editor=""/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-freebsd"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services" 
    ms.date="02/05/2015"
    ms.author="kyliel"/>
@@ -20,26 +20,20 @@
 
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD Operating System so you can use it as your own image to create virtual machines in Azure. 
 
-##Prerequrisites##
+##Prerequisites##
 This article assumes that you have the following items:
 
 - **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://azure.microsoft.com/en-us/documentation/articles/php-create-account/). 
 
-- **Azure Powershell tools** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Azure Downloads](http://azure.microsoft.com/en-us/downloads/). A tutorial to install and configure the module is available here.You'll use the [Azure Downloads](http://azure.microsoft.com/en-us/downloads/) cmdlet to upload the VHD.
+- **Azure PowerShell tools** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Azure Downloads](http://azure.microsoft.com/en-us/downloads/). A tutorial to install and configure the module is available here. You'll use the [Azure Downloads](http://azure.microsoft.com/en-us/downloads/) cmdlet to upload the VHD.
 
 - **FreeBSD operating system installed in a .vhd file**  - You have installed a supported FreeBSD operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
 
 > [AZURE.NOTE] The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the cmdlet [convert-vhd](https://technet.microsoft.com/en-us/library/hh848454.aspx).
 
-This task includes the following steps:
+This task includes the following five steps.
 
-- [Step 1: Prepare the image to be uploaded] []
-- [Step 2: Create a storage account in Azure] []
-- [Step 3: Prepare the connection to Azure] []
-- [Step 4: Upload the .vhd file] []
-- [Step 5: Create a VM with uploaded VHD] []
-
-## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
+## Step 1: Prepare the image to be uploaded ##
 
 As for FreeBSD installation on Hyper-v, a tutorial is available [here](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
 
@@ -66,7 +60,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
 4. **Install sudo**
 
-    The root account is disabled on Azure and then you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
+    The root account is disabled in Azure and then you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
 
 		# pkg install sudo
 
@@ -83,7 +77,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
 6. **Install Azure Agent**
 
-    The latest release of the Azure Agent can always be found on Github here – https://github.com/Azure/WALinuxAgent/releases. Version 2.0.10 and later officially supports FreeBSD 10 and later releases.
+    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). Version 2.0.10 and later officially supports FreeBSD 10 and later releases.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
@@ -98,13 +92,13 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     Now you could **shut down** your VM. You also could execute step 7 before shut down but it is optional.
 
-7. Deprovision is optional. It is to clean the system and make it suitable for re-provisioning.
+7. De-provision is optional. It is to clean the system and make it suitable for re-provisioning.
 
     Below command also deletes the last provisioned user account and associated data.
 
 		# waagent –deprovision+user
 
-## <a id="createstorage"> </a>Step 2: Create a storage account in Azure ##
+## Step 2: Create a storage account in Azure ##
 
 You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the Azure Management Portal to create a storage account.
 
@@ -143,15 +137,15 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 	![Container name](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option. To allow full public read access for the container and blobs, use the "Public Container" option.
+    > [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option. To allow full public read access for the container and blobs, use the "Public Container" option.
 
-## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Microsoft Azure ##
+## Step 3: Prepare the connection to Microsoft Azure ##
 
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure. You can use the Microsoft Azure Active Directory method or the certificate method to do this.
 
 <h3>Use the Microsoft Azure AD method</h3>
 
-1. Open the Azure PowerShell console, as instructed in [How to: Install Microsoft Azure PowerShell](#Install).
+1. Open the Azure PowerShell console.
 
 2. Type the following command:  
 	`Add-AzureAccount`
@@ -180,11 +174,11 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
-	For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+   For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
 	
-	For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/) 
+   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/). 
 
-## <a id="upload"> </a>Step 4: Upload the .vhd file ##
+## Step 4: Upload the .vhd file ##
 
 When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
 
@@ -193,29 +187,23 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 
 		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>		
 
-## <a id="createvm"> </a>Step 5: Create a VM with uploaded VHD ##
+## Step 5: Create a VM with uploaded VHD ##
 After you upload the .vhd, you can add it as an image to the list of custom images associated with your subscription and create a virtual machine with this custom image.
-
-> [AZURE.NOTE] Please use Linux as OS type for now since current Azure PowerShell version only accepts “Linux” or “Windows” as parameter.
 
 1. From the Azure PowerShell window you used in the previous step, type:
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-2. After you complete the previous steps, the new image is listed when you choose the **Images** tab. 
+    **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts “Linux” or “Windows” as parameter.
+
+2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure management portal.  
 
     ![add image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 
-3. This new image is now available under **My Images** when you create a virtual machine.
+3. Create a virtual machine from gallery. This new image is now available under **My Images**. Select the new image and go through the prompts to set up a hostname, password/SSH key and etc. 
 
 	![custom image](./media/virtual-machines-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
 
-4. After "provisiong", you will see your FreeBSD VM is running in Azure. 
+4. Once provisioning has completed, you will see your FreeBSD VM running in Azure. 
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
-
-[Step 1: Prepare the image to be uploaded]: #prepimage
-[Step 2: Create a storage account in Azure]: #createstorage
-[Step 3: Prepare the connection to Azure]: #prepAzure
-[Step 4: Upload the .vhd file]: #upload
-[Step 5: Create a VM with uploaded VHD]: #createvm
