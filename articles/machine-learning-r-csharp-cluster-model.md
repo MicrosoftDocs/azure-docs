@@ -28,7 +28,7 @@ In practice, cluster analysis classifies a set of observations into two or more 
 
 >This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.  
 
-#Consumption of web service   
+##Consumption of web service   
 This web service groups the data into a set of k groups and outputs the group assignment for each row. The web service expects the end user to input data as a string where rows are separated by commas (,) and columns are separated by semicolons (;). The web service expects 1 row at a time. An example dataset could look like this:
 
 ![Sample data][1]
@@ -71,7 +71,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 
 
-#Creation of the web service  
+##Creation of web service  
 >This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. The data schema was created with a simple “Execute R Script”. Then, the data schema was linked to the cluster model section, again created with an “Execute R Script”. In the “Execute R Script” used for the cluster model, the web service then utilizes the “k-means” function, which is prebuilt into the “Execute R Script” of Azure Machine Learning.    
@@ -112,7 +112,7 @@ From within Azure Machine Learning, a new blank experiment was created and two �
 	maml.mapOutputPort("mydatafinal");
    
  
-#Limitations
+##Limitations
 This is a very simple example of a clustering web service. As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service. Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called. 
 
 ##FAQ
