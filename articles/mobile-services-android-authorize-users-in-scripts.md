@@ -3,7 +3,7 @@
 	description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="ggailey777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 
-	ms.author="glenga"/>
+	ms.author="ricksal"/>
 
 # Service-side authorization of Mobile Services users
 
