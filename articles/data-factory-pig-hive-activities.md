@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Use Pig and Hive with Azure Data Factory" description="Learn how to process data by running Pig and Hive scripts on an Azure HDInsight cluster from an Azure data factory." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Use Pig and Hive with Azure Data Factory" 
+	description="Learn how to process data by running Pig and Hive scripts on an Azure HDInsight cluster from an Azure data factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/6/2015" 
+	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. 
@@ -177,7 +191,8 @@ See the following example for specifying parameters for a Hive script using **ex
 ## <a name="Walkthrough"></a>Walkthrough: Use Hive with Azure Data Factory
 ### Pre-requisites
 1. Complete the tutorial from [Get started with Azure Data Factory][adfgetstarted] article.
-2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax. 
+2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax.
+	> [AZURE.NOTE] The emp.txt file is only a dummy file for this walkthrough. The actual input data comes from the **hivesampletable** that already exists on the HDInsight cluster. The pipeline does not use the emp.txt file at all.    
 2. Create **hivequery.hql** file in a subfolder named **Hive** under **C:\ADFGetStarted** with the following content.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 

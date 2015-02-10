@@ -1,6 +1,20 @@
-<properties urlDisplayName="Notification Hubs" pageTitle="Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="" authors="blackmist" solutions="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Notification Hubs - Node.js Dev Center" 
+	description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." 
+	services="notification-hubs" 
+	documentationCenter="nodejs" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="glenga"/>
 
 
 

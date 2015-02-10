@@ -1,6 +1,20 @@
-<properties pageTitle="Get Started with the Azure WebJobs SDK" metaKeywords="Azure tutorial, Azure WebJobs tutorial, Azure multi-tier tutorial, MVC tutorial, Azure blobs tutorial, Azure queues tutorial, Azure storage tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." metaCanonical="" services="web-sites, storage" documentationCenter=".net" title="" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Get Started with the Azure WebJobs SDK" 
+	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2014" 
+	ms.author="tdykstra"/>
 
 # Get Started with the Azure WebJobs SDK
 
@@ -37,7 +51,7 @@ The tutorial instructions work with the following products:
 
 If you don't have one of these, Visual Studio 2013 Express for Web will be installed automatically when you install the Azure SDK.
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <a id="learn"></a>What you'll learn
 
@@ -73,9 +87,9 @@ If traffic varies by time of day or day of week, and if the backend processing y
 
 This tutorial shows how to run the frontend in a website and the backend as a WebJob in the same website. For information about how to choose the best environment for your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
-The tutorial instructions have been written using the next preview release of [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510328). The only difference for Visual Studio 2013 Update 3 is in the create-from-scratch section where you create the WebJob project: with Update 4 the WebJobs SDK packages are automatically included in the project; without Update 4 you have to install the packages manually.
+The tutorial instructions have been written using [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510328). The only difference for Visual Studio 2013 Update 3 is in the create-from-scratch section where you create the WebJob project: with Update 4 the WebJobs SDK packages are automatically included in the project; without Update 4 you have to install the packages manually.
 
 ## <a id="storage"></a>Create an Azure Storage account
 
@@ -799,7 +813,11 @@ In the Cloud Service version of the application, the record ID is the only infor
 
 ### Using the WebJobs SDK outside of WebJobs
 
-A program that uses the WebJobs SDK doesn't have to run in Azure in a WebJob. It can run locally, and it can also run in other environments such as a Cloud Service worker role or a Windows service. However, you can only access the WebJobs SDK dashboard through an Azure Website. To use the dashboard you have to connect the website to the storage account you're using by setting the AzureWebJobsDashboard connection string on the **Configure** tab of the management portal. Then you can get to the Dashboard by using the URL https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions. For more information, see [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), but note that it shows an old connection string name. 
+A program that uses the WebJobs SDK doesn't have to run in Azure in a WebJob. It can run locally, and it can also run in other environments such as a Cloud Service worker role or a Windows service. However, you can only access the WebJobs SDK dashboard through an Azure Website. To use the dashboard you have to connect the website to the storage account you're using by setting the AzureWebJobsDashboard connection string on the **Configure** tab of the management portal. Then you can get to the Dashboard by using the following URL:
+
+https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions
+
+For more information, see [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), but note that it shows an old connection string name. 
 
 ## Next steps
 

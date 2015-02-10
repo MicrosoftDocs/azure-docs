@@ -1,27 +1,20 @@
-<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".net" title="" authors="" solutions="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" 
+	description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/19/2014" ms.author="wpickett" />
-
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-<li><a href="/en-us/documentation/api">Reference</a></li>
-<li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
-<li><a href="/en-us/develop/net/architecture/">Architecture</a></li>
-<li><a href="/en-us/develop/net/samples/">Samples</a></li>
-<li><a href="/en-us/develop/net/end-to-end-Apps/">Scenario-Based Tutorials</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-</div>
-</div>
-</div>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="wpickett"/>
 
 # Multitenant Applications in Azure
 

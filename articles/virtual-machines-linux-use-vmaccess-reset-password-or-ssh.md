@@ -1,6 +1,20 @@
-<properties title="" pageTitle="How to Use VMAccess for Linux Virtual Machines" description="How to use the VMAccess extension for Linux to reset passwords, SSH keys, and SSH configurations" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="KBDAzure" manager="timlt" videoId="" scriptId="" editor=""/>
+<properties 
+	pageTitle="How to Use VMAccess for Linux Virtual Machines" 
+	description="How to use the VMAccess extension for Linux to reset passwords, SSH keys, and SSH configurations" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="kathydav" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="kathydav"/>
 
 #How to Reset a Password or SSH for Linux Virtual Machines#
 
@@ -43,9 +57,9 @@ Type the user name and password and store them in variables, then create a singl
 
 Store the name, publisher and version number in variables: 
 
-	PS C:\> ExtensionName = 'VMAccessForLinux'
+	PS C:\> $ExtensionName = 'VMAccessForLinux'
 	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
+	PS C:\> $Version =  '1.1'
 
 With all the required values stored in variables, run the following command:
 

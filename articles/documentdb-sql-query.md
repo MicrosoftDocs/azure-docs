@@ -1,17 +1,33 @@
-<properties title="" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." metaKeywords="" services="documentdb" documentationCenter="" solutions="data-management" authors="mimig1" manager="jhubbard" editor="monicar" videoId="" scriptId=""/>
+<properties 
+	pageTitle="Query with DocumentDB SQL | Azure" 
+	description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="mimig"/>
 
 #Query DocumentDB
 Microsoft Azure DocumentDB supports querying documents using SQL (Structured Query Language) over hierarchical JSON documents. DocumentDB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
 While designing the query language for DocumentDB we had two goals in mind:
 
 -	<strong>Embrace SQL</strong> – Instead of inventing a new query language, we wanted to embrace the SQL language. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL query language provides a formal programming model for rich queries over JSON documents.
--	<strong>Extend SQL</strong> – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted use JavaScript's programming model as the foundation for our SQL query language. The DocumentDB SQL query language is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
+-	<strong>Extend SQL</strong> – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our SQL query language. The DocumentDB SQL query language is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
-In this tutorial, we introduce the DocumentDB query language capabilities and grammar through examples. We also look at how one can query DocumentDB using the REST API and SDKs (including LINQ).
+To learn more about the DocumentDB query language capabilities and grammar, watch the following video, or complete the tutorial that follows in this article. 
+
+> [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
 #Getting Started
 To see DocumentDB SQL at work, let's begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with DocumentDB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a DocumentDB collection and subsequently query. 

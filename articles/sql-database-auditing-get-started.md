@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffgoll" videoId="" scriptId="" manager="jeffreyg" editor=""/>
+<properties 
+	pageTitle="Get started with SQL database auditing | Azure" 
+	description="Get started with SQL database auditing" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
  
 # Get started with SQL database auditing 
 <p> Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is generally available for Basic, Standard, and Premium service tiers.
@@ -43,7 +57,7 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
-1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also luanch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
 2. Navigate to the configuration blade of the database you want to audit. Scroll down to the **Operations** section, and then click **Auditing** to enable the auditing and launch the auditing configuration blade.
 
 	![][1]

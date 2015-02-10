@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites, virtual-machines, cloud-services" documentationCenter="" title="" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe"/>
+<properties 
+	pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" 
+	description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="tdykstra"/>
 
 # Azure Websites, Cloud Services, and Virtual Machines comparison
 
@@ -332,7 +346,7 @@ The following table compares the capabilities of Websites, Cloud Services, and V
 For more information about the three web hosting options, see the following resources:
 
 * [Introducing Azure](../fundamentals-introduction-to-azure/)
-* [Azure Execution Models](../fundamentals-application-models/)
+* [Compute Hosting Options Provided by Azure](../fundamentals-application-models/)
 
 To get started with the option(s) you choose for your application, see the following resources:
 

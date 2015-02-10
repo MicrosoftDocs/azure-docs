@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Troubleshoot Azure Data Factory issues" description="Learn how to troubleshoot issues with using Azure Data Factory." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Troubleshoot Azure Data Factory issues" 
+	description="Learn how to troubleshoot issues with using Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
 You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory. 
@@ -18,6 +32,23 @@ You are probably not using the right Azure account or subscription with the Azur
 1. Add-AzureAccount - Use the right user ID and password
 2. Get-AzureSubscription - View all the subscriptions for the account. 
 3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
+
+## Problem: Fail to launch Data Gateway Express Setup from Azure Portal
+The Express Setup for the Data Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If you fails to start the Express Setup, you can
+
+1. Switch to Internet Explorer if you fails with other browsers. Or
+2. Use the "Manual Setup" links shown on the same blade in the portal to do the installation, and then copy the Key that is provided on the screen, and paste when the Data Management Gateway configuration is ready. If it doesn't launch, check your start menu for "Microsoft Data Management Gateway" and paste in the key when it launches. 
+
+
+## Problem: Fail to launch Credentials Manager from Azure Portal
+When set up or update a SQL Server Linked Service via Azure Portal, the Credentials Manager application will be launched to guarantee security. It requires Internet Explorer or a Microsoft ClickOnce compatible web browser. You can switch to Internet Explorer if you fails with other browsers.
+
+## Problem: Fail to connect to on-premises SQL Server 
+Verify that the SQL Server is reachable from the machine where the gateway is installed. On the machine on which the gateway is installed, you can
+
+1. Ping the machine where the SQL Server is installed. Or
+2. Try connecting to the SQL Server instance using the credentials you specified on the Azure Portal using SQL Server Management Studio (SSMS).
+
 
 ## Problem: Input slices are in PendingExecution or PendingValidation state for ever
 
@@ -59,6 +90,12 @@ See Tables topic in [JSON Scripting Reference][json-scripting-reference] for mor
 	}
 
  To resolve the error, add the **waitOnExternal** section to the JSON definition of the input table and recreate the table. 
+
+## Problem: Hybrid copy operation fails
+To learn more details:
+
+1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
+2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
 
 ## Walkthroughs 
 
@@ -164,7 +201,7 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
 
  
 
-## <a name="pighavewalkthrough"></a> Walkthrough: Troubleshooting an error with Hive/Pig processing
+## <a name="pighivewalkthrough"></a> Walkthrough: Troubleshooting an error with Hive/Pig processing
 This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell. 
 
 
@@ -245,20 +282,6 @@ In this scenario, data set is in an error state due to a failure in Hive process
 		Type                :
 
 6. You can run **Save-AzureDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet.
-
-## Troubleshooting Tips
-
-### Fail to connect to on-premises SQL Server 
-Verify that the SQL Server is reachable from the machine where the gateway is installed.
-
-
-1. Ping the machine where the SQL Server is installed
-2. On the machine on which the gateway is installed, Try connecting to the SQL Server instance using the credentials you specified on the Azure Portal using SQL Server Management Studio (SSMS).
-
-### Copy operation fails
-1. Launch Data Management Gateway Configuraiton Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
-2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
-
 
 
 ## See Also

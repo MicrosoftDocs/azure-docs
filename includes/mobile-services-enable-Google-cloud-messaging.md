@@ -1,13 +1,13 @@
 
 
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
+1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **Create Project**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
 	>[AZURE.NOTE]When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.
 
-2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
+2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
 
 3. Make a note of the project number in the **Projects** section. 
 
@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Click **Credentials**, and then click **CREATE NEW KEY** 
+5. Click **Credentials**, and then click **Create new Key** 
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
@@ -25,9 +25,9 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. Make a note of the **API key** value.
+7. Make a note of the **API KEY** value.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
 
-	You will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.
+	You will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of your app.
 

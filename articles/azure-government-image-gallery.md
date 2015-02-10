@@ -5,9 +5,9 @@
 
 #  Microsoft Azure Government Image Gallery
 
-<p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provide flexibility to deploy your own standardized images if needed.
+<p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 
-The below provides a list of available images within the Azure Government image gallery.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="./virtual-machines-linux-capture-image/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+The below provides a list of available images within the Azure Government image gallery.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/en-us/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
 
 
 ## Azure Government Image list
@@ -80,19 +80,19 @@ Disk Size
 
 ## <a name="next"></a>Next steps
 
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="./azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
+The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="../azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
 
 ###Other Resources: 
 
-- <a href="./virtual-machines-windows-tutorial/">Deploying a Windows Virtual Machine</a>
+- <a href="../virtual-machines-windows-tutorial/">Deploying a Windows Virtual Machine</a>
 
-- <a href="./virtual-machines-linux-tutorial/">Deploying a Linux Virtual Machine</a>
+- <a href="../virtual-machines-linux-tutorial/">Deploying a Linux Virtual Machine</a>
 
 - <a href="http://msdn.microsoft.com/library/azure/dn683781.aspx">Virtual Machine FAQ</A>
 
-- <a href="./virtual-machines-create-upload-vhd-windows-server/">Create and upload your own VHD</a>
+- <a href="../virtual-machines-create-upload-vhd-windows-server/">Create and upload your own VHD</a>
 
-- <a href="./virtual-machines-linux-capture-image/">Capture Linux VM Image</a>
+- <a href="../virtual-machines-linux-capture-image/">Capture Linux VM Image</a>
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 

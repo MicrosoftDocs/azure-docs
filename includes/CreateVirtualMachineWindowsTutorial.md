@@ -19,7 +19,7 @@ If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlin
 
 This section shows you how to use the **From Gallery** option in the Management Portal to create the virtual machine. This option provides more configuration choices than the **Quick Create** option. For example, if you want to join a virtual machine to a virtual network, you'll need to use the **From Gallery** option.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <a id="logon"> </a>How to log on to the virtual machine after you create it ##
 

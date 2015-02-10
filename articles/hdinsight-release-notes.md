@@ -1,9 +1,114 @@
-<properties title="" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="hdinsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm" authors="bradsev"/>
+<properties 
+	pageTitle="HDInsight Release Notes | Azure" 
+	description="HDInsight release notes." 
+	services="hdinsight" 
+	documentationCenter="" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/05/2015" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/06/2015" 
+	ms.author="bradsev"/>
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 02/06/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.463.1325367	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.463.1325367	(HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight 	3.1.2.463.1325367	(HDP 2.1.10.0-2290)
+* SDK			N/A
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(e.g. Service, OSS component, SDK, PS, AUX)</p></th>
+<th>Cluster Type Impacted (e.g. Hadoop, HBase, Storm, All)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Bug Fixes</td>
+<td>We have made various minor bug fixes for HDInsight services. No customer-facing behavior changes are expected.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDP 2.1 Maintenance Update</td>
+<td>HDInsight 3.1 is now updated to deploy HDP 2.1.10.0. Full Release Notes for this HDP release are available <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.10/bk_releasenotes_hdp_2.1/content/ch_relnotes-HDP-2.1.10.html" target="_blank">here</a>. </td>
+<td>OSS</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDP Binary Updates</td>
+<td>There are a few JAR files in HBase for which file names have been updated. These JARs are used internally by HBase so it is not expected that customers have a dependency on the names of these JAR files. These include:
+<ul>
+<li>./lib/jetty-6.1.26.hwx.jar</li>
+<li>./lib/jetty-sslengine-6.1.26.hwx.jar</li>
+<li>./lib/jetty-util-6.1.26.hwx.jar</li>
+</ul>
+</td>
+<td>OSS</td>
+<td>HBase</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
+
+## Notes for 1/29/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.455.1309616	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.455.1309616	(HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight 	3.1.2.455.1309616	(HDP 2.1.9.0-2196 -  unchanged)
+* SDK			N/A
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(e.g. Service, OSS component, SDK, PS, AUX)</p></th>
+<th>Cluster Type Impacted (e.g. Hadoop, HBase, Storm, All)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+
+<td>Bug Fixes</td>
+<td>We have made a few important bug fixes that that improves the reliability of the HDInsight Clusters during Azure upgrades.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+
+
+</table>
+<br>
 
 ## Notes for 1/5/2015 release of HDInsight ##
 

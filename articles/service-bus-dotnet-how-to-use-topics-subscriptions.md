@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C#" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications." metaCanonical="" services="service-bus" documentationCenter=".net" title="" authors="sethmanheim" solutions="" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="How to use Service Bus topics (.NET) - Azure" 
+	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/13/2015" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -16,9 +30,9 @@ messages from a subscription**, and **deleting topics and
 subscriptions**. For more information on topics and subscriptions, see
 the [Next Steps][] section. </span>
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 <h2>Configure the Application to Use Service Bus</h2>
 
@@ -87,7 +101,7 @@ You then specify values in the service configuration (`*.cscfg`) file:
 	...
 	</ServiceConfiguration>
 
-Use the issuer and key values retrieved from the Management Portal as
+Use the key values retrieved from the Management Portal as
 described in the previous section.
 
 ### Configuring your connection string when using Websites or Virtual Machines

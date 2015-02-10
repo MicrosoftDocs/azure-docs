@@ -1,8 +1,23 @@
-<properties urlDisplayName="Set up a SharePoint intranet farm in a hybrid cloud for testing" pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" metaKeywords="" description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." metaCanonical="" services="virtual-network" documentationCenter="" title="Set up a SharePoint intranet farm in a hybrid cloud for testing" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" 
+	description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/15/2015" ms.author="josephd" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="josephd"/>
 
-<h1 id="sphybcloudtest">Set up a SharePoint intranet farm in a hybrid cloud for testing</h1>
+
+#Set up a SharePoint intranet farm in a hybrid cloud for testing
 
 This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint farm hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -26,7 +41,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the SharePoint server (SP1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ##Phase 1: Set up the hybrid cloud environment
 
@@ -70,8 +85,8 @@ Next, connect to the new SQL1 virtual machine *using the local administrator acc
 3.	When prompted to open SQL1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use these:
-- Name: **SQL1\\**[Local administrator account name]
-- Password: [Local administrator account password]
+	- Name: **SQL1\\**[Local administrator account name]
+	- Password: [Local administrator account password]
 6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
 Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
@@ -108,10 +123,10 @@ Next, configure SQL Server 2014 to use the F: drive for new databases and for us
 3.	In the Object Explorer tree pane, right-click **SQL1**, and then click **Properties**.
 4.	In the **Server Properties** window, click **Database Settings**.
 5.	Locate the **Database default locations** and set these values: 
-- For **Data**, type the path **f:\Data**.
-- For **Log**, type the path **f:\Log**.
-- For **Backup**, type the path **f:\Backup**.
-- Note that only new databases use these locations.
+	- For **Data**, type the path **f:\Data**.
+	- For **Log**, type the path **f:\Log**.
+	- For **Backup**, type the path **f:\Backup**.
+	- Note that only new databases use these locations.
 6.	Click the **OK** to close the window.
 7.	In the **Object Explorer** tree pane, open **Security**.
 8.	Right-click **Logins** and then click **New Login**.
@@ -141,16 +156,7 @@ First, create an Azure Virtual Machine for SP1 with these commands at the Azure 
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-Next, connect to the SP1 virtual machine.
-
-1.	On the Virtual Machines page of the Azure Management Portal, click **Running** in the STATUS column for the SP1 virtual machine.
-2.	In the task bar, click **Connect**. 
-3.	When prompted to open SP1.rdp, click **Open**.
-4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
-5.	When prompted for credentials, use these:
-- Name: **CORP\User1**
-- Password: [User1 account password]
-6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
+Next, connect to the SP1 virtual machine with the CORP\User1 credentials.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on SP1, run these commands.
 
@@ -190,3 +196,9 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [SharePoint Server Farm](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-sharepoint-farm-azure-preview/)
+
+[Set up a hybrid cloud environment for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)
+
+[Set up a web-based LOB application in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+
+[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-dirsync-hybrid-cloud-testing/)

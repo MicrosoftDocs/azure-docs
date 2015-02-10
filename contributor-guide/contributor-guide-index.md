@@ -26,6 +26,10 @@
 
 ##Authoring articles: markdown
 
+- [Markdown basics](https://help.github.com/articles/markdown-basics/)
+
+- [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
+
 - [Create tables in markdown](./create-tables-markdown.md)
 
 - [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)

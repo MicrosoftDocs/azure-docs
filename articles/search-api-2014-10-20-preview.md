@@ -1,6 +1,19 @@
-<properties title="" pageTitle="Azure Search Service REST API: 2014-10-20-Preview" description="Azure Search Service REST API: 2014-10-20-Preview" metaKeywords="" services="" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties 
+	pageTitle="Azure Search Service REST API: 2014-10-20-Preview" 
+	description="Azure Search Service REST API: 2014-10-20-Preview" 
+	services="" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe"/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure Search Service REST API: 2014-10-20-Preview #
 
@@ -1372,7 +1385,7 @@ The response body contains the count value as an integer formatted in plain text
 <a name="Suggestions"></a>
 ##Suggestions##
 
-> AZURE.NOTE Consider using the [suggesters](#suggesters) property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
+> AZURE.NOTE Consider using the [suggesters](#suggester) property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
 
 The **Suggestions** operation retrieves suggestions based on partial search input. It's typically used in search boxes to provide type-ahead suggestions as users are entering search terms.
 

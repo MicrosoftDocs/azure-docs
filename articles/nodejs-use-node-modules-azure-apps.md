@@ -1,4 +1,4 @@
-<properties urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="" authors="blackmist" solutions="" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
 
 <tags ms.service="" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
 

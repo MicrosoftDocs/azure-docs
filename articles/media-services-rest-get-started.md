@@ -339,7 +339,7 @@ After you upload your digital media file into a blob container, you will use the
 	}
 
 
-### Creating the AccessPolicy with wright permission. 
+### Creating the AccessPolicy with write permission. 
 
 Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/en-us/library/azure/hh974297.aspx).
 

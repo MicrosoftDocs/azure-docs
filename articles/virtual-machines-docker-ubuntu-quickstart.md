@@ -1,6 +1,20 @@
-<properties title="" pageTitle="How to Use Docker Quickly with Ubuntu-Docker VM Image" description="Describes and demonstrates how to be using Docker on Ubuntu Server in minutes directly from the Azure Image Gallery" metaKeywords="docker, ubuntu, azure, image gallery, linux, container" services="virtual-machines" solutions="" documentationCenter="" authors="squillace" videoId="" scriptId="" manager="timlt" editor=""/>
+<properties 
+	pageTitle="How to Use Docker Quickly with Ubuntu-Docker VM Image" 
+	description="Describes and demonstrates how to be using Docker on Ubuntu Server in minutes directly from the Azure Image Gallery" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure" ms.date="1/7/2015" ms.author="rasquill" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="infrastructure" 
+	ms.date="02/02/2015" 
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # How to Get Started Quickly with Docker in the Azure Marketplace 
@@ -9,7 +23,7 @@ The fastest way to get started using [Docker] is to go to the Azure Marketplace 
 
 You can immediately connect to the VM using SSH and begin doing work with Docker directly without doing anything else. 
 
-> [AZURE.NOTE]: The VM created by the Azure Marketplace template does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/) or [Using the Docker VM Extension from the azure-cli](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/). If you're feeling especially geeky, you can build the [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) from Github and try that as well (or just grab it from [nuget](https://www.nuget.org/packages/Docker.DotNet/)). 
+> [AZURE.NOTE]The VM created by the Azure Marketplace template does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/) or [Using the Docker VM Extension from the azure-cli](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/). If you're feeling especially geeky, you can build the [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) from Github and try that as well (or just grab it from [nuget](https://www.nuget.org/packages/Docker.DotNet/)). 
 
 In this topic:
 

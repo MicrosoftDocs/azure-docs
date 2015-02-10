@@ -1,6 +1,20 @@
-<properties pageTitle="What is the Azure WebJobs SDK" metaKeywords="Azure Azure WebJobs SDK, Azure storage, Azure queues, Azure tables" description="An introduction to the Azure WebJobs SDK. Explains what the SDK is, typical scenarios it is useful for, and code samples." metaCanonical="" services="web-sites, storage" documentationCenter=".net" title="" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe"/>
+<properties 
+	pageTitle="What is the Azure WebJobs SDK" 
+	description="An introduction to the Azure WebJobs SDK. Explains what the SDK is, typical scenarios it is useful for, and code samples." 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2014" 
+	ms.author="tdykstra"/>
 
 # What is the Azure WebJobs SDK
 
@@ -91,7 +105,7 @@ The WebJobs SDK provides several advantages even if you don't need to work direc
 
 * You can invoke functions from the Dashboard.
 * You can replay functions from the Dashboard.
-* You can view logs in the Dashboard, linked to the particular WebJob (application logs) or linked to the particular function invocation that generated them (`TextWriter` parameter logs). 
+* You can view logs in the Dashboard, linked to the particular WebJob (application logs, written by using Console.Out, Console.Error, Trace, etc.) or linked to the particular function invocation that generated them (logs written by using a `TextWriter` object that the SDK passes to the function as a parameter). 
 
 * For more information, see [How to manually invoke a function](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual) and [How to write logs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs) 
 

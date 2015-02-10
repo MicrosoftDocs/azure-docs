@@ -1,26 +1,33 @@
-<properties linkid="web-sites-python-ptvs-django-sql" title="" pageTitle="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL database instance and can be deployed to a web site." metaKeywords="" services="" solutions="" documentationCenter="python" authors="huguesv" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" 
+	description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL database instance and can be deployed to a web site." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/09/2015" 
+	ms.author="huvalo"/>
 
 
 
 
 # Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio 
 
-In this tutorial, we'll create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
+In this tutorial, we'll use [Python Tools for Visual Studio][] to create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
 We'll learn how to use a SQL database hosted on Azure, how to configure the application to use a SQL database, and how to publish the application to an Azure Website.
 
 See the [Python Developer Center][] for more articles that cover development of Azure Websites with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services.  While this article focuses on Azure Websites, the steps are similar when developing [Azure Cloud Services][].
 
-+ [Prerequisites](#prerequisites)
-+ [Create the Project](#create-the-project)
-+ [Create a SQL Database](#create-a-sql-database)
-+ [Configure the Project](#configure-the-project)
-+ [Publish to an Azure Website](#publish-to-an-azure-website)
-+ [Next steps](#next-steps)
-
-##<a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
  - Visual Studio 2012 or 2013
  - [Python Tools 2.1 for Visual Studio][]
@@ -28,9 +35,9 @@ See the [Python Developer Center][] for more articles that cover development of 
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
  - [Python 2.7 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="create-the-project"></a>Create the Project
+## Create the Project
 
 In this section, we'll create a Visual Studio project using a sample template. We'll create a virtual environment and install required packages.  We'll create a local database using sqlite.  Then we'll run the application locally.
 
@@ -76,7 +83,7 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
   	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
 
-##<a name="create-a-sql-database"></a>Create a SQL Database
+## Create a SQL Database
 
 For the database, we'll create an Azure SQL database.
 
@@ -96,7 +103,7 @@ You can create a database by following these steps.
 
 1.  Choose a Region/Affinity Group in which to locate the database. If you will be using the database from your Azure application, select the same region where you will deploy your application.
 
-##<a name="configure-the-project"></a>Configure the Project
+## Configure the Project
 
 In this section, we'll configure our application to use the SQL database 
 we just created.  We'll see how to obtain connection settings from the Azure 
@@ -161,7 +168,7 @@ databases with Django.  Then we'll run the application locally.
 1.  Run the application with <kbd>F5</kbd>.  Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in the SQL database.
 
 
-##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
+## Publish to an Azure Website
 
 PTVS provides an easy way to deploy your web application to an Azure Website.
 
@@ -185,7 +192,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
   	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
-##<a name="next-steps"></a>Next steps
+## Next steps
 
 Follow these links to learn more about Python Tools for Visual Studio, Django and SQL Database.
 
@@ -203,6 +210,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510

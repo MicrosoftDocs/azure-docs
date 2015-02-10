@@ -1,10 +1,24 @@
-<properties pageTitle="Ingest Telemetry and Application Events at Scale" metaKeywords="Service Bus, telemetry, events" description="Learn how to ingest telemetry and application events at scale across your business solutions." services="service-bus" documentationCenter=".net" title="" authors="sethmanheim" solutions="" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="Ingest Telemetry and Application Events at Scale" 
+	description="Learn how to ingest telemetry and application events at scale across your business solutions." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="sethm"/>
 
-# Ingest telemetry and application events scale
+# Ingest telemetry and application events at scale
  
-Modern applications create a tremendous amount of information while they are running. Whether it's user actions in a mobile app or clickstreams on a website, this telemetry data is valuable both for long term analytics and real-time health monitoring or decision support. Service Bus provides the tools you need to capture and leverage this information.
+Modern applications create a tremendous amount of information while they are running. Whether it's user actions in a mobile app or clickstreams on a website, this telemetry data is valuable both for long term analytics and real-time health monitoring or decision support. Service Bus provides the tools you need to capture and process this information.
 
 
 ## Explore
