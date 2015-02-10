@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="DocumentDB whitepaper by David Chappell | Azure" 
-	description="Download a whitepaper by David Chappell description DocumentDB, a managed NoSQL database on Azure." 
+	description="Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="" 
+	authors="adlevin" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2014" 
+	ms.date="02/10/2015" 
 	ms.author="adlevin"/>
-
-
 
 # DocumentDB whitepaper by David Chappell 
 
@@ -28,9 +26,9 @@
 
 This whitepaper also covers the following fundamental concepts:
 
-* The DocumentDB data model
-* How applications work with data
-* Options applications have for balancing performance with consistency
+* The DocumentDB data model.
+* How applications work with data.
+* Options applications have for balancing performance with consistency.
 
 
 **Published:** 10 September 2014

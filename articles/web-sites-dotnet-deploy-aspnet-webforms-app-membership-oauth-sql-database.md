@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/09/2015" 
 	ms.author="erikre"/>
 
 
 # Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Website
 
-
+##Overview
 This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure. 
 
 >[AZURE.NOTE] 
@@ -44,19 +44,6 @@ You'll build a simple contact list web application that is built on ASP.NET 4.5 
 
 >[AZURE.NOTE] 
 To complete this tutorial, you need an Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
-
-This tutorial contains the following sections:
-
-- [Set up the Development Environment](#set-up-the-development-environment)
-- [Set up the Azure environment](#Set-up-the-Azure-environment)
-- [Create an ASP.NET Web Forms Application](#Create-an-ASP.NET-Web-Forms-Application)
-- [Add a Database to the Application](#Add-a-Database-to-the-Application)
-- [Enable SSL for the Project](#Enable-SSL-for-the-Project)
-- [Add an OAuth 2.0 Provider](#Add-an-OAuth-2.0-Provider)
-- [Use the Membership API to Restrict Access](#Use-the-Membership-API-to-Restrict-Access)
-- [Deploy the Application with the Database to Azure](#Deploy-the-Application-with-the-Database-to-Azure)
-- [Review the Database](#Review-the-Database)
-- [Next Steps](#Next-Steps)
 
 ##Set up the Development Environment 
 To start, set up your development environment by installing the Visual Studio 2013 and the Azure SDK for .NET.
