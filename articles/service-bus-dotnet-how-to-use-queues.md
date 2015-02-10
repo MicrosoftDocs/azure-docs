@@ -22,7 +22,7 @@
 
 # How to Use Service Bus Queues
 
-<span>This guide will show you how to use Service Bus queues. The
+<span>This guide describes how to use Service Bus queues. The
 samples are written in C\# and use the .NET API. The scenarios covered
 include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next Steps] section. </span>

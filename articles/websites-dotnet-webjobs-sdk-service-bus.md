@@ -18,6 +18,8 @@
 
 # How to use Azure Service Bus with the WebJobs SDK
 
+## Overview
+
 This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](../websites-dotnet-webjobs-sdk/) version 1.x.
 
 The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](../websites-dotnet-webjobs-sdk-get-started/).
@@ -30,15 +32,6 @@ The code snippets only show functions, not the code that creates the `JobHost` o
 		    host.RunAndBlock();
 		}
 		
-## Table of contents
-
--   [Prerequisites](#prerequisites)
--   [How to trigger a function when a queue message is received](#trigger)
--   [How to create queue messages](#create)
--   [How to work with Service Bus topics](#topics)
--   [Related topics covered by the storage queues article](#queues)
--   [Next steps](#nextsteps)
-
 ## <a id="prerequisites"></a> Prerequisites
 
 To work with Service Bus you have to install the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet package in addition to the other WebJobs SDK packages. 

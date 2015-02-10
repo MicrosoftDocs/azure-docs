@@ -37,7 +37,7 @@ This topic shows how to manage Streaming Endpoints using the Azure Management Po
 
 	![Origin page][origin-page]
 
-##Scale the Streaming Endpoint
+##<a id="scale_streaming_endpoints"></a>Scale the Streaming Endpoint
 
 Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and  additional functionality which currently includes [dynamic packaging capabilities](http://go.microsoft.com/fwlink/?LinkId=276874). By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase Streaming Units. 
 

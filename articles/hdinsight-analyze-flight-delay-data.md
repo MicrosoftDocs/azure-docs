@@ -41,7 +41,7 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
-##In this tutorial
+##Prerequisites
 
 * [Prerequisites](#prerequisite)
 * [Provision HDInsight cluster and run Hive/Sqoop jobs (M1)](#runjob)
@@ -121,7 +121,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
 
 
-##<a id="runjob"></a>Provision HDInsight cluster and run Hive/Sqoop jobs 
+##Provision HDInsight cluster and run Hive/Sqoop jobs 
 
 Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive job is to provision a cluster for the job, and delete the job after the job is completed. The following script covers the whole process. For more information on provisioning an HDInsight cluster and running Hive jobs, see [Provision Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive]. 
 

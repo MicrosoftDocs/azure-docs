@@ -18,9 +18,11 @@
 
 # Manage Hadoop clusters in HDInsight using Azure PowerShell
 
+##Overview
+
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in HDInsight using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
-**Prerequisites:**
+##Prerequisites
 
 Before you begin this article, you must have the following:
 
@@ -28,22 +30,8 @@ Before you begin this article, you must have the following:
 
 - A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
 
-			
-	
 
-## In this article
-
-* [Provision a cluster](#provision)
-* [List and show clusters](#listshow)
-* [Delete a cluster](#delete)
-* [Grant/Revoke HTTP services access](#httpservices)
-* [Submit MapReduce jobs](#mapreduce)
-* [Submit Hive jobs](#hive)
-* [Upload data to the Blob storage](#upload)
-* [Download MapReduce output data from the Blob storage](#download)
-
-
-##<a id="provision"></a> Provision an HDInsight cluster
+##Provision an HDInsight cluster
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. 
 
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
@@ -121,7 +109,7 @@ The following screenshot shows the script execution:
 
 
 
-##<a id="listshow"></a> List and show cluster details
+##List and show cluster details
 Use the following commands to list and show cluster details:
 
 **To list all clusters in the current subscription**
@@ -132,12 +120,12 @@ Use the following commands to list and show cluster details:
 
 	Get-AzureHDInsightCluster -Name <ClusterName> 
 
-##<a id="delete"></a> Delete a cluster
+##Delete a cluster
 Use the following command to delete a cluster:
 
 	Remove-AzureHDInsightCluster -Name <ClusterName> 
 
-##<a id="httpservice"></a> Grant/revoke HTTP services access
+##Grant/revoke HTTP services access
 
 HDInsight clusters have the following HTTP Web services (all of these services have RESTful endpoints):
 
@@ -158,7 +146,7 @@ In the sample <i>hdiv2</i> is an HDInsight cluster name.
 
 This can also be done using the Windows Azure Management portal. See [Administer HDInsight using the Management portal][hdinsight-admin-portal].
 
-##<a id="mapreduce"></a> Submit MapReduce jobs
+##Submit MapReduce jobs
 The HDInsight cluster distribution comes with some MapReduce samples. One of the samples is for counting word frequencies in source files.
 
 **To submit a MapReduce job**
@@ -234,7 +222,7 @@ For more information on developing and running MapReduce jobs, see [Using MapRed
 
 
 
-##<a id="hive"></a> Submit Hive jobs
+##Submit Hive jobs
 The HDInsight cluster distribution comes with a sample Hive table called *hivesampletable*. You can use a HiveQL "show tables;" to list the Hive tables on a cluster.
 
 **To submit a Hive job**
@@ -259,10 +247,10 @@ The Hive job will first show the Hive tables created on the cluster, and the dat
 For more information on using Hive, see [Using Hive with HDInsight][hdinsight-use-hive].
 
 
-##<a id="upload"></a>Upload data to the Blob storage
+##Upload data to the Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
 
-##<a id="download"></a>Download the MapReduce output from the Blob storage
+##Download the MapReduce output from the Blob storage
 See the [Submit MapReduce jobs](#mapreduce) session in this article.
 
 ## See Also

@@ -18,6 +18,8 @@
 
 # How to use Azure queue storage with the WebJobs SDK
 
+## Overview
+
 This guide provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.
 
 The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](../websites-dotnet-webjobs-sdk-get-started/).
@@ -30,7 +32,7 @@ Most of the code snippets only show functions, not the code that creates the `Jo
 		    host.RunAndBlock();
 		}
 		
-## Table of contents
+The guide includes the following topics:
 
 -   [How to trigger a function when a queue message is received](#trigger)
 	- String queue messages

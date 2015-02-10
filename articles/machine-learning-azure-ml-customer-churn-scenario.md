@@ -18,7 +18,7 @@
 
 # Analyzing Customer Churn by using Azure Machine Learning
 
-
+##Overview
 This topic presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio. It discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and we assess directions for further development.  
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
@@ -61,7 +61,7 @@ The overall cycle of risk-decision-marketing segmentation/decomposition is still
 An interesting addition here is big data analytics. Today's telecommunication and retail businesses collect exhaustive data about their customers, and we can easily foresee that the need for multi-model connectivity will become a common trend, given emerging trends such as the Internet of Things and ubiquitous devices, which allow business to employ smart solutions at multiple layers.  
 
  
-#Implementing the modeling archetype in Machine Learning Studio 
+##Implementing the modeling archetype in Machine Learning Studio 
 Given the problem just described, how can we implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio.  
 
 The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
@@ -74,7 +74,7 @@ The following diagram shows the prototype we created, which employs four scoring
 
 The following sections provide more details about the prototype scoring model that we implemented by using Machine Learning Studio.  
 
-##Data selection and preparation
+###Data selection and preparation
 The data used to build the models and score customers was obtained from a CRM vertical solution, with the data obfuscated to protect customer privacy. The data contains information about 8,000 subscriptions in the U.S., and it combines three sources: provisioning data (subscription metadata), activity data (usage of the system), and customer support data. The data does not include any business related information about the customers; for example, it does not include loyalty metadata or credit scores.  
 
 For simplicity, ETL and data cleansing processes are out of scope because we assume that data preparation has already been done elsewhere.   
@@ -96,7 +96,7 @@ The following diagrams illustrate the data that was used:
  
 *Figure 7: Features extracted from data source*
  
-##Algorithms used in the prototype
+###Algorithms used in the prototype
 
 We used the following four machine learning algorithms to build the prototype (no customization):  
 
@@ -113,15 +113,15 @@ The following diagram illustrates a portion of the experiment design surface, wh
  
 *Figure 8: Creating models in Machine Learning Studio*  
 
-##Scoring methods
+###Scoring methods
 We scored the four models by using a labeled training dataset.  
 
 We also submitted the scoring dataset to a comparable model built by using the desktop edition of SAS Enterprise Miner 12. We measured the accuracy of the SAS model and all four Machine Learning Studio models.  
 
-#Results 
+##Results 
 In this section, we present our findings about the accuracy of the models, based on the scoring dataset.  
 
-##Accuracy and precision of scoring
+###Accuracy and precision of scoring
 Generally, the implementation in Machine Learning is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
 
 However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
@@ -173,7 +173,7 @@ Average Model|	The Best Model|	Underperforming|	Average Model
 
 The models hosted in Machine Learning Studio outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
 
-#Discussion and recommendations
+##Discussion and recommendations
 In the telecommunications industry, several practices have emerged to analyze churn, including:  
 
 -	Derive metrics for four fundamental categories:
@@ -193,7 +193,7 @@ Another exciting capability coming in Azure Machine Learning is the ability to a
 
 We hope to continue this topic in the future, especially related to big data analytics.
   
-#Conclusion
+##Conclusion
 This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using Azure Machine Learning. Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
 
 **For more information:**  
@@ -207,7 +207,7 @@ This feedback will help us improve the quality of white papers we release.
 
 [Send feedback](mailto:sqlfback@microsoft.com).
  
-#References
+##References
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
 
 [2] [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision) on Wikipedia 
@@ -218,7 +218,7 @@ This feedback will help us improve the quality of white papers we release.
 
 [5] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
  
-#Appendix
+##Appendix
 
 ![][10]
  
