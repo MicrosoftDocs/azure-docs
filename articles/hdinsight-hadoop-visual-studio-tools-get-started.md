@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
-	ms.date="11/12/2014" 
+	ms.date="01/29/2015" 
 	ms.author="jgao" 
 	editor="cgronlun"/>
 
