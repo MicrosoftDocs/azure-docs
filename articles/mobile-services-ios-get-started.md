@@ -22,7 +22,7 @@
 
 This tutorial shows you how to add a cloud-based backend service to an iOS app using Azure Mobile Services.
 
-In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in .NET using Visual Studio, see the [.NET backend version] of this topic.
+In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service with server-side business logic in .NET, see the [.NET backend version] of this topic.
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](http://azure.microsoft.com/en-us/pricing/details/mobile-services/). For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="_blank").
 
@@ -32,9 +32,7 @@ In this tutorial, you will create both a new mobile service and a simple _To do 
 
 <h2>Create a new iOS app</h2>
 
-Once you have created your mobile service, you can follow an easy Quick Start in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.
-
-In this section you will create a new iOS app that is connected to your mobile service.
+You can follow an easy Quick Start in the Management Portal to create a new app connected to your mobile service:
 
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
@@ -52,7 +50,7 @@ In this section you will create a new iOS app that is connected to your mobile s
 <li><p>Back in the Management Portal, click the <strong>DATA</strong> tab and then click the <strong>TodoItem</strong> table. This lets you browse the data inserted by the app into the table.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed the Quick Start, learn how to perform additional important tasks in Mobile Services:
+Learn how to perform additional important tasks in Mobile Services:
 
 * [Add mobile services to an existing app]
 	<br/>Learn more about storing and querying data using Mobile Services.
