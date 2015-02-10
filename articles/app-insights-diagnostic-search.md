@@ -63,7 +63,7 @@ The event types are:
 
 You can filter events on the values of their properties. The available properties depend on the event types you selected. 
 
-For example, pick out requests with a specifc response code.
+For example, pick out requests with a specific response code.
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/03-response500.png)
 
@@ -201,6 +201,7 @@ Here are the search expressions you can use:
                         <p>Shorter form.</p>
                       </td>
                     </tr>
+
 </table>
 
 ## Send more telemetry to Application Insights
