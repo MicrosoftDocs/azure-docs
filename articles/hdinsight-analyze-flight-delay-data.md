@@ -41,16 +41,7 @@ The main portion of the tutorial shows you how to use one PowerShell script to p
 
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading Hive query string, and preparing Azure SQL database for the Sqoop job.
 
-##In this tutorial
-
-* [Prerequisites](#prerequisite)
-* [Provision HDInsight cluster and run Hive/Sqoop jobs (M1)](#runjob)
-* [Appendix A: Upload flight delay data to Azure Blob storage (A1)](#appendix-a)
-* [Appendix B: Create and upload HiveQL script (A2)](#appendix-b)
-* [Appendix C: Prepare Azure SQL database for the Sqoop Job output (A3)](#appendix-c)
-* [Next steps](#nextsteps)
-
-##<a id="prerequisite"></a>Prerequisites
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
@@ -99,7 +90,7 @@ The following table lists the files used in this tutorial:
 
 
 
-###Understand Hive internal table and external table
+##Understand Hive internal table and external table
 
 There are a few things you need to know about Hive internal table and external table:
 
@@ -121,7 +112,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
 
 
-##<a id="runjob"></a>Provision HDInsight cluster and run Hive/Sqoop jobs 
+##Provision HDInsight cluster and run Hive/Sqoop jobs 
 
 Hadoop MapReduce is batch processing. The most cost-effective way to run an Hive job is to provision a cluster for the job, and delete the job after the job is completed. The following script covers the whole process. For more information on provision HDInsight cluster and running Hive jobs, see [Provision Hadoop clusters in HDInsight][hdinsight-provision] and  [Use Hive with HDInsight][hdinsight-use-hive]. 
 
@@ -393,7 +384,7 @@ Hadoop MapReduce is batch processing. The most cost-effective way to run an Hive
 
 
 ---
-##<a id="appendix-a"></a>Appendix A - Upload flight delay data to Azure Blob storage
+##Appendix A - Upload flight delay data to Azure Blob storage
 Prior to uploading the data file and the HiveQL script files (see [Appendix B](#appendix-b), it requires some planning. The idea is to store the data files and the HiveQL file before provision an HDInsight cluster and run the Hive job.  You have two options:
 
 - **Use the same Azure storage account that will be used by the HDInsight cluster as the default file system.** Because the HDInsight cluster will have the storage account access key, you don't need to make any additional changes.
@@ -505,7 +496,7 @@ If you choose to use a different method for uploading the files, please make sur
 > You must either configure the container access permission to be public or bind the storage account to the HDInsight cluster.  Otherwise, the Hive query string will not be able to access the data files. 
 
 ---
-##<a id="appendix-b"></a>Appendix B - Create and upload HiveQL script
+##Appendix B - Create and upload HiveQL script
 
 Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file. The section shows you how to create a HiveQL script and upload the script to Azure Blob storage using PowerShell. Hive requires the HiveQL scripts to be stored on WASB.
 
@@ -687,7 +678,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 
 ---
-##<a id="appendix-c"></a>Appendix C - Prepare Azure SQL database for the Sqoop job output
+##Appendix C - Prepare Azure SQL database for the Sqoop job output
 **To prepare the SQL database (merge this with the Sqoop script)**
 
 1. Prepare the parameters:
@@ -844,7 +835,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 4. Press **F5** to run the script. 
 5. Validate the script output. Make sure the script ran successfully.	
 
-##<a id="nextsteps"></a> Next steps
+##Next steps
 Now that you understand how to upload file to Blob storage, how to populate a Hive table using the data from Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to Azure SQL Database. To learn more, see the following articles:
 
 * [Getting Started with HDInsight][hdinsight-get-started]
