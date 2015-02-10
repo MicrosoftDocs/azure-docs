@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2014" 
+	ms.date="2/10/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -60,7 +60,7 @@ Data Management Gateway has a full range of on-premises data connection capabili
 
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
-### Step 1: Create an Azure data factory
+## Step 1: Create an Azure data factory
 In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
 1.	After logging into the [Azure Preview Portal][
@@ -92,7 +92,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	![Startboard][image-data-factory-startboard]
 
-### Step 2: Create linked services 
+## Step 2: Create linked services 
 In this step, you will create two linked services: **MyBlobStore** and **OnPremSqlLinkedService**. The **OnPremSqlLinkedService** links an on-premises SQL Server database and the **MyBlobStore** linked service links an Azure blob store to the **ADFTutorialDataFactory**. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
 
 ### Add a linked service to an on-premises SQL Server database
@@ -432,7 +432,7 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	![Azure Storage Explorer][image-data-factory-stroage-explorer]
 
 
-## Creating and registering a gateway using Azure PowerShell cmdlets
+## Creating and registering a gateway using Azure PowerShell 
 This section describes how to create and register a gateway using Azure PowerShell cmdlets. 
 
 1. Launch **Azure PowerShell** in administrator mode. 
