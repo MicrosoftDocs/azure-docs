@@ -3,7 +3,7 @@
 	description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." 
 	documentationCenter="android" 
 	services="notification-hubs" 
-	authors="ggailey777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
-	ms.author="glenga"/>
+	ms.author="ricksal"/>
 
 #Azure Notification Hubs Notify Users
 

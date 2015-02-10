@@ -71,16 +71,16 @@ In this section you will create a new universal Windows app that is connected to
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Add Mobile Services to an existing app]
+* [Add Mobile Services to an existing app][Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
 * [Get started with offline data sync]
   <br/>Learn how to use offline data sync to make your app responsive and robust.
 
-* [Get started with authentication]
+* [Add authentication to your Mobile Services app ][Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to you app] 
+* [Add push notifications to your app][Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
@@ -96,11 +96,11 @@ For more information about universal Windows apps, see [Supporting multiple devi
 
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
+[Get started with data]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
 [Get started with offline data sync]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-[Add push notifications to you app]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/

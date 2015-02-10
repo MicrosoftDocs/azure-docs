@@ -52,7 +52,7 @@ In this section you will create a new universal Windows app that is connected to
 
    	This displays the three easy steps to create a Windows Store app connected to your mobile service.
 
-  	![][7]
+  	![Mobile Services quickstart steps](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
 3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.
 
@@ -92,16 +92,16 @@ Now that the mobile service is published and the client is connected to the remo
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
+* [Add Mobile Services to an existing app][Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
 * [Get started with offline data sync]
   <br/>Learn how to use offline data sync to make your app responsive and robust.
 
-* [Get started with authentication]
+* [Add authentication to your Mobile Services app ][Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* [Add push notifications to your app][Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
 * [Troubleshoot a Mobile Services .NET backend]
@@ -116,13 +116,6 @@ For more information about universal Windows apps, see [Supporting multiple devi
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-completed.png
-
-[6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
-[7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
-[8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-service-startup.png
-
-[10]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png
 
 
 
