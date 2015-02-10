@@ -3,7 +3,7 @@
 	description="Describes the first steps you can take to get started with Azure Mobile Services in a Cordova project" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
