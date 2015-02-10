@@ -39,15 +39,21 @@ Data Management Gateway has a full range of on-premises data connection capabili
 - **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure.
 - **Encrypt credentials with your certificate** – Credentials used to connect to data sources are encrypted with a certificate fully owned by a user. Without the certificate, no one can decrypt the credentials into plain text, including Microsoft.
 
-### Gateway installation - best practices
-
-1.	If the host machine hibernates, the gateway won’t be able to respond to the data request. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. 
-2.	Data Management Gateway should be able to connect to the on-premises data sources that will be registered with the Azure Data Factory service. It does not need to be on the same machine as the data source, but **staying closer to the data source** reduces the time for the gateway to connect to the data source.
-
 ### Considerations for using Data Management Gateway
 1.	A single instance of Data Management Gateway can be used for multiple on-premises data sources, but keep in mind that a **gateway is tied to an Azure data factory** and can not be shared with another data factory.
 2.	You can have **only one instance of Data Management Gateway** installed on your machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
-3.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine. 
+3.	The **gateway does not need to be on the same machine as the data source**, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
+4.	You can have **multiple gateways on different machines connecting to the same on-premises data source**. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories. 
+5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine. 
+
+
+### Gateway installation - prerequisites 
+
+1.	The supported Operating System versions are Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
+2.	The recommended configuration for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
+3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.  
+
+
  
 
 ## Walkthrough

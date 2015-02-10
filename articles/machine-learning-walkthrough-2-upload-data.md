@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" 
-	description="Step 2: Upload existing public data into Azure Machine Learning Studio" 
+	description="Solution walkthrough step 2: Upload existing public data into Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 

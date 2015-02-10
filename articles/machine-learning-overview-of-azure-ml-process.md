@@ -26,6 +26,9 @@ The typical Azure Machine Learning project involves the following high-level ste
 4.	Create an operational workflow by using the trained model and deploying the workflow into production
 5.	Monitor the performance of the model and subsequent updates  
 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 >The term “experiment” is used to describe an interactive workflow, which can include data input and manipulation, trainers, and scorers in the form of a directed acyclic graph (DAG). When the workflow is published as an Azure web service, it is no longer interactive. This means that to change the model, it has to be updated then republished to update the web service and its behavior.  
 
 Steps 1-3 are typically done by a data scientist through multiple iterations. Upon completion, a Machine Learning model is handed off to the engineering and operations teams to integrate into the production systems so the Machine Learning model can be used in production.  

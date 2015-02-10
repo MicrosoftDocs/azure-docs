@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/05/2015" 
 	ms.author="juliako"/>
 
 
 
 
 
-<h1><a id="monitormediaservicesaccount"></a>How to Monitor a Media Services Account</h1>
+#<a id="monitormediaservicesaccount"></a>How to Monitor a Media Services Account
 The Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.
 
 You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well. You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.
  
 >[AZURE.NOTE] Additional costs are associated with monitoring storage data in the Azure Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
 
-<h2><a id="configuremonitoring"></a>How to: Monitoring a Media Services account</h2>
+##<a id="configuremonitoring"></a>How to: Monitoring a Media Services account
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666), click **Media Services**, and then click the Media Services account name to open the dashboard. 
 
@@ -35,7 +35,7 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
 2. To monitor your encoding jobs or data, simply begin submitting encoding jobs to Media Services, or start streaming content to customers through the use of Azure Media On-Demand Streaming. You should start seeing monitoring data on the dashboard after about an hour.
 
-<h2><a id="configuringstorage"></a>How to: Monitoring your blob storage usage (Optional)</h2>
+##<a id="configuringstorage"></a>How to: Monitoring your blob storage usage (Optional)
 1. Click the **STORAGE ACCOUNT** name under the **quick glance** section.
 2. On the storage account page, click the **configure page** link, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
 

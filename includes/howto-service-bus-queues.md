@@ -31,8 +31,7 @@ a wide variety of scenarios:
 Using queues can enable you to scale out your applications better, and
 enable more resiliency to your architecture.
 
-<a id="create-a-service-namespace"></a>
-<h2>Create a Service Namespace</h2>
+## Create a Service Namespace
 
 To begin using Service Bus queues in Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -68,8 +67,7 @@ The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 continuing.
 
-<a id="obtain-default-credentials"></a>
-<h2>Obtain the Default Management Credentials for the Namespace</h2>
+## Obtain the default management credentials for the namespace
 
 In order to perform management operations, such as creating a queue on
 the new namespace, you must obtain the management credentials for the

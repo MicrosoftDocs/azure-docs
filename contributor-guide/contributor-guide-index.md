@@ -26,7 +26,9 @@
 
 ##Authoring articles: markdown
 
-- [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [Markdown basics](https://help.github.com/articles/markdown-basics/)
+
+- [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
 
 - [Create tables in markdown](./create-tables-markdown.md)
 

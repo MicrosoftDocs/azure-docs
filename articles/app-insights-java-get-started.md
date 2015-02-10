@@ -66,7 +66,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
          <artifactId>applicationinsights-core</artifactId>
          <version>[0.9,)</version>
       </dependency>
-    </ dependencies>
+    </dependencies>
 
 #### If you're using Gradle...
 
@@ -154,7 +154,7 @@ Or you can use the Application Insights trace API directly:
 
 #### Attach properties and measurements to telemetry
 
-You can add property values to any of the above events and other types. As well as carrying extra data, the properties can be used to [filter][diagnostics] and [segment][metrics] the events in Application Insights. 
+You can add property values to any of the above events and other types. As well as carrying extra data, the properties can be used to [filter][diagnostic] and [segment][metrics] the events in Application Insights. 
 
 For example:
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/08/2014" 
+	ms.date="02/10/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -53,13 +53,13 @@ All the screen shots in this article have been taken using Visual Studio 2013 wi
 
 ## <a name="_Toc395637761"></a>Create a DocumentDB database account
 
-Let's start by creating a DocumentDB account.
+Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762).
 
-1. If you don't already have a database account, create one by following the instructions in [Create a database account](/documentation/articles/documentdb-create-account/). If you already have an account, proceed to step 2.
-2. Using the **Keys** blade shown in the following illustration, copy your endpoint **URI** and the **PRIMARY KEY** to your clipboard and keep them handy as we will use these values in the web application we create next.
+[AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
-  	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-dotnet-application/keys.png)
+[AZURE.INCLUDE [documentdb-keys](../includes/documentdb-keys.md)]
 
+<br/>
 We will now walk through how to create a new ASP.NET MVC application from the ground-up. 
 
 ## <a name="_Toc395637762"></a>Create a new ASP.NET MVC application
@@ -94,7 +94,6 @@ Now let's create our new ASP.NET project.
 We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding DocumentDB to this project and building our application.
 
 ## <a name="_Toc395637767"></a>Add DocumentDB to your project
-
 
 That takes care of most of the ASP.NET MVC plumbing that we need for
 this solution. Now let's get to the real purpose of this tutorial, adding Azure DocumentDB to our web application.
@@ -382,13 +381,16 @@ In this section, we'll add code to handle the following:
 
 	This takes care setting up the database, a [**DocumentCollection**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.aspx), and creating some code to connect to DocumentDB through the [**DocumentClient**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx). 
 
-8. We're reading some values from configuration, so open the **Web.config** and add the following lines under the <AppSettings\> section and update the values using the **URI** and key values retrieved in [Create a DocumentDB database account](#_Toc395637761).
+8. We're reading some values from configuration, so open the **Web.config** file and add the following lines under the `<AppSettings\>` section. 
 
-    <add key="endpoint" value="enter you endpoint url from the Azure Management Portal"/>
-    <add key="authKey" value="enter one of the keys from the Azure Management Portal"/>
-    <add key="database" value="ToDoList"/>
-    <add key="collection" value="Items"/>
-		
+   	`<add key="endpoint" value="enter you endpoint url from the Azure Management Portal"/>`
+    `<add key="authKey" value="enter one of the keys from the Azure Management Portal"/>`
+    `<add key="database" value="ToDoList"/>`
+    `<add key="collection" value="Items"/>`
+	
+
+9. Now, update those values using the Keys blade of the Azure Management Portal. Use the **URI** value from the Keys blade as the value of the endpoint key, and use the **PRIMARY KEY** value from the Keys blade as the value of the authKey key.
+	
 	Now let's add some code to do the work. 	
 
 9. The first thing we want to be able to do with a todo list application is to display the incomplete items.  The method below does this for you so copy and paste it anywhere within the **DocumentDBRepository** class.

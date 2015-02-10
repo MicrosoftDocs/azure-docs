@@ -1385,7 +1385,7 @@ The response body contains the count value as an integer formatted in plain text
 <a name="Suggestions"></a>
 ##Suggestions##
 
-> AZURE.NOTE Consider using the [suggesters](#suggesters) property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
+> AZURE.NOTE Consider using the [suggesters](#suggester) property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
 
 The **Suggestions** operation retrieves suggestions based on partial search input. It's typically used in search boxes to provide type-ahead suggestions as users are entering search terms.
 

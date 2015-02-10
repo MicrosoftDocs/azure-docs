@@ -36,7 +36,7 @@ The tags section uses this syntax:
 ##Usage
 
 - The element name and attribute names are case sensitive.
-- The <properties> section must be the first line of your file, and it must exist as a single line (e.g. don't add any line breaks between attributes).
+- The <properties> section must be the first line of your file.
 - Leave a blank line after each metadata section and before your page title to ensure that the page title is correctly converted to HTML during the publishing process.
 
 ## Attributes and values for the properties section

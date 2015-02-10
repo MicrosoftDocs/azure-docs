@@ -20,25 +20,7 @@
 
 This document depicts how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. 
 
-##Contents
-
-- [General overview](#general-overview)
-- [Limitations](#limitations)
-- [Integration](#integration)
-	- [Authentication](#authentication)
-	- [Service URI](#service-uri)
-	- [API version](#api-version)
-	- [Create a model](#create-a-model)
-	- [Import catalog data](#import-catalog-data)
-	- [Import usage data](#import-usage-data)
-		- [Uploading file](#uploading-file)
-		- [Using data acquisition](#using-data-acquisition)
-	- [Build a recommendation model](#build-a-recommendation-model)
-	- [Get build status of a model](#get-builds-status-of-a-model)
-	- [Get recommendations](#get-recommendations)
-	- [Update model](#update-model)
-- [Legal](#legal)
-
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ##General overview
 
