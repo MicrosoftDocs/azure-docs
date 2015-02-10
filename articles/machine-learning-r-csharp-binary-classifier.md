@@ -30,7 +30,7 @@ A simple scenario could be where a researcher is trying to predict whether a pro
 >This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.  
   
 
-#Consumption of web service  
+##Consumption of web service  
 This web service gives the predicted values of the dependent variable based on the independent variables for all of the observations. The web service expects the end user to input data as a string where rows are separated by comma (,) and columns are separated by semicolon (;). The web service expects 1 row at a time and expects the first column to be the dependent variable. An example dataset could look like this:
 
 ![Sample data][1]
@@ -69,7 +69,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	}
 
 
-#Creation of the web service  
+##Creation of web service  
 >This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. This web service runs an Azure Machine Learning experiment with an underlying R script. There are 2 parts to this experiment: schema definition, and training model + scoring. The first module defines the expected structure of the input dataset, where the first variable is the dependent variable and the remaining variables are independent. The second module fits a generic logistic regression model for the input data.    
@@ -90,7 +90,7 @@ From within Azure Machine Learning, a new blank experiment was created and two �
 	{if(as.numeric(pred1[i,])>0.5) {group[i]=1} else {group[i]=0}} pred2 <- as.data.frame(group) maml.mapOutputPort("pred2");  
 
 
-#Limitations
+##Limitations
 This is a very simple example of a binary classification web service. As can be seen from the example code above, no error catching is implemented and the service assumes everything is a binary/continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service. Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called. 
 
 ##FAQ
