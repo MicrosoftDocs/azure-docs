@@ -13,26 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
 
 #Create ContentKeys with REST
 
-A **ContentKey** provides secure access to an **Asset**. You can choose to create new or deliver encrypted assets. 
+Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
-When you [create a new asset](../media-services-rest-upload-files/), you can specify the following encryption options. 
+When you [create a new asset](../media-services-rest-upload-files/), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
-- **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. 
-	
-	The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
-- **CommonEncryption** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncrypted** – Use this option if you are uploading HLS encrypted with AES. **Note** that the files must have been encoded and encrypted by Transform Manager.
+When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](../media-services-rest-configure-asset-delivery-policy) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
 
-When you deliver assets to your clients, you can configure for assets to be dynamically encrypted with **EnvelopeEncryption** or **CommonEncryption**.
-
-
-Whether you create a new encrypted asset or deliver an encrypted asset to your client, you need to create a **ContentKey** and link it to the asset you want to encrypt.
+Whether you create a new encrypted asset or specify to encrypt an asset dynamically when it is delivered to the client, you need to create a **ContentKey** and link it to the asset you want to encrypt.
 
 The following are general steps for generating content keys that you will associate with assets that you want to be encrypted. 
 
@@ -153,7 +146,7 @@ Response:
 
 After you have retrieved the X.509 certificate and used its public key to encrypt your content key, create a **ContentKey** entity and set its property values accordingly.
 
-One of the values that you must set is the content key type. The following enum describes the values that you can set. 
+One of the values that you must set when create the content key is the type. Choose from one of the following values.
 
     /// <summary>
     /// Specifies the type of a content key.
@@ -172,7 +165,7 @@ One of the values that you must set is the content key type. The following enum 
         StorageEncryption = 1,
 
         /// <summary>
-        /// Specifies a content key for configuration encryption.
+        /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
         /// </summary>
         ConfigurationEncryption = 2,
 

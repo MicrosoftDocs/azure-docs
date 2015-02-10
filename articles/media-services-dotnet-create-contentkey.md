@@ -13,33 +13,59 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="02/10/2015" 
 	ms.author="juliako"/>
-
 
 
 #Create ContentKeys with .NET
 
-A **ContentKey** provides secure access to an **Asset**. 
+Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
+ 
+When you [create a new asset](../media-services-dotnet-upload-files/), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
-You can choose to create or deliver encrypted assets. 
-
-When you [create a new asset](../media-services-dotnet-upload-files/), you can specify the following encryption options. 
-
-- **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. 
-	
-	The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
-- **CommonEncryption** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncrypted** – Use this option if you are uploading HLS encrypted with AES. **Note** that the files must have been encoded and encrypted by Transform Manager.
+When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](../media-services-dotnet-configure-asset-delivery-policy) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
 
 
-When you deliver assets to your clients, you can configure for assets to be dynamically encrypted with **EnvelopeEncryption** or **CommonEncryption**.
-
-
-Whether you create a new encrypted asset or deliver an encrypted asset to your client, you need to create a content key and link it to the asset you want to encrypt. This topic shows how to create **EnvelopeEncryption** or **CommonEncryption** content keys.
+Whether you create a new encrypted asset or specify to encrypt an asset dynamically when it is delivered to the client, you need to create a **ContentKey** and link it to the asset you want to encrypt.
 
 
 >[AZURE.NOTE] When creating a new **StorageEncrypted** asset using the Media Services .NET SDK , the **ContentKey** is automatically created and linked with the asset.
+
+##ContentKeyType
+
+One of the values that you must set when create a content key is the content key type. Choose from one of the following values. 
+
+    /// <summary>
+    /// Specifies the type of a content key.
+    /// </summary>
+    public enum ContentKeyType
+    {
+        /// <summary>
+        /// Specifies a content key for common encryption.
+        /// </summary>
+        /// <remarks>This is the default value.</remarks>
+        CommonEncryption = 0,
+
+        /// <summary>
+        /// Specifies a content key for storage encryption.
+        /// </summary>
+        StorageEncryption = 1,
+
+        /// <summary>
+        /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
+        /// </summary>
+        ConfigurationEncryption = 2,
+
+        /// <summary>
+        /// Specifies a content key for url encryption.  Only used internally.
+        /// </summary>
+        UrlEncryption = 3,
+
+        /// <summary>
+        /// Specifies a content key for Envelope encryption.  Only used internally.
+        /// </summary>
+        EnvelopeEncryption = 4
+    }
 
 ##<a id="envelope_contentkey"></a>Create envelope type ContentKey
 

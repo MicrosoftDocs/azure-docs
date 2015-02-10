@@ -19,6 +19,8 @@
 
 #Media Services Video-on-Demand Workflow
 
+##Overview
+
 This topic describes steps of a typical Azure Media Services (AMS) Video-on-Demand workflow. Each step links to relevant topics. For tasks that can be achieved using different technologies, there are buttons that link to technology of your choice (for example, .NET or REST).   
 
 Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN, or a third-party CDN. 
@@ -38,7 +40,7 @@ Choose **.NET** or **REST API** for your development environment.
 
 ##Connecting programmatically  
 
-Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.  
+Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
@@ -60,7 +62,9 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 ###Encoding 
 
-[AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-encode.md)]
+Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
 For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en-us/library/azure/dn621224.aspx).
 
@@ -68,9 +72,11 @@ For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en
 
 [Monitoring job progress using .NET](../media-services-check-job-progress/)
 
-##Configuring Content Protection 
+##Configure content key authorization policy 
 
-For more information, see [Securing Media](https://msdn.microsoft.com/en-us/library/azure/dn282272.aspx).
+Configure key authorization policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
 ##Configuring asset delivery policy
 
@@ -80,7 +86,7 @@ Configure asset delivery policy using **.NET** or **REST API**.
 
 ##Publishing assets
 
-Publish assets using **Azure Management Portal**, **.NET**.
+Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
