@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -23,7 +23,7 @@
 
 # How to use AMQP 1.0 with the Service Bus .NET API
 
-<h2>Introduction</h2>
+## Introduction
 
 The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform, messaging applications.
 
@@ -31,15 +31,15 @@ Support for AMQP 1.0 in Service Bus means that you can use the queuing and publi
 
 This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API. There is a companion how-to guide that explains how to do the same using the standard Java Message Service (JMS) API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 
-<h2>Getting Started with Service Bus</h2>
+## Get started with Service Bus
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled "[How to Use Service Bus Queues.](https://azure.microsoft.com/en-us/develop/net/how-to-guides/service-bus-queues/)"
 
-<h2>Downloading the Service Bus SDK.</h2>
+## Downloading the Service Bus SDK
 
 AMQP 1.0 support is available in Service Bus SDK version 2.1 or later. You can download the latest SDK from NuGet at [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
 
-<h2>Coding .NET applications</h2>
+## Coding .NET applications
 
 By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string as described in the next section. Other than this change, application code remains basically unchanged when using AMQP 1.0.
 
@@ -55,18 +55,18 @@ A sample App.config file is shown below:
 	<configuration>
 	  	<appSettings>
 		    <add key="Microsoft.ServiceBus.ConnectionString"
-        	     value="Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp" />
+        	     value="Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
 	    	<add key="EntityName" value="queue1" />
   		</appSettings>
 	</configuration>
 
-### Configuring the Service Bus Connection String
+### Configuring the Service Bus connection string
 
 The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Service Bus connection string that is used to configure the connection to Service Bus. The format is as follows:
 
-	Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
+	Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Where [namespace], [issuer name], and [issuer key] are obtained from the Azure Management Portal. For more information, see [How to Use Service Bus Queues][].
+Where [namespace], [issuer name], and [SAS key] are obtained from the Azure Management Portal. For more information, see [How to Use Service Bus Queues][].
 
 When using AMQP, the connection string is appended with ";TransportType=Amqp", which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
@@ -221,7 +221,7 @@ Running the application produces output of the form:
 	Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
 	exit
 
-<h2>Cross-platform messaging between JMS and .NET</h2>
+## Cross-platform messaging between JMS and .NET
 
 This guide showed how to send messages to Service Bus using .NET and also how to receive those messages using .NET. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.
 
@@ -238,7 +238,7 @@ To demonstrate JMS to .NET messaging:
 * Press **Enter** a few times in the Java application console, which will cause messages to be sent.
 * These messages are received by the .NET application.
 
-#### Output from JMS application
+### Output from JMS application
 
 	> java SimpleSenderReceiver sendonly
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -247,7 +247,7 @@ To demonstrate JMS to .NET messaging:
 	Sent message with JMSMessageID = ID:1565011046230456854
 	exit
 
-#### Output from .NET application
+### Output from .NET application
 
 	> SimpleSenderReceiver.exe	
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -256,7 +256,7 @@ To demonstrate JMS to .NET messaging:
 	Received message with MessageID = 1565011046230456854
 	exit
 
-### .NET to JMS
+## .NET to JMS
 
 To demonstrate .NET to JMS messaging:
 
