@@ -160,7 +160,7 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 
 
 
-##Creation of the web service 
+##Creation of web service 
 
 >This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
