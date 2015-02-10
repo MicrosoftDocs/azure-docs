@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="02/09/2015" 
 	ms.author="huvalo"/>
 
 
@@ -28,20 +28,7 @@ You will create an application using the Bottle web framework (see alternate ver
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 
-+ [Prerequisites](#prerequisites)
-+ [Website Creation on Portal](#website-creation-on-portal)
-+ [Application Overview](#application-overview)
-+ Website Development
-  + [Windows - Python Tools for Visual Studio](#website-development-windows-ptvs)
-  + [Windows - Command Line](#website-development-windows-command-line)
-  + [Mac/Linux - Command Line](#website-development-mac-linux-command-line)
-+ [Troubleshooting - Deployment](#troubleshooting-deployment)
-+ [Troubleshooting - Package Installation](#troubleshooting-package-installation)
-+ [Troubleshooting - Virtual Environment](#troubleshooting-virtual-environment)
-+ [Next steps](#next-steps)
-
-
-<h2><a name="prerequisites"></a>Prerequisites</h2>
+## Prerequisites
 
 - Windows, Mac or Linux
 - Python 2.7 or 3.4
@@ -64,7 +51,7 @@ We also recommend installing [Python Tools 2.1 for Visual Studio][].  This is op
 You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.
 
 
-<h2><a name="website-creation-on-portal"></a>Website Creation on Portal</h2>
+## Website Creation on Portal
 
 The first step in creating your app is to create the website via the Azure Management Portal.  To do this, you will need to login to the portal and click the **NEW** button in the bottom left corner. A window will appear. Click **COMPUTE**, **WEB SITE**, then **FROM GALLERY**.
 
@@ -95,7 +82,7 @@ After setting up Git publishing, you will momentarily see a page informing you t
 We'll follow these instructions in the next sections.
 
 
-<h2><a name="application-overview"></a>Application Overview</h2>
+## Application Overview
 
 ### Git repository contents
 
@@ -161,7 +148,7 @@ The next 3 sections describe how to proceed with the website development under 3
 - Mac/Linux, with command line
 
 
-<h2><a name="website-development-windows-ptvs"></a>Website Development - Windows - Python Tools for Visual Studio</h2>
+## Website Development - Windows - Python Tools for Visual Studio
 
 ### Clone the repository
 
@@ -230,7 +217,7 @@ Visual Studio doesn't show the progress of the deployment.  If you'd like to rev
 Browse to the Azure URL to view your changes.
 
 
-<h2><a name="website-development-windows-command-line"></a>Website Development - Windows - Command Line</h2>
+## Website Development - Windows - Command Line
 
 ### Clone the repository
 
@@ -309,7 +296,7 @@ You will see the output of the deployment script, including virtual environment 
 Browse to the Azure URL to view your changes.
 
 
-<h2><a name="website-development-mac-linux-command-line"></a>Website Development - Mac/Linux - Command Line</h2>
+## Website Development - Mac/Linux - Command Line
 
 ### Clone the repository
 
@@ -388,22 +375,22 @@ You will see the output of the deployment script, including virtual environment 
 Browse to the Azure URL to view your changes.
 
 
-<h2><a name="troubleshooting-deployment"></a>Troubleshooting - Deployment</h2>
+## Troubleshooting - Deployment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>Troubleshooting - Package Installation</h2>
+## Troubleshooting - Package Installation
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>Troubleshooting - Virtual Environment</h2>
+## Troubleshooting - Virtual Environment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
-<h2><a name="next-steps"></a>Next Steps</h2>
+## Next Steps
 
 Follow these links to learn more about Bottle and Python Tools for Visual Studio: 
  
