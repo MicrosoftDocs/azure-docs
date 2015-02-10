@@ -139,7 +139,7 @@ Currently, five kinds of connection bundles are supported:
 -	**Pooling** bundles, indicated by the keywords **max pool** or **mean pool**
 -	**Response normalization** bundles, indicated by the keyword **response norm**  	
 
-####Full bundles  
+##Full bundles  
 
 A full connection bundle includes a connection from each node in the source layer to each node in the destination layer. This is the default network connection type.  
 
