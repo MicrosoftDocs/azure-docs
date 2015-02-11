@@ -159,7 +159,7 @@ Not currently, but with the standard Python module or a set of them the same res
 No, there is no REPL environment for Python in the studio. 
 
 ## Web Service
-###Creation
+###Create
 
 **Can I deploy the model locally or in an application without an internet connection?**
 No.
@@ -178,9 +178,6 @@ The Request Response service (RRS) is a low-latency, high-scale web service that
 
 Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-a-machine-learning-web-service/) for details on how to update a deployed web service. 
 
-**How do I update the training data ("retraining" the model) for the deployed web service?** 
-
-<<Raymond has created documentation on this that we should point towards or an article.>> 
 
 **How do I monitor my Web service deployed in production?** 
 
