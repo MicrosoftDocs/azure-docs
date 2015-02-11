@@ -53,8 +53,6 @@ application that allows you to vote for a poll.
 Before following the instructions in this article, you should ensure
 that you have the following installed:
 
-
-
 - Visual Studio 2013 (or [Visual Studio Express][] which is the free
 version)
 
@@ -63,14 +61,14 @@ version)
 - Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1]
 
-- Azure Cross-platform Command Line Tools, available through [Microsoft
-Web Platform Installer][]
+- Python 2.7 from [here][2]
 
+- Microsoft Visual C++ Compiler for Python 2.7 from [here][3]
 
 ## Create a DocumentDB database account
 
-To provision a DocumentDB database account in Azure, open the Azure
-Management Portal and either Click the Azure Gallery tile on the
+To provision a DocumentDB database account in Azure, open the [Azure
+Management Portal][] and either Click the Azure Gallery tile on the
 homepage or click "+" in the lower left hand corner of the screen.
 
 ![Alt text](./media/documentdb-python-application/image2.png)
@@ -118,14 +116,16 @@ values in the web application we will create next.
 ## Create a new Python Flask Web Application
 
 Open Visual Studio, File -\> New Project -\> Python -\>, Flask Web
-Project with the name **tutorial**. It will ask you whether you want to
-install external packages. Click on **Install into a virtual environment**. This will setup the required Python virtual
-environment for your project.
+Project with the name **tutorial**. 
 
 For those new to Flask, it is a web framework that helps us build web
 applications in Python faster. [Click here to access Flask tutorials][].
 
 ![Alt text](./media/documentdb-python-application/image9.png)
+
+It will ask you whether you want to
+install external packages. Click on **Install into a virtual environment**. Be sure to use Python 2.7 as the base environment as PyDocumentDB does not currently support Python 3.x.  This will setup the required Python virtual environment for your project.
+
 ![Alt text](./media/documentdb-python-application/image10.png)
 
 
@@ -163,25 +163,22 @@ in the output window to verify this).
 ### Verify the virtual environment
 
 Let's make sure that everything is installed properly. Start the web
-site by clicking **F5** This will launch the flask development server
+site by hitting **F5** This will launch the flask development server
 and start your web browser. You should see the following page:
 
 ![Alt text](./media/documentdb-python-application/image12.png)
 
 ### Create Database, Collection and Document Definition
 
-Add a Python file by right clicking on on the folder named **tutorial** in the Solution Explorer.  Name the file **forms.py**.  We are creating our polling application.
+Add a Python file by right-clicking on on the folder named **tutorial** in the Solution Explorer.  Name the file **forms.py**.  We are creating our polling application.
 
     from flask.ext.wtf import Form
     from wtforms import RadioField
-    from wtforms.validators import Required
-    import pydocumentdb.documents as documents
-    import pydocumentdb.document_client as document_client
-    import pydocumentdb.errors as errors
+
     class VoteForm(Form):
         deploy_preference  = RadioField('Deployment Preference', choices=[
-            ('Web Site', 'Website'),
-            ('Cloud Service', 'Cloud'),
+            ('Web Site', 'Web Site'),
+            ('Cloud Service', 'Cloud Service'),
             ('Virtual Machine', 'Virtual Machine')], default='Web Site')
 
 ### Add the required imports to views.py
@@ -189,12 +186,10 @@ Add a Python file by right clicking on on the folder named **tutorial** in the S
 Add the following import statements at the top in **views.py**. These
 will import DocumentDB's PythonSDK and Flask packages.
 
-    from wtforms import Form
+
     from forms import VoteForm
     import config
-    import pydocumentdb.documents as documents
     import pydocumentdb.document_client as document_client
-    import pydocumentdb.errors as errors
     
 
 ### Create Database, Collection and Document
@@ -353,9 +348,9 @@ serves as the landing page for your application.
     {% endblock %}
 
 
-### Add a configuration file and change the \_\_init\_\_.py.
+### Add a configuration file and change the \_\_init\_\_.py
 
-Right click on the project name tutorial and add a file - **config.py**.
+Right-click on the project name tutorial and add a file - **config.py**.
 This config is required by forms in flask. You may use it to provide a
 secret key as well. This is not needed for this tutorial though. Add the following code to config.py.   Alter the values of **DOCUMENTDB\_HOST** and **DOCUMENTDB\_KEY**.
 
@@ -406,7 +401,7 @@ For every vote you cast it will increment the appropriate counter.
 ## Deploy application to Azure Websites
 
 Now that you have the complete application working correctly against
-DocumentDB we're going to deploy this to Azure Websites. Right Click on
+DocumentDB we're going to deploy this to Azure Websites. Right-click on
 the Project in Solution Explorer (make sure you're not still running it
 locally) and select Publish.  Then, select Microsoft Azure Websites.
 
@@ -433,4 +428,7 @@ Azure DocumentDB and published it to Azure Websites.
   [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
   [here]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
+  [2]: https://www.python.org/downloads/windows/
+  [3]: http://aka.ms/vcpython27 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+  [Azure Management Portal]: http://portal.azure.com
