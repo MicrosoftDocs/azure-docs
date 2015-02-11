@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/11/2015" 
 	ms.author="sdanie"/>
 
 # How to create and publish a product in Azure API Management
@@ -46,6 +46,8 @@ Click on **Products** in the menu on the left to display the **Products** page, 
 
 Enter a descriptive name for the product in the **Name** field and a description of the product in the **Description** field.
 
+Products in API Management can be **Open** or **Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. Check **Require subscription** to create a protected product that requires a subscription. This is the default setting.
+
 Check **Require subscription approval** if you want an administrator to review and accept or reject subscription attempts to this product. If the box is unchecked, subscription attempts will be auto-approved. For more information on subscriptions, see [View subscribers to a product][].
 
 To allow developer accounts to subscribe multiple times to the product, check the **Allow multiple subscriptions** check box. If this box is not checked, each developer account can subscribe only a single time to the product.
@@ -66,7 +68,7 @@ To configure a product, click on the product name in the **Products** tab.
 
 ## <a name="add-apis"> </a>Add APIs to a product
 
-The **Products** page contains four links for configuration: **Summary**, **Settings**, **Visibility**, and **Developers**. The **Summary** tab is where you can and APIs and publish or unpublish a product.
+The **Products** page contains four links for configuration: **Summary**, **Settings**, **Visibility**, and **Subscribers**. The **Summary** tab is where you can add APIs and publish or unpublish a product.
 
 ![Summary][api-management-new-product-summary]
 
@@ -81,6 +83,8 @@ Select the desired APIs and click **Save**.
 The **Settings** tab allows you to provide detailed information about the product such as its purpose, the APIs it provides access to, and other useful information. The content is targeted at the developers that will be calling the API and can be written in plain text or HTML markup.
 
 ![Product settings][api-management-product-settings]
+
+Check **Require subscription** to create a protected product that requires a subscription to be used, or clear the checkbox to create an open product that can be called without a subscription.
 
 Select **Require subscription approval** if you want to manually approve all product subscription requests. By default all product subscriptions are granted automatically.
 
@@ -106,7 +110,7 @@ To enable or disable visibility of a product for the developers in a group, chec
 
 ## <a name="view-subscribers"> </a>View subscribers to a product
 
-The **Developers** tab lists the developers who have subscribed to the product. The details and settings for each developer can be viewed by clicking on the developer's name. In this example no developers have yet subscribed to the product.
+The **Subscribers** tab lists the developers who have subscribed to the product. The details and settings for each developer can be viewed by clicking on the developer's name. In this example no developers have yet subscribed to the product.
 
 ![Developers][api-management-developer-list]
 
