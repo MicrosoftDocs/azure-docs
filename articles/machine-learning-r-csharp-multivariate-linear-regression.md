@@ -30,7 +30,7 @@ A simple scenario could be where the researcher is trying to predict the weight 
 
 >This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.  
 
-#Consumption of web service  
+##Consumption of web service  
 This web service gives the predicted values of the dependent variable based on the independent variables for all of the observations. The web service expects the end user to input data as a string where rows are separated by commas (,) and columns are separated by semicolons (;). The web service expects 1 row at a time and expects the first column to be the dependent variable. An example dataset could look like this:
 
 ![Sample data][1]
@@ -72,7 +72,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 
 
-#Creation of the web service  
+##Creation of web service  
 >This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 
