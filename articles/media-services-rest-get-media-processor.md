@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to Create a Media Processor - Azure" 
-	description="Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET." 
+	description="Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -66,22 +66,51 @@ The following table provides the name and description of each available media pr
 
 ##Get MediaProcessor
 
-The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically].
+>[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
+>
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](../media-services-rest-how-to-use).
 
-	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-	{
-	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
+
+
+
+The following REST call shows how to get a media processor instance by name (in this case, **Azure Media Encoder**). 
+
 	
-	    if (processor == null)
-	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+Request:
+
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json
+	Accept-Charset: UTF-8
+	User-Agent: Microsoft ADO.NET Data Services
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
+	x-ms-version: 2.8
+	Host: media.windows.net
 	
-	    return processor;
-	}
+Response:
+	
+	HTTP/1.1 200 OK
+	Cache-Control: no-cache
+	Content-Length: 273
+	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+	Server: Microsoft-IIS/8.5
+	x-ms-client-request-id: 8a291764-4ed7-405d-aa6e-d3ebabb0b3f6
+	request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
+	x-ms-request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
+	X-Content-Type-Options: nosniff
+	DataServiceVersion: 3.0;
+	X-Powered-By: ASP.NET
+	Strict-Transport-Security: max-age=31536000; includeSubDomains
+	Date: Wed, 11 Feb 2015 00:19:56 GMT
+	
+	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
+
 
 ##Next Steps
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset][] topic which will show you how to use the Azure Media Encoder to encode an asset.
 
-[How to Encode an Asset]: ../media-services-encode-asset/
+[How to Encode an Asset]: ../media-services-rest-encode-asset/
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
-[How to: Connect to Media Services Programmatically]: ../media-services-set-up-computer/
+[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
