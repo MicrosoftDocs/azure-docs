@@ -731,19 +731,12 @@ An `<input>` element tells the browser to provide a file selection dialog.
 
 ### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 
-When the WebJob starts, the `Main` method calls `Initialize` to instantiate the Entity Framework database context. Then it calls the  WebJobs SDK `JobHost.RunAndBlock` method to begin single-threaded execution of triggered functions on the current thread.
+When the WebJob starts, the `Main` method calls the WebJobs SDK `JobHost.RunAndBlock` method to begin execution of triggered functions on the current thread.
 
 		static void Main(string[] args)
 		{
-		    Initialize();
-		
 		    JobHost host = new JobHost();
 		    host.RunAndBlock();
-		}
-		
-		private static void Initialize()
-		{
-		    db = new ContosoAdsContext();
 		}
 
 ### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail method
@@ -753,7 +746,7 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
-		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg"), FileAccess.Write] CloudBlockBlob outputBlob)
+		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 		{
 		    using (Stream output = outputBlob.OpenWrite())
 		    {
@@ -761,14 +754,19 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 		        outputBlob.Properties.ContentType = "image/jpeg";
 		    }
 		
-		    var id = blobInfo.AdId;
-		    Ad ad = Program.db.Ads.Find(id);
-		    if (ad == null)
+		    // Entity Framework context class is not thread-safe, so it must
+		    // be instantiated and disposed within the function.
+		    using (ContosoAdsContext db = new ContosoAdsContext())
 		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        var id = blobInfo.AdId;
+		        Ad ad = db.Ads.Find(id);
+		        if (ad == null)
+		        {
+		            throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        }
+		        ad.ThumbnailURL = outputBlob.Uri.ToString();
+		        db.SaveChanges();
 		    }
-		    ad.ThumbnailURL = outputBlob.Uri.ToString();
-		    Program.db.SaveChanges();
 		}
 
 * The `QueueTrigger` attribute directs the WebJobs SDK to call this method when a new message is received on the thumbnailrequest queue.
