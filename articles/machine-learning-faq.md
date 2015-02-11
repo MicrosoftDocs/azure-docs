@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2014" 
-	ms.author="pamehta"/>
+	ms.date="02/17/2015" 
+	ms.author="paulettm"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
  
@@ -106,7 +106,7 @@ Since the data is being transmitted to the browser and may be large, the data si
 ###Algorithms
 **What existing algorithms are supported in Machine Learning Studio?**
 
-Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. The complete list of machine learning algorithms is available in Machine Learning Studio Help.
+Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the [complete list of machine learning algorithms](https://msdn.microsoft.com/en-us/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc).
 
 **Do you automatically suggest the right Machine Learning algorithm to use for my data?** 
 
@@ -160,13 +160,10 @@ No, there is no REPL environment for Python in the studio.
 
 ## Web Service
 ###Creation
-**Is the web service created from the Machine Learning Studio throttled? How can I create additional endpoints or mark the web service as a production web service?**
 
 **Can I deploy the model locally or in an application without an internet connection?**
 No.
 
-**How can I improve the latency of the web service?**
-Remove all modules that are not explicitly required in the transformation expected of the web service. Replace all train modules with a saved trained model. Avoid R/Py and use our modules as much as possible. If your network latency is high, try to do more in the web service graph and make fewer calls. If it is very low, try to do some computations client-side and make more frequent requests
 
 **Is there a baseline latency that is expected for all web services?** 
 
@@ -175,15 +172,11 @@ See the [Azure subscription limits](http://azure.microsoft.com/en-us/documentati
 ###Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
-The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. The results of scoring are output to a file in the Azure Blob service and the storage end-point is returned in the response.
-
-The Batch Execution service is useful in a scenario where a large number of data points need to be scored in a batch, or if much of your data is already in a file format in Azure storage or a Hadoop cluster. The web service can transform data it reads before it sends it to the model. You can point your end-of-week transaction data to a Batch Execution service, which will transform and provide the results.
-
-The Request Response service is useful in a scenario where predictive analytics are needed in near real time to power a live dashboard or guide user action or content that is served via a mobile or web application.
+The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-consume-web-services/). 
 
 **How do I update the model for the deployed web service?** 
 
-Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See Updating the Web Service for details on how to update a deployed web service. <<IS THERE A TOPIC FOR THIS>>
+Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-a-machine-learning-web-service/) for details on how to update a deployed web service. 
 
 **How do I update the training data ("retraining" the model) for the deployed web service?** 
 
@@ -197,29 +190,19 @@ Once a predictive model has been put into production, you can monitor it from th
 
 Yes, you can provide a blob storage location and the output of the RRS/BES will be placed there. 
 
-**How does Azure ML integrate with Azure Data Factory or Azure Streaming Analytics?** 
 
-##Azure Marketplace 
-
-See the [FAQ for publishing and using apps in the Machine Learning Marketplace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq/)
 
 ##Scalability 
 
-**What is the scalability of the web service?* 
+**What is the scalability of the web service?** 
 
 Currently, the maximum is 20 concurrent requests per end point, though it can scale to 80 end points. This translates to 4,800 concurrent request if we use every resource (300 workers).  
 
-**Does R run in any sort of parallelized mode (multi-core)?** 
-
-<NEED TO REVISIT IT> 
 
 **Are R jobs spread across nodes?** 
 
 No.  
 
-**How does Machine Learning handle sparse representation of data?** 
-
-We have it in the product, but silently data is densified. <NEED TO Put this in the correct way or remove it> 
 
 **How much data can I train on?** 
 
@@ -237,9 +220,26 @@ No.
 
 **Who has access to the http end point for the web service deployed in production by default? How do I restrict access to the end point?** 
 
+Once a predictive model has been put into production, the Azure Portal lists the URL for the deployed web services. Staging service URLs are accessible from the Machine Learning Studio Environment in the web services section; Production service URLs are accessible from Azure Portal, in the Machine Learning section. Access keys are provided for both Staging and Production web services from the web service dashboard in the Machine Learning Studio and Azure portal environments, respectively. Access keys are needed to make calls to the web service in production and staging. For more information, see [Getting started with the Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-getting-started-with-azure-machine-learning-web-service/).
 
-Once a predictive model has been put into production, the Azure Portal lists the URL for the deployed web services. Staging Service URLs are accessible from ML Studio Environment under the web services section, and Production service URLs are accessible from Azure Portal, under the Machine Learning section. Access keys are provided for both Staging and Production web services from the web service Dashboard in the ML Studio and Azure portal environment respectively. Access keys are needed to make calls to the web service in production and staging.  
+**What happens if my Storage Account cannot be found?** 
 
+Machine Learning Studio relies on a user-supplied Azure storage account to save intermediary data when executing the workflow. You specify the storage account when you create the workspace. If the storage account is deleted and can no longer be found, that workspace will not work and all experiments in that workspace will fail. 
+
+If you accidentally deleted the storage account, need to recreate it with the  same name in the  same Region as the deleted one, and then re-sync the Access Key. 
+
+**What happens if my Storage Account Access Key is out of sync?** 
+
+If you've changed Storage Account Access Keys, you need to resync the Access Keys in the workspace setting in the Azure portal.  
+
+**Why is my workspace authorization token unavailable in generated data access code?** 
+
+
+When you generate data access code from a dataset, you might see the text "Unavailable" in place of the authorization token in the generated code. This is because you are not the owner of the workspace in which this dataset lives. In order to get the authorization token to fill in, please contact the owner of the workspace and ask him/her to generate the data access code which contains the token in clear text. And please take extra precaution with this token because it provides full access to this workspace. Treat it like a secret password. 
+
+##Azure Marketplace 
+
+See the [FAQ for publishing and using apps in the Machine Learning Marketplace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq/)
 
 ##Support and Training 
 
@@ -258,46 +258,3 @@ You can also find training at [Microsoft Virtual Academy](http://www.microsoftvi
 Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning). 
 
 
-Tips and Tricks 
-
-
-What happens if my Storage Account cannot be found? 
-
-
-ML Studio rely on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to ML Studio at the time a workspace is created. After the workspace is created, if the Storage Account is deleted and can no longer be found, that workspace will stop function and all experiments in that workspace will fail. 
-
-
- 
-
-
-If you accidentally deleted the Storage Account, the only way to recover from it is to recreate that Storage Account with the exact same name in the exact same Region as the deleted one. After that, please re-sync the Access Key. 
-
-
- 
-
-
-What happens if my Storage Account Access Key is out of sync? 
-
-
-ML Studio rely on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to ML Studio at the time a workspace is created and the Access Keys are associated with that workspace. After the workspace is created, if the Access keys are changed, that workspace can no longer access the Storage Account, and it will stop function and all experiments in that workspace will fail. 
-
-
- 
-
-
-If you've changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure portal.  
-
-
- 
-
-
-Why is my workspace authorization token unavailable in generated data access code? 
-
-
-When you generate data access code from a dataset, you might see the text "Unavailable" in place of the authorization token in the generated code. This is because you are not the owner of the workspace in which this dataset lives. In order to get the authorization token to fill in, please contact the owner of the workspace and ask him/her to generate the data access code which contains the token in clear text. And please take extra precaution with this token because it provides full access to this workspace. Treat it like a secret password. 
-
-**How do I get support for Azure Machine Learning?**
-
-Machine Learning is supported as a part of the Azure support offerings.  To get technical support for Machine Learning, select **Machine Learning** as the service, and you will be provided with a category of topics to file your support ticket. To learn more, visit [Azure support options](http://azure.microsoft.com/en-us/support/options/).
-
-Azure Machine Learning also has a community forum on MSDN, where you can ask Machine Learning related questions. The forum is monitored by the Azure Machine Learning team. To ask a question, visit the [Machine Learning Support](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning) site.
