@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -22,25 +22,25 @@
 
 # How to Use Service Bus Topics/Subscriptions
 
-<span>This guide will show you how to use Service Bus topics and
+This guide will show you how to use Service Bus topics and
 subscriptions. The samples are written in C\# and use the .NET API. The
 scenarios covered include **creating topics and subscriptions, creating
 subscription filters, sending messages** to a topic, **receiving
 messages from a subscription**, and **deleting topics and
 subscriptions**. For more information on topics and subscriptions, see
-the [Next Steps][] section. </span>
+the [Next Steps][] section.
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-<h2>Configure the Application to Use Service Bus</h2>
+## Configure the application to use Service Bus
 
 When you create an application that uses Service Bus, you will need to
 add a reference to the Service Bus assembly and include the
 corresponding namespaces.
 
-<h2>Get the Service Bus NuGet Package</h2>
+## Get the Service Bus NuGet package
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -60,22 +60,22 @@ To install the NuGet package in your application, do the following:
 
     ![][7]
 
-You are now ready to write code against Service Bus.
+You are now ready to write code for Service Bus.
 
-<h2>How to Set Up a Service Bus Connection String</h2>
+## How to set up a Service Bus connection string
 
-The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
+Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
 - When using Azure Cloud Services, it is recommended you store your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files).
 - When using Azure Websites or Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
 
 In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
 
-### <a name="config-connstring"> </a>Configuring your connection string when using Cloud Services
+### Configuring your connection string when using Cloud Services
 
 The service configuration mechanism is unique to Azure Cloud Services
 projects and enables you to dynamically change configuration settings
-from the Azure Management Portal without redeploying your
+from the Azure management portal without redeploying your
 application.  For example, add a Setting to your service definition (`*.csdef`) file, as shown below:
 
 	<ServiceDefinition name="WindowsAzure1">
@@ -95,13 +95,13 @@ You then specify values in the service configuration (`*.cscfg`) file:
 		<Role name="MyRole">
 			<ConfigurationSettings>
 				<Setting name="Microsoft.ServiceBus.ConnectionString" 
-						 value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey" />
+						 value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
 			</ConfigurationSettings>
 		</Role>
 	...
 	</ServiceConfiguration>
 
-Use the key values retrieved from the Management Portal as
+Use the key values retrieved from the management portal as
 described in the previous section.
 
 ### Configuring your connection string when using Websites or Virtual Machines
@@ -111,14 +111,14 @@ When using Websites or Virtual Machines, it is recommended you use the .NET conf
 	<configuration>
 	    <appSettings>
 		    <add key="Microsoft.ServiceBus.ConnectionString"
-			     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey" />
+			     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
 		</appSettings>
 	</configuration>
 
-Use the issuer and key values retrieved from the Management Portal as
+Use the issuer and key values retrieved from the management portal as
 described in the previous section.
 
-<h2>How to Create a Topic</h2>
+## How to create a topic
 
 You can perform management operations for Service Bus topics and subscriptions via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -126,7 +126,7 @@ This example constructs a **NamespaceManager** object using the Azure **CloudCon
 with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
 
-	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey
+	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
 
 For example, given the configuration settings in the previous section:
 
@@ -177,7 +177,7 @@ class. Subscriptions are named and can have an optional filter that
 restricts the set of messages passed to the subscription's virtual
 queue.
 
-### Create a Subscription with the default (MatchAll) Filter
+### Create a subscription with the default (MatchAll) filter
 
 The **MatchAll** filter is the default filter that is used if no filter
 is specified when a new subscription is created. When the **MatchAll**
@@ -197,7 +197,7 @@ filter.
         namespaceManager.CreateSubscription("TestTopic", "AllMessages");
     }
 
-### Create Subscriptions with Filters
+### Create subscriptions with filters
 
 You can also set up filters that allow you to specify which messages sent
 to a topic should appear within a specific topic subscription.
@@ -238,7 +238,7 @@ subscription, and selectively delivered to receivers subscribed to the
 "HighMessages" and "LowMessages" topic subscriptions (depending upon the
 message content).
 
-<h2>How to Send Messages to a Topic</h2>
+## How to send messages to a topic
 
 To send a message to a Service Bus topic, your application creates a
 **TopicClient** object using the connection string.
@@ -291,26 +291,26 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-<h2>How to Receive Messages from a Subscription</h2>
+## How to receive messages from a subscription
 
-The easiest way to receive messages from a subscription is to use a
+The recommended way to receive messages from a subscription is to use a
 **SubscriptionClient** object. **SubscriptionClient** objects can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot
-operation - that is, when the Service Bus receives a read request for a
+operation - that is, when Service Bus receives a read request for a
 message in a subscription, it marks the message as being consumed and
 returns it to the application. **ReceiveAndDelete** mode is the simplest
 model and works best for scenarios in which an application can tolerate
 not processing a message in the event of a failure. To understand this,
 consider a scenario in which the consumer issues the receive request and
-then crashes before processing it. Because the Service Bus will have marked
+then crashes before processing it. Because Service Bus will have marked
 the message as consumed, when the application restarts and
 begins consuming messages again, it will have missed the message that
 was consumed prior to the crash.
 
 In **PeekLock** mode (which is the default mode), the receive process becomes a two-stage operation which makes it possible to support applications that
-cannot tolerate missing messages. When the Service Bus receives a request,
+cannot tolerate missing messages. When Service Bus receives a request,
 it finds the next message to be consumed, locks it to prevent other
 consumers receiving it, and then returns it to the application. After
 the application finishes processing the message (or stores it reliably
@@ -358,20 +358,20 @@ path*\>/subscriptions/<*subscription name*\>".
        }
     } 
 
-<h2>How to Handle Application Crashes and Unreadable Messages</h2>
+## How to handle application crashes and unreadable messages
 
-The Service Bus provides functionality to help you gracefully recover from
+Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiving application is unable to process the message for some reason,
 then it can call the **Abandon** method on the received message (instead
-of the **Complete** method). This will cause the Service Bus to unlock the
+of the **Complete** method). This causes Service Bus to unlock the
 message within the subscription and make it available to be received
 again, either by the same consuming application or by another consuming
 application.
 
 There is also a timeout associated with a message locked within the
 subscription, and if the application fails to process the message before
-the lock timeout expires (for example, if the application crashes), then the Service Bus unlocks the message automatically and makes it available to be received again.
+the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
 
 In the event that the application crashes after processing the message
 but before the **Complete** request is issued, then the message will be
@@ -384,7 +384,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-<h2>How to Delete Topics and Subscriptions</h2>
+## How to delete topics and subscriptions
 
 The example below demonstrates how to delete the topic named
 **TestTopic** from the **HowToSample** service namespace:
@@ -399,7 +399,7 @@ following code demonstrates how to delete a subscription named
 
       namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
-<h2>Next Steps</h2>
+## Next Steps
 
 Now that you've learned the basics of Service Bus topics and subscriptions, follow these
 links to learn more.
@@ -425,7 +425,7 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #delete-topics
   
   [Topic Concepts]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure management portal]: http://manage.windowsazure.com
   
   
   

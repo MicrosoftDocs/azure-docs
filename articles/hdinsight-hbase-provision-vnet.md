@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="2/3/2015" 
 	ms.author="jgao"/>
 
 # Provision HBase clusters on Azure Virtual Network
@@ -24,9 +24,9 @@ With the virtual network integration, HBase clusters can be deployed to the same
 
 - Direct connectivity of the web application to the nodes of the HBase cluster which enables communication using HBase Java RPC APIs.
 - Improve performance by not having your traffic go over multiple gateway and load-balancer. 
-- process sensitive information in a more secure manner without exposing a public endpoint
+- Process sensitive information in a more secure manner without exposing a public endpoint.
 
-
+For information on provisioning Hadoop and Storm clusters, see [Provision Hadoop clusters in HDInsight][hdinsight-provision] and [Getting started using Storm with HDInsight][hdinsight-storm-get-started].
 ##In this article
 
 - [Prerequisites](#prerequisites)
@@ -381,6 +381,7 @@ In this tutorial we have learned how to provision an HBase cluster. To learn mor
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-storm-get-started]: ../hdinsight-storm-getting-started/
 
 [img-dns-surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -41,8 +41,8 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	    public class ScoreResult
-	    {
+	public class ScoreResult
+	{
 	        [DataMember]
 	        public double result
 	        {
@@ -50,6 +50,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	            set;
 	        }
 	}
+
 	void main()
 	{
 	        using (var wb = new WebClient())
@@ -87,16 +88,19 @@ From within Azure Machine Learning, a new blank experiment was created. The figu
 	# Map 1-based optional input ports to variables
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
-    # Install hash package
+ 
+   # Install hash package
     install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
     library(tm)
     library(stringr)
+
     #create sentiment dictionary
     negation_word <- c("not","nor", "no")
     result <- c()
     sent_dict <- hash()
     sent_dict <- hash(sent_dict_data$word, sent_dict_data$polarity)
+
     #  Compute sentiment score for each document
     for (m in 1:nrow(dataset2)){
 	polarity_ratio <- 0
@@ -128,8 +132,10 @@ From within Azure Machine Learning, a new blank experiment was created. The figu
 		result<- c(result,0)
 	}
     }
+
     # Sample operation
     data.set <- data.frame(result)
+
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("data.set")
 	

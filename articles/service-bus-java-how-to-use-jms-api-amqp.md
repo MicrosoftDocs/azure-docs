@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -30,7 +30,7 @@ Support for AMQP 1.0 in Service Bus means that you can use the queuing and publi
 
 This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. There is a companion How-to guide that explains how to do the same using the Service Bus .NET API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 
-##Getting started with Service Bus
+##Get started with Service Bus
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled [How to Use Service Bus Queues](https://azure.microsoft.com/en-us/develop/net/how-to-guides/service-bus-queues/).
 

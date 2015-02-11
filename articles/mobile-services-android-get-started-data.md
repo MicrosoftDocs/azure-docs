@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/16/2014" 
-	ms.author="ricksal,glenga"/>
+	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing app
 
