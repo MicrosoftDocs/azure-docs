@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -39,7 +39,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 ## Configure your application to use Service Bus
 
-To use the Azure Service Bus topic APIs, you need to:
+To use the Service Bus APIs:
 
 1. Reference the autoloader file using the [require_once][require-once] statement, and
 2. Reference any classes you might use.
@@ -55,7 +55,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-## Set up an Azure Service Bus connection
+## Set up a Service Bus connection
 
 To instantiate an Azure Service Bus client you must first have a valid connection string following this format:
 

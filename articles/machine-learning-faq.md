@@ -18,7 +18,7 @@
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
  
-###General questions
+##General questions
 
 **1. What is Azure Machine Learning?**
  
@@ -52,7 +52,7 @@ To get started with Azure Machine Learning, visit [Get started with Azure Machin
 
 Visit the [Machine Learning Documentation Center](http://azure.microsoft.com/en-us/documentation/services/machine-learning/) to get updates on the service, read the latest Machine Learning team blog, participate in our Machine Learning community via forums, access product Help, view the model gallery, and provide feedback about the service to help us shape the product roadmap.
 
-###Billing questions
+##Billing questions
 
 **5. How does Machine Learning billing work?**
 
@@ -70,7 +70,7 @@ For pricing details, see [Machine Learning Pricing](http://azure.microsoft.com/e
 
 Machine Learning is a part of the Azure free trial. When you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about Azure free trial, visit [Azure Free Trial FAQ](http://azure.microsoft.com/en-us/pricing/free-trial-faq/).
 
-### Machine Learning Studio questions
+## Machine Learning Studio questions
 
 **7. What data sources does Machine Learning support?**
 
@@ -100,7 +100,7 @@ Machine Learning Studio supports R, and you can bring in your existing R codes i
 
 Machine Learning Studio currently supports over 350 R packages, and this list is constantly growing. See the Machine Learning Studio Help topic, **Extensibility with R**, to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package on the [Machine Learning Feedback](http://go.microsoft.com/fwlink/?LinkId=404231) site.
 
-### Machine Learning API service questions
+## Machine Learning API service questions
 
 **13. When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
@@ -114,7 +114,7 @@ The Request Response service is useful in a scenario where predictive analytics 
 
 Updating a predictive model for an already deployed service is as simple as modifying and saving the trained model. After you have a new version of the trained model available, Machine Learning Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, it is available for you apply to the production web service. See the Machine Learning Studio Help topic **Updating the Web Service** for details about how to update a deployed web service.
  
-###Security and availability questions
+##Security and availability questions
 
 **15. By default, who has access to the HTTP end point for a deployed web service? How do I restrict access to the end point?**
 
@@ -124,7 +124,7 @@ When a predictive model is put into production, the Azure management portal list
 
 After a predictive model is put into production, you can monitor it from the Azure management portal. Each deployed service has its own dashboard, where you can see monitoring information for that service.
 
-### Support and training questions
+## Support and training questions
 
 **17. Where can I get training for Azure Machine Learning?**
 

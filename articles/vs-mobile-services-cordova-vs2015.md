@@ -3,7 +3,7 @@
 	description="Using mobile services in Cordova projects" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 

@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 #How to: Configure Asset Delivery Policies
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
 
 
 One of the steps in the Media Services content delivery workflow is configuring delivery policies for assets that you want to be streamed. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption). 
@@ -234,7 +234,7 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
 
 ###Create content key of the CommonEncryption type and link it to the asset
 
-When specifying DynamicEommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](../media-services-rest-create-contentkey)).
+When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](../media-services-rest-create-contentkey)).
 
 
 ###Get Delivery URL

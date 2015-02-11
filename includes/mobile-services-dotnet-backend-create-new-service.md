@@ -10,7 +10,7 @@ Follow these steps to create a new mobile service.
 2.	In the **Create a Mobile Service** page, select **Create a free 20 MB SQL Database**, select **.NET** runtime, then type a subdomain name for the new mobile service in the **URL** textbox. Click the right arrow button to go to the next page.
 	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
 
-   	This displays the **Specify database settings** page.
+	This displays the **Specify database settings** page.
 
 	> [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose **Use existing Database** and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.
 
@@ -18,7 +18,6 @@ Follow these steps to create a new mobile service.
 	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
 
 You have now created a new mobile service that can be used by your mobile apps.
-
 
 <!-- URLs. -->
 [Management Portal]: https://manage.windowsazure.com/
