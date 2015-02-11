@@ -116,7 +116,7 @@ Kernel Version: 3.13.0-36-generic
 WARNING: No swap limit support
 ```
 
-Once you complete the above steps, you now have a fully functional Docker host running on an Azure VM, configured to be connected to remotely from clients.
+Once you complete the above steps, you now have a fully functional Docker host running on an Azure VM, configured to be connected to remotely from other clients.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
