@@ -147,7 +147,7 @@ we will need for our project, including pydocumentdb, the python package for Doc
     pytz==2013b
     flask-babel==0.8
     flup
-    pydocumentdb
+    pydocumentdb>=0.9.4-preview
 
 Right-click on **env** and click **install from requirements.txt**
 
