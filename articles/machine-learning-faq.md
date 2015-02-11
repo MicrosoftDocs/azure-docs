@@ -108,111 +108,55 @@ Since the data is being transmitted to the browser and may be large, the data si
 
 Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. The complete list of machine learning algorithms is available in Machine Learning Studio Help.
 
-Do you automatically suggest the right Machine Learning algorithm to use for my data? 
+**Do you automatically suggest the right Machine Learning algorithm to use for my data?** 
 
+No, however there are a number of ways in Machine Learning Studio to compare the results of each algorithm to determine the right one for your problem. 
 
-No, however there are a number of ways in ML studio to compare the results of each algorithm to determine the right one for your problem. 
+**Do you have any guidelines on picking one algorithm over another for the provided algorithms?** 
+See [How to choose an algorithm ](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-how-to-choose-algorithm/). 
 
-
- 
-
-
-Do you have any guidelines on picking one algorithm over another for the provided algorithms? 
-
-
-< PROVIDE LINK TO EVALUATE MODEL DOCUMENTATION/GUIDE> 
-
-
- 
-
-
-Are the provided algorithms written in R or Python? 
-
+**Are the provided algorithms written in R or Python?** 
 
 No, these algorithms are mostly written in compiled languages to provide higher performance. 
 
+**Are any details of the algorithms provided?** 
 
- 
+The documentation provides some information about the algorithms, and the parameters provided for tuning are described to optimize the algorithm for your use.  
 
-
-Are any details of the algorithms provided? 
-
-
-In the help documentation some information about the algorithms is supplied, however more importantly the parameters provided for tuning are described to optimize the algorithm for your use.  
-
-
- 
-
-
-Is there any support for online learning? 
-
+**Is there any support for online learning?** 
 
 No, currently only programmatic retraining is supported. 
 
-
- 
-
-
-Can I visualize the layers of a Neural Net Model using the built-in Module? 
-
+**Can I visualize the layers of a Neural Net Model using the built-in Module?** 
 
 No. 
 
-
- 
-
-
-Can I create my own modules in C# or some other language? 
-
+**Can I create my own modules in C# or some other language?** 
 
 Currently new custom modules can only be created in R. 
 
+###R Module 
+**What R packages are available in Machine Learning Studio?** 
 
-R Module 
+Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See See [Extend your experiment with R ](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-extend-your-experiment-with-r/) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231). 
 
+**Is it possible to build a custom R module?** 
 
-12. What R packages are available in ML Studio? 
+Yes, See [Create custom modules with R ](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-custom-modules-with-r/)
 
-
-ML Studio supports 400+ R packages today, and this list is constantly growing. See the ML Studio help topic **Extensibility with R** to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231). 
-
-
- 
-
-
-Is it possible to build a custom R module? 
-
-
-Yes, the documentation for building a custom R module can be found here. <NEED TO INSERT LINK> 
-
-
- 
-
-
-Is there a REPL environment for R? 
-
+**Is there a REPL environment for R?** 
 
 No, there is no REPL environment for R in the studio. 
 
+###Python Module 
 
-Python Module 
-
-
-Is it possible to build a custom Python module? 
-
+**Is it possible to build a custom Python module?** 
 
 Not currently, but with the standard Python module or a set of them the same result can be achieved. 
 
-
- 
-
-
-Is there a REPL environment for Python? 
-
+**Is there a REPL environment for Python?** 
 
 No, there is no REPL environment for Python in the studio. 
-
-
 
 ## Machine Learning API service questions
 
