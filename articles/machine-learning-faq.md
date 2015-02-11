@@ -20,89 +20,203 @@
  
 ##General questions
 
-**1. What is Azure Machine Learning?**
+**What is Azure Machine Learning?**
  
-Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in to Machine Learning, upload data, and immediately start machine learning experiments. The service provides visual composition, a large pallet of modules, and a library of starting templates to make common machine learning tasks simple and quick. 
+Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in, upload data, and immediately start machine learning experiments. Visual composition, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.  For more information, see the [Azure Machine Learning service overview](http://azure.microsoft.com/en-us/services/machine-learning/).
 
-Turning a model into a web service is easy. With a few clicks, a predictive model build in Machine Learning Studio can be turned into a public REST API that encapsulates custom data, transformation logic, and sophisticated machine learning models.
+
+
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
  
-**2. What is Machine Learning Studio?**
+**What is Machine Learning Studio?**
 
-Machine Learning Studio is a workbench environment that is accessible via a web browser. Machine Learning Studio hosts a pallet of modules with a visual composition interface that enables you to build an end-to-end, data-science workflow in the form of an experiment. There are modules for data ingestion, transformation, and feature selection that you can use to build, score, and evaluate predictive models. Some of the most advanced algorithms that power machine learning in Bing and Xbox are built-in to Machine Learning Studio. Scalable open source machine learning packages, such as Vowpal Wabbit are also included. 
+Machine Learning Studio is a workbench environment you access through a web browser. Machine Learning Studio hosts a pallet of modules with a visual composition interface that enables you to build an end-to-end, data-science workflow in the form of an experiment. 
 
-Machine Learning Studio supports the R language. You can bring your existing R codes and incorporate them in your experiments. Machine Learning Studio enables you to combine algorithms with your R code to build predictive models. 
+For more information about the Machine Learning Studio, see [What is Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/)
 
-Machine Learning Studio makes it easy to collaborate by enabling you to invite your team to your workspaces, where they can view and modify your experiments.
+**What is the Machine Learning API service?**
 
-**3. What is the Machine Learning API service?**
+The Machine Learning API service enables you to deploy predictive models built in Machine Learning Studio as scalable, fault-tolerant, web services. The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models. 
 
-The Machine Learning API service enables you to deploy predictive models that are built-in to Machine Learning Studio as scalable, fault-tolerant, web services. The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models. 
+See [Get started using the Machine Learning API service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-get-started-api/) for more information.
 
-A predictive model can be staged inside your workspace. The web services provide a way to communicate with a predictive model in real time to receive prediction results and incorporate the results into any external client application. 
+**Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?**
 
-The Machine Learning API service leverages Azure to deploy, host, and manage the Machine Learning REST APIs. Two types of services are created by using the Machine Learning API service: the Batch Execution service for asynchronous, batch access, and the Request Response service for low-latency, synchronous responses.
+No, that is not supported, however custom R and Python code can be used to define a module.
 
-The Machine Learning API service also generates Help pages for web services. The web services Help pages provide code samples to invoke the web service in C#, R, and Python. You can test your web service by making interactive calls to the service. Then with a few clicks, the staged web service can be put into production. You can monitor the deployed services and track usage and error messages in the Azure management portal. Updating the web services is as simple as updating the model in Machine Learning Studio and pushing the changes to the staging service.
-
-**4. How do I access Azure Machine Learning?**
-
-To get started with Azure Machine Learning, visit [Get started with Azure Machine Learning](http://go.microsoft.com/fwlink/?LinkId=404226). 
-
-Visit the [Machine Learning Documentation Center](http://azure.microsoft.com/en-us/documentation/services/machine-learning/) to get updates on the service, read the latest Machine Learning team blog, participate in our Machine Learning community via forums, access product Help, view the model gallery, and provide feedback about the service to help us shape the product roadmap.
 
 ##Billing questions
 
-**5. How does Machine Learning billing work?**
+**How does Machine Learning billing work?**
 
-The Machine Learning Studio service is billed by compute hour for active experimentation, and billing is prorated for partial hours. The Machine Learning API service is billed per 1,000 prediction API calls and by compute hour when a prediction is actively executed. Billing is prorated for prediction quantities less than 1,000 and for partial compute hours.
- 
-Charges are aggregated per workspace for your subscription. Within each workspace, you will see charges for the following three items:
+For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/en-us/pricing/details/machine-learning/).
 
-+	Studio Experiment Hours: This meter aggregates all compute charges accrued by running experiments in Machine Learning Studio and running predictions in the staging environment. 
-+	API Service Prediction Hours: This meter includes compute charges accrued by web services running in production. 
-+	API Service Predictions (in 1000s): This meter includes charges accrued per call to your production web service.
+**Does Machine Learning have a free trial?**
 
-For pricing details, see [Machine Learning Pricing](http://azure.microsoft.com/en-us/pricing/details/machine-learning/).
-
-**6. Does Machine Learning have a free trial?**
-
-Machine Learning is a part of the Azure free trial. When you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about Azure free trial, visit [Azure Free Trial FAQ](http://azure.microsoft.com/en-us/pricing/free-trial-faq/).
+ When you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about Azure free trial, visit [Azure Free Trial FAQ](http://azure.microsoft.com/en-us/pricing/free-trial-faq/).
 
 ## Machine Learning Studio questions
 
-**7. What data sources does Machine Learning support?**
+###Creating an experiment	
+**Is there version control or Git integration for experiment graphs?**
 
-Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See the Help topic **Getting Data** in Machine Learning Studio to learn more about supported file formats. 
+No, however each time an experiment is run that version of the graph is kept and cannot be modified by other users.
 
-The **Reader** module can read data from the Azure Table service, Azure Blob service, Azure SQL Database, or HDInsight. You can also pull data from an HTTP data source. See the Help topic for the **Reader** module in Machine Learning Studio for details.
+###Importing/Exporting Data for AzureML
+**What data sources does Machine Learning support?**
 
-**8. How large can my data set be?**
+Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-import-data/) to learn more about supported file formats. 
 
-Machine Learning Studio supports training datasets of up to 10 GB. There is no limit on the dataset size for web services.  Sampling larger datasets via Hive or Azure SQL Database queries before ingestion is also supported. If you are working with data larger than 10 GB, you can create multiple datasets and use the **Partition and Sample**, **Split**, or **Join** modules to combine these datasets in Machine Learning Studio to create training sets for building predictive models. Visit the module Help in Machine Learning Studio to learn more about these modules.
 
-For datasets larger than a couple GB, the recommended approach is to upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
+**How large can my data set be?**
 
-**9. What existing algorithms are supported in Machine Learning Studio?**
+Machine Learning Studio supports  training datasets up to 10 GB. There is no limit on the dataset size for web services.  You can also sample larger datasets via Hive or Azure SQL Database queries before ingestion. If you are working with data larger than 10 GB, you can create multiple datasets and use the **Partition and Sample**, **Split**, or **Join** modules to combine these datasets in Machine Learning Studio to create training sets for building predictive models. Visit the module Help in Machine Learning Studio to learn more about these modules.
+
+For datasets larger than a couple GB, upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
+
+**Can I read data from Amazon S3?**
+
+If you have a small amount of data and want to expose it via an http URL, then you can use the reader module. For any larger amounts of data to transfer it to Azure Storage first and then use the Reader module to bring it into your experiment. <SEE CLOUD DS PROCESS> 
+
+**Is there a built-in image input capability?** 
+
+Please, see documentation here on dealing with images. <ADD LINK>
+
+###Modules 
+
+**The algorithm, data source, data format, or data transformation operation I am looking for isn't in Azure ML Studio, what are my options?**
+
+You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231) to see features requests that we are tracking. Add your vote to this request if a capability you are looking for has already been requested. If the capability you are looking for does not exist, create a new request. You can view the status of your request in this forum too. We track this list closely and update the status of feature availability frequently. In addition with the built-in support for R and Python, custom transformations can be created as needed. 
+
+
+**Can I bring my existing code into ML Studio?** 
+
+Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning. See [Extend your experiment with R ](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-extend-your-experiment-with-r/). 
+
+###Data Processing 
+**Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**
+
+By clicking on the output of a module you can visualize the data and get  statistics. 
+
+**When previewing results or data in the browser, the number of rows and columns is limited, why?**
+
+Since the data is being transmitted to the browser and may be large, the data size is limited to prevent slowing down the ML studio. It is better to download the data/result and use Excel or another tool to visualize the entire data.
+
+###Algorithms
+**What existing algorithms are supported in Machine Learning Studio?**
 
 Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. The complete list of machine learning algorithms is available in Machine Learning Studio Help.
 
-**10. If the machine learning algorithm, data source, data format, or data transformation operation I am looking for isn't in Machine Learning Studio, what are my options?**
+Do you automatically suggest the right Machine Learning algorithm to use for my data? 
 
-You can visit the [Machine Learning Feedback](http://go.microsoft.com/fwlink/?LinkId=404231) site to see features requests that we are tracking. Add your vote if a capability you are looking for has already been requested. If the capability you are looking for does not exist, create a new request. You can view the status of your request in this forum too. We track this list closely and update the status of feature availability frequently.
 
-**11. Can I bring my existing code into Machine Learning Studio?**
+No, however there are a number of ways in ML studio to compare the results of each algorithm to determine the right one for your problem. 
 
-Machine Learning Studio supports R, and you can bring in your existing R codes in Machine Learning Studio. You can run your R code in the same experiment with APIs that are provided by Machine Learning and publish this as a web service via Azure Machine Learning. Machine Learning is the fastest way to turn analytic assets in R into enterprise-grade production web services. See the Machine Learning Studio Help topic, **Extensibility with R**, to learn how to bring your R codes and visualization into Machine Learning Studio.
+
  
-**12. What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio currently supports over 350 R packages, and this list is constantly growing. See the Machine Learning Studio Help topic, **Extensibility with R**, to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package on the [Machine Learning Feedback](http://go.microsoft.com/fwlink/?LinkId=404231) site.
+
+Do you have any guidelines on picking one algorithm over another for the provided algorithms? 
+
+
+< PROVIDE LINK TO EVALUATE MODEL DOCUMENTATION/GUIDE> 
+
+
+ 
+
+
+Are the provided algorithms written in R or Python? 
+
+
+No, these algorithms are mostly written in compiled languages to provide higher performance. 
+
+
+ 
+
+
+Are any details of the algorithms provided? 
+
+
+In the help documentation some information about the algorithms is supplied, however more importantly the parameters provided for tuning are described to optimize the algorithm for your use.  
+
+
+ 
+
+
+Is there any support for online learning? 
+
+
+No, currently only programmatic retraining is supported. 
+
+
+ 
+
+
+Can I visualize the layers of a Neural Net Model using the built-in Module? 
+
+
+No. 
+
+
+ 
+
+
+Can I create my own modules in C# or some other language? 
+
+
+Currently new custom modules can only be created in R. 
+
+
+R Module 
+
+
+12. What R packages are available in ML Studio? 
+
+
+ML Studio supports 400+ R packages today, and this list is constantly growing. See the ML Studio help topic **Extensibility with R** to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231). 
+
+
+ 
+
+
+Is it possible to build a custom R module? 
+
+
+Yes, the documentation for building a custom R module can be found here. <NEED TO INSERT LINK> 
+
+
+ 
+
+
+Is there a REPL environment for R? 
+
+
+No, there is no REPL environment for R in the studio. 
+
+
+Python Module 
+
+
+Is it possible to build a custom Python module? 
+
+
+Not currently, but with the standard Python module or a set of them the same result can be achieved. 
+
+
+ 
+
+
+Is there a REPL environment for Python? 
+
+
+No, there is no REPL environment for Python in the studio. 
+
+
 
 ## Machine Learning API service questions
 
-**13. When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
+**When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
 The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. The results of scoring are output to a file in the Azure Blob service and the storage end-point is returned in the response.
 
