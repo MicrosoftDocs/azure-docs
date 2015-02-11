@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 # How to Use Service Bus Queues
@@ -56,7 +56,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-## Setup an Azure Service Bus connection
+## Set up an Azure Service Bus connection
 
 To instantiate an Azure Service Bus client you must first have a valid connection string following this format:
 

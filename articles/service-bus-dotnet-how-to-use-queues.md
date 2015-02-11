@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -31,13 +31,13 @@ include **creating queues, sending and receiving messages**, and
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##Configure the Application to Use Service Bus
+##Configure the application to use Service Bus
 
 When you create an application that uses Service Bus, you must
 add a reference to the Service Bus assembly and include the
 corresponding namespaces.
 
-##Get the Service Bus NuGet Package
+## Add the Service Bus NuGet package
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -60,16 +60,16 @@ To install the NuGet package in your application, do the following:
 You are now ready to write code for Service Bus.
 
 
-##How to Set Up a Service Bus Connection String
+##How to set up a Service Bus connection string
 
-The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
+Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
 - When using Azure Cloud Services, it is recommended you store your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files).
 - When using Azure Websites or Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
 
-In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method, as shown later in this guide.
 
-### <a name="config-connstring"> </a>Configuring your connection string when using Cloud Services
+### Configuring your connection string when using Cloud Services
 
 The service configuration mechanism is unique to Azure Cloud Services
 projects and enables you to dynamically change configuration settings
@@ -93,7 +93,7 @@ You then specify values in the service configuration (`*.cscfg`) file:
 		<Role name="MyRole">
 			<ConfigurationSettings>
 				<Setting name="Microsoft.ServiceBus.ConnectionString" 
-						 value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey" />
+						 value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
 			</ConfigurationSettings>
 		</Role>
 	...
@@ -109,14 +109,14 @@ When using Websites or Virtual Machines, it is recommended you use the .NET conf
 	<configuration>
 	    <appSettings>
 		    <add key="Microsoft.ServiceBus.ConnectionString"
-			     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey" />
+			     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
 		</appSettings>
 	</configuration>
 
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
-##How to Create a Queue
+##How to create a queue
 
 You can perform management operations for Service Bus queues via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -167,7 +167,7 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
-##How to Send Messages to a Queue
+##How to send messages to a queue
 
 To send a message to a Service Bus queue, your application creates a
 **QueueClient** object using the connection string.
@@ -216,26 +216,26 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-##How to Receive Messages from a Queue
+##How to receive messages from a queue
 
 The easiest way to receive messages from a queue is to use a
 **QueueClient** object. These objects can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, the receive is a single-shot
-operation - that is, when the Service Bus receives a read request for a
+operation - that is, when Service Bus receives a read request for a
 message in a queue, it marks the message as consumed, and returns
 it to the application. **ReceiveAndDelete** mode is the simplest model
 and works best for scenarios in which an application can tolerate not
 processing a message in the event of a failure. To understand this,
 consider a scenario in which the consumer issues the receive request and
-then crashes before processing it. Because the Service Bus will have marked
+then crashes before processing it. Because Service Bus will have marked
 the message as being consumed, when the application restarts and
 begins consuming messages again, it will have missed the message that
 was consumed prior to the crash.
 
 In **PeekLock** mode (which is the default mode), the receive becomes a two-stage operation, which makes it possible to support applications that
-cannot tolerate missing messages. When the Service Bus receives a request,
+cannot tolerate missing messages. When Service Bus receives a request,
 it finds the next message to be consumed, locks it to prevent other
 consumers receiving it, and then returns it to the application. After
 the application finishes processing the message (or stores it reliably
@@ -274,20 +274,20 @@ processed using the default **PeekLock** mode. To specify a different **ReceiveM
        }
     } 
 
-##How to Handle Application Crashes and Unreadable Messages
+##How to handle application crashes and unreadable messages
 
-The Service Bus provides functionality to help you gracefully recover from
+Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
 then it can call the **Abandon** method on the received message (instead
-of the **Complete** method). This will cause the Service Bus to unlock the
+of the **Complete** method). This will cause Service Bus to unlock the
 message within the queue and make it available to be received again,
 either by the same consuming application or by another consuming
 application.
 
 There is also a timeout associated with a message locked within the
 queue, and if the application fails to process the message before the
-lock timeout expires (for example, if the application crashes), then the Service
+lock timeout expires (for example, if the application crashes), then Service
 Bus unlocks the message automatically and makes it available to be
 received again.
 
