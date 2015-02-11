@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -47,8 +47,8 @@ The output is the probability of an event occurring by a specific time.
 There are multiple ways of consuming the service in an automated fashion (an example app is [here](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
 ###Starting C# code for web service consumption:
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string trainingdata;
 	        public string testingdata;
 	        public string timeofinterest;
@@ -56,11 +56,13 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	        public string indexevent;
 	        public string variabletypes;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+    {
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
 	        var input = new Input() { trainingdata = TextBox1.Text, testingdata = TextBox2.Text, timeofinterest = TextBox3.Text, indextime = TextBox4.Text, indexevent = TextBox5.Text, variabletypes = TextBox6.Text };
@@ -73,7 +75,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+		    var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
@@ -99,7 +101,9 @@ From within Azure Machine Learning, a new blank experiment was created and two â
     time_of_interest="500"
     index_time="1"
     index_event="2"
+
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
+
     maml.mapOutputPort("sampleInput"); #send data to output port
 	
 ####Module 2:
@@ -107,6 +111,7 @@ From within Azure Machine Learning, a new blank experiment was created and two â
     #Read data from input port
     data <- maml.mapInputPort(1) 
     colnames(data) <- c("trainingdata","testingdata","time_of_interest","index_time","index_event","variable_types")
+
     # Preprocessing training data
     traindingdata=data$trainingdata
     y=strsplit(as.character(data$trainingdata),",")
@@ -114,18 +119,22 @@ From within Azure Machine Learning, a new blank experiment was created and two â
     z=sapply(unlist(y), strsplit, ";", simplify = TRUE)
     mydata <- data.frame(matrix(unlist(z), nrow=n_row, byrow=T), stringsAsFactors=FALSE)
     n_col=ncol(mydata)
+
     # Preprocessing testing data
     testingdata=as.character(data$testingdata)
     testingdata=unlist(strsplit(testingdata,";"))
+
     # Preprocessing other input parameters
     time_of_interest=data$time_of_interest
     time_of_interest=as.numeric(as.character(time_of_interest))
     index_time = data$index_time
     index_event = data$index_event
     variable_types = data$variable_types
+
     # Necessary R packages
     install.packages("src/packages_survival/survival_2.37-7.zip",lib=".",repos=NULL,verbose=TRUE)
     library(survival)
+
     # Prepare to build model
     attach(mydata)
 
@@ -173,6 +182,7 @@ From within Azure Machine Learning, a new blank experiment was created and two â
     output=prob_event[position_closest,"prob"]
     }else{output=(prob_event[position_closest,"prob"]+prob_event[position_closest+1,"prob"])/2}
     }
+
     #Pull out results to send to web service
     output=paste(round(100*output, 2), "%") 
     maml.mapOutputPort("output"); #output port

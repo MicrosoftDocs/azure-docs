@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/02/2015" 
+	ms.date="02/10/2015" 
 	ms.author="jgao"/>
 
 
@@ -154,7 +154,7 @@ After you have created the Azure Service Bus Event Hub, the Azure SQL database a
 
 	![][img.stream.analytics.portal.button]
  
-	The new job will be listed with a status of **NOT STARTED**.  Notice the **START** button on the bottom of the page is disabled. You must configure the job input, output, query and so on before you can start the job. 
+	The new job will be listed with a status of **CREATED**.  Notice the **START** button on the bottom of the page is disabled. You must configure the job input, output, query and so on before you can start the job. 
 
 ###Specify job input
 

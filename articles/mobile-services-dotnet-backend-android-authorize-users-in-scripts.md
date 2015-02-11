@@ -3,7 +3,7 @@
 	description="Learn how to authorize users in the .NET backend of Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="ggailey777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="10/20/2014" 
-	ms.author="glenga"/>
+	ms.author="ricksal"/>
 
 # Service-side authorization of Mobile Services users
 

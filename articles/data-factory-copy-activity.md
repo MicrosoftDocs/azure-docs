@@ -36,17 +36,6 @@ To learn more, you can:
 - See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity. 
 - See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity.
 
-## In This Article
-Section | Description
-------- | -----------
-[Supported sources and sinks](#SupportedSourcesAndSinks) | This section provides a table with sources and sinks supported by the Copy Activity. 
-[Copy Activity - components](#CopyActivityComponents) | This section describes the main components of the Copy Activity.
-[JSON for Copy Activity](#CopyActivityJSONSchema) | This section describes the JSON schema for describing the Copy Activity. 
-[Copy Activity - example](#CopyActivityExample) | This section provides an example of using a Copy Activity in an Azure Data Factory pipeline. 
-[Filtering source columns](#ColumnFiltering) | This section describes how to specify a subset of the columns from the source.
-[Transformation rules - column mapping](#TransformRulesColumnMapping) | This section describes how you can use Column Mapping feature to map columns of a source table to columns of a sink table.
-[Invoke stored procedures for SQL sink](#InvokeStoredProcForSQLSink) | This section describes how to invoke a stored procedure prior to inserting data into a SQL sink (SQL Server/Azure SQL).  
-
 
 ## <a name="SupportedSourcesAndSinks"></a>Supported sources and sinks
 The Copy Activity supports the following data movement scenarios: 
