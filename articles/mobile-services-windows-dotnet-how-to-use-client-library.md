@@ -20,7 +20,6 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../includes/mobile-services-selector-client-library.md)]
 
-
 This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial ([Windows Store quickstart tutorial]/[Windows Phone quickstart tutorial]) and the "Getting Started with Data in .NET" tutorial ([Windows Store data tutorial]/[Windows Phone data tutorial]). The quickstart tutorial requires the [Mobile Services SDK] and helps you configure your account and create your first mobile service.
 
 
