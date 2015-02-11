@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Faceted navigation in Azure Search" 
+	pageTitle="How to implement faceted navigation in Azure Search" 
 	description="Faceted navigation in Azure Search" 
 	services="search" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/16/2015" 
 	ms.author="heidist"/>
 
-#Faceted navigation in Azure Search#
+#How to implement faceted navigation in Azure Search#
 
 Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. While the term ‘faceted navigation’ might be unfamiliar, it’s almost a given that you have used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
 
