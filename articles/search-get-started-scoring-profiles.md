@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with scoring profiles in Azure Search" 
+	pageTitle="How to use scoring profiles in Azure Search" 
 	description="Get started with scoring profiles in Azure Search" 
 	services="search" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="02/10/2015" 
 	ms.author="heidist"/>
 
-# Get started with scoring profiles in Azure Search
+# How to use scoring profiles in Azure Search
 
 Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
 
