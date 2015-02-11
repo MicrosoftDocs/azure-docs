@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -41,14 +41,14 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string value;
 	        public string k;
-	    }
+	}
 	
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
@@ -65,7 +65,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+	    	var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
@@ -83,6 +83,7 @@ From within Azure Machine Learning, a new blank experiment was created and two â
 ####Module 1: 
 	#Enter the input data as a string 
 	mydata <- data.frame(value = "1; 3; 5; 6; 7; 7, 5; 5; 6; 7; 2; 1, 3; 7; 2; 9; 56; 6, 1; 4; 5; 26; 4; 23, 15; 35; 6; 7; 12; 1, 32; 51; 62; 7; 21; 1", k=5, stringsAsFactors=FALSE)
+	
 	maml.mapOutputPort("mydata");     
 	
 
