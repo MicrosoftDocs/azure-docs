@@ -53,15 +53,17 @@ application that allows you to vote for a poll.
 Before following the instructions in this article, you should ensure
 that you have the following installed:
 
-Visual Studio 2013 (or [Visual Studio Express][] which is the free
+
+
+- Visual Studio 2013 (or [Visual Studio Express][] which is the free
 version)
 
-Python Tools for Visual Studio from [here][]
+- Python Tools for Visual Studio from [here][]
 
-Azure SDK for Visual Studio 2013, version 2.4 or higher available from
+- Azure SDK for Visual Studio 2013, version 2.4 or higher available from
 [here][1]
 
-Azure Cross-platform Command Line Tools, available through [Microsoft
+- Azure Cross-platform Command Line Tools, available through [Microsoft
 Web Platform Installer][]
 
 
@@ -295,7 +297,7 @@ the message that we created a new database, collection and document.
     {% block content %}
     <h2>{{ title }}.</h2>
     <h3>{{ message }}</h3>
-    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Click here to Vote &raquo;</a></p>
+    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
     {% endblock %}
 
 Add the following code to **results.html**. It takes care of displaying
@@ -303,10 +305,9 @@ the results of the poll.
 
     {% extends "layout.html" %}
     {% block content %}
-    
     <h2>Results of the vote</h2>
     <br />
-    
+
     {% for choice in vote_object.choices %}
     <div class="row">
         <div class="col-sm-5">{{choice}}</div>
@@ -320,7 +321,7 @@ the results of the poll.
         </div>
     </div>
     {% endfor %}
-    
+
     <br />
     <a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
     {% endblock %}
@@ -332,13 +333,11 @@ append the document accordingly.
 
     {% extends "layout.html" %}
     {% block content %}
-    <h1>What is your favorite way to host an application on Azure?</h1>
+    <h2>What is your favorite way to host an application on Azure?</h2>
     <form action="" method="post" name="vote">
         {{form.hidden_tag()}}
-    
         {{form.deploy_preference}}
-    
-        <p><input type="submit" value="Cast your vote"></p>
+        <button class="btn btn-primary" type="submit">Vote</button>
     </form>
     {% endblock %}
 
@@ -349,8 +348,8 @@ serves as the landing page for your application.
     {% block content %}
     <h2>Python + DocumentDB Voting Application.</h2>
     <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
-    <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Click here to Create/Clear the Voting Database &raquo;</a></p>
-    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Click here to Vote &raquo;</a></p>
+    <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
+    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
     {% endblock %}
 
 
@@ -391,11 +390,11 @@ following on your screen.
 
 ![Alt text](./media/documentdb-python-application/image16.png)
 
-Click on "Click here to Create/Clear the Voting Database" to generate the database.
+Click on "Create/Clear the Voting Database" to generate the database.
 
 ![Alt text](./media/documentdb-python-application/image17.png)
 
-Then, Click on "Click here to Vote" and select your option
+Then, Click on "Vote" and select your option
 
 ![Alt text](./media/documentdb-python-application/image18.png)
 
