@@ -18,11 +18,13 @@
 
 # Latest updates to Azure Search Preview
 
-Review the recent changes introduced in Azure Search. This list is updated often, whenever there is a feature change. Older posts will be retired after 6 months to keep the page length manageable, but you can always refer to the feature list in [Azure Search Overview](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx) for the status of existing functionality.
+This page describes recent changes introduced in Azure Search. This list is updated whenever there is a feature change. Older posts will be retired after 6 months to keep the page length manageable, but you can always refer to the feature list in [Azure Search Overview](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx) for the status of existing functionality.
 
-Azure Search has been in public preview since August 2014, API version 2014-07-31-Preview. 
+Azure Search has been in public preview since August 2014, with a corresponding API version of `2014-07-31-Preview`. This version has remained largely unchanged throughout the preview.
 
-Newer features have been introduced throughout the preview in a follow-up API version (2014-10-20-Preview). [Versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) the API allows us to isolate changes that could otherwise break existing applications.
+Newer features have been introduced throughout the preview in a follow-up API version (`2014-10-20-Preview`). [Versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) the API allows us to isolate changes that could potentially break existing applications. Branching the API for significant feature changes gives you control over API rollouts and lets you determine when and if you use the newer features.
+
+The following features are all part of the `2014-10-20-Preview` API.
 
 ##Notes for January 12, 2015##
 
