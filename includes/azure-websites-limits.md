@@ -151,6 +151,13 @@
    <td valign="middle"><p>5</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Custom Domains</a></p></td>
+   <td valign="middle"><p>250</p></td>
+   <td valign="middle"><p>250</p></td>
+   <td valign="middle"><p>250</p></td>
+   <td valign="middle"><p>250</p></td>
+</tr>
+<tr>
    <td valign="middle"><p>SLA</p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
