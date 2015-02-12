@@ -183,11 +183,17 @@ You can adjust the following top-level settings for a Stream Analytics job:
 
 ###Job status
  
-The status of Stream Analytics jobs can be inspected in the Azure portal.  Running jobs can be in one of three states: Idle, Processing, Degraded.  The definition for each of these states is below:
+The status of Stream Analytics jobs can be inspected in the Azure management portal.  Running jobs can be in one of three states: *Idle*, *Processing*, *Degraded*.
  
 - **Idle**: No input bytes have been seen since the job was created or in the in the last 2 minutes.  If a job is in the Idle state for a long period of time, it is likely that the Input exists but there are no raw bytes to process.
 - **Processing**: A nonzero amount of filtered input events have been successfully consumed by the Stream Analytics job.  If a job is stuck in the processing state without producing output, it is likely that the processing time window is large or the query logic is complicated.
-- **Degraded**: This state indicates that a Stream Analytics job is encountering one of the following errors: Input/output communication errors, query errors, retryable runtime errors.  To distinguish what type of error(s) the job is encountering, view the Operation Logs.
+- **Degraded**: This state indicates that a Stream Analytics job is encountering one of the following errors: 
+
+	- Input/output communication errors 
+	- query errors 
+	- retryable runtime errors  
+	
+	To distinguish what type of error(s) the job is encountering, view the [operation logs](#monitor).
 
 
 ##<a name="support"></a>Get support
