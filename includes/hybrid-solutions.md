@@ -13,7 +13,7 @@ Service Bus is a multi-tenant cloud service, which means that the service is sha
 
 Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
 
-- *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is recieved by a single recipient.
+- *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
 - *Topics*, which provide one-directional communication using *subscriptions*&#151;a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
 - *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages&#151;it's not a broker. Instead, it just passes them on to the destination application.
 - *Event Hubs*, which provide event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
@@ -83,7 +83,7 @@ A Service Bus relay provides this help. To communicate bi-directionally through 
 
 To use Service Bus relays, applications rely on Windows Communication Foundation (WCF). Service Bus provides WCF bindings that make it straightforward for Windows applications to interact via relays. Applications that already use WCF can typically just specify one of these bindings, then talk to each other through a relay. Unlike queues and topics, however, using relays from non-Windows applications, while possible, requires some programming effort; no standard libraries are provided.
 
-Unlike queues and topics, applications don't explicitly create relays. Instead, when an application that wishes to receive messages establishes a TCP connection with Service Bus, a relay is created automatically. When the connection is dropped, the relay is deleted. To let an application find the relay created by a specific listener, Service Bus provides a registry that enables applications tolocate a specific relay by name.
+Unlike queues and topics, applications don't explicitly create relays. Instead, when an application that wishes to receive messages establishes a TCP connection with Service Bus, a relay is created automatically. When the connection is dropped, the relay is deleted. To let an application find the relay created by a specific listener, Service Bus provides a registry that enables applications to locate a specific relay by name.
 
 Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
 
