@@ -169,14 +169,15 @@ When using the Core Data offline store, you need to define particular tables and
 
     **TodoItem**
 
-    | Attribute    |  Type   | Note                                                       | 
-    |-----------   |  ------ | -----------------------------------------------------------|
-    | id           | String  | primary key in remote store                                |
-    | complete     | Boolean | todo item field                                            |
-    | text         | String  | todo item field                                            |
-    | ms_createdAt | Date    | *(optional)* maps to `__createdAt` system property         |
-    | ms_updatedAt | Date    | *(optional)* maps to `__updatedAt` system property         |
-    | ms_version   | String  | *(optional)* used to detect conflicts, maps to `__version` |
+
+    | Attribute    |  Type   | Note                                                   | 
+    |-----------   |  ------ | -------------------------------------------------------|
+    | id           | String  | primary key in remote store                            |
+    | complete     | Boolean | todo item field                                        |
+    | text         | String  | todo item field                                        |
+    | ms_createdAt | Date    | (optional) maps to __createdAt system property         |
+    | ms_updatedAt | Date    | (optional) maps to __updatedAt system property         |
+    | ms_version   | String  | (optional) used to detect conflicts, maps to __version |
 
 
 ## <a name="setup-sync"></a>Change the sync behavior of the app
