@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="02/12/2015" 
 	ms.author="Justinha"/>
 
 
-#Install a Replica Active Directory Domain Controller in Azure Virtual Networks
+#Install a replica Active Directory domain controller in an Azure virtual network
 
 This topic shows how to install additional domain controllers (also known as replica DCs) for an on-premises Active Directory domain on Azure virtual machines (VMs) in an Azure virtual network. 
 
@@ -28,19 +28,7 @@ You might also be interested in these related topics:
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 -  For step-by-step guidance to create a test lab environment on Azure that includes AD DS, see [Test Lab Guide: Base Configuration in Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684).
 
-
-##Table of Contents##
-
-* [Scenario Diagram](#diagram)
-* [Step 1: Create an Active Directory site for the Azure virtual network](#createadsite)
-* [Step 2: Create an Azure virtual network](#createvnet)
-* [Step 3: Create Azure VMs for the DC roles](#createdcvms)
-* [Step 4: Install AD DS on Azure VMs](#installadds)
-* [Step 5: Reconfigure DNS server for the virtual network](#reconfigDNS)
-* [Step 6: Create VMs for application servers](#createappvms)
-* [Additional Resources](#resources)
-
-<h2><a id="diagram"></a>Scenario Diagram</h2>
+##Scenario Diagram
 
 In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by a [site-to-site VPN](http://msdn.microsoft.com/library/azure/dn133795.aspx) connection, as shown in the following diagram, or you can use [ExpressRoute](http://azure.microsoft.com/services/expressroute/) for a faster connection. 
 
@@ -49,7 +37,7 @@ The DCs replicate with each other and with on-premises DCs by using Active Direc
 
 ![][1]
 
-<h2><a id="createadsite"></a>Step 1: Create an Active Directory site for the Azure virtual network</h2>
+##Step 1: Create an Active Directory site for the Azure virtual network
 
 It’s a good idea to create a site in Active Directory that represents the network region corresponding to the virtual network. That helps optimize authentication, replication, and other DC location operations. The following steps explain how to create a site, and for more background, see [Adding a New Site](http://technet.microsoft.com/library/cc781496.aspx).
 
@@ -57,7 +45,7 @@ It’s a good idea to create a site in Active Directory that represents the netw
 2. Create a site to represent the region where you created an Azure virtual network: click **Sites** > **Action** > **New site** > type the name of the new site, such as Azure US West > select a site link > **OK**.
 3. Create a subnet and associate with the new site: double-click **Sites** > right-click **Subnets** > **New subnet** > type the IP address range of the virtual network (such as 10.1.0.0/16 in the scenario diagram) > select the new Azure site > **OK**.
 
-<h2><a id="createvnet"></a>Step 2: Create an Azure virtual network</h2>
+##Step 2: Create an Azure virtual network
 
 <ol><li><p>In the Azure Management Portal, click <b>New</b> > <b>Network Services</b> > <b>Virtual Network</b> > <b>Custom Create</b> and use the following values to complete the wizard.</p>
 
@@ -91,7 +79,7 @@ It’s a good idea to create a site in Active Directory that represents the netw
 </li>
 </ol>
 
-<h2><a id="createdcvms"></a>Step 3: Create Azure VMs for the DC roles</h2>
+##Step 3: Create Azure VMs for the DC roles
 
 <p>Repeat the following steps to create VMs to host the DC role as needed. You should deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network includes at least two DCs that are similarly configured (that is, they are both GCs, run DNS server, and neither holds any FSMO role, and so on) then place the VMs that run those DCs in an availability set for improved fault tolerance.</p>
 
@@ -125,11 +113,11 @@ It’s a good idea to create a site in Active Directory that represents the netw
 
 </ol>
 
-<h2><a id="installadds"></a>Step 4: Install AD DS on Azure VMs</h2>
+##Step 4: Install AD DS on Azure VMs
 
 Sign in to a VM and verify that you have connectivity across the site-to-site VPN or ExpressRoute connection to resources on your on-premises network. Then install AD DS on the Azure VMs. You can use same process that you use to install an additional DC on your on-premises network (UI, Windows PowerShell, or an answer file). As you install AD DS, make sure you specify the new volume for the location of the AD database, logs and SYSVOL. If you need a refresher on AD DS installation, see  [Install Active Directory Domain Services (Level 100)](http://technet.microsoft.com/library/hh472162.aspx) or [Install a Replica Windows Server 2012 Domain Controller in an Existing Domain (Level 200)](http://technet.microsoft.com/library/jj574134.aspx).
 
-<h2><a id="reconfigDNS"></a>Step 5: Reconfigure DNS server for the virtual network</h2>
+##Step 5: Reconfigure DNS server for the virtual network
 
 <ol>
 <li><p>In the Azure Management portal, click the name of the virtual network, and then click the <b>Configure</b> tab to <a href = "http://msdn.microsoft.com/library/azure/dn275925.aspx">reconfigure the DNS server IP addresses for your virtual network</a> to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers. </p>
@@ -139,7 +127,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 </li>
 </ol>
 
-<h2><a id="createappvms"></a>Step 6: Create VMs for application servers</h2>
+##Step 6: Create VMs for application servers
 
 <ol><li><p>Repeat the following steps to create VMs to run as application servers. Accept the default value for a setting unless another value is suggested or required.</p>
 
@@ -179,7 +167,7 @@ As an alternative to using the management portal to provision VMs, you can use W
 For more information about using Windows PowerShell, see [Getting Started with Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
 
 
-<h2><a id="resources"></a>Additional Resources</h2>
+##Additional Resources
 
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
