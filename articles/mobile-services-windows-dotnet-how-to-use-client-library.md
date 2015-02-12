@@ -22,34 +22,6 @@
 
 This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial ([Windows Store quickstart tutorial]/[Windows Phone quickstart tutorial]) and the "Getting Started with Data in .NET" tutorial ([Windows Store data tutorial]/[Windows Phone data tutorial]). The quickstart tutorial requires the [Mobile Services SDK] and helps you configure your account and create your first mobile service.
 
-
-## Table of Contents
-
-- [What is Mobile Services]
-- [Concepts]
-- [How to: Create the Mobile Services client]
-- [How to: Create a table reference]
-- [How to: Query data from a mobile service]
-	- [Filter returned data]
-    - [Sort returned data]
-	- [Return data in pages]
-	- [Select specific columns]
-	- [Look up data by ID]
-- [How to: Insert data into a mobile service]
-- [How to: Modify data in a mobile service]
-- [How to: Delete data in a mobile service]
-- [How to: Call a custom API]
-- [How to: Use Optimistic Concurrency]
-- [How to: Bind data to user interface in a mobile service]
-- [How to: Authenticate users]
-- [How to: Handle errors]
-- [How to: Work with untyped data]
-- [How to: Design unit tests]
-- [How to: Customize the client]
-	- [Customize request headers]
-	- [Customize serialization]
-- [Next steps]
-
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a>Setup and Prerequisites</h2>
@@ -72,7 +44,7 @@ The corresponding typed client-side .NET type is the following:
 
 When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
 
-<h2><a name="create-client"></a>How to: Create the Mobile Services client</h2>
+##<a name="create-client"></a>How to: Create the Mobile Services client
 
 The following code creates the `MobileServiceClient` object that is used to access your mobile service.
 
@@ -84,7 +56,7 @@ The following code creates the `MobileServiceClient` object that is used to acce
 
 In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
 
-<h2><a name="instantiating"></a>How to: Create a table reference</h2>
+##<a name="instantiating"></a>How to: Create a table reference
 
 All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`.
 
@@ -93,7 +65,7 @@ All of the code that accesses or modifies data in the Mobile Services table call
 
 This is the typed serialization model; see discussion of the <a href="#untyped">untyped serialization model</a> below.
 
-<h2><a name="querying"></a>How to: Query data from a mobile service</h2>
+##<a name="querying"></a>How to: Query data from a mobile service
 
 This section describes how to issue queries to the mobile service. Subsections describe different aspects such as sorting, filtering, and paging.
 
@@ -183,6 +155,13 @@ You can also use the [IncludeTotalCount] method to ensure that the query will ge
 
 This is a simplified scenario of passing hard-coded paging values to the `Take` and `Skip` methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.
 
+####Paging considerations for a .NET backend mobile service
+
+To override the 50 row limit in a .NET backend mobile service, you must also apply the [EnableQueryAttribute](https://msdn.microsoft.com/en-us/library/system.web.http.odata.enablequeryattribute.aspx) to the public GET method and specify the paging behavior. When applied to the method, the following sets the maximum returned rows to 1000:
+
+    [EnableQuery(MaxTop=1000)]
+
+
 ### <a name="selecting"></a>How to: Select specific columns
 
 You can specify which set of properties to include in the results by adding a `Select` clause to your query. For example, the following code shows how to select just one field and also how to select and format multiple fields:
@@ -213,7 +192,7 @@ The `LookupAsync` function can be used to look up objects from the database with
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
-<a name="inserting"></a>How to: Insert data into a mobile service
+##<a name="inserting"></a>How to: Insert data into a mobile service
 
 > [AZURE.NOTE] If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called **Id**. This is why the example class **TodoItem** has a member of name **Id**. A valid id value must always be present in update and delete operations.
 
@@ -221,7 +200,9 @@ The following code illustrates how to insert new rows into a table. The paramete
 
 	await todoTable.InsertAsync(todoItem);
 
-If a unique custom ID value is not included in the `todoItem` passed to the `todoTable.InsertAsync` call, a value for ID will be generated by the server set in the `todoItem` object returned to the client.
+If a unique custom ID value is not included in the `todoItem` passed to the `todoTable.InsertAsync` call, a value for ID is generated by the server and is set in the `todoItem` object returned to the client.
+
+###Working with ID values
 
 Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or user names for the id column of a Mobile Services table. If a string ID value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
 

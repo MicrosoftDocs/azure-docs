@@ -23,35 +23,9 @@
 
 This guide shows you how to perform common scenarios using an HTML/JavaScript client for Azure Mobile Services. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the Mobile Services [Windows Store JavaScript quickstart] or [HTML quickstart]. The quickstart tutorial helps you configure your account and create your first mobile service.
 
-
-## Table of Contents
-
-- [What is Mobile Services]
-- [Concepts]
-- [How to: Create the Mobile Services client]
-- [How to: Query data from a mobile service]
-	- [Filter returned data]
-    - [Sort returned data]
-	- [Return data in pages]
-	- [Select specific columns]
-	- [Look up data by ID]
-	- [Execute an OData query operation]
-- [How to: Insert data into a mobile service]
-- [How to: Modify data in a mobile service]
-- [How to: Delete data in a mobile service]
-- [How to: Display data in the user interface]
-- [How to: Authenticate users]
-- [How to: Handle errors]
-- [How to: Use promises]
-- [How to: Customize request headers]
-- [How to: Use cross-origin resource sharing]
-- [Next steps]
-
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="create-client"></a>How to: Create the Mobile Services Client
-
-
 
 In your web editor, open the HTML file and add the following to the script references for the page:
 
@@ -206,7 +180,7 @@ You may increase the number of items to be returned by calling `take` as describ
 
 ### <a name="paging"></a>How to: Return data in pages
 
-The following code shows how to implement paging in returned data by using the `take` and `skip` clauses in the query.  The following query, when executed, returns the top three items in the table.
+By default, Mobile Services only returns 50 rows in a given request, unless the client explicitly asks for more data in the response. The following code shows how to implement paging in returned data by using the `take` and `skip` clauses in the query.  The following query, when executed, returns the top three items in the table.
 
 	var query = todoItemTable.take(3).read().done(function (results) {
 	   alert(JSON.stringify(results));
