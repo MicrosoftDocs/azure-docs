@@ -533,7 +533,7 @@ Another tool you can use to publish the application is FileZilla, a popular thir
 
 ### Clean up Azure resources
 
-This procedure creates a website on Azure. Yuo will be billed for the website resource as long as it exists. Unless you plan to continue using the website for testing or development, you should consider stopping or deleting it. A website that has been stopped will still incur a small charge, but you can restart it at any time. Deleting a website erases all data you have uploaded to the website.
+This procedure creates a website on Azure. You will be billed for the website resource as long as it exists. Unless you plan to continue using the website for testing or development, you should consider stopping or deleting it. A website that has been stopped will still incur a small charge, but you can restart it at any time. Deleting a website erases all data you have uploaded to the website.
 
 
 
