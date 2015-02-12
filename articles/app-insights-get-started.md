@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-23" 
+	ms.date="2015-02-10" 
 	ms.author="awills"/>
 
 # Get started with Application Insights
@@ -38,7 +38,7 @@ What you want | What to do  | What you get
 <a href="../app-insights-java-get-started/">![](./media/appinsights/appinsights-gs-i-11-java.png)</a>|[Add the SDK to your Java project][java]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-java-get-started/">![](./media/appinsights/appinsights-gs-r-10-java.png)</a>
 <a href="../app-insights-web-track-usage/">![](./media/appinsights/appinsights-gs-i-02-usage.png)</a>|[Insert the Application Insights script into your web pages][usage]<br/>![](./media/appinsights/appinsights-00arrow.png)  | <a href="../app-insights-web-track-usage/">![](./media/appinsights/appinsights-gs-r-02-usage.png)</a>
 <a href="../app-insights-monitor-web-app-availability/">![](./media/appinsights/appinsights-gs-i-05-avail.png)</a>|[Create web tests][availability]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-monitor-web-app-availability/">![](./media/appinsights/appinsights-gs-r-05-avail.png)</a>
-<a href="../app-insights-windows-monitor-usage-crashes/">![](./media/appinsights/appinsights-gs-i-06-device.png)</a>|[Add Application Insights to your device app project][windows]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-windows-monitor-usage-crashes/">![](./media/appinsights/appinsights-gs-r-06-device.png)</a>
+<a href="../app-insights-windows-get-started/">![](./media/appinsights/appinsights-gs-i-06-device.png)</a>|[Add Application Insights to your device app project][windows]<br/>![](./media/appinsights/appinsights-00arrow.png) | <a href="../app-insights-windows-get-started/">![](./media/appinsights/appinsights-gs-r-06-device.png)</a>
 
 
 

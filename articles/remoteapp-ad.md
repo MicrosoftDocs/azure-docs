@@ -1,6 +1,22 @@
-<properties title="Configure Active Directory for Azure RemoteApp" pageTitle="Configure Active Directory for Azure RemoteApp" description="Learn how to set up Active Directory to work with Azure RemoteApp" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/23/2014" ms.author="elizapo" />
+<properties 
+    pageTitle="Configure Active Directory for Azure RemoteApp" 
+    description="Learn how to set up Active Directory to work with Azure RemoteApp." 
+    services="remoteapp" 
+    solutions="" documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
+
+<tags 
+    ms.service="remoteapp" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="1/23/2015" 
+    ms.author="elizapo" />
+
+
 
 #Configuring Active Directory for Azure RemoteApp
 

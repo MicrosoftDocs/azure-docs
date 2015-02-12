@@ -24,7 +24,7 @@ In this article, we'll use Azure Machine Learning Studio to develop and iterate 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
-##Five steps to create an experiment 
+##Five steps to create an experiment
 
 Here are the five basic steps that you can follow to build an experiment in Machine Learning Studio to allow you to create, train, and score your model:  
 
@@ -45,9 +45,9 @@ Here are the five basic steps that you can follow to build an experiment in Mach
 
 In this example, we'll walk through creating a regression model that uses sample automobile data. The goal is to predict the price of an automobile by using different variables such as make and technical specifications. 
 
-### Step 1: Get data
+## Step 1: Get data
 
-There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources. For this example, we will use the included sample dataset, **Automobile price data (Raw)**, which represents automobile price data.
+There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources (one excellent source is the [machine learning archive](http://archive.ics.uci.edu/ml/) at UC Irving). For this example, we will use the included sample dataset, **Automobile price data (Raw)**, which represents automobile price data.
 
 1. Start a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, and then select **EXPERIMENT**. Rename the experiment from **Untitled** to something meaningful, for example, **Automobile price prediction**.
 
@@ -59,13 +59,13 @@ There are a number of sample datasets included with Machine Learning Studio, and
 
 	![Dataset][screen1]
 
-To see what this data looks like, click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The far-right column (column 26 and titled "price") is the target variable we're going to try to predict. 
+To see what these data looks like, click the output port at the bottom of the automobile dataset and select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The far-right column (column 26 and titled "price") is the target variable we're going to try to predict. 
 
 ![Dataset visualization][screen1b]
 
 Close the visualization window by clicking the "**x**" in the upper-right corner.
 
-### Step 2: Preprocess data
+## Step 2: Preprocess data
 
 A dataset usually requires some preprocessing before it can be analyzed. You may have noticed the missing values present in the columns of various rows. To analyze the data, these missing values need to be cleaned. In our case, we'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so we'll exclude that column from the model altogether. 
 
@@ -103,7 +103,7 @@ All we have done in the experiment to this point is clean the data. To view the 
 
 Now that the data is clean, we're ready to specify what features we're going to use in the predictive model.
 
-### Step 3: Define features
+## Step 3: Define features
 
 In machine learning, *features* are individual measurable properties of something you’re interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile. Finding a good set of features for creating a predictive model requires experimentation and knowledge about the problem you want to solve. Some features are better for predicting the target than others. Also, some features have a strong correlation with other features (for example, city-mpg versus highway-mpg), so they will not add much new information to the model and they can be removed.
 
@@ -125,7 +125,7 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 This produces the dataset that will be used in the learning algorithm in the next steps. Later, you can return and try again with a different selection of features. 
 
-### Step 4: Choose and apply a learning algorithm
+## Step 4: Choose and apply a learning algorithm
 
 Now that the data is ready, constructing a predictive model consists of training and testing. *Classification* and *regression* are two types of supervised machine learning techniques. Classification is used to make a prediction from a defined set of values, such as a color (red, blue, or green). Regression is used to make a prediction from a continuous set of values, such as a person's age.
 
@@ -155,7 +155,7 @@ The result is a trained regression model that can be used to score new samples t
 
 ![Applying the learning algorithm][screen8]
 
-### Step 5: Predict new data 
+## Step 5: Predict new data 
 
 Now that we've trained the model, we can use it to score the other 25% of our data to see how well our model functions. 
 
@@ -183,7 +183,7 @@ The final experiment should look like this:
 
 ![Complete experiment][screen10]
 
-### What's next?
+## What's next?
 
 Now that you have your experiment set up, you can iterate to try to improve the model. For instance, you can change the features you use in your prediction. Or you can modify the properties of the **Linear Regression** algorithm or try a different algorithm altogether. You can even add multiple algorithms to your experiment at one time and compare two by using the **Evaluate Model** module. 
 

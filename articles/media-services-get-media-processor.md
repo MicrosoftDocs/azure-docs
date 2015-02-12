@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
 
-
-
-
-<h1>How to: Get a Media Processor Instance</h1>
+#How to: Get a Media Processor Instance
 This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Create an Encrypted Asset and Upload into Storage](../media-services-create-encrypted-asset-upload-storage/).
+
+##Overview
 
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
 
@@ -65,22 +64,22 @@ The following table provides the name and description of each available media pr
 
 <br />
 
+##Get MediaProcessor
+
 The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically].
 
-<pre><code>
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	
+	    if (processor == null)
+	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	
+	    return processor;
+	}
 
-    if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-    return processor;
-}
-</code></pre>
-
-<h2>Next Steps</h2>
+##Next Steps
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset][] topic which will show you how to use the Azure Media Encoder to encode an asset.
 
 [How to Encode an Asset]: ../media-services-encode-asset/

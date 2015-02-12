@@ -18,6 +18,8 @@
 
 # Get Started with the Azure WebJobs SDK
 
+## Overview
+
 This tutorial shows how to create a multi-tier ASP.NET MVC application that uses the WebJobs SDK to work with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in an [Azure Website](/en-us/documentation/services/websites/). The application also uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279). 
 
 The sample application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full size image when they select an ad to see the details. Here's a screenshot:
@@ -27,17 +29,6 @@ The sample application is an advertising bulletin board. Users create an ad by e
 You can [download the Visual Studio project][download] from the MSDN Code Gallery. 
 
 [download]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [What You'll Learn](#learn)
-- [Application architecture](#contosoads)
-- [Set up the development environment](#setupdevenv)
-- [Build, run, and deploy the application](#storage)
-- [Create the application from scratch](#create)
-- [Review the application code](#code)
-- [Next Steps](#next-steps)
 
 ## <a id="prerequisites"></a>Prerequisites
 
@@ -740,19 +731,12 @@ An `<input>` element tells the browser to provide a file selection dialog.
 
 ### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 
-When the WebJob starts, the `Main` method calls `Initialize` to instantiate the Entity Framework database context. Then it calls the  WebJobs SDK `JobHost.RunAndBlock` method to begin single-threaded execution of triggered functions on the current thread.
+When the WebJob starts, the `Main` method calls the WebJobs SDK `JobHost.RunAndBlock` method to begin execution of triggered functions on the current thread.
 
 		static void Main(string[] args)
 		{
-		    Initialize();
-		
 		    JobHost host = new JobHost();
 		    host.RunAndBlock();
-		}
-		
-		private static void Initialize()
-		{
-		    db = new ContosoAdsContext();
 		}
 
 ### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail method
@@ -762,7 +746,7 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 		public static void GenerateThumbnail(
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
-		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg"), FileAccess.Write] CloudBlockBlob outputBlob)
+		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 		{
 		    using (Stream output = outputBlob.OpenWrite())
 		    {
@@ -770,14 +754,19 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 		        outputBlob.Properties.ContentType = "image/jpeg";
 		    }
 		
-		    var id = blobInfo.AdId;
-		    Ad ad = Program.db.Ads.Find(id);
-		    if (ad == null)
+		    // Entity Framework context class is not thread-safe, so it must
+		    // be instantiated and disposed within the function.
+		    using (ContosoAdsContext db = new ContosoAdsContext())
 		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        var id = blobInfo.AdId;
+		        Ad ad = db.Ads.Find(id);
+		        if (ad == null)
+		        {
+		            throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", id.ToString()));
+		        }
+		        ad.ThumbnailURL = outputBlob.Uri.ToString();
+		        db.SaveChanges();
 		    }
-		    ad.ThumbnailURL = outputBlob.Uri.ToString();
-		    Program.db.SaveChanges();
 		}
 
 * The `QueueTrigger` attribute directs the WebJobs SDK to call this method when a new message is received on the thumbnailrequest queue.

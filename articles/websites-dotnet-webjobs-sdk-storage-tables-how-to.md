@@ -18,21 +18,13 @@
 
 # How to use Azure table storage with the WebJobs SDK
 
+## Overview
+
 This guide provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](../websites-dotnet-webjobs-sdk/) version 1.x.
 
 The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](../websites-dotnet-webjobs-sdk-get-started/).
 		
 Some of the code snippets show the `Table` attribute used in functions that are [called manually](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual), that is, not by using one of the trigger attributes. 
-
-## Table of contents
-
--   [How to add entities to a table](#ingress)
--   [Real-time monitoring](#monitor)
--   [How to read multiple entities from a table](#multiple)
--   [How to read a single entity from a table](#readone)
--   [How to use the .NET Storage API directly to work with a table](#readone)
--   [Related topics covered by the queues how-to article](#queues)
--   [Next steps](#nextsteps)
 
 ## <a id="ingress"></a> How to add entities to a table
 

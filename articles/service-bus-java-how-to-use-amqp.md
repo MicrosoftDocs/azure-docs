@@ -20,7 +20,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/12/2014" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -34,7 +34,7 @@ The addition of AMQP 1.0 means that it’s now possible to leverage the queuing 
 
 This How-To Guide explains how to use the Service Bus brokered messaging features (Queues and publish/subscribe Topics) from Java applications using the popular Java Message Service (JMS) API standard.
 
-# Getting started with Service Bus
+# Get started with Service Bus
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled “[How to Use Service Bus Queues.](https://azure.microsoft.com/en-us/develop/net/how-to-guides/service-bus-queues/)”
 
@@ -51,7 +51,8 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 
 ## Coding Java applications
 
-### ***Java Naming and Directory Interface (JNDI)***
+### Java Naming and Directory Interface (JNDI)
+
 JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a properties file of the following format:
 
 	# servicebus.properties – sample JNDI configuration

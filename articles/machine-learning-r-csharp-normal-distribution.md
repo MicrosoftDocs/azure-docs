@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 #Normal Distribution Suite
@@ -74,18 +74,20 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 ###Starting C# code for web service consumption:
 
 ###Normal Distribution Quantile Calculator
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string p;
 	        public string mean;
 	        public string sd;
 	        public string side;
 	}
+	
 	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
 	        var input = new Input() { p = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
@@ -98,23 +100,25 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+	    	var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
 ###Normal Distribution Probability Calculator
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string q;
 	        public string mean;
 	        public string sd;
 	        public string side;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
 	        var input = new Input() { q = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
@@ -127,21 +131,23 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+		    var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 ###Normal Distribution Generator
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string n;
 	        public string mean;
 	        public string sd;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
 	        var input = new Input() { n = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text };
@@ -154,12 +160,12 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+		    var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
 ##Creation of web service 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). 
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). 
 
 Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
@@ -172,6 +178,7 @@ Experiment flow:
 	#Data schema with example data (replaced with data from web service)
 	data.set=data.frame(p=0.1,mean=0,sd=1,side='L');
 	maml.mapOutputPort("data.set"); #send data to output port
+	
 	# Map 1-based optional input ports to variables
 	dataset1 <- maml.mapInputPort(1) # class: data.frame
 
@@ -194,6 +201,7 @@ Experiment flow:
 	}
 
 	output = as.data.frame(q)
+	
 	# Select data.frame to be sent to the output Dataset port
 	maml.mapOutputPort("output");
 	
@@ -205,6 +213,7 @@ Experiment flow:
  	#Data schema with example data (replaced with data from web service)
 	data.set=data.frame(q=-1,mean=0,sd=1,side='L');
 	maml.mapOutputPort("data.set"); #send data to output port
+	
 	# Map 1-based optional input ports to variables
 	dataset1 <- maml.mapInputPort(1) # class: data.frame
 
@@ -222,6 +231,7 @@ Experiment flow:
 	}
 
 	output = as.data.frame(prob)
+	
 	# Select data.frame to be sent to the output Dataset port
 	maml.mapOutputPort("output");
 	
@@ -233,6 +243,7 @@ Experiment flow:
 	#Data schema with example data (replaced with data from web service)
 	data.set=data.frame(n=50,mean=0,sd=1);
 	maml.mapOutputPort("data.set"); #send data to output port
+	
 	# Map 1-based optional input ports to variables
 	dataset1 <- maml.mapInputPort(1) # class: data.frame
 

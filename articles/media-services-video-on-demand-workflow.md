@@ -19,6 +19,8 @@
 
 #Media Services Video-on-Demand Workflow
 
+##Overview
+
 This topic describes steps of a typical Azure Media Services (AMS) Video-on-Demand workflow. Each step links to relevant topics. For tasks that can be achieved using different technologies, there are buttons that link to technology of your choice (for example, .NET or REST).   
 
 Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN, or a third-party CDN. 
@@ -38,7 +40,7 @@ Choose **.NET** or **REST API** for your development environment.
 
 ##Connecting programmatically  
 
-Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.  
+Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
@@ -48,31 +50,61 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
+##Processing media
 
-##Indexing
+###Get Media Processor
+
+Get Media Processor with **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-get-media-processor](../includes/media-services-selector-get-media-processor.md)]
+
+###Managing jobs
+
+**Creating jobs:** 
+
+For example on how to create jobs, see:
+
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
+
+**Monitoring job progress:**
+
+Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-job-progress](../includes/media-services-selector-job-progress.md)]
+
+###Indexing
 
 [AZURE.INCLUDE [media-services-selector-index-content](../includes/media-services-selector-index-content.md)]
 
+###Encoding 
 
-##Encoding 
+Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
 For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en-us/library/azure/dn621224.aspx).
 
-##Configuring Content Protection 
+##Configure content key authorization policy 
 
-For more information, see [Securing Media](https://msdn.microsoft.com/en-us/library/azure/dn282272.aspx).
+Configure key authorization policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
 ##Configuring asset delivery policy
 
-See the following examples:
+Configure asset delivery policy using **.NET** or **REST API**.
 
-[Configure the delivery policy for an asset that is Encrypted with an AES](https://msdn.microsoft.com/en-us/library/azure/dn783457.aspx#configure_delivery_policy)
+[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
 
-[Configure the delivery policy for an asset that is protected with PlayReady](https://msdn.microsoft.com/en-us/library/azure/dn783467.aspx#configure_delivery_policy)
+##Publishing assets
+
+Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
+
+[AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 
 
 
-[Create Azure Media Services Account]: ../media-services-create-account
+
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png
