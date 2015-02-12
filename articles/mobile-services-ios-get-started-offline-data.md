@@ -147,7 +147,7 @@ When using the Core Data offline store, you need to define particular tables and
     | Attribute  |    Type     |
     |----------- |   ------    |
     | id         | String      |
-    | operationID | Integer 64 |
+    | operationId | Integer 64 |
     | properties | Binary Data |
     | tableKind  | Integer 16  |
 
