@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2015" 
+	ms.date="02/12/2015" 
 	ms.author="cabailey"/>
 
 # Get Started with Azure Key Vault #
@@ -252,8 +252,6 @@ Other commands that you might useful for managing Azure Key Vault:
 
 
 ## <a id="next"></a>Next steps ##
-
-For more information, see the white paper [Azure Key Vault Concepts and Practices](http://go.microsoft.com/fwlink/?LinkID=521861).
 
 For a list of Windows PowerShell cmdlets and scripts for Azure Key Vault, see [Azure Key Vault Cmdlets](http://go.microsoft.com/fwlink/?LinkId=521403) and [Azure Key Vault Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkId=522582). 
 
