@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Scoring profiles (Azure Search REST API Version 2014-10-20-Preview)" 
-	description="Scoring profiles (Azure Search REST API Version 2014-10-20-Preview)" 
+	pageTitle="Scoring profiles (Azure Search REST API Version 2014-07-31-Preview)" 
+	description="Scoring profiles (Azure Search REST API Version 2014-07-31-Preview)" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -16,9 +16,7 @@
 	ms.date="02/12/2015" 
 	ms.author="heidist"/>
       
-#Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)#
-
-> [AZURE.NOTE] This article describes scoring profiles in the 2014-10-20-Preview version of the REST API. The released version of this API can be found at [Add scoring profiles to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN. For more information about the 2014-10-20-Preview version, see [Azure Search Service REST API: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
+#Scoring profiles (Azure Search REST API Version 2014-07-31-Preview)#
 
 Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
 
@@ -30,7 +28,7 @@ To give you an idea of what a scoring profile looks like, the following example 
 
     "scoringProfiles": [
       {
-        "name": "geo",
+        "name": geo,
         "text": {
           "weights": { "hotelName": 5 }
         },
@@ -42,7 +40,8 @@ To give you an idea of what a scoring profile looks like, the following example 
             "interpolation": "logarithmic",
             "distance": {
               "referencePointParameter": "currentLocation",
-              "boostingDistance": 10 }
+              "boostingDistance": 10
+            }
           }
         ]
       }
@@ -50,18 +49,17 @@ To give you an idea of what a scoring profile looks like, the following example 
 
 To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter, `scoringProfile=geo` in the request.
 
-    GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-10-20-Preview
+    GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#SearchDocs).
+This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](https://msdn.microsoft.com/en-us/library/azure/dn798927.aspx).
 
-Click [Example](#example)  to review a more detailed example of a scoring profile.
+Click [Example](#bkmk_ex) to review a more detailed example of a scoring profile.
 
 ## What is default scoring? ##
 
 Scoring computes a search score for each item in a rank ordered result set. Every item in a search result set is assigned a search score, then ranked highest to lowest. Items with the higher scores are returned to the application. By default, the top 50 are returned, but you can use the `$top` parameter to return a smaller or larger number of items (up to 1000 in a single response).
 
 By default, a search score is computed based on statistical properties of the data and the query. Azure Search finds documents that include the search terms in the query string (some or all, depending on `searchMode`), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data corpus, but common within the document. The basis for this approach to computing relevance is known as TF-IDF or (term frequency-inverse document frequency).
-
 Assuming there is no custom sorting, results are then ranked by search score before they are returned to the calling application. If `$top` is not specified, 50 items having the highest search score are returned.
 
 Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.
@@ -151,28 +149,26 @@ The body of the scoring profile is constructed from weighted fields and function
 <font>
 <table style="font-size:12">
 <thead>
-<tr><td><b>Element</b></td><td><b>Description</b></td></tr></thead>
+<tr><td>element</td><td>description</td></tr></thead>
 <tbody 
 <tr>
 <td><b>Weights</b></td>
 <td>
-Specify name-value pairs that assign a relative weight to a field. In the Example [#bkmk_ex], the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+Specify name-value pairs that assign a relative weight to a field. In the Example [#bkmk_ex], the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, ‘rock’ appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
 </td>
 </tr>
 <tr>
-<td><b>Functions</b></td><td>Used when additional calculations are required for specific contexts. Valid values are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
+<td><b>Functions</b></td><td>Used when additional calculations are required for specific contexts. Valid values include `freshness`, `magnitude`, or `distance`. Each function has parameters that are unique to it.
 <br>
-- `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (Edm.DataTimeOffset). Note the `boostingDuration` attribute is used only with the freshness function.
+- `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (edm.DataTimeOffset). Note the `boostingDuration` attribute is used only with the freshness function.
 <br>
 - `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with double and integer fields.
 <br>
-- `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.
-<br>
-- `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `(Collection(Edm.String) fields.
+- `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `geo.distance` fields.
 <br>
 <b>Rules for using functions</b>
 <br>
-Function type (freshness, magnitude, distance, tag) must be lower case. 
+Function type (freshness, magnitude, distance) must be lower case. 
 <br>
 Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
 <br>
@@ -204,7 +200,7 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
         }, 
         "functions": (optional) [
           { 
-            "type": "magnitude | freshness | distance | tag", 
+            "type": "magnitude | freshness | distance", 
             "boost": # (positive number used as multiplier for raw score != 1), 
             "fieldName": "...", 
             "interpolation": "constant | linear (default) | quadratic | logarithmic", 
@@ -227,12 +223,6 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
               "referencePointParameter": "...", (parameter to be passed in queries to use as reference location) 
               "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends) 
             } 
-
-            // (- or -) 
-
-            "tag": {
-              "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field)
-            }
           } 
         ], 
         "functionAggregation": (optional, applies only when functions are specified) 
@@ -263,13 +253,13 @@ A scoring function can only be applied to fields that are filterable.
 <tr>
 <td>Functions</td>	<td>Optional. Note that a scoring function can only be applied to fields that are filterable.</td>
 </tr><tr>
-<td>Type</td>	<td>Required for scoring functions. Indicates the type of function to use. Valid values include magnitude, freshness, distance and tag. You can include more than one function in each scoring profile. The function name must be lower case.</td>
+<td>Type</td>	<td>Required for scoring functions. Indicates the type of function to use. Valid values include magnitude, freshness, and distance. You can include more than one function in each scoring profile. The function name must be lower case.</td>
 </tr><tr>
 <td>Boost</td>	<td>Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1.</td>
 </tr><tr>
-<td>Fieldname</td>	<td>Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.</td>
+<td>Fieldname</td>	<td>Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, and distance with location fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.</td>
 </tr><tr>
-<td>Interpolation</td>	<td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations]([#bkmk_interpolation]) for details.</td>
+<td>Interpolation</td>	<td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations](#bkmk_interpolation) for details.</td>
 </tr><tr>
 <td>magnitude</td>	<td>The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are: 
 <br>
@@ -293,13 +283,9 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#SearchDocs) for descriptions of query parameters.</td>
+<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-07-31-preview/#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
-</tr><tr>
-<td>tag</td>	<td>The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameterquery` string option).</td>
-</tr><tr>
-<td>tag | tagsParameter</td>	<td>A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See [Search Documents (Azure Search API)]() for descriptions of query parameters.</td>
 </tr><tr>
 <td>functionAggregation</td>	<td>Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query.</td>
 </tr><tr>
@@ -318,9 +304,9 @@ Interpolations allow you to define the slope for which the score boosting increa
 
 - `Constant`	For items that are within the start and ending range, a constant boost will be applied to the rank results.
 
-- `Quadratic`	In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.
+- `Quadratic`	In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval.
 
-- `Logarithmic`	In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.
+- `Logarithmic`	In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval.
  
 <a name="Figure1"></a>
  ![][1]
@@ -353,13 +339,13 @@ The following table provides several examples.
 </tbody>
 </table>
 
-For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.org/TR/xmlschema11-2/).
-
 **See Also**
 
+For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.org/TR/xmlschema11-2/).
 [Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) on MSDN <br/>
 [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798941.aspx) on MSDN<br/>
 [Add a scoring profile to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN<br/>
 
 <!--Image references-->
-[1]: ./media/search-api-scoring-profiles-2014-10-20-Preview/scoring_interpolations.png
+[1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png
+
