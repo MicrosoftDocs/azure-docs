@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="How to use Service Bus queues (Python) - Azure" 
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Python." 
+	description="Learn how to use Azure Service Bus queues from Python." 
 	services="service-bus" 
 	documentationCenter="python" 
-	authors="sethmanheim" 
+	authors="huguesv" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,21 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
-	ms.author="sethm"/>
+	ms.date="02/10/2015" 
+	ms.author="huvalo"/>
 
 
 
 
 # How to Use Service Bus Queues
-This guide will show you how to use Service Bus queues. The samples are
-written in Python and use the Python Azure module. The scenarios
+
+This guide describes how to use Service Bus queues. The samples are
+written in Python and use the [Python Azure package][]. The scenarios
 covered include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next Steps][] section.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 
 ## How to create a queue
@@ -150,19 +151,6 @@ links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
 
-  [Next Steps]: #next-steps
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [How to: Create a Queue]: #create-queue
-  [How to: Send Messages to a Queue]: #send-messages
-  [How to: Receive Messages from a Queue]: #receive-messages
-  [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
-  [Azure Management Portal]: http://manage.windowsazure.com
-  
-  
-  
-  
-  
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[Azure Management Portal]: http://manage.windowsazure.com
+[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx

@@ -37,13 +37,15 @@ Problems? Questions?
 <ul>
 <li><a href="../app-insights-troubleshoot-faq/">Q & A and troubleshooting</a>
 </li>
+<li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
+</li>
 </ul>
 
 </td><td>
 
 Device apps
 <ul>
-<li><a href="../app-insights-windows-monitor-usage-crashes/">Monitor usage and crashes in Windows device apps</a>
+<li><a href="../app-insights-windows-get-started/">Monitor usage and crashes in Windows device apps</a>
 </li>
 </ul>
 
@@ -99,6 +101,7 @@ Web sites and web applications
 
 <!--Link references-->
 
+[portal]: http://portal.azure.com/
 [start]: ../app-insights-get-started/
 [greenbrown]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
@@ -110,12 +113,14 @@ Web sites and web applications
 [qna]: ../app-insights-troubleshoot-faq/
 [data]: ../app-insights-data-retention-privacy/
 [export]: ../app-insights-export-telemetry/
-[windows]: ../app-insights-windows-monitor-usage-crashes/
 [azure]: ../insights-perf-analytics/
 [metrics]: ../app-insights-metrics-explorer/
 [trace]: ../app-insights-search-diagnostic-logs/
 [api]: http://msdn.microsoft.com/library/azure/dn887942.aspx
 [detect]: ../app-insights-detect-triage-diagnose/
+[knowUsers]: ../app-insights-overview-usage/
 [java]: ../app-insights-java-get-started/
 [javalogs]: ../app-insights-java-trace-logs/
-
+[windows]: ../app-insights-windows-get-started/
+[windowsUsage]: ../app-insights-windows-usage/
+[windowsCrash]: ../app-insights-windows-crashes/

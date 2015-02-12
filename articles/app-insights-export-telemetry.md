@@ -11,15 +11,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-26" 
+	ms.date="2015-02-04" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
-The telemetry you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download and write whatever code you need to process it.  
+The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download and write whatever code you need to process it.  
 
 
-## <a name="setup"></a> Set up telemetry export
+## <a name="setup"></a> Set up continuous export
 
 
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 
@@ -44,23 +44,7 @@ If you want to change the event types later, just edit it:
 ![Click Choose event types](./media/appinsights/appinsights-22-4edit-export.png)
 
 
-## <a name="get"></a> Get your telemetry
-When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
-
-![Inspect the blob store with a suitable tool](./media/appinsights/appinsights-22-3get-data.png)
-
-The date and time are when the telemetry was deposited in the store – not the time it was generated. So if you write code to download the data, it can move linearly through the data.
-
-To download this data programmatically, use the [blob store REST API](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
-
-Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in which you can set up pipelines to manage data at scale.
-
-## <a name="analyze"></a>Analyze your stuff
-
-OK, so now you’ve got your data on your own machine. What's in there?
-
-
-### What do you get?
+## <a name="analyze"></a> What events do you get?
 
 The exported data is the raw telemetry we receive from your application, except: 
 
@@ -69,7 +53,22 @@ The exported data is the raw telemetry we receive from your application, except:
 
 Calculated metrics are not included. For example, we don’t export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
-### What does it look like?
+## <a name="get"></a> How do you get them?
+
+When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
+
+![Inspect the blob store with a suitable tool](./media/appinsights/appinsights-22-3get-data.png)
+
+The date and time are UTC and are when the telemetry was deposited in the store – not the time it was generated. So if you write code to download the data, it can move linearly through the data.
+
+To download this data programmatically, use the [blob store REST API](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
+
+Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in which you can set up pipelines to manage data at scale.
+
+We start writing a new blob in each hour (if events are received). So you should always process up to the previous hour, but wait for the current hour to complete.
+
+
+## <a name="format"></a> What does the data look like?
 
 * Each blob is a text file that contains multiple '\n'-separated rows.
 * Each row is an unformatted JSON document. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
@@ -77,7 +76,7 @@ Calculated metrics are not included. For example, we don’t export average CPU 
 ![View the telemetry with a suitable tool](./media/appinsights/appinsights-22-4json.png)
 
 
-### How to process it?
+## How to process it?
 
 On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on. For example:
 
@@ -104,10 +103,6 @@ On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdins
 ## <a name="delete"></a>Delete your old data
 Please note that you are responsible for managing your storage capacity and deleting the old data if necessary. 
 
-## Coming soon
-
-* Stop, edit, resume.
-* Choose which telemetry types to export.
 
 ## Q & A
 
@@ -123,10 +118,11 @@ Please note that you are responsible for managing your storage capacity and dele
 * *Is there any limit to the amount of data you put in my store?* 
  No. We’ll keep pushing data in until you delete the export. We’ll stop if we hit the outer limits for blob storage, but that’s pretty huge. It’s up to you to control how much storage you use.  
 
+* *I regenerated the key to my storage, and now the export doesn't work.*
+ Delete this export and create another. You can set it to continue filling the same store.
 
-
-
-
+* *Can I pause and edit the export?*
+ That's on our backlog.
 
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]

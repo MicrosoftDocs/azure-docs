@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 
 #Survival Analysis 
 
-
-
-
-
 Under many scenarios, the main outcome under assessment is the time to an event of interest. In other words, the question “when this event will occur?” is asked. As examples, consider situations where the data describes the elapsed time (days, years, mileage, etc.) until the event of interest (disease relapse, PhD degree received, brake pad failure) occurs. Each instance in the data represents a specific object (a patient, a student, a car, etc.).
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 This [web service]( https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) answers the question “what is the probability that the event of interest will occur by time n for object x?” By providing a survival analysis model, this web service enables users to supply data to train the model and test it. The main theme of the experiment is to model the length of the elapsed time until the event of interest occurs. 
 
@@ -48,8 +47,8 @@ The output is the probability of an event occurring by a specific time.
 There are multiple ways of consuming the service in an automated fashion (an example app is [here](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
 ###Starting C# code for web service consumption:
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string trainingdata;
 	        public string testingdata;
 	        public string timeofinterest;
@@ -57,11 +56,13 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	        public string indexevent;
 	        public string variabletypes;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+    {
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
 	        var input = new Input() { trainingdata = TextBox1.Text, testingdata = TextBox2.Text, timeofinterest = TextBox3.Text, indextime = TextBox4.Text, indexevent = TextBox5.Text, variabletypes = TextBox6.Text };
@@ -74,7 +75,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+		    var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
@@ -84,7 +85,7 @@ The interpretation of this test is as follows. Assuming the goal of the data is 
 
 ##Creation of web service
 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created and two “Execute R Scripts” were pulled onto the workspace. The data schema was created with a simple “Execute R Script”, which defines the input data schema for the web service. This module is then linked to the second “Execute R Script” module, which does major work. This module does data preprocessing, model building, and predictions. In the data preprocessing step, the input data represented by a long string is transformed and converted into a data frame. In the model building step, an external R package “survival_2.37-7.zip” is first installed for conducting survival analysis. Then the “coxph” function is executed after a series data processing tasks. The details of the “coxph” function for survival analysis can be read from the R documentation. In the prediction step, a testing instance is supplied into the trained model with the “surfit” function, and the survival curve for this testing instance is produced as “curve” variable. Finally, the probability of the time of interest is obtained. 
 
@@ -100,7 +101,9 @@ From within Azure Machine Learning, a new blank experiment was created and two �
     time_of_interest="500"
     index_time="1"
     index_event="2"
+
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
+
     maml.mapOutputPort("sampleInput"); #send data to output port
 	
 ####Module 2:
@@ -108,6 +111,7 @@ From within Azure Machine Learning, a new blank experiment was created and two �
     #Read data from input port
     data <- maml.mapInputPort(1) 
     colnames(data) <- c("trainingdata","testingdata","time_of_interest","index_time","index_event","variable_types")
+
     # Preprocessing training data
     traindingdata=data$trainingdata
     y=strsplit(as.character(data$trainingdata),",")
@@ -115,18 +119,22 @@ From within Azure Machine Learning, a new blank experiment was created and two �
     z=sapply(unlist(y), strsplit, ";", simplify = TRUE)
     mydata <- data.frame(matrix(unlist(z), nrow=n_row, byrow=T), stringsAsFactors=FALSE)
     n_col=ncol(mydata)
+
     # Preprocessing testing data
     testingdata=as.character(data$testingdata)
     testingdata=unlist(strsplit(testingdata,";"))
+
     # Preprocessing other input parameters
     time_of_interest=data$time_of_interest
     time_of_interest=as.numeric(as.character(time_of_interest))
     index_time = data$index_time
     index_event = data$index_event
     variable_types = data$variable_types
+
     # Necessary R packages
     install.packages("src/packages_survival/survival_2.37-7.zip",lib=".",repos=NULL,verbose=TRUE)
     library(survival)
+
     # Prepare to build model
     attach(mydata)
 
@@ -174,6 +182,7 @@ From within Azure Machine Learning, a new blank experiment was created and two �
     output=prob_event[position_closest,"prob"]
     }else{output=(prob_event[position_closest,"prob"]+prob_event[position_closest+1,"prob"])/2}
     }
+
     #Pull out results to send to web service
     output=paste(round(100*output, 2), "%") 
     maml.mapOutputPort("output"); #output port

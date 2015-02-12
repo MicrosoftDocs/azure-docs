@@ -2,8 +2,8 @@
 	pageTitle="Azure Notification Hubs Secure Push" 
 	description="Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#." 
 	documentationCenter="android" 
-	authors="ggailey777" 
-	manager="timlt" 
+	authors="RickSaling" 
+	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="09/24/2014" 
-	ms.author="glenga"/>
+	ms.author="ricksal"/>
 
 #Azure Notification Hubs Secure Push
 

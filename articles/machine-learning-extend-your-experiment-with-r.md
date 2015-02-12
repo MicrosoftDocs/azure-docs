@@ -21,6 +21,8 @@
 
 You can extend the functionality of ML Studio through the R language by using the **Execute R Script** module. 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
+
 This module accepts multiple input datasets and it yields a single dataset as output. You can type an R script into the **R Script** parameter of the **Execute R Script** module. 
 
 You access each input port of the module by using code similar to the following: 

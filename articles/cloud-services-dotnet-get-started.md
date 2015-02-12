@@ -18,9 +18,13 @@
 
 # Get Started with Azure Cloud Services and ASP.NET
 
+## Overview
+
 This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](/en-us/documentation/articles/fundamentals-application-models/#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
 
-### The Contoso Ads application
+The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and finally how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
+
+## The Contoso Ads application
 
 The application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full size image when they select an ad to see the details. Here's a screenshot:
 
@@ -28,11 +32,11 @@ The application is an advertising bulletin board. Users create an ad by entering
 
 The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process. 
 
-### Alternative architecture: Websites and WebJobs
+## Alternative architecture: Websites and WebJobs
 
 This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/en-us/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
 
-### What you'll learn
+## What you'll learn
 
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio cloud service project with an ASP.NET MVC web role and a worker role.
@@ -41,7 +45,7 @@ This tutorial shows how to run both front-end and back-end in an Azure cloud ser
 * How to upload files and store them in the Azure Blob service.
 * How to use the Azure Queue service for communication between tiers.
 
-### Prerequisites
+## Prerequisites
 
 The tutorial assumes that you understand [basic concepts about Azure cloud services](http://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms. 
 
@@ -53,18 +57,6 @@ The tutorial instructions work with either of the following products:
 * Visual Studio 2013 Express for Web
 
 If you don't have one of these, Visual Studio 2013 Express for web will be installed automatically when you install the Azure SDK.
-
-### Segments of this tutorial
-
-The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and finally how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
-
-- [Application architecture](#application-architecture)
-- [Set up the development environment](#setupdevenv)
-- [Download and run the completed solution](#download-and-run-the-completed-solution)
-- [Deploy the application to Azure](#deploy-the-application-to-azure)
-- [Create the application from scratch](#create-the-application-from-scratch)
-- [Troubleshooting](#troubleshooting) (Go here if you have problems running the sample.)
-- [Next steps](#next-steps)
 
 ## Application architecture
 

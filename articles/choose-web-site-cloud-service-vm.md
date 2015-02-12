@@ -32,12 +32,6 @@ The following diagram illustrates the relative degree of control versus ease of 
 
 ![ChoicesDiagram][ChoicesDiagram]
 
-## Table of contents
-
-- [Scenarios and recommendations](#scenarios)
-- [Feature comparison](#features)
-- [Next Steps](#nextsteps)
-
 ##<a name="scenarios"></a>Scenarios and recommendations
 
 Here are some common application scenarios with recommendations as to which Azure web hosting option might be most appropriate for each.
@@ -346,7 +340,7 @@ The following table compares the capabilities of Websites, Cloud Services, and V
 For more information about the three web hosting options, see the following resources:
 
 * [Introducing Azure](../fundamentals-introduction-to-azure/)
-* [Azure Execution Models](../fundamentals-application-models/)
+* [Compute Hosting Options Provided by Azure](../fundamentals-application-models/)
 
 To get started with the option(s) you choose for your application, see the following resources:
 

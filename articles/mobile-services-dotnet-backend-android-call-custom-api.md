@@ -4,7 +4,7 @@
 	description="Learn how to define a custom API and then call it from an Android app that uses Windows Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="ggailey777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="09/27/2014" 
-	ms.author="glenga"/>
+	ms.author="ricksal"/>
 
 # Call a custom API from the client
 

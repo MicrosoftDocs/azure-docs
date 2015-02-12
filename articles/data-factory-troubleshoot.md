@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2014" 
+	ms.date="2/10/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -96,11 +96,6 @@ To learn more details:
 
 1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
 2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
-
-## Walkthroughs 
-
-- [Walkthrough: Troubleshooting an error with copying data](#copywalkthrough)
-- [Walkthrough: Troubleshooting an error with Hive/Pig processing](#pighivewalkthrough)
 
 ## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
 In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.

@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="How to use Service Bus topics (Python) - Azure" 
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." 
+	description="Learn how to use Azure Service Bus topics and subscriptions from Python." 
 	services="service-bus" 
 	documentationCenter="python" 
-	authors="sethmanheim" 
+	authors="huguesv" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,24 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
-	ms.author="sethm"/>
+	ms.date="02/09/2015" 
+	ms.author="huvalo"/>
 
 
 
 
 
 # How to Use Service Bus Topics/Subscriptions
-This guide will show you how to use Service Bus topics and subscriptions
-from Python applications. The scenarios covered include **creating
-topics and subscriptions, creating subscription filters, sending
+This guide will show you how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending
 messages** to a topic, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**. For more information on topics
 and subscriptions, see the [Next Steps](#Next_Steps) section.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 
 ## How to create a topic
@@ -245,26 +243,9 @@ Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
--   API reference for [SqlFilter][].
+-   Reference for [SqlFilter.SqlExpression][].
 
-  [Next Steps]: #nextsteps
-  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [How to: Create a Topic]: #How_to_Create_a_Topic
-  [How to: Create Subscriptions]: #How_to_Create_Subscriptions
-  [How to: Send Messages to a Topic]: #How_to_Send_Messages_to_a_Topic
-  [How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
-  [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-  [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
-  
-  [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
-  
-  
-  
-  
-  
-  
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[Azure Management Portal]: http://manage.windowsazure.com
+[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/en-us/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx

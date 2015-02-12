@@ -12,81 +12,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/12/2015" 
 	ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
 This document depicts Microsoft Azure Machine Learning Recommendations APIs.
 
-##Contents
 
-
-
-
-- [1. General overview](#1-general-overview)
-- [2. Advanced topics](#2-advanced-topics)
-    - [2.1. Recommendation quality](#21-recommendation-quality)
-    - [2.2. Rank build](#22-rank-build)
-    - [2.3. Recommendation reasoning](#23-recommendation-reasoning)
-- [3. Limitations](#3-limitations)
-- [4. APIs - general information](#4-apis---general-information)
-    - [4.1. Authentication](#41-authentication)
-    - [4.2. Service URI](#42-service-uri)
-    - [4.3. API version](#43-api-version)
-- [5. Model Basic](#5-model-basic)
-    - [5.1. Create Model](#51-create-model)
-    - [5.2. Get Model](#52-get-model)
-    - [5.3. Get All Models](#53-get-all-models)
-    - [5.4. Update Model](#54-update-model)
-    - [5.5. Delete Model](#55-delete-model)
-- [6. Model Advanced](#6-model-advanced)
-    - [6.1. Model Data Insight](#61-model-data-insight)
-    - [6.2. Model Insight](#62-model-insight)
-    - [6.3. Get Model Sample](#63-get-model-sample)
-- [7. Model Business Rules](#7-model-business-rules)
-    - [7.1. Get Model Rules](#71-get-model-rules)
-    - [7.2. Add Rule](#72-add-rule)
-    - [7.3. Delete Rule](#73-delete-rule)
-    - [7.4. Delete All Rules](#74-delete-all-rules)
-- [8. Catalog](#8-catalog)
-    - [8.1. Import Catalog Data](#81-import-catalog-data)
-    - [8.2. Get Catalog](#82-get-catalog)
-    - [8.3. Get Catalog Items by Token](#83-get-catalog-items-by-token)
-- [9. Usage data](#9-usage-data)
-    - [9.1. Import Usage Data](#91-import-usage-data)
-        - [9.1.1. Uploading File](#911-uploading-file)
-        - [9.1.2. Using Data Acquisition](#912-using-data-acquisition)
-  - [9.2. List Model Usage Files](#92-list-model-usage-files)
-  - [9.3. Get Usage Statistics](#93-get-usage-statistics)
-  - [9.4. Get Usage File Sample](#94-get-usage-file-sample)
-  - [9.5. Get Model Usage File](#95-get-model-usage-file)
-  - [9.6. Delete Usage File](#96-delete-usage-file)
-  - [9.7. Delete All Usage Files](#97-delete-all-usage-files)
-- [10. Features](#10-features)
-    - [10.1. Get Features Info](#101-get-features-info-for-last-rank-build)
-    - [10.2. Get Features Info (For Specific Rank Build)](#102-get-features-info-for-specific-rank-build)
-- [11. Build](#11-build)
-    - [11.1. Build parameters](#111-build-parameters)
-    	- [11.1.1 Usage condenser](#1111-usage-condenser)
-    	- [11.1.2 Rank build parameters](#1112-rank-build-parameters)
-    	- [11.1.3 Recommendation build parameters](#1113-recommendation-build-parameters)
-    - [11.2. Trigger a Recommendation Build](#112-trigger-a-recommendation-build)
-    - [11.3. Trigger Build (Rank or Recommendation)](#113-trigger-build-%28rank-or-recommendation%29)
-    - [11.4. Get Builds Status of a Model](#114-get-builds-status-of-a-model)
-    - [11.5. Get Builds Status of a User](#115-get-builds-status-of-a-user)
-    - [11.6. Delete Build](#116-delete-build)
-    - [11.7. Get Build Parameters](#117-get-build-parameters)
-    - [11.8. Cancel Build](#118-cancel-build)
-- [12. Recommendation](#12-recommendation)
-    - [12.1. Get Recommendations](#121-get-recommendations)
-- [13. Notifications](#13-notifications)
-    - [13.1. Get Notifications](#131-get-notifications)
-    - [13.2. Delete Model Notifications](#132-delete-model-notifications)
-    - [13.3. Delete User Notifications](#133-delete-user-notifications)
-- [14. Legal](#14-legal)
-
-
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ##1. General overview
 This document is an API reference. You should start with the “Azure Machine Learning Recommendation – Quick Start” document.
@@ -133,12 +67,15 @@ To enable reasoning, the `AllowFeatureCorrelation` and `ReasoningFeatureList` pa
 Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either the Basic or OAuth authentication method.
 
 ###4.2. Service URI
-The service root URIs for the Azure Machine Learning Recommendations APIs are [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
+The service root URI for the Azure Machine Learning Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
 The full service URI is expressed using elements of the OData specification.  
 
 ###4.3. API version
 Each API call will have, at the end, a query parameter called apiVersion that should be set to 1.0.
+
+###4.4. IDs are case sensitive
+IDs, returned by any of the APIs, are case sensitive and should be used as such when passed as parameters in subsequent API calls. For instance, model IDs and catalog IDs are case sensitive.
 
 ##5. Model Basic
 
@@ -162,6 +99,7 @@ Creates a “create model” request.
 HTTP Status code: 200
 
 - `feed/entry/content/properties/id` – Contains the model ID.
+**Note**: model ID is case sensitive.
 
 OData XML
 
@@ -202,7 +140,7 @@ Creates a “get model” request.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id	|	Unique identifier of the model. |
+|	id	|	Unique identifier of the model (case sensitive) |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -336,7 +274,7 @@ This mechanism enables you - once you have a recommendation model in production 
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id		| Unique identifier of the model.  |
+|	id		| Unique identifier of the model (case sensitive)  |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Note that the XML tags Description and ActiveBuildId are optional. If you do not want to set Description or ActiveBuildId, remove the entire tag.|
@@ -354,7 +292,7 @@ Deletes an existing model by ID.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id	|	Unique identifier of the model. |
+|	id	|	Unique identifier of the model (case sensitive) |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -396,7 +334,7 @@ Returns statistical data on the usage data that this model was built with.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -630,7 +568,7 @@ Returns model insight on the active build or (if given) on a specific build.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	buildId	|	Optional – number that identifies a successful build. |
 |	apiVersion		| 1.0 |
 |||
@@ -711,7 +649,7 @@ Gets a sample of the recommendation model.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -864,7 +802,7 @@ There are 2 types of rules that you can add, <strong>BlockList</strong> and <str
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -968,8 +906,8 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
-|	filterId	|	Unique identifier of the filter. |
+|	modelId	|	Unique identifier of the model |
+|	filterId	|	Unique identifier of the filter |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -986,7 +924,7 @@ HTTP Status code: 200
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1027,7 +965,7 @@ Note: The maximum file size is 200MB.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model.  |
+|	modelId	|	Unique identifier of the model  |
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -1074,7 +1012,7 @@ Retrieves all catalog items.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1176,7 +1114,7 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	token	|	Token of the catalog item’s name. Should contain at least 3 characters. |
 |	apiVersion		| 1.0 |
 |||
@@ -1233,7 +1171,7 @@ This section shows how to upload usage data by using a file. You can call this A
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model.  |
+|	modelId	|	Unique identifier of the model  |
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -1386,7 +1324,7 @@ Retrieves metadata of all model usage files.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	forModelId	|	Unique identifier of the model. |
+|	forModelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1450,10 +1388,10 @@ Gets usage statistics.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | startDate |	Start date. Format: yyyy/MM/ddTHH:mm:ss |
 | endDate |	End date. Format: yyyy/MM/ddTHH:mm:ss |
-| eventTypes |	Comma-separated string of event types or null to get all events.  |
+| eventTypes |	Comma-separated string of event types or null to get all events  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1535,8 +1473,8 @@ Retrieves the first 2KB of usage file content.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
-| fileId |	Unique identifier of the model usage file.  |
+| modelId |	Unique identifier of the model  |
+| fileId |	Unique identifier of the model usage file  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1574,8 +1512,8 @@ Retrieves the full content of the usage file.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| mid |	Unique identifier of the model.  |
-| fid |	Unique identifier of the model usage file.  |
+| mid |	Unique identifier of the model  |
+| fid |	Unique identifier of the model usage file |
 | download | 1 |
 | apiVersion | 1.0 |
 |||
@@ -1631,8 +1569,8 @@ Deletes the specified model usage file.
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
-| fileId | Unique identifier of the file to be deleted. |
+| modelId |	Unique identifier of the model  |
+| fileId | Unique identifier of the file to be deleted |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1651,7 +1589,7 @@ Deletes all model usage files.
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1674,7 +1612,7 @@ Retrieves the feature information, including ranking, for the last successful ra
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 |samplingSize| Number of values to include for each feature according to the data present in the catalog. <br/>Possible values are:<br> -1 - All samples. <br>0 - No sampling. <br>N - Return N samples for each feature name.|
 | apiVersion | 1.0 |
 |||
@@ -1756,9 +1694,9 @@ Retrieves the feature information, including the ranking for a specific rank bui
 
 | Parameter Name	|	Valid Values	|
 |:--------			|:--------			|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 |samplingSize| Number of values to include for each feature according to the data present in the catalog.<br/> Possible values are:<br> -1 - All samples. <br>0 - No sampling. <br>N - Return N samples for each feature name.|
-|rankBuildId| Unique identifier of the rank build or -1 for the last rank build.|
+|rankBuildId| Unique identifier of the rank build or -1 for the last rank build|
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1896,7 +1834,7 @@ By default this API will request the creation of a recommendation model, in orde
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | apiVersion | 1.0 |
 |||
@@ -1970,7 +1908,7 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | buildType | Type of the build to invoke: <br> - 'Ranking' for rank build <br/> - 'Recommendation' for recommendation build
 | apiVersion | 1.0 |
@@ -2049,8 +1987,8 @@ Retrieves builds and their status for a specified model.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId			|	Unique identifier of the model.	|
-|	onlyLastBuild	|	Indicates whether to return all the build history of the model or only the status of the most recent build.	|
+|	modelId			|	Unique identifier of the model	|
+|	onlyLastBuild	|	Indicates whether to return all the build history of the model or only the status of the most recent build	|
 |	apiVersion		|	1.0									|
 
 
@@ -2458,10 +2396,10 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | Unique identifier of the model. |
+| modelId | Unique identifier of the model |
 | itemIds | Comma-separated list of the items to recommend for.<br>Max length: 200 |
-| numberOfResults | Number of required results. |
-| includeMetatadata | Future use, always false. |
+| numberOfResults | Number of required results |
+| includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
 
 **Response:**
@@ -2697,7 +2635,7 @@ Deletes all read notifications for a model.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | Unique identifier of the model. |
+| modelId | Unique identifier of the model |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/12/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -39,7 +39,7 @@ You will learn:
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-###How the Service Bus relay helps with hybrid solutions
+##How the Service Bus relay helps with hybrid solutions
 
 Business solutions are typically composed of a combination of custom
 code written to tackle new and unique business requirements and existing
@@ -64,7 +64,7 @@ incoming sessions and requests to the cloud-hosted Service Bus. The
 Service Bus also protects those services from unauthorized access by
 using Azure Active Directory Access Control.
 
-###The solution scenario
+##The solution scenario
 
 In this tutorial, you will create an ASP.NET MVC 4 website that will
 allow you to see a list of products on the product inventory page.
@@ -168,7 +168,7 @@ In order to perform management operations on the new namespace, such as creating
 
 4.  Make a note of the key, or copy it to the clipboard.
 
-###Manage a service namespace using the Visual Studio Server Explorer
+##Manage a service namespace using the Visual Studio Server Explorer
 
 To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
 
@@ -716,7 +716,7 @@ application.
 
 	![][43]
 
-##<a name="nextsteps"></a>Next steps  
+## Next steps  
 
 To learn more about Service Bus, see the following resources:  
   

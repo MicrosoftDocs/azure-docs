@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Pagination in Azure Search" 
+	pageTitle="How to page search results in Azure Search" 
 	description="Pagination in Azure Search" 
 	services="search" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/16/2015" 
 	ms.author="heidist"/>
 
-#Pagination in Azure Search#
+#How to page search results in Azure Search#
 
 This article provides guidance on how to use the Azure Search Service REST API to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation.
  

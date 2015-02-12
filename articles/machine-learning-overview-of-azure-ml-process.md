@@ -26,6 +26,9 @@ The typical Azure Machine Learning project involves the following high-level ste
 4.	Create an operational workflow by using the trained model and deploying the workflow into production
 5.	Monitor the performance of the model and subsequent updates  
 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 >The term “experiment” is used to describe an interactive workflow, which can include data input and manipulation, trainers, and scorers in the form of a directed acyclic graph (DAG). When the workflow is published as an Azure web service, it is no longer interactive. This means that to change the model, it has to be updated then republished to update the web service and its behavior.  
 
 Steps 1-3 are typically done by a data scientist through multiple iterations. Upon completion, a Machine Learning model is handed off to the engineering and operations teams to integrate into the production systems so the Machine Learning model can be used in production.  
@@ -36,7 +39,7 @@ Machine Learning simplifies and streamlines this process by making the model cre
 
 This document describes the concepts and steps for setting up a Machine Learning web service from a Machine Learning experiment.  
 
-# Overview of Azure Machine Learning process  #
+## Overview of Azure Machine Learning process  ##
 Machine Learning enables creating web services from Machine Learning experiments, which are defined in the Machine Learning Studio. A Machine Learning web service can be used to make predictions based on actual input data in real-time or in batch mode.  
  
 The following diagram shows the steps at a high level in two parts: first, building a model, and second, publishing it as a web service. This document focuses on the right side of the Figure 1 diagram (Publishing a scoring web service), and it explains the concepts involved in that process. 
@@ -45,10 +48,10 @@ The following diagram shows the steps at a high level in two parts: first, build
 
 Figure 1: Provision, build, and publish a scoring web service  
 
-# Azure Machine Learning web services #
+## Azure Machine Learning web services ##
 A web service, in the context of Machine Learning, is a software interface that provides communication between external applications and a Machine Learning workflow. It provides a way to communicate with a scoring model in real time to receive prediction results and incorporate the results into external client applications. Azure Machine Learning leverages Microsoft Azure to deploy, host, and manage the Azure Machine Learning web services. Two types of services can be created by using Azure Machine Learning.  
 
-## Request-Response service (RRS) ##
+### Request-Response service (RRS) ###
 The Request-Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to the stateless models created and published from the experimentation environment.   
 
 - REST APIs: RRS is a web service that you can access by using REST APIs. 
@@ -58,7 +61,7 @@ The Request-Response service (RRS) is a low-latency, high-scale web service that
 -	Interface parameters: A request to the RRS is the data that is needed to be scored by using the defined experiment in the Studio. The response is the result of the model's prediction. 
 -	Response values: RRS accepts a single row of input parameters and it generates a single row as output. The output row can contain multiple columns.   
 
-## Batch Execution service (BES) ##
+### Batch Execution service (BES) ###
 The Batch Execution service (BES) is a service for asynchronous scoring of a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a batch of records from a variety of sources such as blobs, tables in Azure, SQL Database, HD Insight (hive query), and HTTP sources. The results of scoring are output to a file in a blob in Azure  Storage, and data from the storage end-point is returned in the response.  
 
 BES also provides interfaces for getting the status of the running scoring process and canceling the request. BES is capable of running model packages against very large amounts of data.  
@@ -69,7 +72,7 @@ BES also provides interfaces for getting the status of the running scoring proce
 -	Deployed in Azure: The result of deploying BES is an Azure web service end-point.
 -	Interface parameters: The request to a BES is the URL of a file in a blob in Azure Storage or an SAS input of the records to be scored. The response is written to the blob and the URL of the response storage end point is returned.  
 
-# Publishing Machine Learning web service #
+## Publishing Machine Learning web service ##
 Machine Learning Studio provides a browser-based application to easily create and run machine learning experiments in a graphical user interface by using various data sources, data manipulation, validation modules, and Machine Learning algorithms. An experiment in the Machine Learning Studio is constructed as a directed acyclic graph (DAG) of data-processing modules.  
 
 After the experiment is set up and successfully run to be trained on the data, it can be saved as a trained model and used for scoring. The trained model is used in a scoring experiment or a workflow and published as an Azure web service.  
@@ -151,7 +154,7 @@ This action does not actually perform the deployment. As shown in Figure 10, it 
 Figure 10: Deployment notification
 
 ## Calling the web service ##
-#### RRS ####
+### RRS ###
 RRS is a REST end point, and it can be called from client applications by using various programming languages. The API Help page provides a link to the sample code for calling the new web service. It provides code samples in C#, R, and Python.
 
 ![][11]  
@@ -164,7 +167,7 @@ In addition to building scoring web services, experiments can be created to perf
 ### Publishing a non-scoring web service ###
 The steps for publishing a non-scoring web service are similar to that of the scoring service described earlier in this article. The main difference is that the output port is not defined for the score model.
 
-# Updating a published service #
+## Updating a published service ##
 A published web service may need to be updated for a variety of reasons, such as updating the training data, changes in the data schema used for training and scoring, needing to improve the algorithm, or other changes to the original Machine Learning model. These changes will impact the trained model and the scoring results, and they require publishing an updated web service.
 
 ![][12]  

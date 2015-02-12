@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Machine Learning app: Text Analytics Service for analyzing sentiment | Azure "
 	description="Text Analytics API is a suite of text analytics built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction."
 	services="machine-learning"
@@ -18,8 +18,10 @@
 
 
 # Machine Learning Text Analytics Service#
-
+##Overview
 Text Analytics API is a suite of text analytics [web services]( https://datamarket.azure.com/dataset/amla/text-analytics) built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction. No training data is needed to use this API, just bring your text data. We support English language only right now. This API uses advanced natural language processing techniques under the hood.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
  
 ## Sentiment analysis##
 The API returns a numeric score between 0 & 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings.
@@ -46,12 +48,15 @@ Headers:
 	Authorization: Basic <creds>
 	Accept: application/json
                
-Where <creds\> = ConvertToBase64(“AccountKey:”<AccountKey>)
+Where <creds\> = ConvertToBase64(“AccountKey:”<AccountKey\>);  
+
+You get your account key [here]( https://datamarket.azure.com/account/keys). 
 
 **Example response**
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata","Score":1.0
+	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+		"Score":1.0
 	}
 
 ---
@@ -64,21 +69,24 @@ https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
 
 **Example request**
 
-In the GET call below, we are requesting for the sentiment for the phrase *Hello World*
+In the GET call below, we are requesting for the sentiment for the key phrases in the text *It was a wonderful hotel to stay at, with unique decor and friendly staff*
 
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?Text=%27hello%20world%27
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?Text=
+	It%20was%20a%20 wonderful%20hotel%20to%20stay%20at,%20with%20unique%20decor%20and%20friendly%20staff
 
 Headers:
 
 	Authorization: Basic <creds>
 	Accept: application/json
                
-Where <creds\> = ConvertToBase64(“AccountKey:”<AccountKey>)
+Where <creds\> = ConvertToBase64(“AccountKey:”<AccountKey\>)
+
+You get your account key [here]( https://datamarket.azure.com/account/keys). 
 
 
 **Example response**
 
 	{
 	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata","KeyPhrases":[
-	    "hello","world"]
+	    "wonderful hotel","unique decor","friendly staff"]
 	}
