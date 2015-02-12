@@ -99,8 +99,10 @@ From within Azure Machine Learning, a new blank experiment was created and two â
 	pred1 <- as.data.frame(out) 
 	group <- array(1:nrow(pred1)) 
 	for (i in 1:nrow(pred1))  
-		{if(as.numeric(pred1[i,])>0.5) {group[i]=1} 
-		else {group[i]=0}} 
+		{
+		if(as.numeric(pred1[i,])>0.5) {group[i]=1} 
+		else {group[i]=0}
+		} 
 	pred2 <- as.data.frame(group) 
 	maml.mapOutputPort("pred2");  
 
