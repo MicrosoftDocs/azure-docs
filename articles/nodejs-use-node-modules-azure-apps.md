@@ -29,11 +29,12 @@ When deploying the **node\_modules** directory as part of your application, it w
 
 ###Native Modules
 
-While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. One specific limitation of Azure Webites is that while it natively understands how to install modules specified in a **package.json** or **npm-shrinkwrap.json** file, it does not provide Python or node-gyp and cannot build native modules.
+While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. Since Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system. 
 
-Since Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system. 
+Azure Websites does not support all native modules and might fail at compiling those with very specific prerequisites. While some popular modules like MongoDB have optional native dependencies and work just fine without them, two workarounds proved successful with almost all native modules available today:
 
-Native modules are not supported with Azure Webites. Some modules such as JSDOM and MongoDB have optional native dependencies, and will work with applications hosted in Azure Webites.
+* Run **npm install** on a Windows machine that has all the native module's prerequisites installed. Then, deploy the created **node\_modules** folder as part of the application to Azure Websites.
+* Azure Websites can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For at tutorial on how to do this, see [Custom Website Deployment Scripts with Kudu].
 
 ###Using a package.json file
 
@@ -75,5 +76,6 @@ Now that you understand how to use Node.js modules with Azure, learn how to [spe
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/
 [Publishing with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
 [Build and deploy a Node.js application to an Azure Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+[Custom Website Deployment Scripts with Kudu]: en-us/documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
 

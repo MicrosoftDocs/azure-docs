@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 # How to use Service Bus topics/subscriptions
@@ -321,7 +321,7 @@ with the topic. Subscriptions can also be deleted independently.
     // Delete a topic
 	service.deleteTopic("TestTopic");
 
-# Next Steps
+## Next Steps
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Service Bus Queues, Topics, and Subscriptions][] for more information.

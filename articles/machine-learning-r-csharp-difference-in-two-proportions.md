@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -49,18 +49,20 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string successes1;
 	        public string successes2;
 	        public string total1;
 	        public string total2;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+
 	void Main()
 	{
 	        var input = new Input() { successes1 = TextBox1.Text, successes2 = TextBox2.Text, total1 = TextBox3.Text, total2 = TextBox4.Text };
@@ -73,7 +75,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+	    	var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 

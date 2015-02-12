@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/12/2014" 
+	ms.date="2/11/2015" 
 	ms.author="elizapo"/>
 
 #How to create a hybrid collection for RemoteApp
@@ -29,7 +29,7 @@ This tutorial walks you through the process of creating a hybrid collection. The
 2.	Create a RemoteApp collection.
 2.	Link to a virtual network.
 3.	Link a template image.
-4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/).
+4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring DirSync with the Password Sync option, or 2) configuring DirSync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-ad/).
 5.	Publish RemoteApp apps.
 6.	Configure user access.
 

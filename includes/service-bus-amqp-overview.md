@@ -1,7 +1,7 @@
 # AMQP 1.0 support in Service Bus
 
 
-Both Azure Service Bus and Service Bus for Windows Server (Service Bus 1.1) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and running on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
+Both the Azure Service Bus cloud service and Service Bus for Windows Server (Service Bus 1.1) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and running on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
 
 ## Introduction: What is AMQP 1.0 and why is it important?
 

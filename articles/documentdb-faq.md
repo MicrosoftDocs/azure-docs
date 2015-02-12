@@ -19,10 +19,6 @@
 
 #Frequently asked questions about DocumentDB
 
-- [Azure DocumentDB fundamentals](#fundamentals)
-- [Set up Azure DocumentDB](#setup)
-- [Develop against Azure DocumentDB](#develop)
-
 ## <a id="fundamentals"></a> Microsoft Azure DocumentDB fundamentals
 
 ###What is Microsoft Azure DocumentDB? 

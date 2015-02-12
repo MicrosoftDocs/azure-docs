@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -21,9 +21,9 @@
 
 
 
-# How to Use Service Bus topics/subscriptions
+# How to Use Service Bus topics and subscriptions
 
-This guide will show you how to use Service Bus topics and subscriptions
+This guide describes how to use Service Bus topics and subscriptions
 from Node.js applications. The scenarios covered include **creating
 topics and subscriptions, creating subscription filters, sending
 messages** to a topic, **receiving messages from a subscription**, and
@@ -34,12 +34,11 @@ and subscriptions, see the [Next Steps][] section.
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
-## Configure your application to Use Service Bus
+## Configure your application to use Service Bus
 
-To use Azure Service Bus, you need to download and use the
-Node.js azure package. This includes a set of convenience libraries that
+To use Service Bus, download the Node.js azure package. This package includes a set of libraries that
 communicate with the Service Bus REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -73,7 +72,7 @@ the **server.js** file of the application:
 
     var azure = require('azure');
 
-### Setup an Azure Service Bus connection
+### Set up a Service Bus connection
 
 The azure module will read the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to your Azure Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
@@ -166,7 +165,7 @@ filter.
 
 ### Create subscriptions with filters
 
-You can also setup filters that allow you to scope which messages sent
+You can also create filters that allow you to scope which messages sent
 to a topic should show up within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
