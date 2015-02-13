@@ -29,25 +29,24 @@ Because the Quick Start app reads and inserts data, let's register scripts for t
 
    	![][2]
 
-3. Replace the existing script with the following function, and then click **Save**.
+3. Replace the existing script with the following function, and then click **Save**. This script adds the user ID of the authenticated user to the item before it is inserted into the TodoItem table.
 
         function insert(item, user, request) {
           item.userId = user.userId;
           request.execute();
         }
 
-    This script adds the user ID of the authenticated user to the item before it is inserted into the TodoItem table.
 
     > [AZURE.NOTE] [Dynamic schema must be enabled](https://msdn.microsoft.com/library/azure/jj193175.aspx) for this to work. This setting is enabled by default for new mobile services.
 
-5. Similarly, replace the existing **Read** operation with the following function:
+5. Similarly, replace the existing **Read** operation with the following function. This script filters the returned TodoItem objects so that a user only receives the items that they insert themselves.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
            request.execute();
         }
 
-   	This script filters the returned TodoItem objects so that a user only receives the items that they insert themselves.
+
 
 
 ## <a name="test-app"></a>Test the app
