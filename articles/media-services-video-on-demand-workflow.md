@@ -54,7 +54,23 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 ###Get Media Processor
 
-[Get Media Processor using .NET](../media-services-get-media-processor/)
+Get Media Processor with **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-get-media-processor](../includes/media-services-selector-get-media-processor.md)]
+
+###Managing jobs
+
+**Creating jobs:** 
+
+For example on how to create jobs, see:
+
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
+
+**Monitoring job progress:**
+
+Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-job-progress](../includes/media-services-selector-job-progress.md)]
 
 ###Indexing
 
@@ -62,15 +78,11 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 ###Encoding 
 
-Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**.
+Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
 For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en-us/library/azure/dn621224.aspx).
-
-###Monitoring job progress
-
-[Monitoring job progress using .NET](../media-services-check-job-progress/)
 
 ##Configure content key authorization policy 
 
@@ -82,7 +94,7 @@ Configure key authorization policy using **.NET** or **REST API**.
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
 
 ##Publishing assets
 

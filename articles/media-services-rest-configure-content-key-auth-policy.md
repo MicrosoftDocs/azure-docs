@@ -53,6 +53,13 @@ For more information, see
 
 ##AES-128 Dynamic Encryption 
 
+>[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
+>
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](../media-services-rest-how-to-use).
+
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
+
+
 ###Open Restriction
 
 Open restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.

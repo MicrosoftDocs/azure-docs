@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="02/12/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -27,21 +27,6 @@ This walk-through shows you how to use the DocumentDB service provided by Azure 
 
 > [AZURE.TIP] This tutorial assumes that you have prior experience using ASP.NET MVC and Azure Websites. If you are new to ASP.NET or the [prerequisite tools](#_Toc395637760), we recommend downloading the complete [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) tutorial project from [GitHub](https://github.com/Azure/azure-documentdb-net) and building it using the [instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.
 
-## In this tutorial 
-
-Step | Description
------| -----------
-[Prerequisites](#_Toc395637760) | Prerequisite software for completing the tutorial.
-[Step 1: Create a DocumentDB database account.](#_Toc395637761) | Create a DocumentDB account and retrieve your Key values. 
-[Step 2: Create a new ASP.NET MVC application.](#_Toc395637762) | Create an ASP.NET web application.
-[Step 3: Add DocumentDB to your project.](#_Toc395637767) | Add the DocumentDB .NET client libraries to your project.
-[Step 4: Set up the ASP.NET MVC application.](#_Toc395637763) |  Add the model, views, and controllers to your MVC app.
-[Step 5: Wiring up DocumentDB](#_Toc395637769) | Add code to list incomplete Items, add Items, and edit Items.
-[Step 6: Run the application locally.](#_Toc395637773) | Build the solution and run it locally.
-[Step 7: Deploy the application to Azure Websites.](_Toc395637774) | Quickly get your app published to Azure Websites.
-[Next steps](#_Toc395637775) | You're done. What next?
-[Get the solution from GitHub](#GetProject) | Too busy to complete the tutorial and just want the finished app? Go here.
-
 ## <a name="_Toc395637760"></a>Prerequisites
 
 Before following the instructions in this article, you should ensure that you have the following installed:
@@ -51,7 +36,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 All the screen shots in this article have been taken using Visual Studio 2013 with Update 3 applied and the Azure SDK for .NET version 2.4. If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
 
-## <a name="_Toc395637761"></a>Create a DocumentDB database account
+## <a name="_Toc395637761"></a>Step 1: Create a DocumentDB database account
 
 Let's start by creating a DocumentDB account. If you already have an account, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762).
 
@@ -62,7 +47,7 @@ Let's start by creating a DocumentDB account. If you already have an account, yo
 <br/>
 We will now walk through how to create a new ASP.NET MVC application from the ground-up. 
 
-## <a name="_Toc395637762"></a>Create a new ASP.NET MVC application
+## <a name="_Toc395637762"></a>Step 2: Create a new ASP.NET MVC application
 
 Now let's create our new ASP.NET project.
 
@@ -93,7 +78,7 @@ Now let's create our new ASP.NET project.
 
 We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding DocumentDB to this project and building our application.
 
-## <a name="_Toc395637767"></a>Add DocumentDB to your project
+## <a name="_Toc395637767"></a>Step 3: Add DocumentDB to your project
 
 That takes care of most of the ASP.NET MVC plumbing that we need for
 this solution. Now let's get to the real purpose of this tutorial, adding Azure DocumentDB to our web application.
@@ -117,7 +102,7 @@ this solution. Now let's get to the real purpose of this tutorial, adding Azure 
   	![Sreen shot of the two references added to the project in Solution Explorer.](./media/documentdb-dotnet-application/image22.png)
 
 
-##<a name="_Toc395637763"></a>Set up the ASP.NET MVC application
+##<a name="_Toc395637763"></a>Step 4: Set up the ASP.NET MVC application
  
 Now let's add the models, views, and controllers to this MVC application:
 
@@ -237,7 +222,7 @@ In the **Add View** dialog box, do the following:
 
 Once this is done, close the cshtml documents in Visual Studio as we will return to these views later.
 
-## <a name="_Toc395637769"></a>Wiring up DocumentDB
+## <a name="_Toc395637769"></a>Step 5: Wiring up DocumentDB
 
 In this section, we'll add code to handle the following:
 
@@ -544,7 +529,7 @@ There is one last thing for us to do, and that is to add the ability to edit **I
 
 	That's it, that is everything we need to run our application, list incomplete **Items**, add new **Items**, and edit **Items**.
 
-## <a name="_Toc395637773"></a>Run the application locally
+## <a name="_Toc395637773"></a>Step 6: Run the application locally
 
 To test the application on your local machine, do the following:
 
@@ -570,7 +555,7 @@ To test the application on your local machine, do the following:
 
 4. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
-##<a name="_Toc395637774"></a>Deploy the application to Azure Websites
+##<a name="_Toc395637774"></a>Step 7: Deploy the application to Azure Websites
 
 Now that you have the complete application working correctly with DocumentDB we're going to deploy this web app to Azure Websites. If you selected **Host in the cloud** when you created the empty ASP.NET MVC project then Visual Studio makes this really easy and does most of the work for you. 
 

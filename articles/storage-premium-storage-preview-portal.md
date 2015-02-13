@@ -60,7 +60,7 @@ The following is a list of important things to consider before or when using Pre
 
 - A premium storage account cannot be mapped to a custom domain name.
 
-- Storage analytics is not currently supported for Premium Storage.
+- Storage analytics is not currently supported for Premium Storage. To analyze the performance metrics of VMs using disks on Premium Storage accounts, use the operating system based tools, such as [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and [IOSTAT](http://linux.die.net/man/1/iostat) for Linux VMs. 
 
 ## <a id="using"></a>Using Premium Storage for Disks
 You can use Premium Storage for Disks in one of two ways:
