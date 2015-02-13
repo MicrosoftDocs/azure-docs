@@ -1,6 +1,19 @@
-<properties pageTitle="What is in the RemoteApp template images?" description="Learn about the template images included with RemoteApp." services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" />
+<properties 
+    pageTitle="What is in the RemoteApp template images?" 
+    description="Learn about the template images included with RemoteApp." 
+    services="remoteapp" 
+    solutions="" documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/30/2015" ms.author="elizapo" />
+<tags 
+    ms.service="remoteapp" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="1/30/2015" 
+    ms.author="elizapo" />
 
 #What is in the RemoteApp template images?
 

@@ -2,7 +2,7 @@
 	pageTitle="Manage DocumentDB capacity and performance | Azure" 
 	description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." 
 	services="documentdb" 
-	authors="spelluru" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="cgronlun" 
 	documentationCenter=""/>
@@ -22,20 +22,6 @@ DocumentDB is a fully managed, massively scalable document oriented NoSQL databa
 You can get started with DocumentDB by creating a database account through the [Microsoft Azure Preview Management Portal](https://portal.azure.com/). DocumentDB is offered in stackable capacity units (CUs) of solid-state drive (SSD) backed storage and throughput. You can elastically scale DocumentDB to meet the performance and storage needs of your application. 
 
 Each capacity unit comes with a quota of elastic collections for storing document data, provisioned document storage and provisioned throughput as request units per second. If the capacity requirements of your application change, you can scale up or scale down the amount of provisioned capacity in your database account. Capacity provisioned under a database account is available for all databases and collections that exist or are created within the account.  
-
-## In this article 
-
-Section | Description
------| -----------
-[Database account and administrative quota](#DBaccount) | Limits on database accounts, users, and permissions.
-[Databases with unlimited document storage](#DBstorage) | Explains how DocumentDB scales as you need it.
-[Elastic collections](#Elastic) | Defines collections, which provide the scope for document storage and query execution.
-[Provisioned storage and throughput as capacity units](#ProvStorage) | Describes how to provision using capacity units (CUs).
-[Provisioned throughput, request units, and database operations](#ProvThroughput) |  Describes how database operations consume the provisioned throughput associated with a CU.
-[Collections and provisioned throughput](#Collections) | Describes how the throughput of your database account is allocated equally across collections .
-[Choice of consistency level and throughput](#Consistency) | Describes how consistency levels work.
-[Provisioned document storage and index overhead](#IndexOverhead) | Describes the 10GB of document storage included in each CU, plus storage for the index.
-[Next steps](#NextSteps) | 
 
 ##<a name="DBaccount"></a>Database account and administrative quota
 As an Azure subscriber, you can provision one or more DocumentDB database accounts. Each database account comes with a quota of administrative resources including 100 databases, 500,000 users and 2,000,000 permissions.   

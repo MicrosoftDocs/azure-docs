@@ -1,6 +1,19 @@
-<properties title="Using redirection in Azure RemoteApp" pageTitle="Using redirection in Azure RemoteApp" description="Learn how to configure and use redirection in RemoteApp" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties 
+    pageTitle="Using redirection in Azure RemoteApp" 
+    description="Learn how to configure and use redirection in RemoteApp" 
+    services="remoteapp" 
+    solutions="" documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="elizapo" />
+<tags 
+    ms.service="remoteapp" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="1/23/2015" 
+    ms.author="elizapo" />
 
 #Using redirection in Azure RemoteAppp
 

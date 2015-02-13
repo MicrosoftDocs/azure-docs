@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="2/10/2015"
+	ms.date="2/11/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -51,9 +51,11 @@ Now that you have created the mobile service, download projects that you can run
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-This shows how to run your new client app against the mobile service running in Azure. Before you can test the iOS app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your iOS development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
 
 ## <a name="next-steps"> </a>Next Steps
+
+This shows how to run your new client app against the mobile service running in Azure. Before you can test the iOS app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your iOS development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
+
 Learn how to perform additional important tasks in Mobile Services:
 
 * [Add mobile services to an existing app]
