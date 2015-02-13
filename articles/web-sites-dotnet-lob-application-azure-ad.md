@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/23/2014" 
+	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory #
@@ -23,14 +23,6 @@ In this article, you will learn how to easily create an ASP.NET MVC line-of-busi
 The AAD tenant that you use can be can have an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.
 
 For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](../web-sites-authentication-authorization).
-
-- [What you will build](#bkmk_build)
-- [What you will need](#bkmk_need)
-- [Use sample application for LOB template](#bkmk_sample)
-- [Run the sample application](#bkmk_run)
-- [Deploy the sample application to Azure Websites](#bkmk_deploy)
-- [Add LOB functionality to the sample application](#bkmk_crud)
-- [Further resources](#bkmk_resources)
 
 <a name="bkmk_build"></a>
 ## What you will build ##

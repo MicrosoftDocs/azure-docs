@@ -3,7 +3,7 @@
 	description="Learn how to create a website on Azure programmatically." 
 	services="" 
 	documentationCenter="Java" 
-	authors="v-donntr" 
+	authors="donntrenton" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="02/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -29,7 +29,7 @@ This walkthrough shows you how to create an Azure SDK for Java application that 
 
 ## Create and Configure Cloud Resources in Azure
 
-Before you do any programming in Visual Studio, you need to have an active Azure subscription and set up a default Active Directory (AD) on Azure.
+Before you begin this procedure, you need to have an active Azure subscription and set up a default Active Directory (AD) on Azure.
 
 
 ## Create an Active Directory (AD) in Azure
@@ -57,7 +57,7 @@ The website creation code in this procedure uses a self-signed certificate to au
 - Convert the PFX file into JKS, because Java uses that format to authenticate using certificates.
 - Write the application's authentication code, which refers to the local JKS file.
 
-When you complete this procedure, the CER certificate will reside in your Azure subscription and the JKS certificate will reside on your local drive. For more info on management certificates, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
+When you complete this procedure, the CER certificate will reside in your Azure subscription and the JKS certificate will reside on your local drive. For more information on management certificates, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
 
 
 ### Create a certificate
@@ -88,7 +88,7 @@ where:
 - `<password>` is the password you choose to protect the certificate; it must be at least 6 characters long. You can enter no password, although this is not recommended.
 - `<dname>` is the X.500 Distinguished Name to be associated with alias, and is used as the issuer and subject fields in the self-signed certificate.
 
-For more info, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
+For more information, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
 
 
 ### Upload the certificate
@@ -109,7 +109,7 @@ In the Windows Command Prompt (running as admin), cd to the directory containing
 
 2. When prompted, enter the source keystore password; this is the password you specified for the PFX file.
 
-The two passwords don't have to be the same. You can enter no password, although this is not recommended.
+The two passwords do not have to be the same. You can enter no password, although this is not recommended.
 
 
 # Building a Website Creation Application
@@ -130,7 +130,7 @@ In this section you create a workspace and a Maven project for the website creat
 
     Click **Finish**.
 
-3. Open the new project's pom.xml file in Project Explorer and double-click the pom.xml file. Select the **Dependencies** tab. As this is a new project, no packages are listed yet.
+3. Open the new project's pom.xml file in Project Explorer. Select the **Dependencies** tab. As this is a new project, no packages are listed yet.
 
 4. Open the Maven Repositories view. **Click Window > Show View > Other > Maven > Maven Repositories** and click **OK**. The **Maven Repositories** view will appear at the bottom of the IDE.
 
@@ -190,7 +190,7 @@ In Program.java, add the following imports; these imports provide access to clas
 
 ### Provide the main entry point code
 
-Provide the main entry point code that calls the Azure Service Management API to create the Azure website. The code will output the HTTP status code of the response to indicate success or failure, and output the name of the created website if successful.
+Provide the main entry point code that calls the Azure Service Management API to create the Azure website. The code will output the HTTP status of the response indicating success or failure, and if successful, will output the name of the created website.
 
     public class Program {
     
@@ -241,9 +241,9 @@ Next, define a method to create the website. This method, `createWebSite`, speci
       Configuration config = ManagementConfiguration.configure(
         new URI(uri),
         subscriptionId,
-        keyStoreLocation, // path to the JKS file
-        keyStorePassword, // password for the JKS file
-        KeyStoreType.jks  // flag that you are using a JKS keystore
+        keyStoreLocation, // Path to the JKS file
+        keyStorePassword, // Password for the JKS file
+        KeyStoreType.jks  // Flag that you are using a JKS keystore
         );
 
       // Create the website management client to call Azure APIs;
@@ -253,12 +253,12 @@ Next, define a method to create the website. This method, `createWebSite`, speci
       // Create the website
       WebSiteCreateResponse webSiteCreateResponse = webSiteManagementClient.getWebSitesOperations().create(webSpaceName, createParameters);
       
-      // Output the HTTP status code of the response; 200 indicates the request succeeded; 4xx indicates failure
+      // Output the HTTP status code of the response; 200 indicates 
+      // that the request succeeded; 4xx indicates failure
       System.out.println("----------");
       System.out.println("Website created - HTTP response " + webSiteCreateResponse.getStatusCode() + "\n");
 
-      // Output name of the website this app created
-      // getName retrieves the name of the web site associated with the website response object
+      // Retrieve and output the name of the website this app created;
       String websitename = webSiteCreateResponse.getWebSite().getName();
       System.out.println("----------\n");
       System.out.println("Name of website created: " + websitename + "\n");
@@ -297,7 +297,7 @@ Log into AMP and click **Websites**. The new website should appear in the Websit
 
 After you have run AzureWebDemo and created the new website, log into AMP, click **Websites**, and select **WebDemoWebsite** in the **Websites** list. In the website's dashboard page, click **Browse** (or click the website URL, `webdemowebsite.azurewebsites.net`) to navigate to the website. You will see a blank placeholder page, because no content has been published to the website yet.
 
-In the next steps, you will create a "Hello World" application and deploy it to the website.
+Next you will create a "Hello World" application and deploy it to the website.
 
 
 ## Creating a JSP Hello World Application
@@ -487,7 +487,7 @@ In a short time (probably less than 5 minutes) Tomcat Server will unzip the WAR 
 
 ### Publish your application to the website using FileZilla (optional)
 
-Another tool you can use to publish the application is FileZilla, a popular third-party FTP client with a convenient, graphical UI. You can download and install FileZilla from [http://filezilla-project.org/](http://filezilla-project.org/) if you don't already have it. For more information on using the client, see the [FileZilla documentation](https://wiki.filezilla-project.org/Documentation) and this blog entry on [FTP Clients - Part 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx).
+Another tool you can use to publish the application is FileZilla, a popular third-party FTP client with a convenient, graphical UI. You can download and install FileZilla from [http://filezilla-project.org/](http://filezilla-project.org/) if you do not already have it. For more information on using the client, see the [FileZilla documentation](https://wiki.filezilla-project.org/Documentation) and this blog entry on [FTP Clients - Part 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx).
 
 1. In FileZilla, click **File > Site Manager**.
 2. In the **Site Manager** dialog, click **New Site**. A new blank FTP site will appear in **Select Entry** prompting you to provide a name. For this procedure, name it `AzureWebDemo-FTP`.
@@ -533,7 +533,7 @@ Another tool you can use to publish the application is FileZilla, a popular thir
 
 ### Clean up Azure resources
 
-This procedure creates a website on Azure. This is a resource for which you are billed as long as it runs. Unless you plan to continue using the website for testing or development, you should consider stopping or deleting it. A website that has been stopped will still incur a small charge, but you can restart it at any time. Deleting a website erases all data you have uploaded to the website.
+This procedure creates a website on Azure. You will be billed for the website resource as long as it exists. Unless you plan to continue using the website for testing or development, you should consider stopping or deleting it. A website that has been stopped will still incur a small charge, but you can restart it at any time. Deleting a website erases all data you have uploaded to the website.
 
 
 

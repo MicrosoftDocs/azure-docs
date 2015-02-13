@@ -28,14 +28,6 @@ For information about Web Hosting Plans, see [What is a Web Hosting Plan?](http:
 
 > [AZURE.NOTE] Before switching a website from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Azure Websites subscription. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
-In this article:
-
-- [Scaling to Shared or Basic Plan mode](#scalingsharedorbasic)
-- [Scaling to Standard Plan mode](#scalingstandard)
-- [Scaling a SQL Server Database connected to your site](#ScalingSQLServer)
-- [Developer Features](#devfeatures)
-- [Other Features](#OtherFeatures)
-
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
 ## Scaling to Shared or Basic Plan mode
