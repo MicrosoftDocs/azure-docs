@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,10 +27,10 @@ Below is an example of a .COM website running on Azure Websites. It demonstrates
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-> [WACOM.NOTE]
-> This guide presents some of the most common areas and tasks that are aligned with running a public-facing .COM site in Azure Websites. However, there are other common solutions that you can implement in Azure Websites. To review these solutions, see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Business Applications</a>.
+> [AZURE.NOTE]
+> This guide presents some of the most common areas and tasks that are aligned with running a public-facing .COM site in Azure Websites. However, there are other common solutions that you can implement in Azure Websites. To review these solutions, see the other guides on [Digital Marketing Campaigns](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview) and [Business Applications](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview).
 
-### Create from scratch or bring existing assets
+## Create from scratch or bring existing assets
 
 Quickly create new sites from a popular CMS in the gallery or bring your existing web assets to Azure Websites from a variety of languages and frameworks.
 
@@ -38,7 +38,7 @@ The Azure gallery provides templates from the popular website content management
 
 Your existing web assets can run on Azure Websites, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Azure Websites using your familiar [FTP] tools or your source control management system. Azure Websites supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-### Publish reliably
+## Publish reliably
 
 Publish your website reliably by continuously publishing directly from your existing source control system and live-testing your content. 
 
@@ -46,7 +46,7 @@ During the planning, prototyping, and early development of a site, you can look 
 
 Also, when planning changes to a live website, you can easily [run A/B tests] on the proposed updates using the Test in Production feature in and analyze real user behavior to help you make informed decisions on site design.
 
-### Brand and secure
+## Brand and secure
 
 Use the Websites domain for free or map to your registered domain name, then secure your brand with your CA-signed SSL certificate.
 
@@ -54,7 +54,7 @@ The **\*.azurewebsites.net** domain is complimentary when you run your website o
 
 If you collect any user information, perform ecommerce, or manage any other sensitive data, you can protect your brand reputation and your customers with [HTTPS]. The **\*.azurewebsites.net** domain name already comes with an SSL certificate, and if you use your custom domain, you can bring your SSL certificate for it to Azure Websites. There is a monthly charge (prorated hourly) associated with each SSL certificate. For more information, see [Websites Pricing Details].
 
-### Go global
+## Go global
 
 Go global by serving regional sites with Azure Traffic Manager and delivering content lightning fast with Azure CDN.
 
@@ -62,7 +62,7 @@ To serve global customers in their respective regions, use [Azure Traffic Manage
 
 Deliver your static content lightning fast to users globally by [integrating your website with Azure CDN]. Azure CDN caches static content in the [CDN node] closest to the user, which minimizes latency and connections to your website.
 
-### Optimize
+## Optimize
 
 Optimize your .COM site by scaling automatically with Autoscale, caching with Azure Redis Cache, running background tasks with WebJobs, and maintaining high availability with Azure Traffic Manager.
 
@@ -72,7 +72,7 @@ Make your website more responsive with the [Azure Redis Cache]. Use it to cache 
 
 Maintain high availability of your website using [Azure Traffic Manager]. Using the **Failover** method, Traffic Manager automatically routes traffic to a secondary site if there is a problem on the primary site.
 
-### Monitor and analyze
+## Monitor and analyze
 
 Stay up-to-date on your website's performance with Azure or third-party tools. Receive alerts on critical website events. Gain user insight easily with Application Insight or with web log analytics from HDInsight. 
 
@@ -80,7 +80,7 @@ Get a [quick glance] of the website's current performance metrics and resource q
 
 In the **Standard** hosting plan, monitor site responsiveness receive email notifications whenever your site becomes unresponsive. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure].
 
-### Use rich media and reach all devices
+## Use rich media and reach all devices
 
 Make your .COM site attractive with rich media, such as:
 
