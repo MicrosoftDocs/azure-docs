@@ -12,14 +12,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2015" 
+	ms.date="02/12/2015" 
 	ms.author="cabailey"/>
 
 
 
 # What is Azure Key Vault? 
 
-Azure Key Vault—currently in Preview—helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs (keys never leave the HSM boundary). HSMs are certified to FIPS 140-2 level 2 and Common Criteria EAL4+ standards. 
+## Introduction
+
+Azure Key Vault—currently in Preview—helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs (keys never leave the HSM boundary). HSMs are certified to FIPS 140-2 level 2 and Common Criteria EAL4+ standards.  
 
 Azure Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed. 
 
@@ -52,7 +54,7 @@ for Preview.**
 Developers can also manage the keys directly, by using  APIs. For more information, see [Azure Key Vault REST API Reference](http://go.microsoft.com/fwlink/?LinkId=518560) and [Azure Key Vault C# API Reference](http://go.microsoft.com/fwlink/?LinkId=518560).
 
 
-# Next Steps
+## Next Steps
 
 For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](http://go.microsoft.com/fwlink/?LinkId=521402).
 
