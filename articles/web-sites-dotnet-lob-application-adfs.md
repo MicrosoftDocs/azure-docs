@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/23/2014" 
+	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS #
@@ -21,16 +21,6 @@
 In this article, you will learn how to create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](http://azure.microsoft.com/en-us/services/websites/) using an on-premises [Active Directory Federation Services](http://technet.microsoft.com/en-us/library/hh831502.aspx) as the identity provider. This scenario can work when you want to create LOB applications in Azure Websites but your organization requires all data to be stored on-site.
 
 For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](./web-sites-authentication-authorization).
-
-- [What you will build](#bkmk_build)
-- [What you will need](#bkmk_need)
-- [Use sample application for LOB template](#bkmk_sample)
-- [Set up the sample application](#bkmk_setup)
-- [Deploy the sample application to Azure Websites](#bkmk_deploy)
-- [Configure relying party trusts in AD FS Management](#bkmk_rptrusts)
-- [Authorize users for specific controllers or actions](#bkmk_authorize)
-- [Connect to on-premises data](#bkmk_data)
-- [Further resources](#bkmk_resources)
 
 <a name="bkmk_build"></a>
 ## What you will build ##

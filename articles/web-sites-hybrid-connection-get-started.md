@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="2/12/2015" 
 	ms.author="cephalin"/>
 
 #Connect an Azure website to an on-premises resource using Hybrid Connections
@@ -33,18 +33,6 @@ You can connect a website on Microsoft Azure to any on-premises resource that us
 	- Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
 
 > [AZURE.NOTE] The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
-
-
-##In This Article##
-
-
-[Create a Website in the Azure Preview Portal](#CreateSite)
-
-[Create a Hybrid Connection and a BizTalk Service](#CreateHC)
-
-[Install the on-premises Hybrid Connection Manager to complete the connection](#InstallHCM)
-
-[Next Steps](#NextSteps)
 
 
 ## Create a Website in the Azure Preview Portal ##

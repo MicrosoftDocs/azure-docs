@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="9/19/2014" 
+	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
 #Azure Websites Backups
@@ -22,18 +22,6 @@ The Azure Websites Backup and Restore feature lets you easily create website bac
 
 
 For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
-
-##In this article
-
-- [Automatic and Easy Backup (Video)](#video)
-- [What Gets Backed Up](#whatsbackedup)
-- [Requirements and Restrictions](#requirements)
-- [To Create a Manual Backup](#manualbackup)
-- [To Configure Automated Backups](#automatedbackups)
-- [How Backups Are Stored](#aboutbackups)
-- [Notes](#notes)
-- [Next Steps](#nextsteps)
-	- [More about storage accounts](#moreaboutstorage)
 
 <a name="video"></a>
 ##Automatic and Easy Backup (Video)
