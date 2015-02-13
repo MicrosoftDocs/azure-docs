@@ -14,8 +14,8 @@ Service Bus is a multi-tenant cloud service, which means that the service is sha
 Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
 
 - *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
-- *Topics*, which provide one-directional communication using *subscriptions*&#151;a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
-- *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages&#151;it's not a broker. Instead, it just passes them on to the destination application.
+- *Topics*, which provide one-directional communication using *subscriptions*-a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
+- *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages-it's not a broker. Instead, it just passes them on to the destination application.
 - *Event Hubs*, which provide event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
 
 When you create a queue, topic, relay, or Event Hub, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, relay, or Event Hub to communicate with one another. 
@@ -33,7 +33,7 @@ Suppose you decide to connect two applications using a Service Bus queue. [Figur
  
 **Figure 2: Service Bus queues provide one-way asynchronous queuing.**
 
-The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as [Figure 2](#Fig2) shows, or multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver&#151;for a multi-cast service you should use a topic instead.
+The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as [Figure 2](#Fig2) shows, or multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver-for a multi-cast service you should use a topic instead.
 
 Each message has two parts: a set of properties, each a key/value pair, and a binary message body. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
 
