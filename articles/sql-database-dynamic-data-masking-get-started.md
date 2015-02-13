@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sql-database" 
-   ms.date="02/12/2015"
-   ms.author="nadavh; ronmat; v-romcal"/>
+   ms.date="02/13/2015"
+   ms.author="nadavh; ronmat; v-romcal; v-stste"/>
 
 # Get started with SQL Database Dynamic Data Masking 
+
+## Overview
 
 SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking is in preview for Basic, Standard, and Premium service tiers in the V12 version of Azure SQL Database.
 
@@ -114,7 +116,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 1. Launch the Classic Azure Management Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
 
-2. Click the database you want to mask, and then click the **Auditing & Security** tab.
+2. Click the database you want to mask, and then click the **AUDITING & SECURITY** tab.
 
 3. Under **dynamic data masking**, click **ENABLED** to enable the dynamic data masking feature.  
 
@@ -138,7 +140,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 10. Consider selecting **USE EXTENDED RESTRICTIONS** which limits the exposure of sensitive data through ad hoc queries.
 
-11. Click **Save** in the dynamic data masking section to save the new or updated masking rule.
+11. Click **SAVE** to save the new or updated masking rule.
 
 
 ## Set up dynamic data masking for your database using REST API
