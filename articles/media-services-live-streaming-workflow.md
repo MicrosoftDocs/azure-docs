@@ -62,7 +62,7 @@ Configure key authorization policy using **.NET** or **REST API**.
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
 
 ##Publishing assets
 
