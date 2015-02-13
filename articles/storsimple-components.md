@@ -23,7 +23,7 @@ Welcome to Microsoft Azure StorSimple, an integrated storage solution that manag
 
 The following sections describe the Microsoft Azure StorSimple components, and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection. 
 
-[AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to the StorSimple 8000 series devices only. For information about the 7000 series device, go to: [StorSimple Help](http://onlinehelp.storsimple.com/).
+> [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to the StorSimple 8000 series devices only. For information about the 7000 series device, go to: [StorSimple Help](http://onlinehelp.storsimple.com/).
 
 ## Azure StorSimple device
 
