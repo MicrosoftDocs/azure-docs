@@ -21,7 +21,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../includes/mobile-services-selector-client-library.md)]
 
-This guide shows you how to perform common scenarios using an HTML/JavaScript client for Azure Mobile Services. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the Mobile Services [Windows Store JavaScript quickstart] or [HTML quickstart]. The quickstart tutorial helps you configure your account and create your first mobile service.
+##Overview
+
+This guide shows you how to perform common scenarios using an HTML/JavaScript client for Azure Mobile Services, which includes Windows Store JavaScript and PhoneGap/Cordova apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the Mobile Services [Windows Store JavaScript quickstart] or [HTML quickstart]. The quickstart tutorial helps you configure your account and create your first mobile service.
 
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
@@ -31,7 +33,9 @@ In your web editor, open the HTML file and add the following to the script refer
 
     <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
-> [AZURE.NOTE] For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project.
+> [AZURE.NOTE] For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project. 
+> 
+> For a Cordova app, add the [Mobile Services plugin](https://github.com/Azure/azure-mobile-services-cordova) to your project instead of the script reference.
 
 In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order.
 
@@ -252,7 +256,7 @@ Mobile Services uses the OData query URI conventions for composing and executing
 
 >[AZURE.NOTE]When you provide a raw OData query option string into the `read` function, you cannot also use the query builder methods in the same query. In this case, you must compose your whole query as an OData query string. For more information on OData system query options, see the [OData system query options reference].
 
-<h2><a name="inserting"></a>How to: Insert data into a mobile service</h2>
+##<a name="inserting"></a>How to: Insert data into a mobile service
 
 The following code illustrates how to insert new rows into a table. The client requests that a row of data be inserted by sending a POST request to the mobile service. The request body contains the data to be inserted, as a JSON object.
 
@@ -272,8 +276,9 @@ This inserts data from the supplied JSON object into the table. You can also spe
 	   alert("Error: " + err);
 	});
 
+###Working with ID values
 
-Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+Mobile Services supports unique custom string values for the table's **id** column. This allows applications to use custom values such as email addresses or user names for the ID. For example, the following code inserts a new item as a JSON object, where the unique ID is an email address:
 
 			todoItemTable.insert({
 			   id: "myemail@domain.com",
@@ -281,40 +286,17 @@ Mobile Services supports unique custom string values for the table id. This allo
 			   complete: false
 			})
 
-If a string id value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
+String IDs provide you with the following benefits:
 
-Supporting string ids provides the following advantages to developers
-
-+ Ids can be generated without making a roundtrip to the database.
++ IDs are generated without making a round-trip to the database.
 + Records are easier to merge from different tables or databases.
-+ Ids values can integrate better with an application's logic.
++ IDs values can integrate better with an application's logic.
 
-You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's id.
+When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
 
-	//Example of generating an id. This is not required since Mobile Services
-	//will generate an id if one is not passed in.
-	item.id = item.id || newGuid();
-	request.execute();
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/en-us/documentation/articles/command-line-tools/#Mobile_Tables).
 
-	function newGuid() {
-		var pad4 = function(str) { return "0000".substring(str.length) + str; };
-		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
-		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
-	}
-
-
-If an application provides a value for an id, Mobile Services will store it as is. This includes leading or trailing white spaces. White space will not be trimmed from value.
-
-The value for the `id` must be unique and it must not include characters from the following sets:
-
-+ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1].
-+  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
-+  The ids "." and ".."
-
-You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
-
-
-<h2><a name="modifying"></a>How to: Modify data in a mobile service</h2>
+##<a name="modifying"></a>How to: Modify data in a mobile service
 
 The following code illustrates how to update data in a table. The client requests that a row of data be updated by sending a PATCH request to the mobile service. The request body contains the specific fields to be updated, as a JSON object. It updates an existing item in the table `todoItemTable`.
 
@@ -336,7 +318,7 @@ You can also specify a callback function to be invoked when the update is comple
 			   alert("Error: " + err);
 			});
 
-<h2><a name="deleting"></a>How to: Delete data in a mobile service</h2>
+##<a name="deleting"></a>How to: Delete data in a mobile service
 
 The following code illustrates how to delete data from a table. The client requests that a row of data be deleted by sending a DELETE request to the mobile service. It deletes an existing item in the table todoItemTable.
 
@@ -550,29 +532,18 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 <h2><a name="hostnames"></a>How to: Use cross-origin resource sharing</h2>
 
-To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
+To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist. For a JavaScript backend mobile service, you can configure the whitelist on the Configure tab in the [Azure Management portal](https://manage.windowsazure.com). You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications. 
+
 
 <h2><a name="nextsteps"></a>Next steps</h2>
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
-* [Get started with Mobile Services]
-  <br/>Learn the basics of how to use Mobile Services.
-
-* [Get started with data]
+* [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-html-get-started-data)
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Get started with authentication]
+* [Add authentication to your mobile services app](/en-us/documentation/articles/mobile-services-html-get-started-users)
   <br/>Learn how to authenticate users of your app with an identity provider.
-
-* [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
-
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
-* [Authorize users with scripts]
-  <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
