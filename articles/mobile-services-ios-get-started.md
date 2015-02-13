@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="2/10/2015"
+	ms.date="2/11/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services

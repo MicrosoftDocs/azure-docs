@@ -13,15 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/10/2015" 
+    ms.date="02/12/2015" 
     ms.author="crwilcox"/>
 
 # Build a web application with Python and Flask (MVC) using DocumentDB
 ------------------------------------------------------------------------
 
-## Overview
-
-### Scenario
 To highlight how customers can efficiently leverage Azure DocumentDB to
 store and query JSON documents, this document provides an end-to-end
 walkthrough of building a voting web application using Azure Document
@@ -48,7 +45,7 @@ application that allows you to vote for a poll.
 ![Alt text](./media/documentdb-python-application/image1.png)
 
 
-### Prerequisites
+## Prerequisites
 
 Before following the instructions in this article, you should ensure
 that you have the following installed:
@@ -65,7 +62,7 @@ version)
 
 - Microsoft Visual C++ Compiler for Python 2.7 from [here][3]
 
-## Create a DocumentDB database account
+## Step 1: Create a DocumentDB database account
 
 To provision a DocumentDB database account in Azure, open the [Azure
 Management Portal][] and either Click the Azure Gallery tile on the
@@ -113,7 +110,7 @@ copy these to your clipboard and keep them handy as we will use these
 values in the web application we will create next.
 
 
-## Create a new Python Flask Web Application
+## Step 2: Create a new Python Flask Web Application
 
 Open Visual Studio, File -\> New Project -\> Python -\>, Flask Web
 Project with the name **tutorial**. 
@@ -129,7 +126,7 @@ install external packages. Click on **Install into a virtual environment**. Be s
 ![Alt text](./media/documentdb-python-application/image10.png)
 
 
-## Modify the Python Flask Web Application
+## Step 3: Modify the Python Flask Web Application
 
 
 ### Add flask packages to your project
@@ -378,7 +375,7 @@ explorer should look like
 ![Alt text](./media/documentdb-python-application/image15.png)
 
 
-## Run your application locally
+## Step 4: Run your application locally
 
 Hit F5 or the run button in Visual Studio and you should see the
 following on your screen.
@@ -398,7 +395,7 @@ For every vote you cast it will increment the appropriate counter.
 ![Alt text](./media/documentdb-python-application/image19.png)
 
 
-## Deploy application to Azure Websites
+## Step 5: Deploy application to Azure Websites
 
 Now that you have the complete application working correctly against
 DocumentDB we're going to deploy this to Azure Websites. Right-click on
@@ -417,7 +414,7 @@ application and launch a browser where you can see your handy work
 running in Azure!
 
 
-## Conclusion
+## Next steps
 
 Congratulations! You have just built your first Python Application using
 Azure DocumentDB and published it to Azure Websites.

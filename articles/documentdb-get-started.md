@@ -22,16 +22,6 @@ This guide shows you how to get started using [Microsoft Azure DocumentDB (Previ
 
 The scenarios covered in this article include creating and configuring a DocumentDB account, creating databases, creating collections, and storing JSON documents within the account. Each of these samples are part of a complete solution available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). You can [download the solution](#GetSolution) to view the sample code in context, or you can just review the samples in this article.
 
-## In this article
-
--	[Connect to a DocumentDB account](#Connect)
--	[Create a database](#CreateDB)
--	[Create a collection](#CreateColl)
--	[Create documents](#CreateDoc)
--	[Query DocumentDB resources](#Query)
--	[Get the complete solution](#GetSolution)
--	[Next steps](#NextSteps)
-
 ##<a id="Connect"></a>Connect to a DocumentDB account
 
 We'll start by creating a new instance of the [DocumentClient](http://go.microsoft.com/fwlink/p/?linkid=522477) class in order to establish a connection to our DocumentDB account.   We'll need the following references in our C# application:  
