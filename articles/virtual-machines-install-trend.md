@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/12/2015" 
 	ms.author="kathydav"/>
 
 #How to install and configure Trend Micro Deep Security as a Service on an Azure VM
@@ -48,17 +48,15 @@ To do this, you'll need the following:
 
 Open an Azure PowerShell session and run the following commands. Be sure to substitute your own values for the placeholders, such as MyServiceName.
 
-1.	Get the cloud service name, virtual machine name, and VM and store each of those in variables so the next commands can use them:
+1.	Get the cloud service name, virtual machine name. If you don't know them, use the **Get-AzureVM** command to display that information for all VMs in the current subscription. Then, replace everything inside the quotes, including the < and > characters, and run these commands:
 	<p>`$servicename = MyServiceName`
 	<p>`$name = MyVmName`
 	<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
+	<p>`Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`
 
-	> [AZURE.NOTE] If you don't know the cloud service and VM name, run Get-AzureVM to display that information for all VMs in the current subscription.
-
-2.	Add the Deep Security Agent to the virtual machine:
-<p> `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM`
-
-	> [AZURE.NOTE] If you want to install a specific version, run the following command to get a list of available versions: `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`. Then, include the Version parameter when you run Set-AzureVMExtension.
+2.	From the display of the Get-AzureVMAvailableExtension command, note the version number for the Version property, and then run these commands:
+<p>`$ver=<version number from the Version property>`
+<p> `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -Version $ver -VM $vm.VM`
 
 3.	Update the VM, which installs the Deep Security Agent:
 <p> `Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`

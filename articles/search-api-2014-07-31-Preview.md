@@ -1,17 +1,22 @@
-<properties pageTitle="Azure Search Service REST API Version 2014-07-31-Preview" description="Azure Search Service REST API: Version 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties 
+	pageTitle="Azure Search Service REST API Version 2014-07-31-Preview" 
+	description="Azure Search Service REST API Version 2014-07-31-Preview" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/11/2015" 
+	ms.author="heidist"/>
 
-<!--
-Internal Only: 
-
-- This document contains the HTTP request-response structures used for non-administrative service operations.
-- It contains branchable content that can be published independently of locked API content on MSDN.
-- Placement of the effective locked version of the API is on MSDN: http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx 
-- All API-related content is in this document, with the exception of indexers. 
--->
-
-# Azure Search Service REST API Version: 2014-07-31-Preview #
+# Azure Search Service REST API Version 2014-07-31-Preview #
 
 This document describes the **2014-07-31-Preview** version of the Azure Search Service REST API. This is the REST API for the Azure Search Preview. 
 

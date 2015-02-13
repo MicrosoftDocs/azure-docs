@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Marketplace App examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2014" 
-	ms.author="jaymathe"/> 
+	ms.date="02/10/2015" 
+	ms.author="luiscabrer"/> 
 
 # Machine Learning Apps in the Azure Marketplace
 
