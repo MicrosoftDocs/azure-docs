@@ -69,9 +69,8 @@ These steps assume that you've already created an Azure virtual machine and conf
 
   **NOTE: When you capture an image of a generalized virtual machine, the virtual machine is deleted.**
 
-	The new image is now available under **Images**.
-
-	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+ The new image is now available under **Images**.
+ ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Next Steps##
 The image is ready to be used as a template to create virtual machines. To do this, you'll create a custom virtual machine by using the **From Gallery** method and select the image you just created. For instructions, see [How to Create a Custom Virtual Machine] [].
