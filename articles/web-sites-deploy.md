@@ -35,7 +35,7 @@ You have many options for deploying your own content to an Azure Website. This t
 * [FTP scripts](#ftp2)
 * [Windows PowerShell](#powershell)
 * [.NET management API](#api)
-* [Cross-platform command line (xpat-cli)](#cli)
+* [Cross-platform command line (xplat-cli)](#cli)
 * [Web Deploy command line](#webdeploy)
 
 ##<a name="cloud"></a>Deploying from a cloud-hosted source control system
