@@ -1,7 +1,7 @@
 <properties 
    pageTitle="What is StorSimple?" 
    description="Describes Azure StorSimple features, architecture, and components." 
-   services="cloud-services, storage" 
+   services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
    manager="AdinaH" 
