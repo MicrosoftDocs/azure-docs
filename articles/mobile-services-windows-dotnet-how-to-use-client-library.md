@@ -286,9 +286,23 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 
 ##How to: Register for push notifications
 
-The Mobile Services client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a channel URI that you obtain from the Windows Platform. You then provide this value along with any tags when you create the registration. The following code registers for a 
+The Mobile Services client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a channel URI that you obtain from the Windows Platform. You then provide this value along with any tags when you create the registration. The following code registers for push notifications on a Windows Store app that uses the Windows Notification Service (WNS):
 
-/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push/
+		private async void InitNotificationsAsync()
+		{
+		    // Request a push notification channel.
+		    var channel =
+		        await PushNotificationChannelManager
+		            .CreatePushNotificationChannelForApplicationAsync();
+		
+		    // Register for notifications using the new channel and a tag collection.
+			var tags = new List<string>{ "mytag1", "mytag2"};
+		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+		}
+
+Note that in this example, two tags are included with the registration. For more information, see [Add push notifications to your app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push/)
+
+>[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/).
 
 
 ##<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency

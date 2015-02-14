@@ -35,7 +35,7 @@ In your web editor, open the HTML file and add the following to the script refer
 
 > [AZURE.NOTE] For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project. 
 > 
-> For a Cordova app, add the [Mobile Services plugin](https://github.com/Azure/azure-mobile-services-cordova) to your project instead of the script reference.
+> For a PhoneGap or Cordova app, add the [Mobile Services plugin](https://github.com/Azure/azure-mobile-services-cordova) to your project instead of the script reference. This plugin supports [push notifications](#push-notifications).
 
 In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order.
 
@@ -362,13 +362,19 @@ This section shows how to display returned data objects using UI elements. To qu
 
 In a Windows Store app, the results of a query can be used to create a [WinJS.Binding.List] object, which can be bound as the data source for a [ListView] object. For more information, see [Data binding (Windows Store apps using JavaScript and HTML)].
 
-<h2><a name="caching"></a>How to: Authenticate users</h2>
+##<a name="caching"></a>How to: Authenticate users
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
+>[AZURE.NOTE] When using authentication in a PhoneGap or Cordova app, you must also add the following plugins to the project:
+>
+>+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
+>+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+
+
 Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
-<h3>Server flow</h3>
+###Server flow
 To have Mobile Services manage the authentication process in your Windows Store or HTML5 app,
 you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the "Get started with authentication" tutorial ([Windows Store][Get started with authentication Windows Store]/[HTML][Get started with authentication]).
 
@@ -387,7 +393,7 @@ In this case, Mobile Services manages the OAuth 2.0 authentication flow by displ
 > [AZURE.NOTE] **Windows Store app**
 When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter to re-use the credentials.
 
-<h3>Client flow</h3>
+###Client flow
 Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
 
 The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
@@ -420,7 +426,7 @@ When you are using the Facebook or Google APIs for client authentication, the ex
 This example assumes that the token provided by the respective provider SDK is stored in the `token` variable.
 Twitter cannot be used for client authentication at this time.
 
-<h3>Caching the authentication token</h3>
+###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
         // After logging in
@@ -437,8 +443,13 @@ In some cases, the call to the login method can be avoided after the first time 
         client.logout();
         sessionStorage.loggedInUser = null;
 
+##<a name="push-notifications"></a>How to: Register for push notifications
 
-<h2><a name="errors"></a>How to: Handle errors</h2>
+When your app is a PhoneGap or Apache Cordova HTML/JavaScript app, the native mobile platform enables you to receive push notifications on the device. The [Apache Cordova plugin for Azure Mobile Services](https://github.com/Azure/azure-mobile-services-cordova) enables you to register for push notifications with Azure Notification Hubs. The specific notification service used depends on the native device platform on which the code executes. For an example of how to do this, see the sample, [Use Microsoft Azure to push notifications to Cordova apps](https://github.com/Azure/mobile-services-samples/tree/master/CordovaNotificationsArticle).
+
+>[AZURE.NOTE]This plugin currently only supports iOS and Android devices. For a solution that also includes Windows devices, see the article [Push Notifications to PhoneGap Apps using Notification Hubs Integration](http://blogs.msdn.com/b/azuremobile/archive/2014/06/17/push-notifications-to-phonegap-apps-using-notification-hubs-integration.aspx).
+
+##<a name="errors"></a>How to: Handle errors
 
 There are several ways to encounter, validate, and work around errors in Mobile Services.
 
