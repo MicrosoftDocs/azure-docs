@@ -18,6 +18,8 @@
 
 # Introduction to Microsoft Azure Storage
 
+## Overview
+
 This article provides an introduction to Microsoft Azure Storage for developers, IT Pros, and business decision makers. By reading it, you'll learn about:
 
 - What Azure Storage is, and how you can take advantage of it in your cloud, mobile, server, and desktop applications
@@ -68,7 +70,7 @@ The image below shows the relationships between the Azure storage resources in a
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-When you are ready to create a standard storage account, see [Create, manage, or delete a storage account](../storage-create-storage-account/) for more details.
+When you are ready to create a standard storage account, see [Create, manage, or delete a storage account](../storage-storage-create-account/) for more details.
 
 ### Premium Storage Accounts (Preview)
 
@@ -177,42 +179,42 @@ To get started with Azure Storage, explore these resources:
 - [Azure Storage Services REST API Reference](http://msdn.microsoft.com/en-us/library/dd179355.aspx)
 - [AzCopy Command-Line Tool Reference](http://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/)
 
-<h3>For PowerShell Users</h3>
+### For PowerShell Users
 - [Azure Storage Cmdlets](http://msdn.microsoft.com/en-us/library/azure/dn806401.aspx)
 
-<h3>For .NET Developers</h3>
+### For .NET Developers
 
 - [.NET Client Library Reference](http://msdn.microsoft.com/en-us/library/wa_storage_30_reference_home.aspx)
 - [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs/)
 - [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
 - [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)
 
-<h3>For Java/Android Developers</h3>
+### For Java/Android Developers
 
 - [Java Client Library Reference]()
 - [How to use Blob Storage from Java/Android](../storage-java-how-to-use-blob-storage/)
 - [How to use Table Storage from Java/Android](../storage-java-how-to-use-table-storage/)
 - [How to use Queue Storage from Java/Android](../storage-java-how-to-use-queue-storage/)
 
-<h3>For Node.js Developers</h3>
+### For Node.js Developers
 
 - [How to use Blob Storage from Node.js](../storage-nodejs-how-to-use-blob-storage/)
 - [How to use Table Storage from Node.js](../storage-nodejs-how-to-use-table-storage/)
 - [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queues/)
 
-<h3>For PHP Developers</h3>
+### For PHP Developers
 
 - [How to use Blob Storage from PHP](../storage-php-how-to-use-blobs/)
 - [How to use Table Storage from PHP](../storage-php-how-to-use-table-storage/)
 - [How to use Queue Storage from PHP](../storage-php-how-to-use-queues/)
 
-<h3>For Ruby Developers</h3>
+### For Ruby Developers
 
 - [How to use Blob Storage from Ruby](../storage-ruby-how-to-use-blob-storage/)
 - [How to use Table Storage from Ruby](../storage-ruby-how-to-use-table-storage/)
 - [How to use Queue Storage from Ruby](../storage-ruby-how-to-use-queue-storage/)
 
-<h3>For Python Developers</h3>
+### For Python Developers
 
 - [How to use Blob Storage from Python](../storage-python-how-to-use-blob-storage/)
 - [How to use Table Storage from Python](../storage-python-how-to-use-table-storage/)
