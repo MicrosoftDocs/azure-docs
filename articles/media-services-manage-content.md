@@ -31,7 +31,9 @@ Currently you can perform the following content operations directly from the por
 - Index content
 - Encode content
 - Play content
+- Encrypt
 - Publish/Unpublish content
+
 
 
 ##<a id="upload"></a>How to: Upload content 
@@ -79,13 +81,12 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
-- get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](http://azure.microsoft.com/en-us/documentation/articles/media-services-how-to-scale/).
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](../media-services-manage-origins#scale_streaming_endpoints/).
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
 
 Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
-
 
 This section describes the steps you can take to encode your content with Azure Media Encoder using the Management Portal.
 
@@ -120,6 +121,21 @@ This section describes the steps you can take to encode your content with Azure 
 
 	If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
+##<a id="encrypt"></a>How to: Encrypt content
+
+If you want for Media Services to dynamically encrypt your asset with an AES key or PlayReady DRM make sure to do the following:
+
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated in the [Encode](#encode) section).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](../media-services-manage-origins#scale_streaming_endpoints/).
+- Configure "default aes clear key service policy" or "default playready license service policy". For more information, see [Configure Content Key Authorization Policy](../media-services-portal-configure-content-key-auth-policy).  
+
+
+	When you are ready to enable encryption, press the **ENCRYPTION** button on the bottom of the **CONTENT** page.
+
+	![Encrypt][encrypt] 
+
+	Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+
 ##<a id="publish"></a>How to: Publish content
 
 When you publish the content, you will be provided with a streaming or progressive download URL. You client would be able to playback your videos using this URL.
@@ -150,3 +166,4 @@ Only content that has been published is playable from the portal. Also, the enco
 [contentpage]: ./media/media-services-manage-content/media-services-content-page.png
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
+[encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
