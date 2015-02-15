@@ -32,7 +32,7 @@ Azure StorSimple provides the following benefits:
 
 The following diagram provides a high-level view of the Microsoft Azure StorSimple solution.
 
-[StorSimple architecture][./media/data-services-storsimple-overview/hcs-data-services-storsimple-system-architecture.png]
+[StorSimple architecture][./media/storsimple-overview/hcs-data-services-storsimple-system-architecture.png]
 
 **Microsoft Azure StorSimple architecture**
 
@@ -55,10 +55,5 @@ The Microsoft Azure StorSimple solution includes the following components:
 
 [Terminology](https://msdn.microsoft.com/en-us/library/azure/dn757725.aspx)
 
-<!--Image references-->
-[1]: ./media/markdown-template-for-new-articles/octocats.png
-<!--Link references--In actual articles, you only need a single period before the slash.>
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+
 
