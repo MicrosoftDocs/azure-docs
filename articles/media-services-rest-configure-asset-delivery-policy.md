@@ -24,9 +24,9 @@ One of the steps in the Media Services content delivery workflow is configuring 
 
 This topic discusses why and how to create and configure asset delivery policies. 
 
->[AZURE.NOTE]To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](../media-services-manage-origins). 
+>[AZURE.NOTE]To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](../media-services-manage-origins#scale_streaming_endpoints). 
 >
->Also, your asset must contain a set of multibitrate MP4s or  multibitrate Smooth Streaming files.   
+>Also, your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.  
 
 You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
@@ -58,7 +58,6 @@ HDS
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](../media-services-rest-how-to-use).
 
 >After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
-
 
 
 ##Clear asset delivery policy 

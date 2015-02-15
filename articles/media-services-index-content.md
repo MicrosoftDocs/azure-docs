@@ -134,7 +134,6 @@ Note that if no configuration file is specified, the media file will be indexed 
 	
 ###<a id="output_files"></a>Output files
 
-
 The indexing job generates the following output files. The files will be stored in the first output asset.
 
 
@@ -164,6 +163,7 @@ Keyword file is an XML file that contains keywords extracted from the speech con
 The file can be used for a number of purposes, such as, to perform speech analytics, or exposed to search engines such as Bing, Google or Microsoft SharePoint to make the media files more discoverable, or used to deliver more relevant ads.</td></tr>
 </table><br/>
 
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
 ##Index multiple files
 
@@ -283,20 +283,20 @@ Error: indicates whether this media file is indexed successfully. 0 for succeede
 <td>File #0 - Keyword file.</td></tr>
 <tr><td>Media_2.aib </td>
 <td>File #1 - Audio indexing blob file.</td></tr>
-
 </table><br/>
 
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
 ###Partially Succeeded Job
 
-If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](error_codes).
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
 
 The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that are failed, the resulting AIB, SAMI, TTML, and keyword files will NOT be generated.
 
 ##Index files from Internet
 
-For publically available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+For publicly available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
 
 Note that HTTP and HTTPS URL protocols are supported.
 
