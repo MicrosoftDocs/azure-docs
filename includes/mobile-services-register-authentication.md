@@ -3,9 +3,7 @@
 To be able to authenticate users, you must register your app with an identity provider. You must then register the provider-generated client secret with Mobile Services.
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
-
-   	![](./media/mobile-services-register-authentication/mobile-services-selection.png)
-
+ 
 2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
    	![](./media/mobile-services-register-authentication/mobile-service-uri.png)
@@ -26,8 +24,6 @@ To be able to authenticate users, you must register your app with an identity pr
     > [AZURE.IMPORTANT] The provider-generated secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
-
-   	![](./media/mobile-services-register-authentication/mobile-identity-tab.png)
 
 	Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
