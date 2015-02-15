@@ -58,6 +58,8 @@ The following code creates the `MobileServiceClient` object that is used to acce
 
 In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
 
+>[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#authentication).
+
 ##<a name="instantiating"></a>How to: Create a table reference
 
 All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`.

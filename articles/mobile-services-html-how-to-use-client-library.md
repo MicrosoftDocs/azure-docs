@@ -27,22 +27,26 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-##<a name="create-client"></a>How to: Create the Mobile Services Client
+##<a name="create-client"></a>How to: Create the Mobile Services client
 
-In your web editor, open the HTML file and add the following to the script references for the page:
+The way that you add a reference to the Mobile Services client depends on your app platform, which includes the following:
 
-    <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
+- For a web-based application, open the HTML file and add the following to the script references for the page:
 
-> [AZURE.NOTE] For a Windows Store app written in JavaScript/HTML, you just need to add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project. 
-> 
-> For a PhoneGap or Cordova app, add the [Mobile Services plugin](https://github.com/Azure/azure-mobile-services-cordova) to your project instead of the script reference. This plugin supports [push notifications](#push-notifications).
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+
+- For a Windows Store app written in JavaScript/HTML, add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project. 
+
+- For a PhoneGap or Cordova app, add the [Mobile Services plugin](https://github.com/Azure/azure-mobile-services-cordova) to your project. This plugin supports [push notifications](#push-notifications).
 
 In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order.
 
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Getting Started with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript].
+You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [GettingStarted with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript].
+
+>[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#caching).
 
 ##<a name="querying"></a>How to: Query data from a mobile service
 
