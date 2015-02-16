@@ -1,31 +1,31 @@
-<properties title="Set up SQL Server Virtual Machine" pageTitle="Set up SQL Server Virtual Machine | Azure" description="Set up SQL Server Virtual Machine" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,xibingao" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties title="Set up a Data Science Virtual Machine" pageTitle="Set up a Data Science Virtual Machine" description="Set up a Data Science Virtual Machinee" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,xibingao" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab,xibingao" />
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/05/2015" ms.author="msolhab,xibingao" />
 
-# Set up a SQL Server Virtual Machine for your data science environment
+# Set up a Data Science Virtual Machine in Azure
 
-In this tutorial, you will learn how to provision and configure a SQL Server Virtual Machine to use in your Data Science environment. The Azure virtual machine gallery includes several images that contain
-Microsoft SQL Server, typically:
+In this tutorial, you will learn how to provision and configure an SQL Server Virtual Machine to be used as part of a Data Science environment. The virtual machine will also serve as an IPython Notebook server, and will be configured with supporting tools and packages which are useful for data science projects. The Azure virtual machine gallery includes several images that contain
+Microsoft SQL Server. Select an SQL Server VM image that is suitable for your data needs. Recommended images are:
 
 - SQL Server 2012 SP2 Enterprise for small to medium data sizes
 - SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads for large to very large data sizes
 
- > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise image **does not include a data disk**. You will need to add and/or attach one or more virtual hard disks to store your data. When you create an Azure virtual machine, the disk for the operating system is mapped to the C drive and a temporary disk is mapped to the D drive. Do not use the D drive to store data since it provides temporary storage only. 
+ > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise image **does not include a data disk**. You will need to add and/or attach one or more virtual hard disks to store your data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
 In the following steps, you will:
 
--   [Connect to the Azure management portal and provision a SQL Server virtual machine](#Provision)
+-   [Connect to the Azure management portal and provision an SQL Server virtual machine](#Provision)
 -   [Open the virtual machine using Remote Desktop and complete setup](#RemoteDesktop)
 -   [Install IPython Notebook and other supporting tools](#InstallIPython)
 -   [Attach data disks as needed](#Optional)
--   [Connect to the SQL Server Management Studio and enable mixed-mode authentication](#SSMS)
+-   [Connect to SQL Server Management Studio and enable mixed mode authentication](#SSMS)
 -   [Create SQL Server authentication logins](#Logins)
 -   [Determine the DNS name of the virtual machine](#DNS)
 -   [Connect to the Database Engine from another computer](#cde)
 -   [Connect to the Database Engine from Azure Machine Learning](#amlconnect)
 -   [Shutdown and deallocate virtual machine when not in use](#shutdown)
 
-##<a name="Provision"></a>Connect to the Azure management portal and provision a SQL Server virtual machine
+##<a name="Provision"></a>Connect to the Azure management portal and provision an SQL Server virtual machine
 
 1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account. 
 	If you do not have an Azure account, visit [Azure free
@@ -45,8 +45,8 @@ In the following steps, you will:
 4.  On the first **Virtual Machine Configuration** page, provide the
     following information:
 
-    -   A **VIRTUAL MACHINE NAME**.
-    -   In the **NEW USER NAME** box, type a unique user name for the VM
+    -   Provide a **VIRTUAL MACHINE NAME**.
+    -   In the **NEW USER NAME** box, type unique user name for the VM
         local administrator account.
     -   In the **NEW PASSWORD** box, type a strong password. For more
         information, see [Strong Passwords](http://msdn.microsoft.com/library/ms161962.aspx).
