@@ -166,4 +166,4 @@ Note that additional features can be created in the Azure ML Studio as well.
  
 ![reader blob][1]
 
-[1]: ./media/machine-learning-data-science-process-sample-data-sqlonazurevm/reader_blob.png
+[1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
