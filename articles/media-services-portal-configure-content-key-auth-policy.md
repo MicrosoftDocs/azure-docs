@@ -21,8 +21,7 @@
 #Configure Content Key Authorization Policy 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-
-This article is part of the series that introduces [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow). The previous topic was [Encoding using the Azure Management Portal](../media-services-manage-content#encode/).
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series. 
 
 
 ##Overview

@@ -67,7 +67,7 @@ Azure simplifies site management tasks that you might have to do for deployment 
 * [FTP scripts](#ftp2)
 * [Windows PowerShell](#powershell)
 * [.NET management API](#api)
-* [Cross-platform command line (xpat-cli)](#cli)
+* [Cross-platform command line (xplat-cli)](#cli)
 * [Web Deploy command line](#webdeploy)
 
 ##<a name="vso"></a>Visual Studio Online

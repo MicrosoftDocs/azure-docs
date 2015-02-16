@@ -18,11 +18,13 @@
 
 
 
-<h1 id="SQLServerBackupandRestoretostorage">  How to Use Azure Storage for SQL Server Backup and Restore</h1>
+# How to Use Azure Storage for SQL Server Backup and Restore
+
+## Overview
 
 The feature that provides the ability to write SQL Server backups to the Azure Blob storage service was released in SQL Server 2012 SP1 CU2. You can use this functionality to back up to and restore from the Azure Blob service from a on-premises SQL Server database or a SQL Server database in an Azure Virtual Machine. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.   In this release, you can issue BACKUP or RESTORE statements by using T-SQL or SMO. Back up to or restore from the Azure Blob storage service by using SQL Server Management Studio Backup or Restore Wizard is not available.
 
-<h2> Benefits of Using the Azure Blob Service for SQL Server Backups</h2>
+## Benefits of Using the Azure Blob Service for SQL Server Backups
 
 Storage management, risk of storage failure, access to off-site storage, and configuring devices are some of the general backup challenges.  For SQL Server running in an Azure Virtual Machine, there are additional challenges of configuring and backing up a VHD, or configuring attached drives. The following lists some of the key benefits of using the Azure Blob storage service storage for SQL Server backups:
 
