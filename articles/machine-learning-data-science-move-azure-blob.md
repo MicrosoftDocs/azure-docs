@@ -1,21 +1,23 @@
-<properties title="Move Data to and from  Azure Blob Storage" pageTitle="Move Data to and from  Azure Blob Storage" description="Move Data to and from  Azure Blob Storage" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liasun,sachouks" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="Move Data to and from  Azure Blob Storage" pageTitle="Move Data to and from  Azure Blob Storage" description="Move Data to and from  Azure Blob Storage" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liasun,sachouks" manager="paulettm" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/05/2015" ms.author="liasun,sachouks" />
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="liasun,sachouks" />
 
 # Move Data to and from Azure Blob Storage
 
-This document demonstrates the followign approaches to moving data to and from Azure Blob storage:
+The [Cloud data science sample scenarios](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios) article helps you determine the resources you need for a variety of data science workflows. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
 
 - [Using Azure Storage Explorer](#explorer)
 - [Using AzCopy Command line utility](#AzCopy)
 - [Using Azure SDK in Python](#PythonSDK)
+
+
 
 > [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/) and  [Azure Blob Service](https://msdn.microsoft.com/en-us/library/azure/dd179376.aspx). 
 
 Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](http://azure.microsoft.com/en-us/documentation/articles/storage-manage-storage-account/). This document assumes that you have an Azure storage account and the corresponding storage key(s).
 
 <a id="explorer"></a>
-##Azure Storage Explorer 
+## Use Azure Storage Explorer 
 
 Azure Storage Explorer is a free windows based tool for inspecting and altering data in an Azure storage account. It can be downloaded from [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/). The following steps document how to upload/download data using Azure Storage Explorer. 
 
@@ -32,7 +34,7 @@ Azure Storage Explorer is a free windows based tool for inspecting and altering 
 5. Download data by selecting the blob in the corresponding container and clicking the "Download" button .
 
 <a id="AzCopy"></a>
-##AzCopy
+## Use AzCopy
 
 AzCopy is a command line utility to upload and download data. 
 
@@ -66,7 +68,7 @@ For detailed usage of AzCopy, please refer to [Getting Started with the AzCopy C
 
 
 <a id="PythonSDK"></a>
-##Python
+## Use Python
 
 With the Python API provided in Azure SDK, you can
 
