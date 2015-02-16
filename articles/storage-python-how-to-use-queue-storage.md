@@ -19,16 +19,19 @@
 
 
 # How to Use the Queue Storage Service from Python
+
+## Overview
+
 This guide shows you how to perform common scenarios using the Azure Queue storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**. For more information on queues, refer to the [Next Steps][] section.
 
-[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+[AZURE.INCLUDE [storage-queue-concepts](../includes/storage-queue-concepts.md)]
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
 
 
-**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 ## How To: Create a Queue
 
@@ -128,7 +131,7 @@ To delete a queue and all the messages contained in it, call the
 ## Next Steps
 
 Now that you have learned the basics of queue storage, follow these links
-to learn how to do more complex storage tasks.
+to learn about more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   Visit the [Azure Storage Team Blog][]

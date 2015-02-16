@@ -89,19 +89,6 @@ In this section you will create a new universal Windows app that is connected to
 	<p>Notice that data saved from the previous step is loaded from the mobile service after the app starts.</p></li>
 </ol>
 
-
-## Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
-
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with an identity provider.
-
-* [Get started with push notifications]
-  <br/>Learn how to send a very basic push notification to your app.
-
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
 
 <!-- Anchors. -->
