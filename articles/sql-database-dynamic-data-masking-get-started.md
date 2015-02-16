@@ -66,7 +66,7 @@ When you set up dynamic data masking Azure gives you a security-enabled connecti
 * Original connection string format: <*server name*>.database.windows.net
 * Security-enabled connection string: <*server name*>.database.**secure**.windows.net
 
-You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to **REQUIRED**, which ensures there is no option to access the database with the original connection string and ignore the dynamic data masking policy. While you are experimenting with dynamic data masking using specific clients (example, a DEV phase application or SSMS), choose **OPTIONAL**. For production, choose **REQUIRED**.
+You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to **REQUIRED**, which ensures there is no option to access the database with the original connection string and ignore the dynamic data masking policy. While you are experimenting with dynamic data masking using specific clients (example, a DEV phase application or SSMS), choose **OPTIONAL**. For production, choose **REQUIRED**.<br/><br/>
 
 ![Navigation pane][Image3]<br/><br/>
 
@@ -151,7 +151,7 @@ See [Operations for Azure SQL Databases](https://msdn.microsoft.com/en-us/librar
 [Image3]: ./media/sql-database-dynamic-data-masking-get-started/3_DDM_Current_Preview.png
 [Image4]: ./media/sql-database-dynamic-data-masking-get-started/4_DDM_Activation.png
 [Image5]: ./media/sql-database-dynamic-data-masking-get-started/5_DMM_Policy_Tile.png
-[Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Priviledged_Logins.png
+[Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png
 [Image7]: ./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png
 [Image8]: ./media/sql-database-dynamic-data-masking-get-started/8_DDM_Security_Enabled_Access.png
 [Image9]: ./media/sql-database-dynamic-data-masking-get-started/9_DMM_Policy_Classic_Portal.png
