@@ -1,6 +1,6 @@
 <properties
-  pageTitle="Linux, Unix, and Open-Source Computing on Azure"
-  description="Linux, Unix, and Open-Source Computing on Azure"
+  pageTitle="Linux and Open-Source Computing on Azure"
+  description="This topic contains a list of Linux and Open-Source Computing on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
   documentationCenter=""
   authors="squillace"
   manager="timlt"
