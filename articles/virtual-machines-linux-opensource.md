@@ -249,15 +249,3 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
 [Auth and Encryption]: #security
 [Devops, Management, and Optimization]: #devops
 [Support, Troubleshooting, and "It Just Doesn't Work"]: #supportdebug
-[Next steps]: #next-steps
-
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-
-
-<!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
