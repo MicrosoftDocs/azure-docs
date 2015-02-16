@@ -1,10 +1,4 @@
 <properties
-title="Linux, Unix, and Open-Source Computing on Azure"
-metaKeywords="linux, unix, opensource, open source"
-services="virtual-machines" solutions="" documentationCenter=""
-authors="rasquill" videoId="" scriptId="" manager="timlt" />
-
-<properties
 pageTitle="Linux, Unix, and Open-Source Computing on Azure"
 description="Linux, Unix, and Open-Source Computing on Azure"
    documentationCenter=""
@@ -12,14 +6,14 @@ description="Linux, Unix, and Open-Source Computing on Azure"
    manager="timlt"
    editor="tysonn"/>
 
-  <tags
-     ms.service="required"
-     ms.devlang="may be required"
-     ms.topic="article"
-     ms.tgt_pltfrm="may be required"
-     ms.workload="required"
-     ms.date="02/16/2015"
-     ms.author="rasquill"/>
+<tags
+   ms.service="required"
+   ms.devlang="may be required"
+   ms.topic="article"
+   ms.tgt_pltfrm="may be required"
+   ms.workload="required"
+   ms.date="02/16/2015"
+   ms.author="rasquill"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
