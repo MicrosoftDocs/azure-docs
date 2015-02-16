@@ -1,19 +1,19 @@
 <properties
-pageTitle="Linux, Unix, and Open-Source Computing on Azure"
-description="Linux, Unix, and Open-Source Computing on Azure"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor="tysonn"/>
+  pageTitle="Linux, Unix, and Open-Source Computing on Azure"
+  description="Linux, Unix, and Open-Source Computing on Azure"
+  documentationCenter=""
+  authors="squillace"
+  manager="timlt"
+  editor="tysonn"/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
-   ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="02/16/2015"
-   ms.author="rasquill"/>
+  ms.service="virtual-machines"
+  ms.devlang="NA"
+  ms.topic="article"
+  ms.tgt_pltfrm="vm-linux"
+  ms.workload="infrastructure-services"
+  ms.date="02/16/2015"
+  ms.author="rasquill"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
