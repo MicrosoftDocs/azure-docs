@@ -3,7 +3,7 @@
    description="How to get started with SQL Database Dynamic Data Masking" 
    services="Azure SQL Database, dynamic data masking" 
    documentationCenter="" 
-   authors="nadav" 
+   authors="nadavhelfman" 
    manager="jeffreyg" 
    editor="v-romcal"/>
 
@@ -141,7 +141,6 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 10. Consider selecting **USE EXTENDED RESTRICTIONS** which limits the exposure of sensitive data through ad hoc queries.
 
 11. Click **SAVE** to save the new or updated masking rule.
-
 
 ## Set up dynamic data masking for your database using REST API
 
