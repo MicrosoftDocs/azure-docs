@@ -3,7 +3,6 @@
 - [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-ios-get-started-data/)
 - [(Windows Store C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
 - [(Windows Store C# | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)
-- [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/)
 - [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/)
 - - [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)
 - [(Windows Phone | Javascript)](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/)

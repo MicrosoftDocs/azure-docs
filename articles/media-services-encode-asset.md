@@ -19,7 +19,7 @@
 
 #How to encode an asset using Azure Media Encoder
 
-This article is one in a series introducing [Azure Media Services programming](../media-services-video-on-demand-workflow/). The previous topic was [How to: Get a Media Processor](../media-services-get-media-processor/).
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
 
 ##Overview
 In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
