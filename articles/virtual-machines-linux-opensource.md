@@ -21,6 +21,9 @@ The sections are broken down as follows. (Links may occur in more than one secti
 
 
 ###<a id='distros'>Distros</a>
+
+There are tons of Linux distributions, usually broken down by the package management systems: Some are dpgk-based, like Debian and Ubuntu, and others are rpm-based, like CentOS, SUSE, and RedHat. Some companies provide distro images as formal partners of Microsoft and are endorsed. Others are provided by the community. The following distros have formal articles about them, even if they were only used in examples of other technologies.
+
 1. [Azure Marketplace](http://azure.microsoft.com/en-us/marketplace/virtual-machines/)
 2. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 3. [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
