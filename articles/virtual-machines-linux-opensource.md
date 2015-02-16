@@ -1,19 +1,26 @@
 <properties
 title="Linux, Unix, and Open-Source Computing on Azure"
-pageTitle="Linux, Unix, and Open-Source Computing on Azure"
-description="Linux, Unix, and Open-Source Computing on Azure"
 metaKeywords="linux, unix, opensource, open source"
 services="virtual-machines" solutions="" documentationCenter=""
 authors="rasquill" videoId="" scriptId="" manager="timlt" />
 
-<tags
-  ms.service="virtual-machines"
-  ms.devlang="multiple"
-  ms.topic="article"
-  ms.tgt_pltfrm="vm-linux"
-  ms.workload="infrastructure-services"
-  ms.date="02/16/2015"
-  ms.author="rasquill"/>
+<properties
+pageTitle="Linux, Unix, and Open-Source Computing on Azure"
+description="Linux, Unix, and Open-Source Computing on Azure"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor="tysonn"/>
+
+  <tags
+     ms.service="required"
+     ms.devlang="may be required"
+     ms.topic="article"
+     ms.tgt_pltfrm="may be required"
+     ms.workload="required"
+     ms.date="02/16/2015"
+     ms.author="rasquill"/>
+
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Linux and Open-Source Computing on Azure
