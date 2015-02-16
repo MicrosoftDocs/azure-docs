@@ -19,16 +19,15 @@
 # How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the
 Azure Blob storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **uploading**, **listing**,
-**downloading**, and **deleting** blobs. For more information on blobs,
-see the [Next Steps][] section.
+**downloading**, and **deleting** blobs.
 
 [AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
 
 ## How to: Create a Container
 
-**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 
 The **BlobService** object lets you work with containers and blobs. The
@@ -100,7 +99,7 @@ Finally, to delete a blob, call **delete_blob**.
 ## Next Steps
 
 Now that you have learned the basics of blob storage, follow these links
-to learn how to do more complex storage tasks.
+to learn about more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   Visit the [Azure Storage Team Blog][]

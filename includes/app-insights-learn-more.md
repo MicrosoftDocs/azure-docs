@@ -35,6 +35,7 @@ Processing
 Problems? Questions?
 
 <ul>
+<li>[Can I use Application Insights with...?][platforms]</li>
 <li><a href="../app-insights-troubleshoot-faq/">Q & A and troubleshooting</a>
 </li>
 <li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
@@ -124,3 +125,4 @@ Web sites and web applications
 [windows]: ../app-insights-windows-get-started/
 [windowsUsage]: ../app-insights-windows-usage/
 [windowsCrash]: ../app-insights-windows-crashes/
+[platforms]: ../app-insights-platforms/
