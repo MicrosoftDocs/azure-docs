@@ -28,9 +28,9 @@ This guide will show you how to perform common scenarios using the
 Azure Blob service. The samples are written using the Ruby API.
 The scenarios covered include **uploading, listing, downloading,** and **deleting** blobs.
 
-[AZURE.INCLUDE [storage-blob-concepts](../includes/storage-blob-concepts.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## Create a Ruby Application
 

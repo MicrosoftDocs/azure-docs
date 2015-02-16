@@ -16,7 +16,7 @@ Common uses of Queue storage include:
 
 The Queue service contains the following components:
 
-![Queue1](./media/howto-queue-storage/queue1.png)
+![Queue1](./media/storage-queue-concepts-include/queue1.png)
 
 
 - **URL format:** Queues are addressable using the following URL format:   

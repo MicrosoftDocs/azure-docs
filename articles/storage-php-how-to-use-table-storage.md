@@ -22,9 +22,9 @@
 
 This guide will show you how to perform common scenarios using the Azure Table service. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next Steps](#NextSteps) section.
 
-[AZURE.INCLUDE [storage-table-concepts](../includes/storage-table-concepts.md)]
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## Create a PHP application
 

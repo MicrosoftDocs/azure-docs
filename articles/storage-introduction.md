@@ -136,7 +136,7 @@ Finally, you can specify that a container and its blobs, or a specific blob, are
 
 ## Replication for Durability and High Availability ##
 
-[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options-include](../includes/storage-replication-options-include.md)]
 
 ## Pricing ##
 

@@ -24,9 +24,9 @@ This guide will show you how to perform common scenarios using the Microsoft Azu
 
 > [AZURE.NOTE] An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
 
-[AZURE.INCLUDE [storage-blob-concepts](../includes/storage-blob-concepts.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## Create a Java application
 
