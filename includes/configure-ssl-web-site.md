@@ -5,26 +5,19 @@
 
 You can secure the communication between the website and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to configure HTTPS for an Azure Website. 
 
-<a name="bkmk_azurewebsites"></a><h2>HTTPS for the \*.azurewebsites.net domain</h2>
+##<a name="bkmk_azurewebsites"></a>HTTPS for the \*.azurewebsites.net domain
 
 If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your website by Azure (for example, contoso.azurewebsites.net) then HTTPS is already enabled on your site with a certificate from Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site. However, \*.azurewebsites.net is a wildcard domain. Like [all wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), it is not as secure as using a custom domain with your own certificate. 
 
 The rest of this document provides details on enabling HTTPS for custom domains, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
-<a name="bkmk_domainname"></a><h2>Enable SSL for your custom domain</h2>
+##<a name="bkmk_domainname"></a>Enable SSL for your custom domain
 
 To enable HTTPS for a custom domain, such as **contoso.com**, you must first register a custom domain name with a domain name registrar. For more information on how to configure the domain name of an Azure Website, see [Configuring a custom domain name for an Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your website to respond to the custom name, you must request an SSL certificate for the domain. 
 
 > [AZURE.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
 
-Once you have a valid custom domain, enabling HTTPS for your website consists of the following steps:
-
-1. [Get an SSL certificate](#bkmk_getcert)
-1. [Configure Standard mode](#bkmk_standardmode)
-1. [Configure SSL](#bkmk_configuressl)
-1. [Enforce HTTPS on your Azure website](#bkmk_enforce)
-
-<a name="bkmk_getcert"></a><h2>Get an SSL certificate</h2>
+##<a name="bkmk_getcert"></a>Get an SSL certificate
 
 Before requesting an SSL certificate you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as **contoso.com** or **www.contoso.com** a basic certificate is sufficient. If you need to secure multiple domain names, such as **contoso.com**, **www.contoso.com**, and **mail.contoso.com**, then you can get a [wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate), or a certificate with [Subject Alternate Name](http://en.wikipedia.org/wiki/SubjectAltName) (subjectAltName).
 

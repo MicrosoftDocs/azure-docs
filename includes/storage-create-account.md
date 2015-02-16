@@ -1,4 +1,4 @@
-## <a name="create-account"> </a>Create an Azure Storage account
+## Create an Azure Storage account
 
 To use Azure storage, you'll need a storage account. You 
 can create a storage account by following these steps. (You can also

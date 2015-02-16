@@ -21,12 +21,13 @@
 #Dynamic Encryption: Configure Content Key Authorization Policy 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-
-This article is part of the series that introduces[Media Services Video on Demand workflow](../media-services-video-on-demand-workflow). The previous topic was [Encoding with .NET SDK](../media-services-encode-asset/).
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series. 
 
 ##Overivew
 
 Microsoft Azure Media Services enables you to deliver your content encrypted (dynamically) with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients. 
+
+Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
 
 If you want for Media Services to encrypt an asset, you need to associate an encryption key (**CommonEncryption** or **EnvelopeEncryption**) with the asset (as described [here](../media-services-dotnet-create-contentkey/)) and also configure authorization policies for the key (as described in this article). 
 

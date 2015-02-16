@@ -248,6 +248,9 @@ Application Insights can also be used to learn what users do with an app. Once i
 
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you improve the performance of your own applications.
 
+## Video
+
+[AZURE.VIDEO app-insights-performance-monitoring]
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 

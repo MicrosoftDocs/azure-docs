@@ -32,18 +32,16 @@ Below is an example of a line-of-business application running on Azure Websites.
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>This guide presents some of the most common areas and tasks that are aligned with line-of-business applications. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a>.</p>
-</div>
+> [AZURE.NOTE]
+> This guide presents some of the most common areas and tasks that are aligned with line-of-business applications. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on [Global Web Presence](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/) and [Digital Marketing Campaigns](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview).
 
-### Bring existing assets
+## Bring existing assets
 
 Bring your existing web assets to Azure Websites from a variety of languages and frameworks.
 
 Your existing web assets can run on Azure Websites, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Azure Websites using your familiar [FTP] tools or your source control management system. Azure Websites supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-### Secure your assets
+## Secure your assets
 
 Secure assets by encryption, authenticate corporate users whether they are on-site or remote, and authorize their use of assets. 
 
@@ -53,7 +51,7 @@ Protect internal assets against eavesdroppers with [HTTPS]. The **\*.azurewebsit
 
 [Authorize users] for their use of web properties. With minimal additional code, you can bring the same on-premises ASP.NET coding pattern to Azure Websites using the `[Authorize]` decoration, for example. You retain the same flexibility for fine-grain access control as the applications you maintain on-premises.
 
-### Connect to on-premises resources ###
+## Connect to on-premises resources ##
 
 Connect to your website data or resources, whether it's in the cloud for performance or on-premises for compliance. For more information on keeping data in Azure, see [Azure Trust Center]. 
 
@@ -61,7 +59,7 @@ You can choose from various database backends in Azure to meet the needs of your
 
 However, your business may require its data to be kept on-premises. Azure Websites lets you easily set up a [hybrid connection] to your on-premise resource such as a database backend. If you want unified management of your on-premises connections, you integrate many Azure Websites with one [Azure Virtual Network] that has a site-to-site VPN. You can then access on-premises resources as if your Azure websites are on-premises. [Enterprise Pizza - Connecting Web Sites to On-premise Using Service Bus][enterprisepizza]
 
-### Optimize
+## Optimize
 
 Optimize your line-of-business application by scaling automatically with Autoscale, caching with Azure Redis Cache, running background tasks with WebJobs, and maintaining high availability with Azure Traffic Manager.
 
@@ -71,7 +69,7 @@ Make your website more responsive with the [Azure Redis Cache]. Use it to cache 
 
 Maintain high availability of your website using [Azure Traffic Manager]. Using the **Failover** method, Traffic Manager automatically routes traffic to a secondary site if there is a problem on the primary site.
 
-### Monitor and analyze
+## Monitor and analyze
 
 Stay up-to-date on your website's performance with Azure or third-party tools. Receive alerts on critical website events. Gain user insight easily with Application Insight or with web log analytics from HDInsight. 
 

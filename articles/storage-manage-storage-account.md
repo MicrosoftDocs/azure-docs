@@ -18,7 +18,7 @@
 
 
 
-<h1><a id="managestorageaccounts"></a>How To Manage Storage Accounts</h1>
+# How To Manage Storage Accounts
 
 ##Table of Contents##
 
@@ -26,11 +26,11 @@
 * [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
 * [How to: Delete a storage account](#deletestorageaccount)
 
-<h2><a id="georeplication"></a>How to: Replicate your storage account data for durability and high availability</h2>
+## How to: Replicate your storage account data for durability and high availability
 
 [AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
-### To specify replication settings for a storage account ###
+### To specify replication settings for a storage account ### 
 
 1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Storage**, and then click the name of your storage account to display the dashboard.
 
@@ -41,12 +41,12 @@
 4. Click **Save**, and confirm your choice if prompted.
 
 
-<h2><a id="regeneratestoragekeys"></a>How to: View, copy, and regenerate storage access keys</h2>
+## How to: View, copy, and regenerate storage access keys
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
 In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
-### Copy a storage access key ###
+### Copy a storage access key ### 
 
 You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
 
@@ -61,7 +61,7 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
  
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
 
-### Regenerate storage access keys ###
+### Regenerate storage access keys ### 
 You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
 
 > [AZURE.WARNING] Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
@@ -81,7 +81,7 @@ You should change the access keys to your storage account periodically to help k
 4. Regenerate the secondary access key.
 
 
-<h2><a id="deletestorageaccount"></a>How to: Delete a storage account</h2>
+## How to: Delete a storage account
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 
