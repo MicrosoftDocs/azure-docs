@@ -1,25 +1,13 @@
-<properties 
-	pageTitle="Getting Started with Azure Site Recovery: On-Premises to On-Premises VMM Site Protection with SAN" 
-	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication." 
-	editor="jimbe" 
-	manager="jwhit" 
-	authors="raynew"/>
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Tutorial: Set up Protection Between On-Premises VMM Sites with SAN" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, SAN" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Tutorial: Set up Protection Between On-Premises VMM Sites with SAN" editor="jimbe" manager="jwhit" authors="raynew" />
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2014" 
-	ms.author="raynew"/>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
 
 
-# Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with SAN replication
+# Tutorial: Set up Protection Between On-Premises VMM Sites with SAN
 
 
 
-
+<h2><a id="overview" name="overview" href="#overview"></a>Overview</h2>
 <p>Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.<p>
 
 <P>This tutorial describes how to deploy Azure Site Recovery to orchestrate and automate protection for workloads running on a Hyper-V server managed by System Center VMM in an on-premises site to another VMM on-premises site, using storage array-based (SAN) replication. The tutorial uses the quickest deployment path and default settings where possible. In this scenario:</P>
@@ -39,9 +27,8 @@
 
 
 
-
-<h2><a id="before"></a>Prerequisites</h2> 
-
+<h2><a id="before" name="before" href="#before"></a>before</h2>
+<div class="dev-callout"> 
 <P>Make sure you have everything in place before you begin the walkthrough.</P>
 
 <UL>
@@ -72,10 +59,9 @@
 	<LI><a href="http://go.microsoft.com/fwlink/?LinkId=522290">Enable network mapping</a> in the SAN deployment guide.</LI>
 	</UL>
 </UL>
+</div>
 
-
-<h2><a id="tutorial"></a>Tutorial steps</h2> 
-
+<h2><a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps</h2>
 After verifying the prerequisites, do the following:
 
 1. <a href="#VMM">Step 1: Prepare the VMM infrastructure</a>
@@ -91,9 +77,9 @@ After verifying the prerequisites, do the following:
 9. <a href="#recovery plans">Step 8: Test the deployment</a>—You can test that virtual machines and data fail over as expected by running a test failover. 
 
 
-<a name="VMM"></a> <h2>Step 1: Prepare the VMM infrastructure</h2>
+<a name="VMM"></a> <h3>Step 1: Prepare the VMM infrastructure</h3>
 
-<a name="SAN"></a> <h3>Integrate and classify SAN storage in VMM</h3>
+<a name="SAN"></a> <h4>Integrate and classify SAN storage in VMM</h4>
 
 
 1. In the **Fabric** workspace click **Storage**. Click **Home** > **Add Resources** > **Storage Devices** to start the Add Storage Devices Wizard.
@@ -115,7 +101,7 @@ After verifying the prerequisites, do the following:
 
 	![Classify storage](./media/hyper-v-recovery-manager-configure-vault/SRSAN_Classify.png)
 
-<a name="LUNs"></a> <h3>Create LUNs and allocate storage</h3>
+<a name="LUNs"></a> <h4>Create LUNs and allocate storage</h4>
 
 
 1. After SAN storage is integrated into VMM you'll create (provision) LUNs. For details see:
@@ -127,7 +113,7 @@ After verifying the prerequisites, do the following:
 	- Allocate storage capacity to the cluster as described in <a href="http://go.microsoft.com/fwlink/?LinkId=513017">How to configure storage on a Hyper-V host cluster in VMM</a>.
 	
 
-<a name="RGs"></a> <h3>Create replication groups</h3>
+<a name="RGs"></a> <h4>Create replication groups</h4>
 
 1. Create a replication group which includes all the LUNs that will need to replicate together.
 2. In the VMM console open the **Replication Groups** tab of the storage array properties, and click **New**.
@@ -135,7 +121,7 @@ After verifying the prerequisites, do the following:
 
 
 
-<a name="vault"></a> <h2>Step 2: Create a vault</h2>
+<a name="vault"></a> <h3>Step 2: Create a vault</h3>
 After you validate the deployment prerequisites, create an Azure Site Recovery vault. Alternatively you can use an existing vault and configure SAN replication.
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
@@ -156,7 +142,7 @@ After you validate the deployment prerequisites, create an Azure Site Recovery v
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
-<a name="upload"></a> <h2>Step 2: Configure the vault</h2>
+<a name="upload"></a> <h2>Step 3: Configure the vault</h3>
 
 
 1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
@@ -166,7 +152,7 @@ After you validate the deployment prerequisites, create an Azure Site Recovery v
 2. In the dropdown list, select **Between Hyper-V on-premises site using array replication**.
 
 
-<a name="download"></a> <h2>Step 3: Install the Azure Site Recovery Provider</h2>
+<a name="download"></a> <h3>Step 3: Install the Azure Site Recovery Provider</h3>
 After you’ve created the vault, generate a registration file that includes a registration key. You select this file when you install the Azure Site Recovery Provider. 
 
 1. On the <b>Quick Start</b> page, in **Prepare VMM servers**, click **Generate registration key** file. The key is valid for 5 days after it's generated. You should download the file to a safe location that VMM servers can access. For example a share. You'll need to select this file when you set up the Provider.
@@ -204,7 +190,7 @@ After the Provider is installed continue setup to register the server in the vau
 11. Click <b>Register</b> to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the <b>Resources</b> tab on the **Servers** page in the vault. After Provider installation you modify Provider settings in the VMM console.
 
  
-<h2><a id="storage"></a>Step 4: Map storage arrays and pools</h2>
+<h3><a id="storage"></a>Step 4: Map storage arrays and pools</h3>
 
 You'll need to create mapping between storage arrays and pools in the primary and secondary sites.
 
@@ -220,7 +206,7 @@ Before you start check that clouds appear in the vault. Clouds are detected eith
 
 
 
-<h2><a id="clouds"></a>Step 5: Configure cloud protection settings</h2>
+<h3><a id="clouds"></a>Step 5: Configure cloud protection settings</h3>
 
 After VMM servers are registered, you can configure cloud protection settings. You enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault.
 
@@ -239,7 +225,7 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 <p>After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. Cloud settings can be modified on the <b>Configure</b> tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.</p>
 
 
-<h2><a id="replication"></a>Step 6: Enable replication for replication groups</h2>
+<h3><a id="replication"></a>Step 6: Enable replication for replication groups</h3>
 
 Before you can enable protection for virtual machines you’ll need to enable replication for storage replication groups. 
 
@@ -266,7 +252,7 @@ With this option VMM uses intelligent placement to optimally place the virtual m
 Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover. 
 	![Virtual machine protection job](./media/hyper-v-recovery-manager-configure-vault/SRSAN_JobPropertiesTab.png)
 
-<h2><a id="recoveryplans"></a>Step 8: Test the deployment</h2>
+<h3><a id="recoveryplans"></a>Step 8: Test the deployment</h3>
 
 
 
@@ -305,7 +291,7 @@ Test your deployment to make sure virtual machines and data fail over as expecte
 	$newrecord.RecordData[0].IPv4Address  =  $IP
 	Set-DnsServerResourceRecord -zonename com -OldInputObject $record -NewInputObject $Newrecord**
 
-<h3><a id="runtest"></a>Monitor activity</h3>
+<h2><a id="runtest" name="runtest" href="#runtest"></a>Monitor activity</h2>
 <p>You can use the <b>Jobs</b> tab and <b>Dashboard</b> to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
 
 <p>From the <b>Jobs</b> tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</p>
@@ -314,7 +300,7 @@ Test your deployment to make sure virtual machines and data fail over as expecte
 
 <p>For more information about interacting with jobs and the dashboard, see the <a href="http://go.microsoft.com/fwlink/?LinkId=398534">Operations and Monitoring Guide</a>.</p>
 	
-<h2><a id="next"></a>Next steps</h2>
+<h2><a id="next" name="next" href="#next"></a>Next steps</h2>
 <UL>
 <LI>To plan and deploy Azure Site Recovery in a full production environment, see <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Azure Site Recovery</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Azure Site Recovery</a>.</LI>
 <LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI> 
