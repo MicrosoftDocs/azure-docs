@@ -22,6 +22,8 @@
 
 # How to Manage Content in Media Services #
 
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+
 This topic shows how to use Azure Management Portal to manage media content in your Media Services account.
 
 Currently you can perform the following content operations directly from the portal:

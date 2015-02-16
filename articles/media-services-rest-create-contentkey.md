@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="02/15/2015" 
 	ms.author="juliako"/>
 
 
 #Create ContentKeys with REST
 
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+
 Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
-When you [create a new asset](../media-services-rest-upload-files/), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
+When you create a new asset (for example, before you [upload files](../media-services-rest-upload-files/)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
 When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](../media-services-rest-configure-asset-delivery-policy) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
 
-Whether you create a new encrypted asset or specify to encrypt an asset dynamically when it is delivered to the client, you need to create a **ContentKey** and link it to the asset you want to encrypt.
+Encrypted assets have to be associated with **ContentKey**s. This article describes how to create a content key.
 
 The following are general steps for generating content keys that you will associate with assets that you want to be encrypted. 
 
