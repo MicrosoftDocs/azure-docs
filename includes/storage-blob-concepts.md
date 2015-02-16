@@ -14,7 +14,7 @@ Common uses of Blob storage include:
 -   Storing data for analysis by an on-premises or Azure-hosted
     service
 
-## Concepts
+## Blob Service Concepts
 
 The Blob service contains the following components:
 

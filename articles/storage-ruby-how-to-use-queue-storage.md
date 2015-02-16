@@ -32,8 +32,6 @@ queues**.
 
 [AZURE.INCLUDE [storage-queue-concepts](../includes/storage-queue-concepts.md)]
 
-## Create an Azure storage account
-
 [AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
 
 ## Create a Ruby Application

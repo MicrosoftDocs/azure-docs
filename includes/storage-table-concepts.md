@@ -18,7 +18,7 @@ You can use the Table service to store and query huge sets of
 structured, non-relational data, and your tables will scale as demand
 increases.
 
-## Concepts
+## Table Service Concepts
 
 The Table service contains the following components:
 

@@ -24,8 +24,6 @@ This guide will show you how to perform common scenarios using the Azure Queue s
 
 [AZURE.INCLUDE [storage-queue-concepts](../includes/storage-queue-concepts.md)]
 
-## Create an Azure storage account
-
 [AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
 
 ## Create a PHP application

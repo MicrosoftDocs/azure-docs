@@ -12,7 +12,7 @@ Common uses of Queue storage include:
 -   Passing messages from an Azure Web role to an Azure
     Worker role
 
-## Concepts
+## Queue Service Concepts
 
 The Queue service contains the following components:
 

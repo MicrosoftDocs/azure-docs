@@ -32,8 +32,6 @@ deleting queues**.
 
 [AZURE.INCLUDE [storage-queue-concepts](../includes/storage-queue-concepts.md)]
 
-## Create an Azure Storage account
-
 [AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
 
 ## Create a Node.js Application

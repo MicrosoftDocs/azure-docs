@@ -31,8 +31,6 @@ table, inserting and querying entities in a table**.
 
 [AZURE.INCLUDE [storage-table-concepts](../includes/storage-table-concepts.md)]
 
-## Create an Azure Storage Account
-
 [AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
 
 ## Create a Ruby Application

@@ -26,8 +26,6 @@ Note: An SDK is available for developers who are using Azure Storage on Android 
 
 [AZURE.INCLUDE [storage-queue-concepts](../includes/storage-queue-concepts.md)]
 
-## Create an Azure storage account
-
 [AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
 
 ## Create a Java application

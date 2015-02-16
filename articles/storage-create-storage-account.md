@@ -47,7 +47,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 2. Click **Create New**, click **Storage**, and then click **Quick Create**.
 
-	![NewStorageAccount](./media/storage-storage-create-account/storage_NewStorageAccount.png)
+	![NewStorageAccount](./media/storage-create-account/storage_NewStorageAccount.png)
 
 3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
 
@@ -66,7 +66,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the portal. After the storage account has been created, your new storage account has **Online** status and is ready for use. 
 
-![StoragePage](./media/storage-storage-create-account/Storage_StoragePage.png)
+![StoragePage](./media/storage-create-account/Storage_StoragePage.png)
 
 
 ### Storage account endpoints 
@@ -119,7 +119,7 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 
  	**Manage Access Keys** opens.
 
-	![Managekeys](./media/storage-storage-create-account/Storage_ManageKeys.png)
+	![Managekeys](./media/storage-create-account/Storage_ManageKeys.png)
 
  
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
