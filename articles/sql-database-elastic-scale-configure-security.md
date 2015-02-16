@@ -13,17 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
-	ms.author="torsteng"/>
+	ms.date="02/16/2015" 
+	ms.author="torsteng@microsoft.com"/>
 
 # Elastic Scale Security Configurations  
 
 Microsoft Azure SQL Database Elastic Scale includes a self-hosted service. The distribution includes a service configuration file which contains security related settings that must be configured.
-
-1. [Configuring Certificates][] 
-2. [Allowed IP Addresses][]
-3. [Denial of Service Prevention][]
-4. [Other Security Considerations][]
 
 ## <a name="configuring-certificates"></a>Configuring Certificates
 
