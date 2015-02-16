@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/03/2015" 
-	ms.author="sidneyh"/>
+	ms.author="sidneyh@microsoft.com"/>
 
 #Get Started with  Azure SQL Database Elastic Scale Preview
 
