@@ -6,17 +6,19 @@
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Linux, Unix, and Open-Source Computing on Azure
 
-This document attempts to list in one place all the topics written by Microsoft and its partners about running Linux-based Virtual Machines as well as other open-source compute environments and applications on Microsoft Azure. As both Azure and the open-source computing world are fast-moving targets, it is almost certain that this document is already out of date, but we shall do our best to continually add newer topics and remove out-of-date ones. If we've missed one, please let us know in the comments, or submit a pull request to our [Github repo](https://github.com/Azure/azure-content/).
+This document attempts to list in one place all the topics written by Microsoft and its partners about running Linux-based Virtual Machines as well as other open-source compute environments and applications on Microsoft Azure. As both Azure and the open-source computing world are fast-moving targets, it is almost certain that this document is out of date, *despite* the fact that we shall do our best to continually add newer topics and remove out-of-date ones. If we've missed one, please let us know in the comments, or submit a pull request to our [Github repo](https://github.com/Azure/azure-content/).
 
-- [Distros](#distros)
-- [The Basics](#basics)
-- [Community Images and Repositories](#images)
+The sections are broken down as follows. (Links may occur in more than one section, as topics can be about more than one concept, distro, or technology.)
+
+- [Distros](#distros) -- Topics to do with a specific distro.
+- [The Basics](#basics) -- A lot of the basic things to do that you either know or need to know.
+- [Community Images and Repositories](#images) -- Other places for very useful information, repositories, and binaries.
 - [Languages and Platforms](#langsandplats)
 - [Samples and Scripts](#samples)
-- [Auth and Encryption](#security)
-- [Devops, Management, and Optimization](#devops)
-- [Support, Troubleshooting, and "It Just Doesn't Work"](#supportdebug)
-- [Next steps](#next-steps)
+- [Auth and Encryption](#security) -- Important security-related topics, not necessarily specific to Azure.
+- [Devops, Management, and Optimization](#devops) -- A big category, changing rapidly.
+- [Support, Troubleshooting, and "It Just Doesn't Work"](#supportdebug) -- Really.
+
 
 ###<a id='distros'>Distros</a>
 1. [Azure Marketplace](http://azure.microsoft.com/en-us/marketplace/virtual-machines/)
@@ -214,7 +216,7 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
     1. [Github: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 
 ###<a id='supportdebug'>Support, Troubleshooting, and "It Just Doesn't Work"</a>
-1. Microsoft support stance documentation
+1. Microsoft support documentation
 	1. [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 2. Vendor Contacts for Endorsed Distributions
 3. VM Depot
