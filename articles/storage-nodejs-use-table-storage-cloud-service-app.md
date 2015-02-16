@@ -23,6 +23,8 @@
 
 # Node.js Web Application using Storage
 
+## Overview
+
 In this tutorial, you will extend the application created in the
 [Node.js Web Application using Express] tutorial by using the Windows
 Azure Client Libraries for Node.js to work with data management services. You
@@ -88,7 +90,7 @@ and add them to the web.config settings:
 
 6.  Save the file and close notepad.
 
-###Install additional modules
+### Install additional modules
 
 2. Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
 
@@ -198,7 +200,7 @@ In this section you will extend the basic application created by the **express**
 
 6. Save and close the **task.js** file.
 
-###Create the controller
+### Create the controller
 
 1. In the **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 
@@ -287,7 +289,7 @@ In this section you will extend the basic application created by the **express**
 	
 4. Save the **app.js** file.
 
-###Modify the index view
+### Modify the index view
 
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 
@@ -332,7 +334,7 @@ In this section you will extend the basic application created by the **express**
 
 3. Save and close **index.jade** file.
 
-###Modify the global layout
+### Modify the global layout
 
 The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.
 

@@ -18,18 +18,14 @@
 
 # On-Premises Application with Blob Storage
 
+## Overview
+
 The following example shows you how you can use Azure storage to
 store images in Azure. The code below is for a console
 application that uploads an image to Azure, and then creates an
 HTML file that displays the image in your browser.
 
-## Table of Contents
-
--   [Prerequisites][]
--   [To use Azure blob storage to upload a file][]
--   [To delete a container][]
-
-## <a name="bkmk_prerequisites"> </a>Prerequisites
+## Prerequisites
 
 1.  A Java Developer Kit (JDK), v1.6 or later, is installed.
 2.  The Azure SDK is installed.
@@ -49,7 +45,7 @@ HTML file that displays the image in your browser.
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-## <a name="bkmk_uploadfile"> </a>To use Azure blob storage to upload a file
+## To use Azure blob storage to upload a file
 
 A step-by-step procedure is presented here; if you'd like to skip ahead,
 the entire code is presented later in this topic.
@@ -373,7 +369,7 @@ open in your browser to see your uploaded image.
 Because the code contains your account name and account key, ensure that
 your source code is secure.
 
-## <a name="bkmk_deletecontainer"> </a>To delete a container
+## To delete a container
 
 Because you are charged for storage, you may want to delete the
 **gettingstarted** container after you are done experimenting with this
@@ -434,9 +430,8 @@ deletes the container named **gettingstarted**.
 For an overview of other blob storage classes and methods, see [How to
 Use the Blob Storage Service from Java].
 
-  [Prerequisites]: #bkmk_prerequisites
-  [To use Azure blob storage to upload a file]: #bkmk_uploadfile
-  [To delete a container]: #bkmk_deletecontainer
+## Next steps
+
   [Download the Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
   [How to Create a Storage Account]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
   [How to Manage Storage Accounts]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/

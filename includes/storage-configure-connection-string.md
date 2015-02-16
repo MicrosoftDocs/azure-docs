@@ -1,4 +1,4 @@
-## <a name="setup-connection-string"> </a>Setup a storage connection string
+## Setup a storage connection string
 
 The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. We recommend that you maintain your storage connection string in a configuration file, rather than hard-coding it into your application. You have two options for saving your connection string:
 
