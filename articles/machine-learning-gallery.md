@@ -17,8 +17,8 @@
 	ms.author="chhavib,garye"/>
 
 
-# **AZURE ML GALLERY** #
-Azure ML Gallery is a community driven site for discovering experiments that solve interesting problems. It is a destination for users looking to learn from others’ experiments, or to simply get started on Azure Machine Learning. These experiments are primarily contributed by the Azure Machine Learning user community. 
+# **Machine Learning Gallery** #
+The Azure Machine Learning Gallery is a community driven site for discovering experiments that solve interesting problems. It is a destination for users looking to learn from others’ experiments, or to simply get started on Azure Machine Learning. These experiments are primarily contributed by the Azure Machine Learning user community. 
 
 The Gallery also enables users to browse and copy experiments contributed by Microsoft Azure Machine Learning Team.
 
