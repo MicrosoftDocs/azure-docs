@@ -38,7 +38,7 @@ This tutorial shows you how to:
 
 After the virtual machine is created, you can optionally attach an additional data disk. This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which is currently limited to 127 GB and includes the operating system.
 
-See [How to Attach a Data Disk to a Windows Virtual Machine](./storage-windows-attach-disk.md/) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
+See [How to Attach a Data Disk to a Windows Virtual Machine](../storage-windows-attach-disk/) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
 ## Log on to the virtual machine
 
