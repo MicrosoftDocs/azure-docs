@@ -112,6 +112,10 @@ Our experiment now looks something like this:
  
 ![Adding Split module and R scripts][3]
 
+For more information on using R scripts in your experiments, see [Extend your experiment with R][r].
+
+[r]: ../machine-learning-extend-your-experiment-with-r/
+
 **Next: [Train and evaluate the models][train-models]**
 
 
