@@ -14,7 +14,7 @@
 
 ###Markdown syntax for ACOM relative links
 
-To create an inline link to a page in the same directory as the current page (this is the case for all our ACOM technical articles), use the single-dot notation. Include the markdown file name extension:
+To create an inline link to a page in the same directory as the current page (this is the case for all our ACOM technical articles), use the two-dot notation. Include the markdown file name extension:
 
     [link text](../<article name>)
     [Create a Media Services account!](../media-services-create-account)
