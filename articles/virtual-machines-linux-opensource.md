@@ -198,20 +198,22 @@ This section contains information about several different storage approaches and
 
 1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
 2. Couchdb
-	1. [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
-	2. [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
+	- [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
+	- [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
 3. MongoDB
-	1. [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
+	- [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
 4. Cassandra
-	1. [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
+	- [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
 5. Redis
-	1. [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
-	2. [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
+	- [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
+	- [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
 6. RavenHQ
-	1. [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
+	- [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
+
+#### Big Data
 2. Hadoop/Cloudera  
-	1. [Blog: Installing Hadoop on Azure Linux VMs](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
-	2. [How to: Get Started with Hadoop and Hive using HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/)  
+	- [Blog: Installing Hadoop on Azure Linux VMs](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
+	- [How to: Get Started with Hadoop and Hive using HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/)  
 3. [Azure HDInsight](http://azure.microsoft.com/en-us/services/hdinsight/) -- a fully managed Hadoop service on Azure.
 
 #### Relational Data
@@ -242,10 +244,10 @@ Authentication and encryption are critical topics in software development, and t
 This section starts with a blog entry containing a series of videos on [Video: Azure Virtual Machines : Using Chef, Puppet and Docker for managing Linux VMs](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/). However, the world of devops, management, and optimization is quite expansive and changing very quickly, so you should consider the list below a starting point.
 
 1. Docker
-	1. [Docker VM Extension for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/)
-	2. [Using the Docker VM Extension from the Azure Cross-Platform Command-line Interface (xplat-cli)](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/)
-	3. [Using the Docker VM Extension from the Azure Preview Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/)
-	4. [Getting Started Quickly with Docker in the Azure Marketplace](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-ubuntu-quickstart/)
+	- [Docker VM Extension for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/)
+	- [Using the Docker VM Extension from the Azure Cross-Platform Command-line Interface (xplat-cli)](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/)
+	- [Using the Docker VM Extension from the Azure Preview Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/)
+	- [Getting Started Quickly with Docker in the Azure Marketplace](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-ubuntu-quickstart/)
 2. [Fleet with CoreOS](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-coreos-how-to/)
 3. Deis
 	- [GitHub repo:
