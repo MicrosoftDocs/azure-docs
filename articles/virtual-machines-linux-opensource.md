@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="02/16/2015"
+  ms.date="02/17/2015"
   ms.author="rasquill"/>
 
 
@@ -144,36 +144,39 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 
 ### <a id='langsandplats'>Languages and Platforms</a>
-1. [Azure Java Dev Center](http://azure.microsoft.com/en-us/develop/java/)
-	1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
-	2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841073.aspx)
-	3. [How to: Set up Tomcat7 on Linux Using the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-setup-tomcat7-linux/)
-	4. [Video: Azure Java SDK for Service Management](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
-	5. [Blog: Getting Started with Azure Management Libraries for Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
-	5. [Github repo: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
-	6. [Reference: Azure Toolkit for Eclipse with Java](http://msdn.microsoft.com/library/azure/hh694271.aspx)
-	7. [Github repo: MS Open Tech Tools plugin for IntelliJ IDEA and Android Studio](https://github.com/MSOpenTech/msopentech-tools-for-intellij)
-	7. [Blog: MSOpenTech Contributes to the OpenJDK](http://msopentech.com/blog/2014/10/21/ms-open-techs-first-contribution-openjdk/)
-	8. [Images: WebSphere](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
-	9. [Images: WebLogic](http://azure.microsoft.com/en-us/marketplace/?term=weblogic)
-	10. [Images: JDK6 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk6onwindowsserver2012/)
-	11. [Images: JDK7 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk7onwindowsserver2012/)
-	12. [Images: JDK8 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk8onwindowsserver2012r2/)
-2. JVM Languages
-	1. [Scala: Running Play Framework Applications in Azure Cloud Services](http://msopentech.com/blog/2014/09/25/tutorial-running-play-framework-applications-microsoft-azure-cloud-services-2/)
-3. SDK Types, Installations, Upgrades
-	4. [Azure Service Management SDK: Java](http://dl.windowsazure.com/javadoc/)
-	5. [Azure Service Management SDK: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
-	5. [Azure Service Management SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
-		1. [How to: Install Ruby on Rails](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-rails-web-app-linux/)
-		2. [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
-	6. [Azure Service Management SDK: Python](https://github.com/Azure/azure-sdk-for-python)
-		1. [How to: Django Hello World Web Application (Mac-Linux)](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-python-django-web-app-linux/)
-	7. [Azure Service Management SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
-	8. [Azure Service Management SDK: PHP](https://github.com/MSOpenTech/azure-sdk-for-php)
-		1. [How to: Install the LAMP Stack on an Azure VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-install-lamp-stack/)
-		2. [Video: Install a LAMP Stack on an Azure VM](http://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)
-	9. [Azure Service Management SDK: .NET](https://github.com/Azure/azure-sdk-for-net)
+#### [Azure Java Dev Center](http://azure.microsoft.com/en-us/develop/java/)
+1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
+2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841073.aspx)
+3. [How to: Set up Tomcat7 on Linux Using the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-setup-tomcat7-linux/)
+4. [Video: Azure Java SDK for Service Management](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
+5. [Blog: Getting Started with Azure Management Libraries for Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
+5. [Github repo: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
+6. [Reference: Azure Toolkit for Eclipse with Java](http://msdn.microsoft.com/library/azure/hh694271.aspx)
+7. [Github repo: MS Open Tech Tools plugin for IntelliJ IDEA and Android Studio](https://github.com/MSOpenTech/msopentech-tools-for-intellij)
+7. [Blog: MSOpenTech Contributes to the OpenJDK](http://msopentech.com/blog/2014/10/21/ms-open-techs-first-contribution-openjdk/)
+8. [Images: WebSphere](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
+9. [Images: WebLogic](http://azure.microsoft.com/en-us/marketplace/?term=weblogic)
+10. [Images: JDK6 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk6onwindowsserver2012/)
+11. [Images: JDK7 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk7onwindowsserver2012/)
+12. [Images: JDK8 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk8onwindowsserver2012r2/)
+ 
+#### JVM Languages
+
+1. [Scala: Running Play Framework Applications in Azure Cloud Services](http://msopentech.com/blog/2014/09/25/tutorial-running-play-framework-applications-microsoft-azure-cloud-services-2/)
+
+#### SDK Types, Installations, Upgrades
+4. [Azure Service Management SDK: Java](http://dl.windowsazure.com/javadoc/)
+5. [Azure Service Management SDK: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
+5. [Azure Service Management SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
+	- [How to: Install Ruby on Rails](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-rails-web-app-linux/)
+	- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+6. [Azure Service Management SDK: Python](https://github.com/Azure/azure-sdk-for-python)
+	- [How to: Django Hello World Web Application (Mac-Linux)](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-python-django-web-app-linux/)
+7. [Azure Service Management SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
+8. [Azure Service Management SDK: PHP](https://github.com/MSOpenTech/azure-sdk-for-php)
+	- [How to: Install the LAMP Stack on an Azure VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-install-lamp-stack/)
+	- [Video: Install a LAMP Stack on an Azure VM](http://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)
+9. [Azure Service Management SDK: .NET](https://github.com/Azure/azure-sdk-for-net)
 10. [Blog: Mono, ASP.NETvNext, Linux, and Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
 ### <a id='samples'>Samples and Scripts</a>
@@ -213,12 +216,12 @@ This section contains information about several different storage approaches and
 
 #### Relational Data
 2. MySQL
-	1. [How to: Install and Run MySQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
-	2. [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
-	3. [How to: MySQL Clusters](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/)
-	4. [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/en-us/documentation/articles/store-php-create-mysql-database/)
-	5. [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-ptvs-django-mysql/)
-	6. [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)
+	- [How to: Install and Run MySQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
+	- [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
+	- [How to: MySQL Clusters](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/)
+	- [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/en-us/documentation/articles/store-php-create-mysql-database/)
+	- [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-ptvs-django-mysql/)
+	- [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)
 7. MariaDB
 	1. [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
 7. PostgreSQL
@@ -227,6 +230,8 @@ This section contains information about several different storage approaches and
 
 ### <a id='security'>Auth and Encryption</a>
 
+Authentication and encryption are critical topics in software development, and there are many, many topics on the web that describe how to learn and use proper security techniques for both. We describe some of the basic usage to get up and running quickly with Linux and opensource workloads, as well pointing to tools to use to reset or remove remote security features on Azure.
+
 4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx)
 7. [The Basics: SSH](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/)
 8. [The Basics: How to Reset a Password or SSH Properties for Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/)
@@ -234,7 +239,7 @@ This section contains information about several different storage approaches and
 
 ### <a id='devops'>Devops, Management, and Optimization</a>
 
-This section starts with a blog entry containing a series of videos on [Video: Azure Virtual Machines : Using Chef, Puppet and Docker for managing Linux VMs](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/).
+This section starts with a blog entry containing a series of videos on [Video: Azure Virtual Machines : Using Chef, Puppet and Docker for managing Linux VMs](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/). However, the world of devops, management, and optimization is quite expansive and changing very quickly, so you should consider the list below a starting point.
 
 1. Docker
 	1. [Docker VM Extension for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/)
@@ -243,30 +248,30 @@ This section starts with a blog entry containing a series of videos on [Video: A
 	4. [Getting Started Quickly with Docker in the Azure Marketplace](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-ubuntu-quickstart/)
 2. [Fleet with CoreOS](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-coreos-how-to/)
 3. Deis
-	1. [GitHub repo:
+	- [GitHub repo:
 Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
 4. Kubernetes
-	1. [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
+	- [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
 5. Jenkins and Hudson
-	1. [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
-	2. [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
-	3. [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
-	4. [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
+	- [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+	- [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
+	- [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
+	- [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 10. Chef
-	1. [Chef and Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-install-chef-client/)
-	2. [Video: What is Chef and How does it Work?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
+	- [Chef and Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-install-chef-client/)
+	- [Video: What is Chef and How does it Work?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 12. Azure Automation
-	1. [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
+	- [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 13. Powershell DSC for Linux
-    2. [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
-    1. [Github: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
+    - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
+    - [Github: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 13. [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
 
 ### <a id='supportdebug'>Support, Troubleshooting, and "It Just Doesn't Work"</a>
 
 1. Microsoft support documentation
-	1. [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
+	- [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 
 <!--Anchors-->
