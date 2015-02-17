@@ -27,7 +27,7 @@ Click to see the [SDK Content](../mobile-engagement-windows-phone-sdk-content/)
 
 2. For Notifications: [How to integrate Reach (Notifications) in your Windows Phone app](../mobile-engagement-windows-phone-integrate-engagement-reach/)
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](../mobile-engagement-windows-phone-use-the-engagement-api/)
+3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](../mobile-engagement-windows-phone-use-engagement-api/)
 
 ##Release notes
 
