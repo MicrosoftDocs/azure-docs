@@ -32,7 +32,7 @@ Click to see the [SDK Content](../mobile-engagement-windows-phone-sdk-content/)
 ##Release notes
 
 ###2.0.0 (02/17/2015)
--   Rebranded Capptain to Engagement.
+-   Initial Release of Azure Mobile Engagement
 -   appId/sdkKey configuration is replaced by a connection string configuration.
 -   Security improvements.
 
@@ -40,27 +40,31 @@ For earlier version please see the [complete release notes](../mobile-engagement
 
 ##Upgrade procedures
 
-If you already have integrated an older version of Capptain into your application, you have to carefully apply the following points when upgrading the SDK.
+If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
 You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure/). For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
 
 ###From 1.1.1 to 2.0.0
 
-Capptain is rebranded as Engagement.
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
+
+>[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+
+If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.1.1 first then apply the following procedure
 
 #### Nuget package
 
 Replace Capptain.WindowsPhone.nupkg by azuresdk-mobileengagement-windowsphone-VERSION.nupkg in archive package lib folder.
 
-#### Rebranding
+#### Applying Mobile Engagement
 
-Capptain has been renamed to Engagement. You need to update your project to match this change.
+The SDK uses the term `Engagement`. You need to update your project to match this change.
 
 You need to uninstall your current Capptain nuget package. Consider that all your changes in Capptain Resources folder will be removed. If you want to keep those files then make a copy of them.
 
 After that, install the new Microsoft Azure Engagement nuget package on your project. You can find it directly on [nuget website]. or here index. This action replaces all resources files used by Engagement and adds the new Engagement DLL to your project References.
 
-You have to clean your project references by deleting old Capptain DLL references. If you do not make this, the old version of Capptain will conflict and errors will happen.
+You have to clean your project references by deleting Capptain DLL references. If you do not make this, the version of Capptain will conflict and errors will happen.
 
 If you have customized Capptain resources, copy your old files content and paste them in the new Engagement files. Please note that both xaml and cs files have to be updated.
 
@@ -68,18 +72,18 @@ When those steps are completed you only have to replace old Capptain references 
 
 All Capptain namespaces have to be updated.
 
-Before rebrand:
+Before migration:
 
 			using Capptain.Agent;
 			using Capptain.Reach;
 
-After rebrand:
+After migration:
 
 			using Microsoft.Azure.Engagement;
 
-All Capptain classes that contain "Capptain" now contains "Engagement".
+All Capptain classes that contain "Capptain" should contain "Engagement".
 
-Before rebrand:
+Before migration:
 
 			public sealed partial class MainPage : CapptainPage
 			{
@@ -90,7 +94,7 @@ Before rebrand:
 			  ...
 			}
 
-After rebrand:
+After migration:
 
 			public sealed partial class MainPage : EngagementPage
 			{
@@ -103,7 +107,7 @@ After rebrand:
 
 For xaml files Capptain namespace and attributes also change.
 
-Before rebrand:
+Before migration:
 
 			<capptain:CapptainPage
 			...
@@ -111,7 +115,7 @@ Before rebrand:
 			...
 			</capptain:CapptainPage>
 
-After rebrand:
+After migration:
 
 			<engagement:EngagementPage
 			...
@@ -123,7 +127,7 @@ For the other resources like Capptain pictures, please note that they also have 
 
 #### Application ID / SDK Key
 
-Now Engagement uses a connection string. You don't have to specify an application ID and an SDK key anymore you only have to specify a connection string. You can set it up on your CapptainConfiguration file.
+Engagement uses a connection string. You don't have to specify an application ID and an SDK key with Mobile Engagement, you only have to specify a connection string. You can set it up on your EngagementConfiguration file.
 
 The Engagement configuration can be set in your `Resources\EngagementConfiguration.xml` file of your project.
 
@@ -142,19 +146,19 @@ If you want to specify it at runtime instead, you can call the following method 
 
 The connection string for your application is displayed on Azure Portal.
 
-#### Items renamed
+#### Items name change
 
-Every items named ...capptain... has been renamed to ...engagement... It is the same for Capptain and Engagement.
+Every items named ...capptain... has been named ...engagement... It is the same for Capptain and Engagement.
 
 Examples on commonly used Capptain items :
 
-> -   CapptainConfiguration renamed EngagementConfiguration
-> -   CapptainAgent renamed EngagementAgent
-> -   CapptainReach renamed EngagementReach
-> -   CapptainHttpConfig renamed EngagementHttpConfig
-> -   GetCapptainPageName renamed GetEngagementPageName
+> -   CapptainConfiguration now named EngagementConfiguration
+> -   CapptainAgent now named EngagementAgent
+> -   CapptainReach now named EngagementReach
+> -   CapptainHttpConfig now named EngagementHttpConfig
+> -   GetCapptainPageName now named GetEngagementPageName
 
-Note that rename also affects overrided methods
+Note that rename also affects overriden methods.
 
 ### Upgrade from older versions
 

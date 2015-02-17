@@ -20,7 +20,7 @@
 
 ##2.0.0 (TBA)
 
--   Rebranded Capptain to Engagement.
+-   Initial Release of Azure Mobile Engagement
 -   appId/sdkKey configuration is replaced by a connection string configuration.
 -   Security improvements.
 
