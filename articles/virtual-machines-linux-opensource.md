@@ -33,7 +33,7 @@ The sections are broken down as follows. (Links may occur in more than one secti
 - [Support, Troubleshooting, and "It Just Doesn't Work"](#supportdebug) -- Really.
 
 
-###<a id='distros'>Distros</a>
+### <a id='distros'>Distros</a>
 
 There are tons of Linux distributions, usually broken down by the package management systems: Some are dpgk-based, like Debian and Ubuntu, and others are rpm-based, like CentOS, SUSE, and RedHat. Some companies provide distro images as formal partners of Microsoft and are endorsed. Others are provided by the community. The following distros have formal articles about them, even if they were only used in examples of other technologies.
 
@@ -44,7 +44,7 @@ There are tons of Linux distributions, usually broken down by the package manage
 4. [Notes: General Linux Requirements to Run in Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-generic/)
 5. [Notes: General Introduction for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-introduction/)
 
-####[Ubuntu](http://azure.microsoft.com/en-us/marketplace/partners/Canonical/)
+#### [Ubuntu](http://azure.microsoft.com/en-us/marketplace/partners/Canonical/)
 
 Ubuntu is a very popular and Azure-endorsed Linux distribution based on dkpg and apt-get package management.
 
@@ -107,7 +107,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 17. [How to: Install the Azure Linux Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)
 18. [Marketplace: Kaspersky AV for Linux File Server](http://azure.microsoft.com/en-us/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
 
-###<a id='basics'>The Basics</a>
+### <a id='basics'>The Basics</a>
 
 1. [The Basics: Azure Command-Line Interface (cli)](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/)
 4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx)
@@ -129,13 +129,13 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 20. [The Basics: The Azure Docker VM Extension](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/)
 23. [Azure Service Management REST API](https://msdn.microsoft.com/en-us/library/azure/ee460799.aspx) reference
 
-###<a id='images'>Community Images and Repositories</a>
+### <a id='images'>Community Images and Repositories</a>
 3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) -- for community provided virtual machine images.
 4. [Github](https://github.com/Azure/) -- for the xplat-cli, and many other tools and projects.
 5. [Docker Hub Registry](https://registry.hub.docker.com/) -- the registry for Docker container images.
 
 
-###<a id='langsandplats'>Languages and Platforms</a>
+### <a id='langsandplats'>Languages and Platforms</a>
 1. [Azure Java Dev Center](http://azure.microsoft.com/en-us/develop/java/)
 	1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 	2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841073.aspx)
@@ -151,8 +151,6 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 	10. [Images: JDK6 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk6onwindowsserver2012/)
 	11. [Images: JDK7 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk7onwindowsserver2012/)
 	12. [Images: JDK8 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk8onwindowsserver2012r2/)
-
-
 2. JVM Languages
 	1. [Scala: Running Play Framework Applications in Azure Cloud Services](http://msopentech.com/blog/2014/09/25/tutorial-running-play-framework-applications-microsoft-azure-cloud-services-2/)
 3. SDK Types, Installations, Upgrades
@@ -170,7 +168,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 	9. [Azure Service Management SDK: .NET](https://github.com/Azure/azure-sdk-for-net)
 10. [Blog: Mono, ASP.NETvNext, Linux, and Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
-###<a id='samples'>Samples and Scripts</a>
+### <a id='samples'>Samples and Scripts</a>
 1. [Patrick Chanezon's Azure Linux Github repository](https://github.com/chanezon/azure-linux)
 3. [Video: How to Move On-Premises USB data on Linux to Azure using **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Video: Accessing Linux-based GUI on Azure in the Browser with fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -180,7 +178,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 8. [Video: Load Balancing Highly Available Linux Services on Azure: OpenLDAP and MySQL](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)
 
 
-###<a id='data'>Data</a>
+### <a id='data'>Data</a>
 1. Nosql
 	1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
 	2. Couchdb
@@ -211,13 +209,13 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 		2. [How to: Get Started with Hadoop and Hive using HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/)  
 	3. [Azure HDInsight](http://azure.microsoft.com/en-us/services/hdinsight/) -- a fully managed Hadoop service on Azure.
 
-###<a id='security'>Auth and Encryption</a>
+### <a id='security'>Auth and Encryption</a>
 4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx)
 7. [The Basics: SSH](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/)
 8. [The Basics: How to Reset a Password or SSH Properties for Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/)
 9. [The Basics: Using Root](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-root-privileges/)
 
-###<a id='devops'>Devops, Management, and Optimization</a>
+### <a id='devops'>Devops, Management, and Optimization</a>
 
 This section starts with a blog entry containing a series of videos on [Video: Azure Virtual Machines : Using Chef, Puppet and Docker for managing Linux VMs](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/).
 
@@ -248,7 +246,7 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
     1. [Github: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 13. [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
 
-###<a id='supportdebug'>Support, Troubleshooting, and "It Just Doesn't Work"</a>
+### <a id='supportdebug'>Support, Troubleshooting, and "It Just Doesn't Work"</a>
 1. Microsoft support documentation
 	1. [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
