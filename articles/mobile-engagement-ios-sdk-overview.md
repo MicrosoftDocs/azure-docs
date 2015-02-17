@@ -34,7 +34,7 @@ Click to see the [SDK Content](../mobile-engagement-ios-sdk-content)
 
 ###2.0.0 (02/17/2015)
 
--   Rebranded Capptain to Engagement.
+-   Initial Release of Azure Mobile Engagement
 -   appId/sdkKey configuration is replaced by a connection string configuration.
 -   Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.
 -   Removed API to send and receive messages between devices.
@@ -52,6 +52,11 @@ You may have to follow several procedures if you missed several versions of the 
 For each new version of the SDK you must first replace (remove and re-import in xcode) the EngagementSDK and EngagementReach folders.
 
 ###From 1.16.0 to 2.0.0
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
+
+>[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+
+If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.16 first then apply the following procedure
 
 #### Agent
 

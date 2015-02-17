@@ -98,11 +98,8 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 		function insert(item, user, request) {
 		// Define a payload for the Google Cloud Messaging toast notification.
-		var payload = {
-		    data: {
-		        message: item.text 
-		    }
-		};		
+		var payload = '{"data":{"message": "' + item.text + '" }}'; 
+	
 		request.execute({
 		    success: function() {
 		        // If the insert succeeds, send a notification.

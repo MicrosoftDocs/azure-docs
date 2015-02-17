@@ -18,16 +18,7 @@
 
 # Create your first search solution using Azure Search
 
-+ [Prerequisites](#sub-1)
-+ [Create an Azure Search index](#sub-2)
-+ [Explore CatalogIndexer](#sub-3)
-+ [Build an MVC4 Application using Azure Search](#sub-4)
-+ [Explore AdventureWorksWeb](#sub-5)
-+ [Next steps](#next-steps)
-
-<h2>Overview</h2>
-
-<p>This sample demonstrates a search application for the Adventure Works bicycle company. After completing this tutorial, you’ll have an online product catalog with a rich search experience that includes faceted navigation, multiple sort options for your search results, and type-ahead query suggestions.
+This sample demonstrates a search application for the Adventure Works bicycle company. After completing this tutorial, you’ll have an online product catalog with a rich search experience that includes faceted navigation, multiple sort options for your search results, and type-ahead query suggestions.
 
    ![][7]
 
@@ -41,7 +32,8 @@ The demo gets you started with Azure Search by walking you through these exercis
 	+	Filter search results using faceting
 
 
-<h2 id="sub-1">Prerequisites</h2>
+<a id="sub-1"></a>
+## Prerequisites
 
 +	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/en-us/evalcenter/dn434042.aspx).
 +	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](../search-get-started/) for details.
@@ -57,8 +49,8 @@ This solution contains two projects:
 
 [AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
-
-<h2 id="sub-2">Create an Azure Search index</h2>
+<a id="sub-2"></a>
+## Create an Azure Search index
 
 In this step, you will use **CatalogIndex** to create a new Azure Search index called "catalog" based on data in an AdventureWorks SQL Server database.
 
@@ -89,7 +81,8 @@ Click the **Indexes** tile to show the index list. The indexes list slides out t
    ![][9]
 
 
-<h2 id="sub-3">Explore CatalogIndexer</h2>
+<a id="sub-3"></a>
+## Explore CatalogIndexer
 
 Let’s take a closer look at the **CatalogIndexer** project to understand how it works.
 
@@ -109,8 +102,8 @@ Let’s take a closer look at the **CatalogIndexer** project to understand how i
 
 Now that you've seen how to create and populate an index using relational data from SQL Server, let’s take a look at how to build a product catalog that uses our search data.
 
-
-<h2 id="sub-4">Build an MVC4 Application using Azure Search</h2>
+<a id="sub-4"></a>
+## Build an MVC4 Application using Azure Search
 
 In this step, you’ll build and run the search application in a web browser.
 
@@ -139,7 +132,8 @@ The screenshot from the start of this demo appears again below, as a reminder of
    ![][7]
 
 
-<h2 id="sub-5">Explore AdventureWorksWeb</h2>
+<a id="sub-5"></a>
+## Explore AdventureWorksWeb
 
 The project AdventureWorksWeb shows us how ASP.NET MVC 4 can be used to interact with Azure Search from a web application. In this section, we’ll review individual parts of the application code to see what they do.
 
@@ -176,7 +170,8 @@ You might want to add a breakpoint to the `Suggest` function within **HomeContro
 This concludes the demo. You have now walked through all of the main operations that you'll need to know before building out an ASP.NET MVC4 application using Azure Search.
 
 
-<h2 id="err-mvc">How to resolve "Could not load file or assembly 'System.Web.Mvc"</h2>
+<a id="err-mvc"></a>
+## How to resolve "Could not load file or assembly 'System.Web.Mvc"
 
 When building AdventureWorksWeb, if you get "Could not load file or assembly 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies", try these steps to resolve the error.
 
@@ -186,7 +181,8 @@ When building AdventureWorksWeb, if you get "Could not load file or assembly 'Sy
 4. Rebuild the solution and try **F5** again.
 
 
-<h2 id="next-steps">Next steps</h2>
+<a id="next-steps"></a>
+## Next steps
 
 For additional self-study, consider adding a Details page that opens when a user clicks one of the Search results. To prepare, you could do the following:
 
