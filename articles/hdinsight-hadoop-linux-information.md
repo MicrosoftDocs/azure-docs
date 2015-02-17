@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-#What you need to know about Hadoop on Linux-based HDInsight (Preview)
+#Working with HDInsight on Linux (Preview)
 
 Linux-based HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop on Linux installation. This document calls out specific differences that you should be aware of.
 
@@ -34,9 +34,7 @@ The Fully Qualified Domain Name (FQDN) to use when connecting to the cluster is 
 
 	While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive server not found errors when trying to access some features over the Internet.
 
-	To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node, which can successfully resolve the internal domain names. Use the following to create an SSH tunnel from a port on your local machine to the cluster.
-
-	For steps on using SSH to tunnel web traffic to the cluster, see the following articles.
+	To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node. Use the following articles to create an SSH tunnel from a port on your local machine to the cluster.
 
 	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - stpes on creating an SSH tunnel using the `ssh` command
 
@@ -60,7 +58,9 @@ The Fully Qualified Domain Name (FQDN) to use when connecting to the cluster is 
 
 ##File locations
 
-Hadoop related files are located under `/usr/hdp/current`.
+Hadoop related files can be found on the cluster nodes at `/usr/hdp/current`.
+
+Example data and jars can be found on HDFS (WASB) at '/example' or 'wasb:///example'.
 
 ##HDFS, WASB, and storage best practices
 
@@ -70,7 +70,7 @@ HDInsight uses Azure Blob Storage as the default store, which provides the follo
 
 * Cheap long term storage
 
-* Accessible from external services such as websites, file upload/download utilities, and web browsers
+* Accessible from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
 
 Since it is the default store for HDInsight, you normally don't have to do anything to use it. For example, the following command will list files in the **/example/data** folder, which is stored on Azure Blob Storage.
 
@@ -120,7 +120,7 @@ Other than through the Hadoop command from the cluster, there are a variety of w
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx" target="_blank">REST API</a>
+* <a href="https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx" target="_blank">Storage REST API</a>
 
 
 ##Next steps

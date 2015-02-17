@@ -32,13 +32,11 @@ Ambari is provided by default with Linux-based HDInsight clusters. Windows-based
 
 > [AZURE.NOTE] While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive server not found errors when trying to access some features over the Internet.
 
-To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node, which can successfully resolve the internal domain names. Use the following to create an SSH tunnel from a port on your local machine to the cluster.
+To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node, which can successfully resolve the internal domain names. Use the following articles to create an SSH tunnel from a port on your local machine to the cluster.
 
-For steps on using SSH to tunnel web traffic to the cluster, see the following articles.
+* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - steps on creating an SSH tunnel using the `ssh` command
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - stpes on creating an SSH tunnel using the `ssh` command
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a> - steps on using Putty to create an SSH tunnel
+* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a> - steps on using PuTTY to create an SSH tunnel
 
 ##Ambari web UI
 
@@ -132,13 +130,13 @@ Selecting a service will display more detailed information on the service
 
 Some services display a **Quick Links** link at the top of the page. This can be used to access service specific web UI, such as:
 
-* **Job History** for MapReduce jobs
+* **Job History** - MapReduce job history
 
-* **Resource Manager** for YARN
+* **Resource Manager** - YARN Resource Manager UI
 
-* **NameNode** for HDFS
+* **NameNode** - HDFS NameNode UI
 
-* **Oozie Web UI** for Oozie
+* **Oozie Web UI** - Oozie UI
 
 Selecting any of these links will open a new tab in your browser, which will display the selected page.
 
@@ -146,7 +144,7 @@ Selecting any of these links will open a new tab in your browser, which will dis
 > 
 > For information on using an SSL tunnel with HDInsight, see one of the following.
 > 
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - stpes on creating an SSH tunnel using the `ssh` command
+> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - steps on creating an SSH tunnel using the `ssh` command
 >
 >* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a> - steps on using Putty to create an SSH tunnel
 

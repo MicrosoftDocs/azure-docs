@@ -38,7 +38,7 @@ Trident is a high-level abstraction that provides tools such as joins, aggregati
 
 Use the following to clone the project locally.
 
-	git clone something something something
+	git clone https://github.com/Blackmist/TwitterTrending
 
 ##Topology
 
