@@ -16,8 +16,8 @@
 
 To create an inline link to a page in the same directory as the current page (this is the case for all our ACOM technical articles), use the single-dot notation. Include the markdown file name extension:
 
-    [link text](../<article name/>)
-    [Create a Media Services account!](../media-services-create-account/)
+    [link text](../<article name>)
+    [Create a Media Services account!](../media-services-create-account)
  
 To link to a page in a different directory (to link from a tech doc to a feature page, for example), you need to use the ../ syntax to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
 
