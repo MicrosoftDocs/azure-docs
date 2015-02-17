@@ -271,7 +271,7 @@ Request:
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types></a>Types used when defining AssetDeliveryPolicy
+##<a id="types"></a>Types used when defining AssetDeliveryPolicy
 
 ###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
