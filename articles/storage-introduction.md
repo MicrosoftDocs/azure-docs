@@ -70,7 +70,7 @@ The image below shows the relationships between the Azure storage resources in a
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-When you are ready to create a standard storage account, see [Create, manage, or delete a storage account](../storage-storage-create-account/) for more details.
+When you are ready to create a standard storage account, see [Create, manage, or delete a storage account](../storage-create-storage-account/) for more details.
 
 ### Premium Storage Accounts (Preview)
 
@@ -136,7 +136,7 @@ Finally, you can specify that a container and its blobs, or a specific blob, are
 
 ## Replication for Durability and High Availability ##
 
-[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options-include](../includes/storage-replication-options-include.md)]
 
 ## Pricing ##
 

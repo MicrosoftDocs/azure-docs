@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/16/2015"
+   ms.date="02/17/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 
@@ -70,7 +70,7 @@ In addition to the dedicated StorSimple device and virtual device, Microsoft Azu
 
 Microsoft Azure StorSimple automatically arranges data in logical tiers based on current usage, age, and relationship to other data. Data that is most active is stored locally, while less active and inactive data is automatically migrated to the cloud. The following diagram illustrates this storage approach.
  
-[StorSimple storage tiers][./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png]
+![StorSimple storage tiers](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
 
 **Azure StorSimple storage tiers**
 

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
+	ms.date="02/16/2015" 
 	ms.author="torsteng@microsoft.com"/>
 
 # Adding a Shard To an Elastic Scale Application 
 
 
-### To Add a Shard for a New Range or Key  
+## To Add a Shard for a New Range or Key  
 
 Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
 
@@ -42,7 +42,7 @@ In the sample below, a database named **sample_shard_2** and all necessary schem
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
-### To Add a Shard for an Empty Part of an Existing Range  
+## To Add a Shard for an Empty Part of an Existing Range  
 
 In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The Elastic Scale Preview [Split-Merge Service](./sql-database-elastic-scale-overview-split-and-merge.md) can perform this operation, but if data movement is not necessary (for example, data for the range of days [25, 50), i.e., day 25 inclusive to 50 exclusive, does not yet exist) you can perform this entirely using the Shard Map Management APIs directly.
 

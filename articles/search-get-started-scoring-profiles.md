@@ -24,7 +24,8 @@ To help you experiment with scoring profiles, you can download a sample applicat
 
 The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.
 
-<h2 id="sub-1">Prerequisites</h2>
+<a id="sub-1"></a>
+## Prerequisites
 
 The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
@@ -32,14 +33,17 @@ You will need an Azure subscription and an Azure Search service to complete the 
 
 [AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
-<h2 id="sub-2">Download the sample application</h2>
+<a id="sub-2"></a>
+## Download the sample application
+
 Go to [Azure Search Scoring Profiles Demo](https://azuresearchscoringprofiles.codeplex.com/) on codeplex to download the sample application described in this tutorial.
 
 On the Source Code tab, click **Download** to get a zip file of the solution. 
 
  ![][12]
 
-<h2 id="sub-3">Edit app.config</h2>
+<a id="sub-3"></a>
+## Edit app.config
 
 1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
 1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the management portal.
@@ -53,7 +57,8 @@ When you are finished adding the URL and `api-key` to app.config, application se
    ![][11]
 
 
-<h2 id="sub-4">Explore the application</h2>
+<a id="sub-4"></a>
+## Explore the application
 
 You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.
 

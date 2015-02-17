@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" 
-	description="Learn how to validate and modify data sent using server scripts from your iOS app." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center"
+	description="Learn how to validate and modify data sent using server scripts from your iOS app."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="10/10/2014"
 	ms.author="krisragh"/>
 
 # Validate and modify data in Mobile Services by using server scripts
@@ -200,8 +200,6 @@ You have completed this working with data tutorial.-->
 
 ## <a name="next-steps"> </a>Next steps
 
-Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: [Refine queries with paging].
-
 Server scripts are also used when authorizing users and for sending push notifications. For more information see the following tutorials:
 
 * [Authorize users with scripts]
@@ -231,7 +229,7 @@ Server scripts are also used when authorizing users and for sending push notific
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
+
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios

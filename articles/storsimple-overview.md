@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/16/2015"
+   ms.date="02/17/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # What is StorSimple? 
@@ -32,7 +32,7 @@ Azure StorSimple provides the following benefits:
 
 The following diagram provides a high-level view of the Microsoft Azure StorSimple solution.
 
-[StorSimple architecture][./media/storsimple-overview/hcs-data-services-storsimple-system-architecture.png]
+![StorSimple architecture](./media/storsimple-overview/hcs-data-services-storsimple-system-architecture.png)
 
 **Microsoft Azure StorSimple architecture**
 

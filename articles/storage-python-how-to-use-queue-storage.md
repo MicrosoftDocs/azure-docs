@@ -26,9 +26,9 @@ This guide shows you how to perform common scenarios using the Azure Queue stora
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**. For more information on queues, refer to the [Next Steps][] section.
 
-[AZURE.INCLUDE [storage-queue-concepts](../includes/storage-queue-concepts.md)]
+[AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 
 > [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).

@@ -62,7 +62,7 @@ Configure key authorization policy using **.NET** or **REST API**.
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
 ##Publishing assets
 
@@ -75,9 +75,7 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
 
-For more information, see:
-
-[How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+For information about scale streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
 
 
 

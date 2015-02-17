@@ -29,10 +29,9 @@ Azure Blob service. The samples are written using the
 Node.js API. The scenarios covered include **uploading**, **listing**,
 **downloading**, and **deleting** blobs.
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-## Create an Azure Storage account
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## Create a Node.js Application
 
