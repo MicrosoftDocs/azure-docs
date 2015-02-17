@@ -1,8 +1,8 @@
-<properties title="Process Data in Azure Blob" pageTitle="Process Data in  Azure Blob" description="Process Data in Azure Blob" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liangsun,mona,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="Process Data in Azure Blob" pageTitle="Process Data in  Azure Blob" description="Process Data in Azure Blob" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liangsun,mona,fashah" manager="paulettm" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/27/2015" ms.author="liangsun,mona,fashah,garye" /> 
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="liangsun,mona,fashah,garye" /> 
 
-#<a name="heading"></a>Process Data in Azure Blob
+#<a name="heading"></a>Process Azure Blob data in your data science environment
 
 This document covers exploring data and generating features from data stored in Azure Blob. In order to do so, data must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame for exploration and manipulation. Here are the steps to follow:
 
