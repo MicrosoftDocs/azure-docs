@@ -13,11 +13,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/01/2015" 
-	ms.author="torsteng"/>
+	ms.author="torsteng@microsoft.com"/>
 
 # Using Elastic Scale with Dapper 
-
-By Torsten Grabs
 
 This document is for developers that rely on Dapper to build applications, but also want to embrace [Azure SQL Database Elastic Scale](http://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-scale-introduction/) to elastically grow and shrink capacity through sharding and scale-out for their applications. This document illustrates the changes in Dapper-based applications that are necessary to integrate with the current Elastic Scale capabilities. Our focus is on composing Elastic Scale shard management and data dependent routing with Dapper. 
 
@@ -108,7 +106,7 @@ Queries work very much the same way – you first open the connection using [Ope
 
 Note that the **using** block with the DDR connection from Elastic Scale scopes all database operations within the block to the one shard where tenantId1 is kept. The query only returns blogs stored on the current shard, but not the ones stored on any other shards. 
 
-### Data Dependent Routing with Dapper and DapperExtensions
+## Data Dependent Routing with Dapper and DapperExtensions
 
 Dapper comes with an ecosystem of additional extensions that can provide further convenience and abstraction from the database when developing database applications. DapperExtensions is an example. 
 

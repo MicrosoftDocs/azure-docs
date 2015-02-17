@@ -79,7 +79,7 @@ Azure File storage is currently in preview. To request access to the preview, na
 
 > [AZURE.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
 
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## Use PowerShell to create a file share
 

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
-	ms.author="Joseidz"/>
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
 #Federations Migration 
 

@@ -8,7 +8,7 @@ manager="paulettm"
 editor="cgronlun"/>
 
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/0/2015" ms.author="bradsev" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/10/2015" ms.author="bradsev" />
 
 
 #Access datasets with Python using the Azure Machine Learning Python client library 

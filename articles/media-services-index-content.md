@@ -163,7 +163,7 @@ Both SAMI and TTML include a tag called <b>Recognizability</b> which scores an i
 Keyword file is an XML file that contains keywords extracted from the speech content, with frequency and offset information.
 <br/><br/>
 The file can be used for a number of purposes, such as, to perform speech analytics, or exposed to search engines such as Bing, Google or Microsoft SharePoint to make the media files more discoverable, or used to deliver more relevant ads.</td></tr>
-</table><br/>
+</table>
 
 If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
@@ -285,7 +285,7 @@ Error: indicates whether this media file is indexed successfully. 0 for succeede
 <td>File #0 - Keyword file.</td></tr>
 <tr><td>Media_2.aib </td>
 <td>File #1 - Audio indexing blob file.</td></tr>
-</table><br/>
+</table>
 
 If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
