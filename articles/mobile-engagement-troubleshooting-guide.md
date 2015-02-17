@@ -16,7 +16,7 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement Troubleshooting Guides
+# Azure Mobile Engagement - Troubleshooting Guides
 
 ## Analytics, Monitoring, Segmentation, and Dashboards
 **Symptom List:**
@@ -48,7 +48,7 @@ Segments can only contain 10 criteria.
 
 **See also:** 
 
-- [Troubleshooting Guide - SDK](http://go.microsoft.com/fwlink/?LinkId=525560), [API Documentation](http://go.microsoft.com/fwlink/?LinkId=525553), [UI Documentation - Segments](http://go.microsoft.com/fwlink/?LinkId=525552)
+- [Troubleshooting Guide - SDK][Link 2], [API Documentation][Link 4], [UI Documentation - Segments][Link 1]
 
 **Symptom:**
 
@@ -65,7 +65,7 @@ Segments can only contain 10 criteria.
 
 **See Also:**
 
-- [UI Documentation - Reach New Push Criterion for targeting Audience](http://go.microsoft.com/fwlink/?LinkId=525552)
+- [UI Documentation - Reach New Push Criterion for targeting Audience][Link 1]
  
 **Symptom:**
 3. Crash troubleshooting:
@@ -78,7 +78,7 @@ Segments can only contain 10 criteria.
 
 **See Also:**
 
-- [Concepts - FAQ](http://go.microsoft.com/fwlink/?LinkId=525555), [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555), [UI Documentation](http://go.microsoft.com/fwlink/?LinkId=525552), [SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId=525554), [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId=525554), [How Tos - Device ID Registration](http://go.microsoft.com/fwlink/?LinkId=525557)
+- [Concepts - FAQ][Link 6], [Concepts - Glossary][Link 6], [UI Documentation][Link 1], [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5], [How Tos - Device ID Registration][Link 3]
 
 ## APIs
 
@@ -104,7 +104,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
  
-- [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555), [API Documentation](http://go.microsoft.com/fwlink/?LinkId=525553), [XMPP Protocol Info]( http://xmpp.org/extensions/xep-0199.html)
+- [Concepts - Glossary][Link 6], [API Documentation][Link 4], [XMPP Protocol Info]( http://xmpp.org/extensions/xep-0199.html)
  
 **Symptom:**
 
@@ -117,7 +117,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
  
-- [UI Documentation](http://go.microsoft.com/fwlink/?LinkId=525552)
+- [UI Documentation][Link 1]
  
 **Symptom:**
 
@@ -150,7 +150,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
 
-- [API Documentation - for detailed errors on each specific API](http://go.microsoft.com/fwlink/?LinkId=525553)
+- [API Documentation - for detailed errors on each specific API][Link 4]
  
 **Symptom:**
 
@@ -164,7 +164,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
 
-- [Troubleshooting Guide - SDK](http://go.microsoft.com/fwlink/?LinkId=525560), [SDK Documentation](http://go.microsoft.com/fwlink/?LinkId=525554)
+- [Troubleshooting Guide - SDK][Link 2], [SDK Documentation][Link 5]
  
 ## Push/Reach
  
@@ -204,7 +204,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
 
-- [Troubleshooting Guide - SDK](http://go.microsoft.com/fwlink/?LinkId=525560), [Troubleshooting Guide - Push](http://go.microsoft.com/fwlink/?LinkId=525560), [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications](http://go.microsoft.com/fwlink/?LinkId=525554)
+- [Troubleshooting Guide - SDK][Link 2], [Troubleshooting Guide - Push][Link 2], [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5]
  
 **Symptom:**
 
@@ -218,7 +218,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
 
-- [UI Documentation - Reach](http://go.microsoft.com/fwlink/?LinkId=525552)
+- [UI Documentation - Reach][Link 1]
  
 **Symptom:**
 
@@ -240,7 +240,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
 
-- [How Tos - Push](http://go.microsoft.com/fwlink/?LinkId=525557), [Troubleshooting Guide - Push](http://go.microsoft.com/fwlink/?LinkId=525560), [HTTP Protocol Info]( http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
+- [How Tos - Push][Link 3], [Troubleshooting Guide - Push][Link 2], [HTTP Protocol Info]( http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
  
 **Symptom:**
 
@@ -260,7 +260,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
 
-- [UI Documentation - Reach](http://go.microsoft.com/fwlink/?LinkId=525552), [UI Documentation - Settings](http://go.microsoft.com/fwlink/?LinkId=525552), [API Documentation - Reach](http://go.microsoft.com/fwlink/?LinkId=525553), [API Documentation - Push](http://go.microsoft.com/fwlink/?LinkId=525553), [API Documentation - Device](http://go.microsoft.com/fwlink/?LinkId=525553)
+- [UI Documentation - Reach][Link 1], [UI Documentation - Settings][Link 1], [API Documentation - Reach][Link 4], [API Documentation - Push][Link 4], [API Documentation - Device][Link 4]
  
 **Symptom:**
 
@@ -279,7 +279,7 @@ Segments can only contain 10 criteria.
 
 **See also:**
 
-- [How Tos - Scheduling](http://go.microsoft.com/fwlink/?LinkId=525557), [UI Documentation - Reach New Push Campaign](http://go.microsoft.com/fwlink/?LinkId=525552)
+- [How Tos - Scheduling][Link 3], [UI Documentation - Reach New Push Campaign][Link 1]
  
 ## Service
 
@@ -299,11 +299,11 @@ Segments can only contain 10 criteria.
     - Isolated issues that originally appear systemic to all of Azure Mobile Engagement
     - Known issues caused by server outages (not always shows in server status):
 o    Scheduling delays, Targeting errors, Badge update issues, Statistics stop collecting, Push stops working, API's stop working, New apps or users can't be created, DNS errors, and Timeout errors in the UI, API, or Apps on a device.
-1.	Cloud Dependency Outages
+1.    Cloud Dependency Outages
 <Azure Service Status><Amazon Web Services (AWS) Status>
-2.	Push Notification Services (PNS) Dependency Outages
+2.    Push Notification Services (PNS) Dependency Outages
 <Google - Service><Apple - Service><Android - Google GCM><Android - Amazon ADM><Apple - APNS><Windows Phone - WNS><Windows Phone - MPNS><Windows - WNS>
-3.	App Store Outages
+3.    App Store Outages
 <GooglePlay><iTunes><Windows Phone Store><Windows Store>
 
     - Cloud Dependency Outages
@@ -326,7 +326,7 @@ o    Scheduling delays, Targeting errors, Badge update issues, Statistics stop c
 
     - Test the same function from both the Azure Mobile Engagement UI and the Azure Mobile Engagement API's.
 
-[API Documentation](http://go.microsoft.com/fwlink/?LinkId=525553), [UI Documentation](http://go.microsoft.com/fwlink/?LinkId=525552)
+[API Documentation][Link 4], [UI Documentation][Link 1]
 
 *To test if the problem is with your Cellular Phone Network:*
 
@@ -338,7 +338,7 @@ o    Scheduling delays, Targeting errors, Badge update issues, Statistics stop c
     - Test if your Device is able to connect to Azure Mobile Engagement with another Azure Mobile Engagement integrated app.
     - Test that you can generate Events, Jobs, and Crashes from your phone that can be seen in the Azure Mobile Engagement UI. 
     - Test if you can send push notifications from the Azure Mobile Engagement UI to your device based on its Device ID. 
-[UI Documentation - Settings](http://go.microsoft.com/fwlink/?LinkId=525552)
+[UI Documentation - Settings][Link 1]
 
 *To test if the problem is with your App:*
 
@@ -351,7 +351,7 @@ To test if the problem is with OS upgrades to end user Devices, which require an
 
     - Test your application on different devices with different versions of the OS.
     - Confirm that you are using the most recent version of the SDK.
-[Troubleshooting Guide - SDK](http://go.microsoft.com/fwlink/?LinkId=525560)
+[Troubleshooting Guide - SDK][Link 2]
  
 **Symptom:**
 
@@ -372,14 +372,14 @@ To test if the problem is with OS upgrades to end user Devices, which require an
     - Confirm that the problem is not isolated to one computer or your local network.
     - Confirm that that the Azure Mobile Engagement service has no reported outages.
     - Confirm that your App Info Tag files follow all of these rules:
-		- Use only the UTF8 character set (the ANSI character set is not supported).
-		- Use a comma "," as the separator character (you can open a service request to request to change the .csv separator character from a comma "," to another character such as a semi-colon ";").
-		- Use all capitals for Boolean values "TRUE" and "FALSE".
-		- Use a file that is smaller than the maximum file size of 35MB.
+        - Use only the UTF8 character set (the ANSI character set is not supported).
+        - Use a comma "," as the separator character (you can open a service request to request to change the .csv separator character from a comma "," to another character such as a semi-colon ";").
+        - Use all capitals for Boolean values "TRUE" and "FALSE".
+        - Use a file that is smaller than the maximum file size of 35MB.
 
 **See also:**
 
-[API Documentation](http://go.microsoft.com/fwlink/?LinkId=525553), [UI Documentation - Home](http://go.microsoft.com/fwlink/?LinkId=525552)
+[API Documentation][Link 4], [UI Documentation - Home][Link 1]
  
 **Symptom:**
 
@@ -423,13 +423,13 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 - GCM or ADM not correctly integrated in SDK (Android only - Service Specific Pushes).
 - Tracking not correctly integrated in SDK (Install store tracking).
 - Lazy Location or GPS Location not correctly integrated in SDK (Targeting by geo-location).
-[SDK Documentation - Integration Guides](http://go.microsoft.com/fwlink/?LinkId=525554), [Troubleshooting Guide - Push](http://go.microsoft.com/fwlink/?LinkId=525560)
+[SDK Documentation - Integration Guides][Link 5], [Troubleshooting Guide - Push][Link 2]
 
 *SDK Upgrade:*
 
 - Need to upgrade SDK to resolve issues with older versions of the SDK (often related to newer versions of the device OS).
 - Uninstall all previous versions of your app from your device and reinstall the newest version of your app, the re-register your Device ID from the Azure Mobile Engagement UI to confirm that your device is using the newest version of your app.
-[SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId= 525554), [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId= 525554), [UI Documentation - Settings](http://go.microsoft.com/fwlink/?LinkId=525552)
+[SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId= 525554), [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId= 525554), [UI Documentation - Settings][Link 1]
 
 *SDK Other:*
 
@@ -437,7 +437,7 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 - Errors in Application Manifest "AndroidManifest.xml" can cause Azure Mobile Engagement not to work (Android only).
 - A common issue with SDK integration and 
 - API usage is to confuse the SDK Key and the API Key.
-[Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555)
+[Concepts - Glossary][Link 6]
  
 **Symptom:**
 
@@ -453,15 +453,15 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 - There are some limitations inherent to a platform that Azure Mobile Engagement can't control (like how the system center works for out of app pushes in Android and iOS).
 - Azure Mobile Engagement publishes a full list of the internal packages used by Azure Mobile Engagement for iOS and Android for reference. Keep in mind that some features of Azure Mobile Engagement are specific to the platform (Android, iOS, Web, Windows, and Windows Phone).
 - The SDKs for each platform are written in the following programming languages:
-	- 	Android SDK written in Java
-	- 	iOS SDK written in objective C
-	- 	Web SDK written in JavaScript
-	- 	Windows SDK written in C# and JavaScript
-	- 	Windows Phone SDK written in C# and JavaScript
+    -     Android SDK written in Java
+    -     iOS SDK written in objective C
+    -     Web SDK written in JavaScript
+    -     Windows SDK written in C# and JavaScript
+    -     Windows Phone SDK written in C# and JavaScript
 
 **See also:**
 
- - [Troubleshooting Guide - Push](http://go.microsoft.com/fwlink/?LinkId=525560), [SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId=525554), [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId=525554), [SDK Documentation - Android - Azure Mobile Engagement technical documentation overview](http://go.microsoft.com/fwlink/?LinkId=525554), [SDK Documentation - iOS - Azure Mobile Engagement technical documentation overview](http://go.microsoft.com/fwlink/?LinkId=525554), [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications](http://go.microsoft.com/fwlink/?LinkId=525554), [Android Developer](https://developer.android.com/), [iOS Developer](https://developer.apple.com/), [Windows Developer](https://developer.windows.com/) 
+ - [Troubleshooting Guide - Push][Link 2], [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5], [SDK Documentation - Android - Azure Mobile Engagement technical documentation overview][Link 5], [SDK Documentation - iOS - Azure Mobile Engagement technical documentation overview][Link 5], [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5], [Android Developer](https://developer.android.com/), [iOS Developer](https://developer.apple.com/), [Windows Developer](https://developer.windows.com/) 
  
 **Symptom:**
 
@@ -476,7 +476,7 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 
 **See also:**
 
-- [Concepts - FAQ](http://go.microsoft.com/fwlink/?LinkId=525555), [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555), [API Documentation - Analytics API - Crashes](http://go.microsoft.com/fwlink/?LinkId=525553), [UI Documentation - Analytics - Crashes](http://go.microsoft.com/fwlink/?LinkId=525552), [UI Documentation - Settings](http://go.microsoft.com/fwlink/?LinkId=525552), [SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId=525554), [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId=525554)
+- [Concepts - FAQ][Link 6], [Concepts - Glossary][Link 6], [API Documentation - Analytics API - Crashes][Link 4], [UI Documentation - Analytics - Crashes][Link 1], [UI Documentation - Settings][Link 1], [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5]
 
 **Symptom:**
 
@@ -490,7 +490,7 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 
 **See also:**
 
-- [SDK Documentation - Release Notes](http://go.microsoft.com/fwlink/?LinkId=525554), [SDK Documentation - Upgrade Guides](http://go.microsoft.com/fwlink/?LinkId=525554) 
+- [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5] 
 
 ## SR Troubleshooting Info
 
@@ -511,7 +511,7 @@ Please provide the following information when you open any Azure Mobile Engageme
     - The text of any error message you receive
     - The results of any tests you have performed from the troubleshooting guides
  
--	[Troubleshooting Guides](http://go.microsoft.com/fwlink/?LinkId=524382)
+-    [Troubleshooting Guides](http://go.microsoft.com/fwlink/?LinkId=524382)
 
 
 **Code: Please provide any applicable coding information related to your issue:**
@@ -519,3 +519,11 @@ Please provide the following information when you open any Azure Mobile Engageme
     - The SDK version and platform of your app (Android SDK 2.4.1, iOS 1.16.2, etc.)
     - The download location of your production app (or the APK/TGZ files of your development app)
     - The "AndroidManifest.xml" and/or any code snippet from your app related to Azure Mobile Engagement (for advanced troubleshooting)
+
+<!--Link references-->
+[Link 1]: ./mobile-engagement-user-interface/
+[Link 2]: ./mobile-engagement-troubleshooting-guide/
+[Link 3]: ./mobile-engagement-how-tos/
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
