@@ -27,7 +27,7 @@ Click to see the [SDK Content](../mobile-engagement-ios-sdk-content)
 
 2. For Notifications: [How to integrate Reach (Notifications) in your iOS app](../mobile-engagement-ios-integrate-engagement-reach/)
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your iOS app](../mobile-engagement-ios-use-the-engagement-api/)
+3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your iOS app](../mobile-engagement-ios-use-engagement-api/)
 
 
 ##Release notes
