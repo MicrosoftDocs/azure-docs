@@ -69,12 +69,11 @@ No, however each time an experiment is run that version of the graph is kept and
 Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-import-data/) to learn more about supported file formats. 
 
 
-**How large can my data set be?**
+####<a id="ModuleLimit"></a>How large can the data set be for my modules?
 
-*Modules*
 Machine Learning Studio supports  training datasets up to 10 GB. There is no limit on the dataset size for web services.  You can also sample larger datasets via Hive or Azure SQL Database queries before ingestion. If you are working with data larger than 10 GB, you can create multiple datasets and use the **Partition and Sample**, **Split**, or **Join** modules to combine these datasets in Machine Learning Studio to create training sets for building predictive models. Visit the module Help in Machine Learning Studio to learn more about these modules.
 
-*Data upload* 
+####<a id="UploadLimit"></a>What are the limits for data upload?
 For datasets larger than a couple GB, upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
 **Can I read data from Amazon S3?**
