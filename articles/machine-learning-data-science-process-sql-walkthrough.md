@@ -12,6 +12,12 @@ The following sections are organized as follows:
 - [NYC Taxi Trips Dataset Description](#dataset)
 - [Example Prediction Problems](#mltasks)
 - [Setting Up the Azure Data Science Environment](#setup)
+- [Get the Data from Public Source](#getdata)
+- [Bulk Import Data into SQL Server Database](#dbload)
+- [Data Exploration and Feature Engineering in SQL Server](#dbexplore)
+- [Data Exploration and Feature Engineering in IPython Notebook](#ipnb)
+- [Building Models in Azure Machine Learning](#mlmodel)
+- [Deploying Models in Azure Machine Learning](#mldeploy)
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
 
@@ -91,7 +97,13 @@ To copy the data using AzCopy:
 
 4. Unzip the downloaded files. Note the folder where the uncompressed files reside. This folder will be referred to as the <path\_to\_data\_files\>.
 
-## Read data in Pandas frame for visualizations
+## <a name="dbload"></a>Bulk Import Data into SQL Server Database
+
+
+## <a name="dbexplore"></a>Data Exploration and Feature Engineering in SQL Server
+
+
+## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
 
 We are going to show data exploration and feature generation
 using both Python and SQL queries for the data sourced from SQL Server hosted on
@@ -197,7 +209,7 @@ Next we look at the box plot for the trip distance to visualize the quantiles
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_26_1.png)
+![Plot #1][1]
 
 #### Distribution Plot
 
@@ -207,7 +219,7 @@ Next we look at the box plot for the trip distance to visualize the quantiles
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_28_1.png)
+![Plot #2][2]
 
 #### Binning trip_distance
 
@@ -226,11 +238,11 @@ We can plot the above bin distribution in a bar or line plot as below
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_35_1.png)
+![Plot #3][3]
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_36_1.png)
+![Plot #4][4]
 
 
 We can also do bar plot for visualizing the sum of passengers for each vendor as
@@ -241,7 +253,7 @@ follows
 
     vendor_passenger_sum.plot(kind='bar')
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_39_1.png)
+![Plot #5][5]
 
 
 #### Scatterplot 
@@ -251,7 +263,7 @@ is any correlation
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_42_1.png)
+![Plot #6][6]
 
 
 To further drill down on the relationship we can do distribution side by side
@@ -261,22 +273,15 @@ follows
     df1_2col = df1[['trip_time_in_secs','trip_distance']]
     pd.scatter_matrix(df1_2col, diagonal='hist', color='b', alpha=0.7, hist_kwds={'bins':100})
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_44_1.png)
+![Plot #7][7]
 
 Similarly we can check the relationship between rate_code and trip_distance
 using scatter plot
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_46_1.png)
+![Plot #8][8]
 
-
-#### Correlation
-
-Pandas also has the corr function that can be used to compute the correlation
-between trip_time_in_secs and trip_distance for instance as follows:
-
-    df1[['trip_time_in_secs', 'trip_distance']].corr()
 
 ## Sub-Sampling the Data in SQL
 
@@ -407,7 +412,7 @@ that data (that we created above).
 
     tip_class_dist['tip_freq'].plot(kind='bar')
 
-![png](machine-Learning-data-science-process-sql-walkthrough/machine-Learning-data-science-process-sql-walkthrough_71_1.png)
+![Plot #9][9]
 
 
 #### Daily distribution of trips
@@ -566,6 +571,14 @@ sub-sample and derived features) and start Machine Learning for predicting the
 binary class (whether a tip would be given) or multiclass (tip bin number) or
 regression (tip amount).
 
+## <a name="mlmodel"></a>Building Models in Azure Machine Learning
+
+![Azure ML Train][10]
+
+## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
+
+![Azure ML Publish][11]
+
 ### License Information
 
 This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Users please check the LICENSE.txt in the same directory of the sample code for more details.
@@ -575,3 +588,16 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 •	[Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
 •	[FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •	[NYC Taxi and Limousine Commision Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+
+
+[1]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
+[2]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_28_1.png
+[3]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_35_1.png
+[4]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_36_1.png
+[5]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_39_1.png
+[6]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_42_1.png
+[7]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_44_1.png
+[8]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_46_1.png
+[9]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_71_1.png
+[10]: ./media/machine-Learning-data-science-process-sql-walkthrough/azuremltrain.png
+[11]: ./media/machine-Learning-data-science-process-sql-walkthrough/azuremlpublish.png
