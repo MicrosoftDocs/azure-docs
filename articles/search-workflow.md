@@ -24,20 +24,15 @@ This article provides a roadmap and a few best practices for creating and mainta
 
 We assume that you have already provisioned the service. If you haven’t done that yet, see [Get started with Azure Search](../search-get-started/) for further instruction.
 
-+ [Step 1: Create the index](#sub-1)
-+ [Step 2: Add documents](#sub-2)
-+ [Step 3: Query an index](#sub-3)
-+ [Step 4: Update or delete indexes and documents](#sub-4)
-+ [Storage design considerations](#sub-5)
-
-
-<h2 id="sub-1">Step 1: Create the index</h2>
+<a id="sub-1"></a>
+## Step 1: Create the index
 
 Queries target a search index that contains search data and attributes. As such, your first step after provisioning the service is to define the index schema in JSON format, and execute an HTTPS PUT request to create the index in the service. 
 
 Indexes are constructed by your application code. There are no built-in tools or editors to help you define an index in a user interface. Examples that demonstrate various ways of constructing the index include [Create your first search solution using Azure Search](../search-create-first-solution/), where the schema is specified in the Program.cs file, and [Get started with scoring profiles in Azure Search](../search-get-started-scoring-profiles) that provides the index in a standalone JSON schema file. To learn more about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798941.aspx) on MSDN.
 
-<h2 id="sub-2">Step 2: Add documents</h2>
+<a id="sub-2"></a>
+## Step 2: Add documents
 
 Once the search index is created, you can add documents to the index by POSTing them in JSON format. Each document must have a unique key and a collection of fields containing searchable and non-searchable data. Document data is represented as a set of key/value pairs for each field.
 
@@ -49,21 +44,24 @@ Under heavy load, it's not uncommon to have some upload failures. Should this oc
 
 > [AZURE.NOTE] When the service receives documents, they are queued up for indexing and may not be immediately included in search results. When not under a heavy load, documents are typically indexed within a few seconds.
 
-
-<h2 id="sub-3">Step 3: Query an index</h2>
+<a id="sub-3"></a>
+## Step 3: Query an index
 
 Once documents have been indexed, you can execute search queries. You can query one index at a time, using either OData or a simple query syntax:
 
 +	[OData expression syntax for Azure Search](http://msdn.microsoft.com/en-us/library/dn798921.aspx)
 +	[Simple query syntax in Azure Search](http://msdn.microsoft.com/en-us/library/dn798920.aspx)
 
-<h2 id="sub-4">Step 4: Update or delete indexes and documents</h2>
+
+<a id="sub-4"></a>
+## Step 4: Update or delete indexes and documents
 
 Optionally, you can make schema changes to the search index, update or delete documents from within the index, and delete indexes.
 
 When updating an index, you can combine multiple actions (insert, merge, delete) into the same batch, eliminating the need for multiple round trips. Currently Azure Search does not support partial updates (HTTP PATCH), so if you need to update an index, you must resend the index definition.
 
-<h2 id="sub-5">Storage design considerations</h2>
+<a id="sub-5"></a>
+## Storage design considerations
 
 Azure Search uses internal storage for the indexes and documents used in search operations. Text analysis and index parsing is dependent on having all searchable fields and associated attributes readily available.
 
