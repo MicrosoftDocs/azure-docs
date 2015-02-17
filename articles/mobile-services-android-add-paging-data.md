@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="Mobile-Android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # Refine Mobile Services queries with paging
@@ -26,9 +26,9 @@ This topic shows you how to use paging to manage the amount of data returned to 
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must complete at least the first tutorial in the working with data series, [Get started with data]. 
 
-1. In Eclipse, open the project that you created when you completed the tutorial [Get started with data].
+1. In Android Studio, open the project that you created when you completed the tutorial [Get started with data].
 
-2. From the **Run** menu, then click **Run** to start the app, then enter text into the textbox and click the **Add** button.
+2. From the **Run** menu, then click **Run app** to start the app, then enter text into the textbox and click the **Add** button.
 
 3. Repeat the previous step at least three times, so that you have more than three items stored in the TodoItem table. 
 
