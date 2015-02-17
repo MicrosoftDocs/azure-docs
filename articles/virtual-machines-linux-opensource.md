@@ -23,14 +23,14 @@ This document attempts to list in one place all the topics written by Microsoft 
 
 The sections are broken down as follows. (Links may occur in more than one section, as topics can be about more than one concept, distro, or technology.)
 
-- [Distros](#distros) -- Topics to do with a specific distro.
-- [The Basics](#basics) -- A lot of the basic things to do that you either know or need to know.
-- [Community Images and Repositories](#images) -- Other places for very useful information, repositories, and binaries.
+- [Distros](#distros) &mdash; Topics to do with a specific distro.
+- [The Basics](#basics) &mdash; A lot of the basic things to do that you either know or need to know.
+- [Community Images and Repositories](#images) &mdash; Other places for very useful information, repositories, and binaries.
 - [Languages and Platforms](#langsandplats)
 - [Samples and Scripts](#samples)
-- [Auth and Encryption](#security) -- Important security-related topics, not necessarily specific to Azure.
-- [Devops, Management, and Optimization](#devops) -- A big category, changing rapidly.
-- [Support, Troubleshooting, and "It Just Doesn't Work"](#supportdebug) -- Really.
+- [Auth and Encryption](#security) &mdash; Important security-related topics, not necessarily specific to Azure.
+- [Devops, Management, and Optimization](#devops) &mdash; A big category, changing rapidly.
+- [Support, Troubleshooting, and "It Just Doesn't Work"](#supportdebug) &mdash; Really.
 
 In addition, there are several topics that describe various Linux options, image repositories, case studies, and how-to topics to upload your own custom images: 
 
@@ -138,9 +138,9 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 23. [Azure Service Management REST API](https://msdn.microsoft.com/en-us/library/azure/ee460799.aspx) reference
 
 ### <a id='images'>Community Images and Repositories</a>
-3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) -- for community provided virtual machine images.
-4. [Github](https://github.com/Azure/) -- for the xplat-cli, and many other tools and projects.
-5. [Docker Hub Registry](https://registry.hub.docker.com/) -- the registry for Docker container images.
+3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) &mdash; for community provided virtual machine images.
+4. [Github](https://github.com/Azure/) &mdash; for the xplat-cli, and many other tools and projects.
+5. [Docker Hub Registry](https://registry.hub.docker.com/) &mdash; the registry for Docker container images.
 
 
 ### <a id='langsandplats'>Languages and Platforms</a>
