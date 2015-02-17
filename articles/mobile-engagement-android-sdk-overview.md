@@ -36,7 +36,7 @@ Click to see the [SDK Content](../mobile-engagement-android-sdk-content)
 
 ###3.0.0 (02/17/2015)
 
--   Rebranded Capptain to Engagement.
+-   Initial Release of Azure Mobile Engagement
 -   appId configuration is replaced by a connection string configuration.
 -   Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.
 -   Removed API to send and receive messages between devices.
@@ -51,29 +51,25 @@ If you already have integrated an older version of our SDK into your application
 
 You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](../mobile-engagement-android-upgrade-procedure/). For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
 
-Whatever the version you upgrade from, you have to replace all the `capptain*.jar` by the new ones.
-
-Please note that starting from SDK 2.0.0, there is only one jar file: `capptain.jar`.
-
-Starting from SDK 3.0.0, the jar file is renamed: `mobile-engagement-VERSION.jar`.
+Whatever the version you upgrade from, you have to replace all the `mobile-engagement-VERSION.jar` by the new ones.
 
 ###From 2.4.0 to 3.0.0
 
-Capptain is rebranded as Engagement, a lot of modifications are necessary to handle this change.
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
 
-We also modified a lot of other integration parameters that are described in the following sections.
+>[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
 
-### JAR file
+#### JAR file
 
 Replace `capptain.jar` by `mobile-engagement-VERSION.jar` in your `libs` folder.
 
-### Resource files
+#### Resource files
 
 Every resource file that we provided (prefixed by `capptain_`) have to be replaced by the new ones (prefixed with `engagement_`).
 
 If you customized those files, you have to re-apply your customization on the new files, **all the identifiers in the resource files have also been renamed**.
 
-### Application ID
+#### Application ID
 
 Now Engagement uses a connection string to configure the SDK identifiers such as the application identifier.
 
@@ -93,7 +89,7 @@ Please remove this section from your `AndroidManifest.xml` if you have it:
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-### Java API
+#### Java API
 
 Every call to any Java class of our SDK have to be renamed, for example `CapptainAgent.getInstance(this)` must be renamed `EngagementAgent.getInstance(this)`, `extends CapptainActivity` must be renamed `extends EngagementActivity` etc...
 
@@ -101,7 +97,7 @@ If you were integrated with default agent preference files, the default file nam
 
 When creating web announcements, the Javascript binder is now `engagementReachContent`.
 
-### AndroidManifest.xml
+#### AndroidManifest.xml
 
 A lot of changes happened there, the service is not shared anymore and a lot of receivers are not exportable anymore.
 
@@ -316,7 +312,7 @@ and
 
 			sendXMPPMessage(android.os.Bundle msg)
 
-### Proguard
+#### Proguard
 
 Proguard configuration can be impacted by rebranding, the rules are now looking like:
 

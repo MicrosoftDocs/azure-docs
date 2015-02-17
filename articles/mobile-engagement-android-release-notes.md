@@ -21,7 +21,7 @@
 
 ##3.0.0 (02/17/2015)
 
--   Rebranded Capptain to Engagement.
+-   Initial Release of Azure Mobile Engagement
 -   appId configuration is replaced by a connection string configuration.
 -   Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.
 -   Removed API to send and receive messages between devices.
