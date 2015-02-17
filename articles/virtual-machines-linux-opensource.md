@@ -35,15 +35,10 @@ The sections are broken down as follows. (Links may occur in more than one secti
 In addition, there are several topics that describe various Linux options, image repositories, case studies, and how-to topics to upload your own custom images: 
 
 - [Azure Marketplace](http://azure.microsoft.com/en-us/marketplace/virtual-machines/)
- 
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
-
 - [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
-
 - [How to: Uploading your own Distro Image](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/) (and also instructions using an [Azure-Endorsed Distribution](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/))
-
 - [Notes: General Linux Requirements to Run in Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-generic/)
-
 - [Notes: General Introduction for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-introduction/)
 
 
