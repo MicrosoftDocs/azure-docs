@@ -263,6 +263,8 @@ For help from the community, try these popular forums:
 
 These are some of the resources available that you can use to learn to use Azure and Windows PowerShell. 
 
+- To learn about how to access Azure Storage components, see [Using Azure PowerShell with Azure Storage](./storage-powershell-guide-full.md).
+
 - To provide feedback about the cmdlets, report issues, or access the source code, see [Azure PowerShell code repository](https://github.com/WindowsAzure/azure-sdk-tools).
 
 - To learn about the Windows PowerShell command line and scripting environment, see the [TechNet Script Center](http://go.microsoft.com/fwlink/p/?LinkId=320211).
