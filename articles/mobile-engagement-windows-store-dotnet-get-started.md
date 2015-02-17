@@ -277,10 +277,10 @@ You should see a notification on your device, **Congratulations!**:
 [Mobile Engagement Windows Store SDK]: http://go.microsoft.com/?linkid=9864592
 
 <!-- Images. -->
-[7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
+[7]: ./media/mobile-engagement-windows-store-get-started/create-mobile-engagement-app.png
 [8]: ./media/mobile-engagement-windows-store-get-started/aux-create-app.png
 [9]: ./media/mobile-engagement-windows-store-get-started/aux-select-app.png
-[10]: ./media/mobile-engagement-common/app-main-page-select-connection-info.png
+[10]: ./media/mobile-engagement-windows-store-get-started/app-main-page-select-connection-info.png
 [11]: ./media/mobile-engagement-windows-store-get-started/app-connection-info-page.png
 [12]: ./media/mobile-engagement-windows-phone-get-started/new-project.png
 [13]: ./media/mobile-engagement-windows-store-get-started/project-properties.png
@@ -291,20 +291,20 @@ You should see a notification on your device, **Congratulations!**:
 [21]: ./media/mobile-engagement-windows-store-get-started/manifest-declarations.png
 [22]: ./media/mobile-engagement-windows-store-get-started/add-connection-info.png
 [23]: ./media/mobile-engagement-windows-store-get-started/subclass-page.png
-[26]: ./media/mobile-engagement-common/engage-button.png
-[27]: ./media/mobile-engagement-common/engagement-portal.png
+[26]: ./media/mobile-engagement-windows-store-get-started/engage-button.png
+[27]: ./media/mobile-engagement-windows-store-get-started/engagement-portal.png
 
-[28]: ./media/mobile-engagement-common/native-push-settings.png
-[29]: ./media/mobile-engagement-common/api-key.png
-[30]: ./media/mobile-engagement-common/clic-monitor-tab.png
-[31]: ./media/mobile-engagement-common/monitor.png
-[32]: ./media/mobile-engagement-common/launch.png
+[28]: ./media/mobile-engagement-windows-store-get-started/native-push-settings.png
+[29]: ./media/mobile-engagement-windows-store-get-started/api-key.png
+[30]: ./media/mobile-engagement-windows-store-get-started/clic-monitor-tab.png
+[31]: ./media/mobile-engagement-windows-store-get-started/monitor.png
+[32]: ./media/mobile-engagement-windows-store-get-started/launch.png
 [33]: ./media/mobile-engagement-windows-phone-get-started/monitor.png
 [34]: ./media/mobile-engagement-windows-store-get-started/manifest-declarations-reach.png
 [35]: ./media/mobile-engagement-windows-store-get-started/manifest-toast.png
 [36]: ./media/mobile-engagement-windows-store-get-started/enter-credentials.png
-[37]: ./media/mobile-engagement-common/new-announcement.png
+[37]: ./media/mobile-engagement-windows-store-get-started/new-announcement.png
 [38]: ./media/mobile-engagement-windows-phone-get-started/campaign-first-params.png
-[39]: ./media/mobile-engagement-common/campaign-content.png
-[40]: ./media/mobile-engagement-common/campaign-create.png
-[41]: ./media/mobile-engagement-common/campaign-activate.png
+[39]: ./media/mobile-engagement-windows-store-get-started/campaign-content.png
+[40]: ./media/mobile-engagement-windows-store-get-started/campaign-create.png
+[41]: ./media/mobile-engagement-windows-store-get-started/campaign-activate.png

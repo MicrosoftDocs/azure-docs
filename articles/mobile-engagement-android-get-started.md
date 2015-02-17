@@ -354,11 +354,11 @@ We will now create a simple Push Notification campaign that will send a push not
 [Mobile Engagement Android SDK]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
 <!-- Images. -->
-[7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
-[8]: ./media/mobile-engagement-common/create-azme-popup.png
+[7]: ./media/mobile-engagement-android-get-started/create-mobile-engagement-app.png
+[8]: ./media/mobile-engagement-android-get-started/create-azme-popup.png
 [9]: ./media/mobile-engagement-android-get-started/select-app.png
-[10]: ./media/mobile-engagement-common/app-main-page-select-connection-info.png
-[11]: ./media/mobile-engagement-common/app-connection-info-page.png
+[10]: ./media/mobile-engagement-android-get-started/app-main-page-select-connection-info.png
+[11]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
 [12]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [13]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
 [14]: ./media/mobile-engagement-android-get-started/android-studio-project-props2.png
@@ -372,17 +372,17 @@ We will now create a simple Push Notification campaign that will send a push not
 [22]: ./media/mobile-engagement-android-get-started/subclass-activity.png
 [23]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [24]: ./media/mobile-engagement-android-get-started/paste-resources.png
-[26]: ./media/mobile-engagement-common/engage-button.png
-[27]: ./media/mobile-engagement-common/engagement-portal.png
+[26]: ./media/mobile-engagement-android-get-started/engage-button.png
+[27]: ./media/mobile-engagement-android-get-started/engagement-portal.png
 [28]: ./media/mobile-engagement-android-get-started/native-push-settings.png
 [29]: ./media/mobile-engagement-android-get-started/api-key.png
-[30]: ./media/mobile-engagement-common/clic-monitor-tab.png
-[31]: ./media/mobile-engagement-common/monitor.png
+[30]: ./media/mobile-engagement-android-get-started/clic-monitor-tab.png
+[31]: ./media/mobile-engagement-android-get-started/monitor.png
 [32]: ./media/mobile-engagement-android-get-started/launch.png
 [33]: ./media/mobile-engagement-android-get-started/monitor-trafic.png
-[34]: ./media/mobile-engagement-common/reach-tab.png
-[35]: ./media/mobile-engagement-common/new-announcement.png
+[34]: ./media/mobile-engagement-android-get-started/reach-tab.png
+[35]: ./media/mobile-engagement-android-get-started/new-announcement.png
 [36]: ./media/mobile-engagement-android-get-started/campaign-first-params.png
-[37]: ./media/mobile-engagement-common/campaign-content.png
-[38]: ./media/mobile-engagement-common/campaign-create.png
-[39]: ./media/mobile-engagement-common/campaign-activate.png
+[37]: ./media/mobile-engagement-android-get-started/campaign-content.png
+[38]: ./media/mobile-engagement-android-get-started/campaign-create.png
+[39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
