@@ -29,15 +29,6 @@ When you deploy your application to Azure Websites, you can deploy to a separate
 
 Four deployment slots in addition to the production slot are supported for each website in the **Standard** plan. 
 
-## Table of Contents ##
-- [To Add a Deployment Slot to a Web Site](#Add)
-- [About Configuration for Deployment Slots](#AboutConfiguration)
-- [To Swap Deployment Slots](#Swap)
-- [To Rollback a Production Site to Staging](#Rollback)
-- [To Delete a Site Slot](#Delete)
-- [Azure PowerShell cmdlets for Site Slots](#PowerShell)
-- [Azure Cross-Platform Command-Line Interface (xplat-cli) commands for Site Slots](#CLI)
-
 <a name="Add"></a>
 ##To Add a Deployment Slot to a Website##
 

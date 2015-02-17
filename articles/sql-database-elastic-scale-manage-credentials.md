@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
-	ms.author="stuartozer"/>
+	ms.date="02/16/2015" 
+	ms.author="stuartozer@microsoft.com"/>
 
-#Managing Elastic Scale Credentials  
+#Managing Elastic Scale Credentials
 
 The [Elastic Scale Client APIs](http://go.microsoft.com/?linkid=9862605) uses credentials for different types of operations–in particular creating or manipulating a [Shard Map Manager](http://go.microsoft.com/?linkid=9862595), referencing an existing Shard Map Manager to obtain information about shards, and connecting to shards. Credentials for these types of operations are discussed below. 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2015" 
+	ms.date="02/17/2015" 
 	ms.author="josephd"/>
 
 #Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
@@ -22,11 +22,11 @@ These steps show you how to customize a set of Azure PowerShell commands that cr
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
+For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
 
 ##Step 1: Install Azure PowerShell
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an administrator-level Azure PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](./install-configure-powershell.md/) to install Azure PowerShell on your local computer. Then, open an administrator-level Azure PowerShell command prompt.
 
 ##Step 2: Set your subscription and storage account
 
@@ -259,12 +259,12 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 ##Additional Resources
 
-[Virtual machines documentation](http://azure.microsoft.com/en-us/documentation/services/virtual-machines/)
+[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
+[How to install and configure Azure PowerShell](./install-configure-powershell.md/)
 
-[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/)
+[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](./virtual-machines-ps-create-preconfigure-linux-vms.md/)

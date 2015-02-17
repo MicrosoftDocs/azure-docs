@@ -25,13 +25,6 @@ The Azure Websites Restore feature lets restore your website on-demand to a prev
 
 The Restore feature, available on the Backups tab in the Azure Websites portal, is available only in Standard mode.
 
-##In this article
-- [To Restore an Azure web site from a previously made backup](#PreviousBackup)
-- [To Restore an Azure web site directly from a storage account](#StorageAccount)
-- [Choose Your Web Site Restore Settings and Start the Restore Operation](#RestoreSettings)
-- [View the Operation Logs](#OperationLogs)
-
-
 <a name="PreviousBackup"></a>
 ##To Restore an Azure website from a previously made backup
 

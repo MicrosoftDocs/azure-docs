@@ -127,6 +127,9 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 * [Add web client telemetry][usage] to see exceptions from web page code and to let you insert trace calls.
 * [Add Application Insights SDK to your web service code][greenbrown] so that you can insert trace and log calls in the server code.
 
+## Video
+
+[AZURE.VIDEO app-insights-performance-monitoring]
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 

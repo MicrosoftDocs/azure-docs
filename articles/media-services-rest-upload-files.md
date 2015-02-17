@@ -21,7 +21,8 @@
 #Upload Files into a Media Services account using REST API
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-This article is part of the series that introduces [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow). The previous topic was [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/).
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >

@@ -16,6 +16,10 @@
 
 # Service-side Authorization of Users in Mobile Services
 
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
+- [(Any | Javascript)](/en-us/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+
 This topic shows you how to use server-side scripts to authorize authenticated users for accessing data.  In this tutorial, you register scripts with Azure Mobile Services, filter queries based on user IDs, and give users access to only their own data.
 
 This tutorial is based on the Mobile Services Quick Start and builds on the [Add Authentication to Your Mobile Services App] tutorial. Please complete [Add Authentication to Your Mobile Services App] first.
@@ -29,25 +33,24 @@ Because the Quick Start app reads and inserts data, let's register scripts for t
 
    	![][2]
 
-3. Replace the existing script with the following function, and then click **Save**.
+3. Replace the existing script with the following function, and then click **Save**. This script adds the user ID of the authenticated user to the item before it is inserted into the TodoItem table.
 
         function insert(item, user, request) {
           item.userId = user.userId;
           request.execute();
         }
 
-    This script adds the user ID of the authenticated user to the item before it is inserted into the TodoItem table.
 
     > [AZURE.NOTE] [Dynamic schema must be enabled](https://msdn.microsoft.com/library/azure/jj193175.aspx) for this to work. This setting is enabled by default for new mobile services.
 
-5. Similarly, replace the existing **Read** operation with the following function:
+5. Similarly, replace the existing **Read** operation with the following function. This script filters the returned TodoItem objects so that a user only receives the items that they insert themselves.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
            request.execute();
         }
 
-   	This script filters the returned TodoItem objects so that a user only receives the items that they insert themselves.
+
 
 
 ## <a name="test-app"></a>Test the app

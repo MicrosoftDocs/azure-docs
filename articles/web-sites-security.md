@@ -3,7 +3,7 @@
 	description="Learn how to secure an Azure Website." 
 	services="web-sites" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/11/2015" 
+	ms.author="cephalin"/>
 
 
 #Securing a web application in an Azure Website
@@ -23,15 +23,9 @@ One of the challenges of developing a web application is how to provide a safe a
 
 > [AZURE.NOTE] A full discussion of security considerations for web-based applications is beyond the scope of this document. As a starting point for further guidance on securing web applications, see the [Open Web Application Security Project (OWASP)]( https://www.owasp.org/index.php/Main_Page), specifically the [top 10 project.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), which lists the current top 10 critical web application security flaws, as determined by OWASP members.
 
-###Table of contents
-
-* [Secure communications](#https)
-* [Secure development](#develop)
-* [Next steps](#next)
- 
 ##<a name="https"></a>Secure communications
 
-If you use the ***.azurewebsites.net** domain name created for your website, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](http://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/), you can upload an SSL certificate to enable HTTPS for the custom domain.
+If you use the ***.azurewebsites.net** domain name created for your website, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](http://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/), you can upload an SSL certificate to [enable HTTPS](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/) for the custom domain.
 
 ##<a name="develop"></a>Secure development 
 

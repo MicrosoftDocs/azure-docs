@@ -131,7 +131,9 @@ Here are a few tips for finding and diagnosing performance issues:
 
 [Troubleshooting][qna] - and Q & A
 
+## Video
 
+[AZURE.VIDEO app-insights-performance-monitoring]
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
