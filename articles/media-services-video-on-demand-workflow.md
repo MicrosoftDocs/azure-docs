@@ -30,7 +30,7 @@ The following diagram shows the major parts of the Media Services platform that 
 
 ##Creating a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
+Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
 
 ##Setting up development environment  
 
@@ -106,7 +106,7 @@ You can scale **Media Services** by specifying the number of **Streaming Reserve
 
 For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
 
-For information about scaling encoding units, 
+For information about scaling encoding units, see the following **Portal** and **.NET** topics.
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
 
