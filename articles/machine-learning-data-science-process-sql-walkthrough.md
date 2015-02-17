@@ -10,7 +10,7 @@ In this tutorial, you will follow the Azure Data Science Process map end-to-end 
 The following sections are organized as follows:
 
 - [NYC Taxi Trips Dataset Description](#dataset)
-- [Example Prediction Problems](#mltasks)
+- [Examples of Prediction Problems](#mltasks)
 - [Setting Up the Azure Data Science Environment](#setup)
 - [Get the Data from Public Source](#getdata)
 - [Bulk Import Data into SQL Server Database](#dbload)
@@ -43,7 +43,7 @@ The NYC Taxi Trip data is about 20GB of compressed CSV data (~48GB uncompressed)
 
 The unique key to join trip\_data and trip\_fare is composed of the fields: medallion, hack\_licence, and pickup\_datetime.
 
-## <a name="mltasks"></a>Example Prediction Tasks
+## <a name="mltasks"></a>Examples of Prediction Tasks
 
 We will formulate three prediction problems based on the *tip\_amount*, namely:
 
@@ -75,15 +75,19 @@ To set up your Azure Data Science environment:
 
 2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
 
-3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as an SQL Server as well an IPython Notebook server.
+3. [Provision a Data Science Virtual Machine](./machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as an SQL Server as well an IPython Notebook server.
 
-> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process.
+> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
+> - Sample Scripts: C:\Users\<user\_name\>\Documents\Data Science Scripts  
+> - Sample IPython Notebooks: C:\Users\<user\_name\>\Documents\IPython Notebooks\DataScienceSamples  
+> where <user\_name\> is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
+
 
 Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](#largelocaltodb).
 
 ## <a name="getdata"></a>Get the Data from Public Source
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-move-azure-blob/) to copy the data to your new virtual machine.
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](./machine-learning-data-science-move-azure-blob/) to copy the data to your new virtual machine.
 
 To copy the data using AzCopy:
 
@@ -95,32 +99,90 @@ To copy the data using AzCopy:
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
+	When the AzCopy completes, a total of 24 zipped CSV files (12 for trip\_data and 12 for trip\_fare) should be in the data folder.
+
 4. Unzip the downloaded files. Note the folder where the uncompressed files reside. This folder will be referred to as the <path\_to\_data\_files\>.
 
 ## <a name="dbload"></a>Bulk Import Data into SQL Server Database
 
+For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](./machine-learning-data-science-parallel-load-sql-partitioned-tables) to create a new database and parallel load the data into partitioned tables.
+
+1. While logged in to your VM, start **SQL Server Management Studio**.
+
+2. Connect using Windows Authentication.
+
+	![SSMS Connect][12]
+
+3. If you have not yet changed the SQL Server authentication mode and created a new SQL login user, open the script file named **change\_auth.sql** in the **Sample Scripts** folder. Change the  default user name and password. Click **!Execute** in the toolbar to run the script.
+
+	![Execute Script][13]
+
+4. Verify and/or change the SQL Server default database and log folders to ensure that newly created databases will be stored in a Data Disk. The SQL Server VM image that is optimized for datawarehousing loads is pre-configured with data and log disks. If your VM did not include a Data Disk and you added new virtual hard disks during the VM setup process, change the default folders as follows:
+
+	- Right-click the SQL Server name in the left panel and click **Properties**.
+
+		![SQL Server Properties][14]
+
+	- Select **Database Settings** from the **Select a page** list to the left.
+
+	- Verify and/or change the **Database default locations** to the **Data Disk** locations of your choice. This is where new databases reside if created with the default location settings.
+	
+		![SQL Database Defaults][15]  
+
+5. To create a new database and a set of filegroups to hold the partitioned tables, open the sample script **create\_db\_default.sql**. The script will create a new database named **TaxiNYC** and 12 filegroups in the default data location. Each filegroup will hold one month of trip\_data and trip\_fare data. Modify the database name, if desired. Click **!Execute** to run the script.
+
+6. Next, create two partition tables, one for the trip\_data and another for the trip\_fare. Open the sample script **create\_partitioned\_table.sql**, which will:
+
+	- Create a partition function to split the data by month.
+	- Create a partition scheme to map each month's data to a different filegroup.
+	- Create two partitioned tables mapped to the partition scheme: **nyctaxi\_trip** will hold the trip\_data and **nyctaxi\_fare** will hold the trip\_fare data.
+
+	Click **!Execute** to run the script and create the partitioned tables.
+
+7. In the **Sample Scripts** folder, there are two sample PowerShell scripts provided to demonstrate parallel bulk imports of data to SQL Server tables.
+
+	- **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify the script to set the input and target variables as indicated in the comment lines in the script.
+	- **bcp\_parallel\_nyctaxi.ps1** is a preset version of the generic script, adapted to load both tables for the NYC Taxi Trips data.  
+
+8. Right-click the **bcp\_parallel\_nyctaxi.ps1** script name and click **Edit** to open PowerShell. Review the preset variables and modify according to your selected database name, input data folder, target log folder, and paths to the  sample format files **nyctaxi_trip.xml** and **nyctaxi\_fare.xml** (provided in the **Sample Scripts** folder). 
+
+	![Bulk Import Data][16]
+
+	You may also select the authentication mode, default is Windows Authentication. Click the green arrow in the toolbar to run. The script will launch 24 bulk import operations in parallel, 12 for each partitioned table. You may monitor the data import progress by opening the SQL Server default data folder as set above.
+
+9. The PowerShell script reports the starting and ending times. When all bulk imports complete, the ending time is reported. Check the target log folder to verify that the bulk imports were successful, i.e., no errors reported in the target log folder.
+
+10. Your database is now ready to use for exploration, feature engineering, and other operations as desired. Since the tables are partitioned according to the **pickup\_datetime** field, queries which include **pickup\_datetime** conditions in the **WHERE** clause will benefit from the partition scheme.
+
+11. In **SQL Server Management Studio**, explore the provided sample script **sample\_queries.sql**. to run any of the sample queries, highlight the query lines then click **!Execute** in the toolbar.
+
+12. The NYC Taxi Trips data is loaded in two separate tables. To improve join operations, it is highly recommended to index the tables. The sample script **create\_partitioned\_index.sql** creates partitioned indexes on the composite join key **medallion, hack\_license, and pickup\_datetime**.
 
 ## <a name="dbexplore"></a>Data Exploration and Feature Engineering in SQL Server
 
 
+
 ## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
 
-We are going to show data exploration and feature generation
-using both Python and SQL queries for the data sourced from SQL Server hosted on
-Azure VM. We would start off with reading in a small sample of the data in
-Pandas and doing some visualizations and explorations around the data. Next, we
-would show how to use Python to issue SQL Queries to do larger data manipulation
-directly within SQL VM on Azure.
+In this section, we will perform data exploration and feature generation
+using both Python and SQL queries using the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. 
 
-We start with loading a small sample of the data in Pandas data frame and
-performing some explorations on the sample.
+The recommended sequence when working with big data is the following:
 
-First we would join the Trip and Fare data sub-sample the data to load 0.1%
-sample of the full dataset in Pandas dataframe. We assume that you have created
-the database, and the Trip and Fare tables and loaded the taxi data in the
-tables. If you haven't done this already please refer to the documentation.
+- Read in a small sample of the data into an in-memory data frame.
+- Perform some visualizations and explorations using the sampled data.
+- Experiment with feature engineering using the sampled data. 
+- For larger exploration, data manipulation, and feature engineering, use Python to issue SQL Queries directly within the SQL Server database in the Azure VM.
+- Decide on the sample size to use for Azure Machine Learning model building.
+- When ready to proceed to Azure Machine Learning, you may either:
+	* Save the final SQL query to extract and sample the data, copy the query then paste it directly into a Reader module in Azure Machine Learning (more details in [Building Models in Azure Machine Learning](#mlmodel)), or
+	* Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the Reader module.
+
+The following are a few data exploration, data visualization, and feature engineering examples. For more examples, see the sample SQL IPython notebook in the **Sample IPython Notebooks** folder.
 
 #### Initialize Database Credentials
+
+Initialize your database connection settings in the following variables:
 
     SERVER_NAME=<server name>
     DATABASE_NAME=<database name>
@@ -149,33 +211,13 @@ tables. If you haven't done this already please refer to the documentation.
     
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-Total number of rows = 173179759  
-Total number of columns = 14
+- Total number of rows = 173179759  
+- Total number of columns = 14
     
-#### Report number of rows and columns in table nyctaxi_fare
-
-    nrows = pd.read_sql('''
-		SELECT SUM(rows) FROM sys.partitions 
-		WHERE object_id = OBJECT_ID('nyctaxi_fare')
-	''', conn)
-    
-	print 'Total number of rows = %d' % nrows.iloc[0,0]
-    
-    ncols = pd.read_sql('''
-		SELECT COUNT(*) FROM information_schema.columns 
-		WHERE table_name = ('nyctaxi_fare')
-	''', conn)
-    
-	print 'Total number of columns = %d' % ncols.iloc[0,0]
-
-Total number of rows = 173179759  
-Total number of columns = 11
-
-#### Read-in data from SQL Server
+#### Read-in a small data sample from the SQL Server Database
 
     t0 = time.time()
     
-    #load only a small percentage of the 1% table we created for some quick visuals
 	query = '''
 		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, 
 			f.tolls_amount, f.total_amount, f.tip_amount 
@@ -198,12 +240,12 @@ Number of rows and columns retrieved = (84952, 21)
     
 #### Descriptive Statistics
 
-Now are ready to do exploration on the 0.2 percent sample data. We start with
-looking at descriptive statistics for the trip distance:
+Now are ready to do exploration on the sampled data. We start with
+looking at descriptive statistics for the **trip\_distance** (or any other) field(s):
 
     df1['trip_distance'].describe()
 
-#### Box Plot
+#### Visualization: Box Plot Example
 
 Next we look at the box plot for the trip distance to visualize the quantiles
 
@@ -211,7 +253,7 @@ Next we look at the box plot for the trip distance to visualize the quantiles
 
 ![Plot #1][1]
 
-#### Distribution Plot
+#### Visualization: Distribution Plot Example
 
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
@@ -221,18 +263,14 @@ Next we look at the box plot for the trip distance to visualize the quantiles
 
 ![Plot #2][2]
 
-#### Binning trip_distance
+#### Visualization: Bar and Line Plots
+
+In this example, we begin by binning the trip distance into five bins then visualize the binning results.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
     df1['trip_distance']
     trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
     trip_dist_bin_id
-
-#### Bar and Line Plots
-
-The distribution of the trip distance values after binning looks like following:
-
-    pd.Series(trip_dist_bin_id).value_counts()
 
 We can plot the above bin distribution in a bar or line plot as below
 
@@ -244,66 +282,30 @@ We can plot the above bin distribution in a bar or line plot as below
 
 ![Plot #4][4]
 
+#### Visualization: Scatterplot Example
 
-We can also do bar plot for visualizing the sum of passengers for each vendor as
-follows
-
-    vendor_passenger_sum = df1.groupby('vendor_id').passenger_count.sum()
-    print vendor_passenger_sum
-
-    vendor_passenger_sum.plot(kind='bar')
-
-![Plot #5][5]
-
-
-#### Scatterplot 
-
-We show scatter plot between trip_time_in_secs and trip_distance to see if there
+We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there
 is any correlation
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Plot #6][6]
 
-
-To further drill down on the relationship we can do distribution side by side
-with the scatter plot (while flipping independentand dependent variables) as
-follows
-
-    df1_2col = df1[['trip_time_in_secs','trip_distance']]
-    pd.scatter_matrix(df1_2col, diagonal='hist', color='b', alpha=0.7, hist_kwds={'bins':100})
-
-![Plot #7][7]
-
-Similarly we can check the relationship between rate_code and trip_distance
-using scatter plot
+Similarly we can check the relationship between **rate\_code** and **trip\_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![Plot #8][8]
 
-
 ## Sub-Sampling the Data in SQL
 
-First we would join the Trip and Fare data and generate a sub-sample based on 1%
-sample of the full dataset. We assume that you have created the database, and
-the Trip and Fare tables and loaded the taxi data in the tables. If you haven't
-done this already please refer to the documentation.
+When preparing data for model building in [Azure Machine Learning Studio](https://studio.azureml.net), you may either decide on the **SQL query to use directly in the Reader module** or persist the engineered and sampled data in a new table, which you could use in the Reader module with a simple **SELECT * FROM <your\_new\_table\_name>**.
 
-Please note that we are going to create sampled table named as
-nyctaxi_one_percent, if a table with this name already exists you may want to
-rename the table in the code below. Also, if you have run this code once and
-created the table already, you need to be aware that executing create table
-would fail and inserting into existing table would result in duplicate data
-being inserted.
-
-    IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
+In this section, we will create a new table to hold the sampled and engineered data. An example of a direct SQL query for model building is provided in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
 
 #### Create a Sample Table and Populate with 1% of the Joined Tables. Drop Table First If Exists.
 
-Assuming that the trip data is stored in the table nyctaxi_trip and the fare
-data is stored in the table nyctaxi_fare, we can join the two tables as shown
-below:
+To join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, extract a 1% random sample, and persist the sampled data in a new table name **nyctaxi\_one\_percent**:
 
     cursor = conn.cursor()
     
@@ -325,33 +327,41 @@ below:
     cursor.execute(drop_table_if_exists)
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
-
-#### Report number of rows and columns in the new sample table
-
-    nrows = pd.read_sql('''
-		SELECT SUM(rows) FROM sys.partitions 
-		WHERE object_id = OBJECT_ID('nyctaxi_one_percent')
-	''', conn)
     
-	print 'Number of rows in sample = %d' % nrows.iloc[0,0]
+## Data Exploration using SQL Queries
+
+In this section, we explore data distributions using the 1% sampled data which is persisted in the newly created table above. Note that similar explorations can be performed using the original tables, optionally using **TABLESAMPLE** to limit the exploration sample or by limiting the results to a given time period using the **pickup\_datetime** partitions, as illustrated in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
+
+#### Exploration: Daily distribution of trips
+
+    query = '''
+		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c 
+		FROM nyctaxi_one_percent 
+		GROUP BY CONVERT(date, dropoff_datetime)
+	'''
+
+    pd.read_sql(query,conn)
+
+#### Exploration: Trip distribution per medallion
+
+    query = '''
+		SELECT medallion,count(*) AS c 
+		FROM nyctaxi_one_percent 
+		GROUP BY medallion
+	'''
     
-    ncols = pd.read_sql('''
-		SELECT COUNT(*) FROM information_schema.columns 
-		WHERE table_name = ('nyctaxi_one_percent')
-	''', conn)
-    
-	print 'Number of columns in sample = %d' % ncols.iloc[0,0]
+	pd.read_sql(query,conn)
 
-Number of rows in sample = 1682551  
-Number of columns in sample = 21
-    
+## Feature Generation Using SQL Queries
 
-#### Generate Class Labels
+In this section we will generate new labels and features directly using SQL queries, operating on the 1% sample table we created in the previous section.
 
-We would generate two types of class labels
+#### Label Generation: Generate Class Labels
 
-1. Binary Class Labels (indicating if a tip would be given)
-2. MultiClass Labels (Binned tip amount prediction)
+In the following example, we generate two sets of labels to use for modeling:
+
+1. Binary Class Labels **tipped** (indicating if a tip would be given)
+2. Multiclass Labels **tip\_class** (Binned tip amount prediction)
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -375,104 +385,9 @@ We would generate two types of class labels
     	cursor.execute(nyctaxi_one_percent_update_col)
 		cursor.commit()
 
-    	cursor.close()
+#### Feature Engineering: Count Features for Categorical Columns
 
-We can read in the sub-sample data in the table above in Azure ML for Machine
-Learning directly. We would be showing some examples of exploring the data using
-SQL or doing feature generation outside Azure ML in the sections below. We would
-also show some visualizatios on the data below.
-
-## Exploration in SQL
-
-In this section, we would be doing some explorations using SQL on 1% sample of
-that data (that we created above).
-
-#### Tipped/Not Tipped Distribution
-
-    query = '''
-        SELECT tipped, count(*) AS tip_freq
-        FROM nyctaxi_one_percent
-        GROUP BY tipped
-    '''
-    
-    pd.read_sql(query, conn)
-
-#### Tip Class Distribution
-
-    query = '''
-        SELECT tip_class, count(*) AS tip_freq
-        FROM nyctaxi_one_percent
-        GROUP BY tip_class
-    '''
-    
-    tip_class_dist = pd.read_sql(query, conn)
-    tip_class_dist
-
-#### Plot the tip distribution by class
-
-    tip_class_dist['tip_freq'].plot(kind='bar')
-
-![Plot #9][9]
-
-
-#### Daily distribution of trips
-
-    query = '''
-		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c 
-		FROM nyctaxi_one_percent 
-		GROUP BY CONVERT(date, dropoff_datetime)
-	'''
-
-    pd.read_sql(query,conn)
-
-#### Trip distribution per medallion
-
-    query = '''
-		SELECT medallion,count(*) AS c 
-		FROM nyctaxi_one_percent 
-		GROUP BY medallion
-	'''
-    
-	pd.read_sql(query,conn)
-
-#### Trip time distribution
-
-    query = '''
-		SELECT trip_time_in_secs, COUNT(*) 
-		FROM nyctaxi_one_percent 
-		GROUP BY trip_time_in_secs
-	'''
-
-    pd.read_sql(query,conn)
-
-#### Trip distance distribution
-
-    query = '''
-		SELECT trip_distance, COUNT(*) 
-		FROM nyctaxi_one_percent 
-		GROUP BY trip_distance
-	'''
-
-    pd.read_sql(query,conn)
-
-#### Payment type distribution
-
-    query = '''
-		SELECT payment_type, COUNT(*) 
-		FROM nyctaxi_one_percent 
-		GROUP BY payment_type
-	'''
-
-    pd.read_sql(query,conn)
-
-## Feature Generation in SQL
-
-In this section we are going to show feature generation using SQL, operating on
-the 1% sample table we created in the previous section.
-
-    cursor = conn.cursor()
-
-#### Count Features for Categorical Columns
+This example transforms a categorical field into a numeric field by replacing each category with the count of its occurrences in the data.
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
@@ -501,10 +416,9 @@ the 1% sample table we created in the previous section.
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-    query = '''SELECT TOP 10 * FROM nyctaxi_one_percent'''
-    pd.read_sql(query,conn)
+#### Feature Engineering: Bin features for Numerical Columns
 
-#### Bin features for Numerical Columns
+This example transforms a continuous numeric field into preset category ranges, i.e., transform numeric field into a categorical field.
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
@@ -531,10 +445,9 @@ the 1% sample table we created in the previous section.
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-    query = '''SELECT TOP 10 * FROM nyctaxi_one_percent'''
-    pd.read_sql(query,conn)
+#### Feature Engineering: Extract Location Features from Decimal Latitude/Longitude
 
-#### Location Features
+This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For more information about mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/en-us/library/ff701710.aspx). 
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent 
@@ -563,8 +476,6 @@ the 1% sample table we created in the previous section.
 
     query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
     pd.read_sql(query,conn)
-
-    conn.close()
 
 We are now ready for importing the above table in Azure ML (having generated the
 sub-sample and derived features) and start Machine Learning for predicting the
@@ -601,3 +512,8 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [9]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_71_1.png
 [10]: ./media/machine-Learning-data-science-process-sql-walkthrough/azuremltrain.png
 [11]: ./media/machine-Learning-data-science-process-sql-walkthrough/azuremlpublish.png
+[12]: ./media/machine-Learning-data-science-process-sql-walkthrough/ssmsconnect.png
+[13]: ./media/machine-Learning-data-science-process-sql-walkthrough/executescript.png
+[14]: ./media/machine-Learning-data-science-process-sql-walkthrough/sqlserverproperties.png
+[15]: ./media/machine-Learning-data-science-process-sql-walkthrough/sqldefaultdirs.png
+[16]: ./media/machine-Learning-data-science-process-sql-walkthrough/bulkimport.png
