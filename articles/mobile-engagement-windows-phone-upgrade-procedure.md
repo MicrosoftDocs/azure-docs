@@ -136,7 +136,7 @@ Examples on commonly used Capptain items :
 > -   CapptainHttpConfig now named EngagementHttpConfig
 > -   GetCapptainPageName now named GetEngagementPageName
 
-Note that rename also affects overriden methods.
+Note that rename also affects overridden methods.
 
 
 [nuget website]:http://www.nuget.org/packages/Capptain.WindowsPhone
