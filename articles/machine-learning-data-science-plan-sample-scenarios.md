@@ -160,7 +160,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
     f.  If table joins are required, create indexes to expedite joins.
 
- > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](./machine-learning-data-science-parallel-load-sql-partitioned-tables/).
+ > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables/).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -204,7 +204,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 	f.  If table joins are required, create indexes to expedite joins.
 
-> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](./https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables/).
+> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables/).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
