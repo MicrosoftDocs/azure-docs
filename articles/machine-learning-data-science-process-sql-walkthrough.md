@@ -160,6 +160,126 @@ For big data loading/transfer to an SQL database, importing data to the SQL DB a
 
 ## <a name="dbexplore"></a>Data Exploration and Feature Engineering in SQL Server
 
+In this section, we will perform data exploration and feature generation by running SQL queries directly in the **SQL Server Management Studio**, using the SQL Server database created earlier. A sample script named **sample\_queries.sql** is provided in the **Sample Scripts** folder. Modify the script to change the database name, if it is not the default **TaxiNYC** name.
+
+In this exercise, we will:
+
+- Connect to **SQL Server Management Studio** using either Windows Authentication or using SQL Authentication and the SQL login name and password.
+- Explore data distributions of a few fields in varying time windows.
+- Investigate data quality of the longitude and latitude fields.
+- Generate binary and multiclass classification labels based on the **tip\_amount**.
+- Generate features and compute/compare trip distances.
+- Join the two tables and extract a random sample for model building.
+
+When ready to proceed to Azure Machine Learning, you may either:  
+
+1. Save the final SQL query to extract and sample the data, copy the query then paste it directly into a Reader module in Azure Machine Learning, or 
+2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the Reader module.
+
+In this section, we will decide and save the final query to extract and sample the data. The second method is demonstrated in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section.
+
+For a quick verification of the number of rows and columns in the tables populated earlier using parallel bulk import,
+
+	-- Report number of rows in table nyctaxi_trip without table scan
+	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
+
+	-- Report number of columns in table nyctaxi_trip
+	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip' 
+
+#### Exploration: Trip distribution by medallion
+
+In this example, we explore the medallion (taxi numbers) with more than 100 trips within a given time period. The query would benefit from the partitioned table access since it is conditioned by the partition scheme of **pickup\_datetime**. Querying the full dataset will also make use of the partitioned table and/or index scan.
+
+	SELECT medallion, COUNT(*)
+	FROM nyctaxi_fare
+	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+	GROUP BY medallion
+	HAVING COUNT(*) > 100
+
+#### Exploration: Trip distribution by medallion and hack_license
+
+	SELECT medallion, hack_license, COUNT(*)
+	FROM nyctaxi_fare
+	WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
+	GROUP BY medallion, hack_license
+	HAVING COUNT(*) > 100
+
+#### Data Quality Assessment: Verify records with incorrect longitude and/or latitude
+
+In this example, we investigate whether any of the longitude and/or latitude fields either contains an invalid value (radian degrees should be between -90 and 90), or have (0, 0) coordinates.
+
+	SELECT COUNT(*) FROM nyctaxi_trip
+	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
+	OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
+	OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
+	OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
+	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
+	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
+
+#### Exploration: Tipped vs. Not Tipped Trips distribution
+
+This example finds the number of trips that were tipped vs. not tipped in a given time period (or in the full dataset if covering the full year). This distribution reflects the binary label distribution to be later used for binary classification modeling.
+
+	SELECT tipped, COUNT(*) AS tip_freq FROM (
+	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
+	  FROM nyctaxi_fare
+	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+	GROUP BY tipped
+
+#### Exploration: Tip Class/Range Distribution
+
+This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This distribution reflects the multiclass label distribution to be later used for multiclass classification modeling.
+
+	SELECT tip_class, COUNT(*) AS tip_freq FROM (
+		SELECT CASE 
+			WHEN (tip_amount = 0) THEN 0
+			WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+			WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+			WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+			ELSE 4 
+		END AS tip_class
+	FROM nyctaxi_fare
+	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+	GROUP BY tip_class
+
+#### Exploration: Compute and Compare Trip Distance
+
+This example converts the pickup and dropoff longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only, as per the data quality assessment query.
+
+	SELECT 
+	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
+	,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
+	,trip_distance
+	,computedist=round(geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326).STDistance(geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326))/1000, 2)
+	FROM nyctaxi_trip
+	tablesample(0.01 percent)
+	WHERE CAST(pickup_latitude AS float) BETWEEN -90 AND 90
+	AND   CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
+	AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+
+#### Feature Engineering in SQL Queries
+
+The label generation and geography conversion exploration queries may also be used to generate labels/features by removing the counting part. More feature engineering SQL examples are provided in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section. It is more efficient to run the feature generation queries on the full dataset or a large subset of it using SQL queries which run directly on the SQL Server database instance. The queries may be executed in the **SQL Server Management Studio**, IPython Notebook, or using any development tool/environment which can access the database locally or remotely.
+
+#### Preparing Data for Model Building
+
+The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classificationlabel **tipped**, a multiclass classification label **tip\_class**, and extracts a 1% random sample from the full joined dataset. This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) Reader module for direct data ingestion from the SQL Server database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
+
+	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
+	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
+	    CASE WHEN (tip_amount = 0) THEN 0
+	        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+	        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+	        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+	        ELSE 4
+	    END AS tip_class
+	FROM nyctaxi_trip t, nyctaxi_fare f
+	TABLESAMPLE (1 percent)
+	WHERE t.medallion = f.medallion
+	AND   t.hack_license = f.hack_license
+	AND   t.pickup_datetime = f.pickup_datetime
+	AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
 ## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
@@ -174,9 +294,10 @@ The recommended sequence when working with big data is the following:
 - Experiment with feature engineering using the sampled data. 
 - For larger exploration, data manipulation, and feature engineering, use Python to issue SQL Queries directly within the SQL Server database in the Azure VM.
 - Decide on the sample size to use for Azure Machine Learning model building.
-- When ready to proceed to Azure Machine Learning, you may either:
-	* Save the final SQL query to extract and sample the data, copy the query then paste it directly into a Reader module in Azure Machine Learning (more details in [Building Models in Azure Machine Learning](#mlmodel)), or
-	* Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the Reader module.
+
+When ready to proceed to Azure Machine Learning, you may either:  
+1. Save the final SQL query to extract and sample the data, copy the query then paste it directly into a Reader module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
+2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the Reader module.
 
 The following are a few data exploration, data visualization, and feature engineering examples. For more examples, see the sample SQL IPython notebook in the **Sample IPython Notebooks** folder.
 
@@ -297,7 +418,7 @@ Similarly we can check the relationship between **rate\_code** and **trip\_dista
 
 ![Plot #8][8]
 
-## Sub-Sampling the Data in SQL
+### Sub-Sampling the Data in SQL
 
 When preparing data for model building in [Azure Machine Learning Studio](https://studio.azureml.net), you may either decide on the **SQL query to use directly in the Reader module** or persist the engineered and sampled data in a new table, which you could use in the Reader module with a simple **SELECT * FROM <your\_new\_table\_name>**.
 
@@ -328,7 +449,7 @@ To join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, extract a 1% random 
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
     
-## Data Exploration using SQL Queries
+### Data Exploration using SQL Queries in IPython Notebook
 
 In this section, we explore data distributions using the 1% sampled data which is persisted in the newly created table above. Note that similar explorations can be performed using the original tables, optionally using **TABLESAMPLE** to limit the exploration sample or by limiting the results to a given time period using the **pickup\_datetime** partitions, as illustrated in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
 
@@ -352,7 +473,7 @@ In this section, we explore data distributions using the 1% sampled data which i
     
 	pd.read_sql(query,conn)
 
-## Feature Generation Using SQL Queries
+### Feature Generation Using SQL Queries in IPython Notebook
 
 In this section we will generate new labels and features directly using SQL queries, operating on the 1% sample table we created in the previous section.
 
