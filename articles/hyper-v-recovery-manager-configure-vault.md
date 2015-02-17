@@ -1,7 +1,20 @@
-<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Tutorial: Set up Protection Between On-Premises VMM Sites" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, BCDR" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises VMM sites." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Tutorial: Set up Protection Between On-Premises VMM Sites" editor="jimbe" manager="jwhit" authors="raynew" />
+<properties 
+	pageTitle="Tutorial: Set up Protection Between On-Premises VMM Sites" 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises VMM sites." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="2/20/2015" ms.author="raynew" />
-
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 # Tutorial: Set up Protection Between On-Premises VMM Sites
 

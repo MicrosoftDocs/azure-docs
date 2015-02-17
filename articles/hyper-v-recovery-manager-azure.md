@@ -1,12 +1,22 @@
-<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Tutorial: Set up Protection Between an On-Premises VMM Site and Azure" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Tutorial: Set up Protection Between an On-Premises VMM Site and Azure" editor="jimbe" manager="jwhit" authors="raynew" />
+<properties 
+	pageTitle="Tutorial: Set up Protection Between an On-Premises VMM Site and Azure" 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/08/2015" ms.author="raynew" />
-
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 # Tutorial: Set up Protection Between an On-Premises VMM Site and Azure
-
-
-
 
 <h2><a id="overview" name="overview" href="#overview"></a>Overview</h2>
 <p>Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.<p>
