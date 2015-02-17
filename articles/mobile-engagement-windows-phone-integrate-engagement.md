@@ -20,7 +20,7 @@
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Windows Phone application.
 
-The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](../mobile-engagement-windows-phone-use-the-engagement-api/) below) since these statistics are application dependent.
+The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](../mobile-engagement-windows-phone-use-engagement-api/) below) since these statistics are application dependent.
 
 ##Supported versions
 
