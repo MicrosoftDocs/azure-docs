@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" 
 	description="Provides a list of common Azure subscription and service limits along with maximum values." 
-	services="web-sites, virtual-machines, cloud-services" 
+	services="" 
 	documentationCenter="" 
 	authors="rothja" 
 	manager="jeffreyg" 
@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/16/2015" 
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
 
-The following document specifies some of the most common Microsoft Azure limits. Note that this document does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
+## Overview
 
-- [Subscription Limits](#subscription)
-- [Cloud Service Limits](#webworkerlimits)
-- [Virtual Machine Limits](#vmlimits)
-- [Websites Limits](#websiteslimits)
-- [Networking Limits](#networkinglimits)
-- [Storage Limits](#storagelimits)
-- [Batch Preview Limits](#batchlimits)
-- [DocumentDB Preview Limits](#documentdblimits)
-- [SQL Database Limits](#sqldblimits)
-- [Media Services Limits](#mediaserviceslimits)
-- [Service Bus Limits](#servicebuslimits)
-- [Active Directory Limits](#adlimits)
+The following document specifies some of the most common Microsoft Azure limits. Note that this document does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
-##<a name="subscription"></a>Subscription Limits
+## Subscription Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -120,7 +109,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 <sup>2</sup>Each virtual network supports a single virtual network gateway.
 
-##<a name="webworkerlimits"></a>Cloud Service Limits
+## Cloud Service Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -152,7 +141,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 <sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling). 
 
-##<a name="vmlimits"></a>Virtual Machine Limits
+## Virtual Machine Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -176,11 +165,11 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 <sup>2</sup>Input endpoints are used to allow communication to the virtual machines that is external to the containing cloud service. Virtual machines within the same cloud service automatically allow communication between all UDP and TCP ports for internal communication.
 
-##<a name="websiteslimits"></a>Websites Limits
+## Websites Limits
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-##<a name="networkinglimits"></a>Networking Limits
+## Networking Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -216,7 +205,7 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 <sup>3</sup>ACL is supported on Input Endpoints for Virtual Machines. For web/worker roles, it is supported on Input and Instance Input endpoints.
 
-##<a name="storagelimits"></a>Storage Limits
+## Storage Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -291,15 +280,15 @@ The following document specifies some of the most common Microsoft Azure limits.
 
 <sup>3</sup>GRS is [Geo Redundant Storage][georedundantstorage]. LRS is [Locally Redundant Storage][locallyredundantstorage]. Note that GRS is also locally redundant.
 
-##<a name="batchlimits"></a>Batch Preview Limits
+## Batch Preview Limits
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-##<a name="documentdblimits"></a>DocumentDB Preview Limits
+## DocumentDB Preview Limits
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
-##<a name="sqldblimits"></a>SQL Database Limits
+## SQL Database Limits
 
 For SQL Database Limits, please see the following topics:
 
@@ -308,21 +297,21 @@ For SQL Database Limits, please see the following topics:
  - [Database Throughput Unit (DTU) Quotas][sqlDTU]
  - [SQL Database Resource Limits][sqldblimits]
 
-##<a name="mediaserviceslimits"></a>Media Services Limits
+## Media Services Limits
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-##<a name="servicebuslimits"></a>Service Bus Limits
+## Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
-##<a name="adlimits"></a>Active Directory Limits
+## Active Directory Limits
 
 For Azure Active Directory (AD), please see the following topic:
 
  - [Azure Active Directory service limits and restrictions][adlimitsandrestrictions]
 
-##<a name="seealso"></a>See Also
+## See Also
 
 [Understanding Azure Limits and Increases][azurelimitsblogpost]
 
