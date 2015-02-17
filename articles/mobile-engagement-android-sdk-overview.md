@@ -29,7 +29,7 @@ Click to see the [SDK Content](../mobile-engagement-android-sdk-content)
 	1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](../mobile-engagement-android-gcm-integrate/)
 	2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](../mobile-engagement-android-adm-integrate/)
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Android app](../mobile-engagement-android-use-the-engagement-api/)
+3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Android app](../mobile-engagement-android-use-engagement-api/)
 
 
 ##Release notes
