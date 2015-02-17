@@ -32,17 +32,25 @@ The sections are broken down as follows. (Links may occur in more than one secti
 - [Devops, Management, and Optimization](#devops) -- A big category, changing rapidly.
 - [Support, Troubleshooting, and "It Just Doesn't Work"](#supportdebug) -- Really.
 
+In addition, there are several topics that describe various Linux options, image repositories, case studies, and how-to topics to upload your own custom images: 
+
+- [Azure Marketplace](http://azure.microsoft.com/en-us/marketplace/virtual-machines/)
+ 
+- [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
+
+- [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
+
+- [How to: Uploading your own Distro Image](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/) (and also instructions using an [Azure-Endorsed Distribution](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/))
+
+- [Notes: General Linux Requirements to Run in Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-generic/)
+
+- [Notes: General Introduction for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-introduction/)
+
 
 ### <a id='distros'>Distros</a>
 
-There are tons of Linux distributions, usually broken down by the package management systems: Some are dpgk-based, like Debian and Ubuntu, and others are rpm-based, like CentOS, SUSE, and RedHat. Some companies provide distro images as formal partners of Microsoft and are endorsed. Others are provided by the community. The following distros have formal articles about them, even if they were only used in examples of other technologies.
+There are tons of Linux distributions, usually broken down by the package management systems: Some are dpgk-based, like Debian and Ubuntu, and others are rpm-based, like CentOS, SUSE, and RedHat. Some companies provide distro images as formal partners of Microsoft and are endorsed. Others are provided by the community. The distros in this section have formal articles about them, even if they were only used in examples of other technologies.
 
-1. [Azure Marketplace](http://azure.microsoft.com/en-us/marketplace/virtual-machines/)
-2. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
-3. [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
-3. [How to: Uploading your own Distro Image](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/) (and also instructions using an [Azure-Endorsed Distribution](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/))
-4. [Notes: General Linux Requirements to Run in Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-generic/)
-5. [Notes: General Introduction for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-introduction/)
 
 #### [Ubuntu](http://azure.microsoft.com/en-us/marketplace/partners/Canonical/)
 
@@ -169,6 +177,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 10. [Blog: Mono, ASP.NETvNext, Linux, and Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
 ### <a id='samples'>Samples and Scripts</a>
+
 1. [Patrick Chanezon's Azure Linux Github repository](https://github.com/chanezon/azure-linux)
 3. [Video: How to Move On-Premises USB data on Linux to Azure using **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Video: Accessing Linux-based GUI on Azure in the Browser with fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -179,37 +188,45 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 
 ### <a id='data'>Data</a>
-1. Nosql
-	1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
-	2. Couchdb
-		1. [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
-		2. [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
-	3. MongoDB
-		1. [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
-	4. Cassandra
-		1. [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
-	5. Redis
-		1. [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
-		2. [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
-	6. RavenHQ
-		1. [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
-	2. MySQL
-		1. [How to: Install and Run MySQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
-		2. [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
-		3. [How to: MySQL Clusters](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/)
-		4. [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/en-us/documentation/articles/store-php-create-mysql-database/)
-		5. [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-ptvs-django-mysql/)
-		6. [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)
-	7. MariaDB
-		1. [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
-	7. PostgreSQL
-		1. [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
-	2. Hadoop/Cloudera  
-		1. [Blog: Installing Hadoop on Azure Linux VMs](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
-		2. [How to: Get Started with Hadoop and Hive using HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/)  
-	3. [Azure HDInsight](http://azure.microsoft.com/en-us/services/hdinsight/) -- a fully managed Hadoop service on Azure.
+
+This section contains information about several different storage approaches and technologies, including NoSQL, Relational, and Big Data.
+
+#### Nosql
+
+1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
+2. Couchdb
+	1. [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
+	2. [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
+3. MongoDB
+	1. [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
+4. Cassandra
+	1. [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
+5. Redis
+	1. [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
+	2. [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
+6. RavenHQ
+	1. [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
+2. Hadoop/Cloudera  
+	1. [Blog: Installing Hadoop on Azure Linux VMs](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
+	2. [How to: Get Started with Hadoop and Hive using HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/)  
+3. [Azure HDInsight](http://azure.microsoft.com/en-us/services/hdinsight/) -- a fully managed Hadoop service on Azure.
+
+#### Relational Data
+2. MySQL
+	1. [How to: Install and Run MySQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
+	2. [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
+	3. [How to: MySQL Clusters](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/)
+	4. [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/en-us/documentation/articles/store-php-create-mysql-database/)
+	5. [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-ptvs-django-mysql/)
+	6. [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)
+7. MariaDB
+	1. [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
+7. PostgreSQL
+	1. [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+
 
 ### <a id='security'>Auth and Encryption</a>
+
 4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx)
 7. [The Basics: SSH](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/)
 8. [The Basics: How to Reset a Password or SSH Properties for Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/)
@@ -247,6 +264,7 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
 13. [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
 
 ### <a id='supportdebug'>Support, Troubleshooting, and "It Just Doesn't Work"</a>
+
 1. Microsoft support documentation
 	1. [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
