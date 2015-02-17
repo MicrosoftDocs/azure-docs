@@ -598,18 +598,90 @@ This example breaks down the decimal representation of a latitude and/or longitu
     query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
     pd.read_sql(query,conn)
 
-We are now ready for importing the above table in Azure ML (having generated the
-sub-sample and derived features) and start Machine Learning for predicting the
-binary class (whether a tip would be given) or multiclass (tip bin number) or
-regression (tip amount).
+We are now ready to proceed to model building and model deployment in [Azure Machine Learning](https://studio.azureml.net). The data is ready for any of the prediction problems identified earlier, namely:
+
+1. Binary classification: To predict whether or not a tip was paid for a trip.
+
+2. Multiclass classification: To predict the range of tip paid, according to the previously defined classes.
+
+3. Regression task: To predict the amount of tip paid for a trip.  
+
 
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
 
+To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/).
+
+1. To get started on Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/)
+
+2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
+
+3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. Fore more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](http://azure.microsoft.com/en-us/documentation/services/machine-learning/).
+
+A typical training experiment consists of the following:
+
+1. Create a **+NEW** experiment.
+2. Get the data to Azure ML.
+3. Pre-process, transform, manipulate the data, as needed.
+4. Generate features, as needed.
+5. Split the data into training/validation/testing (or have separate datasets for each).
+6. Select one or more machine learning algorithms, depending on the learning problem to solve. E.g., binary classification, multiclass classification, regression.
+7. Train one or more models using the training dataset.
+8. Score the validation dataset using the trained model(s).
+9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
+10. Fine tune the model(s) and selectino of the best model to deploy.
+
+In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure ML. To build one or more of the prediction models we decided:
+
+1. Get the data to Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader](http://msdn.microsoft.com/en-US/library/dn784775) module reference page.
+
+	![Azure ML Reader][17]
+
+2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
+
+3. Enter the database DNS name in the **Database server name** field. FOrmat: tcp:<your\_virtual\_machine\_DNS\_name\>,1433
+
+4. Enter the **Database name** in the corresponding field.
+
+5. Enter the **SQL user name** in the **Server user aqccount name, and the password in the **Server user account password**.
+
+6. Check **Accept any server certificate** option.
+
+7. In the **Database query** edit text area, paste the query which extracts the necessary database fields (including any computed fields such as the labels), and down samples the data to the desired sample size.
+
+An example of a binary classification experiment reading data directly from the SQL Server database is in the figure below. Similar experiments may be constructed for the multiclass classification and regression problems.
+
 ![Azure ML Train][10]
+
+> [AZURE.IMPORTANT] In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For e.g., for binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter is a target leak since it implies the tip paid.
+>
+> To exclude unnecessary columns and/or target leaks, you may use the **Project Columns** module or the **Metadta Editor**. For more information, see [Project Columns](http://msdn.microsoft.com/en-US/library/dn784740) and [Metadata Editor](http://msdn.microsoft.com/en-US/library/dn784761) reference pages.
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
+When your model is ready, you can easily deploy it as a web service directly in the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/).
+
+To deploy a new web service, you need to:
+
+1. Create a scoring experiment.
+2. Publish the web service.
+
+To create a scoring experiment from a **Finished** training experiment, click **CREATE SCORING EXPERIMENT** in the lower action bar.
+
+![Azure Scoring][18]
+
+Azure Machine Learning will attempt to create a scoring experiment based on the components of the training experiment. IN particular, it will:
+
+1. Save the trained model and remove the model training modules.
+2. Identify a logical **input port** to represent the expected input data schema.
+3. Identify a logical **output port** to represent the expected web service output schema.
+
+When the scoring experiment is created, review it and adjust as needed. A typical adjustment is to replace the input dataset and/or query with one which excludes label fields, as these will not be available when the service is called. It is also a good practice to reduce the size of the input dataset and/or query to a few records, just enough to indicate the input schema. For the output port, it is common to exclude all input fields and only include the **Scored Labels** and **Scored Probabilities** in the output using the **Project Columns** module.
+
+A sample scoring experiment is in the figure below. When ready to publich, click the **PUBLISH WEB SERVICE** button in the lower action bar.
+
 ![Azure ML Publish][11]
+
+In this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset from data acquisition up to model training and publishing of an Azure Machine Learning web service.
 
 ### License Information
 
@@ -638,3 +710,5 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [14]: ./media/machine-learning-data-science-process-sql-walkthrough/sqlserverproperties.png
 [15]: ./media/machine-learning-data-science-process-sql-walkthrough/sqldefaultdirs.png
 [16]: ./media/machine-learning-data-science-process-sql-walkthrough/bulkimport.png
+[17]: ./media/machine-learning-data-science-process-sql-walkthrough/amlreader.png
+[18]: ./media/machine-learning-data-science-process-sql-walkthrough/amlscoring.png
