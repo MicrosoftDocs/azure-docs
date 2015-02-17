@@ -68,10 +68,10 @@ See [Configuring Connection Strings][] for more information on storage connectio
 	
 You are now ready to perform the how-to tasks in this guide.
 
-[connection-string1]: ./media/storage-configure-connection-string/connection-string1.png
-[connection-string2]: ./media/storage-configure-connection-string/connection-string2.png
-[connection-string3]: ./media/storage-configure-connection-string/connection-string3.png
-[connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
-[connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
+[connection-string1]: ./media/storage-configure-connection-string-include/connection-string1.png
+[connection-string2]: ./media/storage-configure-connection-string-include/connection-string2.png
+[connection-string3]: ./media/storage-configure-connection-string-include/connection-string3.png
+[connection-string4]: ./media/storage-configure-connection-string-include/connection-string4.png
+[connection-string5]: ./media/storage-configure-connection-string-include/connection-string5.png
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
