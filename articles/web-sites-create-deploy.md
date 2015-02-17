@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
 #How to Create a Website
@@ -21,13 +21,6 @@
 This topic shows how to create a website from the gallery or by using the management portal.
 
 For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Web Sites](/en-us/documentation/services/web-sites/).
-
-## Table of Contents ##
-
-- [How to: Create a Web Site Using the Management Portal](#createawebsiteportal)
-- [How to: Create a Web Site from the Gallery](#howtocreatefromgallery)
-- [How to: Delete a Web Site](#deleteawebsite)
-- [Next Steps](#nextsteps)
 
 ##<a name="createawebsiteportal"></a>How to: Create a Website Using the Management Portal
 

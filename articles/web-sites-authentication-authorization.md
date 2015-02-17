@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/23/2014" 
+	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
 # Authenticate and Authorize Users in Line-of-Business Applications in Azure Websites #

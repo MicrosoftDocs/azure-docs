@@ -29,20 +29,6 @@ This tutorial shows you how to create a web-based task-management application th
 
 > [AZURE.TIP] This tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) project from [GitHub](https://github.com/Azure/azure-documentdb-java) and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
 
-## In this tutorial ##
-
-Step | Description
------| -----------
-[Prerequisites](#Prerequisites) | A list of prerequisite software required by this tutorial.
-[Step 1: Create a DocumentDB database account](#CreateDB) | In this step, you create a DocumentDB account. 
-[Step 2: Create the JSP application](#CreateJSP) | In this step, you create a hello world project in Eclipse.
-[Step 3: Install the DocumentDB Java SDK](#InstallSDK) | In this step, you add the DocumentDB SDK as a dependency to the project.
-[Step 4: Using the DocumentDB service in a Java application](#UseService) | In this step, you add the DocumentClient class to the project, create a data access object to persist the ToDo items, create or retrieve the database and collection, and then persist new ToDo items to the collection.
-[Step 5: Wiring the rest of the of application together](#Wire) | In this step, you build a controller for the DAO, a servlet to route the HTTP requests to the controller, and build the user interface.
-[Step 6: Deploy your application to Azure Websites](#Deploy) | In this step, you export your project as a WAR file and then import it into an Azure Website.
-[Get the project from GitHub](#GetProject) | This section contains instructions on getting and building the complete todo project from GitHub.
- 
-
 ##<a id="Prerequisites"></a>Prerequisites ##
 Before you begin this tutorial, you must have the following:
 

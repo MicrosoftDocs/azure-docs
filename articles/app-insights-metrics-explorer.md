@@ -28,7 +28,7 @@ Some charts are segmented: the total height of the chart at any point is the sum
 
 Dotted lines show the value of the metric one week previously.
 
-#### Point values
+## Point values
 
 Hover your mouse over the chart to display the values of the metrics at that point.
 
@@ -37,7 +37,7 @@ Hover your mouse over the chart to display the values of the metrics at that poi
 
 The value of the metric at a particular point is averaged over the preceding sampling interval. This can vary depending on the time range of the whole chart. So relative heights are a better guide than absolute values.
 
-#### Time range
+## Time range
 
 You can change the Time range covered by most of the charts or grids on any blade.
 
@@ -55,7 +55,7 @@ For example, click through the web app's Failed Requests chart:
 ![On the overview blade, click a chart](./media/app-insights-metrics-explorer/14-trix.png)
 
 
-#### What do the figures mean?
+## What do the figures mean?
 
 The legend at the side by default shows the aggregated value over the period of the chart.
 Different metrics are aggregated in different ways: 
@@ -84,7 +84,7 @@ You can display more than one metric on a chart, though there are restrictions a
 
 If you coded [custom metrics][track] into your app (calls to TrackMetric and TrackEvent) they will be listed here.
 
-#### Segment your data
+## Segment your data
 
 Select a chart or grid, switch on segmenting and pick a property to segment by:
 
@@ -98,7 +98,7 @@ Is the chart too small for segmented data? Adjust its height:
 ![](./media/app-insights-metrics-explorer/18-height.png)
 
 
-#### Filter your data
+## Filter your data
 
 To see just the metrics for a selected set of property values:
 
@@ -108,13 +108,13 @@ If you don't select any values for a particular property, it's the same as selec
 
 Notice the counts of events alongside each property value. When you select values of one property, the counts alongside other property values are adjusted.
 
-#### Edit the chart type
+## Edit the chart type
 
 In particular, notice that you can switch between grids and graphs:
 
 ![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
-#### Reset the blade
+## Reset the blade
 
 When you click on a chart, for example on the overview blade, it opens a relevant set of charts and grids to show you more detail.
 

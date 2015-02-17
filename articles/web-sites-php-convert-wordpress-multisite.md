@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/28/2014" 
+	ms.date="2/12/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -21,6 +21,8 @@
 
 
 # Convert a WordPress Site to a Multisite
+
+## Overview
 
 *By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
