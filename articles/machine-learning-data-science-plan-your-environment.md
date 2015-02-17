@@ -1,15 +1,18 @@
-<properties title="Plan Your Cloud Data Science Environment" pageTitle="Plan Your Cloud Data Science Environment | Azure" description="Plan Your Cloud Data Science Environment" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties title="Plan Your Cloud Data Science Environment" pageTitle="Plan Your Cloud Data Science Environment | Azure" description="Plan Your Cloud Data Science Environment" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab,garye" /> 
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="msolhab,garye" /> 
 
 
-Plan Your Azure Machine Learning Data Science Environment
+Plan Your Cloud Data Science Environment
 ========================================
 
-This topic prepares you to set up an environment to conduct Data
-Science Azure Machine Learning. You will also learn how to chose from options based on
-the data source locations and your target destination in the cloud. You can repeat the set up process to support additional users
-and scenarios. Use the Cloud Data Science environment for conducting end-to-end data science exercises, from the original data source through creating and publishing a machine
+This topic walks through setting up an environment to conduct Data
+Science in Azure for the first time, and selecting from options based on
+the data source locations and target destination in the cloud. The cloud
+environment setup may be repeated at will to support additional users
+and/or data scenarios. The Cloud Data Science environment will assist
+you in conducting the end-to-end data science exercise(s), starting from
+your original data source, up to creating and publishing a machine
 learned model as an Azure web service for consumption in applications.
 This article discusses different scenarios and options available, and
 serves as an introduction to the Cloud Data Science Process flow
@@ -19,16 +22,17 @@ Process, click the relevant item in the DS Process map.
 Before You Begin
 ----------------
 
-Before you begin creating your Cloud Data Science environment, consider the following questions.
+Before you begin creating your Cloud Data Science environment, think
+about and note answers to as many of the following questions.
 
 1. **Where is your data located? We’ll refer to this location as the *data source***. For example:
 
 	- The data is publicly available at an HTTP address.
 	- The data resides in a local/network file location.
-	- The data is in a SQL Server database.
+	- The data is in an SQL Server database on-prem.
 	- The data is stored in an Azure storage container.
 <br><br>
-2. **What is the format of your data?** For example:
+2. **What is the format of your data?** For e.g.,
 
     - Comma-separated or tab-separated files, uncompressed.
     - Comma-separated or tab-separated files, compressed.
@@ -52,7 +56,7 @@ Before you begin creating your Cloud Data Science environment, consider the foll
     - Yes, planning to copy the whole data to the cloud for processing.
 	- No, only a subset of the data will be copied to Azure.
 <br><br>
-6. **What is your preferred Azure cloud destination?** For example:
+6. **What is your preferred Azure cloud destination?** For e.g.,
 
 	- Move data to Azure storage blobs.
 	- Store data in mountable Azure virtual hard disks.
@@ -62,27 +66,31 @@ Before you begin creating your Cloud Data Science environment, consider the foll
 Cloud Data Science Resources in Azure
 -------------------------------------
 
-To get started using Azure Machine Learning, you need the following: 
+The Azure Cloud Services include a variety of resources which would
+assist the Data Science Process in different data scenarios. To be able
+to build models and publish them as web services in Azure, the minimum
+requirements are to:
 
-1.  Get an Azure subscription.
-2.  Create an Azure storage account.
+1.  Get an Azure subscription,
+2.  Create an Azure storage account, and
 3.  Create an Azure Machine Learning workspace.
 
-Depending on your scenario, you might also need the following:
+**Other resources to support the Cloud Data Science Process in different
+scenarios and data needs may include:**
 
-1.  Azure Tools: Azure PowerShell SDK, Azure Storage Explorer, AzCopy, and others
-2.  Azure Virtual Machines running SQL Server
-3.  Azure HDInsight (Hadoop)
-4.  Azure Virtual Networks for on-prem to Azure file sharing
-5.  Azure Data Factory for scheduled data movement
+1.  Azure Tools: Azure PowerShell SDK, Azure Storage Explorer, AzCopy, and others.
+2.  Azure Virtual Machines running SQL Server.
+3.  Azure HDInsight (Hadoop).
+4.  Azure Virtual Networks for on-prem to Azure file sharing.
+5.  Azure Data Factory for scheduled data movement.
 
 How to Use the Cloud Data Science Process Map
 ---------------------------------------------
 
-The Azure Machine Learning Data Science Process map guides you through a variety of
-data science exercises. Since the Data Science
+The Cloud Data Science Process map guides you through the end-to-end
+data science exercise in various scenarios. Since the Data Science
 process is iterative in nature, the process map presents the core steps
-involved in a typical flow, however, not all steps shown
+involved in the process in a typical flow, however, not all steps shown
 are required in every data science exercise, and the
 sequence/iteration of steps will likely vary in a given exercise. Use
 the answers collected in the *Before You Begin* section to guide you
@@ -101,8 +109,8 @@ The following are a few examples of Cloud Data Science scenarios according to or
 Sample Data Scenarios
 ---------------------
 
-The following diagram summarizes some data scenarios and examples of Cloud Data Science Process flows. Note that data processing, exploration, feature engineering, and sampling may take place in one or more environments -- at the source, intermediate, and/or target environment – and may proceed iteratively as needed. Not that the diagram does
-not cover all data sources, targets, methods, and cloud resources possible.
+The following diagram summarizes some data scenarios and examples of Cloud Data Science Process flows. Note that data processing, exploration, feature engineering, and sampling may take place in one or more method/environment -- at the source, intermediate, and/or target environment – and may proceed iteratively as needed. The diagram does
+not cover all data sources, targets, methods, and cloud resources possible and serves as an illustration only.
 
 ![Sample DS process walkthrough scenarios][8]
 
@@ -114,4 +122,3 @@ not cover all data sources, targets, methods, and cloud resources possible.
 [6]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-db-to-db.png
 [7]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-attach-db.png
 [8]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-sample-scenarios.png
-

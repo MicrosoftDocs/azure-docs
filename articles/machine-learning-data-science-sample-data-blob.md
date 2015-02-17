@@ -76,4 +76,4 @@ You can use the following sample code to down-sample the data and use it directl
  
 ![reader blob][1]
 
-[1]: ./media/machine-learning-data-science-process-sample-data-sqlonazurevm/reader_blob.png
+[1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
