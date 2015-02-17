@@ -24,9 +24,9 @@
 This guide shows you how to perform common scenarios using the Azure Table storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**.
 
-[AZURE.INCLUDE [storage-table-concepts](../includes/storage-table-concepts.md)]
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 

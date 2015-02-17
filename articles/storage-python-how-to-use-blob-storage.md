@@ -21,9 +21,9 @@ This guide will show you how to perform common scenarios using the
 Azure Blob storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **uploading**, **listing**,
 **downloading**, and **deleting** blobs.
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## How to: Create a Container
 

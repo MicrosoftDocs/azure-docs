@@ -41,13 +41,13 @@ For details about storage account capacity and performance targets, see [Azure S
 
 > [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/en-us/documentation/services/virtual-machines/) for more details. <br />
 
-## How to: Create a storage account ##
+## Create a storage account
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Create New**, click **Storage**, and then click **Quick Create**.
 
-	![NewStorageAccount](./media/storage-storage-create-account/storage_NewStorageAccount.png)
+	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
 3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
 
@@ -66,7 +66,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the portal. After the storage account has been created, your new storage account has **Online** status and is ready for use. 
 
-![StoragePage](./media/storage-storage-create-account/Storage_StoragePage.png)
+![StoragePage](./media/storage-create-storage-account/Storage_StoragePage.png)
 
 
 ### Storage account endpoints 
@@ -98,10 +98,10 @@ An *affinity group* is a geographic grouping of your Azure services and VMs with
 
 ### Storage account replication options
 
-[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options-include](../includes/storage-replication-options-include.md)]
 
 
-## How to: View, copy, and regenerate storage access keys
+## View, copy, and regenerate storage access keys
 
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
@@ -119,12 +119,12 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 
  	**Manage Access Keys** opens.
 
-	![Managekeys](./media/storage-storage-create-account/Storage_ManageKeys.png)
+	![Managekeys](./media/storage-create-storage-account/Storage_ManageKeys.png)
 
  
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
 
-### Regenerate storage access keys ### 
+### Regenerate storage access keys
 You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
 
 > [AZURE.WARNING] Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
@@ -143,7 +143,7 @@ You should change the access keys to your storage account periodically to help k
 
 4. Regenerate the secondary access key.
 
-## How to: Delete a storage account
+## Delete a storage account
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 

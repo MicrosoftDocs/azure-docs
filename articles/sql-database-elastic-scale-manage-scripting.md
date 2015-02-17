@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/03/2015" 
-	ms.author="Joseidz"/>
+	ms.author="Joseidz@microsoft.com"/>
 
 # Managing Elastic Scale with Scripts
 
@@ -86,7 +86,7 @@ Lastly, within the scope of the provided examples, the use of [Azure Automation]
 
 If the Quick Example Instructions were not successful, please see the Detailed Example Instructions below.  
 
-##  To use runbooks
+## To use runbooks
 
 1. Author and package a PowerShell module 
 2. Create a Microsoft Azure Automation Account 

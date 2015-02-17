@@ -24,11 +24,9 @@ This guide will show you how to perform common scenarios using the Azure Table s
 
 Note: An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
 
-[AZURE.INCLUDE [storage-table-concepts](../includes/storage-table-concepts.md)]
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
-## Create an Azure storage account
-
-[AZURE.INCLUDE [storage-create-account](../includes/storage-create-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## Create a Java application
 

@@ -61,7 +61,7 @@ In Visual Studio, you'll see a count of the events that have been received.
 
 ![](./media/appinsights/appinsights-09eventcount.png)
 
-### <a name="monitor"></a>3. View telemetry
+## <a name="monitor"></a>3. View your telemetry
 
 Open Application Insights from your project.
 
