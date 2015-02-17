@@ -161,7 +161,7 @@ a special customization script is provided to you. To install:
 	+ Downloading and installing useful Data Science Python packages
 	+ Downloading and installing Azure tools such as AzCopy and Azure Storage Explorer  
 <br>
-- You may access and run IPython Notebook from any local or remote browser using a URL of the form https://<virtual machine DNS name\>:<port\>, where port is the IPython public port you selected while provisioning the virtual machine.
+- You may access and run IPython Notebook from any local or remote browser using a URL of the form https://<virtual\_machine\_DNS\_name\>:<port\>, where port is the IPython public port you selected while provisioning the virtual machine.
 - IPython Notebook server is running as a background service and will be restarted automatically when you restart the virtual machine.
 
 ##<a name="Optional"></a>Attach data disk as needed
