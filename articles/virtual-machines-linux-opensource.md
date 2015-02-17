@@ -220,9 +220,9 @@ This section contains information about several different storage approaches and
 	- [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-ptvs-django-mysql/)
 	- [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)
 7. MariaDB
-	1. [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
+	- [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
 7. PostgreSQL
-	1. [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+	- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
 
 
 ### <a id='security'>Auth and Encryption</a>
