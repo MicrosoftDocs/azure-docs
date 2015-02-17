@@ -62,7 +62,7 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 
 ## <a name="setup"></a>Setting Up the Azure Data Science Environment
 
-Using the [Plan Your Environment](./machine-learning-data-science-plan-your-environment.md/) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
+Using the [Plan Your Environment](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-your-environment/) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
 
 - Work with the data in Azure blobs then model in Azure Machine Learning
 - Load the data into an SQL Server database then model in Azure Machine Learning
@@ -75,7 +75,7 @@ To set up your Azure Data Science environment:
 
 2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
 
-3. [Provision a Data Science Virtual Machine](./machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as an SQL Server as well an IPython Notebook server.
+3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as an SQL Server as well an IPython Notebook server.
 
 > [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
 > - Sample Scripts: C:\Users\<user\_name\>\Documents\Data Science Scripts  
@@ -87,7 +87,7 @@ Based on the dataset size, data source location, and the selected Azure target e
 
 ## <a name="getdata"></a>Get the Data from Public Source
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](./machine-learning-data-science-move-azure-blob/) to copy the data to your new virtual machine.
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-move-azure-blob/) to copy the data to your new virtual machine.
 
 To copy the data using AzCopy:
 
@@ -105,7 +105,7 @@ To copy the data using AzCopy:
 
 ## <a name="dbload"></a>Bulk Import Data into SQL Server Database
 
-For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](./machine-learning-data-science-parallel-load-sql-partitioned-tables) to create a new database and parallel load the data into partitioned tables.
+For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables) to create a new database and parallel load the data into partitioned tables.
 
 1. While logged in to your VM, start **SQL Server Management Studio**.
 
@@ -501,19 +501,19 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 •	[NYC Taxi and Limousine Commision Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
-[1]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
-[2]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_28_1.png
-[3]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_35_1.png
-[4]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_36_1.png
-[5]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_39_1.png
-[6]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_42_1.png
-[7]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_44_1.png
-[8]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_46_1.png
-[9]: ./media/machine-Learning-data-science-process-sql-walkthrough/sql-walkthrough_71_1.png
-[10]: ./media/machine-Learning-data-science-process-sql-walkthrough/azuremltrain.png
-[11]: ./media/machine-Learning-data-science-process-sql-walkthrough/azuremlpublish.png
-[12]: ./media/machine-Learning-data-science-process-sql-walkthrough/ssmsconnect.png
-[13]: ./media/machine-Learning-data-science-process-sql-walkthrough/executescript.png
-[14]: ./media/machine-Learning-data-science-process-sql-walkthrough/sqlserverproperties.png
-[15]: ./media/machine-Learning-data-science-process-sql-walkthrough/sqldefaultdirs.png
-[16]: ./media/machine-Learning-data-science-process-sql-walkthrough/bulkimport.png
+[1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
+[2]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_28_1.png
+[3]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_35_1.png
+[4]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_36_1.png
+[5]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_39_1.png
+[6]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_42_1.png
+[7]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_44_1.png
+[8]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_46_1.png
+[9]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_71_1.png
+[10]: ./media/machine-learning-data-science-process-sql-walkthrough/azuremltrain.png
+[11]: ./media/machine-learning-data-science-process-sql-walkthrough/azuremlpublish.png
+[12]: ./media/machine-learning-data-science-process-sql-walkthrough/ssmsconnect.png
+[13]: ./media/machine-learning-data-science-process-sql-walkthrough/executescript.png
+[14]: ./media/machine-learning-data-science-process-sql-walkthrough/sqlserverproperties.png
+[15]: ./media/machine-learning-data-science-process-sql-walkthrough/sqldefaultdirs.png
+[16]: ./media/machine-learning-data-science-process-sql-walkthrough/bulkimport.png

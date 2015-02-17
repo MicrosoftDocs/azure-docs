@@ -1,8 +1,8 @@
-<properties title="Move data to SQL Server on Azure" pageTitle="Move data to SQL Server on Azure | Azure" description="Move data to SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="SQL Table data story" pageTitle="Create SQL Table and load data to SQL Table | Azure" description="Create SQL Table and load data to SQL Table" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
 
 <tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="fashah,garye" /> 
 
-#Move data to SQL Server on Azure
+#Move data to SQL Azure or SQL Server VM on Azure (from File or On-Prem SQL Server)
 
 This document covers the movement of data from flat files (csv/tsv) or on-premise SQL Servers to SQL Server VM on an Azure or SQL Azure
 
@@ -91,7 +91,7 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 If the data you are moving is large, you can speed things up by simultaneously executing multiple BCP commands in parallel in a PowerShell Script.
 
 > [AZURE.NOTE] **Big data Ingestion** 
-> To optimize data loading for large and very large datasets, partition your logical and physical database tables using multiple filegroups and partition tables. For more information about creating and loading data to partition tables, see  [Parallel Load SQL Partition Tables](./machine-learning-data-science-parallel-load-sql-partitioned-tables).
+> To optimize data loading for large and very large datasets, partition your logical and physical database tables using multiple filegroups and partition tables. For more information about creating and loading data to partition tables, see  [Parallel Load SQL Partition Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables).
 
 
 The sample PowerShell script below demonstrate parallel inserts using bcp :

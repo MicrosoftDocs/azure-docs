@@ -99,12 +99,12 @@ as needed.
 
 The following are a few examples of Cloud Data Science scenarios according to original data size, data source location, and target repository in Azure.
 
-- [Scenario \#1: Small to medium tabular dataset in a local files](./machine-learning-data-science-plan-sample-scenarios#smalllocal)
-- [Scenario \#2: Small to medium dataset in a local files, requiring processing](./machine-learning-data-science-plan-sample-scenarios#smalllocalprocess)
-- [Scenario \#3: Large dataset in a local files, target Azure blobs](./machine-learning-data-science-plan-sample-scenarios#largelocal)
-- [Scenario \#4: Small to medium dataset in a local files, target SQL Server in Azure VM](./machine-learning-data-science-plan-sample-scenarios#smalllocaltodb)
-- [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](./machine-learning-data-science-plan-sample-scenarios#largelocaltodb)
-- [Scenario \#6: Large dataset in a SQL Server database on-prem, target SQL Server in Azure VM](./machine-learning-data-science-plan-sample-scenarios#largedbtodb)
+- [Scenario \#1: Small to medium tabular dataset in a local files](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocal)
+- [Scenario \#2: Small to medium dataset in a local files, requiring processing](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocalprocess)
+- [Scenario \#3: Large dataset in a local files, target Azure blobs](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocal)
+- [Scenario \#4: Small to medium dataset in a local files, target SQL Server in Azure VM](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocaltodb)
+- [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocaltodb)
+- [Scenario \#6: Large dataset in a SQL Server database on-prem, target SQL Server in Azure VM](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largedbtodb)
 
 Sample Data Scenarios
 ---------------------
