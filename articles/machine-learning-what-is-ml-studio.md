@@ -22,8 +22,6 @@ Microsoft Azure Machine Learning Studio is a collaborative visual development en
 
 Machine Learning Studio is where data science, predictive analytics, cloud resources, and your data meet!
 
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
-
 ## The Machine Learning Studio interactive workspace
 
 To develop a predictive analysis model, you typically use data from one or more sources, transform and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
