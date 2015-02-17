@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Scale a media service | Azure Documentation" 
+	pageTitle="How to Scale a media service" 
 	description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,7 +17,6 @@
 	ms.author="juliako"/>
 
 
-
 #How to Scale a Media Service  
 
 This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series.
@@ -30,9 +29,9 @@ You can scale Media Services by specifying the number of **Streaming Reserved Un
 
 For more information, see [Scaling streaming units](../media-services-manage-origins#scale_streaming_endpoints).
 
-##<a id="encoding_reserved_units></a>Encoding Reserved Units
+##<a id="encoding_reserved_units"></a>Encoding Reserved Units
 
-A Media Services account is associated with a Reserved Unit Type which determines the speed with which your encoding jobs are processed. You can pick between the following reserved unit types: Basic, Standard, or Premium. For example, the same encoding job runs faster when you use the Standard reserved unit type compare to the Basic type. For more information, see the "Encoding Reserved Unit Types" blog written by [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
+A Media Services account is associated with a Reserved Unit Type which determines the speed with which your encoding jobs are processed. You can pick between the following reserved unit types: Basic, Standard, or Premium. For example, the same encoding job runs faster when you use the Standard reserved unit type compare to the Basic type. For more information, see the "Encoding Reserved Unit Types" blog written by [Milan Gada](http://azure.microsoft.com/blog/author/milanga).
 
 In addition to specifying the reserved unit type, you can specify to provision your account with encoding reserved units. The number of provisioned encoding reserved units determines the number of media tasks that can be processed concurrently in a given account. For example, if your account has 5 reserved units, then 5 media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially as soon as a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
 
