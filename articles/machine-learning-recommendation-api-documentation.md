@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/12/2015" 
 	ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -67,12 +67,15 @@ To enable reasoning, the `AllowFeatureCorrelation` and `ReasoningFeatureList` pa
 Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either the Basic or OAuth authentication method.
 
 ###4.2. Service URI
-The service root URIs for the Azure Machine Learning Recommendations APIs are [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
+The service root URI for the Azure Machine Learning Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
 The full service URI is expressed using elements of the OData specification.  
 
 ###4.3. API version
 Each API call will have, at the end, a query parameter called apiVersion that should be set to 1.0.
+
+###4.4. IDs are case sensitive
+IDs, returned by any of the APIs, are case sensitive and should be used as such when passed as parameters in subsequent API calls. For instance, model IDs and catalog IDs are case sensitive.
 
 ##5. Model Basic
 
@@ -96,6 +99,7 @@ Creates a “create model” request.
 HTTP Status code: 200
 
 - `feed/entry/content/properties/id` – Contains the model ID.
+**Note**: model ID is case sensitive.
 
 OData XML
 
@@ -136,7 +140,7 @@ Creates a “get model” request.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id	|	Unique identifier of the model. |
+|	id	|	Unique identifier of the model (case sensitive) |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -270,7 +274,7 @@ This mechanism enables you - once you have a recommendation model in production 
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id		| Unique identifier of the model.  |
+|	id		| Unique identifier of the model (case sensitive)  |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Note that the XML tags Description and ActiveBuildId are optional. If you do not want to set Description or ActiveBuildId, remove the entire tag.|
@@ -288,7 +292,7 @@ Deletes an existing model by ID.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	id	|	Unique identifier of the model. |
+|	id	|	Unique identifier of the model (case sensitive) |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -330,7 +334,7 @@ Returns statistical data on the usage data that this model was built with.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -564,7 +568,7 @@ Returns model insight on the active build or (if given) on a specific build.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	buildId	|	Optional – number that identifies a successful build. |
 |	apiVersion		| 1.0 |
 |||
@@ -645,7 +649,7 @@ Gets a sample of the recommendation model.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -798,7 +802,7 @@ There are 2 types of rules that you can add, <strong>BlockList</strong> and <str
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -902,8 +906,8 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
-|	filterId	|	Unique identifier of the filter. |
+|	modelId	|	Unique identifier of the model |
+|	filterId	|	Unique identifier of the filter |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -920,7 +924,7 @@ HTTP Status code: 200
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -961,7 +965,7 @@ Note: The maximum file size is 200MB.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model.  |
+|	modelId	|	Unique identifier of the model  |
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -1008,7 +1012,7 @@ Retrieves all catalog items.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1110,7 +1114,7 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model. |
+|	modelId	|	Unique identifier of the model |
 |	token	|	Token of the catalog item’s name. Should contain at least 3 characters. |
 |	apiVersion		| 1.0 |
 |||
@@ -1167,7 +1171,7 @@ This section shows how to upload usage data by using a file. You can call this A
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model.  |
+|	modelId	|	Unique identifier of the model  |
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -1320,7 +1324,7 @@ Retrieves metadata of all model usage files.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	forModelId	|	Unique identifier of the model. |
+|	forModelId	|	Unique identifier of the model |
 |	apiVersion		| 1.0 |
 |||
 | Request Body | NONE |
@@ -1384,10 +1388,10 @@ Gets usage statistics.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | startDate |	Start date. Format: yyyy/MM/ddTHH:mm:ss |
 | endDate |	End date. Format: yyyy/MM/ddTHH:mm:ss |
-| eventTypes |	Comma-separated string of event types or null to get all events.  |
+| eventTypes |	Comma-separated string of event types or null to get all events  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1469,8 +1473,8 @@ Retrieves the first 2KB of usage file content.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
-| fileId |	Unique identifier of the model usage file.  |
+| modelId |	Unique identifier of the model  |
+| fileId |	Unique identifier of the model usage file  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1508,8 +1512,8 @@ Retrieves the full content of the usage file.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| mid |	Unique identifier of the model.  |
-| fid |	Unique identifier of the model usage file.  |
+| mid |	Unique identifier of the model  |
+| fid |	Unique identifier of the model usage file |
 | download | 1 |
 | apiVersion | 1.0 |
 |||
@@ -1565,8 +1569,8 @@ Deletes the specified model usage file.
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
-| fileId | Unique identifier of the file to be deleted. |
+| modelId |	Unique identifier of the model  |
+| fileId | Unique identifier of the file to be deleted |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1585,7 +1589,7 @@ Deletes all model usage files.
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1608,7 +1612,7 @@ Retrieves the feature information, including ranking, for the last successful ra
 
 | Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 |samplingSize| Number of values to include for each feature according to the data present in the catalog. <br/>Possible values are:<br> -1 - All samples. <br>0 - No sampling. <br>N - Return N samples for each feature name.|
 | apiVersion | 1.0 |
 |||
@@ -1690,9 +1694,9 @@ Retrieves the feature information, including the ranking for a specific rank bui
 
 | Parameter Name	|	Valid Values	|
 |:--------			|:--------			|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 |samplingSize| Number of values to include for each feature according to the data present in the catalog.<br/> Possible values are:<br> -1 - All samples. <br>0 - No sampling. <br>N - Return N samples for each feature name.|
-|rankBuildId| Unique identifier of the rank build or -1 for the last rank build.|
+|rankBuildId| Unique identifier of the rank build or -1 for the last rank build|
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |
@@ -1830,7 +1834,7 @@ By default this API will request the creation of a recommendation model, in orde
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | apiVersion | 1.0 |
 |||
@@ -1904,7 +1908,7 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | buildType | Type of the build to invoke: <br> - 'Ranking' for rank build <br/> - 'Recommendation' for recommendation build
 | apiVersion | 1.0 |
@@ -1983,8 +1987,8 @@ Retrieves builds and their status for a specified model.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId			|	Unique identifier of the model.	|
-|	onlyLastBuild	|	Indicates whether to return all the build history of the model or only the status of the most recent build.	|
+|	modelId			|	Unique identifier of the model	|
+|	onlyLastBuild	|	Indicates whether to return all the build history of the model or only the status of the most recent build	|
 |	apiVersion		|	1.0									|
 
 
@@ -2392,10 +2396,10 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | Unique identifier of the model. |
+| modelId | Unique identifier of the model |
 | itemIds | Comma-separated list of the items to recommend for.<br>Max length: 200 |
-| numberOfResults | Number of required results. |
-| includeMetatadata | Future use, always false. |
+| numberOfResults | Number of required results |
+| includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
 
 **Response:**
@@ -2631,7 +2635,7 @@ Deletes all read notifications for a model.
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | Unique identifier of the model. |
+| modelId | Unique identifier of the model |
 | apiVersion | 1.0 |
 |||
 | Request Body | NONE |

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="02/12/2015" 
 	ms.author="ricksal"/>
 
 
@@ -21,37 +21,7 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
  
-This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. This topic is divided into these sections:
-
-+ [Introduction]
-+ [Table operations]
-	+ [How to: Register for table operations]
-	+ [How to: Override the default response]
-	+ [How to: Override execute success]
-	+ [How to: Override default error handling]
-	+ [How to: Add custom parameters]
-	+ [How to: Work with table users][How to: Work with users]
-+ [Custom API][Custom API anchor]
-	+ [How to: Define a custom API]
-	+ [How to: Implement HTTP methods]
-	+ [How to: Send and receive data as XML]
-	+ [How to: Work with users and headers in a custom API]
-	+ [How to: Define multiple routes in a custom API]
-+ [Job Scheduler]
-	+ [How to: Define scheduled job scripts]
-+ [Source control, shared code, and helper functions]
-	+ [How to: Load Node.js modules]
-	+ [How to: Use helper functions]
-	+ [How to: Share code by using source control]
-	+ [How to: Work with app settings] 
-+ [Using the command line tool]
-+ [Working with tables]
-	+ [How to: Access tables from scripts]
-	+ [How to: Perform Bulk Inserts]
-	+ [How to: Map JSON types to database types]
-	+ [Using Transact-SQL to access tables]
-+ [Debugging and troubleshooting]
-	+ [How to: Write output to the mobile service logs]
+This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. 
 
 ##<a name="intro"></a>Introduction
 
@@ -68,7 +38,20 @@ For descriptions of individual server script objects and functions, see [Mobile 
 
 ##<a name="table-scripts"></a>Table operations
 
-A table operation script is a server script that is registered to an operation on a table--insert, read, update, or delete (*del*). The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request&mdash;for example, when a POST request is received to insert an item into the table. Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see [How to: Access tables from scripts].
+A table operation script is a server script that is registered to an operation on a table&mdash;insert, read, update, or delete (*del*). This section describes how to work with table operations in a JavaScript backend, which includes the following sections:
+
++ [Overview of table operations][Basic table operations]
++ [How to: Register for table operations]
++ [How to: Override the default response]
++ [How to: Override execute success]
++ [How to: Override default error handling]
++ [How to: Generate unique ID values](#generate-guids)
++ [How to: Add custom parameters]
++ [How to: Work with table users][How to: Work with users]
+
+###<a name="basic-table-ops"></a>Overview of table operations
+
+The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request&mdash;for example, when a POST request is received to insert an item into the table. Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see [How to: Access tables from scripts].
 
 You write table operation scripts if you need to enforce customized business logic when the operation is executed. For example, the following script rejects insert operations where the string length of the `text` field is greater than ten characters: 
 
@@ -217,6 +200,41 @@ When you provide an error handler, Mobile Services returns an error result to th
 
 You can also provide both a **success** and an **error** handler if you wish.
 
+###<a name="generate-guids"></a>How to: Generate unique ID values
+
+Mobile Services supports unique custom string values for the table's **id** column. This allows applications to use custom values such as email addresses or user names for the ID. 
+
+String IDs provide you with the following benefits:
+
++ IDs are generated without making a round-trip to the database.
++ Records are easier to merge from different tables or databases.
++ IDs values can integrate better with an application's logic.
+
+When a string ID value is not set on an inserted records, Mobile Services generates a unique value for the ID. You can generate your own unique ID values in server scripts. The script example below generates a custom GUID and assigns it to a new record's ID. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's ID.
+
+	// Example of generating an id. This is not required since Mobile Services
+	// will generate an id if one is not passed in.
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+When an application provides a value for an ID, Mobile Services stores it as-is. This includes leading or trailing white spaces. White space are not trimmed from value.
+
+The value for the `id` must be unique and it must not include characters from the following sets:
+
++ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
++  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  The ids "." and ".."
+
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/en-us/documentation/articles/command-line-tools/#Mobile_Tables).
+
+
 ###<a name="access-headers"></a>How to: Access custom parameters
 
 When you send a request to your mobile service, you can include custom parameters in the URI of the request to instruct your table operation scripts how to process a given request. You then modify your script to inspect the parameter to determine the processing path.
@@ -289,7 +307,18 @@ The next example adds an additional filter to the query based on the **userId** 
 	    request.execute();
 	}
 
-##<a name="custom-api"></a>Custom API
+##<a name="custom-api"></a>Custom APIs
+
+This section describes how you create and work with custom API endpoints, which includes the following sections: 
+	
++ [Overview of custom APIs](#custom-api-overview)
++ [How to: Define a custom API]
++ [How to: Implement HTTP methods]
++ [How to: Send and receive data as XML]
++ [How to: Work with users and headers in a custom API]
++ [How to: Define multiple routes in a custom API]
+
+###<a name="custom-api-overview"></a>Overview of custom APIs
 
 A custom API is an endpoint in your mobile service that is accessed by one or more of the standard HTTP methods: GET, POST, PUT, PATCH, DELETE. A separate function export can be defined for each HTTP method supported by the custom API, all in a single script file. The registered script is invoked when a request to the custom API using the given method is received. For more information, see [Custom API].
 
@@ -437,6 +466,16 @@ You define scheduled jobs in one of the following ways:
 >[AZURE.NOTE]When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [How to: Share code by using source control].
 
 ##<a name="shared-code"></a>Source control, shared code, and helper functions
+
+This sections shows you how to leverage source control to add your own custom node.js modules, shared code and other code reuse strategies, including the following sections:
+
++ [Overview of leveraging shared code](#leverage-source-control)
++ [How to: Load Node.js modules]
++ [How to: Use helper functions]
++ [How to: Share code by using source control]
++ [How to: Work with app settings] 
+
+###<a name="leverage-source-control"></a>Overview of leveraging shared code
 
 Because Mobile Services uses Node.js on the server, your scripts already have access to the built-in Node.js modules. You can also use source control to define your own modules or add other Node.js modules to your service.
 
@@ -597,6 +636,16 @@ The following command returns information about every script file maintained in 
 For more information, see [Commands to manage Azure Mobile Services]. 
 
 ##<a name="working-with-tables"></a>Working with tables
+
+This section details strategies for working directly with SQL Database table data, including the following sections:
+
++ [Overview of working with tables](#overview-tables)
++ [How to: Access tables from scripts]
++ [How to: Perform Bulk Inserts]
++ [How to: Map JSON types to database types]
++ [Using Transact-SQL to access tables]
+
+###<a name="overview-tables"></a>Overview of working with tables
 
 Many scenarios in Mobile Services require server scripts to access tables in the database. For example. because Mobile Services does not preserve state between script executions, any data that needs to be persisted between script executions must be stored in tables. You might also want to examine entries in a permissions table or store audit data instead of just writing to the log, where data has a limited duration and cannot be accessed programmatically. 
 
@@ -915,6 +964,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 <!-- Anchors. -->
 [Introduction]: #intro
 [Table operations]: #table-scripts
+[Basic table operations]: #basic-table-ops
 [How to: Register for table operations]: #register-table-scripts
 [How to: Define table scripts]: #execute-operation
 [How to: override the default response]: #override-response

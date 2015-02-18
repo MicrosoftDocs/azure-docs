@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/19/2014" 
+	ms.date="02/12/2015" 
 	ms.author="cephalin,riande"/>
 
 
@@ -27,7 +27,7 @@ have that.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-### What You'll Build
+## What You'll Build
 
 For this tutorial, you'll add mobile features to the simple
 conference-listing application that's provided in the [starter project][StarterProject]. The following screenshot shows the ASP.NET sessions in the completed
@@ -40,7 +40,7 @@ You can use the Internet Explorer 11 F12 developer tools and the [Fiddler
 tool][Fiddler] to help debug your
 application. 
 
-### Skills You'll Learn
+## Skills You'll Learn
 
 Here's what you'll learn:
 
@@ -52,7 +52,7 @@ Here's what you'll learn:
 -   How to create responsive views (views that respond to different
     browsers across devices)
 
-<h2>Set up the development environment</h2>
+##Set up the development environment
 
 Set up your development environment by installing the Azure SDK for the .NET Framework. 
 
@@ -75,18 +75,7 @@ this topic:
 -   [Starter project download][StarterProject]
 -   [Completed project download][CompletedProject]
 
-<h2>Steps in this tutorial</h2>
-
-- [Deploy the starter project to a Windows Azure Website][]
-- [Bootstrap CSS Framework][]
-- [Override the Views, Layouts, and Partial Views][]
-- [Improve the Speakers List][]
-- [Improve the Tags List][]
-- [Improve the Dates List][]
-- [Improve the SessionsTable View][]
-- [Improve the SessionByCode View][]
-
-<h3><a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website</h3>
+##<a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website
 
 1.	Download the conference-listing application [starter project][StarterProject].
 
@@ -160,7 +149,7 @@ the mobile browser. For example, the **Date** column is difficult to
 read. Later in the tutorial you'll change the *AllTags* view to make it
 mobile-friendly.
 
-<h2><a name="bkmk_bootstrap"></a>Bootstrap CSS Framework</h2>
+##<a name="bkmk_bootstrap"></a>Bootstrap CSS Framework
 
 New in the MVC 5 template is built-in Bootstrap support. You have
 already seen how it immediately improves the different views in your
@@ -207,7 +196,7 @@ For more information about Bootstrap, go to the
 In the next section you'll see how to provide mobile-browser specific
 views.
 
-<h2><a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views</h2>
+##<a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views
 
 You can override any view (including layouts and partial views) for
 mobile browsers in general, for an individual mobile browser, or for any
@@ -251,7 +240,7 @@ In contrast, the desktop display has not changed (with titles from from *\_Layou
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-<h2><a name="bkmk_browserviews"></a>Create Browser-Specific Views</h2>
+##<a name="bkmk_browserviews"></a>Create Browser-Specific Views
 
 In addition to mobile-specific and desktop-specific views, you can
 create views for an individual browser. For example, you can create
@@ -359,7 +348,7 @@ across desktop, phone, and tablet browsers to create a consistent look and
 feel. In the next section you'll see how to leverage Bootstrap to create
 mobile-friendly views.
 
-<h2><a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List</h2>
+##<a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List
 
 As you just saw, the *Speakers* view is readable, but the links are
 small and are difficult to tap on a mobile device. In this section,
@@ -483,7 +472,7 @@ according to your search string.
 
 ![][AllSpeakersFixedSearchBySC]
 
-<h2><a name="bkmk_improvetags"></a> Improve the Tags List</h2>
+##<a name="bkmk_improvetags"></a> Improve the Tags List
 
 Like the *Speakers* view, the *Tags* view is readable, but the links
 are small and difficult to tap on a mobile device. You can fix the *Tags* view the same way you fix the *Speakers* view, if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllTags.cshtml*:
@@ -503,7 +492,7 @@ And the refreshed mobile browser looks as follows:
 
 >[AZURE.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
 
-<h2><a name="bkmk_improvedates"></a> Improve the Dates List</h2>
+##<a name="bkmk_improvedates"></a> Improve the Dates List
 
 You can improve the *Dates* view like you improved the *Speakers* and
 *Tags* views if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllDates.cshtml*:
@@ -560,7 +549,7 @@ Switch to the desktop browser. Again, note the consistent look.
 
 ![][AllDatesFixed2Desktop]
 
-<h2><a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View</h2>
+##<a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View
 
 In this section, you'll make the *SessionsTable* view more
 mobile-friendly. This change is more extensive the previous changes.
@@ -637,7 +626,7 @@ In the desktop browser, notice that the tags are now displayed. Also, you can se
 applied arranges the session items in two columns. If you enlarge the
 browser, you will see that the arrangement changes to three columns.
 
-<h2><a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View</h2>
+##<a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View
 
 Finally, you'll fix the *SessionByCode* view to make it mobile-friendly.
 
@@ -705,8 +694,7 @@ changes that you just made:
 
 ![][SessionByCodeFixed3-644]
 
-Wrap Up and Review
-------------------
+##Wrap Up and Review
 
 This tutorial has shown you how to use ASP.NET MVC 5 to develop
 mobile-friendly Web applications. These include:
@@ -722,8 +710,7 @@ mobile-friendly Web applications. These include:
     browser
 -   Apply Bootstrap styling in Razor code
 
-See Also
---------
+##See Also
 
 -   [9 basic principles of responsive web design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Bootstrap][BootstrapSite]

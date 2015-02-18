@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -30,7 +30,7 @@ The following diagram shows the major parts of the Media Services platform that 
 
 ##Creating a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
+Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
 
 ##Setting up development environment  
 
@@ -52,21 +52,19 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 ##Processing media
 
-###Get Media Processor
+###Getting Media Processor
 
 Get Media Processor with **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../includes/media-services-selector-get-media-processor.md)]
 
-###Managing jobs
+###Creating jobs 
 
-**Creating jobs:** 
-
-For example on how to create jobs, see:
+A job is an entity that contains metadata about a set of tasks (for example, encoding or indexing). Each task performs an atomic operation on the input asset(s). For example on how to create encoding jobs, see:
 
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-**Monitoring job progress:**
+###Monitoring job progress
 
 Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**.
 
@@ -94,7 +92,7 @@ Configure key authorization policy using **.NET** or **REST API**.
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
 ##Publishing assets
 
@@ -102,7 +100,19 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
+##Scaling a Media Services account
 
+You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with. 
+
+For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+
+For information about scaling encoding units, see the following **Portal** and **.NET** topics.
+
+[AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
+
+You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
+
+For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/en-us/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/en-us/library/azure/dn767951.aspx).
 
 
 

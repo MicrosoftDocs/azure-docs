@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Application Insights for Windows Store and Phone apps" 
+	pageTitle="Application Insights: Get started with Windows Phone and Store apps" 
 	description="Analyze usage and performance of your Windows device app with Application Insights." 
 	services="application-insights" 
 	authors="alancameronwills" 
@@ -14,9 +14,7 @@
 	ms.date="2015-02-10" 
 	ms.author="awills"/>
 
-# Application Insights
-
-## Monitor usage and crashes in Windows apps and Windows Phone apps
+# Application Insights: Get started with Windows Phone and Store apps
 
 *Application Insights is in preview.*
 
@@ -45,18 +43,23 @@ If you're asked to sign in, use the credentials for your Azure account (which is
 **If yours is a Windows Universal app** create the app in Visual Studio, and then:
 
 1.  In the [Azure portal][portal], create a new Application Insights resource.
+    ![](./media/app-insights-windows-get-started/01-new.png)
 2.  Go to the Properties blade and copy the Instrumentation Key.
+    ![](./media/app-insights-windows-get-started/02-props.png)
 
 In Visual Studio, repeat the following steps for both the Windows Phone project and the Windows project:
 
 1. Right-click the project in Solution Explorer and choose **Manage NuGet Packages**.
+    ![](./media/app-insights-windows-get-started/03-nuget.png)
 2. Select **Online**, **Include prerelease**, and search for "Application Insights".
-3. Pick the appropriate package - one of:
-       * Application Insights for Windows applications
-       * Application Insights for Windows Phone applications
+    ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
+3. Pick the latest version of the appropriate package - one of:
+   * Application Insights for Windows applications - *for Windows Store apps*
+   * Application Insights for Windows Phone applications
+   * Application Insights for Web Apps - *use this for a desktop application* 
 4. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
-    &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
 
 
 ## <a name="network"></a>2. Enable network access for your app

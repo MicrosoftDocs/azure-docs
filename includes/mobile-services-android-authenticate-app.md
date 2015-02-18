@@ -1,5 +1,5 @@
 
-1. In the Package Explorer in Eclipse, open the ToDoActivity.java file and add the following import statements.
+1. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements.
 
 		import java.util.concurrent.ExecutionException;
 		import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,25 +13,25 @@
 
 2. Add the following method to the **ToDoActivity** class: 
 	
-	private void authenticate() {
-	    // Login using the Google provider.
-	    
-		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-
-    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-    		@Override
-    		public void onFailure(Throwable exc) {
-    			createAndShowDialog((Exception) exc, "Error");
-    		}   		
-    		@Override
-    		public void onSuccess(MobileServiceUser user) {
-    			createAndShowDialog(String.format(
-                        "You are now logged in - %1$2s",
-                        user.getUserId()), "Success");
-    			createTable();	
-    		}
-    	});   	
-	}
+		private void authenticate() {
+		    // Login using the Google provider.
+		    
+			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+	
+	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+	    		@Override
+	    		public void onFailure(Throwable exc) {
+	    			createAndShowDialog((Exception) exc, "Error");
+	    		}   		
+	    		@Override
+	    		public void onSuccess(MobileServiceUser user) {
+	    			createAndShowDialog(String.format(
+	                        "You are now logged in - %1$2s",
+	                        user.getUserId()), "Success");
+	    			createTable();	
+	    		}
+	    	});   	
+		}
 
 
 	This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
@@ -62,6 +62,6 @@
 			refreshItemsFromTable();
 		}
 
-9. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
+9. From the **Run** menu, then click **Run app** to start the app and sign in with your chosen identity provider. 
 
    	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.

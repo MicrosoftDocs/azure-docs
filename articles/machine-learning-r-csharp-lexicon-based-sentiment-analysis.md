@@ -65,7 +65,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	            var query = ctx.Execute<ScoreResult>(acitionUri, "POST", true, new BodyOperationParameter("Text", TextBox1.Text));
 	            ScoreResult scoreResult = query.ElementAt(0);
 	            double result = scoreResult.result;
-	    }
+	    	}
 	}
 
 

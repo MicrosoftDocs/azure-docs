@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="required" 
+	pageTitle="Managing Concurrency in Microsoft Azure Storage" 
 	description="How to manage concurrency for the Blob, Queue, Table, and File services" 
 	services="storage" 
 	documentationCenter="" 
@@ -16,7 +16,10 @@
 	ms.date="10/08/2014" 
 	ms.author="tamram"/>
 
-#Managing Concurrency in Microsoft Azure Storage
+# Managing Concurrency in Microsoft Azure Storage
+
+## Overview 
+
 Modern Internet based applications usually have multiple users viewing and updating data simultaneously. This requires application developers to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. There are three main data concurrency strategies developers will typically consider:  
 
 
@@ -26,15 +29,15 @@ Modern Internet based applications usually have multiple users viewing and updat
 
 This article provides an overview of how the Azure Storage platform simplifies development by providing first class support for all three of these concurrency strategies.  
 
-#Azure Storage – Simplifies Cloud Development
+## Azure Storage – Simplifies Cloud Development
 The Azure storage service supports all three strategies, although it is distinctive in its ability to provide full support for optimistic and pessimistic concurrency because it was designed to embrace a strong consistency model which guarantees that when the Storage service commits a data insert or update operation all further accesses to that data will see the latest update. Storage platforms that use an eventual consistency model have a lag between when a write is performed by one user and when the updated data can be seen by other users thus complicating development of client applications in order to prevent inconsistencies from affecting end users.  
 
 In addition to selecting an appropriate concurrency strategy developers should also be aware of how a storage platform isolates changes – particularly changes to the same object across transactions. The Azure storage service uses snapshot isolation to allow read operations to happen concurrently with write operations within a single partition. Unlike other isolation levels, snapshot isolation guarantees that all reads see a consistent snapshot of the data even while updates are occurring – essentially by returning the last committed values while an update transaction is being processed.  
 
-#Managing Concurrency in the Blob Service
+## Managing Concurrency in the Blob Service
 You can opt to use either optimistic or pessimistic concurrency models to manage access to blobs and containers in the blob service. If you do not explicitly specify a strategy last writes wins is the default.  
 
-##Optimistic concurrency for blobs and containers  
+### Optimistic concurrency for blobs and containers  
 
 The Storage service assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol. A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an “If-Match” header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.  
 
@@ -120,7 +123,7 @@ Get Page Ranges|	Yes|	Yes
 
 (*) Lease Blob does not change the ETag on a blob.  
 
-##Pessimistic concurrency for blobs
+### Pessimistic concurrency for blobs
 To lock a blob for exclusive use, you can acquire a [lease](http://msdn.microsoft.com/en-us/library/azure/ee691972.aspx) on it. When you acquire a lease, you specify for how long you need the lease: this can be for between 15 to 60 seconds or infinite which amounts to an exclusive lock. You can renew a finite lease to extend it, and you can release any lease when you are finished with it. The blob service automatically releases finite leases when they expire.  
 
 Leases enable different synchronization strategies to be supported, including exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read. Where a lease exists the storage service enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID. Read operations that do not include a lease ID result in shared reads.  
@@ -174,7 +177,7 @@ The following blob operations can use leases to manage pessimistic concurrency:
 -	Abort Copy Blob - lease ID required if an infinite lease exists on the destination blob
 -	Lease Blob  
 
-##Pessimistic concurrency for containers
+### Pessimistic concurrency for containers
 Leases on containers enable the same synchronization strategies to be supported as on blobs (exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read) however unlike blobs the storage service only enforces exclusivity on delete operations. To delete a container with an active lease, a client must include the active lease ID with the delete request. All other container operations succeed on a leased container without including the lease ID in which case they are shared operations. If exclusivity of update (put or set) or read operations is required then developers should ensure all clients use a lease ID and that only one client at a time has a valid lease ID.  
 
 The following container operations can use leases to manage pessimistic concurrency:  
@@ -193,7 +196,7 @@ For more information see:
 - [Lease Container](http://msdn.microsoft.com/en-us/library/azure/jj159103.aspx)
 - [Lease Blob ](http://msdn.microsoft.com/en-us/library/azure/ee691972.aspx) 
 
-#Managing Concurrency in the Table Service
+## Managing Concurrency in the Table Service
 The table service uses optimistic concurrency checks as the default behavior when you are working with entities, unlike the blob service where you must explicitly choose to perform optimistic concurrency checks. The other difference between the table and blob services is that you can only manage the concurrency behavior of entities whereas with the blob service you can manage the concurrency of both containers and blobs.  
 
 To use optimistic concurrency and to check if another process modified an entity since you retrieved it from the table storage service, you can use the ETag value you receive when the table service returns an entity. The outline of this process is as follows:  
@@ -247,7 +250,7 @@ For more information see:
 
 - [Operations on Entities](http://msdn.microsoft.com/en-us/library/azure/dd179375.aspx)  
 
-#Managing Concurrency in the Queue Service
+## Managing Concurrency in the Queue Service
 One scenario in which concurrency is a concern in the queueing service is where multiple clients are retrieving messages from a queue. When a message is retrieved from the queue, the response includes the message and a pop receipt value, which is required to delete the message. The message is not automatically deleted from the queue, but after it has been retrieved, it is not visible to other clients for the time interval specified by the visibilitytimeout parameter. The client that retrieves the message is expected to delete the message after it has been processed, and before the time specified by the TimeNextVisible element of the response, which is calculated based on the value of the visibilitytimeout parameter. The value of visibilitytimeout is added to the time at which the message is retrieved to determine the value of TimeNextVisible.  
 
 The queue service does not have support for either optimistic or pessimistic concurrency and for this reason clients processing messages retrieved from a queue should ensure messages are processed in an idempotent manner. A last writer wins strategy is used for update operations such as SetQueueServiceProperties, SetQueueMetaData, SetQueueACL and UpdateMessage.  
@@ -257,7 +260,7 @@ For more information see:
 - [Queue Service REST API](http://msdn.microsoft.com/en-us/library/azure/dd179363.aspx)
 - [Get Messages](http://msdn.microsoft.com/en-us/library/azure/dd179474.aspx)  
 
-#Managing Concurrency in the File Service
+## Managing Concurrency in the File Service
 The file service can be accessed using two different protocol endpoints – SMB and REST. The REST service does not have support for either optimistic locking or pessimistic locking and all updates will follow a last writer wins strategy. SMB clients that mount file shares can leverage file system locking mechanisms to manage access to shared files – including the ability to perform pessimistic locking. When an SMB client opens a file, it specifies both the file access and share mode. Setting a File Access option of "Write" or "Read/Write" along with a File Share mode of "None" will result in the file being locked by an SMB client until the file is closed. If REST operation is attempted on a file where an SMB client has the file locked the REST service will return status code 409 (Conflict) with error code SharingViolation.  
 
 When an SMB client opens a file for delete, it marks the file as pending delete until all other SMB client open handles on that file are closed. While a file is marked as pending delete, any REST operation on that file will return status code 409 (Conflict) with error code SMBDeletePending. Status code 404 (Not Found) is not returned since it is possible for the SMB client to remove the pending deletion flag prior to closing the file. In other words, status code 404 (Not Found) is only expected when the file has been removed. Note that while a file is in a SMB pending delete state, it will not be included in the List Files results.Also note that the REST Delete File and REST Delete Directory operations are committed atomically and do not result in pending delete state.  
@@ -266,7 +269,7 @@ For more information see:
 
 - [Managing File Locks](http://msdn.microsoft.com/en-us/library/azure/dn194265.aspx)  
 
-#Summary and Next Steps
+## Summary and Next Steps
 The Microsoft Azure Storage service has been designed to meet the needs of the most complex online applications without forcing developers to compromise or rethink key design assumptions such as concurrency and data consistency that they have come to take for granted.  
 
 For the complete sample application referenced in this blog:  

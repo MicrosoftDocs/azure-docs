@@ -2,7 +2,7 @@
 
 To authenticate users, register your app with an identity provider, and then register the provider-generated client credentials with Azure Mobile Services.
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+1. Log on to the Azure Management Portal, click **Mobile Services**, and then click your mobile service.
 
 2. Click the **Dashboard** tab and note the **Mobile Service URL** value. You may need to provide this value to the identity provider when you register your app.
 
@@ -16,12 +16,6 @@ To authenticate users, register your app with an identity provider, and then reg
 
     > [AZURE.IMPORTANT] The provider-generated secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
-4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
-   	![](./media/mobile-services-register-authentication/mobile-identity-tab.png)
-
-	Both your mobile service and your app are now configured to work with your chosen authentication provider.
+4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**. Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
     > [AZURE.IMPORTANT] Verify that you've set the correct redirect URI on your identity provider's developer site. As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service. An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.
-
-<!-- URLs. -->
-[Azure Management Portal]: https://manage.windowsazure.com/

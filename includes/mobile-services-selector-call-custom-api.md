@@ -3,7 +3,6 @@
 - [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-ios-call-custom-api/)
 - [(Windows Store C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/)
 - [(Windows Store C# | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/)
-- [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api/)
 - [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/)
 - [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api/)
 - [(Windows Phone | Javascript)](/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api/)
