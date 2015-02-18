@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/07/2015" 
+	ms.date="2/17/2015" 
 	ms.author="elizapo"/>
 
-#How to create a custom template image for RemoteApp
+# How to create a custom template image for RemoteApp
 Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
 
 
@@ -38,15 +38,15 @@ Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the pro
 
 You need to do the following before creating the service:
 
-- Sign up for RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
-- Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain. See [Configure Azure Active Directory for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-ad/) for more information.
+- [Sign up](http://azure.microsoft.com/services/remoteapp/) for RemoteApp. 
+- Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain. See [Configure Azure Active Directory for RemoteApp](./remoteapp-ad/) for more information.
 - Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
+- Install the [Azure PowerShell](./install-configure-powershell/) module.
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
 
 
 
-## **Create a template image**##
+## Create a template image ##
 
 To create a new template image from scratch:
 
@@ -132,6 +132,6 @@ The detailed steps for creating a new image are:
 Now that you have your custom template image, you need to upload that image to your RemoteApp collection. Use the information in the following articles to create your collection:
 
 
-- [How to create a hybrid collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/) 
-- [How to create a cloud collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/)
+- [How to create a hybrid collection of RemoteApp](./remoteapp-create-hybrid-deployment/) 
+- [How to create a cloud collection of RemoteApp](./remoteapp-create-cloud-deployment/)
 
