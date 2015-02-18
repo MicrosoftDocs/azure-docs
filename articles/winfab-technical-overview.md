@@ -3,7 +3,7 @@
    description="A technical overview of Windows Fabric" 
    services="" 
    documentationCenter=".net" 
-   authors="GitHub-alias-of-author" 
+   authors="rwike77" 
    manager="timlt" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="04/29/2015"
-   ms.author="mfussell"/>
+   ms.date="02/18/2015"
+   ms.author="ryanwi"/>
 
 # Technical Overview 
 

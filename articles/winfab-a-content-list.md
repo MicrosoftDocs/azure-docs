@@ -84,8 +84,8 @@ Remove using PS
 ### Managed Reference
 ### PowerShell Reference
 ### REST Reference
-### Application Manifest Schema and Settings
-### Service Manifest Schema and Settings
+### Application Manifest Schema and Settings P2
+### Service Manifest Schema and Settings P2
 ### Cluster Manifest Schema and Settings (need for Build?)
 
 ## Further Reading- link back to Work with... topics

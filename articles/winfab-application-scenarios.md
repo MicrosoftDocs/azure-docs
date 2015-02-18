@@ -3,7 +3,7 @@
    description="Categories of applications and services" 
    services="" 
    documentationCenter=".net" 
-   authors="GitHub-alias-of-author" 
+   authors="rwike77" 
    manager="timlt" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="04/29/2015"
-   ms.author="mfussell"/>
+   ms.date="02/18/2015"
+   ms.author="ryanwi"/>
 
 # Application Scenarios 
 
@@ -37,7 +37,7 @@ The Windows Fabric platform in Azure is ideal for the following categories of ap
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
+ 
 
 
 
