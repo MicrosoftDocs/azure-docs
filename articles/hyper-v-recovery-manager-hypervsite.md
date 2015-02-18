@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: Set up Protection Between an On-Premises Hyper-V Site and Azure" 
-	description="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines between an on-premises Hyper-V site and Azure." 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines between an on-premises Hyper-V site and Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="raynew" 
