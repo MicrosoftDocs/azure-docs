@@ -82,7 +82,7 @@ If you have a small amount of data and want to expose it via an http URL, then y
 
 **Is there a built-in image input capability?** 
 
-Please, see documentation here on dealing with images. <ADD LINK>
+You can learn about image input capability in the [Image Reader Module documentation](https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84).
 
 ###Modules 
 
