@@ -1,6 +1,6 @@
-<properties title="Process Data in Azure Blob" pageTitle="Process Data in  Azure Blob" description="Process Data in Azure Blob" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liangsun,mona,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="Process Data in Azure Blob" pageTitle="Process Data in  Azure Blob" description="Process Data in Azure Blob" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liangsun,msolhab,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/27/2015" ms.author="liangsun,mona,fashah,garye" /> 
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/27/2015" ms.author="liangsun,msolhab,fashah,garye" /> 
 
 #<a name="heading"></a>Process Data in Azure Blob
 
