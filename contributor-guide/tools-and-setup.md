@@ -131,9 +131,11 @@ We author content using simple "markdown" notation in the files, rather than com
 2. Next, copy the repository to your computer. To do this, open GitBash. At the command prompt, enter the following command. This command creates a azure-content(-pr) directory on your computer. If you’re using the default location, it will be at c:\users\<your Windows user name>\azure-content(-pr).
 
 Public repo:
+
         git clone https://github.com/<your GitHub user name>/azure-content.git 
 
 Private repo:
+
         git clone https://github.com/<your GitHub user name>/azure-content-pr.git 
 
  When asked for a password, give the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens). 
@@ -145,11 +147,13 @@ Private repo:
 3. Next create a reference to the root repository by entering these commands. This sets up connections to the repository in GitHub so that you can get the latest changes onto your local machine and push your changes back to GitHub.
 
 Public repo:
+
         cd azure-content
         git remote add upstream https://github.com/Azure/azure-content.git
         git fetch upstream 
 
 Private repo:
+
         cd azure-content-pr
         git remote add upstream https://github.com/Azure/azure-content-pr.git
         git fetch upstream    
