@@ -54,7 +54,7 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dkpg and
 3. [How to: MySQL Clusters](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/)
 4. [How to: Node.js and Cassandra](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
 5. [How to: IPython Notebook](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-python-ipython-notebook/)
-6. [Geeking out: Running ASP.NET vNext on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
+6. [Geeking out: Running ASP.NET 5 on Linux using Docker Containers](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 7. [Images: Redis Server](http://azure.microsoft.com/en-us/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
 8. [Images: Minecraft Server](http://azure.microsoft.com/en-us/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)
 9. [Images: Moodle](http://azure.microsoft.com/en-us/marketplace/partners/bitnami/moodle270ubuntu1404/)
@@ -166,7 +166,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 		1. [How to: Install the LAMP Stack on an Azure VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-install-lamp-stack/)
 		2. [Video: Install a LAMP Stack on an Azure VM](http://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)
 	9. [Azure Service Management SDK: .NET](https://github.com/Azure/azure-sdk-for-net)
-10. [Blog: Mono, ASP.NETvNext, Linux, and Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
+10. [Blog: Mono, ASP.NET 5, Linux, and Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
 ### <a id='samples'>Samples and Scripts</a>
 1. [Patrick Chanezon's Azure Linux Github repository](https://github.com/chanezon/azure-linux)
