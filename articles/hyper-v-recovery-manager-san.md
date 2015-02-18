@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: Set up Protection Between On-Premises VMM Sites with SAN" 
-	description="Azure Site Recovery, VMM, clouds, disaster recovery, SAN" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication." 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="raynew" 
