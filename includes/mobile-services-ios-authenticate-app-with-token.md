@@ -5,7 +5,7 @@ A better approach is to cache the authorization token returned by Azure Mobile S
 
 1. The recommended way to encrypt and store authentication tokens on an iOS client is use the iOS Keychain. We'll use [SSKeychain](https://github.com/soffes/sskeychain) -- a simple wrapper around the iOS Keychain. Follow the instructions on the SSKeychain page and add it to your project. Verify that the **Enable Modules** setting is enabled in the project's **Build Settings** (section **Apple LLVM - Languages - Modules**.)
 
-2. Open the project file **QSTodoListViewController.m** and add the following code:
+2. Open **QSTodoListViewController.m** and add the following code:
 
 
 		- (void) saveAuthInfo {
@@ -23,10 +23,10 @@ A better approach is to cache the authorization token returned by Azure Mobile S
 		    }
 		}
 
-3. At the end of the **viewDidAppear** method in **QSTodoListViewController.m**, add a call to **saveAuthInfo** right before the line `[self refresh]`. With this call, we are simply storing the user ID and token properties:
+3. At the end of the **viewDidAppear** method in **QSTodoListViewController.m**, add a call to **saveAuthInfo** right before the line `[self refresh]`. With this call, we simply store the user ID and token properties:
 
-		        [self saveAuthInfo];
+				[self saveAuthInfo];
 
-4. Let's see how we can load the user ID and token when the app starts. In the **viewDidLoad** method in **QSTodoListViewController.m**, add a call to loadAuthInfo right after **self.todoService** has been initialized.
+4. Let's also load the user ID and token when the app starts. In the **viewDidLoad** method in **QSTodoListViewController.m**, add a call to loadAuthInfo right after **self.todoService** has been initialized.
 
-						[self loadAuthInfo];
+				[self loadAuthInfo];
