@@ -182,7 +182,7 @@ If you want to report some extra informations with your activity, you can add th
 			   return extra;
 			}
 
-Further details on the extra information can be found here [windows-phone-sdk-1.0.2-extras-parameters].
+Further details on the extra information can be found [here](../mobile-engagement-windows-phone-use-engagement-api/#extras-parameters).
 
 These methods are called from within the `OnNavigatedTo` method of your page.
 

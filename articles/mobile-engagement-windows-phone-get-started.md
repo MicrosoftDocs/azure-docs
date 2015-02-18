@@ -107,10 +107,11 @@ Download and integrate the SDK library
 
 ###Connect your app to Mobile Engagement backend with the Connection String
 
-1. Open `WMAppManifest.xml` and make sure the following are declared (add them if not) in the `<Capabilities />` tag:
-		
-		<Capability Name="ID_CAP_NETWORKING" />
-		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
+1. The Engagement SDK needs some capabilities of the Windows Phone SDK in order to work properly.
+Open your WMAppManifest.xml file and be sure that the following capabilities are declared in the Capabilities panel:
+	- ID_CAP_NETWORKING
+	- ID_CAP_IDENTITY_DEVICE
+
 
 	![][20]
 

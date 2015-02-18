@@ -31,7 +31,7 @@ Before any API calls, the `EngagementAgent` object must be initialized by callin
 
 ##Engagement concepts
 
-The following parts refine the common ../../../Capptain Concepts for the iOS platform.
+The following parts refine the common [Mobile Engagement Concepts](../mobile-engagement-concepts/) for the iOS platform.
 
 ### `Session` and `Activity`
 
@@ -282,3 +282,4 @@ Application information are limited to **1024** characters per call (once encode
 In the previous example, the JSON sent to the server is 44 characters long:
 
 			{"birthdate":"1983-12-07","gender":"female"}
+

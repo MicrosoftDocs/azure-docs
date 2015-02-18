@@ -215,7 +215,7 @@ The following sections will setup your app to receive them.
 
 ###Initialize the REACH SDK
 
-1. In `App.xaml.cs`, call `EngagementReach.Instance.Init();` in the `OnLaunched` function right after the agent initialization:
+1. In `App.xaml.cs`, call `EngagementReach.Instance.Init(args);` in the `OnLaunched` function right after the agent initialization:
 
 		protected override void OnLaunched(LaunchActivatedEventArgs args)
 		{
@@ -223,7 +223,7 @@ The following sections will setup your app to receive them.
 		   EngagementReach.Instance.Init(args);
 		}
 
-2. In `App.xaml.cs`, call `EngagementReach.Instance.OnActivated(e);` in the `Application_Activated` function right after the agent initialization:
+2. In `App.xaml.cs`, call `EngagementReach.Instance.OnActivated(args);` in the `Application_Activated` function right after the agent initialization:
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
