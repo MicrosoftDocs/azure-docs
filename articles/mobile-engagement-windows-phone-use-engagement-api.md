@@ -60,7 +60,7 @@ You need to call `StartActivity()` each time the user activity changes. The firs
 
 			void EndActivity()
 
-You need to call `EndActivity()` at least once when the user finishes his last activity. This informs the Engagement SDK that the user is currently idle, and that the user session need to be closed once the session timeout will expire (if you call `StartActivity()` before the session timeout expires, the session is simply continued).
+This ends the activity and the session. You should not call this method unless you really know what you're doing.
 
 #### Example
 

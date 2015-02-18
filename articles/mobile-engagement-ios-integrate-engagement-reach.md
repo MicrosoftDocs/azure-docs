@@ -116,7 +116,7 @@ Finally, you have to inform the Engagement SDK when your application receives a 
 
 Once all these steps have been completed, you application is ready to receive Engagement push messages at any time.
 
-But you may want to display something to the end user when your application is launched in response to the arrival of a Engagement push message. We provide three more delegate methods in the `AEPushDelegate` protocol for this:
+But you may want to display something to the end user when your application is launched in response to the arrival of an Engagement push message. We provide three more delegate methods in the `AEPushDelegate` protocol for this:
 
 			-(void)willRetrieveLaunchMessage;
 			-(void)didFailToRetrieveLaunchMessage;
@@ -132,7 +132,7 @@ But you may want to display something to the end user when your application is l
 
 `didReceiveLaunchMessage:`
 
-> This method is called when the push message that launched the application has been received. Use this opportunity to to hide any loading message and display appropriate content to the end user.
+> This method is called when the push message that launched the application has been received. Use this opportunity to hide any loading message and display appropriate content to the end user.
 
 You'll need to set a push delegate once Engagement has been initialized:
 
@@ -293,11 +293,11 @@ You can decide to include our notification layout in your existing views. To do 
 
 1.  Add the notification view using interface builder
 
-> -   Open *Interface Builder*
-> -   Place a 320x60 (or 768x60 if you are on iPad) `UIView` where you want the notification to appear
-> -   Set the Tag value for this view to : **36822491**
+	-   Open *Interface Builder*
+	-   Place a 320x60 (or 768x60 if you are on iPad) `UIView` where you want the notification to appear
+	-   Set the Tag value for this view to : **36822491**
 
-1.  Add the notification view programmatically. Just add the following code when your view has been initialized:
+2.  Add the notification view programmatically. Just add the following code when your view has been initialized:
 
 			UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
 			notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
@@ -326,7 +326,7 @@ To create a category for an announcement, you must extend **AEAnnouncementViewCo
 
 > [AZURE.NOTE] Each time a user will click on a notification for an announcement with the category "my\_category", your registered view controller (in that case `MyCustomAnnouncementViewController`) will be initialized by calling the method `initWithAnnouncement:` and the view will be added to the current application window.
 
-In your implementation of the AEAnnouncementViewController\` class you will have to read the property `announcement` to initialize your subviews. Consider the example below, where two labels are initialized using `title` and `body` properties of the `AEReachAnnouncement` class:
+In your implementation of the `AEAnnouncementViewController` class you will have to read the property `announcement` to initialize your subviews. Consider the example below, where two labels are initialized using `title` and `body` properties of the `AEReachAnnouncement` class:
 
 			-(void)loadView
 			{

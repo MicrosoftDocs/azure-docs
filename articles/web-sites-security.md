@@ -25,7 +25,7 @@ One of the challenges of developing a web application is how to provide a safe a
 
 ##<a name="https"></a>Secure communications
 
-If you use the ***.azurewebsites.net** domain name created for your website, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](http://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/), you can upload an SSL certificate to [enable HTTPS](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/) for the custom domain.
+If you use the ***.azurewebsites.net** domain name created for your website, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](./web-sites-custom-domain-name.md/), you can upload an SSL certificate to [enable HTTPS](./web-sites-configure-ssl-certificate.md/) for the custom domain.
 
 ##<a name="develop"></a>Secure development 
 
@@ -54,7 +54,7 @@ Azure Websites allows you to store configuration information as part of the Webs
 
 **App settings** and **connection strings** are configurable using the Azure management portal or utilities such as PowerShell or the Azure Cross-Platform Command-Line Interface.
 
-For more information on app settings and connection strings, see [Configuring Web Sites](/en-us/documentation/articles/web-sites-configure/).
+For more information on app settings and connection strings, see [Configuring Web Sites](./web-sites-configure.md/).
 
 ###FTPS
 
@@ -64,8 +64,8 @@ For more information on FTPS, see [File Transfer Protocol](http://en.wikipedia.o
 
 ##Next steps
 
-For more information on the security of the Azure platform, information on reporting a **security incident or abuse**, or to inform Microsoft that you will be performing **penetration testing** of your site, see the security section of the [Microsoft Azure Trust Center](/en-us/support/trust-center/security/).
+For more information on the security of the Azure platform, information on reporting a **security incident or abuse**, or to inform Microsoft that you will be performing **penetration testing** of your site, see the security section of the [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/security/).
 
 For more information on **web.config** or **applicationhost.config** files in Azure Websites, see [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
-For information on logging information for Azure Websites, which may be useful in detecting attacks, see [Enable diagnostic logging](/en-us/documentation/articles/web-sites-enable-diagnostic-log/).
+For information on logging information for Azure Websites, which may be useful in detecting attacks, see [Enable diagnostic logging](./web-sites-enable-diagnostic-log.md/).
