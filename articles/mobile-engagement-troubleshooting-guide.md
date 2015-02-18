@@ -355,9 +355,7 @@ To test if the problem is with OS upgrades to end user Devices, which require an
  
 **Symptom:**
 
-2. 
-3. 
-4. :
+2. Connectivity and Incorrect Information Issues:
     - Problems logging into the Azure Mobile Engagement UI.
     - Connection errors with the Azure Mobile Engagement API's.
     - Problems uploading App Info Tags via the Device API.
