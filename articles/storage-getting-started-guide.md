@@ -46,6 +46,7 @@ Now, let’s create a simple Azure Storage application using one of the Azure Qu
 	
 	![Azure QuickStarts][Image1]
 
+
 	- 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.
 	- 3.c. Depending on the template you choose, name the application, such as **DataBlobStorage**, **DataTableStorage**, or **DataStorageQueue**. Click **OK**. This should create a new Visual Studio solution. 
 
