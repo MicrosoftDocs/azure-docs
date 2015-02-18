@@ -99,7 +99,7 @@ Accuracy is simply the proportion of correctly classified instances. It is usual
 
 For that reason, it is helpful to compute additional metrics that capture more specific aspects of the evaluation. Before going into the details of such metrics, it is important to understand the confusion matrix of a binary classification evaluation. The class labels in the training set can take on only 2 possible values, which we usually refer to as positive or negative. The positive and negative instances that a classifier predicts correctly are called true positives (TP) and true negatives (TN), respectively. Similarly, the incorrectly classified instances are called false positives (FP) and false negatives (FN). The confusion matrix is simply a table showing the number of instances that fall under each of these 4 categories. Azure Machine Learning automatically decides which of the two classes in the dataset is the positive class. If the class labels are Boolean or integers, then the ‘true’ or ‘1’ labeled instances are assigned the positive class. If the labels are strings, as in the case of the income dataset, the labels are sorted alphabetically and the first level is chosen to be the negative class while the second level is the positive class.
 
-![Binary Classification Confusion Matrix](media/machine-learning-evaluate-model-performance/6.png)
+![Binary Classification Confusion Matrix](media/machine-learning-evaluate-model-performance/6a.png)
 
 Figure 6. Binary Classification Confusion Matrix.
 
