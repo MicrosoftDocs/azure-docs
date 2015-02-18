@@ -21,9 +21,9 @@ The following sections are organized as follows:
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
 
-The NYC Taxi Trip data is about 20GB of compressed CSV data (~48GB uncompressed), comprising more than 173 million individual trips and the fares paid. Each trip record includes the pickup and drop-off location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013, provided in two datasets for each month:
+The NYC Taxi Trip data is about 20GB of compressed CSV files (~48GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
-1. The trip_data CSV contains the trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. These are a few sample records.
+1. The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
 
 		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -32,7 +32,7 @@ The NYC Taxi Trip data is about 20GB of compressed CSV data (~48GB uncompressed)
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
-2. The trip_fare CSV contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. These are a few sample records.
+2. The 'trip_fare' CSV contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
 
 		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -41,15 +41,15 @@ The NYC Taxi Trip data is about 20GB of compressed CSV data (~48GB uncompressed)
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-The unique key to join trip\_data and trip\_fare is composed of the fields: medallion, hack\_licence, and pickup\_datetime.
+The unique key to join trip\_data and trip\_fare is composed of the fields: medallion, hack\_licence and pickup\_datetime.
 
 ## <a name="mltasks"></a>Examples of Prediction Tasks
 
 We will formulate three prediction problems based on the *tip\_amount*, namely:
 
-1. Binary classification: To predict whether or not a tip was paid for a trip, i.e., a *tip\_amount* that is greater than $0 is a positive example, which a *tip\_amount* of $0 is a negative example.
+1. Binary classification: Predict whether or not a tip was paid for a trip, i.e. a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
 
-2. Multiclass classification: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five classes:
+2. Multiclass classification: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five bins or classes:
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -62,12 +62,12 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 
 ## <a name="setup"></a>Setting Up the Azure Data Science Environment
 
-Using the [Plan Your Environment](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-your-environment/) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
+As you can see from the [Plan Your Environment](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-your-environment/) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
 
 - Work with the data in Azure blobs then model in Azure Machine Learning
-- Load the data into an SQL Server database then model in Azure Machine Learning
+- Load the data into a SQL Server database then model in Azure Machine Learning
 
-In this tutorial, we will demonstrate parallel bulk import of the data to SQL Server, data exploration, feature engineering, and down sampling in SQL Server Management Studio as well as using IPython Notebook. [Sample scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) and [IPython notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) are shared in GitHub. Sample IPython notebbok to work with the data in Azure blobs is also shared.
+In this tutorial we will demonstrate parallel bulk import of the data to a SQL Server, data exploration, feature engineering and down sampling using SQL Server Management Studio as well as using IPython Notebook. [Sample scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) and [IPython notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) are shared in GitHub. A sample IPython notebook to work with the data in Azure blobs is also available in the same location.
 
 To set up your Azure Data Science environment:
 
@@ -75,7 +75,7 @@ To set up your Azure Data Science environment:
 
 2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
 
-3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as an SQL Server as well an IPython Notebook server.
+3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as a SQL Server as well an IPython Notebook server.
 
 > [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
 > - Sample Scripts: C:\Users\<user\_name\>\Documents\Data Science Scripts  
@@ -105,7 +105,7 @@ To copy the data using AzCopy:
 
 ## <a name="dbload"></a>Bulk Import Data into SQL Server Database
 
-For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables) to create a new database and parallel load the data into partitioned tables.
+The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables) to create a new database and load the data into partitioned tables in parallel.
 
 1. While logged in to your VM, start **SQL Server Management Studio**.
 
@@ -141,10 +141,10 @@ For big data loading/transfer to an SQL database, importing data to the SQL DB a
 
 7. In the **Sample Scripts** folder, there are two sample PowerShell scripts provided to demonstrate parallel bulk imports of data to SQL Server tables.
 
-	- **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify the script to set the input and target variables as indicated in the comment lines in the script.
-	- **bcp\_parallel\_nyctaxi.ps1** is a preset version of the generic script, adapted to load both tables for the NYC Taxi Trips data.  
+	- **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify this script to set the input and target variables as indicated in the comment lines in the script.
+	- **bcp\_parallel\_nyctaxi.ps1** is a pre-configured version of the generic script and can be used to to load both tables for the NYC Taxi Trips data.  
 
-8. Right-click the **bcp\_parallel\_nyctaxi.ps1** script name and click **Edit** to open PowerShell. Review the preset variables and modify according to your selected database name, input data folder, target log folder, and paths to the  sample format files **nyctaxi_trip.xml** and **nyctaxi\_fare.xml** (provided in the **Sample Scripts** folder). 
+8. Right-click the **bcp\_parallel\_nyctaxi.ps1** script name and click **Edit** to open it in PowerShell. Review the preset variables and modify according to your selected database name, input data folder, target log folder, and paths to the  sample format files **nyctaxi_trip.xml** and **nyctaxi\_fare.xml** (provided in the **Sample Scripts** folder). 
 
 	![Bulk Import Data][16]
 
@@ -152,15 +152,15 @@ For big data loading/transfer to an SQL database, importing data to the SQL DB a
 
 9. The PowerShell script reports the starting and ending times. When all bulk imports complete, the ending time is reported. Check the target log folder to verify that the bulk imports were successful, i.e., no errors reported in the target log folder.
 
-10. Your database is now ready to use for exploration, feature engineering, and other operations as desired. Since the tables are partitioned according to the **pickup\_datetime** field, queries which include **pickup\_datetime** conditions in the **WHERE** clause will benefit from the partition scheme.
+10. Your database is now ready for exploration, feature engineering, and other operations as desired. Since the tables are partitioned according to the **pickup\_datetime** field, queries which include **pickup\_datetime** conditions in the **WHERE** clause will benefit from the partition scheme.
 
-11. In **SQL Server Management Studio**, explore the provided sample script **sample\_queries.sql**. to run any of the sample queries, highlight the query lines then click **!Execute** in the toolbar.
+11. In **SQL Server Management Studio**, explore the provided sample script **sample\_queries.sql**. To run any of the sample queries, highlight the query lines then click **!Execute** in the toolbar.
 
 12. The NYC Taxi Trips data is loaded in two separate tables. To improve join operations, it is highly recommended to index the tables. The sample script **create\_partitioned\_index.sql** creates partitioned indexes on the composite join key **medallion, hack\_license, and pickup\_datetime**.
 
 ## <a name="dbexplore"></a>Data Exploration and Feature Engineering in SQL Server
 
-In this section, we will perform data exploration and feature generation by running SQL queries directly in the **SQL Server Management Studio**, using the SQL Server database created earlier. A sample script named **sample\_queries.sql** is provided in the **Sample Scripts** folder. Modify the script to change the database name, if it is not the default **TaxiNYC** name.
+In this section, we will perform data exploration and feature generation by running SQL queries directly in the **SQL Server Management Studio** using the SQL Server database created earlier. A sample script named **sample\_queries.sql** is provided in the **Sample Scripts** folder. Modify the script to change the database name, if it is different from the default: **TaxiNYC**.
 
 In this exercise, we will:
 
@@ -169,14 +169,14 @@ In this exercise, we will:
 - Investigate data quality of the longitude and latitude fields.
 - Generate binary and multiclass classification labels based on the **tip\_amount**.
 - Generate features and compute/compare trip distances.
-- Join the two tables and extract a random sample for model building.
+- Join the two tables and extract a random sample that will be used to build models.
 
-When ready to proceed to Azure Machine Learning, you may either:  
+When you are ready to proceed to Azure Machine Learning, you may either:  
 
-1. Save the final SQL query to extract and sample the data, copy the query then paste it directly into a Reader module in Azure Machine Learning, or 
-2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the Reader module.
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a Reader module in Azure Machine Learning, or 
+2. Persist the sampled and engineered data you plan to use for model building in a new database table and use the new table in the Reader module in Azure Machine Learning.
 
-In this section, we will decide and save the final query to extract and sample the data. The second method is demonstrated in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section.
+In this section we will save the final query to extract and sample the data. The second method is demonstrated in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section.
 
 For a quick verification of the number of rows and columns in the tables populated earlier using parallel bulk import,
 
@@ -188,7 +188,7 @@ For a quick verification of the number of rows and columns in the tables populat
 
 #### Exploration: Trip distribution by medallion
 
-In this example, we explore the medallion (taxi numbers) with more than 100 trips within a given time period. The query would benefit from the partitioned table access since it is conditioned by the partition scheme of **pickup\_datetime**. Querying the full dataset will also make use of the partitioned table and/or index scan.
+This example identifies the medallion (taxi numbers) with more than 100 trips within a given time period. The query would benefit from the partitioned table access since it is conditioned by the partition scheme of **pickup\_datetime**. Querying the full dataset will also make use of the partitioned table and/or index scan.
 
 	SELECT medallion, COUNT(*)
 	FROM nyctaxi_fare
@@ -206,7 +206,7 @@ In this example, we explore the medallion (taxi numbers) with more than 100 trip
 
 #### Data Quality Assessment: Verify records with incorrect longitude and/or latitude
 
-In this example, we investigate whether any of the longitude and/or latitude fields either contains an invalid value (radian degrees should be between -90 and 90), or have (0, 0) coordinates.
+This example investigates if any of the longitude and/or latitude fields either contain an invalid value (radian degrees should be between -90 and 90), or have (0, 0) coordinates.
 
 	SELECT COUNT(*) FROM nyctaxi_trip
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -229,7 +229,7 @@ This example finds the number of trips that were tipped vs. not tipped in a give
 
 #### Exploration: Tip Class/Range Distribution
 
-This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This distribution reflects the multiclass label distribution to be later used for multiclass classification modeling.
+This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This is the distribution of the label classes that will be used later for multiclass classification modeling.
 
 	SELECT tip_class, COUNT(*) AS tip_freq FROM (
 		SELECT CASE 
@@ -245,7 +245,7 @@ This example computes the distribution of tip ranges in a given time period (or 
 
 #### Exploration: Compute and Compare Trip Distance
 
-This example converts the pickup and dropoff longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only, as per the data quality assessment query.
+This example converts the pickup and drop-off longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
 
 	SELECT 
 	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
@@ -260,11 +260,11 @@ This example converts the pickup and dropoff longitude and latitude to SQL geogr
 
 #### Feature Engineering in SQL Queries
 
-The label generation and geography conversion exploration queries may also be used to generate labels/features by removing the counting part. More feature engineering SQL examples are provided in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section. It is more efficient to run the feature generation queries on the full dataset or a large subset of it using SQL queries which run directly on the SQL Server database instance. The queries may be executed in the **SQL Server Management Studio**, IPython Notebook, or using any development tool/environment which can access the database locally or remotely.
+The label generation and geography conversion exploration queries can also be used to generate labels/features by removing the counting part. Additional feature engineering SQL examples are provided in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section. It is more efficient to run the feature generation queries on the full dataset or a large subset of it using SQL queries which run directly on the SQL Server database instance. The queries may be executed in **SQL Server Management Studio**, IPython Notebook or any development tool/environment which can access the database locally or remotely.
 
 #### Preparing Data for Model Building
 
-The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classificationlabel **tipped**, a multiclass classification label **tip\_class**, and extracts a 1% random sample from the full joined dataset. This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) Reader module for direct data ingestion from the SQL Server database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
+The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a 1% random sample from the full joined dataset. This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) Reader module for direct data ingestion from the SQL Server database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -285,18 +285,19 @@ The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, ge
 ## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
 
 In this section, we will perform data exploration and feature generation
-using both Python and SQL queries using the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. 
+using both Python and SQL queries against the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. This notebook is also available on [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
 The recommended sequence when working with big data is the following:
 
 - Read in a small sample of the data into an in-memory data frame.
 - Perform some visualizations and explorations using the sampled data.
 - Experiment with feature engineering using the sampled data. 
-- For larger exploration, data manipulation, and feature engineering, use Python to issue SQL Queries directly within the SQL Server database in the Azure VM.
-- Decide on the sample size to use for Azure Machine Learning model building.
+- For larger data exploration, data manipulation and feature engineering, use Python to issue SQL Queries directly against the SQL Server database in the Azure VM.
+- Decide the sample size to use for Azure Machine Learning model building.
 
 When ready to proceed to Azure Machine Learning, you may either:  
-1. Save the final SQL query to extract and sample the data, copy the query then paste it directly into a Reader module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
+
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a Reader module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
 2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the Reader module.
 
 The following are a few data exploration, data visualization, and feature engineering examples. For more examples, see the sample SQL IPython notebook in the **Sample IPython Notebooks** folder.
@@ -361,7 +362,7 @@ Number of rows and columns retrieved = (84952, 21)
     
 #### Descriptive Statistics
 
-Now are ready to do exploration on the sampled data. We start with
+Now are ready to explore the sampled data. We start with
 looking at descriptive statistics for the **trip\_distance** (or any other) field(s):
 
     df1['trip_distance'].describe()
@@ -386,7 +387,7 @@ Next we look at the box plot for the trip distance to visualize the quantiles
 
 #### Visualization: Bar and Line Plots
 
-In this example, we begin by binning the trip distance into five bins then visualize the binning results.
+In this example, we bin the trip distance into five bins and visualize the binning results.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
     df1['trip_distance']
@@ -422,11 +423,11 @@ Similarly we can check the relationship between **rate\_code** and **trip\_dista
 
 When preparing data for model building in [Azure Machine Learning Studio](https://studio.azureml.net), you may either decide on the **SQL query to use directly in the Reader module** or persist the engineered and sampled data in a new table, which you could use in the Reader module with a simple **SELECT * FROM <your\_new\_table\_name>**.
 
-In this section, we will create a new table to hold the sampled and engineered data. An example of a direct SQL query for model building is provided in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
+In this section we will create a new table to hold the sampled and engineered data. An example of a direct SQL query for model building is provided in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
 
-#### Create a Sample Table and Populate with 1% of the Joined Tables. Drop Table First If Exists.
+#### Create a Sample Table and Populate with 1% of the Joined Tables. Drop Table First if it Exists.
 
-To join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, extract a 1% random sample, and persist the sampled data in a new table name **nyctaxi\_one\_percent**:
+In this section, we join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, extract a 1% random sample, and persist the sampled data in a new table name **nyctaxi\_one\_percent**:
 
     cursor = conn.cursor()
     
@@ -451,7 +452,7 @@ To join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, extract a 1% random 
     
 ### Data Exploration using SQL Queries in IPython Notebook
 
-In this section, we explore data distributions using the 1% sampled data which is persisted in the newly created table above. Note that similar explorations can be performed using the original tables, optionally using **TABLESAMPLE** to limit the exploration sample or by limiting the results to a given time period using the **pickup\_datetime** partitions, as illustrated in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
+In this section, we explore data distributions using the 1% sampled data which is persisted in the new table we created above. Note that similar explorations can be performed using the original tables, optionally using **TABLESAMPLE** to limit the exploration sample or by limiting the results to a given time period using the **pickup\_datetime** partitions, as illustrated in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
 
 #### Exploration: Daily distribution of trips
 
@@ -481,8 +482,8 @@ In this section we will generate new labels and features directly using SQL quer
 
 In the following example, we generate two sets of labels to use for modeling:
 
-1. Binary Class Labels **tipped** (indicating if a tip would be given)
-2. Multiclass Labels **tip\_class** (Binned tip amount prediction)
+1. Binary Class Labels **tipped** (predicting if a tip will be given)
+2. Multiclass Labels **tip\_class** (predicting the tip bin or range)
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -568,7 +569,7 @@ This example transforms a continuous numeric field into preset category ranges, 
 
 #### Feature Engineering: Extract Location Features from Decimal Latitude/Longitude
 
-This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For more information about mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/en-us/library/ff701710.aspx). 
+This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/en-us/library/ff701710.aspx). 
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent 
@@ -611,7 +612,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/).
 
-1. To get started on Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/)
 
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 
@@ -621,14 +622,14 @@ A typical training experiment consists of the following:
 
 1. Create a **+NEW** experiment.
 2. Get the data to Azure ML.
-3. Pre-process, transform, manipulate the data, as needed.
-4. Generate features, as needed.
-5. Split the data into training/validation/testing (or have separate datasets for each).
-6. Select one or more machine learning algorithms, depending on the learning problem to solve. E.g., binary classification, multiclass classification, regression.
+3. Pre-process, transform and manipulate the data as needed.
+4. Generate features as needed.
+5. Split the data into training/validation/testing datasets(or have separate datasets for each).
+6. Select one or more machine learning algorithms depending on the learning problem to solve. E.g., binary classification, multiclass classification, regression.
 7. Train one or more models using the training dataset.
 8. Score the validation dataset using the trained model(s).
 9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
-10. Fine tune the model(s) and selectino of the best model to deploy.
+10. Fine tune the model(s) and select the best model to deploy.
 
 In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure ML. To build one or more of the prediction models we decided:
 
@@ -638,7 +639,7 @@ In this exercise, we have already explored and engineered the data in SQL Server
 
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 
-3. Enter the database DNS name in the **Database server name** field. FOrmat: tcp:<your\_virtual\_machine\_DNS\_name\>,1433
+3. Enter the database DNS name in the **Database server name** field. Format: tcp:<your\_virtual\_machine\_DNS\_name\>,1433
 
 4. Enter the **Database name** in the corresponding field.
 
@@ -646,19 +647,19 @@ In this exercise, we have already explored and engineered the data in SQL Server
 
 6. Check **Accept any server certificate** option.
 
-7. In the **Database query** edit text area, paste the query which extracts the necessary database fields (including any computed fields such as the labels), and down samples the data to the desired sample size.
+7. In the **Database query** edit text area, paste the query which extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
 
-An example of a binary classification experiment reading data directly from the SQL Server database is in the figure below. Similar experiments may be constructed for the multiclass classification and regression problems.
+An example of a binary classification experiment reading data directly from the SQL Server database is in the figure below. Similar experiments can be constructed for multiclass classification and regression problems.
 
 ![Azure ML Train][10]
 
-> [AZURE.IMPORTANT] In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For e.g., for binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter is a target leak since it implies the tip paid.
+> [AZURE.IMPORTANT] In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For e.g., when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
 >
 > To exclude unnecessary columns and/or target leaks, you may use the **Project Columns** module or the **Metadta Editor**. For more information, see [Project Columns](http://msdn.microsoft.com/en-US/library/dn784740) and [Metadata Editor](http://msdn.microsoft.com/en-US/library/dn784761) reference pages.
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly in the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/).
 
 To deploy a new web service, you need to:
 
@@ -669,7 +670,7 @@ To create a scoring experiment from a **Finished** training experiment, click **
 
 ![Azure Scoring][18]
 
-Azure Machine Learning will attempt to create a scoring experiment based on the components of the training experiment. IN particular, it will:
+Azure Machine Learning will attempt to create a scoring experiment based on the components of the training experiment. In particular, it will:
 
 1. Save the trained model and remove the model training modules.
 2. Identify a logical **input port** to represent the expected input data schema.
@@ -677,21 +678,21 @@ Azure Machine Learning will attempt to create a scoring experiment based on the 
 
 When the scoring experiment is created, review it and adjust as needed. A typical adjustment is to replace the input dataset and/or query with one which excludes label fields, as these will not be available when the service is called. It is also a good practice to reduce the size of the input dataset and/or query to a few records, just enough to indicate the input schema. For the output port, it is common to exclude all input fields and only include the **Scored Labels** and **Scored Probabilities** in the output using the **Project Columns** module.
 
-A sample scoring experiment is in the figure below. When ready to publich, click the **PUBLISH WEB SERVICE** button in the lower action bar.
+A sample scoring experiment is in the figure below. When ready to publish, click the **PUBLISH WEB SERVICE** button in the lower action bar.
 
 ![Azure ML Publish][11]
 
-In this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset from data acquisition up to model training and publishing of an Azure Machine Learning web service.
+To recap, in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset all the way from data acquisition to model training and publishing of an Azure Machine Learning web service.
 
 ### License Information
 
-This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Users please check the LICENSE.txt in the same directory of the sample code for more details.
+This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in in the directory of the sample code on GitHub for more details.
 
 ### References
 
 •	[Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
 •	[FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[NYC Taxi and Limousine Commision Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png

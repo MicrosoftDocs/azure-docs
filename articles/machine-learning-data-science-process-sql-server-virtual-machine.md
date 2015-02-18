@@ -131,5 +131,8 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 
 Now you can work with the Pandas data frame as covered in section [Data Exploration and Feature Generation from Blob Source](http://azure.microsoft.com/en-us/documentation/articles/data-science-process-process-data-blob/).
 
+### Azure Data Science in Action Example
+
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png

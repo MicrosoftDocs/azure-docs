@@ -81,6 +81,10 @@ This diagram summarizes some scenarios and examples of process flows. Note that 
 
 ![Sample DS process walkthrough scenarios][8]
 
+### Azure Data Science in Action Example
+
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+
 [1]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-local-with-processing.png
 [3]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-local-large.png
