@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure Machine Learning Recommendations API Documentation" 
 	description="Azure Machine Learning Recommendations API Documentation" 
 	services="machine-learning" 
