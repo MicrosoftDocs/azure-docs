@@ -110,6 +110,6 @@ If you want to learn more about them, follow these links:
 * [Azure Storage Client Library](https://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 * [Azure Storage REST API](https://msdn.microsoft.com/library/dd179355.aspx)
 
-[Image1]: ./media/storage-gettingstarted-guide/QuickStart.png
+[Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 [Next Steps]: #next
