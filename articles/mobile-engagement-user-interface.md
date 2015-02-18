@@ -16,14 +16,14 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement User Interface
+# Azure Mobile Engagement - User Interface
 
 ## Introduction
  
-Once you have integrated the Azure Mobile Engagement [SDK](http://go.microsoft.com/fwlink/?LinkID=525554) into your application and you understand the basic Azure Mobile Engagement [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555), there are two ways to interact with Azure Mobile Engagement for your app.
+Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app.
 
-- Standard users can use the [User Interface](http://go.microsoft.com/fwlink/?LinkID=525553).
-- Developer users can used the HTTP REST based [APIs](http://go.microsoft.com/fwlink/?LinkID=525553).
+- Standard users can use the [User Interface][Link 1].
+- Developer users can used the HTTP REST based [APIs][Link 4].
 
 ## Navigation
  
@@ -55,7 +55,7 @@ The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ c
 
 **See also:** 
 
-- [UI Documentation – Ribbon Items](http://go.microsoft.com/fwlink/?LinkID=525552) 
+- [UI Documentation – Ribbon Items][Link 1] 
 
 ## Analytics
  
@@ -113,7 +113,7 @@ You can also invite a user to your project based on their e-mail address. Users 
  
 **See also:** 
 
--  [UI Documentation - Settings](http://go.microsoft.com/fwlink/?LinkID=525552)
+-  [UI Documentation - Settings][Link 1]
 
 ## My Account
  
@@ -126,7 +126,7 @@ You can view or change any of your account settings: Password, First Name, Last 
 
 **See also:** 
 
--  [UI Documentation - Home](http://go.microsoft.com/fwlink/?LinkID=525552)
+-  [UI Documentation - Home][Link 1]
 
 ![MyAccount2][8]  
 
@@ -160,13 +160,13 @@ The Analytics section of the UI provides aggregated information about your appli
 
 **See also:** 
 
--  [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555)
+-  [Concepts - Glossary][Link 6]
 
 ### Standard and Custom Analytics:
 Azure Mobile Engagement provides a set of basic, standard analytic information about your applications than can be graphed as soon as you integrate your App with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information you want about your end-users' behavior by creating a tag plan of custom "app info tags", created from “Settings” so that Azure Mobile Engagement can collect this additional data for you.
 
 **See also:** 
--  [UI Documentation - Settings](http://go.microsoft.com/fwlink/?LinkID=525552)
+-  [UI Documentation - Settings][Link 1]
  
 ### Analytics Header:
 - Item Name: Labels the item being counted
@@ -228,7 +228,7 @@ The Monitor section of the UI provides real time analytics information and allow
 
 **See also:** 
 
--  [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555)
+-  [Concepts - Glossary][Link 6]
 
 ### Monitor - Sessions, Jobs, Events, Errors, and Crashes:
 You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash.  Live monitoring is helpful to use during events such as a Push campaign to see if there is an uptick in action right after you send your Push notification. 
@@ -240,7 +240,7 @@ Generating an event in your application from your test device and finding it in 
 
 **See also:** 
 
--  [SDK Documentation](http://go.microsoft.com/fwlink/?LinkID=525554)
+-  [SDK Documentation][Link 5]
 
 ![Monitor2][15]  
 
@@ -249,7 +249,7 @@ You can review crash information about your app from Monitor - Crashes - Details
 
 **See also:** 
 
--  [SDK Documentation - Release notes](http://go.microsoft.com/fwlink/?LinkID=525554)
+-  [SDK Documentation - Release notes][Link 5]
 
 ![Monitor3][16] 
 
@@ -264,7 +264,7 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 **See also:** 
 
--  [API Documentation - Reach API](http://go.microsoft.com/fwlink/?LinkID=525553), [API Documentation - Push API](http://go.microsoft.com/fwlink/?LinkID=525553)
+-  [API Documentation - Reach API][Link 4], [API Documentation - Push API][Link 4]
  
 ## Four types of Push notifications:
 1.    Announcements - allow you to send advertising messages to users that redirect them to another location inside your app or to send them to a webpage or store outside of your app. 
@@ -274,7 +274,7 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 **See also:** 
 
--  [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555)
+-  [Concepts - Glossary][Link 6]
 
 ### Three categories of Real time statistics shown for each campaign: 
 1.    Pushed - how many pushes were sent based on the criteria specified in the campaign. 
@@ -285,7 +285,7 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 **See also:** 
 
--  [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555), [API Documentation - Reach API - Stats](http://go.microsoft.com/fwlink/?LinkID=525553)
+-  [Concepts - Glossary][Link 6], [API Documentation - Reach API - Stats][Link 4]
 
 
 ### Campaign Details:
@@ -299,7 +299,7 @@ You can switch from the details to the statistics view of an open campaign that 
 
 **See also:** 
 
--  [UI Documentation - Reach - New Push Campaign]( http://go.microsoft.com/fwlink/?LinkID=525552), [API Documentation - Reach API - Stats](http://go.microsoft.com/fwlink/?LinkID=525553)
+-  [UI Documentation - Reach - New Push Campaign]( http://go.microsoft.com/fwlink/?LinkID=525552), [API Documentation - Reach API - Stats][Link 4]
 ![Reach2][19]
 
 ## Reach - New Push Campaign:
@@ -409,7 +409,7 @@ You can use the Content section to modify the content of your Announcements, Pol
 
 **See also:**
 
-- [UI Documentation - Reach - Push Content](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - Push Content][Link 1]
  
 ![Reach-Campaign5][24]
 
@@ -425,7 +425,7 @@ Once your audience is defined, you can use the simulate button to find out how m
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Criterion](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - New Push Criterion][Link 1]
 
 ![Reach-Campaign6][25]
 
@@ -449,7 +449,7 @@ You can use the Time Frame section to set when the push will be sent or you can 
 
 **See also:**
 
-- [How Tos – Scheduling](http://go.microsoft.com/fwlink/?LinkID=525557) 
+- [How Tos – Scheduling][Link 3] 
  
 ![Reach-Campaign8][27]
 
@@ -463,7 +463,7 @@ You can use the Test section to send this push to your own test device before sa
 
 **See also:**
 
-- [UI Documentation - My Account](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - My Account][Link 1]
  
 ![Reach-Campaign9][28]
 
@@ -473,17 +473,17 @@ Targeting your audience by specific criteria with the "New Criteria" button is o
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Campaign](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - New Push Campaign][Link 1]
 
 ### The audience criteria can include:
 
-- **Technicals: ** You can target based on the same technical information you can see in the Analytics and Monitor sections. **See also:** [UI Documentation - Analytics](http://go.microsoft.com/fwlink/?LinkID=525552),  [UI Documentation - Monitor](http://go.microsoft.com/fwlink/?LinkID=525552)
-- **Location:** Applications that use "Real time location reporting" with Geo-Fencing can use Geo-Location as a criteria to target an audience from the GPS location. "Lazy Area Location Reporting" call also be used to target an audience from the cell phone location ("Real time location reporting" and "Lazy Area Location Reporting" must be activated from the SDK). **See also:** [SDK Documentation - iOS -  Integration](http://go.microsoft.com/fwlink/?LinkID=525554), [SDK Documentation - Android -  Integration](http://go.microsoft.com/fwlink/?LinkID=525554)
-- **Reach Feedback:** You can target your audience based on their feedback from previous reach notifications through reach feedback from Announcements, Polls, and Data Pushes. This enables you to better target your audience after two or three reach campaigns than you could the first time. It can also be used to filter out users who already received a notification with similar content, by setting a campaign to NOT be sent to users who already received a specific previous campaign. You can even exclude users who are included a specific campaign that is still active from receiving new Pushes. **See also:** [UI Documentation -  Reach - Push Content](http://go.microsoft.com/fwlink/?LinkID=525552)
-- **Install Tracking:** You can track information based on where your users installed your App. **See also:** [UI Documentation -  Settings](http://go.microsoft.com/fwlink/?LinkID=525552)
+- **Technicals: ** You can target based on the same technical information you can see in the Analytics and Monitor sections. **See also:** [UI Documentation - Analytics][Link 1],  [UI Documentation - Monitor][Link 1]
+- **Location:** Applications that use "Real time location reporting" with Geo-Fencing can use Geo-Location as a criteria to target an audience from the GPS location. "Lazy Area Location Reporting" call also be used to target an audience from the cell phone location ("Real time location reporting" and "Lazy Area Location Reporting" must be activated from the SDK). **See also:** [SDK Documentation - iOS -  Integration][Link 5], [SDK Documentation - Android -  Integration][Link 5]
+- **Reach Feedback:** You can target your audience based on their feedback from previous reach notifications through reach feedback from Announcements, Polls, and Data Pushes. This enables you to better target your audience after two or three reach campaigns than you could the first time. It can also be used to filter out users who already received a notification with similar content, by setting a campaign to NOT be sent to users who already received a specific previous campaign. You can even exclude users who are included a specific campaign that is still active from receiving new Pushes. **See also:** [UI Documentation -  Reach - Push Content][Link 1]
+- **Install Tracking:** You can track information based on where your users installed your App. **See also:** [UI Documentation -  Settings][Link 1]
 - **User Profile:** You can target based on standard user information and you can target based on the custom app info that you have created. This includes users who are currently logged in and users that have answered specific questions you have asked them to set in the app itself instead of just how they have responded to previous campaigns. All of your App Info's defined for your app show up on this list.
-- Segments: You can also target based on segments that you have created based on specific user behavior containing multiple criteria. All of your segments defined for your app show up on this list. **See also:** [UI Documentation -  Segments](http://go.microsoft.com/fwlink/?LinkID=525552)
-- **App Info:** Custom App Info Tags can be created from “Settings” to track user behavior. **See also:** [UI Documentation -  Settings](http://go.microsoft.com/fwlink/?LinkID=525552)
+- Segments: You can also target based on segments that you have created based on specific user behavior containing multiple criteria. All of your segments defined for your app show up on this list. **See also:** [UI Documentation -  Segments][Link 1]
+- **App Info:** Custom App Info Tags can be created from “Settings” to track user behavior. **See also:** [UI Documentation -  Settings][Link 1]
 ### Example: 
 If you want to push an announcements only to the sub-set of your users that have performed an in-app purchase action.
 
@@ -554,7 +554,7 @@ You can use the Content section of a new reach campaign to modify the content of
 
 **See also:**
 
-- [How Tos - Announcements](http://go.microsoft.com/fwlink/?LinkID=525557) 
+- [How Tos - Announcements][Link 3] 
 
 **About Web View Announcements:**
 
@@ -630,7 +630,7 @@ Fill in the title, content, and button texts of your announcement.
 You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on the feedback of whether this campaign was just pushed, replied, actioned, or exited.
 
 **See also:**
-- [UI Documentation - Reach - New Push Criterion](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - New Push Criterion][Link 1]
 
 ## Content of Polls
  
@@ -641,7 +641,7 @@ You can target an audience of a future campaign based on the reach feedback of h
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Criterion](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - New Push Criterion][Link 1]
  
 ## Content of Data Pushes
  
@@ -659,7 +659,7 @@ You can target an audience of a future campaign based on the reach feedback of h
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Criterion](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - New Push Criterion][Link 1]
 
 ## Content of Tiles (Windows Phone only)
 
@@ -671,7 +671,7 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 
 **See also:**
 
-- [API Documentation - Reach API - Native Push](http://go.microsoft.com/fwlink/?LinkID=525553)
+- [API Documentation - Reach API - Native Push][Link 4]
 
 ## Dashboard
 
@@ -694,7 +694,7 @@ The Segments section of the UI allows you to work on segmenting your users based
 
 **See also:**
 
-- [API Documentation - Segments API](http://go.microsoft.com/fwlink/?LinkID=525553)
+- [API Documentation - Segments API][Link 4]
 
 You can create a segment based on up to 10 criteria on a specific period up to 60 days in the past from the analytics section. 
 For example, you can create a segment based on the people who have viewed certain pages or searched for specific content within your app within the last 10 days. This information is available in the analytics section, so you can use it to create a segment, and then setup a push notification to target this subset of users to get them to come back to the application. 
@@ -782,7 +782,7 @@ The Settings menu options available for an application vary depending on the pla
 
 **See also:** 
 
-- [API Documentation - Device API](http://go.microsoft.com/fwlink/?LinkID=525553), [Concepts - Glossary](http://go.microsoft.com/fwlink/?LinkId=525555)
+- [API Documentation - Device API][Link 4], [Concepts - Glossary][Link 6]
  
   ![settings1][46]
 
@@ -799,7 +799,7 @@ You can also search for a project and view the name, description, owner and your
 
 **See also:**
 
--    [UI Documentation – Home](http://go.microsoft.com/fwlink/?LinkID=525552)
+-    [UI Documentation – Home][Link 1]
  
   ![settings3][48]
 
@@ -810,7 +810,7 @@ After providing credentials or certificates for at least one Native Push service
 
 **See also:**
 
-- [API documentation - Reach API] (http://go.microsoft.com/fwlink/?LinkID=525553),[API documentation - Push API] (http://go.microsoft.com/fwlink/?LinkID=525553), [UI Documentation - Reach - New Push Campaign](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [API documentation - Reach API] [Link 4],[API documentation - Push API] [Link 4], [UI Documentation - Reach - New Push Campaign][Link 1]
  
 **Apple Push Notification Service (APNS)**
 
@@ -818,7 +818,7 @@ To enable Native Push using the Apple Push Notification Service you will need to
 
 **See also:**
 
-- [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications](http://go.microsoft.com/fwlink/?LinkID=525554)
+- [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5]
  
 ![settings4][49]
  
@@ -839,7 +839,7 @@ Requires integration with the SDK for Android v1.12.0+.
 
 **See also:**
 
-- [SDK Documentation - Android - How to Integrate GCM](http://go.microsoft.com/fwlink/?LinkID=525554)
+- [SDK Documentation - Android - How to Integrate GCM][Link 5]
  
 **Amazon Device Messaging for Android (ADM)**
 
@@ -847,7 +847,7 @@ To enable Native Push using ADM, you must provide <OAuth credentials> consisting
 
 **See also:**
 
-- [SDK Documentation - Android - How to Integrate ADM](http://go.microsoft.com/fwlink/?LinkID=525554)
+- [SDK Documentation - Android - How to Integrate ADM][Link 5]
 
 ![settings6][51]
 
@@ -861,7 +861,7 @@ The tracking feature allows you to track the origins of the installations of you
 
 **See also:**
 
-- [SDK Documentation - Android - How to Integrate](http://go.microsoft.com/fwlink/?LinkID=525554), [SDK Documentation - iOS - How to Integrate](http://go.microsoft.com/fwlink/?LinkID=525554)
+- [SDK Documentation - Android - How to Integrate][Link 5], [SDK Documentation - iOS - How to Integrate][Link 5]
  
 **Stores**
 
@@ -884,7 +884,7 @@ Allows you to build tracking URLs to use as target URLs in your sources (ad camp
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Campaign](http://go.microsoft.com/fwlink/?LinkID=525552) 
+- [UI Documentation - Reach - New Push Campaign][Link 1] 
  
 Creating a New tracking URL requires you to specify a store and the source of either none, customer, or add server. 
 
@@ -897,7 +897,7 @@ You can also build a tracking URL allowing users to download one of your applica
 
 **See also:**
 
-- [UI Documentation - Reach - Push Content](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - Push Content][Link 1]
  
 ![settings10][55]
 
@@ -905,13 +905,13 @@ You can also build a tracking URL allowing users to download one of your applica
 Allows you to register additional information associated to your application's users. This information can be injected by your application (using the SDK) or by your backend (using the Device API). 
 **See also:**
 
-- [API Documentation - Device API](http://go.microsoft.com/fwlink/?LinkID=525553)
+- [API Documentation - Device API][Link 4]
 
 Registering application information tags allows you to segment your Reach campaigns by creating specific Reach audience criteria based on it. You can view the name and type of existing app info tags or add a new app info based on the name and type of String, Date, Integer, or Boolean.
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Campaign](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - New Push Campaign][Link 1]
  
 ![settings11][56]
  
@@ -920,7 +920,7 @@ Push Quotas allow you to define the maximum number of times a device can be push
 
 **See also:**
 
-- [UI Documentation - Reach - New Push Campaign](http://go.microsoft.com/fwlink/?LinkID=525552),  [UI Documentation - Segments](http://go.microsoft.com/fwlink/?LinkID=525552)
+- [UI Documentation - Reach - New Push Campaign][Link 1],  [UI Documentation - Segments][Link 1]
  
 **Quotas**
 
@@ -941,10 +941,11 @@ Allows you to search and view the Email, Name, Organization, and Permission leve
 
 **See also:**
 
-- [UI Documentation - Home](http://go.microsoft.com/fwlink/?LinkID=525552)  
+- [UI Documentation - Home][Link 1]  
  
 ![settings13][58]
 
+<!--Image references-->
 [1]: ./media/mobile-engagement-user-interface/navigation1.png
 [2]: ./media/mobile-engagement-user-interface/home1.png
 [3]: ./media/mobile-engagement-user-interface/home2.png
@@ -958,12 +959,12 @@ Allows you to search and view the Email, Name, Organization, and Permission leve
 [11]: ./media/mobile-engagement-user-interface/analytics2.png
 [12]: ./media/mobile-engagement-user-interface/analytics3.png
 [13]: ./media/mobile-engagement-user-interface/analytics4.png
-[14]: ./media/mobile-engagement-user-interface/Monitor1.png
-[15]: ./media/mobile-engagement-user-interface/Monitor2.png
-[16]: ./media/mobile-engagement-user-interface/Monitor3.png
-[17]: ./media/mobile-engagement-user-interface/Monitor4.png
-[18]: ./media/mobile-engagement-user-interface/Reach1.png
-[19]: ./media/mobile-engagement-user-interface/Reach2.png
+[14]: ./media/mobile-engagement-user-interface/monitor1.png
+[15]: ./media/mobile-engagement-user-interface/monitor2.png
+[16]: ./media/mobile-engagement-user-interface/monitor3.png
+[17]: ./media/mobile-engagement-user-interface/monitor4.png
+[18]: ./media/mobile-engagement-user-interface/reach1.png
+[19]: ./media/mobile-engagement-user-interface/reach2.png
 [20]: ./media/mobile-engagement-user-interface/Reach-Campaign1.png
 [21]: ./media/mobile-engagement-user-interface/Reach-Campaign2.png
 [22]: ./media/mobile-engagement-user-interface/Reach-Campaign3.png
@@ -1003,3 +1004,11 @@ Allows you to search and view the Email, Name, Organization, and Permission leve
 [56]: ./media/mobile-engagement-user-interface/settings11.png
 [57]: ./media/mobile-engagement-user-interface/settings12.png
 [58]: ./media/mobile-engagement-user-interface/settings13.png
+
+<!--Link references-->
+[Link 1]: ./mobile-engagement-user-interface/
+[Link 2]: ./mobile-engagement-troubleshooting-guide/
+[Link 3]: ./mobile-engagement-how-tos/
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555

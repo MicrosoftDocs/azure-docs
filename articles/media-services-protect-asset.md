@@ -17,8 +17,6 @@
 	ms.author="juliako"/>
 
 
-
-
 #How to: Dynamically Encrypt an Asset with PlayReady or AES-128
 
 This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.
@@ -33,5 +31,5 @@ For information about how to configure content key authorization policy
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
 Configure Asset Delivery Policies
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
  

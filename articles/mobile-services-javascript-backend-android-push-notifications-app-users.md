@@ -1,7 +1,8 @@
+
 <properties 
 	pageTitle="Send push notifications to authenticated users" 
 	description="Learn how to send push notifications to specific" 
-	services="mobile-services,notification-hubs" 
+	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -10,11 +11,12 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/03/2015" 
 	ms.author="wesmc"/>
+
 
 # Send push notifications to authenticated users
 

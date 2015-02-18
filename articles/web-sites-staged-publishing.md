@@ -18,7 +18,7 @@
 	ms.author="cephalin"/>
 
 <a name="Overview"></a>
-#Staged Deployment on Microsoft Azure Websites#
+# Staged Deployment on Microsoft Azure Websites #
 When you deploy your application to Azure Websites, you can deploy to a separate deployment slot instead of the default production slot, which are actually live sites with their own hostnames. This option is available in the **Standard** web hosting plan. Furthermore, you can swap the sites and site configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 - You can validate website changes in a staging deployment slot before swapping it with the production slot.
@@ -30,7 +30,7 @@ When you deploy your application to Azure Websites, you can deploy to a separate
 Four deployment slots in addition to the production slot are supported for each website in the **Standard** plan. 
 
 <a name="Add"></a>
-##To Add a Deployment Slot to a Website##
+## To Add a Deployment Slot to a Website ##
 
 The website must be running in the **Standard** hosting plan to enable multiple deployment slots. 
 
@@ -63,10 +63,10 @@ The website must be running in the **Standard** hosting plan to enable multiple 
 
 	-	 
 
-There is no content. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/).
+There is no content. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](./web-sites-publish-source-control.md/).
 
 <a name="AboutConfiguration"></a>
-##About Configuration for Deployment Slots##
+## About Configuration for Deployment Slots ##
 When you clone configuration from another deployment slot, the cloned configuration is editable. The following lists show the configuration that will change when you swap slots.
 
 **Configuration that will change on slot swap**:
@@ -95,7 +95,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 
 
 <a name="Swap"></a>
-##To Swap Deployment Slots##
+## To Swap Deployment Slot s##
 
 1. To swap deployment slots, select the deployment slot in the websites list that you want to swap and click the **Swap** button in the command bar. 
 	
@@ -109,11 +109,11 @@ When you clone configuration from another deployment slot, the cloned configurat
 
 
 <a name="Rollback"></a>
-##To Rollback a Production Site to Staging##
+## To Rollback a Production Site to Staging ##
 If any errors are identified in production after a slot swap, roll the slots back to their pre-swap states by swapping the same two slots immediately. 
 
 <a name="Delete"></a>
-##To Delete a Site Slot##
+## To Delete a Site Slot##
 
 In the command bar at the bottom of the Azure Websites portal page, click **Delete**. You will be given the option to delete the website and all deployment slots, or delete only the deployment slot. 
 
@@ -134,52 +134,52 @@ In the command bar at the bottom of the Azure Websites portal page, click **Dele
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
 <a name="PowerShell"></a>
-##Azure PowerShell cmdlets for Site Slots 
+## Azure PowerShell cmdlets for Site Slots 
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing Azure Websites deployment slots. 
 
-- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Windows Azure subscription, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell).  
+- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Windows Azure subscription, see [How to install and configure Windows Azure PowerShell](./install-configure-powershell.md/).  
 
 - To list the cmdlets available for Azure Websites in PowerShell, call `help AzureWebsite`. 
 
 ----------
 
-###Get-AzureWebsite
+### Get-AzureWebsite
 The **Get-AzureWebsite** cmdlet presents information about Azure websites for the current subscription, as in the following example. 
 
 `Get-AzureWebsite siteslotstest`
 
 ----------
 
-###New-AzureWebsite
+### New-AzureWebsite
 You can create a site slot for any website in Standard mode by using the **New-AzureWebsite** cmdlet and specifying the names of both the site and slot. Also indicate the same region as the site for deployment slot creation, as in the following example. 
 
 `New-AzureWebsite siteslotstest -Slot staging -Location "West US"`
 
 ----------
 
-###Publish-AzureWebsiteProject
+### Publish-AzureWebsiteProject
 You can use the **Publish-AzureWebsiteProject** cmdlet for content deployment, as in the following example. 
 
 `Publish-AzureWebsiteProject -Name siteslotstest -Slot staging -Package [path].zip`
 
 ----------
 
-###Show-AzureWebsite
+### Show-AzureWebsite
 After content and configuration updates have been applied to the new slot, you can validate the updates by browsing to the slot using the **Show-AzureWebsite** cmdlet, as in the following example.
 
 `Show-AzureWebsite -Name siteslotstest -Slot staging`
 
 ----------
 
-###Switch-AzureWebsiteSlot
+### Switch-AzureWebsiteSlot
 The **Switch-AzureWebsiteSlot** cmdlet can perform a swap operation to make the updated deployment slot the production site, as in the following example. The production site will not experience any down time, nor will it undergo a cold start. 
 
 `Switch-AzureWebsiteSlot -Name siteslotstest`
 
 ----------
 
-###Remove-AzureWebsite
+### Remove-AzureWebsite
 If a deployment slot is no longer needed, it can be deleted by using the **Remove-AzureWebsite** cmdlet, as in the following example.
 
 `Remove-AzureWebsite -Name siteslotstest -Slot staging` 
@@ -189,22 +189,22 @@ If a deployment slot is no longer needed, it can be deleted by using the **Remov
 <!-- ======== XPLAT-CLI =========== -->
 
 <a name="CLI"></a>
-##Azure Cross-Platform Command-Line Interface (xplat-cli) commands for Site Slots
+## Azure Cross-Platform Command-Line Interface (xplat-cli) commands for Site Slots
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides cross-platform commands for working with Azure, including support for managing deployment slots on Azure Websites. 
 
-- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli). 
+- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](./xplat-cli.md/). 
 
 -  To list the commands available for Azure Websites in the xplat-cli, call `azure site -h`. 
 
 ----------
-###azure site list
+### azure site list
 For information about the Azure websites in the current subscription, call **azure site list**, as in the following example.
  
 `azure site list siteslotstest`
 
 ----------
-###azure site create
+### azure site create
 To create a site slot for any website in Standard mode, call **azure site create** and specify the name of an existing site and the name of the slot to create, as in the following example.
 
 `azure site create siteslotstest --slot staging`
@@ -214,13 +214,13 @@ To enable source control for the new slot, use the **--git** option, as in the f
 `azure site create --git siteslotstest --slot staging`
 
 ----------
-###azure site swap
+### azure site swap
 To make the updated deployment slot the production site, use the **azure site swap** command to perform a swap operation, as in the following example. The production site will not experience any down time, nor will it undergo a cold start. 
 
 `azure site swap siteslotstest`
 
 ----------
-###azure site delete
+### azure site delete
 To delete a deployment slot that is no longer needed, use the **azure site delete** command, as in the following example.
 
 `azure site delete siteslotstest --slot staging`
@@ -229,7 +229,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 ## Next Steps ##
 [Azure Web Sites – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/)
+[Microsoft Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
 
 
 <!-- IMAGES -->

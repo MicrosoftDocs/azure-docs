@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="01/08/2014" 
+	ms.date="01/08/2015" 
 	ms.author="andrl"/>
 
 # Build a Java web application using DocumentDB #
