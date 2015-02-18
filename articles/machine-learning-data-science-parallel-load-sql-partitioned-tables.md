@@ -167,5 +167,3 @@ or,
 ### Azure Data Science in Action Example
 
 For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
-
-Insert example and path to scripts to create and load NYC Taxi database.
