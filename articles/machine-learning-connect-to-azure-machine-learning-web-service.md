@@ -52,7 +52,7 @@ You get a web service API key from an ML web service. You can get it from Micros
 4. Click a web service.
 5. Click an endpoint. The “API KEY” is down at the lower-right.
 
-## Connect to an Azure Machine Learning web service ##
+## <a id="connect"></a>Connect to an Azure Machine Learning web service
 
 You can connect to an Azure Machine Learning web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from an Azure ML web service help page.
 
