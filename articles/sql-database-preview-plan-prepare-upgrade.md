@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="02/17/2015" 
 	ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-Feb-05 17:31pm
-Clarify that V11 db remains available during upgrade to V12.
-Update re export import DacFX.
-Split Limitations into during vs after.
+GeneMi , 2015-Feb-17 22:30pm
+C.3.1 bacpac fix
 -->
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 preview.
@@ -153,6 +151,24 @@ However, to use the tools, you must first install their latest updates to ensure
 - [Cumulative Update 5 for SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3011055)
 - [Preview of SQL Server Database Tooling in Visual Studio 2013](http://www.microsoft.com/en-us/download/details.aspx?id=45319)
 - [Data-Tier Application Framework (DacFX) Preview for the latest Azure SQL Database Update V12](http://www.microsoft.com/en-us/download/details.aspx?id=45320)
+
+#### C.3.1 Import has temporary issue with bacpac files
+
+
+ (As of Wednesday 2015-February-18)
+
+There is a known issue with the export of bacpac files from a Azure SQL Database server that has been upgraded to V12. Exported bacpac files will contain an errant object named script_deployment_databases. Bacpac files that contain this errant object cannot be imported by using the tools SQL Server Management Studio (SSMS), SqlPackage.exe, or the Data-Tier Application Framework (DacFx) API.
+
+However, the Azure web portal can be used to import an affected bacpac file to Azure SQL Database. We expect to release a permanent fix for this issue during the week of Monday February 23 2015, including an update for the affected tools. In the interim, contact Microsoft Support if you need further assistance to recover an already exported file that has .bacpac as its file name extension.
+
+In addition to the export issue, a limited number of servers and customers who recently upgraded to version V12 might experience a different error when attempting to import a bacpac file. This permissions-related error is transient and is normally resolved on an affected server within one day. We expect that this issue will also be permanently fixed during the week of Monday February 23 2015. In the interim, retrying your import operation might succeed. Contact Microsoft Support if you need further assistance importing a bacpac file to Azure SQL Database.
+
+If necessary, you can follow these steps to contact Microsoft Support:
+
+1. Browse to the Azure portal.
+2. Right-click on the account name, found in the upper-right corner.
+3. In the context menu that is displayed, click the item for support.
+ - The item is probably labeled either **Contact Microsoft Support** or **Help + support**.
 
 
 
