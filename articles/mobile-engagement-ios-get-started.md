@@ -27,8 +27,8 @@ This tutorial demonstrates the simple broadcast scenario using Mobile Engagement
 
 This tutorial requires the following:
 
-+ XCode, which you can install from your MAC App Store
-+ the [Mobile Engagement iOS SDK]
++ Xcode, which you can install from your MAC App Store
++ The [Mobile Engagement iOS SDK]
 + Push notification certificate (.p12) that you can obtain on your Apple Dev Center
 
 Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps. 
@@ -55,7 +55,7 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 	1. *Application Name*: you can type the name of your application. Feel free to use any character
 	2. *Platform*: Select the target platform for that app (if your app targets multiple platform, repeat this tutorial for each platform)
-	3. *Application Resource Name*: This is the name by which this application will be accessible via APIs and URLs. We advise that you use only conventional URL characters: the auto generated name should provade you a strong basis. We also advise appending the platform name to avoid any name clash as this name must be unique
+	3. *Application Resource Name*: This is the name by which this application will be accessible via APIs and URLs. We advise that you use only conventional URL characters: the auto generated name should provide you a strong basis. We also advise appending the platform name to avoid any name clash as this name must be unique
 	4. *Location*: Select the data center where this app (and more importantly its Collection - see below) will be hosted
 	5. *Collection*: If you have already created an application, select a previously created Collection, otherwise select New Collection
 
@@ -168,7 +168,7 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 
 5. If it worked, you should now see 1 session in the monitor! 
 
-**Congratulations!** You suceeded the first step of this tutorial and have an app that connects to the Mobile Engagement backend, and that is already sending data
+**Congratulations!** You succeeded the first step of this tutorial and have an app that connects to the Mobile Engagement backend, and that is already sending data
 
 6. Clicking the Home button of the simulator will bring back the number of sessions in the monitor back to 0 as shown above
 
@@ -255,7 +255,7 @@ You're all set, now we will verify that you have correctly done this basic integ
 
 ##<a id="send"></a>How to send a notification to your app
 
-We will now create a simple Push Notification campaign that will send a puh to our app:
+We will now create a simple Push Notification campaign that will send a push to our app:
 
 1. Navigate to the Reach tab in your Mobile Engagement portal
 
@@ -287,6 +287,8 @@ We will now create a simple Push Notification campaign that will send a puh to o
 <!-- URLs. -->
 [Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Azure Management Portal]: https://manage.windowsazure.com
+
 <!-- Images. -->
 [7]: ./media/mobile-engagement-ios-get-started/create-mobile-engagement-app.png
 [8]: ./media/mobile-engagement-ios-get-started/create-azme-popup.png

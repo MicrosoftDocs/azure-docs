@@ -172,8 +172,8 @@ If you want locations to be reported, you need to add a few lines of configurati
 
 Lazy area location reporting allows to report the country, region and locality associated to devices. This type of location reporting only uses network locations (based on Cell ID or WIFI). The device area is reported at most once per session. The GPS is never used, and thus this type of location report has very few (not to say no) impact on the battery.
 
-Reported areas are used to compute geographic statistics about users, sessions, events and errors. They can also be used as criterion in Reach campaigns. The last known area reported for a device can be retrieved thanks to the Device
-API \<../../../SaaS/Device API/Get\>.
+Reported areas are used to compute geographic statistics about users, sessions, events and errors. They can also be used as criterion in Reach campaigns. The last known area reported for a device can be retrieved thanks to the [Device
+API].
 
 To enable lazy area location reporting, add:
 
@@ -304,3 +304,6 @@ Then you can add a `CheckBoxPreference` in your preference layout like the follo
 			  android:title="Use Engagement"
 			  android:summaryOn="Engagement is enabled."
 			  android:summaryOff="Engagement is disabled." />
+
+<!-- URLs. -->
+[Device API]: http://go.microsoft.com/?linkid=9876094

@@ -18,7 +18,7 @@
 
 #2.0.0
 
-Start here to get all the details on how to integrate Azure Mobile Engagement in a Windows Store App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](../mobile-engagement-windows-store-get-started/).
+Start here to get all the details on how to integrate Azure Mobile Engagement in a Windows Store App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](../mobile-engagement-windows-store-dotnet-get-started/).
 
 Click to see the [SDK Content](../mobile-engagement-windows-store-sdk-content/)
 
