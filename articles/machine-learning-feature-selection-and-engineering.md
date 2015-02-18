@@ -59,11 +59,11 @@ Besides feature set A, which already exist in the original raw data, the other t
 
 In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an "Execute R Script" module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second branch from the left.
 
-![create features](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.PNG) 
+![create features](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.png) 
 
 The comparison of the performance results of the four models are summarized in the following table. The best results are shown by features A+B+C. Note that the error rate decreases when additional feature set are included in the training data. It verifies our presumption that the feature set B, C provide additional relevant information for the regression task. But adding the D feature does not seem to provide any additional reduction in the error rate.
 
-![result comparison](./media/machine-learning-feature-selection-and-engineering/result.PNG) 
+![result comparison](./media/machine-learning-feature-selection-and-engineering/result1.png) 
 
 ### <a name="example2"></a> Example 2: Creating Features in Text Mining  
 
@@ -77,11 +77,11 @@ In Azure Machine Learning, there is a [Feature Hashing](http://msdn.microsoft.co
 * Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number. 
 * Third, set the parameter "N-grams" to 2. This gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
 
-!["Feature Hashing" module](./media/machine-learning-feature-selection-and-engineering/featureHashing1.PNG) 
+!["Feature Hashing" module](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png) 
 
 The following figure shows what the these new feature look like. 
 
-!["Feature Hashing" example](./media/machine-learning-feature-selection-and-engineering/featureHashing2.PNG) 
+!["Feature Hashing" example](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png) 
 
 ## Filtering Features from Your Data - Feature Selection  ##
 
@@ -98,19 +98,19 @@ Among others, one widely applied category of feature selection methods in a supe
 
 In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include "Filter Based Feature Selection", "Fisher Liner Discriminant Analysis", and "Linear Discriminant Analysis".
  
-![Feature selection example](./media/machine-learning-feature-selection-and-engineering/featureSelection.PNG)
+![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
 Consider, for example, the use of the [Filter Based Feature Selection](http://help.azureml.net/Content/html/818b356b-045c-412b-aa12-94a1d2dad90f.htm) module. For the purpose of convenience, we continue to use the text mining example outlined above. Assume that we want to build a regression model after a set of 256 features are created through the "Feature Hashing" module, and that the response variable is the "Col1" and represents a book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module "Filter Based Feature Selection" will produce a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
 
-![Feature selection example](./media/machine-learning-feature-selection-and-engineering/featureSelection1.PNG)
+![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection1.png)
 
 The following figure shows the resulting datasets. Each feature is scored based on the Pearson Correlation between itself and the target attribute "Col1". The features with top scores are kept.
 
-![Feature selection example](./media/machine-learning-feature-selection-and-engineering/featureSelection2.PNG)
+![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection2.png)
 
 The corresponding scores of the selected features are shown in the following figure.
 
-![Feature selection example](./media/machine-learning-feature-selection-and-engineering/featureSelection3.PNG)
+![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection3.png)
 
 By applying this **Filter Based Feature Selection** module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation". 
 
