@@ -20,40 +20,40 @@
 
 ## Introduction
 
-The following How To Guides for the Azure Mobile Engagement [User Interface](http://go.microsoft.com/fwlink/?LinkID=525553) assume that you are familiar with the basic [Concepts](http://go.microsoft.com/fwlink/?LinkID=525555) of Azure Mobile Engagement and will only work after you have integrated the Azure Mobile Engagement [SDK](http://go.microsoft.com/fwlink/?LinkID=525554) into your application. If you have difficulty with any of these Walkthroughs please consult the Azure Mobile Engagement [Troubleshooting Guides](http://go.microsoft.com/fwlink/?LinkID=525560).
+The following How To Guides for the Azure Mobile Engagement [User Interface][Link 1] assume that you are familiar with the basic [Concepts][Link 6] of Azure Mobile Engagement and will only work after you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application. If you have difficulty with any of these Walkthroughs please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
 
 ## Do Your First Push Notification Campaign
--	Confirm that your Reach is integrated into your app with the SDK. 
--	Select your application
+-    Confirm that your Reach is integrated into your app with the SDK. 
+-    Select your application
  
 ![First1][1]
 
--	Go to the "Reach" Section and Click "New announcement"
+-    Go to the "Reach" Section and Click "New announcement"
  
 ![First2][2]
 
--	Create a new campaign and name it
+-    Create a new campaign and name it
  
  ![First3][3]
 
--	Select how the notification should be delivered, as In-app only
+-    Select how the notification should be delivered, as In-app only
  
 ![First4][4]
 
--	Create the message you want to push
+-    Create the message you want to push
  
 ![First5][5]
 
--	You may write a title on the notification (Optional).
--	Write push message content.
--	You can upload an image. Be aware that the size of the file cannot exceed 32,768 bytes.
--	You also have the ability to select further options, but for the focus of this tutorial, we will see that later.
+-    You may write a title on the notification (Optional).
+-    Write push message content.
+-    You can upload an image. Be aware that the size of the file cannot exceed 32,768 bytes.
+-    You also have the ability to select further options, but for the focus of this tutorial, we will see that later.
 
--	Select the content type as Notification only
+-    Select the content type as Notification only
  
 ![First6][6]
 
--	Create your push campaign and it will appear in your campaign list.
+-    Create your push campaign and it will appear in your campaign list.
  
 ![First7][7]
 
@@ -61,20 +61,20 @@ The following How To Guides for the Azure Mobile Engagement [User Interface](htt
  
 ![Test1][8]
 
--	Register your device.
--	Click on the checkbox of the device you want to push.
--	Click on the "Test" button to send the push to the device.
+-    Register your device.
+-    Click on the checkbox of the device you want to push.
+-    Click on the "Test" button to send the push to the device.
  
 ![Test2][9]
 
--	Activate the campaign
+-    Activate the campaign
  
 ![Test3][10]
 
--	Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.
+-    Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.
  
 ## Send Personalized Pushes
--	This example creates a push where a custom rebate code is entered into the push notification.
+-    This example creates a push where a custom rebate code is entered into the push notification.
  
 ![Personalize1][11]
 
@@ -83,7 +83,7 @@ As you see above the push notification content includes the marker ${rebate_code
 
 > Warning: If the app info tag is not defined for the user, the user will not receive the push.
 
--	Result
+-    Result
  
 ![Personalize2][12]
 
@@ -91,24 +91,24 @@ As you see above the push notification content includes the marker ${rebate_code
  
 ![Personalize3][13]
 
--	Including the title of the notification,
--	And the content of the message.
--	Choose the type of announcement (Text view or Web view)
+-    Including the title of the notification,
+-    And the content of the message.
+-    Choose the type of announcement (Text view or Web view)
  
 ![Personalize4][14]
 
 ### The body of an announcement may also be personalized with:
--	The action URL, should you want to customize the landing page
--	The title,
--	The body of the message.
+-    The action URL, should you want to customize the landing page
+-    The title,
+-    The body of the message.
  
  
 ## Differentiate Your Push Notification (in or out of app)
 
--	Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.
+-    Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.
  
--	Click on the "delivery mode" you want.
--	Click on the "Restrict Activities" checkbox when you want the notification occurs on specific activities (screens).
+-    Click on the "delivery mode" you want.
+-    Click on the "Restrict Activities" checkbox when you want the notification occurs on specific activities (screens).
 
 ![Differentiate1][15]
 
@@ -144,16 +144,16 @@ When you select "Anytime" , you must have already provided the certificates from
 
 It is the 21st of March and you have an announcement to make and planed for the 22nd of March at midnight. 
 You don’t have to stay in front of the interface to do a push! You can plan in advance the exact minute notifications will be sent.
--	Un-check the "None" checkbox and select a start time 
--	Choose the date and the time you want to start the push campaign.
+-    Un-check the "None" checkbox and select a start time 
+-    Choose the date and the time you want to start the push campaign.
 ### Plan to end a campaign
  
 ![Shedule2][19]
 
 You want your campaign to stop on the 25th of March at 3.00 pm but you know you won't be there to do it.
 You don’t have to stay in front of the interface to push! You can plan in advance the exact minute your campaign will stop.
--	Click on the "None" checkbox or select a end time
--	Choose the date and the time you want to finish the push campaign.
+-    Click on the "None" checkbox or select a end time
+-    Choose the date and the time you want to finish the push campaign.
 ### End a campaign manually
  
 ![Shedule3][20]
@@ -173,12 +173,12 @@ A text view is a pop-up with text content. This pop-up appears after the end-use
 A text view allows you to present more content to your end-user. This is also the opportunity to present a call to action such as jumping to a page of your app, redirecting to a Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
 
 ### Example: Text View
--	Create your Push notification campaign in the "Reach" section and give your campaign a name
+-    Create your Push notification campaign in the "Reach" section and give your campaign a name
  
 ![TextView2][22]
 
--	Write the message that will appear on the notification.
--	Select the Announcement Content Type of “text”
+-    Write the message that will appear on the notification.
+-    Select the Announcement Content Type of “text”
  
 ![TextView3][23]
 
@@ -188,25 +188,25 @@ A text view allows you to present more content to your end-user. This is also th
  
 ![TextView4][24]
 
--	Write the title that will appear at the top of the message.
--	Write the main content of the text view.
--	Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to an App store or any kind of sources you can provide).
--	Write the content that will appear on the exit button (by clicking on the exit button, the text view will disappear.)
+-    Write the title that will appear at the top of the message.
+-    Write the main content of the text view.
+-    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to an App store or any kind of sources you can provide).
+-    Write the content that will appear on the exit button (by clicking on the exit button, the text view will disappear.)
  
--	Create your push notification campaign and it will appear on the campaign list.
+-    Create your push notification campaign and it will appear on the campaign list.
  
 ![TextView5][25]
 
--	Activate your push notification campaign to send the text view to your users.
+-    Activate your push notification campaign to send the text view to your users.
  
 ![TextView6][26]
 
--	Result
+-    Result
  
 ![TextView7][27]
 
--	The user receives the notification and click on it.
--	The text view appears as a pop-up allowing the user to interact with it.
+-    The user receives the notification and click on it.
+-    The text view appears as a pop-up allowing the user to interact with it.
 
 ## Enhance a Push Notification with a Web View
 
@@ -220,12 +220,12 @@ This is also the opportunity to present a call to action such as redirection to 
 
 ### Example: Web View
 
--	Create your Push campaign in the "Reach" section and give your campaign a name.
+-    Create your Push campaign in the "Reach" section and give your campaign a name.
  
 ![WebView2][29]
 
--	Write the message that will appear on the notification.
--	Select the Announcement Content Type as “web”
+-    Write the message that will appear on the notification.
+-    Select the Announcement Content Type as “web”
  
 ![WebView3][30]
 
@@ -243,19 +243,20 @@ Select the "Web announcement" content.
  
 ![WebView4][31]
 
--	Write the title that will appear at the top of the message (optional).
--	Write your HTML code here.
--	Click on the source editing mode button to switch edition and see how it looks like.
--	Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to a Store or any kind of sources you can provide).
--	Write the content that will appear on the exit button (by clicking on the exit button, the web view will disappear).
+-    Write the title that will appear at the top of the message (optional).
+-    Write your HTML code here.
+-    Click on the source editing mode button to switch edition and see how it looks like.
+-    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to a Store or any kind of sources you can provide).
+-    Write the content that will appear on the exit button (by clicking on the exit button, the web view will disappear).
  
--	Result
+-    Result
  
 ![WebView5][32]
 
--	The user receive the notification and click on it.
--	The text view appears as a pop-up allowing the user to interact with it.
+-    The user receive the notification and click on it.
+-    The text view appears as a pop-up allowing the user to interact with it.
 
+<!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png
 [2]: ./media/mobile-engagement-how-tos/First2.png
 [3]: ./media/mobile-engagement-how-tos/First3.png
@@ -288,3 +289,11 @@ Select the "Web announcement" content.
 [30]: ./media/mobile-engagement-how-tos/WebView3.png
 [31]: ./media/mobile-engagement-how-tos/WebView4.png
 [32]: ./media/mobile-engagement-how-tos/WebView5.png
+
+<!--Link references-->
+[Link 1]: ./mobile-engagement-user-interface/
+[Link 2]: ./mobile-engagement-troubleshooting-guide/
+[Link 3]: ./mobile-engagement-how-tos/
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
