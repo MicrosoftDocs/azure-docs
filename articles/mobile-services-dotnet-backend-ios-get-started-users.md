@@ -54,6 +54,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users], you
 [Storing authentication tokens in your app]:#store-authentication
 
 <!-- URLs. -->
+[Service-side authorization of Mobile Services users]: /en-us/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/
 [Mobile Services Quick Start tutorial]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
