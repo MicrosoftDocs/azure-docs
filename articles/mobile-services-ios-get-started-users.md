@@ -44,7 +44,7 @@ In Xcode, open the project. Press the **Run** button to  start the app. Verify t
 
 ## <a name="next-steps"></a>Next steps
 
-In the next tutorial, [Service-side authorization of Mobile Services users], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
+In the next tutorial, [Service-side authorization of Mobile Services users], you will user the user ID value to filter returned data.
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
