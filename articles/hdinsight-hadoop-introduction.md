@@ -57,7 +57,7 @@ Apache Hadoop is the rapidly expanding technology stack that is the go-to soluti
 
 	Category | HDInsight on Linux | HDInsight on Windows 
 	---------| -------------------| --------------------
-	**Cluster OS** | Ubuntu 14.02 LTS | Windows Server 2012 R2
+	**Cluster OS** | Ubuntu 12.04 LTS | Windows Server 2012 R2
 	**Cluster Type** | Hadoop | Hadoop, HBase, Storm
 	**Deployment** | Azure Management Portal, Cross-platform command line, PowerShell | Azure Management Portal, Cross-platform command line, PowerShell, HDInsight .NET SDK
 	**Cluster UI** | Ambari | Cluster Dashboard
