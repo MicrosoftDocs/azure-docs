@@ -18,7 +18,7 @@
 
 #How to Integrate Engagement Reach SDK on your Windows Phone project
 
-You must follow the integration procedure described in the How to Integrate Engagement on Windows Phone document before following this guide.
+You must follow the integration procedure described in the [How to Integrate Engagement on Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/) document before following this guide.
 
 ##Embed the Engagement Reach SDK into your Windows Phone project
 
@@ -30,17 +30,10 @@ You do not have anything to add. `EngagementReach` references and resources are 
 
 The Engagement Reach SDK needs some additional capabilities.
 
-Open your `WMAppManifest.xml` file and be sure that the following capabilities are declared:
+Open your `WMAppManifest.xml` file and be sure that the following capabilities are declared in the `Capabilities` panel:
 
 -   `ID_CAP_PUSH_NOTIFICATION`
 -   `ID_CAP_WEBBROWSERCOMPONENT`
-
-The first one is used by the MPNS service to allow the display of toast notification. The second one is used to embed a browser task into the SDK.
-
-Edit the `WMAppManifest.xml` file and add inside the `<Capabilities />` tag :
-
-			<Capability Name="ID_CAP_PUSH_NOTIFICATION" />
-			<Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
 
 ##Enable the Microsoft Push Notification Service
 

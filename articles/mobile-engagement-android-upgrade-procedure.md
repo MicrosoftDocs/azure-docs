@@ -29,7 +29,7 @@ Whatever the version you upgrade from, you have to replace all the `mobile-engag
 
 The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
 
->[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+>[AZURE.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
 
 If you are migrating from an earlier version, please consult the Capptain web site to migrate to 2.4 first then apply the following procedure
 
@@ -147,9 +147,12 @@ All other meta-data have just been renamed, here is the full list (of course ren
 
 Google Play and SmartAd tracking has been removed from SDK you just have to remove this without replacement:
 
+			<meta-data 
+				android:name="capptain:track:installReferrerForwardList"
+				android:value="com.class1,com.class2"/>
 			<meta-data
-			  android:name="capptain:track:adservers"
-			  android:value="smartad" />
+				android:name="capptain:track:adservers"
+				android:value="smartad" />
 
 The Reach activities are now declared like this:
 
