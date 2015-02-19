@@ -4,12 +4,12 @@
 	pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" 
 	metakeywords="" 
 	footerexpose="" 
-	description="" 
+	description="Learn how to test the performance of a cloud service in the local Azure Compute Emulator by using the Visual Studio profiler" 
 	umbraconavihide="0" 
 	disquscomments="1" 
 	authors="kempb" 
 	manager="douge" 
-	editor="" 
+	editor="tglee" 
 	services="cloud-services" 
 	documentationCenter=""/>
 
@@ -19,7 +19,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/3/2014" 
+	ms.date="02/18/2015" 
 	ms.author="kempb"/>
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler

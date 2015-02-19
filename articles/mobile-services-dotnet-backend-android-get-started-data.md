@@ -26,6 +26,8 @@ The mobile service that you create in this tutorial supports the .NET runtime in
 
 > [AZURE.IMPORTANT] This tutorial requires Visual Studio 2013.
 
+<!-- -->
+
 > [AZURE.NOTE] If you would like to see the Eclipse version of this tutorial, go to : [Get started with data (Eclipse)].
 
 This tutorial walks you through these basic steps:

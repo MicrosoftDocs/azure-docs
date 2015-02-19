@@ -10,8 +10,7 @@ This tutorial is built on **GetStartedWithData**, which is an Android app. The U
 4. Select **Open an existing Android Studio project**, browse to the project location in the *AndroidStudio* folder of *GettingStartedWithData*, and then click **OK.** 
 
 
- 	![](./media/mobile-services-android-get-started/android-studio-import-project.png
-)
+ 	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
 	The project is now ready for you to work with.
  
