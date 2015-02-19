@@ -18,7 +18,7 @@
 
 # What is a Web Hosting Plan? #
 
-Web hosting plans represent a set of features and capacity that you can share across your websites.  Web hosting plans support a few pricing tiers (e.g. Free, Shared, Basic, and Standard) where each tier has its own capabilities.  Sites in the same subscription, resource group, and geographic location can share a web hosting plan.  You can change which hosting plan a site is associated with quickly and with no downtime, provided the target hosting plan exists in the same resource group and geographic location.
+Web hosting plans represent a set of features and capacity that you can share across your websites.  Web hosting plans support a few pricing tiers (e.g. Free, Shared, Basic, and Standard) where each tier has its own capabilities.  Sites in the same subscription, resource group, and geographic location can share a web hosting plan.  You can quickly change which hosting plan a site is using with no downtime, provided the target hosting plan exists in the same resource group and geographic location.
 
 ## Features in Web Hosting Plans ##
 
