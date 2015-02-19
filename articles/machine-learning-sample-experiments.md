@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <properties 
     pageTitle="Azure Machine Learning Gallery | Azure" 
     description="Description of the Azure Machine Learning Gallery site for community published Machine Learning experiment." 
@@ -16,6 +17,8 @@
     ms.date="02/16/2015" 
     ms.author="chhavib"/>
 
+=======
+>>>>>>> 640cb2f497bc2debff6385aaefe0ac9af1850a5d
 # Use sample experiments to create new experiments
 When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community.
 ## Browse the Gallery
