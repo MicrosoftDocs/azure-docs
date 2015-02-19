@@ -222,18 +222,16 @@ Once a predictive model has been put into production, the Azure Portal lists the
 
 **What happens if my Storage Account cannot be found?** 
 
-Machine Learning Studio relies on a user-supplied Azure storage account to save intermediary data when executing the workflow. You specify the storage account when you create the workspace. If the storage account is deleted and can no longer be found, that workspace will not work and all experiments in that workspace will fail. 
-
-If you accidentally deleted the storage account, need to recreate it with the  same name in the  same Region as the deleted one, and then re-sync the Access Key. 
+Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to Machine Learning Studio at the time a workspace is created. After the workspace is created, if the Storage Account is deleted and can no longer be found, that workspace will stop function and all experiments in that workspace will fail.
+ 
+If you accidentally deleted the Storage Account, the only way to recover from it is to recreate that Storage Account with the exact same name in the exact same Region as the deleted one. After that, please re-sync the Access Key.
+ 
 
 **What happens if my Storage Account Access Key is out of sync?** 
+Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace. After the workspace is created, if the Access keys are changed, that workspace can no longer access the Storage Account, and it will stop function and all experiments in that workspace will fail.
 
-If you've changed Storage Account Access Keys, you need to resync the Access Keys in the workspace setting in the Azure portal.  
+If you have changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure portal  
 
-**Why is my workspace authorization token unavailable in generated data access code?** 
-
-
-When you generate data access code from a dataset, you might see the text "Unavailable" in place of the authorization token in the generated code. This is because you are not the owner of the workspace in which this dataset lives. In order to get the authorization token to fill in, please contact the owner of the workspace and ask him/her to generate the data access code which contains the token in clear text. And please take extra precaution with this token because it provides full access to this workspace. Treat it like a secret password. 
 
 ##Azure Marketplace 
 
