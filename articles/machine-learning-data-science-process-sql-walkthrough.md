@@ -639,7 +639,7 @@ In this exercise, we have already explored and engineered the data in SQL Server
 
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 
-3. Enter the database DNS name in the **Database server name** field. Format: tcp:<your\_virtual\_machine\_DNS\_name\>,1433
+3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 
 4. Enter the **Database name** in the corresponding field.
 
