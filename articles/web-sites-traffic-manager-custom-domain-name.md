@@ -18,7 +18,7 @@
 
 #Configuring a custom domain name for an Azure Website using Traffic Manager
 
-[AZURE.INCLUDE [hive-selector](../includes/websites-custom-domain-selector.md)]
+[AZURE.INCLUDE [web-selector](../includes/websites-custom-domain-selector.md)]
 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
