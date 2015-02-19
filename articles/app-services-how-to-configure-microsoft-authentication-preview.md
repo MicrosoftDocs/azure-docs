@@ -20,48 +20,44 @@
 
 This topic shows you how to configure Azure App Services to use Microsoft Account as an authentication provider. 
 
->[AZURE.NOTE]To configure Microsoft Account authentication for a universal Windows app or to provide a single sign-on experience for a Windows Store app, see [Register your Windows Store app package for Microsoft authentication](/en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
-
-1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
+1. Navigate to the [My Applications] page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
 
 2. Click **Create application**, then type an **Application name** and click **I accept**.
 
-   	![][1] 
+3. Click **API Settings**, and set your redirect URL in  **Redirect URL**, then click **Save**. Your redirect URI is the URL of your gateway appended with the path, _/signin-microsoft_. For example, `https://contoso.azurewebsites.net/signin-microsoft`.
 
-   	This registers the application with Live Connect.
+	![][0]
 
-3. Click **API Settings**, supply a value of `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` in **Redirect URL**, then click **Save**.
-
-	>[AZURE.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-microsoft_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
-
-	![][3]
-
-	This enables Microsoft Account authentication for your app.
-
-	>[AZURE.NOTE]For an existing Live Connect app registration, you might have to first enable **Enhanced redirection security**.
+	>[AZURE.NOTE]For an existing Live Connect app registration, you may have to first enable **Enhanced redirection security**.
 
 4. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**. 
 
-   	![][2]
+    > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
 
-    > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.
+5. Log on to the [Azure Management Portal], and navigate to your App Services gateway.
 
-You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services.
+6. Click the **User authentication** part and select **Microsoft Account**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
+
+    ![][1]
+
+You are now ready to use Microsoft Account for authentication in your app.
 
 ## <a name="related-content"> </a>Related Content
+
 Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+
+Authenticate your app with Live Connect Single Sign-On: [Windows](windows-liveconnect)
 
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ./media/app-services-how-to-configure-microsoft-authentication/app-services-live-connect-add-app.png
-[2]: ./media/app-services-how-to-configure-microsoft-authentication/app-services-win8-app-push-auth.png
-[3]: ./media/app-services-how-to-configure-microsoft-authentication/app-services-win8-app-push-auth-2.png
+
+[0]: ./media/app-services-how-to-configure-microsoft-authentication/app-services-microsoftaccount-redirect.png
+[1]: ./media/app-services-how-to-configure-microsoft-authentication/app-services-microsoftaccount-app-configure.png
 
 <!-- URLs. -->
 
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-
 [Azure Management Portal]: https://portal.azure.com/
 [xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/
+[windows-liveconnect]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-windows-dotnet-live-connect-sso/
