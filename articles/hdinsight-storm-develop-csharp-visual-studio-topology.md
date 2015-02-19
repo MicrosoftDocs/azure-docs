@@ -34,7 +34,7 @@ You will also learn how to create hybrid topologies that use both C# and Java co
 
 * Azure SDK 2.5.1 or newer
 
-* HDInsight Tools for Visual Studio - see <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
+* HDInsight Tools for Visual Studio - see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
 
 * Apache Storm on HDInsight cluster - see <a href="../hdinsight-storm-getting-started/" target="_blank">Getting started with Apache Storm on HDInsight</a> for steps on creating a cluster
 
@@ -42,7 +42,7 @@ You will also learn how to create hybrid topologies that use both C# and Java co
 
 ##Create a C# topology
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
 
 2. Open Visual Studio, select **File**, **New**, and then **Project**.
 
