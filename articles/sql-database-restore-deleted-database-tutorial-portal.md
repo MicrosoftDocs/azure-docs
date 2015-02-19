@@ -1,0 +1,70 @@
+<properties 
+   pageTitle="Restore a deleted Azure SQL database in Azure portal" 
+   description="Microsoft Azure SQL Database, restore deleted database, recover deleted database, Azure Management Portal, Azure portal" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="v-romcal"/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="ibiza"
+   ms.workload="storage-backup-recovery" 
+   ms.date="02/19/2015"
+   ms.author="elfish; v-romcal"/>
+
+# Restore a deleted Azure SQL database in Azure portal
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-powershell/" title="Restore deleted database - PowerShell">Restore deleted database - PowerShell</a><a href="/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-rest/" title="Restore deleted database - REST API">Restore deleted database - REST API</a></div>  
+
+This tutorial shows you how to restore a deleted Azure SQL database in the [Azure portal](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?response_type=code+id_token&redirect_uri=https%3a%2f%2fmanage.windowsazure.com%2fmicrosoft.onmicrosoft.com&client_id=00000013-0000-0000-c000-000000000000&resource=https%3a%2f%2fmanagement.core.windows.net%2f&scope=user_impersonation+openid&nonce=22afb166-50d7-4dc6-baff-409a84b46d0f&domain_hint=microsoft.onmicrosoft.com&site_id=500879&response_mode=query). You can restore a database that was deleted during its retention period to the point it was deleted. The retention period is determined by the service tier of the database.
+
+Restoring a deleted Azure SQL database creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/en-us/support/options/).
+
+## Restrictions and Security
+
+* Restoring a deleted Azure SQL database is enabled for all Basic, Standard, and Premium service tiers. 
+
+* Back-up retention periods are Basic, 7 days; Standard, 14 days; and Premium, 35 days.
+
+* Only the administrator or co-administrator for the subscription can submit a restore request.
+
+* The server level principal login will be the owner of the restored database.
+ 
+* Web and Business Edition service tiers don't support restoring a deleted SQL database.
+ 
+	* If you have a Web or Business Edition database you can use database copy to get a transactional-consistent copy of your database, and then export the copied database to a Microsoft Azure storage account. For more information, see How to: Use Database Copy (Azure SQL Database) and How to: Use the Import and Export Service in Azure SQL Database.
+	* Web and Business Editions will be retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/en-us/library/azure/dn741330.aspx).
+
+## How to: Restore a deleted Azure SQL database in Azure portal
+
+<iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-Deleted-SQL-Database/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
+1. Sign in to the Azure portal using your Microsoft account.
+
+2. In the left navigation, click **SQL DATABASES**.
+
+3. At the top of the page, click **DELETED DATABASES**. A list of **RESTORABLE DELETED DATABASES** is shown. 
+
+4. Click the database you want to restore.
+
+6. At the bottom of the page in the command bar, click **Restore**. This launches the **Specify restore settings** dialog box. 
+
+7. Choose a **DATABASE NAME**. By default, a database name is chosen for you, but you can change it if you want.   
+
+	* Note that a deleted database can only be restored to the server from which it was deleted, and to the point in time at which it was deleted.   
+
+8. Click the check mark to submit the restore request.
+
+A restore may take some time to complete. To monitor the status of the restore, click the Status icon at the bottom right of the page in the command bar, and then click **DETAILS**.
+
+## Next steps
+
+For more information, see the following: 
+
+[Azure SQL Database Business Continuity](http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx)
+
+[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/en-us/library/azure/jj650016.aspx)
