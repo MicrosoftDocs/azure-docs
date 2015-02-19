@@ -93,6 +93,7 @@ You may skip this step if you already have an app and are familiar with Android 
    	![][13]
 
 3. Now select the target form factor and API level then click **Next**. 
+
 	>[AZURE.NOTE] Mobile Engagement requires API level 10 minimum (Android 2.3.3).
 
    	![][14]
@@ -155,12 +156,8 @@ Download and integrate the SDK library
 		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 		<uses-permission android:name="android.permission.VIBRATE" />
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-	The result should be as shown below:
-
-	![][21]
 
 2. Add the following between the < application > and </application > tags to declare the agent service:
 
@@ -353,6 +350,8 @@ We will now create a simple Push Notification campaign that will send a push not
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Azure Management Portal]: https://manage.windowsazure.com
+
 <!-- Images. -->
 [7]: ./media/mobile-engagement-android-get-started/create-mobile-engagement-app.png
 [8]: ./media/mobile-engagement-android-get-started/create-azme-popup.png
@@ -368,7 +367,6 @@ We will now create a simple Push Notification campaign that will send a push not
 [18]: ./media/mobile-engagement-android-get-started/paste-jar.png
 [19]: ./media/mobile-engagement-android-get-started/sync-project.png
 [20]: ./media/mobile-engagement-android-get-started/resolve-classes.png
-[21]: ./media/mobile-engagement-android-get-started/permissions.png
 [22]: ./media/mobile-engagement-android-get-started/subclass-activity.png
 [23]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [24]: ./media/mobile-engagement-android-get-started/paste-resources.png

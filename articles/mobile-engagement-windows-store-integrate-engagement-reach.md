@@ -18,7 +18,7 @@
 
 #How to Integrate Engagement Reach on Windows
 
-You must follow the integration procedure described in the How to Integrate Engagement on Windows document before following this guide.
+You must follow the integration procedure described in the [How to Integrate Engagement on Windows](../mobile-engagement-windows-store-integrate-engagement/) document before following this guide.
 
 ##Embed the Engagement Reach SDK into your Windows project
 
@@ -54,6 +54,8 @@ Modify the `App.xaml.cs`:
 			  EngagementReach.Instance.Init(args);
 			}
 
+> [AZURE.NOTE] The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
+
 -   If you want to launch engagement reach when your app is activated, override `OnActivated` method:
 
 			protected override void OnActivated(IActivatedEventArgs args)
@@ -62,17 +64,15 @@ Modify the `App.xaml.cs`:
 			  EngagementReach.Instance.Init(args);
 			}
 
-> [AZURE.NOTE] The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
-
 > [AZURE.TIP] You can specify the name of the WNS push channel of your application in the `Resources\EngagementConfiguration.xml` file of your project on `<channelName></channelName>`. By default, Engagement creates a name based on the appId. You have no need to specify the name yourself, except if you plan to use the push channel outside of Engagement.
 
 ##Integration
 
 Engagement provides two way to implement Reach notification and announcement. The Overlay integration and the Web View integration.
 
-windows-sdk-engagement-overlay-integration doesn't require a lot of code to write into your application. You just need to tag your pages, xaml and cs files, with EngagementPageOverlay. Moreover if you customize Engagement default view your customization will be shared with all tagged pages and just defined once. But if your pages need to inherit from an other object than EngagementPageOverlay you are stuck and forced to use Web View integration.
+[Overlay integration](#overlay-integration) doesn't require a lot of code to write into your application. You just need to tag your pages, xaml and cs files, with EngagementPageOverlay. Moreover if you customize Engagement default view your customization will be shared with all tagged pages and just defined once. But if your pages need to inherit from an other object than EngagementPageOverlay you are stuck and forced to use Web View integration.
 
-windows-sdk-engagement-webview-integration is more complicated to be implemented. But if your App pages need to inherit from another object than "Page" then you have to integrate the Web View and its behavior.
+[Webview integration](#web-view-integration) is more complicated to be implemented. But if your App pages need to inherit from another object than "Page" then you have to integrate the Web View and its behavior.
 
 A best practice on Windows 8.1 store applications, is that you need to add a first level `<Grid></Grid>` element to surround all page content. For Webview integration, just add Webview as child of this grid. If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.
 
@@ -80,7 +80,7 @@ A best practice on Windows 8.1 store applications, is that you need to add a fir
 
 Engagement provides an overlay for notification and announcement display.
 
-If you want to use it, do not use windows-sdk-engagement-webview-integration.
+If you want to use it, do not use [Webview integration](#web-view-integration).
 
 In your .xaml file change EngagementPage reference to EngagementPageOverlay
 
@@ -163,7 +163,7 @@ You can customize the overlay notification and announcement directly on their xa
 
 ### Web View integration
 
-If you want to use it, do not use windows-sdk-engagement-overlay-integration.
+If you want to use it, do not use [Overlay integration](#overlay-integration).
 
 To display engagement content you need to integrate the two xaml WebView in each page you need to display notification and announcement. So add this code in your xaml file:
 

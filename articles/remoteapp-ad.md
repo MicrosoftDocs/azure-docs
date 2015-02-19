@@ -13,21 +13,21 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="1/23/2015" 
+    ms.date="2/17/2015" 
     ms.author="elizapo" />
 
 
 
-#Configuring Active Directory for Azure RemoteApp
+# Configuring Active Directory for Azure RemoteApp
 
 
 For a hybrid collection of RemoteApp, you need to set up an Active Directory domain infrastructure on-premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory. Use the following information to configure the on-premises Active Directory and Azure AD, and then integrate the two.
 
-##Configure your on-premises Active Directory
+## Configure your on-premises Active Directory
 Start by configuring your on-premises Active Directory. You need to identify the UPN domain suffix to use, and then create Active Directory objects for RemoteApp. 
 
-Haven’t added Active Directory Domain Services to your Windows Server 2012 R2 environment yet? Check out [these instructions](https://technet.microsoft.com/en-us/library/cc731053.aspx) for information on how to do just that.
-###Examine and configure the UPN domain suffix
+Haven’t added Active Directory Domain Services to your Windows Server 2012 R2 environment yet? Check out [these instructions](https://technet.microsoft.com/library/cc731053.aspx) for information on how to do just that.
+### Examine and configure the UPN domain suffix
 If your forest is not configured with a UPN suffix that matches the Azure AD domain that you will use for RemoteApp, you need to add it. Determine if the necessary suffix is configured:
 
 
@@ -47,7 +47,7 @@ From now on, when you create new users, you can select the new suffix from User 
 
 For more information see [Add User Principal Name Suffixes](http://technet.microsoft.com/library/cc772007.aspx).
 
-###Create objects for RemoteApp in Active Directory
+### Create objects for RemoteApp in Active Directory
 RemoteApp needs two objects in your on-premises Active Directory:
 
 
@@ -56,7 +56,7 @@ RemoteApp needs two objects in your on-premises Active Directory:
 
 Use the following information to create each of these objects.
 
-####Create the service account:
+#### Create the service account:
 
 
 1. Launch Active Directory Users and Computers.
@@ -65,12 +65,11 @@ Use the following information to create each of these objects.
 
 	**Note:** You will need this account information when you create your RemoteApp collection.
 
-####Create a new Organizational Unit (OU)
+#### Create a new Organizational Unit (OU)
 
 
 1. In Active Directory Users and Computers, right-click your domain. Click **New > Organizational Unit**.
 2. Add the service account you created for RemoteApp to this new OU.
-3.
 
 	To do this, find the service account you created. Right-click it, and then click **Move**. Select the new OU, and then click **OK**.
 
@@ -87,13 +86,13 @@ OU:
 	8. Click **OK** on the remaining two windows.
 
 
-##Configure Azure Active Directory
+## Configure Azure Active Directory
 Now that the on-premises Active Directory is set up, move to Azure AD. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like DirSync) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. 
 
 Use the following information to configure Azure Active Directory
 
 
-- [Add your domain](http://technet.microsoft.com/en-us/library/hh969247.aspx) – Use this information to add a domain that matches the UPN domain suffix of your on-premises Active Directory domain.
-- [Directory integration](http://technet.microsoft.com/en-us/library/jj573653.aspx) – Use this information to choose a directory integration option – either [DirSync with Password Synchronization](http://technet.microsoft.com/en-us/library/dn441214.aspx) or [DirSync with federation](http://technet.microsoft.com/en-us/library/dn441213.aspx).
+- [Add your domain](http://technet.microsoft.com/library/hh969247.aspx) – Use this information to add a domain that matches the UPN domain suffix of your on-premises Active Directory domain.
+- [Directory integration](http://technet.microsoft.com/library/jj573653.aspx) – Use this information to choose a directory integration option – either [DirSync with Password Synchronization](http://technet.microsoft.com/library/dn441214.aspx) or [DirSync with federation](http://technet.microsoft.com/library/dn441213.aspx).
 
-You can also configure [Multi-Factor Authentication (MFA)](http://technet.microsoft.com/en-us/library/dn249466.aspx).
+You can also configure [Multi-Factor Authentication (MFA)](http://technet.microsoft.com/library/dn249466.aspx).

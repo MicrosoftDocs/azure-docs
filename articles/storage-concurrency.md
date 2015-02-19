@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="required" 
+	pageTitle="Managing Concurrency in Microsoft Azure Storage" 
 	description="How to manage concurrency for the Blob, Queue, Table, and File services" 
 	services="storage" 
 	documentationCenter="" 
