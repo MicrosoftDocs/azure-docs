@@ -291,9 +291,9 @@ Select the "Web announcement" content.
 [32]: ./media/mobile-engagement-how-tos/WebView5.png
 
 <!--Link references-->
-[Link 1]: ./mobile-engagement-user-interface/
-[Link 2]: ./mobile-engagement-troubleshooting-guide/
-[Link 3]: ./mobile-engagement-how-tos/
+[Link 1]: ../mobile-engagement-user-interface/
+[Link 2]: ../mobile-engagement-troubleshooting-guide/
+[Link 3]: ../mobile-engagement-how-tos/
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
