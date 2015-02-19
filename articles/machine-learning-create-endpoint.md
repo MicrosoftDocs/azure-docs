@@ -6,18 +6,20 @@ This allows Azure Machine Learning users to create web services that they can th
 
 ## Endpoint Creation Steps
 - Open up manage.windowsazure.com, click on Machine Learning in the left column. Click on the workspace which has the web service you’re interested in.
+![Navigate to workspace](./media/machine-learning-create-endpoint/figure-1.png)
 
 
 - Click on the “Web Services” tab.
+![Navigate to web services](./media/machine-learning-create-endpoint/figure-2.png)
 
 
 - Click on the web service you're interested in to see the list of available endpoints.
+![Navigate to endpoint](./media/machine-learning-create-endpoint/figure-3.png)
 
 
 - Click on the Add endpoint button at the bottom. Fill in a name and description, ensure there are no other endpoints with the same name in this web service. Leave the throttle level with its’ default value unless you have special requirements.
-If you want to learn more about throttling, visit the Scaling Endpoints page.
-
-
+If you want to learn more about throttling, visit the [Scaling API Endpoints](./machine-learning-scaling-endpoints.md) page.
+![Create endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 
 Once the endpoint is created, you can consume it through synchronous APIs, batch APIs and excel worksheets.
