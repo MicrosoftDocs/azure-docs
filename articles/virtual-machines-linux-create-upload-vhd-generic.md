@@ -19,7 +19,7 @@
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](../virtual-machines-linux-endorsed-distributions). All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
+**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](../virtual-machines-linux-endorsed-distributions) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
 - [Linux on Azure - Endorsed Distributions](../virtual-machines-linux-endorsed-distributions)
 - [Support for Linux images in Microsoft Azure](http://support2.microsoft.com/kb/2941892)
