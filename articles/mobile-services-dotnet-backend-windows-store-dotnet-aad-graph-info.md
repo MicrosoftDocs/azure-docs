@@ -195,7 +195,7 @@ If you've never used custom APIs with Mobile Services, refer to the [Custom API 
     This method gets the Active Directory object id for the authorized user and then uses the Graph REST API to get the user's information from the Active Diretory.
 
 
-8. In GetUserInfoController.cs replace the `Get` method with the following method. This method returns the graph client library's `User` object and requires an authorized user to call the API.
+8. In GetUserInfoController.cs replace the `Get` method with the following method. This method returns the user entity from the Azure Active directory using the Graph REST API and requires an authorized user to call the API.
 
         // GET api/GetUserInfo
         [AuthorizeLevel(AuthorizationLevel.User)]
