@@ -1,10 +1,10 @@
-<properties title="SQL Table data story" pageTitle="Create SQL Table and load data to SQL Table | Azure" description="Create SQL Table and load data to SQL Table" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="SQL Table data story" pageTitle="Move data to SQL Server on Azure| Azure" description="Move data to SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
 
 <tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="fashah,garye" /> 
 
-#Move data to SQL Azure or SQL Server VM on Azure (from File or On-Prem SQL Server)
+#Move data to SQL Server on Azure
 
-This document covers the movement of data from flat files (csv/tsv) or on-premise SQL Servers to SQL Server VM on an Azure or SQL Azure
+This document covers the movement of data from flat files (csv/tsv) or an on-premise SQL Server to a SQL Server on Azure
 
 
 <table>
@@ -42,7 +42,7 @@ Please note that this document assumes that SQL commands are executed from SQL S
 
 ## <a name="sqlonazurevm"></a>Moving your data to a SQL Server VM on an Azure
 
-This section documents the process of moving data to SQL Server VM on Azure. If you haven't set up the SQL Server VM, please do so by referring [Provisioning a SQL Server Virtual Machine on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-provision-sql-server/ "Provisioning a SQL Server Virtual Machine on Azure"). 
+This section documents the process of moving data to a SQL Server VM on Azure. If you haven't set up the SQL Server VM, please do so by referring [Provisioning a SQL Server Virtual Machine on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-provision-sql-server/ "Provisioning a SQL Server Virtual Machine on Azure"). 
 
 This document describes moving data from the following data sources: 
   

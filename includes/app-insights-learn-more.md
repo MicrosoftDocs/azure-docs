@@ -35,7 +35,7 @@ Processing
 Problems? Questions?
 
 <ul>
-<li>[Can I use Application Insights with...?][platforms]</li>
+<li><a href="../app-insights-platforms/">Can I use Application Insights with...?</a></li>
 <li><a href="../app-insights-troubleshoot-faq/">Q & A and troubleshooting</a>
 </li>
 <li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
@@ -47,6 +47,8 @@ Problems? Questions?
 Device apps
 <ul>
 <li><a href="../app-insights-windows-get-started/">Monitor usage and crashes in Windows device apps</a>
+</li>
+<li><a href="../app-insights-windows-desktop/">Monitor Windows desktop apps</a>
 </li>
 </ul>
 

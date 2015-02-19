@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/19/2015" 
 	ms.author="tdykstra"/>
 
 # What is the Azure SDK for .NET?
@@ -22,7 +22,7 @@
 
 The Azure SDK for .NET is a set of Visual Studio tools, command-line tools, runtime binaries, and client libraries that help you develop, test, and deploy apps that run in Azure. This article details what you get when you install the SDK. You can download the SDK from the [Azure Downloads page](/en-us/downloads/). 
 
-The Azure SDK for .NET also comprises client libraries for consuming Azure services. These libraries are installed separately using [NuGet](http://go.microsoft.com/fwlink/?LinkId=510472).
+The Azure SDK for .NET also comprises [client libraries for consuming Azure services](http://go.microsoft.com/fwlink/?LinkId=510472). These libraries are installed separately using NuGet.
 
 ##<a id="included"></a>What's included in the Azure SDK for .NET
 
@@ -36,7 +36,8 @@ The Azure SDK for .NET installs the following products:
 - [Microsoft Azure Storage Emulator](#stgemulator)
 - [Microsoft Azure Storage Tools](#stgtools)
 - [Microsoft Azure Libraries for .NET](#libraries)
-- [LightSwitch Azure Publishing add-on for Visual Studio](#ls)
+- [HDInsight Tools for Visual Studio](#hdinsight)
+- [Azure Resource Manager Tools for Visual Studio](#arm)
 
 ###<a id="vwd"></a>Visual Studio Express for Web
 
@@ -94,9 +95,13 @@ This includes the following:
 * NuGet packages for Azure Storage, Service Bus, and Caching that are stored on your computer so that Visual Studio can create new cloud service projects while offline.
 * A Visual Studio plug-in that enables [In-Role Cache](http://msdn.microsoft.com/en-us/library/dn386103.aspx) projects to run locally in Visual Studio. 
 
-###<a id="ls"></a>LightSwitch Azure Publishing add-on for Visual Studio
+###<a id="hdinsight"></a>HDInsight Tools for Visual Studio
 
-This enables you to [publish LightSwitch projects to Azure Websites](http://msdn.microsoft.com/en-us/library/jj131261.aspx). The LightSwitch add-on is included in Visual Studio Updates as well as the Azure SDK for .NET. Installing the SDK ensures that you have the latest version of the add-on. 
+HDInsight tools in Server Explorer enable you to navigate Hive databases and linked storage accounts for HDInsight clusters, create tables, and create and submit Hive queries. For more information, see [Get started using HDInsight Hadoop Tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/).
+
+###<a id="arm"></a>Azure Resource Manager Tools for Visual Studio
+
+The Azure Resource Manager tools enable you to create an application using the Azure Marketplace templates in a new project type called a Cloud Deployment Project. You can create and edit the Azure Resource Manager deployment template (to declaratively describe an Azure Website and SQL database, for example) and parameter files in the Cloud Deployment Project. The parameter file makes it easy to use the same template to spin up multiple instances of the resources in development, testing, and production environments. Use the tools to create resource groups and deploy templates to simplify creation of resources. For more information, see [Cloud Deployment Projects](https://msdn.microsoft.com/en-us/library/azure/dn872471.aspx) and [Azure Resource Manager 2.5 for Visual Studio](http://azure.microsoft.com/blog/2014/11/26/azure-resource-manager-2-5-for-visual-studio/).
 
 ##<a id="notincluded"></a>What's not included when you install the Azure SDK for .NET
 

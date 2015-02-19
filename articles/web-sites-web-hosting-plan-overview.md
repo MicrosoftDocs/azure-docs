@@ -27,7 +27,7 @@ Each pricing tier (e.g. Free, Shared, Basic, and Standard) has its own set of fe
 Here are some useful tips regarding web hosting plans and features:
 
 - You can change a web hosting plan's pricing tier at any time with zero downtime.
-- Sites in the same subscription, location, and resource group can all share a web hosting plan. 
+- To optimize spend sites in the same subscription, location, and resource group can all share a web hosting plan. 
 - Features like auto scale work by targeting a web hosting plan.  If you want to autoscale individual sites then you should dedicate a web hosting plan to that site.
 
 [Learn more about managing web hosting plans](http://go.microsoft.com/fwlink/?LinkID=394411).

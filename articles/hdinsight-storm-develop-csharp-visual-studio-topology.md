@@ -500,7 +500,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 
 3. Save the changes, then use **F5** or **Debug**, **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. Once **Tests finished** appears, press any key to close the window.
 
-4. Using **Explorer**, go to the directory that contains your project. For example, **C:\Users\&lt;your user name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then **Debug**. You should see the text files produced when the tests were ran - sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
+4. Using **Explorer**, go to the directory that contains your project. For example, **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then **Debug**. You should see the text files produced when the tests were ran - sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
 
 	> [AZURE.NOTE] String data is persisted as an array of decimal values in these files. For example, [[97,103,111]] in the **splitter.txt** file is the word 'and'.
 
