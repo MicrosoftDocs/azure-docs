@@ -21,10 +21,10 @@ The management UI allows toggling the throttle level. To have a custom concurren
 - Navigate to the Machine Learning tab
 - Click on your workspace.
 - Navigate to the web service which has your endpoint
-
+![Navigate to web service](./media/machine-learning-scaling-endpoints/figure-1.png)
 
 - Click on the endpoint, and then click on the Configure tab
-
+![Navigate to endpoint configuration](./media/machine-learning-scaling-endpoints/figure-2.png)
 
 
 - Change the throttle level to High and click on Save.
