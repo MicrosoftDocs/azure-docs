@@ -114,6 +114,16 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 2. Replace **<servername\>**, **<databasename\>**, **<username\>@<servername\>**, and **<password\>** with names of your Azure SQL server, database, user account, and  password. 
 3. Click **Deploy** on the toolbar to create and deploy the AzureSqlLinkedService. 
+
+> [AZURE.NOTE] If you enter all the values correctly and the Data Factory service is not able to connect to the Azure SQL Database, you may not have **Allow access to Azure services** setting turned ON for your Azure SQL server. To verify and turn it on, do the following:
+>
+> <ol>
+> <li>Click <b>BROWSE</b> hub on the left and click <b>SQL servers</b>.</li>
+> <li>Select your server, and click <b>SETTINGS</b> on the <b>SQL SERVER</b> blade.</li>
+> <li>In the <b>SETTINGS</b> blade, click <b>Firewall</b>.</li>
+> <li>In the <b>Firewalll settings</b> blade, click <b>ON</b> for <b>Allow access to Azure services</b>.</li>
+> <li>Click <b>ACTIVE</b> hub on the left to switch to the <b>Data Factory</b> blade you were on.</li>
+> </ol>
     
 
 ## <a name="CreateInputAndOutputDataSets"></a>Step 3: Create input and output tables
