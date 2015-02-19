@@ -1152,6 +1152,14 @@ A catalogue of R time series packages can be found in the CRAN Task View for tim
 
 The book Introductory Time Series with R by Paul Cowpertwait and Andrew Metcalfe provides an introduction to using R for time series analysis. Many more theoretical texts provide R examples.
 
+Some great internet resources:
+
+- DataCamp: DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free interactive R tutorial at https://www.datacamp.com/courses/introduction-to-r  
+
+- A quick R tutorial by Kelly Black from Clarkson University http://www.cyclismo.org/tutorial/R/
+
+- 60+ R resources listed at http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html 
+
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png
 [2]: ./media/machine-learning-r-quickstart/fig2.png

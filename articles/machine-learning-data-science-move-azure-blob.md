@@ -59,7 +59,7 @@ AzCopy is a command line utility to upload and download data.
 	<file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
 
 
-> [AZURE.TIP>   
+> [AZURE.TIP]   
 > 1. When uploading files, /S will upload files recursively. Without this parameter, any files in the subdirectory will not be uploaded.  
 > 2. When downloading file, /S will search the container recursively until all files in the specified directory and its subdirectories or all files that matching the specified pattern in the given directory and its subdirectories, are downloaded.  
 > 3.  You cannot specify a specific blob file to download using the /Source parameter. To download a specific file, specify the blob file name to download using the /Pattern parameter. /S parameter can be used to have AzCopy look for a file name pattern recursively. Without the pattern parameter, AzCopy will download all files in that directory. 
