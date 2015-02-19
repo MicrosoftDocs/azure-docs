@@ -353,7 +353,7 @@ because it can be redirected to a new IP address.)
 
 In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/).
 
-2.	In the **Properties** pane of the [Reader module](http://help.azureml.net/Content/html/4e1b0fe6-aded-4b3f-a36f-39b8862b9004.htm), select **Azure SQL Database** from the **Data Source** 	dropdown list.
+2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/en-us/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
 3.	In the **Database server name** text box, enter tcp:<DNS name of your virtual machine>,1433
 
