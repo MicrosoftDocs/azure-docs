@@ -77,13 +77,13 @@ To set up your Azure Data Science environment:
 
 3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as a SQL Server as well an IPython Notebook server.
 
-> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
-> - Sample Scripts: C:\Users\<user\_name\>\Documents\Data Science Scripts  
-> - Sample IPython Notebooks: C:\Users\<user\_name\>\Documents\IPython Notebooks\DataScienceSamples  
-> where <user\_name\> is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
+	> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
+	> - Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+	> - Sample IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+	> where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
 
 
-Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](#largelocaltodb).
+Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios/#largelocaltodb).
 
 ## <a name="getdata"></a>Get the Data from Public Source
 
