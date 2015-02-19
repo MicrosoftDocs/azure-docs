@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Register for Twitter authentication - Mobile Services" 
-	description="Learn how to use Twitter authentication with your Azure Mobile Services application." 
+	pageTitle="How to configure Twitter authentication for your App Services application 
+	description="Learn how to configure Twitter authentication for your App Services application." 
 	services="app-services" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
@@ -16,7 +16,7 @@
 	ms.date="02/19/2015" 
 	ms.author="mahender"/>
 
-#Register your apps for Twitter login with Mobile Services
+# How to configure your application to use Twitter login
 
 This topic shows you how to register your apps to be able to use Twitter to authenticate with Azure Mobile Services.
 
@@ -52,6 +52,9 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 You are now ready to use a Twitter login for authentication in your app by providing the consumer key and consumer secret values to Mobile Services.
 
+## <a name="related-content"> </a>Related Content
+Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+
 <!-- Anchors. -->
 
 <!-- Images. -->
@@ -67,3 +70,4 @@ You are now ready to use a Twitter login for authentication in your app by provi
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://portal.azure.com/
+[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/

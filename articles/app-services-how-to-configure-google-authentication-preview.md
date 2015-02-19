@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Register for Google authentication - Mobile Services" 
-	description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services." 
-	services="app-services" 
+	pageTitle="How to configure Google authentication for your App Services application 
+	description="Learn how to configure Google authentication for your App Services application." 
+    services="app-services" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 
@@ -16,7 +16,7 @@
 	ms.date="02/19/2015" 
 	ms.author="mahender"/>
 
-# Register your apps for Google login with Mobile Services
+# How to configure your application to use Google login
 
 This topic shows you how to register your apps to be able to use Google to authenticate with Azure Mobile Services.
 
@@ -48,6 +48,10 @@ To complete the procedure in this topic, you must have a Google account that has
 
 You are now ready to use a Google login for authentication in your app by providing the client ID and client secret values to Mobile Services.
 
+## <a name="related-content"> </a>Related Content
+Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+
+
 <!-- Anchors. -->
 
 <!-- Images. -->
@@ -63,3 +67,4 @@ You are now ready to use a Google login for authentication in your app by provid
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://portal.azure.com/
+[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/

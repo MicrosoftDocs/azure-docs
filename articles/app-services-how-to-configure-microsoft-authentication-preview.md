@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Register for Microsoft authentication - Mobile Services" 
-	description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." 
+	pageTitle="How to configure Microsoft Account authentication for your App Services application 
+	description="Learn how to configure Microsoft Account authentication for your App Services application." 
 	authors="mattchenderson,ggailey777" 
 	services="app-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="02/19/2015" 
 	ms.author="mahender"/>
 
-# Register your apps to use a Microsoft Account login
+# How to configure your application to use Microsoft Account login
 
 This topic shows you how to register your app to be able to use Live Connect as an authentication provider for Azure Mobile Services. 
 
@@ -48,6 +48,9 @@ This topic shows you how to register your app to be able to use Live Connect as 
 
 You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services.
 
+## <a name="related-content"> </a>Related Content
+Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+
 <!-- Anchors. -->
 
 <!-- Images. -->
@@ -61,3 +64,4 @@ You are now ready to use a Microsoft Account for authentication in your app by p
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [Azure Management Portal]: https://portal.azure.com/
+[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/

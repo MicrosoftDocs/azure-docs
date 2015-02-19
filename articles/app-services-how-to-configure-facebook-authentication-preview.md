@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Register for Facebook authentication - Mobile Services" 
-	description="Learn how to use Facebook authentication in your Azure Mobile Services app." 
+	pageTitle="How to configure Facebook authentication for your App Services application 
+	description="Learn how to configure Facebook authentication for your App Services application." 
 	services="app-services" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
@@ -16,7 +16,7 @@
 	ms.date="02/19/2015" 
 	ms.author="mahender"/>
 
-# Register your apps for Facebook authentication with Mobile Services
+# How to configure your application to use Facebook login
 
 This topic shows you how to register your apps to be able to use Facebook to authenticate with Azure Mobile Services. 
 
@@ -70,6 +70,9 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 You are now ready to use a Facebook login for authentication in your app by providing the App ID and App Secret values to Mobile Services.  
 
+## <a name="related-content"> </a>Related Content
+Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+
 <!-- Anchors. -->
 
 <!-- Images. -->
@@ -87,3 +90,4 @@ You are now ready to use a Facebook login for authentication in your app by prov
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://portal.azure.com/
 [Azure Mobile Services]: http://azure.microsoft.com/en-us/services/mobile-services/
+[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/
