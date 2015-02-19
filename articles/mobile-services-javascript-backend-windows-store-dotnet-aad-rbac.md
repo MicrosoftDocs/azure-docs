@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # Role Based Access Control in Mobile Services and Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
+#Overview
 
 Roles-based access control (RBAC) is the practice of assigning permissions to roles that your users can hold, nicely defining boundaries on what certain classes of users can and cannot do. This tutorial will walk you through how to add basic RBAC to Azure Mobile Services.
 
@@ -28,13 +29,7 @@ This tutorial will demonstrate role based access control, checking each user's m
 
 >[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication to include authorization practices. It is expected that you first complete the [Get Started with Authentication] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Get Started with Authentication] tutorial.
 
-This tutorial walks you through the following steps:
-
-1. [Create a Sales group with membership]
-2. [Generate a key for the Integrated Application]
-3. [Add a shared script that checks membership] 
-4. [Add role based access checking to the database operations]
-5. [Test client access]
+##Prerequisites
 
 This tutorial requires the following:
 
@@ -44,12 +39,12 @@ This tutorial requires the following:
  
 
 
-## <a name="create-group"></a>Create a Sales group with membership
+##Create a Sales group with membership
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## <a name="generate-key"></a>Generate a key for the Integrated Application
+##Generate a key for the Integrated Application
 
 
 During the [Get Started with Authentication] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID. 
@@ -60,7 +55,7 @@ During the [Get Started with Authentication] tutorial, you created a registratio
 
 
 
-## <a name="add-shared-script"></a>Add a shared script to the mobile service that checks membership
+##Add a shared script to the mobile service that checks membership
 
 In this section you will use Git to deploy a shared script file named *rbac.js* to your mobile service. This shared script file will contain the functions that use the [Graph API] to check the group membership of the user. 
 
@@ -170,7 +165,7 @@ If you are not familiar with deploying scripts to your mobile service with Git, 
 
 8. Save your changes to *rbac.js*.
 
-## <a name="add-access-checking"></a>Add role based access checking to the database operations
+##Add role based access checking to the database operations
 
 
 When you completed the [Get Started with Authentication] tutorial, you should have already set the table operations to require authentication as shown below.
@@ -257,7 +252,7 @@ The following steps demonstrate how to deploy role based access control using sc
 
     ![][4]
 
-## <a name="test-client"></a>Test the client's access
+##Test the client's access
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -265,12 +260,6 @@ The following steps demonstrate how to deploy role based access control using sc
 
 
 
-<!-- Anchors. -->
-[Create a Sales group with membership]: #create-group
-[Generate a key for the Integrated Application]: #generate-key
-[Add a shared script that checks membership]: #add-shared-script
-[Add role based access checking to the database operations]: #add-access-checking
-[Test client access]: #test-client
 
 
 <!-- Images -->
