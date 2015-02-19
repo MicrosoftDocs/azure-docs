@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="02/19/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -161,11 +161,14 @@ A table is a rectangular dataset and it is the only type of dataset that is supp
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 		GO
 				
-	To launch Azure SQL Management Console, click **MANAGE** as shown in the following image:
+	In the Azure Portal ([http://manage.windowsazure.com](http://manage.windowsazure.com)), to launch Azure SQL Management Console, click **MANAGE** as shown in the following image:
  
 	![Launch Azure SQL Management Console][image-data-factory-sql-management-console]
 
 	![Azure SQL Management Console][image-data-factory-sql-management-console-2]
+
+	In the Azure Preview Portal ([http://portal.azure.com](http://portal.sazure.com)), you can launch Visual Studio 2013 to run the SQL query. 
+
 ### Create input table 
 A table is a rectangular dataset and has a schema. In this step, you will create a table named **EmpBlobTable** that points to a blob container in the Azure Storage represented by the **StorageLinkedService** linked service.
 
