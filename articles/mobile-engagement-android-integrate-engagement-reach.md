@@ -153,12 +153,20 @@ The return type is used only for the Reach statistics:
 
 When following the integration procedure described above, the Engagement service connects to the Engagement servers only when statistics need to be reported (plus a 1 minute timeout). Consequently, **Reach campaigns can only be received during a user session**. Fortunately, Engagement can be configured to **allow your application to receive Reach campaigns at any time**, including when the device is sleeping (the device must of course have an active network connection, messages are delayed while the device is offline).
 
-There are two methods:
+To benefit from "Any time" push, you need to use one or more Native Push services depending on devices you target:
+
+  - Google Play devices: Use [Google Cloud Messaging] by following the :doc:`How to Integrate GCM with Engagement` guide.
+  - Amazon devices: Use `Amazon Device Messaging <https://developer.amazon.com/sdk/adm.html>`_ by following the :doc:`How to Integrate ADM with Engagement` guide.
+
 
 -   The recommended method is to integrate Native Push, you can integrate as many services as you want, different devices use different Native Push services.
-    -   [Google Cloud Messaging] by following the How to Integrate GCM with Engagement guide.
-    -   [Amazon Device Messaging] by following the How to Integrate ADM with Engagement guide.
--   Another method is to configure the Engagement service to keep a persistent network connection with the Engagement servers, allowing you to reach your users while the device has an active network connection. This mode is not documented yet but if you cannot or do not want to use Native Push, you can contact the Engagement support to enable this in your application.
+    -   [Google Cloud Messaging] by following the [How to Integrate GCM with Engagement guide](../mobile-engagement-android-gcm-integrate/).
+    -   [Amazon Device Messaging] by following the [How to Integrate ADM with Engagement guide](../mobile-engagement-android-adm-integrate/).
+   
+
+If you want to target both Amazon and Google Play devices, its possible to have everything inside 1 AndroidManifest.xml/APK for development. But when submitting to Amazon, they may reject your application if they find GCM code.
+
+You should use multiple APKs in that case.
 
 ##How to customize campaigns
 
