@@ -24,7 +24,7 @@
 
 	    compile 'com.google.guava:guava:18.0'
 	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
-	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '2.0-beta', ext: 'jar')
+	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 
 
