@@ -18,7 +18,7 @@
 
 # How to configure your application to use Facebook login
 
-This topic shows you how to register your apps to be able to use Facebook to authenticate with Azure Mobile Services. 
+This topic shows you how to configure Azure App Services to use Facebook as an authentication provider. 
 
 > [AZURE.NOTE] This tutorial is about [Azure Mobile Services], a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
 	

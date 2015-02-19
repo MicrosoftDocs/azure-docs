@@ -18,7 +18,7 @@
 
 # How to configure your application to use Microsoft Account login
 
-This topic shows you how to register your app to be able to use Live Connect as an authentication provider for Azure Mobile Services. 
+This topic shows you how to configure Azure App Services to use Microsoft Account as an authentication provider. 
 
 >[AZURE.NOTE]To configure Microsoft Account authentication for a universal Windows app or to provide a single sign-on experience for a Windows Store app, see [Register your Windows Store app package for Microsoft authentication](/en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
 

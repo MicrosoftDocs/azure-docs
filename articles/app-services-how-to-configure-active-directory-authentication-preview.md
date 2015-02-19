@@ -18,7 +18,7 @@
 
 # How to configure your application to use Azure Active Directory login
 
-This topic shows you how to register your apps to be able to use Azure Active Directory as an authentication provider for Azure App Services. 
+This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider. 
 
 1. Log on to the [New Azure Management Portal], and navigate to your App Services gateway.
 
