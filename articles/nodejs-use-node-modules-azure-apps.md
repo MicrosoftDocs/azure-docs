@@ -1,6 +1,6 @@
-<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="wpickett" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags ms.service="" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="wpickett"/>
 
 
 

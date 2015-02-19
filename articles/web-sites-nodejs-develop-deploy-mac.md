@@ -3,7 +3,7 @@
 	description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 
