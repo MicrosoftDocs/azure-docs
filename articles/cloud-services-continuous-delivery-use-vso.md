@@ -5,10 +5,10 @@
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
-	ms.service="cloud-services" 
+	ms.service="web-sites" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 

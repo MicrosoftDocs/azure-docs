@@ -126,9 +126,15 @@ We author content using simple "markdown" notation in the files, rather than com
 
 ##Fork the repository and copy it to your computer 
 
-1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers need to fork azure-content-pr. Community contributors need to fork azure-content. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.
+1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers need to fork azure-content-pr, the private repo. Community contributors need to fork azure-content, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.
 
-2. Next, copy the repository to your computer. To do this, open GitBash. At the command prompt, enter the following command. This command creates a azure-content(-pr) directory on your computer. If you’re using the default location, it will be at c:\users\<your Windows user name>\azure-content(-pr).  
+2. Next, copy the repository to your computer. To do this, open GitBash. At the command prompt, enter the following command. This command creates a azure-content(-pr) directory on your computer. If you’re using the default location, it will be at c:\users\<your Windows user name>\azure-content(-pr).
+
+Public repo:
+
+        git clone https://github.com/<your GitHub user name>/azure-content.git 
+
+Private repo:
 
         git clone https://github.com/<your GitHub user name>/azure-content-pr.git 
 
@@ -140,11 +146,19 @@ We author content using simple "markdown" notation in the files, rather than com
 
 3. Next create a reference to the root repository by entering these commands. This sets up connections to the repository in GitHub so that you can get the latest changes onto your local machine and push your changes back to GitHub.
 
+Public repo:
+
+        cd azure-content
+        git remote add upstream https://github.com/Azure/azure-content.git
+        git fetch upstream 
+
+Private repo:
+
         cd azure-content-pr
         git remote add upstream https://github.com/Azure/azure-content-pr.git
         git fetch upstream    
 
- This usually takes a while. After you do this, you won't have to fork again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
+This usually takes a while. After you do this, you won't have to fork again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
 
 ##Install git-credential-winstore
 
@@ -155,7 +169,7 @@ Cache your credential so you don't have to type your user name and token every t
 3. Enter the following command, making changes for where you downloaded the executable on your computer. Also change "git.cmd" to "git.exe" if that's what you have on your computer. If you get an error when you run the command as written, chances are that you need to change it ot "git.exe".
 
         cd c:\users\alias\downloads
-        git-credential-winstore.exe -i "C:\Program Files (x86)\Git\cmd\git.cmd"​
+        git-credential-winstore.exe -i "C:\Program Files (x86)\Git\cmd\git.exe"​
 
 
 
