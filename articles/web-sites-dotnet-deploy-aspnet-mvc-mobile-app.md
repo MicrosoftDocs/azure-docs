@@ -52,7 +52,7 @@ Here's what you'll learn:
 -   How to create responsive views (views that respond to different
     browsers across devices)
 
-##Set up the development environment
+## Set up the development environment
 
 Set up your development environment by installing the Azure SDK for the .NET Framework. 
 
@@ -75,7 +75,7 @@ this topic:
 -   [Starter project download][StarterProject]
 -   [Completed project download][CompletedProject]
 
-##<a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website
+##<a name="bkmk_DeployStarterProject"></a> Deploy the starter project to a Windows Azure Website
 
 1.	Download the conference-listing application [starter project][StarterProject].
 
@@ -149,7 +149,7 @@ the mobile browser. For example, the **Date** column is difficult to
 read. Later in the tutorial you'll change the *AllTags* view to make it
 mobile-friendly.
 
-##<a name="bkmk_bootstrap"></a>Bootstrap CSS Framework
+##<a name="bkmk_bootstrap"></a> Bootstrap CSS Framework
 
 New in the MVC 5 template is built-in Bootstrap support. You have
 already seen how it immediately improves the different views in your
@@ -196,7 +196,7 @@ For more information about Bootstrap, go to the
 In the next section you'll see how to provide mobile-browser specific
 views.
 
-##<a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views
+##<a name="bkmk_overrideviews"></a> Override the Views, Layouts, and Partial Views
 
 You can override any view (including layouts and partial views) for
 mobile browsers in general, for an individual mobile browser, or for any
@@ -240,7 +240,7 @@ In contrast, the desktop display has not changed (with titles from from *\_Layou
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-##<a name="bkmk_browserviews"></a>Create Browser-Specific Views
+##<a name="bkmk_browserviews"></a> Create Browser-Specific Views
 
 In addition to mobile-specific and desktop-specific views, you can
 create views for an individual browser. For example, you can create
@@ -694,7 +694,7 @@ changes that you just made:
 
 ![][SessionByCodeFixed3-644]
 
-##Wrap Up and Review
+## Wrap Up and Review
 
 This tutorial has shown you how to use ASP.NET MVC 5 to develop
 mobile-friendly Web applications. These include:
@@ -710,7 +710,7 @@ mobile-friendly Web applications. These include:
     browser
 -   Apply Bootstrap styling in Razor code
 
-##See Also
+## See Also
 
 -   [9 basic principles of responsive web design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Bootstrap][BootstrapSite]
