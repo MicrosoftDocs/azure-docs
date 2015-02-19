@@ -18,18 +18,10 @@
 
 #How to create PHP web and worker roles
 
+## Overview
+
 This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, how to deploy to Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
-##<a name="TableOfContents"></a>Table of Contents
-* [What are PHP web and worker roles?](#WhatIs)
-* [Download the Azure SDK for PHP](#DownloadSdk)
-* [How to: Create a Cloud Services project](#CreateProject)
-* [How to: Add PHP Web and worker roles](#AddRole)
-* [How to: Specify the built-in PHP version](#SpecifyPHPVersion)
-* [How to: Customize the built-in PHP runtime](#CustomizePHP)
-* [How to: Use your own PHP runtime](#OwnPHP)
-* [How to: Run your application in the Compute and Storage Emulators](#Emulators)
-* [How to: Publish your application](#Publish) 
 
 ##<a name="WhatIs"></a>What are PHP web and worker roles?
 Azure provides three compute models for running applications: [Azure Web Sites][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support PHP. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.

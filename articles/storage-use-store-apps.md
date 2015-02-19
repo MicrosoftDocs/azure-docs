@@ -22,6 +22,8 @@
 
 # How to use Azure Storage in Windows Store Apps
 
+## Overview
+
 This guide shows how to get started with developing a Windows Store app that makes use of Azure Storage.
 
 ## Download Required Tools ##
@@ -32,7 +34,7 @@ This guide shows how to get started with developing a Windows Store app that mak
 
 ## Develop Apps ##
 
-<h3>Getting ready</h3>
+### Getting ready
 
 Create a new Windows Store app project in Visual Studio 2012 or later:
 
@@ -42,7 +44,7 @@ Next, add a reference to the Azure Storage Client Library by right clicking on *
 
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
-<h3>Using the library with the Blob and Queue services</h3>
+### Using the library with the Blob and Queue services
 
 At this point, your app is ready to call the Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
 
@@ -61,7 +63,7 @@ This code assumes that you have two string variables, *accountName* and *account
 
 Build and run the application. Clicking on the button will first check if a container named *container1* exists in your account and create it if not.
 
-<h3>Using the library with the Table service</h3>
+### Using the library with the Table service
 
 Types used to communicate with Table service depend on WCF Data Services for Windows Store Apps library. Next, add a reference to the required WCF libraries by using Package Manager Console:
 

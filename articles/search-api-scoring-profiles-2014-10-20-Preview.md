@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" description="Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties 
+	pageTitle="Scoring profiles (Azure Search REST API Version 2014-10-20-Preview)" 
+	description="Scoring profiles (Azure Search REST API Version 2014-10-20-Preview)" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/12/2015" 
+	ms.author="heidist"/>
       
 #Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)#
 
@@ -173,8 +187,10 @@ Functions can only be applied to fields that are defined in the fields collectio
 
 After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#createindex) and [Add or Update Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
+<a name="bkmk_template"></a>
 ##Template##
-This section shows the syntax and template for scoring profiles. Refer to Index attribute reference [#bkmk_indexref] in the next section for descriptions of the attributes.
+
+This section shows the syntax and template for scoring profiles. Refer to [Index attribute reference](#bkmk_indexref) in the next section for descriptions of the attributes.
 
     ...
     "scoringProfiles": [
@@ -226,6 +242,7 @@ This section shows the syntax and template for scoring profiles. Refer to Index 
     "defaultScoringProfile": (optional) "...",
     ...
 
+<a name="bkmk_indexref"></a>
 ##Index attributes reference##
 
 **Note**
@@ -272,7 +289,7 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>freshness</td>	<td>The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. In the current service release, one end of the range will be fixed to the current time. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of < 1.</td>
 </tr><tr>
-<td>freshness | boostingDuration</td>	<td>Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration ][#bkmk_boostdur] in the following section for syntax and examples.</td>
+<td>freshness | boostingDuration</td>	<td>Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration ](#bkmk_boostdur) in the following section for syntax and examples.</td>
 </tr><tr>
 <td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
 </tr><tr>
@@ -292,6 +309,7 @@ A default scoring profile name can be set here, causing Azure Search to use that
 </tbody>
 </table>
 
+<a name="bkmk_interpolation"></a>
 ##Set interpolations##
 
 Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range. The following interpolations can be used:
@@ -307,6 +325,7 @@ Interpolations allow you to define the slope for which the score boosting increa
 <a name="Figure1"></a>
  ![][1]
 
+<a name="bkmk_boostdur"></a>
 ##Set boostingDuration##
 
 `boostingDuration` is an attribute of the freshness function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents.
@@ -337,6 +356,7 @@ The following table provides several examples.
 For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.org/TR/xmlschema11-2/).
 
 **See Also**
+
 [Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) on MSDN <br/>
 [Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798941.aspx) on MSDN<br/>
 [Add a scoring profile to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN<br/>

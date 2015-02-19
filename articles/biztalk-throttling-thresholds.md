@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Throttling thresholds in BizTalk Services | Azure" 
-	description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of simultaneous messages." 
+	description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
-	authors="mandiohlinger" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2014" 
+	ms.date="02/16/2015" 
 	ms.author="mandia"/>
 
 
@@ -22,12 +22,11 @@
 
 # BizTalk Services: Throttling
 
-Azure BizTalk Services implements Service throttling based on two conditions: memory usage and the number of simultaneous messages processing. This topic lists the throttling thresholds and describes the Runtime behavior when a throttling condition occurs.
+Azure BizTalk Services implements service throttling based on two conditions: memory usage and the number of simultaneous messages processing. This topic lists the throttling thresholds and describes the Runtime behavior when a throttling condition occurs.
 
 ## Throttling Thresholds
 
 The following table lists the throttling source and thresholds:
-
 
 <table border="1">
 

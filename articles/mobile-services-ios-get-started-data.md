@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Add Mobile Services to an existing app (iOS) | Mobile Dev Center" 
-	description="Learn how to get started using Mobile Services to leverage data in your iOS app." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add Mobile Services to an existing app (iOS) | Mobile Dev Center"
+	description="Learn how to get started using Mobile Services to leverage data in your iOS app."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="10/10/2014"
 	ms.author="krisragh"/>
 
 # Add Mobile Services to an existing app
@@ -96,9 +96,6 @@ Next, consider completing one of the following tutorials that is based on the Ge
 * [Validate and modify data with scripts]
   <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
 Once you have completed the data series, try these other iOS tutorials:
 
 * [Get started with authentication]
@@ -131,7 +128,6 @@ Once you have completed the data series, try these other iOS tutorials:
 
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios

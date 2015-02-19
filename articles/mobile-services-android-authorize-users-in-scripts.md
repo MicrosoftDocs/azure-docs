@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="Service-side authorization (Android) | Mobile Dev Center" 
 	description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." 
-	services="mobile-services" 
+	services="" 
 	documentationCenter="android" 
-	authors="RickSaling" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 
-	ms.author="ricksal"/>
+	ms.author="glenga"/>
 
 # Service-side authorization of Mobile Services users
 
@@ -64,7 +64,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Test the app
 
-1. In Eclipse, open the project that you modified when you completed the tutorial [Get started with authentication].
+1. In Android Studio, open the project that you modified when you completed the tutorial [Get started with authentication].
 
 2. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 

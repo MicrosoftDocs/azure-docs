@@ -18,7 +18,8 @@
 
 
 #How to: Get a Media Processor Instance
-This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Create an Encrypted Asset and Upload into Storage](../media-services-create-encrypted-asset-upload-storage/).
+
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
 
 ##Overview
 

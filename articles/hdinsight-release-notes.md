@@ -13,11 +13,101 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="02/18/2015" 
 	ms.author="bradsev"/>
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 02/18/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.471.1342507	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.471.1342507	(HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight 	3.1.3.471.1342507	(HDP 2.1.10.0-2290 - unchanged)
+* HDInsight		3.2.3.471.1342507	(HDP-2.2.10.0-2340)
+* SDK			1.5.0
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(e.g. Service, OSS component, SDK, PS, AUX)</p></th>
+<th>Cluster Type Impacted (e.g. Hadoop, HBase, Storm, All)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>HDInsight 3.2 clusters</td>
+<td>Hadoop 2.6/HDP2.2 is now available with HDInsight 3.2 clusters. It contains major updates to all of the open source components.  More details are available here at <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/" target="_blank">What's new in HDInsight</a> and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
+<td>OSS</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDinsight on Linux (Preview)</td>
+<td>Clusters can now be deployed running on Ubuntu Linux. Find out more details at <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-linux-get-started/" target ="_blank">Getting Started with HDInsight on Linux</a>.</td>
+<td>Service</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Storm GA</td>
+<td>Apache Storm clusters are now generally available. Find out more details at <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-getting-started/" target="_blank">Getting started using Storm in HDInsight</a>.</td>
+<td>Service</td>
+<td>Storm</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>VM Sizes</td>
+<td>Azure HDInsight is now available on more virtual machine (VM) types and sizes. HDInsight can now utilize A2 to A7 sizes built for general purposes; D-Series nodes that feature solid-state drives (SSDs) and 60-percent faster processors; and A8 and A9 sizes that have InfiniBand support for fast networking.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Cluster scaling</td>
+<td>You can now change the number of data nodes of a running HDInsight cluster without having to delete or recreate it. Currently, only Hadoop Query and Apache Storm cluster types have this ability, but support for Apache HBase cluster type is soon to follow. Find out more information at <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-cluster-scaling/" target="_blank">Cluster scaling in HDInsight</a>.</td>
+<td>Service</td>
+<td>Hadoop, Storm</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>VS Tooling</td>
+<td>In addition to complete tooling for Apache Storm, the tooling for Apache Hive in Visual studio has been updated to include statement completion, local validation, and improved debugging support. Find out more information at <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get Started with HDInsight Hadoop Tools for Visual Studio</a>.</td>
+<td>Tooling</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>DocumentDB Hadoop Connector</td>
+<td>With DocumentDB Hadoop connector, you are now able to perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across DocumentDB collections or even across database accounts. For more information and tutorial, see <a href="http://azure.microsoft.com/en-us/documentation/articles/documentdb-run-hadoop-with-hdinsight/" target="_blank">Run Hadoop jobs using DocumentDB and HDInsight</a>.</td>
+<td>Service</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Bug Fixes</td>
+<td>We have made various minor bug fixes for HDInsight services. No customer-facing behavior changes are expected.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
 
 ## Notes for 02/06/2015 release of HDInsight ##
 

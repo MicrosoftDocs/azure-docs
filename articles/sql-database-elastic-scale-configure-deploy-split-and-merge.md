@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
-	ms.author="torsteng"/>
+	ms.date="02/16/2015" 
+	ms.author="torsteng@microsoft.com"/>
 
 #Elastic Scale Split and Merge Service Tutorial
 
@@ -116,7 +116,7 @@ Paste the certificate thumbprint copied above into the thumbprint/value attribut
 
 Please note that for production deployments separate certificates should be used for the CA, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-configure-security.md).
 
-### Deploying your Split-Merge Service
+## Deploying your Split-Merge Service
 1. Go to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier. 
 3. Click **Dashboard**. 

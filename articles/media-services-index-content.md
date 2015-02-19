@@ -19,6 +19,8 @@
 
 # Indexing Media Files with Azure Media Indexer
 
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch. You can also index files that are publicly available on the Internet by specifying URLs of the files in the manifest file.
 
 >[AZURE.NOTE] When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
@@ -134,7 +136,6 @@ Note that if no configuration file is specified, the media file will be indexed 
 	
 ###<a id="output_files"></a>Output files
 
-
 The indexing job generates the following output files. The files will be stored in the first output asset.
 
 
@@ -162,8 +163,9 @@ Both SAMI and TTML include a tag called <b>Recognizability</b> which scores an i
 Keyword file is an XML file that contains keywords extracted from the speech content, with frequency and offset information.
 <br/><br/>
 The file can be used for a number of purposes, such as, to perform speech analytics, or exposed to search engines such as Bing, Google or Microsoft SharePoint to make the media files more discoverable, or used to deliver more relevant ads.</td></tr>
-</table><br/>
+</table>
 
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
 ##Index multiple files
 
@@ -283,20 +285,20 @@ Error: indicates whether this media file is indexed successfully. 0 for succeede
 <td>File #0 - Keyword file.</td></tr>
 <tr><td>Media_2.aib </td>
 <td>File #1 - Audio indexing blob file.</td></tr>
+</table>
 
-</table><br/>
-
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
 ###Partially Succeeded Job
 
-If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](error_codes).
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
 
 The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that are failed, the resulting AIB, SAMI, TTML, and keyword files will NOT be generated.
 
 ##Index files from Internet
 
-For publically available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+For publicly available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
 
 Note that HTTP and HTTPS URL protocols are supported.
 

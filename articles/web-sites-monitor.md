@@ -22,14 +22,6 @@
 
 Websites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a website as described below.
 
-## Table of Contents ##
-- [How to: Add web site metrics](#websitemetrics)
-- [How to: Receive alerts from web site metrics](#howtoreceivealerts)
-- [How to: View usage quotas for a web site](#howtoviewusage)
-- [How to: Avoid exceeding your quotas](#resourceusage)
-- [How to: Configure diagnostics and download logs for a web site](#howtoconfigdiagnostics)
-- [How to: Monitor web endpoint status](#webendpointstatus)
-
 ##<a name="websitemetrics"></a>How to: Add website metrics
 1. In the [Azure Management Portal](http://manage.windowsazure.com/), from the website's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="02/17/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-Feb-06  12:22pm
+GeneMi , 2015-Feb-17  11:50am
 DacFx import export update.
-Dynamic Data Masking, added. Commented out until Thur Feb/12!
+Dynamic Data Masking, added Wednesday 2015/Feb/18.
 GA-per-Regions table updates.
 Clarify V11 db remains available during upgrade to V12.
 -->
@@ -76,13 +76,11 @@ This section names and explains the new features in each category.
 
 ### 1.2 Category: Programming and application support
 
-<!-- DELAY MASKING announcement until 2015-Feb-12 Thursday.
-| . | ***February 2015:*** |
-| Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/). |
--->
 
 | Feature | Description |
 | :--- | :--- |
+| . | ***February 2015:*** |
+| Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/). |
 | . | ***January 2015:*** |
 | Row-level security (RLS) preview | **Caution:** The RLS feature is presently at *preview* status only, even in geographic regions where V12 is in general availability (GA) status. Until RLS is in GA status, RLS is not yet appropriate for use in a business critical production database.<br/><br/>The new CREATE SECURITY POLICY statement in T-SQL enables you to implement RLS. RLS causes the database server to add conditions which filter out some data rows before a rowset is returned to the caller.<br/><br/>In the industry, RLS is sometimes also called fine-grained access control.<br/><br/>For a code example and more, see [Row-Level Security Preview](http://msdn.microsoft.com/library/7221fa4e-ca4a-4d5c-9f93-1b8a4af7b9e8.aspx). |
 | . | ***December 2014:*** |

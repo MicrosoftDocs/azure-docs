@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2014" 
+	ms.date="02/12/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -24,7 +24,7 @@ How can we predict groups of credit cardholders’ behaviors in order to reduce 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
    
-In practice, cluster analysis classifies a set of observations into two or more mutually exclusive unknown groups based on combinations of variables. The purpose of cluster analysis is to discover a system of organizing observations, usually people or their characteristics, into groups, where members of the groups share properties in common. This [service](https://datamarket.azure.com/dataset/aml_labs/k_cluster_model) uses the K-Means methodology, a commonly used clustering technique, to cluster arbitrary data into groups. This web service takes the data and the number of k clusters as input, and produces predictions of which of the k groups to which each observations belongs. 
+Cluster analysis classifies a set of observations into two or more mutually exclusive unknown groups based on combinations of variables. The purpose of cluster analysis is to discover a system of organizing observations, usually people or their characteristics, into groups, where members of the groups share properties in common. This [service](https://datamarket.azure.com/dataset/aml_labs/k_cluster_model) uses the K-Means methodology, a commonly used clustering technique, to cluster arbitrary data into groups. This web service takes the data and the number of k clusters as input, and produces predictions of which of the k groups to which each observations belongs. 
 
 >This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.  
 
@@ -41,14 +41,14 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string value;
 	        public string k;
-	    }
+	}
 	
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
@@ -65,7 +65,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+	    	var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
@@ -83,6 +83,7 @@ From within Azure Machine Learning, a new blank experiment was created and two �
 ####Module 1: 
 	#Enter the input data as a string 
 	mydata <- data.frame(value = "1; 3; 5; 6; 7; 7, 5; 5; 6; 7; 2; 1, 3; 7; 2; 9; 56; 6, 1; 4; 5; 26; 4; 23, 15; 35; 6; 7; 12; 1, 32; 51; 62; 7; 21; 1", k=5, stringsAsFactors=FALSE)
+	
 	maml.mapOutputPort("mydata");     
 	
 

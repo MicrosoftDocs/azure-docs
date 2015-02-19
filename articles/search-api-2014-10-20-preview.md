@@ -15,7 +15,7 @@
 	ms.date="01/16/2015" 
 	ms.author="heidist"/>
 
-# Azure Search Service REST API: 2014-10-20-Preview #
+# Azure Search Service REST API: Version 2014-10-20-Preview #
 
 This document describes the **2014-10-20-Preview** version of the Azure Search Service REST API. This is a prototype version of the API, subject to change at any time. Do not take a dependency on this API in production code. 
 
@@ -77,7 +77,7 @@ Data operations performed against a Search service endpoint, including index man
 
 ###Summary of APIs###
 
-The Azure Search Service API supports two syntaxes for entity lookup: simple and alternate OData syntax (see [Support for OData](http://msdn.microsoft.com/en-us/library/azure/dn798932.aspx) for details. The following list shows the simple syntax.
+The Azure Search Service API supports two syntaxes for entity lookup: simple and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
 [Create Index](#CreateIndex)
 
@@ -293,7 +293,7 @@ The following attributes can be set when creating an index. For details about sc
 
   - **Note**: Fields of type `Edm.String` that are `filterable`, `sortable`, or `facetable` can be at most 32KB in length. This is because such fields are treated as a single search term, and the maximum length of a term in Azure Search is 32KB. If you need to store more text than this in a single string field, you will need to explicitly set `filterable`, `sortable`, and `facetable` to `false` in your index definition.
 
-`suggestions` - Sets whether the field can be used for auto-complete for type ahead. This can only be set for fields of type `Edm.String` or `Collection(Edm.String)`. `suggestions` is `false` by default since it requires extra space in your index. **Note**: Consider using the `suggesters` property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
+`suggestions` - Sets whether the field can be used for auto-complete for type ahead. This can only be set for fields of type `Edm.String` or `Collection(Edm.String)`. `suggestions` is `false` by default since it requires extra space in your index. **Note**: consider using the `suggesters` property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
 
   - **Note**: If a field has none of the above attributes set to `true` (`searchable`, `filterable`, `sortable`, `facetable`, or `suggestions`) the field is effectively excluded from the inverted index. This option is useful for fields that are not used in queries, but are needed in search results. Excluding such fields from the index improves performance.
 
@@ -623,13 +623,13 @@ Below is the list of supported analyzers together with a short description of th
 		<td>
 		<ul>
 			<li>Unicode text segmentation (Standard Tokenizer)</li>
-			<li>ASCII folding filter - converts Unicode characters that don't belong to the set of first 127 ASCII characters into their ASCII equivalents</li>
+			<li>ASCII folding filter - converts Unicode characters that don't belong to the set of first 127 ASCII characters into their ASCII equivalents. This is useful for removing diacritics.</li>
 		</ul>
 		</td>
 	</tr>
 </table>
 
-All analyzers with names annotated with <i>lucene</i> are powered by [Apache Lucene's language analyzers](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html).
+All analyzers with names annotated with <i>lucene</i> are powered by [Apache Lucene's language analyzers](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html). More information about the ASCII folding filter can be found [here](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html).
 
 **CORS Options**
 
@@ -639,7 +639,7 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
  - If you want to allow access to all origins, include `*` as a single item in the `allowedOrigins` array. Note that **this is not recommended practice for production search services.** However, it may be useful for development or debugging purposes.
 - `maxAgeInSeconds` (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
 
-<a name="suggester"</a>
+<a name="Suggesters"></a>
 **Suggesters**
 
 A suggester enables auto-complete in searches. Typically partial search strings are sent to the suggestions API while the user is typing and the API returns a set of suggested phrases.
@@ -1035,7 +1035,7 @@ The body of the request contains one or more documents to be indexed. Documents 
 - `upload`: An upload action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. Note that all fields are replaced in the update case.
 - `merge`: Merge updates an existing document with the specified fields. If the document doesn't exist, the merge will fail. Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field "tags" with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for "tags", the final value of the "tags" field will be `["economy", "pool"]`. It will **not** be `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: behaves like `merge` if a document with the given key already exists in the index. If the document does not exist it behaves like `upload` with a new document.
-- `delete`: Delete removes the specified document from the index. Note that you cannot specify any field values in a `delete` operation. Attempting to do so will result in an HTTP 400 error. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`. 
+- `delete`: Delete removes the specified document from the index. Note that you can specify only the key field value in a `delete` operation. Attempting to specify other fields will result in an HTTP 400 error. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to `null`. 
 
 **Response**
 
@@ -1171,9 +1171,9 @@ The request URI specifies which index to query, for all documents that match the
 
 `highlight=[string]` (optional) - a set of comma-separated field names used for hit highlights. Only `searchable` fields can be used for hit highlighting.
 
-  `highlightPreTag=[string]` (optional, defaults to `<em>`) - a string tag that prepends to hit highlights. Must be set with `highlightPostTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+  `highlightPreTag=[string]` (optional, defaults to `<em>`) - a string tag that prepends to hit highlights. Must be set with `highlightPostTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
 
-  `highlightPostTag=[string]` (optional, defaults to `</em>`) - a string tag that appends to hit highlights. Must be set with `highlightPreTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+  `highlightPostTag=[string]` (optional, defaults to `</em>`) - a string tag that appends to hit highlights. Must be set with `highlightPreTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
 
 `scoringProfile=[string]` (optional) - the name of a scoring profile to evaluate match scores for matching documents in order to sort the results.
 
@@ -1230,6 +1230,8 @@ Status Code: 200 OK is returned for a successful response.
     }
     
 **Examples:**
+
+You can find additional examples on the [OData Expression Syntax for Azure Search](https://msdn.microsoft.com/en-us/library/azure/dn798921.aspx) page.
 
 1)	Search the Index sorted descending by date. 
 
@@ -1385,14 +1387,13 @@ The response body contains the count value as an integer formatted in plain text
 <a name="Suggestions"></a>
 ##Suggestions##
 
-> AZURE.NOTE Consider using the [suggesters](#suggester) property introduced in version 2014-10-20-Preview instead of this option for suggestions. In a future version the `suggestions` property will be deprecated in favor of using a separate `suggesters` specification.
-
 The **Suggestions** operation retrieves suggestions based on partial search input. It's typically used in search boxes to provide type-ahead suggestions as users are entering search terms.
 
 Suggestions requests aim at suggesting target documents, so the suggested text may be repeated if multiple candidate documents match the same search input. You can use `$select` to retrieve other document fields (including the document key) so that you can tell which document is the source for each suggestion.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
     api-key: [admin key]
+
 
 **Request**
 
@@ -1404,9 +1405,9 @@ The request URI specifies the name of the index to query. It also includes the p
 
 `search=[string]` - the search text to use to suggest queries. Must be at least 3 characters, and no more than 25 characters.
 
-`highlightPreTag=[string]` (optional, default = ``) - a string tag that prepends to search hits. Must be set with `highlightPostTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+`highlightPreTag=[string]` (optional, default = ``) - a string tag that prepends to search hits. Must be set with `highlightPostTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
 
-`highlightPostTag=[string]` (optional, default = ``) - a string tag that appends to search hits. Must be set with `highlightPreTag`. Reserved characters in URL must be percent encoded (for example, %23 instead of #).
+`highlightPostTag=[string]` (optional, default = ``) - a string tag that appends to search hits. Must be set with `highlightPreTag`. Reserved characters in URL must be percent-encoded (for example, %23 instead of #).
 
 `suggesterName=[string]` - (optional) the name of the suggester as specified in the `suggesters` collection that's part of the index definition. If this option is not used, suggestions are based on the previous version's implementation which operates on those fields marked with `"suggestions": true` and only supports prefix matching.
 

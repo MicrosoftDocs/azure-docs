@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Azure Site Recovery Overview" 
-	description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." 
-	editor="jimbe" 
-	manager="jwhit" 
-	authors="rayne-wiselman" 
+	description="Deploy Azure Site Recovery to protect on-premises virtual machines to another on-premises site or to Azure." 
 	services="site-recovery" 
-	documentationCenter=""/>
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="site-recovery" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2014" 
+	ms.date="02/18/2015" 
 	ms.author="raynew"/>
 
 # Azure Site Recovery Overview
 
-
+<div class="dev-callout"> 
 <p>Azure Site Recovery orchestrates replication and failover in a number of scenarios:</p>
 
 
