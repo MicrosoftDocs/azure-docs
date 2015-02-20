@@ -1,15 +1,15 @@
 <properties 
    pageTitle="Azure Storage Table Design Guide | Microsoft Azure" 
    description="Design Scalable and Performant Tables in Azure Table Storage" 
-   services="service-name" 
-   documentationCenter="dev-center-name" 
+   services="storage" 
+   documentationCenter="na" 
    authors="Tamram,jahogg" 
-   manager="manager-alias" 
+   manager="adinah" 
    editor=""/>
 
 <tags
    ms.service="storage"
-   ms.devlang="none/na"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage" 

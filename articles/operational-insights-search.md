@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="operational-insights" 
-	ms.workload="appservices" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -23,8 +23,8 @@ You can use the Search feature in Microsoft Azure Operational Insights to find d
 Common search queries appear on most search pages. Throughout the Operational Insights console, you can click tiles or drill in to other items to view details about the item by using Search.
 
 ##Topics on MSDN 
-- [Search Syntax Reference](https://msdn.microsoft.com/en-us/library/azure/dn884655.aspx  "Search Syntax Reference")
-- [Search field and facet reference](https://msdn.microsoft.com/en-us/library/azure/dn884648.aspx "Search field and facet reference")  
+- [Search Syntax Reference](https://msdn.microsoft.com/library/azure/dn884655.aspx  "Search Syntax Reference")
+- [Search field and facet reference](https://msdn.microsoft.com/library/azure/dn884648.aspx "Search field and facet reference")  
  
 ## Blog posts / Tutorials
 - [Azure Operational Insights Search How To: Part I – How to filter big data](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-search-first-steps-how-to-filter-data-part-i.aspx)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="02/20/2015" 
 	ms.author="kathydav, szarkos"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
@@ -48,9 +48,8 @@ This article assumes that you have the following items:
 This task includes the following steps:
 
 - [Step 1: Prepare the image to be uploaded] []
-- [Step 2: Create a storage account in Azure] []
-- [Step 3: Prepare the connection to Azure] []
-- [Step 4: Upload the image to Azure] []
+- [Step 2: Prepare the connection to Azure] []
+- [Step 3: Upload the image to Azure] []
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
@@ -67,40 +66,22 @@ Please also see the **[Linux Installation Notes](../virtual-machines-linux-creat
 After following the steps in the guides above you should have a VHD file that is ready to upload into Azure.
 
 
-## <a id="createstorage"> </a>Step 2: Create a storage account in Azure ##
-
-A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Azure subscription. You need a storage account in Azure to upload a .vhd file to Azure that can be used for creating a virtual machine. You can create a storage account by using the Azure Management Portal.
-
-1. Sign in to the Azure Management Portal.
-
-2. On the command bar, click **New**.
-
-	![Create storage account](./media/virtual-machines-linux-create-upload-vhd/create.png)
-
-3. Click **Storage Account**, and then click **Quick Create**.
-
-	![Quick create a storage account](./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png)
-
-4. Fill out the fields as follows:
-
-	![Enter storage account details](./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
-
-- Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
-	
-- Choose the location or affinity group for the storage account. By specifying an affinity group, you can co-locate your cloud services in the same data center with your storage.
- 
-- Decide whether to use geo-replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to a secondary location if a major failure occurs that can't be handled in the primary location. The secondary location is assigned automatically, and can't be changed. If legal requirements or organizational policy requires tighter control over the location of your cloud-based storage, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount.
-
-5. Click **Create Storage Account**.
-
-	The account is now listed under **Storage Accounts**.
-
-	![Storage account successfully created](./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png)
-
-
-## <a id="connect"> </a>Step 3: Prepare the connection to Azure ##
+## <a id="connect"> </a>Step 2: Prepare the connection to Azure ##
 
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure. 
+
+
+### If using Azure CLI
+
+1. Open an Azure CLI window
+
+2. Type:
+
+	`azure login`
+
+	When prompted, please enter your username and password.
+
+### If using Azure PowerShell
 
 1. Open an Azure PowerShell window.
 
@@ -121,26 +102,32 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 	For more information, see [Get Started with Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
 
 
-## <a id="upload"> </a>Step 4: Upload the image to Azure ##
+## <a id="upload"> </a>Step 3: Upload the image to Azure ##
 
-When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
+### If using Azure CLI
 
-Do one of the following:
+Use the Linux command-line tool to upload the image. You can upload an image by using the following command:
 
-- From the Azure PowerShell window you used in the previous step, type:
+		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
 
-		`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
+### If using PowerShell
 
-	For more information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+You will need a storage account to upload your VHD file to. You can either pick an existing one or create a new one. To create a storage account please refer to [Create a Storage Account](http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/)
 
-- Use the Linux command-line tool to upload the image. You can upload an image by using the following command:
+When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account you plan to use, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
 
-		# azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
+From the Azure PowerShell window you used in the previous step, type:
+
+		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
+
+
+
+For more information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+
 
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
-[Step 2: Create a storage account in Azure]: #createstorage
-[Step 3: Prepare the connection to Azure]: #connect
-[Step 4: Upload the image to Azure]: #upload
+[Step 2: Prepare the connection to Azure]: #connect
+[Step 3: Upload the image to Azure]: #upload
 

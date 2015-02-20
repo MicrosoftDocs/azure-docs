@@ -88,7 +88,7 @@ All blobs reside in a container. Use the **CloudBlobClient** object to get a ref
         e.printStackTrace();
     }
 
-### Optional: Configure a container for public access ### 
+### Optional: Configure a container for public access
 
 A container's permissions are configured for private access by default, but you can easily configure a container's permissions to allow public, read-only access for all users on the Internet:
 
