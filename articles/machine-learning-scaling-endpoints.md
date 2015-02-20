@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
    ms.date="02/19/2015"
-   ms.author="hitesh.madan@microsoft.com"/>
+   ms.author="himad"/>
 # Scaling API Endpoints
 
 Web service endpoints in Azure Machine Learning have selectable throttle levels to match the rate at which the endpoint will be consumed.
