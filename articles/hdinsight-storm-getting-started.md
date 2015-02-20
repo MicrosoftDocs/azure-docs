@@ -72,7 +72,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 ##Using Storm on HDInsight
 
-Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be used to upload and run Storm topologies on the cluster. Each cluster also comes with sample topologies that can be ran directly from the Storm Dashboard
+Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be used to upload and run Storm topologies on the cluster. Each cluster also comes with sample topologies that can be run directly from the Storm Dashboard
 
 ###<a id="connect"></a>Connect to the dashboard
 
@@ -141,9 +141,7 @@ The Storm UI can be used to monitor the topology.
 	
 	* **Deactivate** - pauses a running topology
 	
-	* **Rebalance** - adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster
-	
-		For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parllelism of a Storm topology</a>
+	* **Rebalance** - adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parllelism of a Storm topology</a>
 	
 	* **Kill** - terminates a Storm topology after the specified timeout
 
@@ -159,7 +157,7 @@ The Storm UI can be used to monitor the topology.
 
 	* **Input stats** (bolt only) - information on components that produce data consumed by the bolt
 
-	* ** Output stats** - information on data emitted by this bolt
+	* **Output stats** - information on data emitted by this bolt
 
 	* **Executors** - information on instances of this component
 
@@ -192,7 +190,7 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 	For more information, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get Started using the HDInsight Tools for Visual Studio</a>.
 
-* **Sample files** - The HDInsight Storm cluster provides several examples in the **%storm_home%\contrib** directory. Each example should contain the following.
+* **Sample files** - The HDInsight Storm cluster provides several examples in the **%STORM_HOME%\contrib** directory. Each example should contain the following.
 
 	* The source code - for example, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,9 +202,9 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 	> [WACOM.NOTE] Java docs consist of web pages. Once extracted, use a browser to view the **index.html** file.
 
-	To access these samples, you must enable Remote Desktop for the Storm on HDInsight cluster, then copy the files from **%storm_home%\contrib**.
+	To access these samples, you must enable Remote Desktop for the Storm on HDInsight cluster, then copy the files from **%STORM_HOME%\contrib**.
 
-	The following are other examples that can be used with Storm on HDInsight.
+* The following are other examples that can be used with Storm on HDInsight.
 
 	* [Analyzing sensor data with Storm on HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis)
 

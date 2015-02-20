@@ -2,17 +2,17 @@
    pageTitle="connect-scom" 
    description="Connect to Operational Insights through Operations Manager" 
    services="operational-insights" 
-   documentationCenter="dev-center-name" 
+   documentationCenter="" 
    authors="lauracr" 
    manager="jwhit" 
    editor=""/>
 
 <tags
    ms.service="operational-insights"
-   ms.devlang="may be required"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required" 
+   ms.tgt_pltfrm="na"
+   ms.workload="na" 
    ms.date="02/20/2015"
    ms.author="lauracr"/>
 
@@ -37,6 +37,6 @@ You can connect Operational Insights to an existing System Center Operations Man
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-[Configure Proxy and Firewall settings (Optional)](https://msdn.microsoft.com/en-us/library/azure/dn884643.aspx)
+[Configure Proxy and Firewall settings (Optional)](https://msdn.microsoft.com/library/azure/dn884643.aspx)
 
 

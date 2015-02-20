@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="2/20/2015" 
 	ms.author="larryfr"/>
 
 
@@ -21,7 +21,7 @@
 
 #Build a Node.js Chat Application with Socket.IO on an Azure Website
 
-Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling,) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure Website. For more information on Socket.IO, see [http://socket.io/][socketio].
+Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling,) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure Website, and show you how to [scale](#scale-out) the application using [Azure Redis Cache](http://azure.microsoft.com/documentation/services/cache). For more information on Socket.IO, see [http://socket.io/][socketio].
 
 > [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
 

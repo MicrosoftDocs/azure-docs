@@ -23,7 +23,7 @@ You can get started with DocumentDB by creating a database account through the [
 
 Each capacity unit comes with a quota of collections for storing document data, provisioned document storage and provisioned throughput as request units per second. If the capacity requirements of your application change, you can scale up or scale down the amount of provisioned capacity in your database account. Capacity provisioned under a database account is available for all databases and collections that exist or are created within the account.
 
-> [AZURE.NOTE] Each collection can scale in both storage and throughput up to the maximum supported [limit](http://azure.microsoft.com/documentation/articles/documentdb-limits/). Throughput will be evenly distributed to all collections up to the maximum level.
+> [AZURE.NOTE] Each collection can scale in both storage and throughput up to the maximum supported [limit](http://azure.microsoft.com/documentation/articles/documentdb-limits/). Throughput will be evenly distributed to all collections up to the maximum limit per collection.
 
 When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
@@ -38,7 +38,7 @@ With DocumentDB, as your application’s scale needs grow you can create more co
 ##<a name="DBCollections"></a>Database collections
 Each DocumentDB database can contain one or more collections. A collection provides the scope for document storage and query execution. A collection is also a transaction domain for all the documents contained within it. You can create any number of collections to meet the scale requirements of your applications. In order to create collections, you first need to buy one or more capacity units (CU). Each capacity unit includes a quota of collections, if you reach the collection quota for your account you can purchase additional capacity units.  
 
->[AZURE.NOTE] Note that each collection supports storage for up to 10GB of document data. 
+>[AZURE.NOTE] Each collection supports storage for up to 10GB of document data. 
 
 ##<a name="ProvStorage"></a>Provisioned storage and throughput as capacity units
 You can provision stackable units of SSD backed document storage and throughput as capacity units (CU). You can elastically scale DocumentDB with predictable performance by purchasing more capacity units, to meet your application’s needs for read scale, storage and throughput.  

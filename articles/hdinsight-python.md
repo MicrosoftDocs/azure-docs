@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/20/2015" 
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
 
 Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using a variety of programming languages. In this article, you will learn how to use a Python UDF from Hive and Pig.
-
-> [AZURE.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, and 3.1.
 
 ##Table of contents
 
@@ -33,7 +31,7 @@ Hive and Pig are great for working with data in HDInsight, but sometimes you nee
 
 ##<a name="python"></a>Python on HDInsight
 
-Python2.7 is installed by default on HDInsight 3.0 clusters. The installation can be found in the D:\Python folder. Hive can be used with this version of Python for stream processing (data is passed between Hive and Python using STDOUT/STDIN).
+Python2.7 is installed by default on HDInsight 3.0 clusters and above. The installation can be found in the D:\Python folder. Hive can be used with this version of Python for stream processing (data is passed between Hive and Python using STDOUT/STDIN).
 
 HDInsight also includes Jython, which is a Python implementation written in Java. Pig understands how to talk to Jython without having to resort to streaming, so it's preferable when using Pig.
 

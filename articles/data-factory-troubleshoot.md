@@ -97,6 +97,49 @@ To learn more details:
 1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
 2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
 
+## Problem: Custom Activity Fails
+When using a Custom Activity in Azure Data Factory (pipeline activity type CustomActivity), the custom application runs in the specified linked service to HDInsight as a Map only streaming MapReduce job. 
+
+To make it easier to troubleshoot potential failures, instrument your application code to output progress text and error context to the standard console output and the standard error console output. 
+
+Example logging instrumentation in C#: 
+
+    //Write beginning for troubleshooting context
+    Console.WriteLine(DateTime.Now + ": Beginning to run the custom activity now.");
+    
+    //Write to stderr output for troubleshooting context
+    Console.Error.WriteLine(DateTime.Now +": Write out when an error has occurred at this point.");
+
+    //Write progress to avoid 10 minute timeout
+    Console.WriteLine(DateTime.Now + ": The custom activity has progressed some.");
+
+When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the *adfjobs* storage container in your Azure Blob Storage account. In case of an error, you can read the text from **stderr** output text file after a failure has occurred. The files are accessible and readable from the Azure portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly. 
+
+To enumerate and read the logs for a particular Custom Activity:
+
+1.  In the Azure portal **Browse** to locate your Data Factory.
+2.  Use the **Diagram** button to view the data factory diagram, and click on the **Dataset** Table that follows the specific **Pipeline** which has the Custom Activity. 
+3.  In the **Table** blade, Click on the slice of interest in the **Problem slices** for the time frame to be investigated.
+4.  The detailed **Data Slice** blade will appear and it can list multiple **Activity runs** for the slice. Click on an **Activity** from the list. 
+5.  The **Activity Run Details** blade will appear. It will list the **Error Message** in the middle of the blade, and several **Log files** listed at the bottom of the blade affiliated with that activity run.
+	- Logs/system-0.log
+	- Status
+	- Status/exit
+	- Status/stderr
+	- Status/stdout
+6. Click on the first **Log file** item in the list, and the log will open in a new blade with the full text displayed for you to read. Review the text of each log by clicking on each one. The text viewer blade will open. You can click the **Download** button to download the text file for optional offline viewing.  
+
+One **common error** from a custom activity is 
+> Package execution failed with exit code '1'. See 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr' for more details.
+
+To see more details for this kind of error, open the **stderr** file. One common error seen there is a timeout condition such as this:
+> INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED 
+> AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
+
+This same error may appear multiple times, if the job has retried 3 times for example, over the span of 30 or more minutes. 
+
+This error indicates a 600 second (10 minute) timeout has happened. Typically this means the custom .Net application has not issued any output for 10 minutes. If the application is hanging or stalled waiting on something for too long, the 10 minute timeout is a safety mechanism to prevent it from waiting forever and delaying your Azure Data Factory pipeline. If you know that the application is making progress, and is expected to take longer than 10 minutes to complete the activity, one way to avoid this timeout is to code the application to write progress text messages to the console output every few minutes as shown above in the C# code sample.
+
 ## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
 In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.
 
