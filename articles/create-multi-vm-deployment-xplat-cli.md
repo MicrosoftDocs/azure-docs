@@ -59,3 +59,7 @@ While you can find more information by using the –help option on any of the Az
     azure vm delete -b -q <VM_name>
     azure vm disk attach-new <VM_name>
     azure vm endpoint create <VM_name> <External_port> <Internal_port> -n <Endpoint_name> -o <TCP/UDP>
+
+## Next steps
+Learn about [Linux and Open-Source Computing on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-opensource/) <br>
+[How to Log on to a Virtual Machine Running Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-log-on/)
