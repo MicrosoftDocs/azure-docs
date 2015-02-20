@@ -29,8 +29,8 @@ Azure Service Bus messaging has two separate features: Queues and Topics. Both s
 
 For more about Service Bus Messaging
 
-[Azure Service Bus - David Chappell](../fundamentals-service-bus-hybrid-solutions/)
+[Azure Service Bus - David Chappell](fundamentals-service-bus-hybrid-solutions/)
 
-[How to use Service Bus Queues](../service-bus-dotnet-how-to-use-queues)
+[How to use Service Bus Queues](service-bus-dotnet-how-to-use-queues)
 
-[How to use Service Bus Topics](../service-bus-dotnet-how-to-use-topics-subscriptions)
+[How to use Service Bus Topics](service-bus-dotnet-how-to-use-topics-subscriptions)
