@@ -148,9 +148,10 @@ Here is a sample walkthrough of capturing a virtual machine including terminal o
 
 
 
-Visit the [Azure CLI documentation page](../command-line-tools) for more details and additional commands.
+Visit the [Azure CLI documentation page][] for more details and additional commands.
 
 
+[Azure CLI documentation page]: ../command-line-tools
 
 [How to Log on to a Virtual Machine Running Linux]: ../virtual-machines-linux-how-to-log-on
 
