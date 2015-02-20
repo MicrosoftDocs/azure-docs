@@ -18,7 +18,7 @@
 # What is machine learning?
 Machine learning is at work all around you.  When you shop online, machine learning helps recommend other products based on what you've purchased.  When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious. Machine learn is the process of creating models to learn from existing data and do predictive analytics on future data. 
 
-# What is Azure Machine Learning?
+## What is Azure Machine Learning?
 Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create analytics solutions. We built Azure Machine Learning to democratize machine learning: We eliminated the heavy lifting involved in building and deploying machine learning technology to make it accessible to everybody. It is a fully managed service, which means you do not need to buy any hardware nor manually manage virtual machines.
 
 You can use the browser-based tool [Machine Learning Studio](../machine-learning-what-is-ml-studio/) to quickly create and automate machine learning workflows.  You can drag and drop hundreds of existing [Machine Learning libraries](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) to jump-start your predictive analytics solutions, and then optionally add your own custom [R](../machine-learning-r-quickstart/) and [Python](../machine-learning-execute-python-scripts/) scripts to extend them. Studio works in any browser and enables you to rapidly develop and iterate on solutions.
@@ -32,6 +32,6 @@ You can easily discover and create [web services](../machine-learning-publish-a-
 - You can purchase [Marketplace apps](https://datamarket.azure.com/browse?query=machine+learning) through an Azure subscription and consume finished web services for Recommendations, Text Analytics, and Anomaly Detection directly from the Azure Marketplace. 
 - A step-by-step guide for the Data Science journey from raw data to a consumable web service to ease the path for cloud-based data science. We have added the ability to use popular tools such as iPython Notebook and Python Tools for Visual Studio with Azure Machine Learning.
 
-# Get started now
+## Get started now
 You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](../machine-learning-create-experiment/) and by [building on samples](../machine-learning-sample-experiments/).  No Azure subscription or credit card is required to get started using Machine Learning when you try experiments in Studio.  
   
