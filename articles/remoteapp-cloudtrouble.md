@@ -35,4 +35,4 @@ If you are using one of the Microsoft images included with your subscription, tr
 
 	PlatformImageTrialModeOnly
 
-If you see this error this usually means that you been upgraded to a paid account but you are trying to use a Microsoft provided image that is valid only during the trial mode of the service. In this case, try t9o create your cloud collection again, but be sure to specify the correct image.
+If you see this error this usually means that you been upgraded to a paid account but you are trying to use a Microsoft provided image that is valid only during the trial mode of the service. In this case, try to create your cloud collection again, but be sure to specify the correct image.
