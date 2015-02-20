@@ -20,6 +20,8 @@
 
 Creating an Azure Virtual Machine (VM) that runs Linux is easy to do. This topic shows you how to use the Azure portal to create one quickly without installing anything, but you can also create VMs from any platform by using the [Azure Cross-Platform Command-Line Interface (xplat-cli)](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/), [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/), or the [Server Explorer in Visual Studio](https://msdn.microsoft.com/en-us/library/azure/dn569263.aspx).
 
+You can also create Linux VMs using [your own images as templates](../virtual-machines-linux-create-upload-vhd/). 
+
 
 > [AZURE.NOTE] Even though you don't need any experience with Azure VMs to finish this tutorial, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
