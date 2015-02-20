@@ -108,8 +108,9 @@ HDInsight can run HiveQL jobs using a variety of methods. Use the following tabl
 <a href="../hdinsight-hadoop-use-hive-curl/" target="_blank">Curl</a> | &nbsp; | ✔ | Linux or Windows | Linux, Unix, Mac OS X, or Windows
 <a href="../hdinsight-hadoop-use-hive-query-console/" target="_blank">Query console</a> | &nbsp; | ✔ | Windows | Browser-based
 <a href="../hdinsight-hadoop-use-hive-visual-studio/" target="_blank">HDInsight tools for Visual Studio</a> | &nbsp; | ✔ | Linux or Windows | Windows
+<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
 <a href="../hdinsight-hadoop-use-hive-powershell/" target="_blank">PowerShell</a> | &nbsp; | ✔ | Linux or Windows | Windows
-<a href="../hdinsight-hadoop-use-hive-remote-desktop/" target="_blank">Remote Desktop</a> | &nbsp; | ✔ | Windows | Windows
+<a href="../hdinsight-hadoop-use-hive-remote-desktop/" target="_blank">Remote Desktop</a> | ✔ | ✔ | Windows | Windows
 
 ##<a id="nextsteps"></a>Next steps
 

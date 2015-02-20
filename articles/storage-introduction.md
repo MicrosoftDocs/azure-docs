@@ -49,11 +49,11 @@ Azure Premium Storage is now available in preview. Azure Premium Storage deliver
 An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your storage resources. There are two types of storage accounts:
 
 - A standard storage account includes Blob, Table, Queue, and File storage.
-- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/en-us/services/preview/).
+- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/services/preview/).
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 100 uniquely named storage accounts with a single subscription. See [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/) for information on volume pricing.
+Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 100 uniquely named storage accounts with a single subscription. See [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
-You can get started with Azure with a [free trial](/en-us/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](/en-us/pricing/purchase-options/). If you’re an [MSDN subscriber](/en-us/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
+You can get started with Azure with a [free trial](/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](/pricing/purchase-options/). If you’re an [MSDN subscriber](/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
 
 ### Standard Storage Accounts
 
@@ -62,9 +62,9 @@ A standard storage account gives you access to Blob storage, Table storage, Queu
 - **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
 - **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
-- **File storage (Preview)** offers shared storage for legacy applications using the standard SMB 2.1 protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API. File storage is available by request via the [Azure Preview page](/en-us/services/preview/). 
+- **File storage (Preview)** offers shared storage for legacy applications using the standard SMB 2.1 protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API. File storage is available by request via the [Azure Preview page](/services/preview/). 
 
-Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx) for details about standard storage account capacity.
+Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx) for details about standard storage account capacity.
 
 The image below shows the relationships between the Azure storage resources in a standard storage account:
 
@@ -74,7 +74,7 @@ When you are ready to create a standard storage account, see [Create, manage, or
 
 ### Premium Storage Accounts (Preview)
 
-Azure Premium Storage currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request through the [Azure Preview page](/en-us/services/preview/). For an in-depth overview of Azure Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898).
+Azure Premium Storage currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request through the [Azure Preview page](/services/preview/). For an in-depth overview of Azure Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898).
 
 ## Blob Storage ##
 
@@ -144,20 +144,20 @@ Customers are charged for Azure Storage based on four factors: the storage capac
 
 Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. Every read and write operation against Azure Storage also makes a request against the service. Data egress refers to data transferred out of a Windows Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Windows Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.) 
 
-The [Storage Pricing Details](/en-us/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](/en-us/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](/en-us/pricing/calculator/?scenario=data-management) to help estimate your costs.
+The [Storage Pricing Details](/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
 ## Developing Against Storage ##
 
-Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) that can be called by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
+Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx) that can be called by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
-- [Native code](http://msdn.microsoft.com/library/dn495438.aspx)
-- [Java/Android](/en-us/develop/java/)
-- [Node.js](/en-us/develop/nodejs/)
-- [PHP](/en-us/develop/php/)
-- [Ruby](/en-us/develop/ruby/)
-- [Python](/en-us/develop/python/)
-- [PowerShell](http://msdn.microsoft.com/library/dn495240.aspx)
+- [Native code](http://msdn.microsoft.com/library/azure/dn495438.aspx)
+- [Java/Android](/develop/java/)
+- [Node.js](/develop/nodejs/)
+- [PHP](/develop/php/)
+- [Ruby](/develop/ruby/)
+- [Python](/develop/python/)
+- [PowerShell](http://msdn.microsoft.com/library/azure/dn495240.aspx)
 
 ## Next Steps ##
 
@@ -166,7 +166,7 @@ To get started with Azure Storage, explore these resources:
 ### Downloads
 
 - [Azure Storage NuGet Package - Client Libraries for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDKs and Tools](http://azure.microsoft.com/en-us/downloads/)
+- [Azure SDKs and Tools](http://azure.microsoft.com/downloads/)
 - [Azure Storage Emulator](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Source Code
@@ -175,16 +175,16 @@ To get started with Azure Storage, explore these resources:
 
 ### Documentation
 
-- [Azure Storage Documentation](/en-us/documentation/services/storage/)
-- [Azure Storage Services REST API Reference](http://msdn.microsoft.com/en-us/library/dd179355.aspx)
-- [AzCopy Command-Line Tool Reference](http://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/)
+- [Azure Storage Documentation](/documentation/services/storage/)
+- [Azure Storage Services REST API Reference](http://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [AzCopy Command-Line Tool Reference](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 ### For PowerShell Users
-- [Azure Storage Cmdlets](http://msdn.microsoft.com/en-us/library/azure/dn806401.aspx)
+- [Azure Storage Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 ### For .NET Developers
 
-- [.NET Client Library Reference](http://msdn.microsoft.com/en-us/library/wa_storage_30_reference_home.aspx)
+- [.NET Client Library Reference](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs/)
 - [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
 - [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)

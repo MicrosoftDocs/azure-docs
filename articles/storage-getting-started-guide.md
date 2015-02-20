@@ -68,7 +68,7 @@ To complete this section, make sure to perform the following prerequisite tasks 
 2. Make sure you have [Azure SDK 2.5 for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) or later installed on your computer as it includes the Azure QuickStart sample projects and [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).  
 3. Check if you have [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) installed on your computer as the Azure QuickStart sample projects need it. If you are not sure which version of .NET Framework is installed in your computer, see [How to: Determine Which .NET Framework Versions Are Installed](https://msdn.microsoft.com/vstudio/hh925568.aspx). Or, press the **Start** button or the Windows key, type **Control Panel**. Then, click **Programs** > **Programs and Features**. See if the .NET Framework 4.5 is listed among all the installed programs.
 4.	Get an Azure subscription (if you don’t have one yet) and also create a **Standard Storage** account:
-	- To get an Azure subscription, see [Free Trial](http://www.windowsazure.com/pricing/free-trial/), [Purchase Options](http://www.windowsazure.com/en-us/pricing/purchase-options/), and [Member Offers](http://www.windowsazure.com/en-us/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
+	- To get an Azure subscription, see [Free Trial](http://azure.microsoft.com/pricing/free-trial/), [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](http://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
 	- To create a **Standard Storage** account in Azure, see [How to create, manage, or delete a storage account](./storage-create-storage-account.md). **Note:** There are two types of storage accounts in Azure: Standard Storage account and Premium Storage account. A standard storage account provides access to Azure Blob, Table, and Queue storage. A premium storage account is currently available only for storing data on disks used by Azure Virtual Machines. For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](./storage-premium-storage-preview-portal.md).
 
 Now, let’s create a simple Azure Storage application using one of the Azure QuickStarts sample projects in Visual Studio. This tutorial focuses on **Azure Blob Storage**, **Azure Table Storage**, and **Azure Storage Queues** sample projects. For each sample project, the following instructions apply except that you choose a different template in Step 3.a:
@@ -109,8 +109,8 @@ If you want to learn more about them, follow these links:
 * [How to use Queue Storage from .NET](./storage-dotnet-how-to-use-queues.md)
 * [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-* [Azure Storage Client Library](https://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-* [Azure Storage REST API](https://msdn.microsoft.com/library/dd179355.aspx)
+* [Azure Storage Client Library](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
+* [Azure Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 

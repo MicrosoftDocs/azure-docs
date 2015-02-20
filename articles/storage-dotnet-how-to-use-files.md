@@ -49,7 +49,7 @@ File storage contains the following components:
 
 
 -   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+    through a storage account. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx) for details about storage account capacity.
 
 -   **Share:** A File storage share is an SMB 2.1 file share in Azure. 
     All directories and files must be created in a parent share. An account can contain an
@@ -71,11 +71,11 @@ File storage contains the following components:
 
 
 
-For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/en-us/library/azure/dn167011.aspx).
+For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ## Create an Azure Storage account
 
-Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/en-us/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
+Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
 
 > [AZURE.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
 
@@ -85,7 +85,7 @@ Azure File storage is currently in preview. To request access to the preview, na
 
 ### Install the PowerShell cmdlets for Azure Storage
 
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
 
 > [AZURE.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
@@ -132,8 +132,8 @@ To see the file in the directory, you can list the directory's files. This comma
 
 To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine, and remote into it to mount the share. 
 
-1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](/en-us/documentation/articles/virtual-machines-windows-tutorial/).
-2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
+1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-windows-tutorial/).
+2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-log-on-windows-server/).
 3. Open a PowerShell window on the virtual machine. 
 
 ### Persist your storage account credentials for the virtual machine
@@ -154,7 +154,7 @@ Once you have a remote connection to the virtual machine, you can execute the `n
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-You can now work with the File storage share from within the virtual machine as you would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
+You can now work with the File storage share from within the virtual machine as you would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
@@ -247,7 +247,7 @@ for more detailed information.
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx">File Service REST API reference</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">File Service REST API reference</a></li>
   </ul>
 </li>
 <li>View the Azure Storage Team's blog posts relating to the File service:
@@ -258,10 +258,10 @@ for more detailed information.
   </ul>
 </li><li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
-    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
-    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/en-us/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store messages reliably.</li>
-    <li>Use <a href="/en-us/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
+    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
+    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
+    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store messages reliably.</li>
+    <li>Use <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
   </ul>
 </li>
 </ul>
