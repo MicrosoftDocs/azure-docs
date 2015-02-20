@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="02/20/2015" 
 	ms.author="kathydav"/>
 
 
@@ -88,7 +88,11 @@ Follow these steps to install, configure, and run the Community version of MySQL
 19.	You can also configure server configuration default settings, such as the base and data directories and drives, with entries in the **C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini** file. For more information, see [5.1.2 Server Configuration Defaults](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 
-If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening. This is TCP port 3306 unless you specified a different port on the Type and Networking page (step 10 of the previous procedure).
+If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening and create an additional Windows Firewall rule. This is TCP port 3306 unless you specified a different port on the Type and Networking page (step 10 of the previous procedure). 
+
+
+> [AZURE.NOTE] You should carefully consider the security implications of doing this, because this will make the MySQL Server service available to all computers on the Internet. You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL). For more information, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines-set-up-endpoints/).
+
 
 To configure an endpoint for the MySQL Server service:
 
@@ -98,6 +102,9 @@ To configure an endpoint for the MySQL Server service:
 4.	If you are using the default MySQL TCP port of 3306, click **MySQL** in **Name**, and then click the check mark.
 5.	If you are using a different TCP port, type a unique name in **Name**. Select **TCP** in protocol, type the port number in both **Public Port** and **Private Port**, and then click the check mark.
 
+To add a Windows Firewall rule that allows MySQL traffic from the Internet, run this command at an administrator-level Windows PowerShell command prompt on the MySQL server computer.
+
+	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
 To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server. 
 
@@ -115,7 +122,7 @@ To test your remote connection to the MySQL Server service running on the Azure 
 		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
-##  Resources
+## Resources
 
 For information on MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/).
 

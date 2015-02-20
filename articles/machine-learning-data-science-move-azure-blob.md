@@ -58,7 +58,6 @@ AzCopy is a command line utility to upload and download data.
 	<your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
 	<file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
 
-
 > [AZURE.TIP]   
 > 1. When uploading files, /S will upload files recursively. Without this parameter, any files in the subdirectory will not be uploaded.  
 > 2. When downloading file, /S will search the container recursively until all files in the specified directory and its subdirectories or all files that matching the specified pattern in the given directory and its subdirectories, are downloaded.  
@@ -78,7 +77,7 @@ With the Python API provided in Azure SDK, you can
 - List the blobs in a container
 - Delete a blob
 
-This section documents how to list, upload and download blobs. For more details of the usage of the Python API, please refer [How to Use the Blob Storage Service from Python](https://github.com/Azure/azure-content/blob/master/articles/storage-python-how-to-use-blob-storage.md). 
+This section documents how to list, upload and download blobs. For more details of the usage of the Python API, please refer [How to Use the Blob Storage Service from Python](http://azure.microsoft.com/en-us/documentation/articles/storage-python-how-to-use-blob-storage/). 
 
 > [AZURE.NOTE] If you are using a machine different from the VM that was set up earlier in the cloud data science process, you need to install the [Python Azure SDK](http://azure.microsoft.com/en-us/documentation/articles/python-how-to-install/) before using the sample code below.
 
