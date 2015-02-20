@@ -17,7 +17,7 @@
 	ms.date="09/18/2014" 
 	ms.author="mwasson"/>
 
-#<a name="howtomanage"></a>Manage websites through the Azure Management Portal
+#<a name="howtomanage"></a> Manage websites through the Azure Management Portal
 
 You manage your websites in the Azure portal with a set of pages or "tabs". Each Website management page is described below.
 
