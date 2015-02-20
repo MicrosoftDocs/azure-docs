@@ -1,5 +1,5 @@
 <properties
-   pageTitle="creating-a-multi-vm-deployment-using-the-xplat-cli"
+   pageTitle="Create a multi-VM deployment using the Azure x-plat cli | Azure"
    description="Learn how to create a multi VM deployment using the Azure x-plat CLI"
    services="virtual-machines"
    documentationCenter="nodejs"
@@ -16,13 +16,13 @@
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
 
-# Creating a multi-VM deployment using the Azure x-plat cli
+# Create a multi-VM deployment using the Azure x-plat cli
 
 The following script will show you how to configure a multi-VM multi-cloud service deployment in a VNET using Azure Cross-Platform Command-Line Interface (xplat-cli).
 
 The image below explains how your deployment will look after the script completes:
 
-![](/media/create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
+![](/media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
 The script creates one VM (**servervm**) in cloud service **servercs** with two data disks attached and two VMs (**clientvm1, clientvm2**) in the cloud service **workercs**. Both the cloud services are placed in the VNET **samplevnet**. The **servercs** cloud service also has an endpoint configured for external connectivity.
 
@@ -48,7 +48,7 @@ As is the code to tear it down:
 
 *The –q option suppresses the interactive confirmation for deleting objects, -b cleans up the disks / blobs associated with the VM.*
 
-**Generic forms of the commands used**
+##Generic forms of the commands used
 
 While you can find more information by using the –help option on any of the Azure CLI commands, the generic form of each command as used above is:
 
@@ -61,5 +61,7 @@ While you can find more information by using the –help option on any of the Az
     azure vm endpoint create <VM_name> <External_port> <Internal_port> -n <Endpoint_name> -o <TCP/UDP>
 
 ## Next steps
-Learn about [Linux and Open-Source Computing on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-opensource/) <br>
-[How to Log on to a Virtual Machine Running Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-log-on/)
+
+ 
+* [Linux and Open-Source Computing on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-opensource/) <br>
+* [How to Log on to a Virtual Machine Running Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-log-on/)
