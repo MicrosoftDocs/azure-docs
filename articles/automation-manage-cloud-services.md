@@ -1,15 +1,15 @@
 <properties 
-	pageTitle="Manage Azure SQL Databases using Azure Automation" 
-	description="Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale." 
-	services="automation, sql-database" 
+	pageTitle="Manage Azure Cloud Services using Azure Automation" 
+	description="Learn about how the Azure Automation service can be used to manage Azure cloud services at scale." 
+	services="automation, cloud-services" 
 	documentationCenter="" 
 	authors="jodoglevy" 
 	manager="eamono" 
 	editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -18,14 +18,14 @@
 
 
 
-#Managing Azure SQL Databases using Azure Automation
+#Managing Azure Cloud Services using Azure Automation
 
-This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure SQL databases at scale.
+This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure cloud services at scale.
 
 ##Table of Contents
 
 * [What is Azure Automation?](#what-is)
-* [How can Azure Automation help manage Azure SQL databases?](#scenarios)
+* [How can Azure Automation help manage Azure cloud services?](#scenarios)
 * [Next steps](#next-steps)
 
 ## <a name="what-is"> </a>What is Azure Automation?
@@ -39,14 +39,14 @@ Azure Automation provides a highly-reliable and highly-available workflow execut
 Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation. 
 
 
-## <a name="scenarios"> </a>How can Azure Automation help manage Azure SQL databases?
+## <a name="scenarios"> </a>How can Azure Automation help manage Azure cloud services?
 
 Specific examples coming soon.
 
 
 ##<a name="next-steps"> </a>Next Steps
 
-Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL databases, follow these links to learn more about Azure Automation.
+Now that you've learned the basics of Azure Automation and how it can be used to manage Azure cloud services, follow these links to learn more about Azure Automation.
 
 * Visit the [Azure Automation](http://azure.microsoft.com/en-us/services/automation/) overview page
 * View the MSDN documentation for [Azure Automation](http://go.microsoft.com/fwlink/?LinkId=390559)
