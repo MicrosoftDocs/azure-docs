@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Common Cache Patterns" 
-   description="Learn where and why to use a the Azure Redis Cache" 
-   services="cache" 
+   description="Learn where and why to use Azure Redis Cache" 
+   services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
    manager="wpickett" 

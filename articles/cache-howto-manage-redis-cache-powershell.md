@@ -1,7 +1,7 @@
 <properties 
  pageTitle="Manage Azure Redis Cache with Azure PowerShell" 
- description="Learn how to perform administrative tasks for the Azure Redis Cache using Azure PowerShell." 
- services="cache" 
+ description="Learn how to perform administrative tasks for Azure Redis Cache using Azure PowerShell." 
+ services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
    manager="wpickett" 
@@ -16,7 +16,7 @@
    ms.date="2/21/2015"
    ms.author="riande"/>
 
-# Manage the Azure Redis Cache with Azure PowerShell
+# Manage Azure Redis Cache with Azure PowerShell
 
 This tutorial provides a quick start for creating, updating and deleting an Azure Redis Cache.
 
