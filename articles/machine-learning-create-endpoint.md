@@ -5,7 +5,6 @@
    authors="hiteshmadan" 
    manager="padou" 
    editor=""/>
-
 <tags
    ms.service="machine-learning"
    ms.devlang="multiple"
@@ -14,7 +13,6 @@
    ms.workload="tbd" 
    ms.date="02/19/2015"
    ms.author="hitesh.madan@microsoft.com"/>
-   
 # Creating Endpoints
 
 Azure Machine Learning allows you to create multiple endpoints for a published web service. Each endpoint is individually addressed, throttled and managed, independently of the other endpoints of that web service. There is a unique URL and authorization key for each endpoint.
