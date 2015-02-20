@@ -39,7 +39,7 @@ The Azure Files service is currently in Preview, and we will add proven practice
 ||All Services|	Networking|	[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#subheading2)
 ||All Services|	Networking|	[Do client side devices have a high enough quality link?](#subheading3)
 ||All Services|	Networking|	[Is the client application located "near" the storage account?](#subheading4)
-||All Services|	Content Distribution|	[Are you using a CDN for content distribution?](#subheadin5)
+||All Services|	Content Distribution|	[Are you using a CDN for content distribution?](#subheading5)
 ||All Services|	Direct Client Access|	[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#subheading6)
 ||All Services|	Caching|	[Is your application caching data that is repeatedly used and changes rarely?](#subheading7)
 ||All Services|	Caching|	[Is your application batching updates (caching them client side and then uploading in larger sets)?](#subheading8)
