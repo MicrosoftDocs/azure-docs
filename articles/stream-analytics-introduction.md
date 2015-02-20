@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/28/2014" 
+	ms.date="2/10/2015" 
 	ms.author="jgao"/>
 
 
@@ -28,7 +28,7 @@ Azure Stream Analytics is a fully managed service providing low latency, highly 
 + [Key capabilities](#capabilities)
 + [Business motivations with choosing Azure Stream Analytics](#decision)
 + [Scenarios & use cases](#scenarios)
-+ [Next steps](#neststeps)
++ [Next steps](#nextsteps)
 
 
 ##<a name="video"></a>Introduction to Azure Stream Analytics (Video)

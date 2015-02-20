@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Mobile Services to an existing app (Android) | Mobile Dev Center" 
+	pageTitle="Get started with data (Android) | Mobile Dev Center" 
 	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing app
@@ -25,6 +25,10 @@ This topic shows you how to use Azure Mobile Services as a backend datasource fo
 The mobile service that you create in this tutorial supports the .NET runtime in the Mobile Service. This allows you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
 > [AZURE.IMPORTANT] This tutorial requires Visual Studio 2013.
+
+<!-- -->
+
+> [AZURE.NOTE] If you would like to see the Eclipse version of this tutorial, go to : [Get started with data (Eclipse)].
 
 This tutorial walks you through these basic steps:
 
@@ -82,7 +86,7 @@ This tutorial walks you through these basic steps:
 
 Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.
 
-1. From the **Run** menu, click **Run** to start the project.
+1. From the **Run** menu, click **Run app** to start the project.
 
 	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
 
@@ -176,6 +180,7 @@ Try one of these other tutorials:
 
 
 <!-- URLs. -->
+[Get started with data (Eclipse)]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/

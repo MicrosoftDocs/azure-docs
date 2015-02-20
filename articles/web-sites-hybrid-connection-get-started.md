@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="2/12/2015" 
 	ms.author="cephalin"/>
 
-#Connect an Azure website to an on-premises resource using Hybrid Connections
+# Connect an Azure website to an on-premises resource using Hybrid Connections
 
 You can connect a website on Microsoft Azure to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between an Azure website and an on-premises SQL Server database.
 
 > [AZURE.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
-##Prerequisites
+## Prerequisites
 - An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
 
 - To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Using a default instance on SQL Server is recommended because it uses static port 1433. For information on installing and configuring SQL Server Express for use with hybrid connections, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
@@ -33,18 +33,6 @@ You can connect a website on Microsoft Azure to any on-premises resource that us
 	- Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
 
 > [AZURE.NOTE] The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
-
-
-##In This Article##
-
-
-[Create a Website in the Azure Preview Portal](#CreateSite)
-
-[Create a Hybrid Connection and a BizTalk Service](#CreateHC)
-
-[Install the on-premises Hybrid Connection Manager to complete the connection](#InstallHCM)
-
-[Next Steps](#NextSteps)
 
 
 ## Create a Website in the Azure Preview Portal ##
@@ -167,7 +155,7 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 
 - For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
-###Additional Resources
+### Additional Resources
 
 [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 

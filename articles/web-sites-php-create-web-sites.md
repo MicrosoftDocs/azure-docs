@@ -18,6 +18,7 @@
 
 #How to create a PHP website in Azure Websites
 
+## Overview
 This article will show you how to create a PHP website in [Azure Web Sites][waws] by using the [Azure Management Portal], the [Azure Command Line Tools for Mac and Linux][xplat-tools], or the [Azure PowerShell cmdlets][powershell-cmdlets].
 
 In general, creating a PHP website is no different that creating *any* website in Azure Websites. By default, PHP is enabled for all websites. For information about configuring PHP (or providing your own customized PHP runtime), see [How to configure PHP in Azure Web Sites][configure-php].
@@ -26,11 +27,6 @@ Each option described below shows you how to create a website in a shared hostin
 
 > [AZURE.NOTE]
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
-
-##Table of Contents
-* [Create a web site using the Azure Management Portal](#portal)
-* [Create a web site using the Azure Command Line Tools for Mac and Linux](#XplatTools)
-* [Create a web site using the Azure PowerShell cmdlets](#PowerShell)
 
 <h2><a name="portal"></a>Create a PHP website using the Azure Management Portal</h2>
 

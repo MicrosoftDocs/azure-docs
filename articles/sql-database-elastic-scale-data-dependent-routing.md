@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/01/2015" 
-	ms.author="stuartozer"/>
+	ms.author="stuartozer@microsoft.com"/>
 
 #Data-Dependent Routing
 
@@ -50,7 +50,7 @@ The only time that **ConnectionOptions.None** (do not validate) is acceptable oc
 
 This is an example of code that uses the Shard Map Manager to perform data-dependent routing based on the value of an integer key **CustomerID**, using a **ShardMap** object named **customerShardMap**.  
 
-###Example: Data Dependent Routing 
+##Example: Data Dependent Routing 
 
     int customerId = 12345; 
     int newPersonId = 4321; 

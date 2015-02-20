@@ -10,11 +10,12 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
+
 
 # Validate and modify data in Mobile Services by using server scripts
 
@@ -65,7 +66,7 @@ It is always a good practice to validate the length of data that is submitted by
 
 Now that the mobile service is validating data and sending error responses, you need to verify that your app is correctly handling error responses from validation.
 
-1. In Eclipse, open the project that you created when you completed the tutorial [Get started with data].
+1. Open the project that you created when you completed the tutorial [Get started with data].
 
 2. In the ToDoActivity.java file, locate the **addItem** method and replace the call to the createAndShowDialog method with the following code:
 
@@ -73,7 +74,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 	This displays the error message returned by the mobile service. 
 
-3. From the **Run** menu, then click **Run** to start the app, then type text longer than 10 characters in the textbox and click the **Add** button.
+3. From the **Run** menu, then click **Run app** to start the app, then type text longer than 10 characters in the textbox and click the **Add** button.
 
   Notice that error is handled and the error messaged is displayed to the user.
 
@@ -112,7 +113,7 @@ Next, you need to update the Android app to display this new column.
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
-1. In Package Explorer, open the file ToDoItem.java, then add the following **import** statement:
+1. In Project Explorer, open the file ToDoItem.java, then add the following **import** statement:
 
 		import java.util.Date;
 
@@ -145,7 +146,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 			return mCreatedAt;
 		}
 
-5. In Package Explorer, open the file ToDoItemAdapter.java, and add the following **import** statement:
+5. In Project Explorer, open the file ToDoItemAdapter.java, and add the following **import** statement:
 
 		import java.text.DateFormat;
 
@@ -165,7 +166,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 	This appends the timestamp date to the item for display.
 	
-6. From the **Run** menu, then click **Run** to start the app. 
+6. From the **Run** menu, then click **Run app** to start the app. 
 
    	Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
@@ -194,7 +195,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
    	This method updates the query to also filter out items that do not have a timestamp value.
 	
-8. From the **Run** menu, then click **Run** to start the app.
+8. From the **Run** menu, then click **Run app** to start the app.
 
    	Notice that all items created without timestamp value disappear from the UI.
 

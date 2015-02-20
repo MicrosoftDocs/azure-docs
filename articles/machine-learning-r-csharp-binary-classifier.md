@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -45,27 +45,28 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 	public class Input
 	{
-   	public string value;
+   		public string value;
 	}
 
 	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
 	{
-	byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+		byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+		return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
-	var input = new Input() { value = TextBox1.Text };
-	var json = JsonConvert.SerializeObject(input);
-	var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	var httpClient = new HttpClient();
+		var input = new Input() { value = TextBox1.Text };
+		var json = JsonConvert.SerializeObject(input);
+		var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+		var httpClient = new HttpClient();
 	
-	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+		httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+		httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 	
-	var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	var result = response.Result.Content;
-	var scoreResult = result.ReadAsStringAsync().Result;
+		var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+		var result = response.Result.Content;
+		var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
@@ -79,15 +80,31 @@ From within Azure Machine Learning, a new blank experiment was created and two â
 ####Module 1:
 
 	#Schema definition  
-	data <- data.frame(value = "1;2;3,1;5;6,0;8;9", stringsAsFactors=FALSE) maml.mapOutputPort("data");  
+	data <- data.frame(value = "1;2;3,1;5;6,0;8;9", stringsAsFactors=FALSE) 
+	maml.mapOutputPort("data");  
 
 ####Module 2:
 	#GLM modeling   
-	data <- maml.mapInputPort(1) # class: data.frame  data.split <- strsplit(data[1,1], ",")[[1]] data.split <- sapply(data.split, strsplit, ";", simplify = TRUE) data.split <- sapply(data.split, strsplit, ";", simplify = TRUE) data.split <- as.data.frame(t(data.split)) data.split <- 
-	data.matrix(data.split) data.split <- data.frame(data.split) model <- glm(data.split$V1 ~., family='binomial', data=data.split)  out <- 
-	data.frame(predict(model,data.split, type="response")) pred1 <- as.data.frame(out) group <- array(1:nrow(pred1)) for (i in 
-	1:nrow(pred1))  
-	{if(as.numeric(pred1[i,])>0.5) {group[i]=1} else {group[i]=0}} pred2 <- as.data.frame(group) maml.mapOutputPort("pred2");  
+	data <- maml.mapInputPort(1) # class: data.frame  
+	
+	data.split <- strsplit(data[1,1], ",")[[1]] 
+	data.split <- sapply(data.split, strsplit, ";", simplify = TRUE) 
+	data.split <- sapply(data.split, strsplit, ";", simplify = TRUE) 
+	data.split <- as.data.frame(t(data.split)) data.split <- 
+	data.matrix(data.split) 
+	data.split <- data.frame(data.split) 
+	
+	model <- glm(data.split$V1 ~., family='binomial', data=data.split)  
+	out <- data.frame(predict(model,data.split, type="response")) 
+	pred1 <- as.data.frame(out) 
+	group <- array(1:nrow(pred1)) 
+	for (i in 1:nrow(pred1))  
+		{
+		if(as.numeric(pred1[i,])>0.5) {group[i]=1} 
+		else {group[i]=0}
+		} 
+	pred2 <- as.data.frame(group) 
+	maml.mapOutputPort("pred2");  
 
 
 ##Limitations

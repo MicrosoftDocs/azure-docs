@@ -19,6 +19,8 @@
 
 # About Azure Storage Accounts
 
+## Overview
+
 An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your data, and by default, it is available only to you, the account owner. 
 
 There are two types of storage accounts:
@@ -39,17 +41,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 > [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/en-us/documentation/services/virtual-machines/) for more details. <br />
 
-## Table of Contents ##
-
-This article describes how to create a standard storage account, and some decisions to consider as you create it. It also describes how to manage your storage account access keys, and how to delete a storage account.
-
-
-- [How to: Create a storage account](#create)
-- [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
-- [How to: Delete a storage account](#deletestorageaccount)
-* [Next steps](#next)
-
-## <a id="create"></a>How to: Create a storage account ##
+## Create a storage account
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -77,7 +69,7 @@ This article describes how to create a standard storage account, and some decisi
 ![StoragePage](./media/storage-create-storage-account/Storage_StoragePage.png)
 
 
-### <a id="account-endpoints"></a>Storage account endpoints 
+### Storage account endpoints 
 
 Every object that you store in Azure Storage has a unique URL address; the storage account name forms the subdomain of that address. The subdomain together with the domain name, which is specific to each service, form an *endpoint* for your storage account. 
 
@@ -97,19 +89,19 @@ The URL for accessing an object in a storage account is built by appending the o
 
 You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in a storage account](../storage-custom-domain-name/) for details.
 
-### <a id="affinity-group"></a>Service co-location with an affinity group 
+### Service co-location with an affinity group 
 
 An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
 
 > [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
 
 
-### <a id="replication-options"></a>Storage account replication options
+### Storage account replication options
 
-[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options-include](../includes/storage-replication-options-include.md)]
 
 
-## <a id="regeneratestoragekeys"></a>How to: View, copy, and regenerate storage access keys
+## View, copy, and regenerate storage access keys
 
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
@@ -117,7 +109,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 
 In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
-### Copy a storage access key ###
+### Copy a storage access key ### 
 
 You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
 
@@ -132,7 +124,7 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
  
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
 
-### Regenerate storage access keys ###
+### Regenerate storage access keys
 You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
 
 > [AZURE.WARNING] Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
@@ -151,7 +143,7 @@ You should change the access keys to your storage account periodically to help k
 
 4. Regenerate the secondary access key.
 
-## <a id="deletestorageaccount"></a>How to: Delete a storage account
+## Delete a storage account
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 
@@ -170,7 +162,7 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 3. Click **Yes** to confirm you want to delete the storage account.
 
-## <a id="next"></a>Next steps
+## Next steps
 
 - To learn more about Azure Storage, see the Azure Storage documentation on [azure.com](http://azure.microsoft.com/en-us/documentation/services/storage/) and on [MSDN](http://msdn.microsoft.com/en-us/library/gg433040.aspx). 
 

@@ -22,6 +22,8 @@
 
 # Node.js Web Application using the Azure Table Service
 
+## Overview
+
 This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted on Azure. This tutorial assumes that you have some prior experience using node and [Git].
 
 You will learn:
@@ -82,7 +84,7 @@ Perform the following steps to create a storage account. This account will be us
 
 In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Azure] modules. The Express module provides a Model View Controller framework for node, while the Azure modules provides connectivity to the Table service.
 
-###Install express and generate scaffolding
+### Install express and generate scaffolding
 
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
 
@@ -132,7 +134,7 @@ In this section you will create a new Node application and use npm to add module
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
 
-###Install additional modules
+### Install additional modules
 
 The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Website, this file will be used to determine which modules need to be installed on Azure to support your application.
 
@@ -297,7 +299,7 @@ In this section you will extend the basic application created by the **express**
 
 6. Save and close the **task.js** file.
 
-###Create the controller
+### Create the controller
 
 1. In the **tasklist/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 
@@ -393,7 +395,7 @@ In this section you will extend the basic application created by the **express**
 	
 4. Save the **app.js** file.
 
-###Modify the index view
+### Modify the index view
 
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 
@@ -438,7 +440,7 @@ In this section you will extend the basic application created by the **express**
 
 3. Save and close **index.jade** file.
 
-###Modify the global layout
+### Modify the global layout
 
 The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.
 
@@ -460,7 +462,7 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 3. Save the **layout.jade** file.
 
-###Create configuration file
+### Create configuration file
 
 The **config.json** file contains the connection string used to connect to the SQL Database, and is read by the application at run-time. To create this file, perform the following steps:
 
@@ -479,7 +481,7 @@ The **config.json** file contains the connection string used to connect to the S
 
 3. Save the file.
 
-##Run your application locally
+## Run your application locally
 
 To test the application on your local machine, perform the following steps:
 
@@ -503,7 +505,7 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys.
 
-##Deploy your application to Azure
+## Deploy your application to Azure
 
 The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
@@ -511,13 +513,13 @@ The steps in this section use the Azure command-line tools to create a new Azure
 
 > [AZURE.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
 
-###Create an Azure subscription
+### Create an Azure subscription
 
 If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to continue this tutorial.
 
 [AZURE.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
-###Install the Azure command-line tool for Mac and Linux
+### Install the Azure command-line tool for Mac and Linux
 
 To install the command-line tools, use the following command:
 	
@@ -527,7 +529,7 @@ To install the command-line tools, use the following command:
 
 > [AZURE.NOTE] While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
-###Import publishing settings
+### Import publishing settings
 
 Before using the command-line tools with Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
@@ -559,7 +561,7 @@ Before using the command-line tools with Azure, you must first download a file c
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Azure subscription.
 
-###Create an Azure Website
+### Create an Azure Website
 
 1. From the command-line, change directories to the **tasklist** directory.
 
@@ -592,7 +594,7 @@ Before using the command-line tools with Azure, you must first download a file c
 
 	> [AZURE.NOTE] If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to an Azure Website].
 
-###Publish the application
+### Publish the application
 
 1. In the Terminal window, change directories to the **tasklist** directory if you are not already there.
 
@@ -612,7 +614,7 @@ Before using the command-line tools with Azure, you must first download a file c
 
 4. Once the push operation has completed, browse to the website URL returned previously by the `azure create site` command to view your application.
 
-###Switch to an environment variable
+### Switch to an environment variable
 
 Earlier we implemented code that looks for a environment variables or loads the value from the **config.json** file. In the following steps you will create key/value pairs in your website configuration that the application real access through an environment variable.
 
@@ -649,11 +651,11 @@ Earlier we implemented code that looks for a environment variables or loads the 
 
 Once the changes have been deployed to Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **STORAGE_KEY** entry in **app settings** to an invalid value. Once you have saved this value, the website should fail due to the invalid storage access key setting.
 
-##Next steps
+## Next steps
 
 While the steps in this article describe using the Table Service to store information, you can also use MongoDB. See [Node.js Web Application with MongoDB] for more information.
 
-##Additional resources
+## Additional resources
 
 [Azure command-line tool for Mac and Linux]    
 [Create and deploy a Node.js application to Azure Web Sites]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/

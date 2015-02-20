@@ -5,15 +5,15 @@
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
-	ms.service="cloud-services" 
+	ms.service="web-sites" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="02/17/2015" 
 	ms.author="kempb"/>
 
 
@@ -142,7 +142,7 @@ The following table shows the available properties in the Deployment section:
 <br/>
 
 If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the **Build, Advanced, MSBuild arguments** setting. For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option /p:TargetProfile=Test.<br/>
-![][37]
+![][38]
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]
@@ -174,12 +174,12 @@ This step applies only to cloud services, not websites. When you are ready, you 
 
 <h2> <a name="step7"> </a>Step 7: Run unit tests</h2>
 
-To put a quality gate on your live or staging deployments, you can run unit tests and if they fail, you can stop the deployment.
+This step applies only to websites, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
 
 1.  In Visual Studio, add a unit test project.<br/>
 ![][39]
 
-2.  Add project references to the projects you want to test.<br/>
+2.  Add project references to the project you want to test.<br/>
 ![][40]
 
 3.  Add some unit tests. To get started, try a dummy test that will always pass.
@@ -222,13 +222,13 @@ To put a quality gate on your live or staging deployments, you can run unit test
 <br/>
 ![][47]
 
-8.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that throws the NotImplementedException. 
+8.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception. 
 
 		[TestMethod]
-		[ExpectedException(typeof(NotImplementedException))]
+		//[ExpectedException(typeof(NotImplementedException))]
 		public void TestMethod2()
 		{
-		    //throw new NotImplementedException();
+		    throw new NotImplementedException();
 		}
 
 9. Check in the change to queue a new build.<br/>

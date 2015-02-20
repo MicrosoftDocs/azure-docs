@@ -18,7 +18,7 @@
 
 Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-## When you see Diagnostic Search
+## When do you see Diagnostic Search?
 
 You can open diagnostic search explicitly:
 
@@ -59,11 +59,11 @@ The event types are:
 * **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage][track], you can search them here.
 * **Exception** - Uncaught exceptions in the server, and those that you log by using TrackException().
 
-### Filter on property values
+## Filter on property values
 
 You can filter events on the values of their properties. The available properties depend on the event types you selected. 
 
-For example, pick out requests with a specifc response code.
+For example, pick out requests with a specific response code.
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/03-response500.png)
 
@@ -201,6 +201,7 @@ Here are the search expressions you can use:
                         <p>Shorter form.</p>
                       </td>
                     </tr>
+
 </table>
 
 ## Send more telemetry to Application Insights

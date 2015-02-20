@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/27/2014" 
-	ms.author="tdykstra,riande"/>
+	ms.date="2/19/2015" 
+	ms.author="tdykstra"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
 

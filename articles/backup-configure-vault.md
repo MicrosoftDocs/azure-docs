@@ -24,7 +24,7 @@
 <ul><li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Azure Free Trial</a>.</li></ul>
   
 
-<p>To backup files and data from your Windows Server to Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, downloading a vault credential, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.</p>
+<p>To back up files and data from your Windows Server to Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, downloading a vault credential, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.</p>
 
 
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="cloud-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/3/2014" 
+	ms.date="02/18/2015" 
 	ms.author="kempb"/>
 
 # Continuous Delivery for Cloud Services in Azure

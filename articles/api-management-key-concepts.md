@@ -16,7 +16,7 @@
 	ms.date="11/18/2014" 
 	ms.author="sdanie"/>
 
-#API Management key concepts
+#What is API Management?
 
 API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
 
@@ -43,7 +43,7 @@ For more information, see [How to create APIs][] and [How to add operations to a
 
 ## <a name="products"> </a> Products
 
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and are configured with a title, description, and terms of use. When a product is ready for use by developers it can be published. Once it is published, it can be viewed and subscribed to by developers. Subscription approval is configured at the product level and can either require administrator approval, or be auto-approved.
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and are configured with a title, description, and terms of use. Products can be **Open** or **Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. When a product is ready for use by developers it can be published. Once it is published, it can be viewed (and in the case of protected products subscribed to) by developers. Subscription approval is configured at the product level and can either require administrator approval, or be auto-approved.
 
 Groups are used to manage the visibility of products to developers. Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong. 
 

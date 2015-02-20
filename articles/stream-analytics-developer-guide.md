@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/28/2014" 
+	ms.date="2/17/2015" 
 	ms.author="jgao"/>
 
 
@@ -134,11 +134,12 @@ For more complex queries, the standard SQL clause WITH can be used to specify a 
 To learn more about the query language, see [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference]. 
 
 ##<a name="output"></a>Output
-The output source is where the results of the Stream Analytics job will be written to. Results are written continuously to the output source as the job processes input events.  The following output sources are supported:
+The output target is where the results of the Stream Analytics job will be written to. Results are written continuously to the output target as the job processes input events.  The following output targets are supported:
 
-- Azure Service Bus Event Hubs: Choose Event Hub as an output source for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
-- Azure Storage Blobs : Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure SQL Database: This output source is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
+- Azure Service Bus Event Hubs: Choose Event Hub as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
+- Azure Blob storage: Use Blob storage for long-term archival of output or for storing data for later processing.
+- Azure Table storage: Azure Table storage is a structured data store with less constraints on the schema. Entities with different schema and different types can be stored in the same Azure table.  Azure Table storage can be used to store data for persistence and efficient retrieval. For more information see [Introduction to Azure Storage]( http://azure.microsoft.com/en-us/documentation/articles/storage-introduction/), and [Designing a Scalable Partitioning Strategy for Azure Table Storage]( https://msdn.microsoft.com/en-us/library/azure/hh508997.aspx).
+- Azure SQL Database: This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
 ##<a name="scale"></a>Scale jobs
@@ -159,7 +160,7 @@ The following metrics are available for monitoring the usage and performance of 
 
 - Errors: number of error messages incurred by a Stream Analytics job
 - Input events: amount of data received by the Stream Analytics job, in terms of event count
-- Output events: amount of data sent by the Stream Analytics job to output source, in terms event count
+- Output events: amount of data sent by the Stream Analytics job to output target, in terms event count
 - Out of order events: number of events received out of order that were either dropped or given an adjusted timestamp, based on the out of order policy
 - Data conversion errors: number of data conversion errors incurred by a Stream Analytics job
 
@@ -169,17 +170,23 @@ The best approach to debugging or troubleshooting a Stream Analytics job is thro
 
 ##<a name="manage"></a>Manage jobs 
 
-###Starting and stopping jobs
-
-When starting a job, you will be prompted to specify a Start Output value, which determines when this job will start producing resulting output. If the associated query includes a window, the job will begin picking up input from the input sources at the start of the window duration required, in order to produce the first output event at the specified time. There are two options, Job Start Time and Custom. The default setting is Job Start Time. For the Custom option, you must specify a date and time. This setting is useful for specifying how much historical data in the input sources to consume or for picking up data ingestion from a specific time, such as when a job was last stopped.
-
-In the preview release of Stream Analytics, stopping a job does not preserve any state about the last events consumed by the job.  As a result, restarting a stopped job can result in dropped events or duplicate data.  If a job must be stopped temporarily, the best practice is to inspect the output and use the insert time of the last record to approximate when the job stopped.  Then specify this time as the Start Output value when the job is restarted. This is a temporary limitation and enabling job start and stop without data loss is a high priority to fix in future releases.  
+###Start and stop jobs
+When starting a job, you will be prompted to specify a Start Output value, which determines when this job will start producing resulting output. If the associated query includes a window, the job will begin picking up input from the input sources at the start of the window duration required, in order to produce the first output event at the specified time. There are three options: Job Start Time, Custom Time, and Last Stopped Time. The default setting is Job Start Time. For cases when a job has been stopped temporarily, the best practice is to choose Last Stopped Time for the Start Output value in order to resume the job from the last output time and avoid data loss. For the Custom option, you must specify a date and time. This setting is useful for specifying how much historical data in the input sources to consume or for picking up data ingestion from a specific time, 
 
 ###Configure jobs
 You can adjust the following top-level settings for a Stream Analytics job:
 
+- Start output: Specifies when this job will start producing resulting output. If the associated query includes a window, the job will begin picking up input from the input sources at the start of the window duration required in order to produce the first output event at the specified time. There are two options, Job Start Time and Custom. The default setting is Job Start Time. For the Custom option, you must specify a date and time. This setting is useful for specifying how much historical data in the input sources to consume or for picking up data ingestion from a specific time, such as when a job was last stopped. 
 - Out of order policy: Settings for handling events that do not arrive to the Stream Analytics job sequentially. You can designate a time threshold to reorder events within by specifying a Tolerance Window and also determine an action to take on events outside this window: Drop or Adjust.  Drop will drop all events received out of order and Adjust will change the System.Timestamp of out of order events to the timestamp of the most recently received ordered event.  
 - Locale: Use this setting to specify the internationalization preference for the stream analytics job. While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data. For the preview release, only en-US is supported.
+
+###Status
+
+The status of Stream Analytics jobs can be inspected in the Azure portal. Running jobs can be in one of three states: Idle, Processing, Degraded. The definition for each of these states is below:
+
+- Idle: No input bytes have been seen since the job was created or in the in the last 2 minutes. If a job is in the Idle state for a long period of time, it is likely that the Input exists but there are no raw bytes to process.
+- Processing: A nonzero amount of filtered input events have been successfully consumed by the Stream Analytics job. If a job is stuck in the processing state without producing output, it is likely that the processing time window is large or the query logic is complicated.
+- Degraded: This state indicates that a Stream Analytics job is encountering one of the following errors: Input/output communication errors, query errors, retry-able run-time errors. To distinguish what type of error(s) the job is encountering, view the Operation Logs.
 
 
 ##<a name="support"></a>Get support

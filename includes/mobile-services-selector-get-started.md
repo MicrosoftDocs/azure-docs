@@ -14,4 +14,3 @@
 - [(HTML | Javascript)](/en-us/documentation/articles/mobile-services-html-get-started/)
 - [(PhoneGap | Javascript)](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/)
 - [(Sencha | Javascript)](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/)
-- [(Appcelerator | Javascript)](/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/)

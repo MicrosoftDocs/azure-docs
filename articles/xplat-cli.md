@@ -16,7 +16,7 @@
 	ms.date="1/16/2015" 
 	ms.author="rasquill"/>
 
-#Install and Configure the Azure Cross-Platform Command-Line Interface
+# Install and Configure the Azure Cross-Platform Command-Line Interface
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
@@ -109,7 +109,7 @@ Once the xplat-cli has been installed, you will be able to use the **azure** com
 
 > [AZURE.NOTE] Node.js and npm can also be installed on Windows from <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
-<h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
+## <a id="configure">How to connect to your Azure subscription</a>
 
 While some commands provided by the xplat-cli will work without an Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your subscription you can either:
 
@@ -175,7 +175,7 @@ To log out, use the following command:
 > 
 > If you need to work with these commands, use a publish settings file to authenticate to Azure as described in the following section.
 
-###Use the publish settings file method
+### Use the publish settings file method
 
 To download the publish settings for your account, use the following command:
 

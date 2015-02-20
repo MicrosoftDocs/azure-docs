@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/6/2015" 
+	ms.date="2/10/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -55,7 +55,7 @@ To create a custom activity:
 5. Compile the project.
 
 
-## Use the custom activity in a pipeline
+## Using the custom activity in a pipeline
 To use the custom activity in a pipeline:
 
 1.	**Zip up** all the binary files from the **bin\debug** or **bin\release** output folders for the project. 
@@ -86,7 +86,7 @@ To use the custom activity in a pipeline:
     	    "PackageLinkedService": "MyBlobStore",
     	    "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
 
-## To update custom activity
+## Updating a custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage. 
 
 ## <a name="walkthrough" /> Walkthrough
@@ -102,7 +102,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 - Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package.
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
 
-### Step 1: Create a custom activity
+## Step 1: Create a custom activity
 
 1.	Create a .NET Class Library project.
 	<ol type="a">
@@ -357,10 +357,10 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 
 
 
-### Step 2: Use the custom activity in a pipeline
+## Step 2: Use the custom activity in a pipeline
 Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetstarted] to create another pipeline to test this custom activity.
 
-#### Create a linked service for the HDInsight cluster to be used for running custom activity
+### Create a linked service for the HDInsight cluster to be used for running custom activity
 
 
 1.	Create a JSON for the pipeline as shown in the following example and save it as **ADFTutorialPipelineCustom.json** in **C:\ADFGetStarted\Custom** folder. Change the name of **LinkedServiceName** to the name of the HDInsight cluster (**HDInsightOnDemandCluster** or **MyHDInsightCluster**)

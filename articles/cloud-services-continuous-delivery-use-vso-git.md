@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
+	ms.service="web-sites" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -139,7 +139,7 @@ The following table shows the available properties in the Deployment section:
 	<table>
 <tr><td><b>Property</b></td><td><b>Default Value</b></td></tr>
 ><tr><td>Allow Untrusted Certificates</td><td>If false, SSL certificates must be signed by a root authority.</td></tr>
-<tr><td>Allow Upgrade</td><td>Allows a the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.</td></tr>
+<tr><td>Allow Upgrade</td><td>Allows the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.</td></tr>
 ><tr><td>Do Not Delete</td><td>If true, do not overwrite an existing unrelated deployment (upgrade is allowed).</td></tr>
 <tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a website, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
 <tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>

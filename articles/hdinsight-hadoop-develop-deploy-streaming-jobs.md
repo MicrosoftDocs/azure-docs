@@ -20,9 +20,11 @@
 
 # Develop C# Hadoop streaming programs for HDInsight
 
-Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through a word count scenario in which you count the occurrences of a given word in the input data you provide. The following illustration shows how the MapReduce framework does a word count.
+Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through creating a C# word count program, which counts the occurrences of a given word in the input data you provide. The following illustration shows how the MapReduce framework does a word count.
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
+
+> [AZURE.NOTE] The steps in this article only apply to Windows-based HDInsight clusters. For an example of streaming for Linux-based HDInsight, see [Develop Python streaming programs for HDInsight](../hdinsight-hadoop-streaming-python/).
 
 This topic shows you how to:
 
