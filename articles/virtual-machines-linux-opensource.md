@@ -224,6 +224,7 @@ This section contains information about several different storage approaches and
 - [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
 7. PostgreSQL
 - [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+8. Installing Postgres with corosync, pg_bouncer using ILB  (https://github.com/chgeuer/postgres-azure) 
 
 
 ### <a id='security'>Auth and Encryption</a>
