@@ -334,6 +334,6 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/en-us/library/ms187750.aspx
   [ALTER LOGIN (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336254.aspx
   [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
-  [Introducing SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
+  [Introducing SQL Database]: http://azure.microsoft.com/en-us/services/sql-database/
   [SQL Database Provisioning Model]: http://msdn.microsoft.com/en-us/library/ee336227.aspx
   [Adding Users to your SQL Database]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx

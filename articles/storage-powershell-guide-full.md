@@ -70,7 +70,7 @@ The first section in this guide provides a quick glance at Azure Storage and Pow
 ## <a name="getstart"></a>Getting started with Azure Storage and PowerShell in 5 minutes
 This section shows you how to access Azure Storage via PowerShell in 5 minutes. 
 
-**New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://www.windowsazure.com/pricing/free-trial/), [Purchase Options](http://www.windowsazure.com/en-us/pricing/purchase-options/), and [Member Offers](http://www.windowsazure.com/en-us/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs). 
+**New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://azure.microsoft.com/pricing/free-trial/), [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](http://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs). 
 
 **Confused about Microsoft Azure accounts and subscriptions:** See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
@@ -272,7 +272,7 @@ Use one of the following three ways to create a storage context:
     	$ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
     	$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
 
-For more information on how to configure a storage connection string, see [Configuring Connection Strings](http://msdn.microsoft.com/library/windowsazure/ee758697.aspx).
+For more information on how to configure a storage connection string, see [Configuring Connection Strings](http://msdn.microsoft.com/library/azure/ee758697.aspx).
 
 Now that you have set up your computer and learned how to manage subscriptions and storage accounts using Azure PowerShell. Go to the next section to learn how to manage Azure blobs and blob snapshots.
 
