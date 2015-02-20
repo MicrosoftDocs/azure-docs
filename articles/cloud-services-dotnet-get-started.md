@@ -12,11 +12,15 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="2/19/2015" 
 	ms.author="tdykstra"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
+
+> [AZURE.SELECTOR]
+- [Node.js](../cloud-services-nodejs-develop-deploy-app)
+- [.NET](../cloud-services-dotnet-get-started)
 
 ## Overview
 
