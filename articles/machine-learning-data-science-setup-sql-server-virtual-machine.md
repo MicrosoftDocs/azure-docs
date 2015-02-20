@@ -161,7 +161,7 @@ a special customization script is provided to you. To install:
 	+ Downloading and installing useful Data Science Python packages
 	+ Downloading and installing Azure tools such as AzCopy and Azure Storage Explorer  
 <br>
-- You may access and run IPython Notebook from any local or remote browser using a URL of the form https://<virtual\_machine\_DNS\_name\>:<port\>, where port is the IPython public port you selected while provisioning the virtual machine.
+- You may access and run IPython Notebook from any local or remote browser using a URL of the form `https://<virtual_machine_DNS_name>:<port>`, where port is the IPython public port you selected while provisioning the virtual machine.
 - IPython Notebook server is running as a background service and will be restarted automatically when you restart the virtual machine.
 
 ##<a name="Optional"></a>Attach data disk as needed
@@ -244,9 +244,9 @@ directly from your SQL Server VM databases in the
 ##<a name="Logins"></a>Create SQL Server authentication logins
 
 To connect to the Database Engine from another computer, you must create
-at least one SQL Server authentication login.
+at least one SQL Server authentication login.  
 
-> [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).
+ > [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).  
 	
     USE master
     go
@@ -353,7 +353,7 @@ because it can be redirected to a new IP address.)
 
 In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/).
 
-2.	In the **Properties** pane of the [Reader module](http://help.azureml.net/Content/html/4e1b0fe6-aded-4b3f-a36f-39b8862b9004.htm), select **Azure SQL Database** from the **Data Source** 	dropdown list.
+2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/en-us/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
 3.	In the **Database server name** text box, enter tcp:<DNS name of your virtual machine>,1433
 
@@ -416,6 +416,3 @@ Your SQL Server virtual machine is now ready for creating and loading new databa
 [Open SSCM]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/9click-sscm.png
 [Enable TCP]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/10enable-tcp.png
 [Restart Database Engine]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/11restart.png
-
-
-

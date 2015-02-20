@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.date="02/19/2015"
    ms.author="nitinme"/>
 
 #Provision Hadoop clusters in HDInsight using custom options
@@ -373,14 +373,72 @@ While provisioning a cluster, you can use the other configuration options such a
 
 > [WACOM.NOTE] As of 8/29/2014, the Cross-Platform Command-line Interface cannot be used to associate a cluster with an Azure Virtual Network.
 
-Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/Azure/azure-sdk-tools-xplat">https://github.com/Azure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
+Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. You can install the CLI from the following locations:
 
-The following procedures are needed to provision an HDInsight cluster using Cross-platform command line:
+- **Node.JS SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
+- **Cross-platform CLI** - <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-- Install cross-platform command line
+For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool].
+
+Instructions below guide you on how to install the cross-platform command line on Linux and Windows, and then how to use the command line to provision a cluster.
+
+- [Set up Azure cross-platform command line for Linux](#clilin)
+- [Set up Azure cross-platform command line for Windows](#cliwin)
+- [Provision HDInsight clusters using Azure cross-platform command-line](#cliprovision)
+
+#### <a id="clilin"></a>Set up cross-platform command line for Linux
+
+Perform the following procedures to set up your Linux computer to use use Azure command-line tools.
+
+- Install cross-platform command line using NPM
+- Connect to your Azure subscription
+
+**To install the command-line interface using NPM**
+
+1.	Open a terminal window on your Linux computer and run the following command:
+
+		sudo npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+
+2.	Run the following command to verify the installation:
+
+		azure hdinsight -h
+
+	You can use the *-h* switch at different levels to display the help information. For example:
+
+		azure -h
+		azure hdinsight -h
+		azure hdinsight cluster -h
+		azure hdinsight cluster create -h
+
+**To connect to your Azure subscription**
+
+Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
+
+> [WACOM.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker. 
+
+
+1.	Open a terminal window.
+2.	Run the following command to log into your azure subscription.
+
+		azure account download
+
+	![HDI.Linux.CLIAccountDownloadImport](./media/hdinsight-provision-clusters/HDI.Linux.CLIAccountDownloadImport.png)
+
+	The command launches the Web page to download the publish settings file from. If the Web page does not open, click the link in the terminal window to open the browser page and log in to the portal. 
+
+3.	Download the publish settings file to the computer.
+5.	From the command prompt window, run the following command to import the publish settings file:
+
+		azure account import <path/to/the/file>
+
+
+#### <a id="cliwin"></a>Set up cross-platform command line for Windows
+
+Perform the following procedures to set up your Windows computer to use use Azure command-line tools.
+
+- Install cross-platform command line (using NPM or Windows installer)
 - Download and import Azure account publish settings
-- Create an Azure Storage account
-- Provision a cluster
+
 
 The command-line interface can be installed using *Node.js Package Manager (NPM)* or Windows Installer. Microsoft recommends that you install using only one of the two options.
 
@@ -391,7 +449,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 3.	Open **Command Prompt** (or *Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
 4.	Run the following command in the command prompt window.
 
-		npm install -g azure-cli
+		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 	> [WACOM.NOTE] If you get an error saying the NPM command is not found, verify the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
@@ -430,9 +488,14 @@ Before using the command-line interface, you must configure connectivity between
 3.	At the prompt to save the file, click **Save** and provide a location where the file must be saved.
 5.	From the command prompt window, run the following command to import the publish settings file:
 
-		azure account import <file>
+		azure account import <path/to/the/file>
 
-	In the previous screenshot, the publish settings file was saved to C:\HDInsight folder on the workstation.
+#### <a id="cliprovision"></a>Provision HDInsight clusters using Azure cross-platform command-line
+
+The following procedures are needed to provision an HDInsight cluster using Cross-platform command line:
+
+- Create an Azure Storage account
+- Provision a cluster
 
 **To create an Azure storage account**
 
@@ -469,7 +532,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 - From the command prompt window, run the following command:
 
-		azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <storageAccountKey> --storageContainer <SorageContainerName> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
+		azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <storageAccountKey> --storageContainer <SorageContainerName> --dataNodeCount <NumberOfNodes> --location <DataCenterLocation> --userName <HDInsightClusterUsername> --password <HDInsightClusterPassword> --osType windows
 
 	![HDI.CLIClusterCreation][image-cli-clustercreation]
 
@@ -485,7 +548,7 @@ Typically, you provision an HDInsight cluster, run the jobs, and then delete the
 		azure hdinsight cluster config create <file>
 
 		#Add commands to create a basic cluster
-		azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
+		azure hdinsight cluster config set <file> --clusterName <ClusterName> --dataNodeCount <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --userName "<Username>" --password "<UserPassword>" --osType windows
 
 		#If requred, include commands to use additional blob storage with the cluster
 		azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"

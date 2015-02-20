@@ -16,7 +16,7 @@
 	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
-#Azure Websites Backups
+# Azure Websites Backups
 
 The Azure Websites Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your website to a previous state, or create a new website based on one of your original site's backups. 
 
@@ -24,14 +24,14 @@ The Azure Websites Backup and Restore feature lets you easily create website bac
 For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
 
 <a name="video"></a>
-##Automatic and Easy Backup (Video)
+## Automatic and Easy Backup (Video)
 
 In this video, Eduardo Laureano and Scott Hanselman introduce Azure websites backups. (Duration: 11:43)  
 
 > [AZURE.VIDEO azure-websites-automatic-and-easy-backup]
 
 <a name="whatsbackedup"></a>
-##What Gets Backed Up 
+## What Gets Backed Up 
 Azure Websites backs up the following information:
 
 * Website configuration
@@ -43,7 +43,7 @@ This information is backed up to the Azure storage account that you specify.
 > [AZURE.NOTE] Each backup is a complete offline copy of your website, not an incremental update.
 
 <a name="requirements"></a>
-##Requirements and Restrictions
+## Requirements and Restrictions
 
 * The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
 

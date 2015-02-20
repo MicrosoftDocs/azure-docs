@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
-	ms.author="glenga"/>
+	ms.date="2/16/2015" 
+	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users
 
@@ -23,13 +23,24 @@
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the **Get started with Notification Hubs** tutorial.
+##Overview
 
-This tutorial is also the prerequisite to the **Secure Push** tutorial. After you have completed the steps in this **Notify Users** tutorial, you can proceed to the **Secure Push** tutorial, which shows how to modify the **Notify Users** code to send a push notification securely. 
+Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/en-us/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the [Get started with Notification Hubs] tutorial.
 
-> [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
-> If you are using Mobile Services as your backend service, see the [Mobile Services version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) of this tutorial.
->Also note that in this tutorial you will create a Windows Phone Store 8.1 app. The same code can be used for Windows Store and Windows Universal apps. All of these apps have to use Windows (not Windows Phone) credentials.
+This tutorial is also the prerequisite to the [Secure Push] tutorial. After you have completed the steps in this tutorial, you can proceed to the [Secure Push] tutorial, which shows how to modify the code in this tutorial to send a push notification securely. 
+
+
+##Prerequisites 
+
+Before you start this tutorial, you must have already completed these Mobile Services tutorials:
+
++ [Get started with Notification Hubs]<br/>You create your notification hub and reserve the app name and register to receive notifications in this tutorial.
+
+
+
+
+> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) of this tutorial.
+
 
 ## Create and Configure the Notification Hub
 
@@ -259,3 +270,9 @@ To run the application, do the following:
 [11]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
+
+
+
+<!-- URLs. -->
+[Get started with Notification Hubs]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Secure Push]: /en-us/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/
