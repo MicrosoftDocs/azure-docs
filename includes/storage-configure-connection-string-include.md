@@ -74,4 +74,4 @@ You are now ready to perform the how-to tasks in this guide.
 [connection-string4]: ./media/storage-configure-connection-string-include/connection-string4.png
 [connection-string5]: ./media/storage-configure-connection-string-include/connection-string5.png
 
-[Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
+[Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
