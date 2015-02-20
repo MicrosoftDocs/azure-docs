@@ -274,7 +274,7 @@ processed using the default **PeekLock** mode. To specify a different **ReceiveM
        }
     } 
 
-##How to handle application crashes and unreadable messages
+## How to handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -302,7 +302,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-##Next Steps
+## Next steps
 
 Now that you've learned the basics of Service Bus queues, follow these
 links to learn more.
