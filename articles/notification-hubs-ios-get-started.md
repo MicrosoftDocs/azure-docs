@@ -100,6 +100,16 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
+	For iOS 8
+   
+	 	UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+                                            UIUserNotificationTypeAlert |
+                                            UIUserNotificationTypeBadge
+					    					categories:nil];
+ 
+    	[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    	[[UIApplication sharedApplication] registerForRemoteNotifications];
+
 6. In the same file, add the following method:
 
 	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
