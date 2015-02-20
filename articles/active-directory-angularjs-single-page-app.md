@@ -25,7 +25,7 @@ ADAL for Javascript is an open source library.  For distribution options, source
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](http://go.microsoft.com/fwlink/?LinkId=394414).
 
-## How To Run This Sample
+## How to run this sample
 
 Getting started is simple!  To run this sample you will need:
 
@@ -35,12 +35,12 @@ Getting started is simple!  To run this sample you will need:
 
 Every Azure subscription has an associated Azure Active Directory (Azure AD) tenant. All of the Azure AD features used by this sample are available free of charge.
 
-## Step 1:  Clone or download this repository
+## Clone or download this repository
 
 From your shell or command line:
 `git clone https://github.com/AzureADSamples/SinglePageApp-WebAPI-AngularJS-DotNet.git`
 
-## Step 2:  Register the To Go API Service with your Azure Active Directory tenant
+## Register the To Go API Service with your Azure Active Directory tenant
 
 1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
 2. Click on **Active Directory** in the left hand nav.
@@ -57,7 +57,7 @@ All done!  Before moving on to the next step, you need to find the App ID URI of
 1. While still in the Azure portal, click the **Configure** tab of your application.
 2. Find the App ID URI value and copy it to the clipboard.
 
-## Step 3:  Configure the To Go API to use your Azure Active Directory tenant
+## Configure the To Go API to use your Azure Active Directory tenant
 
 1. Open the solution in Visual Studio 2013.
 2. In the ToGoAPI project, open the `web.config` file.
@@ -69,7 +69,7 @@ All done!  Before moving on to the next step, you need to find the App ID URI of
 8. Don't worry about the other configuration values in this file yet, we'll come back to that in a second.
 9. Also in the TodoSPA project, open the file `App/Scripts/toGoListSvc.js`.  Replace the value of the `apiEndpoint` variable with the location of your To Go API.  By default, it is `https://localhost:44327/`.
 
-## Step 4:  Register the To Do Single Page Application with your Azure Active Directory tenant
+## Register the To Do Single Page Application with your Azure Active Directory tenant
 
 1. Sign in once again to the [Azure management portal](https://manage.windowsazure.com).
 2. Click **Active Directory** in the left hand nav.
@@ -88,7 +88,7 @@ All done!  Before moving on to the next step, you need to find the Client ID of 
 2. Find the Client ID value and copy it to the clipboard.
 
 
-## Step 5:  Enable the OAuth2 implicit grant for your application
+## Enable the OAuth2 implicit grant for your application
 
 By default, applications provisioned in Azure AD are not enabled to use the OAuth2 implicit grant. In order to run this sample, you need to explicitly opt in.
 
@@ -97,7 +97,7 @@ By default, applications provisioned in Azure AD are not enabled to use the OAut
 3. Open the manifest file with a text editor. Search for the `oauth2AllowImplicitFlow` property. You will find that it is set to `false`; change it to `true` and save the file.
 4. Using the **Manage Manifest** button, upload the updated manifest file. Save the configuration of the app.
 
-## Step 6:  Configure the To Do SPA to use your Azure Active Directory tenant
+## Configure the To Do SPA to use your Azure Active Directory tenant
 
 1. Open the solution in Visual Studio 2013.
 2. In the TodoSPA project, open the `web.config` file.
@@ -107,13 +107,13 @@ By default, applications provisioned in Azure AD are not enabled to use the OAut
 6. Replace the value of `tenant` with your Azure AD directory name.
 7. Replace the value of `clientId` with the Client ID from the Azure portal.
 
-## Step 7:  Run the sample
+## Run the sample
 
 Clean the solution, rebuild the solution, and run it. 
 
 You can trigger the sign in experience by either clicking the sign in link on the top right corner, or by clicking directly on the **To Do List** or **To Go List** tabs.  Explore the sample by signing in, adding items to the To Do List, removing the user account, and starting again.  Add places to the To Go List, performing CRUD operations against the To Go API using CORS.
 
-## How To Deploy This Sample to Azure
+## How to deploy this sample to Azure
 
 To deploy the To Do SPA and To Go API to Azure Web Sites, you will create two web sites, publish each project to a web site, and update both projects to reference the new locations instead of IIS Express.
 
@@ -158,7 +158,7 @@ To deploy the To Do SPA and To Go API to Azure Web Sites, you will create two we
 3. On the **Applications** tab, select the **To Do SPA** application.
 4. On the **Configure** tab, update the **Sign-On URL** and **Reply URL** fields to the address of your SPA, such as https://todo-contoso.azurewebsites.net.  Save the configuration.
 
-## About the Code
+## About the code
 
 The key files containing authentication logic are the following:
 
