@@ -122,7 +122,7 @@ With the runbook imported and published, you can now run it and then inspect the
  
 	![Runbook Summary](./media/automation/automation_13_RunbookSummary_callouts.png)
 
-Congratulations! You are now finished with the tutorial.
+Congratulations! You have finished the tutorial.
 
 ## <a name="nextsteps"></a>Next Steps 
 1. The simple runbook in this tutorial **does not manage Azure services**. Most runbooks will use the [Azure cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) to do so, which require authentication to your Azure subscription. Follow the instructions at [Configuring Azure for Management by Runbooks](http://aka.ms/azureautomationauthentication) to configure your Azure subscription to work with these cmdlets.  
