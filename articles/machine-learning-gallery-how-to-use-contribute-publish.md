@@ -60,12 +60,13 @@ Follow these steps:
 - Sign-in to the studio using your Microsoft account (Please make sure your profile picture and Name in the Microsoft Account profile settings are as you want them showing up)
 - Create your experiment and run it
 - When you’re ready to publish your experiment to the Gallery, click on ‘Publish to Gallery’ in the Studio’s lower black bar.
-
+![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
 Enjoy!
 
 ## We want to hear from you! ##
-We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery. 
+We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  
 
+![Feedback](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
 ## Frequently Asked Questions ##
 **I would like to make changes to the workflow of the experiment I submitted to the Gallery. How can I do that?**
