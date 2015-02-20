@@ -1,6 +1,6 @@
-<properties title="Move Data to and from  Azure Blob Storage" pageTitle="Move Data to and from  Azure Blob Storage" description="Move Data to and from  Azure Blob Storage" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liasun,sachouks" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties title="Move Data to and from  Azure Blob Storage" pageTitle="Move Data to and from  Azure Blob Storage" description="Move Data to and from  Azure Blob Storage" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="sunliangms,sachouks" manager="paulettm" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="liasun,sachouks" />
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="sunliangms,sachouks" />
 
 # Move Data to and from Azure Blob Storage
 
