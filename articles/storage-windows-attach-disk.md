@@ -64,6 +64,6 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	![Volume successfully initialized](./media/storage-windows-attach-disk/InitializeSuccess.png)
 
-> [AZURE.NOTE] The maximum amount of disks that can be attached to a virtual machine is variable based upon the size of the virtual machine. For example, you can only attach 4 disks to the Standard A2 but you can attach 32 disks to the Standard D14 and 64 disks to the Standard G5. The details on how many disks can be attached by virtual machine size can be found [here](https://msdn.microsoft.com/en-us/library/azure/dn197896.aspx).
+> [AZURE.NOTE] The maximum amount of disks that can be attached to a virtual machine is variable based upon the size of the virtual machine. For example, you can only attach 4 disks to the Standard A2 but you can attach 32 disks to the Standard D14 and 64 disks to the Standard G5. The details on how many disks can be attached by virtual machine size can be found [here](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 
