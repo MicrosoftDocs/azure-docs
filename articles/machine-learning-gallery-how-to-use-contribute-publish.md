@@ -22,6 +22,7 @@ The Azure Machine Learning Gallery is a community driven site for discovering ex
 
 The Gallery also enables users to browse and copy experiments contributed by Microsoft Azure Machine Learning Team.
 
+**[TAKE ME TO THE GALLERY >>](http://gallery.azureml.net)**
 
 ## Benefits ##
 Start using the Gallery to enjoy these benefits:
@@ -59,14 +60,30 @@ Follow these steps:
 - Sign-in to the studio using your Microsoft account (Please make sure your profile picture and Name in the Microsoft Account profile settings are as you want them showing up)
 - Create your experiment and run it
 - When you’re ready to publish your experiment to the Gallery, click on ‘Publish to Gallery’ in the Studio’s lower black bar.
-
+![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
 Enjoy!
 
 ## We want to hear from you! ##
-We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery. 
+We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  
 
+![Feedback](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
 ## Frequently Asked Questions ##
+**I would like to make changes to the workflow of the experiment I submitted to the Gallery. How can I do that?**
+
+As of right now we do not support workflow updates to experiments you have already published to the Gallery. You may publish any such changes as a new experiment into the Gallery and delete your old one. We are actively working on enabling publising updates to workflow for already contributed Gallery. Stay Tuned.
+
+**Will I need to publish a new experiment even if I have to edit only the tags or description?**
+Following type of edits can be made to an experiment you have already contributed, without having to go through a publish again:
+
+- Experiment Name
+- Summary Text
+- Description Text
+- Tags
+- Images
+
+In order to edit these fields, click on the specific experiment you would like to edit(make sure you're signed in with your Microsoft account). This will navigate you to the experiment details page where you can see options to edit or delete. Clicking on 'Edit' allows you to edit any of the above fields.
+
 **I just published my experiment to the Azure Machine Learning Gallery. I don’t see my profile picture showing up with my name**	
 
 It is possible that you are using an account other than @outlook, @msn, @live or @hotmail. If that is the case, you will see a placeholder image instead of the profile picture from your Microsoft account configuration settings. Using a Microsoft account and re-submitting the experiment should help solve this issue
@@ -94,3 +111,5 @@ You can use tab to de-limit tags.
 **I see some experiments have rich descriptions with rich rendering capabilities. However when I try to provide a description, the description is presented in plain text.** 
 
 Rich description rendering is not available to all Gallery users widely. We are actively working on making this capability available through support for markdown rendering.
+
+**[TAKE ME TO THE GALLERY >>](http://gallery.azureml.net)**

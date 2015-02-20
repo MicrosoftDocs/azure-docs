@@ -659,7 +659,7 @@ An example of a binary classification experiment reading data directly from the 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Publish an Azure Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-a-machine-learning-web-service/).
 
 To deploy a new web service, you need to:
 
