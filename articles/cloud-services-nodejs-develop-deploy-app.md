@@ -12,16 +12,17 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="09/17/2014" 
 	ms.author="wpickett"/>
 
 
 
-
-
-
 # Build and deploy a Node.js application to an Azure Cloud Service
+
+> [AZURE.SELECTOR]
+- [Node.js](../cloud-services-nodejs-develop-deploy-app)
+- [.NET](../cloud-services-dotnet-get-started)
 
 On completing this guide, you will have a simple Node.js application running 
 in an Azure Cloud Service. Cloud Services are the building blocks of 
