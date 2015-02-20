@@ -70,7 +70,7 @@ The first section in this guide provides a quick glance at Azure Storage and Pow
 ## <a name="getstart"></a>Getting started with Azure Storage and PowerShell in 5 minutes
 This section shows you how to access Azure Storage via PowerShell in 5 minutes. 
 
-**New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://www.windowsazure.com/pricing/free-trial/), [Purchase Options](http://www.windowsazure.com/en-us/pricing/purchase-options/), and [Member Offers](http://www.windowsazure.com/en-us/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs). 
+**New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://www.windowsazure.com/pricing/free-trial/), [Purchase Options](http://www.windowsazure.com/pricing/purchase-options/), and [Member Offers](http://www.windowsazure.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs). 
 
 **Confused about Microsoft Azure accounts and subscriptions:** See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 

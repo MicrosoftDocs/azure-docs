@@ -144,7 +144,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 
 ## How to: Upload a Blob into a Container
 
-A blob can be either block, or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx).
+A blob can be either block, or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Block blobs
 
@@ -373,12 +373,12 @@ to learn how to do more complex storage tasks.
 -   Visit the [Azure Storage SDK for Node][] repository on GitHub.
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Node.js Cloud Service with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-[Node.js Web Application with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
-[Web Site with WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-[using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
+[Node.js Cloud Service with Storage]: /documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+[Node.js Web Application with Storage]: /documentation/articles/storage-nodejs-use-table-storage-web-site/
+[Web Site with WebMatrix]: /documentation/articles/web-sites-nodejs-use-webmatrix/
+[using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Azure Management Portal]: http://manage.windowsazure.com
-[Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

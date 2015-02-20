@@ -27,7 +27,7 @@
 > - [Queues](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Tables](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
 
 To programmatically access tables in ASP.NET 5 projects, you need to add the following items, if they're not already present.
 
@@ -192,4 +192,4 @@ You can delete an entity after you find it. The following code looks for a custo
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext).
+See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext).
