@@ -1,3 +1,3 @@
 > [AZURE.SELECTOR] 
-- [Portal](/en-us/documentation/articles/media-services-how-to-scale/)
+- [Portal](/en-us/documentation/articles/media-services-portal-encoding-units/)
 - [.NET SDK](/en-us/documentation/articles/media-services-dotnet-encoding-units/)
