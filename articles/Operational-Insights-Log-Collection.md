@@ -1,20 +1,20 @@
 <properties 
    pageTitle="How to use Log Management" 
    description="With Log Management in Microsoft Azure Operational Insights you can view log events collected from your monitored servers." 
-   services="Microsoft Azure Operational Insights" 
+   services="operational-insights" 
    documentationCenter="dev-center-name" 
-   authors="jimpark" 
+   authors="leylakazemi" 
    manager="jwhit" 
    editor=""/>
 
 <tags
    ms.service="operational-insights"
-   ms.devlang="may be required"
+   ms.devlang=""
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm=""
    ms.workload="operational-insights" 
    ms.date="02/20/2015"
-   ms.author="jimpark"/>
+   ms.author="leylak"/>
 
 # How to use Log Management 
 

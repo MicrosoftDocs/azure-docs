@@ -3,7 +3,7 @@
     description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." 
     services="operational-insights" 
     documentationCenter="" 
-    authors="bandersmsft" 
+    authors="leylakazemi" 
     manager="jwhit" 
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="02/20/2015" 
-    ms.author="leylakazemi"/>
+    ms.author="leylak"/>
 
 #Add or remove intelligence packs
 
