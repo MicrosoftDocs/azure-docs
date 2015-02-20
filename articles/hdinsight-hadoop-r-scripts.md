@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="12/20/2014" 
 	ms.author="bradsev"/>
 
 # Install and use R on HDInsight Hadoop clusters
