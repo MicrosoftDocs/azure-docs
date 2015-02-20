@@ -46,16 +46,8 @@ After you have imported the publishsettings file, you can use the following comm
 
 	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-> [AZURE.NOTE] The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:
 
-><ul>
-<li>Southeast Asia</li>
-<li>North Europe</li>
-<li>West Europe</li>
-<li>East US</li>
-<li>West US</li>
-</ul>
-
+[AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
 For information on creating an Azure storage account using the management portal, see [Create, manage, or delete a storage account](../storage-create-storage-account/).
