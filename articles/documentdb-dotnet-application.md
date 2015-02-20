@@ -401,7 +401,7 @@ In this section, we'll add code to handle the following:
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 	This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of **Home**, use **Item** as the controller and user **Index** as the view.
-	Now if you run the application, it will call into your **ItemController** and return the results of the **GetIncompleteItems** method to the **Views**\**Item**\**Index** view. 
+	Now if you run the application, it will call into your **ItemController** and return the results of the **GetIncompleteItems** method to the **Views**\\**Item**\\**Index** view. 
 
 12. If you build and run this project now, you should now see something that looks this.    
 
