@@ -78,7 +78,7 @@ The HDInsight cluster will be assigned a specific FQDN for the Virtual Network i
 
 You must specify the cluster name and a service and component running on the cluster, such as the YARN resource manager.
 
-> [AZURE.NOTE] The data returned is a JSON document that contains a lot of information about the component. To extract just the FQDN, you should use a JSON parer to retrieve the `host_components[0].HostRoles.host_name` value.
+> [AZURE.NOTE] The data returned is a JSON document that contains a lot of information about the component. To extract just the FQDN, you should use a JSON parser to retrieve the `host_components[0].HostRoles.host_name` value.
 
 For example, to return the FQDN from an HDInsight Hadoop cluster, you could use one of the following methods to retrieve the data for the YARN resource manager.
 
