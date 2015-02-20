@@ -56,6 +56,6 @@ Replace *&lt;name&gt;* with your cache name and *&lt;key&gt;* with your access k
 
 
 <!--Image references-->
-[1]: ./media/cache-python-get-started/cache02.png
+[1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
