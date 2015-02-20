@@ -151,4 +151,4 @@ For example, you might use the following URI to access a web form via a
 
 ## Additional Resources
 
--   <a href="http://msdn.microsoft.com/library/windowsazure/gg680307.aspx">How to Map CDN Content to a Custom Domain</a>
+-   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">How to Map CDN Content to a Custom Domain</a>
