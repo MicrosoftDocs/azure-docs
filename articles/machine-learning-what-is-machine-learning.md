@@ -1,10 +1,10 @@
-<properties 
-    pageTitle="What's Machine Learning? | Azure" 
+﻿<properties 
+    pageTitle="What's Machine Learning?" 
     description="Overview of the Azure Machine Learning service." 
     services="machine-learning" 
     documentationCenter="" 
     authors="tedway,olgali" 
-    manager="paulettm" 
+    manager="neerajkh" 
     editor="cgronlun"/>
 
 <tags 
@@ -33,5 +33,4 @@ You can easily discover and create [web services](../machine-learning-publish-a-
 - A step-by-step guide for the Data Science journey from raw data to a consumable web service to ease the path for cloud-based data science. We have added the ability to use popular tools such as iPython Notebook and Python Tools for Visual Studio with Azure Machine Learning.
 
 ## Get started now
-You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](../machine-learning-create-experiment/) and by [building on samples](../machine-learning-sample-experiments/).  No Azure subscription or credit card is required to get started using Machine Learning when you try experiments in Studio.  
-  
+You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](../machine-learning-create-experiment/) and by [building on samples](../machine-learning-sample-experiments/).  No Azure subscription or credit card is required to get started using Machine Learning when you try experiments in Studio.

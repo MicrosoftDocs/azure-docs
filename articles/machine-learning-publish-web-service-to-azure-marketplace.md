@@ -29,7 +29,7 @@ The following are the steps for publishing an Azure Machine Learning web service
 
 1. Create and publish a Machine Learning Request-Response service (RRS)
 2. Deploy the service to production, and obtain the API Key and OData endpoint information.
-3. Use the URL of the published web service to publish to [Azure Marketplace (Data Market)](http://datamarket.azure.com/home) 
+3. Use the URL of the published web service to publish to [Azure Marketplace (Data Market)](https://publish.windowsazure.com/workspace/) 
 4. Once submitted, your offer is reviewed and needs to be approved before your customers can start purchasing it. The publishing process can take a few business days. 
 
 ## Walk through

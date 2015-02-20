@@ -4,7 +4,7 @@ In this tutorial, you'll learn:
 
 - How to create a new site through the gallery.
 
-- How to deploy the site through the Azure Portal.
+- How to deploy the site through the Azure Management Portal.
  
 You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
@@ -25,7 +25,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 	![Create From Gallery][6]
 
-4. Locate and click the WordPress icon in list, and then click **Next**.
+4. Click **CMS**, then select **WordPress**. Click **Next**.
 	
 	![WordPress from list][7]
 
@@ -33,13 +33,13 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 - Enter a URL name of your choice	
 - Leave **Create a new MySQL database** selected in the **Database** field
-- Select the region closest to you
+- Select the web scale group
 
 	![configure your app][8]
 
 6. Then click **Next**.
 
-7. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to you as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
+7. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to your website as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
 	
 	![create database][9]
 
@@ -47,17 +47,11 @@ After you click **Complete** Azure will initiate build and deploy operations. Wh
 
 ## Launch and manage your WordPress site
 
-1. Click on your new site from the **Websites** page to open the dashboard for the site.
+1. Click on the URL of your new website from the **Websites** page to open its welcome page.
 
-	![launch dashboard][10]
-
-2. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site's welcome page.
-
-	![site URL][11] 
+	![site URL][10]
 
 3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the website's login page.
-
-	![login to WordPress][12]
 
 4. Login to the new WordPress website by entering the username and password that you specified on the **Welcome** page.
 
@@ -76,8 +70,6 @@ After you click **Complete** Azure will initiate build and deploy operations. Wh
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

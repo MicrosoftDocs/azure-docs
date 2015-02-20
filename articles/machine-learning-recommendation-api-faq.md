@@ -62,10 +62,12 @@ A paid subscription is any subscription for which there is a monthly fee. When y
 You can buy or update your subscription from the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) page on Microsoft Azure Marketplace.
 
 When you upgrade a subscription:
+
 * Transactions that are remaining on your old subscription are not added to your new subscription. 
 * You pay full price for the new subscription, even though you have unused transactions on your old subscription.
 
 Process to upgrade a subscription:
+
 * Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
 * Sign in to the Marketplace if you aren't already Signed in.
 * In the right pane, all the available plans are listed. Click the radio button for the plan you want to upgrade to.
