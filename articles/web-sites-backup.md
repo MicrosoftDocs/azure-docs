@@ -21,7 +21,7 @@
 The Azure Websites Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your website to a previous state, or create a new website based on one of your original site's backups. 
 
 
-For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure website from backup, see [Restore an Azure web site](../web-sites-restore/).
 
 <a name="video"></a>
 ## Automatic and Easy Backup (Video)
@@ -45,7 +45,7 @@ This information is backed up to the Azure storage account that you specify.
 <a name="requirements"></a>
 ## Requirements and Restrictions
 
-* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
+* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale Web Sites](../web-sites-scale/). 
 
 * The Backup and Restore feature requires an Azure storage account that must belong to the same subscription as the website that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
@@ -122,9 +122,9 @@ The .zip and .xml backup file names consist of your website name followed by an 
 
 The XML file that is stored with the zip file indicates the database file name under *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
-The database backup file itself is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, you can follow the steps in the article [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/en-us/library/hh710052.aspx).
+The database backup file itself is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, you can follow the steps in the article [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
-For information on restoring an Azure website (including databases) by using the Azure management portal, see [Restore a Microsoft Azure web site]( http://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure website (including databases) by using the Azure management portal, see [Restore a Microsoft Azure web site](../web-sites-restore/).
 
 > [AZURE.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
@@ -138,19 +138,19 @@ For information on restoring an Azure website (including databases) by using the
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure website from backup, see [Restore an Azure web site](../web-sites-restore/).
 
-To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 
 
 <a name="moreaboutstorage"></a>
 ### More about storage accounts
 
-[What is a Storage Account?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account/)
+[What is a Storage Account?](../storage-whatis-account/)
 
-[How to: Create a storage account](http://www.windowsazure.com/en-us/documentation/articles/storage-create-storage-account/)
+[How to: Create a storage account](../storage-create-storage-account/)
 
-[How To Monitor a Storage Account](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
+[How To Monitor a Storage Account](../storage-monitor-storage-account/)
 
 [Understanding Winidows Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
