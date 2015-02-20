@@ -10,7 +10,7 @@
 	authors="rmcmurray" 
 	solutions="" 
 	manager="wpickett" 
-	editor="mollybos" 
+	editor="jimbe" 
 	scriptId="" 
 	videoId=""/>
 
@@ -20,7 +20,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/20/2015" 
 	ms.author="robmcm"/>
 
 # Using Azure Storage with a Jenkins Continuous Integration solution

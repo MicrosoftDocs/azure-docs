@@ -103,7 +103,7 @@ After you have imported the publishsettings file, you can use the following comm
 	azure account storage create [options] <StorageAccountName>
 
 
-[AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
+> [AZURE.NOTE] The storage account must be collocated in the same data center with HDInsight.
 
 
 For information on creating an Azure storage account using Azure Management portal, see [Create, manage, or delete a storage account][azure-create-storageaccount].

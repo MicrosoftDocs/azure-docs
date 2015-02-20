@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="02/20/2015" 
 	ms.author="cephalin"/>
 
 # How to Create a Website
 
 This topic shows how to create a website from the gallery or by using the management portal.
 
-For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Web Sites](/en-us/documentation/services/web-sites/).
+For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Websites](/en-us/documentation/services/web-sites/).
 
 ##<a name="createawebsiteportal"></a> How to: Create a Website Using the Management Portal
 
@@ -28,7 +28,7 @@ Follow these steps to create a website in Azure.
 	
 1. Login to the [Azure Management Portal](http://manage.windowsazure.com/).
 
-2. Click the **Create New** icon on the bottom left of the Management Portal.
+2. Click the **New** icon on the bottom left of the Management Portal.
 
 3. Click the **Website** icon, click the **Quick Create** icon, enter a value for URL and then click the check mark next to **Create Website** on the bottom right corner of the page.
 
@@ -40,9 +40,13 @@ Follow these steps to create a website in Azure.
 
 7. The **Configure** management page exposes settings for your website, such as:
 
-	- The version of .NET framework or PHP for your web application
+	- version of .NET, PHP, Java, or Python for your website
+	- edit in Visual Studio Online
 	- SSL bindings
 	- custom domain names
+	- authentication/authorization
+	- application and site diagnostics
+	- monitoring endpoints
 	- logging options
 	- app settings for the Azure environment (overriding <appSettings> in your development environment's Web.config, for example)
 	- connection strings (overriding <connectionStrings> in your development environment's Web.config, for example)
