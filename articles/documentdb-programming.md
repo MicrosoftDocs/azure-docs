@@ -231,7 +231,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 ##Pre-compilation
 Stored procedures, triggers and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
 
-##Triggers
+##<a id="trigger"></a> Triggers
 ###Pre-Triggers
 DocumentDB provides triggers that are executed or triggered by an operation on a document. For example, you can specify a pre-trigger when you are creating a document – this pre-trigger will run before the document is created. The following is an example of how pre-triggers can be used to validate the properties of a document that is being created:
 
@@ -374,7 +374,7 @@ This trigger queries for the metadata document and updates it with details about
 
 One thing that is important to note is the **transactional** execution of triggers in DocumentDB. This post-trigger runs as part of the same transaction as the creation of the original document. Therefore, if we throw an exception from the post-trigger (say if we are unable to update the metadata document), the whole transaction will fail and be rolled back. No document will be created, and an exception will be returned.  
 
-##User-Defined Functions
+##<a id="udf"></a> User-Defined Functions
 User-defined Functions (UDFs) are used to extend the DocumentDB SQL query language grammar and implement custom business logic. They can only be called from inside queries. They do not have access to the context object and are meant to be used as compute-only JavaScript. Therefore, UDFs can be run on secondary replicas of the DocumentDB service.  
  
 The following sample creates a UDF to calculate income tax based on rates for various income brackets, and then uses it inside a query to find all people who paid more than $20,000 in taxes.

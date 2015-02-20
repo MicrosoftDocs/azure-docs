@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Creating a virtual machine for a web project using Visual Studio" 
-	description="Create a virtual machine for a website" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="kempb" 
-	manager="douge" 
-	editor="tglee"/>
+<properties
+	pageTitle="Creating a virtual machine for a web project using Visual Studio"
+	description="Create a virtual machine for a website"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kempb"
+	manager="douge"
+	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/02/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/19/2015" 
 	ms.author="kempb"/>
 
 # Creating a virtual machine for a website with Visual Studio
