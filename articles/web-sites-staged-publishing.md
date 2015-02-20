@@ -63,7 +63,7 @@ The website must be running in the **Standard** hosting plan to enable multiple 
 
 	-	 
 
-There is no content. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](./web-sites-publish-source-control.md/).
+There is no content. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](./web-sites-publish-source-control/).
 
 <a name="AboutConfiguration"></a>
 ## About Configuration for Deployment Slots ##
@@ -138,7 +138,7 @@ In the command bar at the bottom of the Azure Websites portal page, click **Dele
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing Azure Websites deployment slots. 
 
-- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Windows Azure subscription, see [How to install and configure Windows Azure PowerShell](./install-configure-powershell.md/).  
+- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Windows Azure subscription, see [How to install and configure Windows Azure PowerShell](./install-configure-powershell/).  
 
 - To list the cmdlets available for Azure Websites in PowerShell, call `help AzureWebsite`. 
 
@@ -193,7 +193,7 @@ If a deployment slot is no longer needed, it can be deleted by using the **Remov
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides cross-platform commands for working with Azure, including support for managing deployment slots on Azure Websites. 
 
-- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](./xplat-cli.md/). 
+- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](./xplat-cli/). 
 
 -  To list the commands available for Azure Websites in the xplat-cli, call `azure site -h`. 
 

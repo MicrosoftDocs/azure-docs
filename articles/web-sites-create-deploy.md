@@ -16,13 +16,13 @@
 	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
-#How to Create a Website
+# How to Create a Website
 
 This topic shows how to create a website from the gallery or by using the management portal.
 
 For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Web Sites](/en-us/documentation/services/web-sites/).
 
-##<a name="createawebsiteportal"></a>How to: Create a Website Using the Management Portal
+##<a name="createawebsiteportal"></a> How to: Create a Website Using the Management Portal
 
 Follow these steps to create a website in Azure.
 	
@@ -48,13 +48,13 @@ Follow these steps to create a website in Azure.
 	- connection strings (overriding <connectionStrings> in your development environment's Web.config, for example)
 	- script processors for specific file extensions like *.php
 
-##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Gallery
+##<a name="howtocreatefromgallery"></a> How to: Create a Website from the Gallery
 
 [AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
-##<a name="deleteawebsite"></a>How to: Delete a Website
+##<a name="deleteawebsite"></a> How to: Delete a Website
 Websites are deleted using the **Delete** icon in the Azure Management Portal. The **Delete** icon is available in the Azure Portal when you click **Websites** to list all of your websites and at the bottom of each of the website management pages.
 
-##<a name="nextsteps"></a>Next Steps
+##<a name="nextsteps"></a> Next Steps
 
 For more information, see [Azure Web Sites](/en-us/documentation/services/web-sites/).

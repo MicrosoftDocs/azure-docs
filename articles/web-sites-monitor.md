@@ -18,11 +18,11 @@
 
 
 
-#<a name="howtomonitor"></a>How to Monitor Websites
+#<a name="howtomonitor"></a> How to Monitor Websites
 
 Websites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a website as described below.
 
-##<a name="websitemetrics"></a>How to: Add website metrics
+##<a name="websitemetrics"></a> How to: Add website metrics
 1. In the [Azure Management Portal](http://manage.windowsazure.com/), from the website's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 
 2. To view additional metrics for the website, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box. 
@@ -35,10 +35,10 @@ Websites provide monitoring functionality via the Monitor management page. The M
 
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
 
-##<a name="howtoreceivealerts"></a>How to: Receive alerts from website metrics
+##<a name="howtoreceivealerts"></a> How to: Receive alerts from website metrics
 In **Standard** website mode, you can receive alerts based on your website monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
 
-##<a name="howtoviewusage"></a>How to: View usage quotas for a website
+##<a name="howtoviewusage"></a> How to: View usage quotas for a website
 
 Websites can be configured to run in either **Shared** or **Standard** website mode from the website's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 websites per region in **Shared** website mode. The pool of resources available to each Website subscription for this purpose is shared by other websites in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other websites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each website's **Dashboard** management page.
 
@@ -56,7 +56,7 @@ To determine the extent that a website is impacting resource usage quotas, follo
 	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
-##<a name="resourceusage"></a>How to: Avoid exceeding your quotas
+##<a name="resourceusage"></a> How to: Avoid exceeding your quotas
 
 Quotas are not a matter of performance or cost, but it's the way Azure governs resource usage in a multitenant environment by preventing tenants from overusing shared resources. Since exceeding your quotas means downtime or reduced functionality for your website, consider the following if you want to keep your site running when quotas are about to be reached:
 
@@ -64,11 +64,11 @@ Quotas are not a matter of performance or cost, but it's the way Azure governs r
 - As the number of instances of a website is increased, so is the likelihood of exceeding shared resource quotas. If appropriate, consider scaling back additional instances of a website when shared resource quotas are being exceeded.
 
 
-##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a website
+##<a name="howtoconfigdiagnostics"></a> How to: Configure diagnostics and download logs for a website
 
 Diagnostics are enabled on the **Configure** management page for the website. There are two types of diagnostics: **application diagnostics** and **site diagnostics**.
 
-####Application Diagnostics####
+#### Application Diagnostics ####
 
 The **application diagnostics** section of the **Configure** management page controls the logging of information produced by the application, which is useful when logging events that occur within an application. For example, when an error occurs in your application, you may wish to present the user with a friendly error while writing more detailed error information to the log for later analysis.
 
@@ -107,7 +107,7 @@ Since application logging to storage requires using a storage client to view the
 > 
 > Application logging to table or blob storage is only supported for .NET applications.
 
-####Site Diagnostics####
+#### Site Diagnostics ####
 
 The **site diagnostics** section of the **Configure** management page controls the logging performed by the web server, such as the logging of web requests, failure to serve pages, or how long it took to serve a page. You can enable or disable the following options:
 
@@ -128,7 +128,7 @@ After enabling diagnostics for a website, click the **Save** icon at the bottom 
 
 > [AZURE.IMPORTANT] Logging and tracing place significant demands on a website. We recommend turning off logging and tracing once you have reproduced the problem(s) that you are troubleshooting.
 
-###Advanced configuration###
+### Advanced configuration ###
 
 Diagnostics can be further modified by adding key/value pairs to the **app settings** section of the **Configure** management page. The following settings can be configured from **app settings**:
 
@@ -150,7 +150,7 @@ Diagnostics can be further modified by adding key/value pairs to the **app setti
 
 - Default value: 1MB
 
-###Downloading log files for a website###
+### Downloading log files for a website ###
 
 Log files can be downloaded using either FTP, Azure PowerShell, or the Azure Command-Line tools.
 
@@ -195,7 +195,7 @@ This will display log information to the command prompt, PowerShell, bash or ter
 
 > [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/) for installation and configuration information.
 
-###Reading log files###
+### Reading log files ###
 
 The log files that are generated after you have enabled logging and / or tracing for a website vary depending on the level of logging / tracing that is set on the Configure management page for the website. Following are the location of the log files and how the log files may be analyzed:
 
@@ -234,7 +234,7 @@ The .htm files include the following sections:
 - Read Files with: Log Parser. Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 
 
-##<a name="webendpointstatus"></a>How to: Monitor web endpoint status
+##<a name="webendpointstatus"></a> How to: Monitor web endpoint status
 
 This feature, available in **Standard** mode, lets you monitor up to 2 endpoints from up to 3 geographic locations. 
 
