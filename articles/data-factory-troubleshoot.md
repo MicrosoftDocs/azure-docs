@@ -121,14 +121,13 @@ To enumerate and read the logs for a particular Custom Activity:
 2.  Use the **Diagram** button to view the data factory diagram, and click on the **Dataset** Table that follows the specific **Pipeline** which has the Custom Activity. 
 3.  In the **Table** blade, Click on the slice of interest in the **Problem slices** for the time frame to be investigated.
 4.  The detailed **Data Slice** blade will appear and it can list multiple **Activity runs** for the slice. Click on an **Activity** from the list. 
-5.  The **Activity Run Details** blade will appear. It will list the **Error Message** in the middle of the blade, and several **Log files** listed at the bottom of the blade affiliated with that activity run. 
-> - Logs/system-0.log
-> - Status
-> - Status/exit
-> - Status/stderr
-> - Status/stdout
-
-Click on the first **Log file** item in the list, and the log will open in a new blade with the full text displayed for you to read. Review the text of each log by clicking on each one. The text viewer blade will open. You can click the **Download** button to download the text file for optional offline viewing.  
+5.  The **Activity Run Details** blade will appear. It will list the **Error Message** in the middle of the blade, and several **Log files** listed at the bottom of the blade affiliated with that activity run.
+	- Logs/system-0.log
+	- Status
+	- Status/exit
+	- Status/stderr
+	- Status/stdout
+6. Click on the first **Log file** item in the list, and the log will open in a new blade with the full text displayed for you to read. Review the text of each log by clicking on each one. The text viewer blade will open. You can click the **Download** button to download the text file for optional offline viewing.  
 
 One **common error** from a custom activity is 
 > Package execution failed with exit code '1'. See 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr' for more details.
