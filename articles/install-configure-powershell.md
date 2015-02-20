@@ -77,7 +77,7 @@ For more information about authentication and subscription management in Azure, 
 
 2. Type the following command:
 
-    `Add-AzureAccount`
+		Add-AzureAccount
 
 3. In the window, type the email address and password associated with your account.
 
@@ -136,18 +136,18 @@ about your subscriptions, you can get it from the [Azure Management Portal](http
 
 3. Type the following command:
 
-    `Get-AzurePublishSettingsFile`
+		Get-AzurePublishSettingsFile
 
 4. When prompted, download and save the publishing profile and note the path and name of
 the .publishsettings file. This information is required when you run the
 **Import-AzurePublishSettingsFile** cmdlet to import the settings. The default
 location and file name format is:
 
-	`C:\\Users\<UserProfile>\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings`
+			C:\\Users\<UserProfile>\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. Type a command similar to the following, substituting your Windows account name and the path and file name for the placeholders:
 
-    `Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings`
+		Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings
 
 > [AZURE.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
 process to download a new .publishsettings file, and then import those
