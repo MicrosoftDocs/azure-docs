@@ -3,7 +3,7 @@
 	description="Shows how to use Azure Websites create enterprise website solutions for your business" 
 	services="web-sites" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="apwestgarth" 
 	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
-	ms.author="cephalin"/>
+	ms.date="02/20/2015" 
+	ms.author="apwestgarth"/>
 
 # Azure Websites Offerings for Enterprise Whitepaper #
 

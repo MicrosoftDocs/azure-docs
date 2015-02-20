@@ -26,16 +26,15 @@ Operational Insights is an analysis service that enables IT administrators to ga
 
 With Operational Insights, you can transform machine data into operational intelligence. Specifically, you can:
 
-- Manage the capacity of your server infrastructure
-- Update servers with system updates
+- Send machine data to the system with or withot using an agent or in conjunction with Sysem Center Operations Manager.
+- Manage the capacity of your private cloud infrastructure
+- Check update status of your servers 
 - Understand relationships between data in server log files
 - Protect servers with antimalware
 - Manage security risks with security assurance
 - Track configuration changes across your servers
-- Optimize SQL Server
+- Optimize SQL Server and Active Directory
 - Search Event and IIS logs
-- Install agents on Microsoft Azure IaaS virtual machines
-- Use Operational Insights without Operations Manager  
 
 <h2 id="">Operational Insights environment</h2>
 
@@ -51,11 +50,11 @@ The Operational Insights environment is made up of:
 
 If you used the previous version of Operational Insights called System Center Advisor, you might have Advisor software installed in your local environment. However, Advisor software is not supported with Operational Insights.
 
-Using Operational Insights software as an Operations Manager service consists of one or more management groups and at least one agent per management group. The Operations Manager agents collect data from your servers and analyze it by using intelligence packs (similar to a management pack in System Center Operations Manager). The analyzed data is regularly sent from Operations Manager to the Operational Insights web service by using a proxy server, bypassing other servers, so there is no additional load placed on them.
+Using Operational Insights software as an Operations Manager service consists of one or more management groups and at least one agent per management group. The Operations Manager agents collect data from your servers and analyze it by using intelligence packs (similar to a management pack in System Center Operations Manager). The data is regularly sent from Operations Manager to the Operational Insights web service (if needed, passing through a proxy server), with nothing being stored in any of the Operations Manager databases, so there is no additional load placed on them.
 
 Similarly, agents installed on individual computers can connect directly to the web service to send collected data for processing.
 
-The data in each intelligence pack is analyzed and presented in the Operational Insights portal. You can view any alerts and associated remediation guidance, configuration assessments, infrastructure capacity issues, system update status, antimalware warnings, and log data. You can also perform detailed searches.
+The data in each intelligence pack is analyzed, indexed, and presented in the Operational Insights portal. You can view any alerts and associated remediation guidance, configuration assessments, infrastructure capacity issues, system update status, antimalware warnings, and log data. You can also perform detailed ad-hoc searches and explorations.
 
 <h2 id="">Create an Operational Insights account and sign in</h2>
 
