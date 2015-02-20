@@ -39,7 +39,7 @@ There are a limited number of PowerShell cmdlets available for Service Bus. In o
 entities that are not exposed through the existing cmdlets, we will make use of the .NET client for
 Service Bus by way of the [Service Bus NuGet package][].
 
-First, we'll want to make sure that our script can locate the `Microsoft.ServiceBus.dll` installed
+First, we'll want to make sure that our script can locate the `Microsoft.ServiceBus.dll` assembly, which is installed
 with the NuGet package. In order to be flexible, the script will perform these steps:
 
 1. The script will determine the path where it was invoked.
@@ -76,7 +76,7 @@ In our example, we'll create a few local variables in the script, `$Namespace` a
 - `$Location` identifies the data center where will we provision the namespace.
 - `$CurrentNamespace` will store the reference namespace that we retrieve (or create).
 
-In an actual script, `$Namespace` and `$Location` could be passed in as parameters.
+In an actual script, `$Namespace` and `$Location` can be passed in as parameters.
 
 This part of the script will
 
