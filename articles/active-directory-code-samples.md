@@ -27,7 +27,7 @@ Contribute to our samples on GitHub: [Microsoft Azure Active Directory Samples a
 
 ## Web Browser to Web Application 
 
-These samples show how to write a web application directs the user’s browser to sign them in to Azure AD.
+These samples show how to write a web application that directs the user’s browser to sign them in to Azure AD.
 
 
 

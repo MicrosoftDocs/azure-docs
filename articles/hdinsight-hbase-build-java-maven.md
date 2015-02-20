@@ -160,7 +160,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 ##Create the application
 
-1. Go to the __hbaseapp\src\main\java\com\microsoft\examples__ directory and rename the app.java__ file to __CreateTable.java__.
+1. Go to the __hbaseapp\src\main\java\com\microsoft\examples__ directory and rename the app.java file to __CreateTable.java__.
 
 2. Open the __CreateTable.java__ file and replace the existing contents with the following.
 
