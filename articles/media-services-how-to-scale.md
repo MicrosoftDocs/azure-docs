@@ -25,7 +25,7 @@ This article is part of the [Media Services Video on Demand workflow](../media-s
 
 You can scale Media Services by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with. 
 
-##Streaming Reserved Units
+##<a id="streaming_endpoins"></a>Streaming Reserved Units
 
 For more information, see [Scaling streaming units](../media-services-manage-origins#scale_streaming_endpoints).
 
@@ -59,7 +59,7 @@ To change the reserved unit type and the number of encoding reserved units, do t
 
 ##Opening a Support Ticket
 
-By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
+By default every Media Services account can scale to up to 25 Encoding and 5 Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
 To open a support ticket do the following: 
 
