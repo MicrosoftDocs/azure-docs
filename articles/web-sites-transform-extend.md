@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Transform and extend your site" 
-	description="TBD" 
+	description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure websites and to add private site extensions to enable custom site administration actions." 
 	authors="cephalin" 
 	writer="cephalin" 
 	editor="mollybos" 
@@ -19,7 +19,7 @@
 
 # Transform and extend your site
 
-By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Windows Azure websites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
+By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Azure websites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
 
 ##<a id="transform"></a> Transform the Site Configuration in ApplicationHost.config
 The Azure Websites platform provides flexibility and control for site configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Windows Azure Websites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
