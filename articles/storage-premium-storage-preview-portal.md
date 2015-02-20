@@ -272,7 +272,7 @@ In this section:
 ### Create a Premium Storage account in the Azure Preview Portal
 This section shows how to create a Premium Storage account using Azure Preview Portal.
 
-1.	Sign in to the [Azure Preview Portal](https://portal.azure.com/). Check out the [Free Trial](http://www.windowsazure.com/pricing/free-trial/) offer if you do not have a subscription yet. 
+1.	Sign in to the [Azure Preview Portal](https://portal.azure.com/). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet. 
 
 
     > [AZURE.NOTE] If you log in to the Azure Management Portal, click your user account name at the top right corner of the portal. Then, click **Switch to new portal**.
