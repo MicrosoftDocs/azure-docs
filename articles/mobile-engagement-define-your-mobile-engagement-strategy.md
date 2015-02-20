@@ -60,7 +60,7 @@ As you might realize at this point, making a broadcast push notification only is
 
 To be the most contextual possible when engaging your audience, it is crucial to have the knowledge of the end-users behavior, to know their status in real-time. Data collection allows marketers to focus really on what matters to play use cases and achieve their mobile engagement strategy objectives. Achieving the objectives set above is also the reason why the best practice in fact is not to gather anything and everything in the analytics but only those that allow your to focus on what your want to learn and use-cases. This is the good way to start, try, test and learn how to use the solution and address smart push notification and increase the retention of an application to bring it at a success story level.
 
->[AZURE.NOTE] Remember: to much data kills the data!
+>[AZURE.NOTE] Remember: too much data kills the data!
 
 ###Use-cases & Best practices
 
