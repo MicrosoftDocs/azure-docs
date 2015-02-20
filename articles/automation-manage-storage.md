@@ -51,3 +51,4 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 * Check out the Azure Automation [Getting Started Guide](http://go.microsoft.com/fwlink/?LinkId=390560)
 * Get help on the Azure Automation [Support Forums](http://go.microsoft.com/fwlink/?LinkId=390561)
 * Hear from the Azure Automation engineering team on the [Azure Blog](http://azure.microsoft.com/blog/tag/azure-automation/)
+* Follow Azure Automation on [Twitter](https://twitter.com/AzureAutomation)
