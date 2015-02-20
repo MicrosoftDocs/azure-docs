@@ -423,7 +423,7 @@ The following steps show you how to stop and delete your application.
 
 	Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
-  [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
