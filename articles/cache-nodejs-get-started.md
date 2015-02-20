@@ -29,6 +29,7 @@ Install [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
+This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you can use any Node.js client listed at [http://redis.io/clients](http://redis.io/clients).
 
 ## Create a Redis cache on Azure
 
