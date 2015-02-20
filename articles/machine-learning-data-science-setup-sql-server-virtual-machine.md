@@ -1,6 +1,6 @@
-<properties title="Set up a Data Science Virtual Machine" pageTitle="Set up a Data Science Virtual Machine" description="Set up a Data Science Virtual Machinee" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,xibingao" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="Set up a Data Science Virtual Machine" pageTitle="Set up a Data Science Virtual Machine" description="Set up a Data Science Virtual Machinee" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,xibingaomsft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/05/2015" ms.author="msolhab,xibingao" />
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/05/2015" ms.author="msolhab,xibingaomsft" />
 
 # Set up a Data Science Virtual Machine in Azure
 
@@ -246,7 +246,7 @@ directly from your SQL Server VM databases in the
 To connect to the Database Engine from another computer, you must create
 at least one SQL Server authentication login.  
 
- > [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).  
+> [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).  
 	
     USE master
     go
@@ -355,7 +355,7 @@ In later stages of the Cloud Data Science Process, you will use the [Azure Machi
 
 2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/en-us/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
-3.	In the **Database server name** text box, enter tcp:<DNS name of your virtual machine>,1433
+3.	In the **Database server name** text box, enter `tcp:<DNS name of your virtual machine>,1433`
 
 4.	Enter the SQL user name in the **Server user account name** text box.
 

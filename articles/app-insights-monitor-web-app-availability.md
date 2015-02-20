@@ -98,7 +98,13 @@ The result shows the reason for failure.
 
 ![Webtest run result](./media/appinsights/appinsights-18-availDetails.png)
 
-For more detail, download the result file and inspect it in Visual Studio.
+For more details you can click on the web test result and evaluate it step by step right in the portal. By clicking on individual failure you can see response header, response body and exceptions.
+
+
+![Webtest run result](./media/appinsights/appinsights-71webtestResultonthePortal.png)
+
+Alternatively, you can download the result file and inspect it in Visual Studio.
+
 
 *Looks OK but reported as a failure?* Check all the images, scripts, style sheets and any other files loaded by the page. If any of them fails, the test will be reported as failed, even if the main html page loads OK.
 

@@ -103,15 +103,7 @@ After you have imported the publishsettings file, you can use the following comm
 	azure account storage create [options] <StorageAccountName>
 
 
-> [AZURE.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
-
-><ul>
-<li>Southeast Asia</li>
-<li>North Europe</li>
-<li>West Europe</li>
-<li>East US</li>
-<li>West US</li>
-</ul>
+> [AZURE.NOTE] The storage account must be collocated in the same data center with HDInsight.
 
 
 For information on creating an Azure storage account using Azure Management portal, see [Create, manage, or delete a storage account][azure-create-storageaccount].

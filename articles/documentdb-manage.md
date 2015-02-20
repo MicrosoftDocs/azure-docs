@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Manage DocumentDB capacity and performance | Azure" 
-	description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." 
+	description="Learn how you can elastically scale DocumentDB to meet the capacity needs of your application." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="mimig1, johnfmacintyre" 
 	manager="jhubbard" 
 	editor="cgronlun" 
 	documentationCenter=""/>
@@ -17,32 +17,36 @@
 	ms.author="mimig"/>
 
 #Manage DocumentDB capacity and performance
-DocumentDB is a fully managed, massively scalable document oriented NoSQL database service.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
+DocumentDB is a fully managed, scalable document oriented NoSQL database service.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
 
 You can get started with DocumentDB by creating a database account through the [Microsoft Azure Preview Management Portal](https://portal.azure.com/). DocumentDB is offered in stackable capacity units (CUs) of solid-state drive (SSD) backed storage and throughput. You can elastically scale DocumentDB to meet the performance and storage needs of your application. 
 
-Each capacity unit comes with a quota of elastic collections for storing document data, provisioned document storage and provisioned throughput as request units per second. If the capacity requirements of your application change, you can scale up or scale down the amount of provisioned capacity in your database account. Capacity provisioned under a database account is available for all databases and collections that exist or are created within the account.  
+Each capacity unit comes with a quota of collections for storing document data, provisioned document storage and provisioned throughput as request units per second. If the capacity requirements of your application change, you can scale up or scale down the amount of provisioned capacity in your database account. Capacity provisioned under a database account is available for all databases and collections that exist or are created within the account.
 
-##<a name="DBaccount"></a>Database account and administrative quota
-As an Azure subscriber, you can provision one or more DocumentDB database accounts. Each database account comes with a quota of administrative resources including 100 databases, 500,000 users and 2,000,000 permissions.   
+> [AZURE.NOTE] Each collection can scale in both storage and throughput up to the maximum supported [limit](http://azure.microsoft.com/documentation/articles/documentdb-limits/). Throughput will be evenly distributed to all collections up to the maximum level.
+
+When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
+
+##<a name="DBaccount"></a>Database account and administrative resources
+As an Azure subscriber, you can provision one or more DocumentDB database accounts. Each database account comes with a quota of administrative resources including databases, users and permissions. These resources are subject to [limits and quotas](http://azure.microsoft.com/documentation/articles/documentdb-limits/). If you need additional administrative resources, please contact support.   
 
 ##<a name="DBstorage"></a> Databases with unlimited document storage
-A single DocumentDB database can contain practically an unlimited amount of document storage partitioned by collections. Collections form the transaction domains for the documents contained within them. A DocumentDB database is elastic by default – ranging from a few GB to potentially petabytes of SSD backed document storage and provisioned throughput. Unlike a traditional RDBMS database, a database in DocumentDB is not scoped to a single machine.   
+A single DocumentDB database can contain practically an unlimited amount of document storage partitioned by collections. Collections form the transaction domains for the documents contained within them. A DocumentDB database is elastic by default – ranging from a few GB to potentially terabytes of SSD backed document storage and provisioned throughput. Unlike a traditional RDBMS database, a database in DocumentDB is not scoped to a single machine.   
 
 With DocumentDB, as your application’s scale needs grow you can create more collections or databases or both. Indeed, various first party applications within Microsoft have been using DocumentDB at consumer scale by creating extremely large DocumentDB databases each containing thousands of collections with terabytes of document storage. You can grow or shrink a database by adding or removing collections to meet your application’s scale requirements. You can create any number of collections within a database subject to offer availability and the amount of capacity units you purchase. The SSD backed storage and throughput provisioned for you can be spread across the collections under the databases in your database account. 
 
-##<a name="Elastic"></a>Elastic collections
-Each DocumentDB database can contain one or more collections. A collection provides the scope for document storage and query execution. A collection is also a transaction domain for all the documents contained within it. Collections are elastic and can grow and shrink in storage and throughput . You can create any number of collections to meet the scale requirements of your applications. In order to create collections, you first need to buy one or more capacity units (CU). Each capacity unit includes a quota of collections, if you reach the collection quota for your account you can purchase additional capacity units.  
+##<a name="DBCollections"></a>Database collections
+Each DocumentDB database can contain one or more collections. A collection provides the scope for document storage and query execution. A collection is also a transaction domain for all the documents contained within it. You can create any number of collections to meet the scale requirements of your applications. In order to create collections, you first need to buy one or more capacity units (CU). Each capacity unit includes a quota of collections, if you reach the collection quota for your account you can purchase additional capacity units.  
 
->[AZURE.NOTE] Note that in the Preview release the collections can grow and shrink anywhere between 0-10GB. 
+>[AZURE.NOTE] Note that each collection supports storage for up to 10GB of document data. 
 
 ##<a name="ProvStorage"></a>Provisioned storage and throughput as capacity units
 You can provision stackable units of SSD backed document storage and throughput as capacity units (CU). You can elastically scale DocumentDB with predictable performance by purchasing more capacity units, to meet your application’s needs for read scale, storage and throughput.  
  
 Each CU comes with 3 elastic collections, 10GB of SSD backed provisioned document storage and 2000 request units (RU) worth of provisioned throughput. The provisioned storage and the throughput capacity associated with a CU is distributed across the DocumentDB collections you create.   
 
-##<a name="ProvThroughput"></a>Provisioned throughput, request units, and database operations
-Unlike a key-value NoSQL stores which offer simple GET and PUT operations, DocumentDB allows for a richer set of database operations including relational and hierarchical queries with UDFs, stored procedures and triggers – all operating on the documents within a database collection. The cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation.  Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.   
+##<a name="ProvThroughput"></a>Request units and database operations
+DocumentDB allows for a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures and triggers – all operating on the documents within a database collection. The cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation.  Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.   
 
 Request units are provisioned for each Database Account based on the number of capacity units that you purchase. Request unit consumption is evaluated as a rate per second. Applications that exceed the provisioned request unit rate for their account will be throttled until the rate drops below the reserved level for the Account. If your application requires a higher level of throughput, you can purchase additional capacity units.  
 

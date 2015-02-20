@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="01/02/2015" 
+	ms.date="02/19/2015" 
 	ms.author="rasquill"/>
 
 
@@ -52,7 +52,7 @@ Currently, CoreOS assumes that those who can SSH into the cluster have permissio
 
 ## <a id='usingcoreos'>How to use CoreOS on Azure</a>
 
-This section describes how to create an Azure Cloud Service with three CoreOS virtual machines in it using the [Azure Cross-Platform Interface (xplat-cli)]. The basic steps are as follows
+This section describes how to create an Azure Cloud Service with three CoreOS virtual machines in it using the [Azure Cross-Platform Interface (xplat-cli)]. The basic steps are as follows:
 
 1. Create the SSH certificates and keys to secure communication with the CoreOS virtual machine
 2. Obtain your cluster's etcd id for intercommunication
