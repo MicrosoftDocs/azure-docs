@@ -159,15 +159,8 @@ A table is a rectangular dataset and it is the only type of dataset that is supp
 		GO
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
-		GO
-				
-	In the Azure Portal ([http://manage.windowsazure.com](http://manage.windowsazure.com)), to launch Azure SQL Management Console, click **MANAGE** as shown in the following image:
- 
-	![Launch Azure SQL Management Console][image-data-factory-sql-management-console]
 
-	![Azure SQL Management Console][image-data-factory-sql-management-console-2]
-
-	In the Azure Preview Portal ([http://portal.azure.com](http://portal.sazure.com)), you can launch Visual Studio 2013 to run the SQL query. 
+	In the Azure Preview Portal ([http://portal.azure.com](http://portal.sazure.com)), you can launch Visual Studio 2013 to run the SQL query. You can also use SQL Server Management Studio or sqlcmd.exe to run this query against the Azure SQL database. 
 
 ### Create input table 
 A table is a rectangular dataset and has a schema. In this step, you will create a table named **EmpBlobTable** that points to a blob container in the Azure Storage represented by the **StorageLinkedService** linked service.
