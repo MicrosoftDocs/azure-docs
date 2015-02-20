@@ -37,6 +37,6 @@ You can connect Operational Insights to an existing System Center Operations Man
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-[Configure Proxy and Firewall settings (Optional)](https://msdn.microsoft.com/en-us/library/azure/dn884643.aspx)
+[Configure Proxy and Firewall settings (Optional)](https://msdn.microsoft.com/library/azure/dn884643.aspx)
 
 
