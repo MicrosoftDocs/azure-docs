@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" 
-	description="Provides a list of common Azure subscription and service limits along with maximum values." 
+	description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
 	services="" 
 	documentationCenter="" 
 	authors="rothja" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/20/2015" 
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
 
 ## Overview
 
-The following document specifies some of the most common Microsoft Azure limits. Note that this document does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
+This document specifies some of the most common Microsoft Azure limits. Note that this does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
@@ -33,22 +33,22 @@ The following document specifies some of the most common Microsoft Azure limits.
    <th align="left" valign="middle">Maximum Limit</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Cores per <a href="http://msdn.microsoft.com/en-us/library/azure/hh531793.aspx">subscription</a><sup>1</sup></p></td>
+   <td valign="middle"><p>Cores per <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">subscription</a><sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10,000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/azure/gg456328.aspx">Co-administrators</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Co-administrators</a> per subscription</p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Storage accounts</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Storage accounts</a> per subscription</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Cloud services</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Cloud services</a> per subscription</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
@@ -58,7 +58,7 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/jj157100.aspx">Local networks</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Local networks</a> per subscription</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -88,18 +88,18 @@ The following document specifies some of the most common Microsoft Azure limits.
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx">Affinity groups</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Affinity groups</a> per subscription</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -118,22 +118,22 @@ The following document specifies some of the most common Microsoft Azure limits.
    <th align="left" valign="middle">Maximum Limit</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Web/worker roles per deployment<sup>1</sup></a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Web/worker roles per deployment<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/gg557552.aspx#InstanceInputEndpoint">Instance Input Endpoints</a> per deployment</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Instance Input Endpoints</a> per deployment</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/gg557552.aspx#InputEndpoint">Input Endpoints</a> per deployment</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Input Endpoints</a> per deployment</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/gg557552.aspx#InternalEndpoint">Internal Endpoints</a> per deployment</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Internal Endpoints</a> per deployment</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -150,7 +150,7 @@ The following document specifies some of the most common Microsoft Azure limits.
    <th align="left" valign="middle">Maximum Limit</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/services/virtual-machines/">Virtual machines</a> per cloud service<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">Virtual machines</a> per cloud service<sup>1</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -317,16 +317,16 @@ For Azure Active Directory (AD), please see the following topic:
 
 [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/en-us/support/faq/
+  [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/en-us/library/azure/jj156210.aspx 
+  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
   [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/en-us/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/en-us/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/en-us/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx
+  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/en-us/library/azure/dn764971.aspx
+  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx

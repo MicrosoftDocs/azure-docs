@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="02/20/2015" 
 	ms.author="josephd"/>
 
 #Set up a hybrid cloud environment for testing
@@ -287,7 +287,7 @@ Your hybrid cloud environment is now ready for testing.
 
 ##Additional Resources
 
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](./virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 

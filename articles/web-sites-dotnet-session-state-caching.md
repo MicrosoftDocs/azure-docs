@@ -3,9 +3,9 @@
 	description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." 
 	services="cache" 
 	documentationCenter=".net" 
-	authors="riande" 
-	manager="wpickett" 
-	editor="mollybos"/>
+ authors="Rick-Anderson" 
+   manager="wpickett" 
+   editor=""/>
 
 <tags 
 	ms.service="web-sites" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="1/13/2015" 
-	ms.author="Rick-Anderson"/>
+	ms.date="2/13/2015" 
+	ms.author="riande"/>
 
 
 # How to Use ASP.NET Session State with Azure Websites

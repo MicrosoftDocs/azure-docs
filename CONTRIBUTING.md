@@ -171,7 +171,7 @@ The [markdown template](/markdown templates/markdown-template-for-new-articles.m
 
 All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevant basics will be covered here.
 
-If you are looking for a good editor, try [Markdown Pad][]. Below is a list of the most common markdown syntax.
+If you are looking for a good editor, try [Atom Editor][]. Below is a list of the most common markdown syntax.
 
 * 	**Line breaks vs. paragraphs:** In Markdown there is no HTML `<br />` element. Instead, a new paragraph is designated by an empty line between two blocks of text.
 *	**Italics:** The HTML `<i>some text</i>` is written `*some text*`
@@ -224,5 +224,5 @@ Article metadata enables certain functionalities on the azure.microsoft.com web 
 [GitHub Help]: http://help.github.com/
 [Set Up Git]: http://help.github.com/win-set-up-git/
 [Markdown Home]: http://daringfireball.net/projects/markdown/
-[Markdown Pad]: http://markdownpad.com/
+[Atom Editor]: https://atom.io/
 [Azure/Azure-Content issues]: https://github.com/Azure/azure-content/issues

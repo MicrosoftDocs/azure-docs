@@ -16,6 +16,8 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store" class="current">Windows Store</a><a href="/en-us/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
+
 #How to Integrate Engagement on Windows
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Windows application.

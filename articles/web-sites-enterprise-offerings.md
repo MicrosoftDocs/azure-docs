@@ -3,7 +3,7 @@
 	description="Shows how to use Azure Websites create enterprise website solutions for your business" 
 	services="web-sites" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="apwestgarth" 
 	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
@@ -14,30 +14,30 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
-	ms.author="cephalin"/>
+	ms.date="02/20/2015" 
+	ms.author="apwestgarth"/>
 
 # Azure Websites Offerings for Enterprise Whitepaper #
 
-The need to reduce costs and deliver IT solutions faster in a rapidly evolving environment creates new challenges for Developers, IT Professionals, and Managers. Users are increasing looking for their Line of Business (LOB) web applications to be quick, responsive, and available from any device. At the same time, businesses are trying to capitalize on the increased productivity and efficiency that comes from integration with cloud and mobile services, this may be something as simple as single sign-on across devices using Active Directory to collaboration in Office365 using data pulled from an internal LOB application which in turn pulls in data from the company implementation of Salesforce. [Microsoft Azure Websites](/services/websites/) is an enterprise-class cloud service for developing, testing, and running web and mobile applications, Web APIs, and generic websites. It can be used to run corporate websites, business apps, and digital marketing campaigns on a global network of datacenters optimized for scale and availability, along with support for continuous integration and modern DevOps practices. 
+The need to reduce costs and deliver IT solutions faster in a rapidly evolving environment creates new challenges for Developers, IT Professionals, and Managers. Users are increasingly looking for their Line of Business (LOB) web applications to be quick, responsive, and available from any device. At the same time, businesses are trying to capitalize on the increased productivity and efficiency that comes from integration with cloud and mobile services, this may be something as simple as single sign-on across devices using Active Directory to collaboration in Office365 using data pulled from an internal LOB application which in turn pulls in data from the company implementation of Salesforce. [Microsoft Azure Websites](/services/websites/) is an enterprise-class cloud service for developing, testing, and running web and mobile applications, Web APIs, and generic websites. It can be used to run corporate websites, business apps, and digital marketing campaigns on a global network of datacenters optimized for scale and availability, along with support for continuous integration and modern DevOps practices. 
 
 This whitepaper highlights the capabilities of the Microsoft Azure Websites service specifically focused on running LOB Web Applications, covering migration of existing web applications and deployment of new LOB web applications on the platform. 
 
 ## Audience ##
 
-IT Professionals, architects, and managers whom are looking to migrate to the cloud web workloads that are currently running on-premises. Web workloads can span either Business to Employee or Business to Partners web applications.
+IT Professionals, architects, and managers who are looking to migrate to the cloud web workloads that are currently running on-premises. Web workloads can span either Business to Employee or Business to Partners web applications.
 
 ## Introduction ##
 
-Microsoft Azure Websites is an ideal platform on which to host both external and internal web applications and services as it provides a cost-effective, highly scalable, managed solution allowing you to concentrate on delivering business value for your users rather than spending significant amounts of time and money maintaining and supporting separate environments. Microsoft Azure Websites offers a flexible platform on which to deploy your enterprise web applications offering the ability to continue to authenticate against on premises Active Directory via integration with Microsoft Azure Active Directory, support of easy and quick deployments making use of your internal continuous integration and deployment practices, while automatically scaling to grow with the business needs. All on a managed platform that allows you to focus on your application and not you infrastructure. 
+Microsoft Azure Websites is an ideal platform on which to host both external and internal web applications and services as it provides a cost-effective, highly scalable, managed solution allowing you to concentrate on delivering business value for your users rather than spending significant amounts of time and money maintaining and supporting separate environments. Microsoft Azure Websites offers a flexible platform on which to deploy your enterprise web applications offering the ability to continue to authenticate against on-premises Active Directory via integration with Microsoft Azure Active Directory, support of easy and quick deployments making use of your internal continuous integration and deployment practices, while automatically scaling to grow with the business needs - all on a managed platform that allows you to focus on your application and not your infrastructure. 
 
 ## Problem Definition ##
 
-The IT Landscape is changing rapidly with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT Departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The eminent end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT Departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments, however increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
+The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The imminent end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
 
-Business needs change monthly, weekly, daily; businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally. Users have higher expectations, with many making use of services in their own private lives such as Office365, they expect to have access to similar, up to date, feature rich services in their work life. To cope with this demand IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.
+Business needs change monthly, weekly, daily. Businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally. Users have higher expectations, with many making use of services in their own private lives such as Office365. They expect to have access to similar, up to date, feature rich services in their work life. To cope with this demand, IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.
 
-Development teams are looking to deliver immediate business benefit, delivering new features on a frequent basis, they are looking for a cost effective, reliable platform which integrates with their existing tools and practices – development, test, release; and working together with IT Departments automates deployment, management and alerting, all with the goal of zero downtime.
+Development teams are looking to deliver immediate business benefit, delivering new features on a frequent basis. They are looking for a cost effective, reliable platform which integrates with their existing tools and practices – development, test, release; and working together with IT departments automates deployment, management and alerting, all with the goal of zero downtime.
 
 <a href="highlevel" />
 ## High Level Solution ##
