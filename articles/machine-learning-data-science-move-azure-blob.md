@@ -1,6 +1,6 @@
-<properties title="Move Data to and from  Azure Blob Storage" pageTitle="Move Data to and from  Azure Blob Storage" description="Move Data to and from  Azure Blob Storage" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liasun,sachouks" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties title="Move Data to and from  Azure Blob Storage" pageTitle="Move Data to and from  Azure Blob Storage" description="Move Data to and from  Azure Blob Storage" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="sunliangms,sachouks" manager="paulettm" editor="" videoId="" scriptId="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="liasun,sachouks" />
+<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="sunliangms,sachouks" />
 
 # Move Data to and from Azure Blob Storage
 
@@ -14,7 +14,7 @@ The [Cloud data science sample scenarios](http://azure.microsoft.com/en-us/docum
 
 > [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/) and  [Azure Blob Service](https://msdn.microsoft.com/en-us/library/azure/dd179376.aspx). 
 
-Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](http://azure.microsoft.com/en-us/documentation/articles/storage-manage-storage-account/). This document assumes that you have an Azure storage account and the corresponding storage key(s).
+Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/). This document assumes that you have an Azure storage account and the corresponding storage key(s).
 
 <a id="explorer"></a>
 ## Use Azure Storage Explorer 
