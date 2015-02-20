@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="operational-insights" 
-	ms.workload="appservices" 
+	ms.workload="NA" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 

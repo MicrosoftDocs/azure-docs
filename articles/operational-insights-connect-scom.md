@@ -2,17 +2,17 @@
    pageTitle="connect-scom" 
    description="Connect to Operational Insights through Operations Manager" 
    services="operational-insights" 
-   documentationCenter="dev-center-name" 
+   documentationCenter="" 
    authors="lauracr" 
    manager="jwhit" 
    editor=""/>
 
 <tags
    ms.service="operational-insights"
-   ms.devlang="may be required"
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required" 
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
    ms.date="02/20/2015"
    ms.author="lauracr"/>
 
