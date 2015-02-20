@@ -124,7 +124,7 @@ With the runbook imported and published, you can now run it and then inspect the
 
 Congratulations! You are now finished with the tutorial.
 
-# <a name="nextsteps"></a>Next Steps 
+## <a name="nextsteps"></a>Next Steps 
 1. The simple runbook in this tutorial **does not manage Azure services**. Most runbooks will use the [Azure cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) to do so, which require authentication to your Azure subscription. Follow the instructions at [Configuring Azure for Management by Runbooks](http://aka.ms/azureautomationauthentication) to configure your Azure subscription to work with these cmdlets.  
 2. Refer to the [Resources](#resources) listed below for more information about Azure Automation's capabilities.
 3. Subscribe to the [Azure Automation Blog](http://azure.microsoft.com/blog/tag/azure-automation) to stay up-to-date with the latest from the Azure Automation team.
