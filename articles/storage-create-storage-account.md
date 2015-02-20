@@ -111,7 +111,7 @@ In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** 
 
 ### Copy a storage access key ### 
 
-You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/library/ee758697.aspx).
+You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/library/azure/ee758697.aspx).
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 
@@ -164,7 +164,7 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 ## Next steps
 
-- To learn more about Azure Storage, see the Azure Storage documentation on [azure.com](http://azure.microsoft.com/documentation/services/storage/) and on [MSDN](http://msdn.microsoft.com/library/gg433040.aspx). 
+- To learn more about Azure Storage, see the Azure Storage documentation on [azure.com](http://azure.microsoft.com/documentation/services/storage/) and on [MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx). 
 
 - Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
 
