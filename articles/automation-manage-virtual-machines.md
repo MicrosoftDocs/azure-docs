@@ -22,13 +22,7 @@
 
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure virtual machines.
 
-##Table of Contents
-
-* [What is Azure Automation?](#what-is)
-* [How can Azure Automation help manage Azure virtual machines?](#scenarios)
-* [Next steps](#next-steps)
-
-## <a name="what-is"> </a>What is Azure Automation?
+## What is Azure Automation?
 
 [Azure Automation](http://azure.microsoft.com/en-us/services/automation/) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time to value for your organization.
 
@@ -37,20 +31,13 @@ Azure Automation provides a highly-reliable and highly-available workflow execut
 Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation. 
 
 
-## <a name="scenarios"> </a>How can Azure Automation help manage Azure virtual machines?
+## How can Azure Automation help manage Azure virtual machines?
 
 Virtual machines can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx). Azure Automation has these VM PowerShell cmdlets available out of the box, so that you can perform all of your VM management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
-Specific examples coming soon.
 
-
-##<a name="next-steps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure virtual machines, follow these links to learn more about Azure Automation.
 
-* Visit the [Azure Automation](http://azure.microsoft.com/en-us/services/automation/) overview page
-* View the MSDN documentation for [Azure Automation](http://go.microsoft.com/fwlink/?LinkId=390559)
 * Check out the Azure Automation [Getting Started Guide](http://go.microsoft.com/fwlink/?LinkId=390560)
-* Get help on the Azure Automation [Support Forums](http://go.microsoft.com/fwlink/?LinkId=390561)
-* Hear from the Azure Automation engineering team on the [Azure Blog](http://azure.microsoft.com/blog/tag/azure-automation/)
-* Follow Azure Automation on [Twitter](https://twitter.com/AzureAutomation)
