@@ -37,13 +37,9 @@ There are several methods for creating HDInsight clusters, this article only cov
 
 An HDInsight cluster uses an Azure Blob Storage container as the default file system. For more information about how Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
-An Azure storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can be provisioned in five data centers: 
 
-- Southeast Asia 
-- North Europe
-- West Europe 
-- East US 
-- West US 
+[AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
+
 
 For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
