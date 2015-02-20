@@ -336,7 +336,7 @@ info:   vm shutdown command OK
 
 This command captures an Azure virtual machine image.
 
-A virtual machine image cannot be captured while the virtual machine state unless the virtual machine state is **Stopped**.
+A virtual machine image can only be captured if the virtual machine state is **Stopped**. Shutdown the virtual machine before continuing.
 
 	~$ azure.cmd vm capture my-vm mycaptureimagename --delete
 	info:   Executing command vm capture
