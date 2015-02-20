@@ -73,7 +73,7 @@ To create a connection string that specifies explicit endpoints, specify the com
 
     BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;[credentials]
 
-When you explicitly specify service endpoints, you have two options for specifying credentials. You can specify the account name and key (AccountName=myAccountName;AccountKey=myAccountKey), as shown in the previous section, or you can **specify a shared access signature**, as shown in the Specifying endpoints with a shared access signature section. If you are specifying the account name and key, the complete string format is:
+When you explicitly specify service endpoints, you have two options for specifying credentials. You can specify the account name and key (`AccountName=myAccountName;AccountKey=myAccountKey`), as shown in the previous section, or you can **specify a shared access signature**, as shown in the Specifying endpoints with a shared access signature section. If you are specifying the account name and key, the complete string format is:
     BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;AccountName=myAccountName;AccountKey=myAccountKey
 
 You can specify endpoints for blob, table, and queue in a connection string. You must specify at least one endpoint, but you do not need to specify all three. For example, if you're creating a connection string for use with a custom blob endpoint, specifying the queue and table endpoints is optional. Note that if you choose to omit the queue and table endpoints from the connection string, then you will not be able to access the Queue and Table services from your code by using that connection string.
