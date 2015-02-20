@@ -33,9 +33,9 @@ These samples show how to write a web application directs the user’s browser t
 
 | Language/Platform | Sample | Description
 | ----------------- | ------ | -----------
-| C#/.NET | [http://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet](WebApp-OpenIDConnect-DotNet) | Use OpenID Connect (ASP.Net OpenID Connect OWIN middleware) to authenticate users from an Azure AD tenant.
-| C#/.NET | [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](WebApp-MultiTenant-OpenIdConnect-DotNet) | A multi-tenant .NET MVC web application that uses OpenID Connect (ASP.Net OpenID Connect OWIN middleware) to authenticate users from multiple Azure AD tenants.
-| C#/.NET | [https://github.com/AzureADSamples/WebApp-WSFederation-DotNet](WebApp-WSFederation-DotNet) | Use WS-Federation (ASP.Net WS-Federation OWIN middleware) to authenticate users from an Azure AD tenant.
+| C#/.NET | [WebApp-OpenIDConnect-DotNet](http://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | Use OpenID Connect (ASP.Net OpenID Connect OWIN middleware) to authenticate users from an Azure AD tenant.
+| C#/.NET | [WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet) | A multi-tenant .NET MVC web application that uses OpenID Connect (ASP.Net OpenID Connect OWIN middleware) to authenticate users from multiple Azure AD tenants.
+| C#/.NET | [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | Use WS-Federation (ASP.Net WS-Federation OWIN middleware) to authenticate users from an Azure AD tenant.
 
 
 
@@ -132,7 +132,7 @@ These walkthroughs use slightly older technology, but still might be of interest
 | C#/.NET |  [http://go.microsoft.com/fwlink/?LinkId=330605](AAL - Windows Store app to REST service - Authentication) |  Use [http://go.microsoft.com/fwlink/?LinkID=258232](Azure AD Authentication Library (ADAL)) (formerly AAL) for Windows Store Beta to add user authentication capabilities to a Windows Store app.
 | C#/.NET | [http://go.microsoft.com/fwlink/?LinkId=259814](ADAL - Native App to REST service - Authentication with AAD via Browser Dialog) |  Use [http://go.microsoft.com/fwlink/?LinkID=258232](Azure AD Authentication Library (ADAL) to add user authentication capabilities to a WPF client.
 | C#/.NET | [http://code.msdn.microsoft.com/AAL-Native-App-to-REST-de57f2cc](ADAL - Native App to REST service - Authentication with ACS via Browser Dialog) |  Use [http://go.microsoft.com/fwlink/?LinkID=258232](Azure AD Authentication Library (ADAL)) and [http://msdn.microsoft.com/library/azure/hh147631.aspx](Access Control Service 2.0 (ACS)) to add user authentication capabilities to a WPF client.
-| C#/.NET | [http://go.microsoft.com/fwlink/?LinkId=259816](ADAL - Server to Server Authentication) | Use [http://go.microsoft.com/fwlink/?LinkID=258232](Azure AD Authentication Library (ADAL)) to secure service calls from a server side process to an MVC4 Web API REST service.
+| C#/.NET | [http://go.microsoft.com/fwlink/?LinkId=259816](ADAL - Server to Server Authentication) | Use [http://go.microsoft.com/fwlink/?LinkID=258232](Azure AD Authentication Library %28ADAL%29) to secure service calls from a server side process to an MVC4 Web API REST service.
 | C#/.NET | [https://msdn.microsoft.com/en-us/library/azure/dn151790.aspx](Adding Sign-On to Your Web Application Using Azure AD) | Configure a .NET application to perform web single sign-on against your Azure AD enterprise directory.
 | C#/.NET | [https://msdn.microsoft.com/en-us/library/azure/dn151789.aspx](Developing Multi-Tenant Web Applications with Azure AD) | Use Azure AD to add to the single sign-on and directory access capabilities of one .NET application to work across multiple organizations.
 JAVA | [http://go.microsoft.com/fwlink/?LinkId=263969](Java Sample App for Azure AD Graph API) | Use the Graph API to access directory data from Azure AD.
@@ -140,7 +140,7 @@ PHP | [http://code.msdn.microsoft.com/PHP-Sample-App-For-Windows-228c6ddb](PHP S
 | C#/.NET | [http://go.microsoft.com/fwlink/?LinkID=262648](Sample App for Azure AD Graph API) | Use the Graph API to access directory data from Azure AD.
 | C#/.NET | [http://go.microsoft.com/fwlink/?LinkId=275398](Sample App for Azure AD Graph Differential Query) | Use the differential query in the Graph API to get periodic changes to user objects in an Azure AD tenant.
 | C#/.NET |[http://go.microsoft.com/fwlink/?LinkId=275397](Sample App for Integrating Multi-Tenant Cloud Application for Azure AD) | Integrate a multi-tenant application into Azure AD.
-| C#/.NET | [https://msdn.microsoft.com/en-us/library/azure/dn169448.aspx](Securing a Windows Store Application and REST Web Service Using Azure AD (Preview)) | Create a simple web API resource and a Windows Store client application using Azure AD and the [http://go.microsoft.com/fwlink/?LinkID=258232](Azure AD Authentication Library (ADAL)).
+| C#/.NET | [https://msdn.microsoft.com/en-us/library/azure/dn169448.aspx](Securing a Windows Store Application and REST Web Service Using Azure AD (Preview)) | Create a simple web API resource and a Windows Store client application using Azure AD and the [http://go.microsoft.com/fwlink/?LinkID=258232](Azure AD Authentication Library %28ADAL%29).
 | C#/.NET| [https://msdn.microsoft.com/en-us/library/azure/dn151791.aspx](Using the Graph API to Query Azure AD) | Configure a Microsoft .NET application to use the Azure AD Graph API to access data from an Azure AD tenant directory.
 
 ## See also
@@ -151,5 +151,7 @@ PHP | [http://code.msdn.microsoft.com/PHP-Sample-App-For-Windows-228c6ddb](PHP S
 [Azure AD Graph API Helper Library](http://code.msdn.microsoft.com/Windows-Azure-AD-Graph-API-a8c72e18) 
 
 [Developing Modern Applications using OAuth and Active Directory Federation Services](http://msdn.microsoft.com/en-us/library/dn633593.aspx)
+
+
 
 
