@@ -25,6 +25,8 @@ This topic shows how to get started with Azure Redis Cache using Java.
 
 [Jedis](https://github.com/xetorthio/jedis) - Java client for Redis
 
+This tutorial uses Jedis, but you can use any Java client listed at [http://redis.io/clients](http://redis.io/clients).
+
 
 ## Create a Redis cache on Azure
 
@@ -45,7 +47,7 @@ Once the cache is created, click on it in the portal to view the cache settings.
 ## Enable the non-SSL endpoint
 
 
-Click the link under **Ports**, and click **No** for "Allow access only via SSL". This will enable the non-SSL port for the cache.
+Click the link under **Ports**, and click **No** for "Allow access only via SSL". This will enable the non-SSL port for the cache. The Jedis client currently does not support SSL.
 
   ![][3]
 
