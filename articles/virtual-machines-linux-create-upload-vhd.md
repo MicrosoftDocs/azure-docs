@@ -104,11 +104,11 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 ## <a id="upload"> </a>Step 3: Upload the image to Azure ##
 
-### If using Azur eCLI
+### If using Azure CLI
 
 Use the Linux command-line tool to upload the image. You can upload an image by using the following command:
 
-		# azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
+		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
 
 ### If using PowerShell
 
@@ -119,6 +119,7 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 From the Azure PowerShell window you used in the previous step, type:
 
 		`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
+
 
 	For more information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
 
