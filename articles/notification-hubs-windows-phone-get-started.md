@@ -22,7 +22,7 @@
 This topic shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application. If you are targeting Windows Phone 8.1 (non-Silverlight) then refer to the [Windows Universal](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) version.
 In this tutorial you create a blank Windows Phone 8 app that receives push notifications using the Microsoft Push Notification service (MPNS). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
-> [AZURE.NOTE] Notification Hubs Windows Phone SDK does not support using WNS with Windows Phone 8.1 Silverlight apps. To use WNS (instead of MPNS) with Windows Phone 8.1 Silverlight apps, you have to set up your WNS credentials as shown in [Get Started for Windows Universal](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/). Then, you can register from the back-end as shown in the [Notify Users](/en-us/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/) tutorial, or use the [Notification Hubs REST APIs](http://msdn.microsoft.com/en-us/library/dn223264.aspx).
+> [AZURE.NOTE] Notification Hubs Windows Phone SDK does not support using WNS with Windows Phone 8.1 Silverlight apps. To use WNS (instead of MPNS) with Windows Phone 8.1 Silverlight apps, follow this sample [Notification Hub - WP Silverlight tutorial] which uses REST APIs
 
 This tutorial walks you through the following steps to enable push notifications:
 
@@ -221,3 +221,4 @@ In this simple example you broadcast notifications to all your Windows Phone 8 d
 [Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
 [toast catalog]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
