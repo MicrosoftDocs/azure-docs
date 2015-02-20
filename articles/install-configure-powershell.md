@@ -177,33 +177,33 @@ After you've installed the module and configured your computer to connect to you
 
 	After you pick a name, type a command similar to the following. Substitute your website name for "mySite".
 
-	`New-AzureWebsite mySite`
+		New-AzureWebsite mySite
 
 	The cmdlet creates the website and returns an object that represents the new website. The object properties include useful information about the website.
 
 3. To get information about the website, type this command. It returns a bit of information about all websites in the subscription, including the one that you just created.
 
-	`Get-AzureWebsite`
+		Get-AzureWebsite
 
 4. To get more information about your website, include the website name in the command. Be sure to substitute the name of your website for "mySite".
 
-	`Get-AzureWebsite -Name mySite`
+		Get-AzureWebsite -Name mySite
 
 5. Websites are started after they are created. To stop the website, type this command, including the name of your website.
 
-	`Stop-AzureWebsite -Name mySite`
+		Stop-AzureWebsite -Name mySite
 
 6. To verify that the site's state is 'stopped', run the Get-AzureWebsite command again.
 
-	`Get-AzureWebsite`
+		Get-AzureWebsite
 
 7. To complete this test, delete the website. Type:  
 
-	`Remove-AzureWebsite -Name mySite`
+		Remove-AzureWebsite -Name mySite
 
 7. To complete the task, confirm that the website is deleted.
 
-	`Get-AzureWebsite -Name mySite`
+		Get-AzureWebsite -Name mySite
 
 ##<a id="Help"></a>Getting Help##
 
