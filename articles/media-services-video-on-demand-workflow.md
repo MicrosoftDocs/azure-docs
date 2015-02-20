@@ -104,15 +104,9 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with. 
 
-For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
-
-For information about scaling encoding units, see the following **Portal** and **.NET** topics.
-
-[AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
-
 You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
 
-For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/en-us/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/en-us/library/azure/dn767951.aspx).
+[This](../media-services-how-to-scale) topic links to relevant topics.
 
 
 ##Playback your content

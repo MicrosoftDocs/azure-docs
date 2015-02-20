@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
+	ms.date="02/20/2015" 
 	ms.author="cephalin"/>
 
 # Migrate your IIS Websites to Azure Websites using the Migration Assistant #
@@ -118,4 +118,8 @@ This section steps through an example to to migrate a few websites that use a SQ
  
 20.	Click the links to the Azure websites and verify that the migration has succeeded.
 
+21. You can now manage the migrated websites in Microsoft Azure. To do this, log into the [Azure Portal](https://portal.azure.com).
 
+22. In the Azure Portal, open the Websites blade to see your migrated websites, then click on any one of them to start managing the website, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.
+
+	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
