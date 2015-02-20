@@ -1,6 +1,6 @@
 <tags 
-   pageTitle="About Traffic Manager Monitoring"
-   description="About Traffic Manager Monitoring"
+   pageTitle="About Traffic Manager monitoring"
+   description="Monitoring Traffic Manager traffic balancing"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,9 +8,10 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
+   ms.date="02/20/2015"
    ms.author="cherylmc" />
-#  About Traffic Manager Monitoring
+
+# About Traffic Manager Monitoring
 
 Azure Traffic Manager monitors your endpoints, including cloud services and websites, to ensure they are available. In order for monitoring to work correctly, you must set it up the same way for every endpoint that you specify in your Traffic Manager profile. After you configure monitoring, Traffic Manager will display the status for your endpoints and profile in the Management Portal. You can configure monitoring settings in the Management Portal on the Configure page for your Traffic Manager profile. You can specify the following settings:
 
@@ -20,7 +21,7 @@ Azure Traffic Manager monitors your endpoints, including cloud services and webs
 
 -**Relative path and file name:** Give the path and the name of the file that the monitoring system will attempt to access. Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default). For more information about configuring settings, see [Configure Traffic Manager Monitoring](../configure-traffic-manager-monitoring).
 
-##  About monitoring health status
+## About monitoring health status
 
 Azure Traffic Manager displays profile and endpoint service health in the Management Portal. The status column for both the profile and the endpoint displays the most recent monitor status. You can use this status to understand the health of your profiles according to your Traffic Manager monitoring settings. When your profile is healthy, DNS queries will be distributed to your services based on the load balancing settings for the profile (Round Robin, Performance, or Failover). Once the Traffic Manager monitoring system detects a change in monitor status, it updates the status entry in the Management Portal. It can take up to five minutes for the state change to refresh.
 
@@ -49,7 +50,7 @@ The Profile Monitor status in the table below is the result of the combination o
 |Enabled|The status of at least one endpoint is “CheckingEndpoint”. No endpoints are “Online” or “Degraded”.|CheckingEndpoints|Transition state. This typically occurs when a profile has just been enabled and the endpoint health is being probed.|
 |Enabled|The status of all endpoints defined in the profile is either “Disabled” or “Stopped”, or the profile has no defined endpoints.|Inactive|No endpoints are active, but the profile is still enabled.|
 
-##  How monitoring works
+## How monitoring works
 
 An example timeline illustrating the monitoring process with a single cloud service is displayed is below. This scenario shows the following:
 
@@ -90,7 +91,7 @@ Figure 1 – Monitoring sequence example. The numbers in the diagram correspond
 
 -**Traffic to service resumes:** Traffic Manager sends a GET and receives a 200 OK in under 10 seconds. It then begins to hand out the cloud service’s DNS name to DNS servers as they request updates. As a result, traffic starts to flow to the service once again.
 
-##  Child and parent endpoint status for nested profiles
+## Child and parent endpoint status for nested profiles
 
 The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting. For more information, see Traffic Manager Overview.
 
@@ -104,7 +105,7 @@ The following table describes the behavior of Traffic Manager monitoring for chi
 |CheckingEndpoints. At least one is ‘CheckingEndpoint’; none are ‘Online’ or ‘Degraded’|Same as above.||
 |Inactive. All endpoints are either Disabled or Stopped, or this is a profile with no endpoints.|Stopped||
 
-##  See Also
+## See Also
 
 [Traffic Manager Overview](../traffic-manager)
 

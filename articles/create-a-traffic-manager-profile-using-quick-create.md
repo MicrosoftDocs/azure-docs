@@ -1,6 +1,6 @@
 <tags 
-   pageTitle="Create a Traffic Manager Profile Using Quick Create"
-   description="Create a Traffic Manager Profile Using Quick Create"
+   pageTitle="Create a Traffic Manager profile using quick create"
+   description="How to create a Traffic Manager profile"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,15 +8,16 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
+   ms.date="02/20/2015"
    ms.author="cherylmc" />
-#  Create a Traffic Manager Profile Using Quick Create
+
+# Create a Traffic Manager Profile Using Quick Create
 
 You can quickly create a Traffic Manager profile by using **Quick Create** in the Management Portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover load balancing method, or monitoring settings. After creating your profile, you can configure these settings in the Management Portal. See 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx) for a list of configuration procedures.
 
 
-##  To create a new Traffic Manager profile:
+## To create a new Traffic Manager profile:
 
 1-**Deploy your cloud services and websites to your production environment.** For more information about cloud services, see 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For information about cloud services, see 
@@ -37,7 +38,7 @@ You can quickly create a Traffic Manager profile by using **Quick Create** in th
 7-**Configure endpoints, monitoring, and additional settings in the Management Portal.** Because you can only configure basic settings by using Quick Create, it is necessary to configure additional settings, such as the list of endpoints and the endpoint failover order, in order to complete your desired configuration. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
  for a list of procedures to help you complete the configuration.
 
-##  See Also
+## See Also
 
 [Add or Delete Endpoints](../add-or-delete-endpoint)
 

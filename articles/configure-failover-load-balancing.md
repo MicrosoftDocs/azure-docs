@@ -1,6 +1,6 @@
 <tags 
-   pageTitle="Configure Failover Load Balancing"
-   description="Configure Failover Load Balancing"
+   pageTitle="Configure failover load balancing"
+   description="Failover load balancing in Traffic Manager"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,15 +8,16 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
-   ms.author="telmos" />
-#  Configure Failover Load Balancing
+   ms.date="02/20/2015"
+   ms.author="cherylmc" />
+
+# Configure Failover Load Balancing
 
 Often an organization wants to provide reliability for its services. It does this by providing backup services in case their primary service goes down. A common pattern for service failover is to provide a set of identical services and send traffic to a primary service, while maintaining a configured list of one or more backup services. You can configure this type of backup with Azure cloud services and websites by following the procedures below.
 
 Note that Azure Websites already provides failover load balancing functionality for websites within a datacenter (also known as a region), regardless of the website mode. Traffic Manager allows you to specify failover load balancing for websites in different datacenters.
 
-##  To configure failover load balancing:
+## To configure failover load balancing:
 
 1-In the Management Portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Create a Traffic Manager Profile Using Quick Create](../create-a-traffic-manager-profile-using-quick-create) for steps to create a basic Traffic Manager profile.
 
@@ -39,7 +40,7 @@ Note that Azure Websites already provides failover load balancing functionality 
 
 10-Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](https://msdn.microsoft.com/en-us/library/azure/hh744837.aspx).
 
-##  See Also
+## See Also
 
 [About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods)
 

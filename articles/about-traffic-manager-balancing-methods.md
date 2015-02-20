@@ -1,6 +1,6 @@
 <tags 
-   pageTitle="About Traffic Manager Balancing Methods"
-   description="About Traffic Manager Balancing Methods"
+   pageTitle="About Traffic Manager balancing methods"
+   description="Balacing methods used by Traffic Manager"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,9 +8,10 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
+   ms.date="02/20/2015"
    ms.author="cherylmc" />
-#  About Traffic Manager Load Balancing Methods
+
+# About Traffic Manager Load Balancing Methods
 
 
 There are three load balancing methods available in Traffic Manager. Each Traffic Manager profile can use only one load balancing method at a time, although you can select a different load balancing method for your profile at any time.
@@ -29,7 +30,7 @@ Note that Azure Websites already provides failover and round-robin load balancin
 
 [AZURE.NOTE] **The DNS Time-to-Live (TTL) informs DNS clients and resolvers on DNS servers how long to cache the resolved names. Clients will continue to use a given endpoint when resolving its domain name until the local DNS cache entry for the name expires.**
 
-###  <a name="#BKMK_WATMFail">Failover load balancing method </a>
+### <a name="BKMK_WATMFail">Failover load balancing method </a>
 
 Often an organization wants to provide reliability for its services. It does this by providing backup services in case their primary service goes down. A common pattern for service failover is to provide a set of identical endpoints and send traffic to a primary service, with a list of one or more backups. If the primary service is not available, requesting clients are referred to the next in order. If both the first and second services in the list are not available, the traffic goes to the third and so on.
 
@@ -51,7 +52,7 @@ The following numbered steps correspond to the numbers in Figure 1.
 
 3-The client initiates traffic to CS-B.
 
-###  <a name="#BKMK_WATMRoundRobin">Round Robin load balancing method</a>
+### <a name="BKMK_WATMRoundRobin">Round Robin load balancing method</a>
 
 A common load balancing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion. The Round Robin method splits up traffic across various endpoints. It selects a healthy endpoint at random and will not send traffic to services that are detected as being down. For more information, see [About Traffic Manager Monitoring](../about-traffic-manager-monitoring).
 
@@ -93,7 +94,7 @@ For information about using the Azure PowerShell cmdlets, see[Azure Traffic Mana
 
 To test the profile from a single client and observe the equal or weighted round robin behavior, verify that the DNS name is resolved to the different IP addresses of the endpoints according to the equal or weighted values in the profile. When testing, you must either disable client-side DNS caching or clear the DNS cache between each attempt to ensure that a new DNS name query gets sent.
 
-###  <a name="#BKMK_WATMPerf">Performance load balancing method</a>
+### <a name="BKMK_WATMPerf">Performance load balancing method</a>
 
 In order to load balance endpoints that are located in different datacenters across the globe, you can direct incoming traffic to the closest endpoint in terms of the lowest latency between the requesting client and the endpoint. Usually, the “closest” endpoint directly corresponds to the shortest geographic distance. The Performance load balancing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load.
 
@@ -129,11 +130,11 @@ Points to note:
 
 -When using the Performance load balancing method with external endpoints, you will need to specify the location of those endpoints. Choose the Azure region closest to your deployment. For more information, see [Add or Delete Endpoints](../add-or-delete-endpoints).
 
-##  Traffic Manager figures
+## Traffic Manager figures
 
 If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see [Traffic Manager figures in MSDN documentation](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-##  See Also
+## See Also
 
 [Traffic Manager Overview](../traffic-manager)
 

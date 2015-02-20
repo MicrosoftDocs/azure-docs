@@ -1,6 +1,6 @@
 <tags 
-   pageTitle="Add or Delete Endpoints"
-   description="Add or Delete Endpoints"
+   pageTitle="Add or delete endpoints"
+   description="Add and delete endpoints in Traffic Manager"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,11 +8,12 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
-   ms.author="telmos" />
-#  Add or Delete Endpoints
+   ms.date="02/20/2015"
+   ms.author="cherylmc" />
 
-##  To add a cloud service or website endpoint
+# Add or Delete Endpoints
+
+## To add a cloud service or website endpoint
 
 
 1-On the Traffic Manager pane in the Management Portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
@@ -35,7 +36,7 @@ Note that Azure Websites already provides failover and round-robin load balancin
 
 [AZURE.WARNING] **If you are using the Failover load balancing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see Configure Failover Load Balancing.**
 
-##  To delete a cloud service or website endpoint
+## To delete a cloud service or website endpoint
 
 1-On the Traffic Manager pane in the Management Portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
 
@@ -47,7 +48,7 @@ Note that Azure Websites already provides failover and round-robin load balancin
 
 [AZURE.NOTE]**You cannot delete external locations or Traffic Manager profiles as endpoints using the Management Portal. You must use Windows PowerShell. For more information, see [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/en-us/library/dn690251.aspx)).**
 
-##  See Also
+## See Also
 
 [Traffic Manager Overview](../traffic-manager)
 

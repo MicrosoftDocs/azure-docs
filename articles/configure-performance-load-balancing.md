@@ -1,6 +1,6 @@
-<tags 
-   pageTitle="Configure Performance Load Balancing"
-   description="Configure Performance Load Balancing"
+<tags
+   pageTitle="Configure performance load balancing"
+   description="How to configure performance load balancing in Traffic Manager"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,14 +8,15 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
-   ms.author="cheryl" />
-#  Configure Performance Load Balancing
+   ms.date="02/20/2015"
+   ms.author="cherylmc" />
+
+# Configure Performance Load Balancing
 
 In order to load balance cloud services and websites (endpoints) that are located in different datacenters across the globe (also known as regions), you can direct incoming traffic to the endpoint with the lowest latency from the requesting client. Typically, the datacenter with the lowest latency corresponds to the closest in geographic distance. The Performance load balancing method will allow you to distribute based on lowest latency, but cannot take into account real-time changes in network configuration or load. For more information on the different load balancing methods that Azure Traffic Manager provides, see [About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods).
 
 
-##  Load balance traffic based on lowest latency across a set of endpoints:
+## Load balance traffic based on lowest latency across a set of endpoints:
 
 1. In the Management Portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Create a Traffic Manager Profile Using Quick Create](../create-a-traffic-manager-profile-using-quick-create) for the steps to create a basic Traffic Manager profile.
 1. In the Management Portal, on the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
@@ -27,7 +28,7 @@ In order to load balance cloud services and websites (endpoints) that are locate
 1. Test the changes in your configuration. For more information, see [Testing Traffic Manager Settings](../testing-traffic-manager-settings).
 1. Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](../point-a-company-internet-domain-to-a-traffic-manager-domain).
 
-##  See Also
+## See Also
 
 [Traffic Manager Overview](../traffic-manager)
 

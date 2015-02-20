@@ -1,6 +1,6 @@
 <tags 
    pageTitle="Traffic Manager"
-   description="Traffic Manager"
+   description="Traffic Manager overview"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,9 +8,10 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
+   ms.date="02/20/2015"
    ms.author="cherylmc" />
-#  Traffic Manager Overview
+
+# Traffic Manager Overview
 
 Microsoft Azure Traffic Manager allows you to control the distribution of user traffic to your specified endpoints, which can include Azure cloud services, websites, and other endpoints. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your Azure cloud services or websites can be running in different datacenters across the world.
 
@@ -24,7 +25,7 @@ Traffic Manager can help you:
 
 -**Traffic distribution for large, complex deployments:** With nested Traffic Manager profiles, in which a Traffic Manager profile can have another Traffic Manager profile as an endpoint, you can create configurations to optimize performance and distribution for larger, more complex deployments. For more information, see [Nested profiles](#Nested).
 
-##  How Traffic Manager works
+## How Traffic Manager works
 
 When you configure a Traffic Manager profile, the settings that you specify provide Traffic Manager with the information needed to determine which endpoint should service the request based on a DNS query. No actual endpoint traffic routes through Traffic Manager.
 
@@ -43,7 +44,7 @@ Figure 1
 
 Since the company domain and resolved IP address are cached on the client machine, the user continues to interact with the chosen endpoint until its local DNS cache entry expires. It is important to note that the DNS client caches DNS host entries for the duration of their Time-to-Live (TTL). Retrieving host entries from the DNS client cache bypasses the Traffic Manager profile and you could experience connection delays if the endpoint becomes unavailable before the TTL expires. If the TTL of a DNS host entry in the cache expires and the client computer needs to resolve the company domain name again, it sends a new DNS query. The client computer may receive the IP address of a different endpoint depending on the load balancing method applied and the health of the endpoints at the time of the request.
 
-##  How to implement Traffic Manager
+## How to implement Traffic Manager
 
 
 *Figure 2* shows the steps, in order, that are necessary to implement Traffic Manager. These steps can be performed in a slightly different order once you have a firm understanding of Traffic Manager configuration and best practices. The numbers in Figure 2 correspond to the numbered descriptions below:
@@ -71,7 +72,7 @@ Using the example in Figure 1, you would change the DNS resource record on your 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
 
-##  How to configure Traffic Manager settings
+## How to configure Traffic Manager settings
 
 
 You can configure Traffic Manager settings using the Management Portal, with REST APIs, and with Windows PowerShell cmdlets.
@@ -84,7 +85,7 @@ For more information about Windows PowerShell cmdlets for Traffic Manager, see [
 
 [AZURE.NOTE] **There is currently no support for configuring external endpoints (type = ‘Any’), weights for the Round Robin load balancing method, and nested profiles with the Management Portal. You must use either REST (see Create Definition) or Windows PowerShell (see Add-AzureTrafficManagerEndpoint).**
 
-###  Configuring settings in the Management Portal
+### Configuring settings in the Management Portal
 
 
 In the Management Portal, you can create your Traffic Manager profile by using Quick Create. Quick Create allows you to create a basic profile. After creating your profile, you can then configure additional settings or edit the settings that you previously configured. For more information about creating your Traffic Manager profile by using Quick Create, see Create a Traffic Manager Profile Using Quick Create.
@@ -105,7 +106,7 @@ You can configure the following settings in the Management Portal:
 
 -**Monitoring –** Monitoring settings contain the protocol (HTTP or HTTPS), port, and relative path and file name.
 
-###  Configuring settings by using REST APIs
+### Configuring settings by using REST APIs
 
 
 You can create and configure your Traffic Manager profile by using REST APIs. For more information, see [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584).
@@ -120,11 +121,11 @@ You can create and configure your Traffic Manager profile by using REST APIs. Fo
 
 -**Policy –** Within each definition are policy settings. The policy is where load balancing methods and endpoints are specified. The policy itself is not visible in the Management Portal, although some of the settings for the policy are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods).
 
-##  Configuring settings by using Windows PowerShell
+## Configuring settings by using Windows PowerShell
 
 You can create and configure your Traffic Manager profile by using Windows PowerShell. For more information, see [Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
-##  <a name=bkmk_TrafficManagerBestPracticesProfile>Best practices</a>
+## <a name=bkmk_TrafficManagerBestPracticesProfile>Best practices</a>
 
 - **Make your prefixes unique and easy to understand –** The DNS name of your Traffic Manager profile must be unique. You can control the first part of the DNS name only. The Traffic Manager domain name is used for identification and client request directing purposes only. Client computers will never display these names to the end user. However, profiles are identified by this domain name so it is important that you be able to quickly identify it from other domain names listed in the Management Portal.
 - **Use dots to add uniqueness or make domain names readable –** You can use periods to separate parts of your domain name prefix as well.  If you are planning to create multiple policies in Traffic Manager, use a consistent hierarchy to differentiate one service from the other. For example, Contoso has global services for web, billing, and utility management. The three policies would be web.contoso.trafficmanager.net, bill.contoso.trafficmanager.net, and util.contoso.trafficmanager.net. When setting up cloud services or websites, use names that include location. For example, web-us-contoso.cloudapp.net and web-asia-contoso.cloudapp.net. Your limitations are those imposed by DNS. Assume a domain name is a sequence of labels separated by dots (label.label.label.label.etc.). At the time of this documentation, the limits for domain names in Traffic Manager are as follows:
@@ -148,7 +149,7 @@ You can create and configure your Traffic Manager profile by using Windows Power
 
 -**SQL Azure –** Similar to storage design, analyze your application state and data requirements when you extend your endpoints to multiple geographic regions.
 
-##  <a name="Nested">Nested profiles</a>
+## <a name="Nested">Nested profiles</a>
 
 You can specify the name of another Traffic Manager profile as an endpoint, a practice known as nested profiles. The Traffic Manager profile name is its DNS name, such as contoso-europe.trafficmanager.net.
 
@@ -182,12 +183,12 @@ If Traffic Manager directs users to a child profile that has a small number of h
 
 To add a Traffic Manager profile as an endpoint and configure the minimum number of healthy endpoints, you must use either REST (see [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) or Windows PowerShell (see [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)). You cannot use the Management Portal.
 
-##  Traffic Manager figures
+## Traffic Manager figures
 
 
 If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see [Traffic Manager figures in MSDN documentation](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-##  See Also
+## See Also
 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
 

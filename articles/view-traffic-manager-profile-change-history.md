@@ -1,6 +1,6 @@
 <tags 
-   pageTitle="View Traffic Manager Profile Change History"
-   description="View Traffic Manager Profile Change History"
+   pageTitle="View Traffic Manager profile change history"
+   description="How to view Traffic Manager profile change history"
    services="traffic-manager"
    manager="adinah"
    editor="tysonn" />
@@ -8,13 +8,14 @@
    ms.service="traffic-manager"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/20/2015"
+   ms.date="02/20/2015"
    ms.author="cherylmc" />
-#  View Traffic Manager Profile Change History
+
+# View Traffic Manager Profile Change History
 
 You can view the change history for your Traffic Manager profile in the Management Portal in Management Services.
 
-##  To view your Traffic Manager change history
+## To view your Traffic Manager change history
 
 
 1-In the left pane of the Management Portal, click **Management Services**.
@@ -26,7 +27,7 @@ You can view the change history for your Traffic Manager profile in the Manageme
 	*To filter by profile name, type the name of the profile in the **Service Name** field or select it from the dropdown list.
 	*To view details for each individual change, select the row with the change that you want to view, and then click **Details** at the bottom of the page. In the **Operation Details** window, you can view the XML representation of the API object that was created or updated as part of the operation and copy the XML code to the clipboard.
 
-##  See Also
+## See Also
 
 [Traffic Manager](../traffic-manager)
 
