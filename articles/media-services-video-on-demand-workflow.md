@@ -115,6 +115,8 @@ You can also scale your Media Services account by adding storage accounts to it.
 For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/en-us/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/en-us/library/azure/dn767951.aspx).
 
 
+##Playback your content
 
+For more information, see [playing your content with existing players](../media-services-playback-content).
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png
