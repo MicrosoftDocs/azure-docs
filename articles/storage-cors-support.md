@@ -1,6 +1,22 @@
-#Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
+<properties 
+	pageTitle="Cross-Origin Resource Sharing (CORS) Support | Microsoft Azure" 
+	description="Learn how to enable CORS Support for the Microsoft Azure Storage Services." 
+	services="storage" 
+	documentationCenter=".net" 
+	authors="andtyler" 
+	manager="aungoo" 
+	editor=""/>
 
-Updated: February 20, 2015
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="andtyler"/>
+
+#Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
 
 Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, and Queue services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](http://www.w3.org/TR/cors/) for details on CORS.
 
@@ -8,7 +24,7 @@ You can set CORS rules individually for each of the storage services, by calling
 
 >[AZURE.NOTE] Note that CORS is not an authentication mechanism. Any request made against a storage resource when CORS is enabled must either have a proper authentication signature, or must be made against a public resource.
 
-## Understanding CORS Requests
+## Understanding CORS requests
 
 A CORS request from an origin domain may consist of two separate requests:
 
@@ -16,7 +32,7 @@ A CORS request from an origin domain may consist of two separate requests:
 
 - The actual request, made against the desired resource.
 
-### Preflight Request
+### Preflight request
 
 The preflight request queries the CORS restrictions that have been established for the storage service by the account owner. The web browser (or other user agent) sends an OPTIONS request that includes the request headers, method and origin domain. The storage service evaluates the intended operation based on a pre-configured set of CORS rules that specify which origin domains, request methods, and request headers may be specified on an actual request against a storage resource.
 
@@ -28,13 +44,13 @@ If the OPTIONS request doesn’t contain the required CORS headers (the Origin a
 
 Note that a preflight request is evaluated against the service (Blob, Queue, and Table) and not against the requested resource. The account owner must have enabled CORS as part of the account service properties in order for the request to succeed.
 
-### Actual Request
+### Actual request
 
 Once the preflight request is accepted and the response is returned, the browser will dispatch the actual request against the storage resource. The browser will deny the actual request immediately if the preflight request is rejected.
 
 The actual request is treated as normal request against the storage service. The presence of the Origin header indicates that the request is a CORS request and the service will check the matching CORS rules. If a match is found, the Access-Control headers are added to the response and sent back to the client. If a match is not found, the CORS Access-Control headers are not returned.
 
-##Enabling CORS for the Azure Storage Services
+##Enabling CORS for the Azure Storage services
 
 CORS rules are set at the service level, so you need to enable or disable CORS for each service (Blob, Queue and Table) separately. By default, CORS is disabled for each service. To enable CORS, you need to set the appropriate service properties using version 2013-08-15 or later, and add CORS rules to the service properties. For details about how to enable or disable CORS for a service and how to set CORS rules, please refer to [Set Blob Service Properties](https://msdn.microsoft.com/en-us/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/en-us/library/hh452232.aspx), and [Set Table Service Properties](https://msdn.microsoft.com/en-us/library/hh452240.aspx).
 
@@ -74,7 +90,7 @@ The following limitations apply to CORS rules:
   - Prefixed headers, where a prefix of the header is provided, such as **x-ms-meta-data***. Specifying a prefix in this manner allows or exposes any header that begins with the given prefix. A maximum of two prefixed headers may be specified on the request.
 - The methods (or HTTP verbs) specified in the **AllowedMethods** element must conform to the methods supported by Azure storage service APIs. Supported methods are DELETE, GET, HEAD, MERGE, POST, OPTIONS and PUT.
 
-##Understanding CORS Rule Evaluation Logic
+##Understanding CORS rule evaluation logic
 
 When a storage service receives a preflight or actual request, it evaluates that request based on the CORS rules you have established for the service via the appropriate Set Service Properties operation. CORS rules are evaluated in the order in which they were set in the request body of the Set Service Properties operation.
 
@@ -88,7 +104,7 @@ CORS rules are evaluated as follows:
 
 Since the rules are processed in the order they are present in the request body, best practices recommend that you specify the most restrictive rules with respect to origins first in the list, so that these are evaluated first. Specify rules that are less restrictive – for example, a rule to allow all origins – at the end of the list.
 
-###Example – CORS Rules Evaluation
+###Example – CORS rules evaluation
 
 The following example shows a partial request body for an operation to set CORS rules for the storage services. See [Set Blob Service Properties](https://msdn.microsoft.com/en-us/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/en-us/library/hh452232.aspx), and [Set Table Service Properties](https://msdn.microsoft.com/en-us/library/hh452240.aspx) for details on constructing the request.
 
@@ -161,7 +177,7 @@ The third request matches the second rule in its origin domain and method, so no
 
 >[AZURE.NOTE] Although this example shows a less restrictive rule before a more restrictive one, in general the best practice is to list the most restrictive rules first.
 
-##Understanding How the Vary Header is Set
+##Understanding how the Vary header is set
 
 The *Vary* header is a standard HTTP/1.1 header consisting of a set of request header fields that advise the browser or user agent about the criteria that were selected by the server to process the request. The *Vary* header is mainly used for caching by proxies, browsers, and CDNs, which use it to determine how the response should be cached. For details, see the specification for the [Vary header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
@@ -259,22 +275,18 @@ The following table indicates how Azure storage will respond to GET/HEAD request
 </tr>
 </table>
 
-##Billing for CORS Requests
+##Billing for CORS requests
 
 Successful preflight requests are billed if you have enabled CORS for any of the storage services for your account (by calling [Set Blob Service Properties](https://msdn.microsoft.com/en-us/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/en-us/library/hh452232.aspx), or [Set Table Service Properties](https://msdn.microsoft.com/en-us/library/hh452240.aspx)). To minimize charges, consider setting the **MaxAgeInSeconds** element in your CORS rules to a large value so that the user agent caches the request.
 
 Unsuccessful preflight requests will not be billed.
 
-##See Also 
-
-**Concepts**
+##Next steps
 
 [Set Blob Service Properties](https://msdn.microsoft.com/en-us/library/hh452235.aspx)
 
 [Set Queue Service Properties](https://msdn.microsoft.com/en-us/library/hh452232.aspx)
 
 [Set Table Service Properties](https://msdn.microsoft.com/en-us/library/hh452240.aspx)
-
-**Other Resources**
 
 [W3C Cross-Origin Resource Sharing Specification](http://www.w3.org/TR/cors/)
