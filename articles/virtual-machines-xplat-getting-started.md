@@ -65,7 +65,7 @@ Creating a VM starts with choosing (or uploading) an image and using the `azure 
 
 ## Next steps
 
-Let's go do something with your VM.
+Let's go do something with your VM. 
 
 Since the example above opened the default SSH port, connecting to the VM once it's up and running is straightforward. From a Linux command line:
 
