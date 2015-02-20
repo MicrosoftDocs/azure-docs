@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2015"
+   ms.date="02/20/2015"
    ms.author="rasquill"/>
 
 # Creating a VM using the Azure Cross-Platform Command-Line Interface (xplat-cli)
@@ -57,15 +57,21 @@ Creating a VM starts with choosing (or uploading) an image and using the `azure 
 
     To choose a location you can use the `vm location list` command to pick a region near you.
 
-  The DNS name needs to be unique (it will map to `dnsname.cloudapp.net`), and will be the same as the machine name if you don't specify a machine name on the command line separately.  
+  The DNS name you choose needs to be unique (it will map to `dnsname.cloudapp.net`), and will be the same as the machine name if you don't specify a machine name on the command line separately.  
 
-    The Linux example below creates a VM in West US, opens the default SSH port 22 (-e), and creates a user called `myadminuser`:
+    The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
         azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB "myadminuser" "myAdm1n@passwd"
 
 ## Next steps
 
-Let's go do something with your VM. A great place to see more examples of using xplat-cli to manage your Azure infrastructure is [Azure command-line tool for Mac and Linux](http://azure.microsoft.com/en-us/documentation/articles/command-line-tools/)
+Let's go do something with your VM.
+
+Since the example above opened the default SSH port, connecting to the VM once it's up and running is straightforward. From a Linux command line:
+
+    ssh myadminuser@my-new-cli-vm.cloudapp.net
+
+A great place to see more examples of using xplat-cli to manage your Azure infrastructure is [Azure command-line tool for Mac and Linux](http://azure.microsoft.com/en-us/documentation/articles/command-line-tools/)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
