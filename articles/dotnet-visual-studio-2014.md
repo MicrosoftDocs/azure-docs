@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Installing the Azure SDK 2.4 for Visual Studio 14 CTP2" 
 	description="Install Azure SDK 2.4 and Visual Studio 14 CTP2" 
-	services="" 
+	services="visual-studio-online" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="visual-studio-online" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 

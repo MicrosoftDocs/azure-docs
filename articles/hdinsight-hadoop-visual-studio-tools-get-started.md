@@ -18,7 +18,7 @@
 
 # Get started using HDInsight Hadoop Tools for Visual Studio
 
-Learn how to install and use HDInsight Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries to HDInsight clusters. For more information on using HDInsight, see [Introduction to HDInsight][hdinsight.introduction], and [Get started with HDInsight][hdinsight.get.started]. For more information on connecting to Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][hdinsight.storm.visual.studio.tools]. 
+Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries. For more information on using HDInsight, see [Introduction to HDInsight][hdinsight.introduction], and [Get started with HDInsight][hdinsight.get.started]. For more information on connecting to Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][hdinsight.storm.visual.studio.tools]. 
 
 >[WACOM.NOTE] All of the HDInsight Tools' features that are available for Windows clusters also work in Linux clusters, except a few features that are not supported in Humboldt today, such as show YARN logs of a certain Hive job. 
 
@@ -47,7 +47,7 @@ Learn how to install and use HDInsight Tools for Visual Studio to connect to HDI
 
 ## Installation
 
-HDInsight Tools for Visual Studio is shipped with Microsoft Azure SDK. You can use [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) to install the SDK.
+HDInsight Tools for Visual Studio can be installed using the [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386). You can query the tools using the keyword "hdinsight". There is one package for each of the Visual Studio versions. You must choose the one that matches to your Visual Studio.  The package will also install both Microsoft Hive ODBC Driver 32 bit and 64 bit.
 
 ![HDinsight Tools for Visual Studio Web Platform installer][1]
 
@@ -61,20 +61,20 @@ The HDInsight Tools for Visual Studio allows you to connect to your HDInsight cl
 
 1.	Run Visual Studio.
 2.	From the **View** menu, click **Server Explorer** to open the Server Explorer window.
-3.	Expand **Azure**, and then click **HDInsight** Clusters. 
+3.	Expand **Azure**, and then expand **HDInsight**. 
 
 	>[WACOM.NOTE]Notice the **HDInsight Task List** window is opened. If you do not see it, you can open it by clicking **Other Windows** from the **VIEW** menu, and then click **HDInsight Task List Window**.  
 4.	Enter your azure subscription credentials, and then click **Sign In**. This is only required if you haven’t never connected to the Azure subscription from the Visual Studio on this workstation.
 5.	In Server Explorer, you will see a list of existing HDInsight clusters. If you do not have any clusters, you can provision one using the Management portal, Azure PowerShell, or HDInsight SDK.  For more information, see [Provision HDInsight clusters][hdinsight-provision].
 
 	![HDInsight Tools for visual studio server explorer cluster list][5]
-6.	Expand an HDInsight cluster. You will see **Hive Databases**, default Storage account, and linked storage accounts. You can further expand the entities. 
+6.	Expand an HDInsight cluster. You will see **Hive Databases**, default Storage account, linked storage accounts and **Hadoop Service log**. You can further expand the entities. 
 
 After you have connected to your Azure subscription, you will be able to perform the following:
 
 **To connect to the Management portal from Visual Studio**
 
-- From Server Explorer, expand **Azure**, **HDInsight Clusters**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure Portal**.
+- From Server Explorer, expand **Azure**, **HDInsight**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure Portal**.
 
 **To ask questions and provide feedback from Visual Studio**
 
@@ -100,7 +100,7 @@ All HDInsight clusters come with a sample Hive table called *hivesampletable*. W
 
 **To list Hive tables and view Hive table schema**
 
-1.	From **Server Explorer**, expand **Azure**, expand **HDInsight Cluster**, expand the cluster, expand **Hive Databases**, expand **Default**, and then expand **hivesampletable** to see the table schema.
+1.	From **Server Explorer**, expand **Azure**, expand **HDInsight**, expand a cluster, expand **Hive Databases**, expand **Default**, and then expand **hivesampletable** to see the table schema.
 4.	Right-click **hivesampletable**, and then click **View Top 100 Rows** to list the rows. It is equivalent to running the following Hive query using Hive ODBC driver:
 
 		SELECT * FROM hivesampletable LIMIT 100

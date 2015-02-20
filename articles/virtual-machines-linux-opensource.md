@@ -140,38 +140,39 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 ### <a id='langsandplats'>Languages and Platforms</a>
 #### [Azure Java Dev Center](http://azure.microsoft.com/en-us/develop/java/)
-	1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
-	2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841073.aspx)
-	3. [How to: Set up Tomcat7 on Linux Using the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-setup-tomcat7-linux/)
-	4. [Video: Azure Java SDK for Service Management](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
-	5. [Blog: Getting Started with Azure Management Libraries for Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
-	5. [Github repo: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
-	6. [Reference: Azure Toolkit for Eclipse with Java](http://msdn.microsoft.com/library/azure/hh694271.aspx)
-	7. [Github repo: MS Open Tech Tools plugin for IntelliJ IDEA and Android Studio](https://github.com/MSOpenTech/msopentech-tools-for-intellij)
-	7. [Blog: MSOpenTech Contributes to the OpenJDK](http://msopentech.com/blog/2014/10/21/ms-open-techs-first-contribution-openjdk/)
-	8. [Images: WebSphere](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
-	9. [Images: WebLogic](http://azure.microsoft.com/en-us/marketplace/?term=weblogic)
-	10. [Images: JDK6 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk6onwindowsserver2012/)
-	11. [Images: JDK7 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk7onwindowsserver2012/)
-	12. [Images: JDK8 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk8onwindowsserver2012r2/)
- 
+
+1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
+2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841073.aspx)
+3. [How to: Set up Tomcat7 on Linux Using the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-setup-tomcat7-linux/)
+4. [Video: Azure Java SDK for Service Management](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
+5. [Blog: Getting Started with Azure Management Libraries for Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
+5. [Github repo: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
+6. [Reference: Azure Toolkit for Eclipse with Java](http://msdn.microsoft.com/library/azure/hh694271.aspx)
+7. [Github repo: MS Open Tech Tools plugin for IntelliJ IDEA and Android Studio](https://github.com/MSOpenTech/msopentech-tools-for-intellij)
+7. [Blog: MSOpenTech Contributes to the OpenJDK](http://msopentech.com/blog/2014/10/21/ms-open-techs-first-contribution-openjdk/)
+8. [Images: WebSphere](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
+9. [Images: WebLogic](http://azure.microsoft.com/en-us/marketplace/?term=weblogic)
+10. [Images: JDK6 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk6onwindowsserver2012/)
+11. [Images: JDK7 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk7onwindowsserver2012/)
+12. [Images: JDK8 on Windows](http://azure.microsoft.com/en-us/marketplace/partners/msopentech/jdk8onwindowsserver2012r2/)
+
 #### JVM Languages
 
-	1. [Scala: Running Play Framework Applications in Azure Cloud Services](http://msopentech.com/blog/2014/09/25/tutorial-running-play-framework-applications-microsoft-azure-cloud-services-2/)
+1. [Scala: Running Play Framework Applications in Azure Cloud Services](http://msopentech.com/blog/2014/09/25/tutorial-running-play-framework-applications-microsoft-azure-cloud-services-2/)
 
 #### SDK Types, Installations, Upgrades
-	4. [Azure Service Management SDK: Java](http://dl.windowsazure.com/javadoc/)
-	5. [Azure Service Management SDK: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
-	5. [Azure Service Management SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
-	- [How to: Install Ruby on Rails](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-rails-web-app-linux/)
-	- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
-	6. [Azure Service Management SDK: Python](https://github.com/Azure/azure-sdk-for-python)
-	- [How to: Django Hello World Web Application (Mac-Linux)](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-python-django-web-app-linux/)
-	7. [Azure Service Management SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
-	8. [Azure Service Management SDK: PHP](https://github.com/MSOpenTech/azure-sdk-for-php)
-	- [How to: Install the LAMP Stack on an Azure VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-install-lamp-stack/)
-	- [Video: Install a LAMP Stack on an Azure VM](http://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)
-	9. [Azure Service Management SDK: .NET](https://github.com/Azure/azure-sdk-for-net)
+4. [Azure Service Management SDK: Java](http://dl.windowsazure.com/javadoc/)
+5. [Azure Service Management SDK: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
+5. [Azure Service Management SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
+- [How to: Install Ruby on Rails](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-rails-web-app-linux/)
+- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+6. [Azure Service Management SDK: Python](https://github.com/Azure/azure-sdk-for-python)
+- [How to: Django Hello World Web Application (Mac-Linux)](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-python-django-web-app-linux/)
+7. [Azure Service Management SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
+8. [Azure Service Management SDK: PHP](https://github.com/MSOpenTech/azure-sdk-for-php)
+- [How to: Install the LAMP Stack on an Azure VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-install-lamp-stack/)
+- [Video: Install a LAMP Stack on an Azure VM](http://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)
+9. [Azure Service Management SDK: .NET](https://github.com/Azure/azure-sdk-for-net)
 10. [Blog: Mono, ASP.NET 5, Linux, and Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
 ### <a id='samples'>Samples and Scripts</a>
@@ -191,19 +192,19 @@ This section contains information about several different storage approaches and
 
 #### Nosql
 
-	1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
-	2. Couchdb
-	- [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
-	- [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
-	3. MongoDB
-	- [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
-	4. Cassandra
-	- [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
-	5. Redis
-	- [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
-	- [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
-	6. RavenHQ
-	- [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
+1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
+2. Couchdb
+- [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
+- [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
+3. MongoDB
+- [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
+4. Cassandra
+- [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
+5. Redis
+- [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
+- [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
+6. RavenHQ
+- [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
 
 #### Big Data
 2. Hadoop/Cloudera  
@@ -212,17 +213,17 @@ This section contains information about several different storage approaches and
 3. [Azure HDInsight](http://azure.microsoft.com/en-us/services/hdinsight/) -- a fully managed Hadoop service on Azure.
 
 #### Relational Data
-	2. MySQL
-	- [How to: Install and Run MySQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
-	- [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
-	- [How to: MySQL Clusters](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/)
-	- [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/en-us/documentation/articles/store-php-create-mysql-database/)
-	- [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-ptvs-django-mysql/)
-	- [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)
-	7. MariaDB
-	- [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
-	7. PostgreSQL
-	- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+2. MySQL
+- [How to: Install and Run MySQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
+- [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
+- [How to: MySQL Clusters](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/)
+- [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/en-us/documentation/articles/store-php-create-mysql-database/)
+- [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/en-us/documentation/articles/web-sites-python-ptvs-django-mysql/)
+- [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)
+7. MariaDB
+- [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
+7. PostgreSQL
+- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
 
 
 ### <a id='security'>Auth and Encryption</a>

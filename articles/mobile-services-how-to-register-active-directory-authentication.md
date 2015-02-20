@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/18/2015" 
 	ms.author="wesmc"/>
 
 # Register your apps to use an Azure Active Directory Account login
