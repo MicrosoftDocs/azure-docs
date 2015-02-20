@@ -16,11 +16,7 @@
 	ms.date="02/20/2015" 
 	ms.author="justinha"/>
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
-<!--Properties section (above): this is required in all topics. Please fill it out!-->
-
-<!--The next line, with one pound sign at the beginning, is the page title--> 
 # How to build an AngularJS single-page app with Azure AD 
 
 This tutorial demonstrates the use of Active Directory Authentication Library (ADAL) for JavaScript for securing an AngularJS based single page app, implemented with an ASP.NET Web API backend, that calls another ASP.NET Web API using CORS. To see the code sample used for this tutorial, see [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet) on github.
