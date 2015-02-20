@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Notification Hubs - Node.js Dev Center" 
+	pageTitle="How to use Notification Hubs with Node.js" 
 	description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." 
 	services="notification-hubs" 
 	documentationCenter="nodejs" 
@@ -16,23 +16,13 @@
 	ms.date="09/17/2014" 
 	ms.author="glenga"/>
 
-
-
-
-
-
-# How to Use Notification Hubs
+# How to use Notification Hubs from Node.js
+<div class="dev-center-tutorial-selector sublanding"> 
+    	<a href="/en-us/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/en-us/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/en-us/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/en-us/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
+</div>
 
 This guide will show you how to use Notification Hubs
 from Node.js applications. The scenarios covered include **sending notifications to Android, iOS, Windows Phone and Windows Store applications**. For more information on notification hubs, see the [Next Steps](#next) section.
-
-## Table of Contents
-
--   [What is are Notification Hubs?](#hub)
--   [Create a Node.js application](#create)
--   [Configure the application to use Notification Hub](#config)
--   [How to: Send notifications](#send)
--   [Next Steps](#next)
 
 ##<a id="hub"></a> What are Notification Hubs?
 
