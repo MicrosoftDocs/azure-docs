@@ -19,7 +19,7 @@
 
 # Restore a Microsoft Azure website
 
-This article shows you how to restore a website that you have previously backed up by using the Azure Websites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](./web-sites-backup/). 
+This article shows you how to restore a website that you have previously backed up by using the Azure Websites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](../web-sites-backup/). 
 
 The Azure Websites Restore feature lets restore your website on-demand to a previous state, or create a new website based on one of your original site's backups. Creating a new website that runs in parallel to the latest version can be useful for A/B testing.
 
