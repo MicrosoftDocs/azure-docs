@@ -20,10 +20,6 @@
 
 Creating a snapshot, which is a read-only copy of a blob, can result in additional data storage charges to your account. When designing your application, it is important to be aware how these charges may accrue so that you can minimize unnecessary costs.
 
-
-
-
-
 ##Important Billing Considerations
 
 The following list includes key points to consider when creating a snapshot.
@@ -32,12 +28,9 @@ The following list includes key points to consider when creating a snapshot.
 
 - When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the snapshot. Once the block is committed again, it diverges from its counterpart in any snapshot, and you will be charged for its data. The same holds true for a page in a page blob that’s updated with identical data.
 
-
 - Replacing a block blob by calling the UploadFile, UploadText, UploadStream, or UploadByteArray method replaces all of the blocks in that blob. If you have a snapshot associated with that blob, all of the blocks in the base blob and snapshot will now diverge and you will be charged for all of the blocks in both blobs. This is true even if the data in the base blob and the snapshot remain identical.
 
-
 - The Azure Blob service does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it is important to consider that updating a blob that has a snapshot will result in additional unique blocks and additional charges.
-
 
 > [AZURE.NOTE] Best practices dictate that you manage snapshots carefully to avoid extra charges. It’s recommended that you manage snapshots in the following manner:
 
@@ -46,16 +39,7 @@ The following list includes key points to consider when creating a snapshot.
 > - If you are maintaining snapshots for a blob, avoid calling UploadFile, UploadText, UploadStream, or UploadByteArray to update the blob, as those methods replace all of the blocks in the blob. Instead, update the fewest possible number of blocks by using the PutBlock and PutBlockList methods.
 
 
- 
-
-
-
-
-
-
-
 ##Snapshot Billing Scenarios
-
 
 
 The following scenarios demonstrate how charges accrue for a block blob and its snapshots. 
