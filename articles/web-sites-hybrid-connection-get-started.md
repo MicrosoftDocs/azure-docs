@@ -153,7 +153,7 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 
 - For information on creating an ASP.NET web application that uses a hybrid connection, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
 ### Additional Resources
 
@@ -163,7 +163,7 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 
 [Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
 
-[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-dashboard-monitor-scale-tabs/)
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

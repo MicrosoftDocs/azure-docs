@@ -16,13 +16,9 @@
    ms.date="02/19/2015"
    ms.author="nitinme"/>
 
-<properties urlDisplayName="HDInsight Administration" pageTitle="" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
-
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/17/2015" ms.author="jgao" />
-
 #Provision Hadoop clusters in HDInsight using custom options
 
-In this article you learn about the different ways to custom-provision an Hadoop cluster on Azure HDInsight - using the Azure Management Portal, PowerShell, command line tools, or HDInsight .NET SDK. This article talks about provisioning Hadoop clusters. For instructions on how to provision an HBase cluster, see [Provision HBase cluster in HDInsight][hdinsight-hbase-custom-provision]. See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one over the other.
+Learn different ways to custom-provision Hadoop clusters on Azure HDInsight - using the Azure Management Portal, PowerShell, command line tools, or HDInsight .NET SDK. For instructions on provision HBase clusters and Storm clusters, see [Provision HBase cluster in HDInsight][hdinsight-hbase-custom-provision] and [Getting started using Storm on HDInsight][hdinsight-storm-get-started]. See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one over the other.
 
 ## What is an HDInsight cluster?
 
@@ -57,19 +53,19 @@ HDInsight provides the option of configuring Linux clusters on Azure. Configure 
 
 ###Additional storage
 
-During configuration, you must specify an Azure Blob Storage account, and a default container. This is used as the default storage location by the cluster. Optionally, you can specify additional blobs that will also be associated with your cluster.
+During configuration, you must specify an Azure Blob Storage account, and a default container. This is used as the default storage location by the cluster. Optionally, you can specify additional Azure storage account that will also be associated with the cluster.   
+
+>[WACOM.NOTE] Don't share one Blob storage container amount multiple clusters.  This is not supported. 
 
 For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-blob-storage/).
 
 ###Metastore
 
-The Metastore contains information about Hive tables, partitions, schemas, columns, etc. This information is used by Hive to locate where data is stored on HDFS (or WASB for HDInsight.) By default, Hive uses an embedded database to store this information.
-
-When provisioning an HDInsight cluster, you can specify a SQL Database that will contain the Metastore for Hive. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in SQL Database.
+Metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, columns, etc. Using metastore helps you to retain your Hive and Oozie metadata, so that you don't need to recreate Hive tables or Oozie job when you provision a new cluster. By default, Hive uses an embedded database to store this information. The embedded database can't preserve the metadata when the cluster is deleted.
 
 ### Cluster customization
 
-You can install additional components or customize the cluster configuration, while an HDInsight cluster is being created. Clusters can be customized by writing scripts that get executed during cluster creation. Such scripts are invoked using **Script Action**, which is a configuration option that can be used from the Azure Management Portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-customize-cluster].
+You can install additional components or customize cluster configuration using scripts during provision. Such scripts are invoked using **Script Action**, which is a configuration option that can be used from the Azure Management Portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action][hdinsight-customize-cluster].
 
 
 ###Virtual Networking
@@ -78,17 +74,17 @@ You can install additional components or customize the cluster configuration, wh
 
 * Connect cloud resources together in a private network (cloud-only)
 
-	![diagram of cloud-only configuration](./media/hdinsight-provision-clusters/cloud-only.png)
+	![diagram of cloud-only configuration](./media/hdinsight-provision-clusters/hdinsight-vnet-cloud-only.png)
 
 * Connect your cloud resources to your local datacenter network (site-to-site or point to site) using a Virtual Private Network (VPN)
 
 	Site-to-site configuration allows you to connect multiple resources from your data center to the Azure Virtual Network using a hardware VPN or the Routing and Remote Access Service
 
-	![diagram of site-to-site configuration](./media/hdinsight-provision-clusters/site-to-site.png)
+	![diagram of site-to-site configuration](./media/hdinsight-provision-clusters/hdinsight-vnet-site-to-site.png)
 
-	Point-to-site configuration allows you to connect a specific resource to the Azure Virtual Network using software VPN
+* Point-to-site configuration allows you to connect a specific resource to the Azure Virtual Network using software VPN
 
-	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters/point-to-site.png)
+	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
@@ -239,12 +235,17 @@ The following procedures are needed to provision an HDInsight cluster using Powe
 - Create an Azure Blob container
 - Create a HDInsight cluster
 
+You can use either Windows PowerShell console or Windows PowerShell ISE to run the scripts.
+ 
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. The storage account must be located in the same data center as the HDInsight Cluster.
 
+**To connect to your Azure account**
+
+		Add-AzureAccount 
+
+You will be prompt to enter your Azure account credentials.
 
 **To create an Azure storage account**
-
-- Run the following commands from an Azure PowerShell console window:
 
 		$storageAccountName = "<StorageAcccountName>"	# Provide a storage account name
 		$location = "<MicrosoftDataCenter>"				# For example, "West US"
@@ -252,7 +253,7 @@ HDInsight uses an Azure Blob Storage container as the default file system. An Az
 		# Create an Azure storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-	If you have already had a storage account but do not know the account name and account key, you can use the following PowerShell commands to retrieve the information:
+If you have already had a storage account but do not know the account name and account key, you can use the following PowerShell commands to retrieve the information:
 
 		# List storage accounts for the current subscription
 		Get-AzureStorageAccount
@@ -262,13 +263,11 @@ HDInsight uses an Azure Blob Storage container as the default file system. An Az
 
 **To create Azure Blob storage container**
 
-- Run the following commands from an Azure PowerShell console window:
-
 		$storageAccountName = "<StorageAccountName>"	# Provide the storage account name
-		$storageAccountKey = "<StorageAccountKey>"		# Provide either primary or secondary key
 		$containerName="<ContainerName>"				# Provide a container name
 
 		# Create a storage context object
+		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName
 		                                       -StorageAccountKey $storageAccountKey  
 
@@ -279,26 +278,36 @@ Once you have the storage account and the blob container prepared, you are ready
 
 **To provision an HDInsight cluster**
 
-> [WACOM.NOTE] The PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching.  Configuration values set via PowerShell will be preserved if the cluster is patched.
+> [WACOM.NOTE] The Azure PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster.  Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching.  Configuration values set via PowerShell will be preserved if the cluster is patched.
 
 - Run the following commands from an Azure PowerShell console window:
 
-		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription.
-		$storageAccountName = "<StorageAccountName>"	# Azure storage account that hosts the default container.
-		$containerName = "<ContainerName>"				# Azure Blob container that is used as the default file system for the HDInsight cluster.
+		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
 
-		$clusterName = "<HDInsightClusterName>"			# The name you will name your HDInsight cluster.
-		$location = "<MicrosoftDataCenter>"				# The location of the HDInsight cluster. It must in the same data center as the storage account.
-		$clusterNodes = <ClusterSizeInNodes>			# The number of nodes in the HDInsight cluster.
+		$storageAccountName = "<AzureStorageAccountName>" # HDInsight cluster requires an existing Azure storage account to be used as the default file syste.
+
+		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created.
+		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster.
+        $hadoopUserName = "<HadoopUserName>"              # username for the Hadoop user.  You will use this account to connect to the cluster and run jobs.
+        $hadoopUserPassword = "<HadoopUserPassword>"    
+
+        $secPassword = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$secPassword)            
 
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+		$containerName = $clusterName				# Azure Blob container that is used as the default file system for the HDInsight cluster.
+
+        # The location of the HDInsight cluster. It must in the same data center as the storage account.
+        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location} 
 
 		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
+		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	When prompted, enter the credentials for the cluster. It can take several minutes before the cluster provision completes.
+	>[WACOM.NOTE] The $hadoopUserName and $hadoopUserPassword are used to create the Hadoop user account for the cluster.  You will use this account to connect to the cluster and run jobs.  If you use the quick create option from the management portal to provision a cluster, the default Hadoop username is "admin". Don't confuse this account with the RDP user account. The RDP user account has to be different from the Hadoop user account.  For more information, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
+
+	It can take several minutes before the cluster provision completes.
 
 	![HDI.CLI.Provision][image-hdi-ps-provision]
 
@@ -715,9 +724,11 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
 [hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[hdinsight-storm-get-started]: ../hdinsight-storm-getting-started/
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
