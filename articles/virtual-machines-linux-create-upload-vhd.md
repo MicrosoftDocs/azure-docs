@@ -70,6 +70,18 @@ After following the steps in the guides above you should have a VHD file that is
 
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure. 
 
+
+### If using Azure CLI
+
+1. Open an Azure CLI window
+
+2. Type
+	`azure login`
+
+	When prompted, please enter your username and password.
+
+### If using Azure PowerShell
+
 1. Open an Azure PowerShell window.
 
 2. Type: 
