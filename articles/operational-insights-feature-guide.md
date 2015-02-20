@@ -75,6 +75,4 @@ If you want to get a Microsoft Account (previously called a â€œWindows Live IDâ€
 
 1. Go to <a href="preview.opinsights.azure.com" target="_blank">Microsoft Azure Operational Insights</a>  and choose Sign in at the top of the page.
 2. Select **Microsoft account** or **Organizational account** and then **sign in** with your credentials.
-3. If prompted, create an Operational Insights account to associate with your sign-in information.
-4. Select **Try Preview** when you are prompted to select the version of Operational Insights that you want to use.
-5. If prompted, enter your invitation code and click **Apply** to join the preview. If you do not have an invitation code, at the bottom of the screen, enter your information to obtain one.
+3. Create an Operational Insights account to associate with your sign-in information.
