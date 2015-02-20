@@ -61,6 +61,7 @@ The tags section uses this syntax:
 - multi-factor-authentication
 - notification-hubs
 - recovery-manager
+- redis-cache
 - service-bus
 - scheduler
 - sql-database

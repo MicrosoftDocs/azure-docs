@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="media-services" 
@@ -13,22 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/20/2015" 
 	ms.author="robmcm"/>
 
 #How to Use Media Services
 
 This guide shows you how to start programming with Azure Media Services using Java. The guide includes a technical overview of Media Services, steps to configure your Azure account for Media Services, and code that shows how to accomplish typical programming tasks. 
 
-## Table of Contents
-
--   [What is Media Services?](#media_services)
--   [Setting Up an Azure Account for Media Services](#setup-account)
--   [Setting up for Media Services development](#setup-dev)
--   [How to: Use Media Services with Java](#connect)
--   [Additional Resources](#additional-resources)
-
- 
 ##<a id="media_services"></a>What is Media Services
 
 Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.

@@ -1,30 +1,18 @@
-# Publishing to Azure Websites with Git
+# Publish to Azure Websites with Git
 
 Azure Websites supports continuous deployment from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your website, and then quickly and easily push changes to your site when you want.
 
 In this article, you will learn how to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository websites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
 
-> [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a Website using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure Command-Line Tools for Mac and Linux</a>.
+> [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a Website using the [Azure Command-Line Tools for Mac and Linux](../xplat-cli/).
 
-The task includes the following steps:
-
-* [Install Git](#Step1)
-* [Create a local repository](#Step2)
-* [Add a web page](#Step3)
-* [Enable the web site repository](#Step4)
-* [Deploy your project](#Step5)
-	* [Pushing local files to Azure (Local Git)](#Step6)
-	* [Deploy files from a repository web site like BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial](#Step7)
-	* [Deploy a Visual Studio solution from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial](#Step75)
-* [Troubleshooting](#Step8)
-
-<h2><a id="Step2"></a>Installing Git</h2>
+## <a id="Step1"></a>Step 1: Install Git
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
 > [AZURE.NOTE] On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.
 
-<h2><a id="Step2"></a>Create a local repository</h2>
+## <a id="Step2"></a>Step 2: Create a local repository
 
 Perform the following tasks to create a new Git repository.
 
@@ -42,7 +30,7 @@ Perform the following tasks to create a new Git repository.
 
 	This should return a message such as **Initialized empty Git repository in [path]**.
 
-<h2><a id="Step3"></a>Add a web page</h2>
+## <a id="Step3"></a>Step 3: Add a web page
 
 Azure Websites support applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing websites in other programming languages to Azure, see the [Azure Developer Center].
 
@@ -68,7 +56,7 @@ Azure Websites support applications created in a variety of programming language
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2><a id="Step4"></a>Enable the website repository</h2>
+## <a id="Step4"></a>Step 4: Enable the website repository
 
 Perform the following steps to enable a Git repository for your website by using the Azure portal:
 
@@ -96,9 +84,14 @@ Perform the following steps to enable a Git repository for your website by using
 
 	![git-instructions][git-instructions]
 
-<h2><a id="Step5"></a>Deploy your project</h2>
+## <a id="Step5"></a>Step 5: Deploy your project
 
-<h3><a id="Step6"></a>Pushing local files to Azure (Local Git)</h3>
+* [Pushing local files to Azure (Local Git)](#Step6)
+* [Deploy files from a repository web site like BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial](#Step7)
+* [Deploy a Visual Studio solution from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial](#Step75)
+
+
+### <a id="Step6"></a>Push local files to Azure (Local Git)
 
 At this point, the portal displays instructions for initializing a local repository and adding files. You have already done this in the previous steps in this topic. However, if you have not set up your deployment credentials, you must go back to the **DASHBOARD** tab in the portal and click **Reset your deployment credentials**.
 
@@ -148,7 +141,7 @@ Use the following steps to publish your website to Azure using Local Git:
 
 	![A webpage containing 'Yay!'][yay]
 
-<h3><a id="Step7"></a>Deploy files from a repository website like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
+### <a id="Step7"></a>Deploy files from a repository website like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial
 
 Pushing local files to Azure by using Local Git allows you to manually push updates from a local project to your Azure Website, while deploying from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial results in a continuous deployment process where Azure will pull in the most recent updates from your project.
 
@@ -182,7 +175,7 @@ Deploying files from either GitHub, CodePlex, or BitBucket requires that you hav
 
 	![git-GitHubDeployed-Updated][git-GitHubDeployed-Updated]
 
-<h3><a id="Step75"></a>Deploy a Visual Studio solution from BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
+### <a id="Step75"></a>Deploy a Visual Studio solution from BitBucket, CodePlex, Dropbox, GitHub, or Mercurial
 
 Pushing a Visual Studio solution to an Azure Website is just as easy as pushing a simple index.html file. The Azure Websites deployment process streamlines all the details, including restore NuGet dependencies and building the application binaries. You can follow the source control best practices of maintaining code only in your Git repository, and let Azure Website deployment take care of the rest.
 
@@ -233,7 +226,7 @@ When you enable continuous deployment, it will default to the **master** branch 
 
 	Azure should immediately begin updating based on changes to the new branch.
 
-<h4>Disabling continuous deployment</h4>
+#### Disabling continuous deployment
 
 Continuous deployment can be disabled from the Azure **Dashboard**. Under the **quick glance** section, choose the option to disconnect from the repository that you are using:
 
@@ -241,7 +234,7 @@ Continuous deployment can be disabled from the Azure **Dashboard**. Under the **
 
 After answering **Yes** to the confirmation message, you can return to **quick glance** and click **Set up deployment from source control** if you would like to set up publishing from another source.
 
-<h2><a id="Step8"></a>Troubleshooting</h2>
+## <a id="Step8"></a>Troubleshooting
 
 The following are errors or problems commonly encountered when using Git to publish to an Azure website:
 
@@ -308,12 +301,12 @@ The following are errors or problems commonly encountered when using Git to publ
 * [Git Documentation]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
+[Azure Developer Center]: /develop/overview/
 [Azure portal]: http://manage.windowsazure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[How to use PowerShell for Azure]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
-[How to use the Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[How to use PowerShell for Azure]: ../install-configure-powershell/
+[How to use the Azure Command-Line Tools for Mac and Linux]: ../xplat-cli/
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -333,4 +326,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Azure using Visual Studio Online]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
+[Continuous delivery to Azure using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
