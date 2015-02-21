@@ -60,7 +60,57 @@ Open **Event Viewer** –> **Application and Services** –> **Operations Manage
 Most of these events would be similar in either Operations Manager and on Direct Agent and the steps for troubleshooting would be similar for either. 
 The only part that differs between Operations Manager and Direct Agent is the registration process (GUI in Operations Manager; workspace Id/Key combination in Direct agent) but, after initial registration, certificates are exchanges and used and everything else about the communication with the service is the same.
 
-Hence, many of these events apply to both types of reporting infrastructure.
+Hence, many of these events apply to both types of reporting infrastructure. Here's a list of the common ones you might see.
+
+###Events from source 'Health Service Modules'
+#####EventID 2138
+This means your proxy requires authentication. Please follow the steps to [configure proxy servers](https://msdn.microsoft.com/library/azure/dn884643.aspx)
+
+#####EventID 2137
+Operations Manager cannot read the authentication certificate. Re-running the Advisor registration wizard will fix certificates/runas accounts
+
+#####EventID 2132
+Means **Not Authorized**. Could be an issue with the certificate and/or registration to the service; try re-running the registration wizard that will fix certificates and RunAs accounts. Additionally, verify the proxy has been set to allow exclusions. For more information see [configure proxy servers](https://msdn.microsoft.com/library/azure/dn884643.aspx)
+
+#####EventID 2129
+This is a failed connection due to failed SSL negotiation. Verify that your systems are configured to use TLS and not SSL. There could be some strange SSL settings on this server with regards to chipers, either in the Internet Explorer **Advanced** options, or in the Windows registry under the key 
+
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+
+#####EventID 2127
+Failure sending data received error code. If this only happens once in a while, it could be just a glitch. Keep an eye on it, to understand how often it happens. If the same appears very often (every 10 minutes or so for an extended period of time), then it could be a real issue – check your network configuration, proxy settings described above, and re-run registration wizard. But if it only happens sporadically (i.e. a couple of times per day) then everything should be fine, as data will be queued and retransmitted. It's probably just a network timeout if that's the frequency at which it occurs.
+ 
+Some of the HTTP error codes have some special meanings, i.e.: 
+
+- the FIRST time that a MMA direct agent or management server tries to send data to our service, it will get a 500 error with an inner 404 error code – 404 means not found; this indicates that the storage area we’ll use for this new workspace of yours isn’t quite ready yet – it is being provisioned. On next retry, this will however be ready and flow will start working (under normal conditions).
+- 403 might indicate a permission/credential issue, and so forth. 
+
+#####EventID 2128
+DNS name resolution failed. You server can’t resolve our internet address it is supposed to send data to. This might be DNS resolver settings on your machine, incorrect proxy settings, or a (temporary) issue with DNS at your provider. Like the previous event, depending if it happens constantly or ‘once in a while’ it could indicate a real issue – or not.
+
+#####EventID 2130
+Timeout. Like the previous event, depending if it happens constantly or ‘once in a while’ it could be an issue – or not.
+
+### Events from source 'HealthService'
+#####EventID 4511
+Cannot load module "System.PublishDataToEndPoint" – file not found. Initialization of a module of type "System.PublishDataToEndPoint" (CLSID "{D407D659-65E4-4476-BF40-924E56841465}") failed with error code The system cannot find the file specified.  
+This error indicates you have old DLLs on your machine, that don’t contain the required modules. The fix is to update your Management Servers to the latest Update Rollup.
+
+#####EventID 4502
+Module crashed. If you see this for workflows with names such as **CollectInstanceSpace** or **CollectTypeSpace** it might mean the server is having issues to send some configuration data. Depending on how often it happens - constantly or ‘once in a while’ - it could be an issue or not. If it happens more that every hour it is definitely an issue. If only fails this operation once or twice per day, it will be fine an able to recover. Depending on how the module actually fails (description will have more details) this could be an on-premises issue – i.e. to collect to DB – or an issue sending to the cloud. Verify your network and proxy settings, and worst case try restarting the HealthService.
+
+#####EventID 4501
+Module "System.PublishDataToEndPoint" crashed. A module of type "System.PublishDataToEndPoint" reported an error 87L which was running as part of rule "Microsoft.SystemCenter.CollectAlertChangeDataToCloud" running for instance "Operations Manager Management Group" with id:"{6B1D1BE8-EBB4-B425-08DC-2385C5930B04}" in management group "SCOMTEST". 
+You should NOT see this with this exact workflow, module and error anymore, it used to be [a bug *now fixed*](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6714689-alert-management-intelligence-pack-not-sending-ale). If you see this again please report it thru your preferred Microsoft support channel.
+
+
+### Events from source 'Service Connector'
+#####EventID 4002
+The service returned HTTP status code 403 in response to a query.  Please check with the service administrator for the health of the service. The query will be retried later. You can get a 403 during the agent’s initial registration phase, you’ll see a URL like https://<YourWorkspaceID>.oms.opinsights.azure.com/ AgentService.svc/AgentTopologyRequest
+Error code 403 means ‘fordbidden’ – this is typically a wrongly-copied WorkspaceId or key, or the clock is not synced on the machine. Try synchronising with a reliable time source and use the connectivity check in the Control Panel applet for Microsoft Monitoring Agent to verify you have the right workspace Id and Key. 
+
+
+
 
 
 ##Procedure 5: Look for your agents to send their data and have it indexed in the Portal
