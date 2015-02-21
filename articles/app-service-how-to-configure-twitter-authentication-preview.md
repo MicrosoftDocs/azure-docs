@@ -22,21 +22,21 @@ This topic shows you how to configure Azure App Services to use Twitter as an au
 
 To complete the procedure in this topic, you must have a Twitter account that has a verified email address. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-1. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create a new application**.
+1. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
 
-2. Type the **Name**, **Description**, and **Website** values for your app. Then, in in **Callback URL**, type the URL of your gateway appended with the path, _/signin-facebook_. For example, `https://contoso.azurewebsites.net/signin-facebook`.
+2. Type the **Name**, **Description**, and **Website** values for your app. Then, in in **Callback URL**, type the URL of your gateway appended with the path, _/signin-twitter_. For example, `https://contosoproxysite.azurewebsites.net/signin-twitter`.
 
     ![][0]
 
-3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. This registers the app displays the application details.
+3.  At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. This registers the app displays the application details.
 
-4. Make a note of the values of **Consumer key** and **Consumer secret**. 
+4. Click the **Settings** tab, scroll down and check **Allow this application to be used to sign in with Twitter**, then click **Update this Twitter application's settings**.
+
+5. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer key** and **Consumer secret**. 
 
     > [AZURE.NOTE] The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
-5. Click the **Settings** tab, scroll down and check **Allow this application to be used to sign in with Twitter**, then click **Update this Twitter application's settings**.
-
-6. Log on to the [Azure Management Portal], and navigate to your App Services gateway.
+6. Log on to the [Azure Management Portal], and navigate to your App Service gateway.
 
 7. Click the **User authentication** part and select **Facebook**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
 
@@ -52,8 +52,8 @@ Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
 
 <!-- Images. -->
 
-[0]: ./media/app-services-how-to-configure-twitter-authentication/app-services-twitter-redirect.png
-[1]: ./media/app-services-how-to-configure-twitter-authentication/app-services-twitter-app-configure.png
+[0]: ./media/app-service-how-to-configure-twitter-authentication/app-service-twitter-redirect.png
+[1]: ./media/app-service-how-to-configure-twitter-authentication/app-service-twitter-settings.png
 
 <!-- URLs. -->
 
