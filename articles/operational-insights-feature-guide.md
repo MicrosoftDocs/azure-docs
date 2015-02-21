@@ -35,6 +35,7 @@ With Operational Insights, you can transform machine data into operational intel
 - Track configuration changes across your servers
 - Optimize SQL Server and Active Directory
 - Search Event and IIS logs
+- Do all of the above on the go with the Mobile application
 
 <h2 id="">Operational Insights environment</h2>
 
