@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to Scale Websites" 
-	description="required" 
+	description="Manually scale up or scale out your website, scale on a schedule, or autoscale your website based on usage." 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="cephalin" 
