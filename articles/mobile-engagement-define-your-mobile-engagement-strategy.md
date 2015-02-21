@@ -118,6 +118,14 @@ All of this type of data can be augmented with Parameters (`extra-information` i
 2.	Segment audience based on login status. Collect data to know if a user is connected or has created an account. Help targeting end-users that have not yet logged in and send push notification to engage end-user to convert.
 	![][2]
 
+### Next Steps
+- Visit [Mobile Engagement Concepts] to learn more about Mobile Engagement basic concepts.
+- Visit [Tutorials] to learn more about the implementation.
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-define-your-engagement-strategy/use-case1.png
 [2]: ./media/mobile-engagement-define-your-engagement-strategy/use-case2.png
+
+<!-- URLs. -->
+[Mobile Engagement Concepts]: http://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-concepts/
+[Tutorials]: http://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-ios-get-started/
