@@ -1,0 +1,63 @@
+<properties 
+	pageTitle="How to configure Microsoft Account authentication for your App Services application 
+	description="Learn how to configure Microsoft Account authentication for your App Services application." 
+	authors="mattchenderson,ggailey777" 
+	services="app-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="mahender"/>
+
+# How to configure your application to use Microsoft Account login
+
+This topic shows you how to configure Azure App Services to use Microsoft Account as an authentication provider. 
+
+1. Navigate to the [My Applications] page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
+
+2. Click **Create application**, then type an **Application name** and click **I accept**.
+
+3. Click **API Settings**, and set your redirect URL in  **Redirect URL**, then click **Save**. Your redirect URI is the URL of your gateway appended with the path, _/signin-microsoft_. For example, `https://contoso.azurewebsites.net/signin-microsoft`.
+
+	![][0]
+
+	>[AZURE.NOTE]For an existing Live Connect app registration, you may have to first enable **Enhanced redirection security**.
+
+4. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**. 
+
+    > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
+
+5. Log on to the [Azure Management Portal], and navigate to your App Services gateway.
+
+6. Click the **User authentication** part and select **Microsoft Account**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
+
+    ![][1]
+
+You are now ready to use Microsoft Account for authentication in your app.
+
+## <a name="related-content"> </a>Related Content
+
+Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+
+Authenticate your app with Live Connect Single Sign-On: [Windows](windows-liveconnect)
+
+<!-- Anchors. -->
+
+<!-- Images. -->
+
+[0]: ./media/app-services-how-to-configure-microsoft-authentication/app-services-microsoftaccount-redirect.png
+[1]: ./media/app-services-how-to-configure-microsoft-authentication/app-services-microsoftaccount-app-configure.png
+
+<!-- URLs. -->
+
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Azure Management Portal]: https://portal.azure.com/
+[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/
+[windows-liveconnect]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-windows-dotnet-live-connect-sso/
