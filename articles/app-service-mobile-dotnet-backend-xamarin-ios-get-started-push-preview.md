@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="2/20/2015" 
 	ms.author="donnam"/>
 
 # Add push notifications to your Mobile Services app
