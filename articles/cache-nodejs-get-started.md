@@ -1,7 +1,7 @@
 <properties 
    pageTitle="How to use Azure Redis Cache with Java" 
    description="Get started with Azure Redis Cache using Java" 
-   services="cache" 
+   services="redis-cache" 
    documentationCenter="" 
    authors="MikeWasson" 
    manager="wpickett" 
@@ -29,6 +29,7 @@ Install [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
+This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you can use any Node.js client listed at [http://redis.io/clients](http://redis.io/clients).
 
 ## Create a Redis cache on Azure
 

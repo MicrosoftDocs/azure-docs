@@ -102,7 +102,7 @@ To configure logging and metrics for your storage account using the portal, foll
 
 To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 
-1. Use the [Add-AzureAccount](http://msdn.microsoft.com/library/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
+1. Use the [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
 
 	```
 	Add-AzureAccount
@@ -196,7 +196,7 @@ You can use the AzCopy command-line tool to download these server-side log files
 
 AzCopy is available for download on the [Azure Downloads](http://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [How to use AzCopy with Microsoft Azure Storage](../articles/storage-use-azcopy/).
 
-For additional information about downloading server-side logs, see [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/dn782840.aspx#DownloadingStorageLogginglogdata). 
+For additional information about downloading server-side logs, see [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata). 
 
 ## Use Microsoft Message Analyzer to analyze log data
 

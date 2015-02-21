@@ -151,13 +151,13 @@ The [Storage Pricing Details](/pricing/details/storage/) page provides detailed 
 Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx) that can be called by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
-- [Native code](http://msdn.microsoft.com/library/dn495438.aspx)
+- [Native code](http://msdn.microsoft.com/library/azure/dn495438.aspx)
 - [Java/Android](/develop/java/)
 - [Node.js](/develop/nodejs/)
 - [PHP](/develop/php/)
 - [Ruby](/develop/ruby/)
 - [Python](/develop/python/)
-- [PowerShell](http://msdn.microsoft.com/library/dn495240.aspx)
+- [PowerShell](http://msdn.microsoft.com/library/azure/dn495240.aspx)
 
 ## Next Steps ##
 
@@ -176,7 +176,7 @@ To get started with Azure Storage, explore these resources:
 ### Documentation
 
 - [Azure Storage Documentation](/documentation/services/storage/)
-- [Azure Storage Services REST API Reference](http://msdn.microsoft.com/library/dd179355.aspx)
+- [Azure Storage Services REST API Reference](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [AzCopy Command-Line Tool Reference](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 ### For PowerShell Users
@@ -184,7 +184,7 @@ To get started with Azure Storage, explore these resources:
 
 ### For .NET Developers
 
-- [.NET Client Library Reference](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
+- [.NET Client Library Reference](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs/)
 - [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
 - [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)

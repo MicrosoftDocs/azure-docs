@@ -109,8 +109,8 @@ If you want to learn more about them, follow these links:
 * [How to use Queue Storage from .NET](./storage-dotnet-how-to-use-queues.md)
 * [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-* [Azure Storage Client Library](https://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-* [Azure Storage REST API](https://msdn.microsoft.com/library/dd179355.aspx)
+* [Azure Storage Client Library](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
+* [Azure Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
