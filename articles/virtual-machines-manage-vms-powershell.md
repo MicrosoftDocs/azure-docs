@@ -16,13 +16,13 @@
    ms.date="02/20/2015"
    ms.author="kasing"/>
 
-   # Manage your VMs using Azure PowerShell
+# Manage your VMs using Azure PowerShell
 
-   Before getting started you'll need to make sure you have Azure PowerShell installed. To do this, visit [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
+Before getting started you'll need to make sure you have Azure PowerShell installed. To do this, visit [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
 
-   ## Get an Image
+## Get an Image
 
-   Before creating a VM, you will need to decide **what image to use**. You can get a list of images using the following cmdlet
+Before creating a VM, you will need to decide **what image to use**. You can get a list of images using the following cmdlet
 
       Get-AzureVMImage
 
@@ -30,13 +30,13 @@ This cmdlet will return a list of all the images available in Azure. This is a v
 
     $img = (Get-AzureVMImage | Select -Property ImageName, Label | where {$_.Label -like '*Windows Server 2012 R2 Datacenter*'})[-1]
 
-   ## Create a VM
+## Create a VM
 
-   Creation of a VM begins with the **New-AzureVMConfig** cmdlet. Here you'll specify the **name** of your VM, **size** of your VM and the **image** to be used for the VM. This cmdlet creates a local VM object **$myVM** that is later modified using other Azure PowerShell cmdlets in this guide.
+Creation of a VM begins with the **New-AzureVMConfig** cmdlet. Here you'll specify the **name** of your VM, **size** of your VM and the **image** to be used for the VM. This cmdlet creates a local VM object **$myVM** that is later modified using other Azure PowerShell cmdlets in this guide.
 
       $myVM = New-AzureVMConfig -Name "testvm" -InstanceSize "Small" -ImageName $img.ImageName
 
-   Next you'll need to choose the **username** and **password** for your VM. You can do that using the **Add-AzureProvisioningConfig** cmdlet. This is where you tell Azure what OS for the VM is. Not that you are still making changes to the local **$myVM** object.
+Next you'll need to choose the **username** and **password** for your VM. You can do that using the **Add-AzureProvisioningConfig** cmdlet. This is where you tell Azure what OS for the VM is. Not that you are still making changes to the local **$myVM** object.
 
     $user = "azureuser"
     $pass = "&Azure1^Pass@"
