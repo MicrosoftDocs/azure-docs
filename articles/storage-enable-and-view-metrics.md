@@ -16,13 +16,13 @@
 	ms.date="10/08/2014" 
 	ms.author="tamram"/>
 
-# Enabling Storage Metrics and Viewing Metrics Data
+# Enabling Storage metrics and viewing metrics data
 
 By default, Storage Metrics is not enabled for your storage services. You can enable monitoring using either the Windows Azure Management Portal, Windows PowerShell, or programmatically through a storage API.
 
 When you enable Storage Metrics, you must choose a retention period for the data: this period determines for how long the storage service keeps the metrics and charges you for the space required to store them. Typically, you should use a shorter retention period for minute metrics than hourly metrics because of the significant extra space required for minute metrics. You should choose a retention period such that you have sufficient time to analyze the data and download any metrics you wish to keep for off-line analysis or reporting purposes. Remember that you will also be billed for downloading metrics data from your storage account.
 
-## How to enable Storage Metrics using the Azure Management Portal
+## How to enable Storage Metrics using the Azure management portal
 
 In the Windows Azure Management Portal, you use the Configure page for a storage account to control Storage Metrics. For monitoring, you can set a level and a retention period in days for each of blobs, tables, and queues. In each case, the level is one of the following:
 
@@ -36,7 +36,7 @@ In the Windows Azure Management Portal, you use the Configure page for a storage
 Note that the Management Portal does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
 
 
-## How to enable Storage Metrics using PowerShell
+## How to enable Storage metrics using PowerShell
 
 You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Windows Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty to retrieve the current settings, and the cmdlet Set-AzureStorageServiceMetricsProperty to change the current settings.
 
@@ -58,7 +58,7 @@ The following command retrieves the current hourly metrics level and retention d
 
 For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
 
-## How to enable Storage Metrics programmatically
+## How to enable Storage metrics programmatically
 
 In addition to using the Windows Azure Management Portal or the Azure PowerShell cmdlets to control Storage Metrics, you can also use one of the Azure Storage APIs. For example, if you are using a .NET language you can use the Storage Client Library.
 
@@ -73,7 +73,7 @@ The classes CloudBlobClient, CloudQueueClient, and CloudTableClient all have met
      
     queueClient.SetServiceProperties(serviceProperties);
     
-## Viewing Storage Metrics
+## Viewing Storage metrics
 
 When you have configured Storage Metrics to monitor your storage account, it records the metrics in a set of well-known tables in your storage account. You can use the Monitor page for your storage account in the Management Portal to view the hourly metrics as they become available on a chart. On this page in the Management Portal, you can:
 
@@ -187,4 +187,6 @@ The capacity used by the metrics tables is also billable: you can use the follow
 - If each hour a service utilizes every API in every service, then approximately 12KB of data is stored every hour in the metrics transaction tables if you have enabled just service level summary.
 
 - The capacity table for blobs has two rows added each day (provided user has opted in for logs): this implies that every day the size of this table increases by up to approximately 300 bytes.
- 
+
+## Next-steps:
+[Enabling Storage logging and accessing log data](https://msdn.microsoft.com/en-us/library/dn782840.aspx)
