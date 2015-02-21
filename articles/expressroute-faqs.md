@@ -1,6 +1,6 @@
 <tags 
    pageTitle="Expressroute FAQs"
-   description="This page has a list off FAQ for Expressroute."
+   description="This page has a list off FAQ for ExpressRoute."
    services="expressroute"
    manager="adinah"
    editor="tysonn" />

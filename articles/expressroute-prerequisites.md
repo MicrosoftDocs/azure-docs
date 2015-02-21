@@ -1,6 +1,6 @@
 <tags 
    pageTitle="Prerequisites for ExpressRoute adoption"
-   description="This page provides a list of requirements to be met before you can order an Expressroute circuit"
+   description="This page provides a list of requirements to be met before you can order an ExpressRoute circuit"
    services="expressroute"
    manager="adinah"
    editor="tysonn" />

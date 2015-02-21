@@ -1,6 +1,6 @@
 <tags 
    pageTitle="Introduction to Expressroute"
-   description="This page provides an overview of the Expressroute service. "
+   description="This page provides an overview of the ExpressRoute service. "
    services="expressroute"
    manager="adinah"
    editor="tysonn" />

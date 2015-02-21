@@ -1,6 +1,6 @@
 <tags 
    pageTitle="Configuring Expressroute with EXPs"
-   description="This tutorial walks oyu through setting up ExpressRoute through EXPs"
+   description="This tutorial walks you through setting up ExpressRoute through EXPs"
    services="expressroute"
    manager="adinah"
    editor="tysonn" />

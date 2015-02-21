@@ -1,4 +1,15 @@
-
+<tags 
+   pageTitle="Migration from S2S VPN to ExpressRoute"
+   description="This page walks you through how to migrate a virtual network with s2s connectivity to ExpressRoute "
+   services="expressroute"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="expressroute"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.date="2/21/2015"
+   ms.author="cherylmc" />
 # Connection migration: from site-to-site VPN to ExpressRoute
 
 Azure customers can connect to their virtual network in two ways: site-to-site VPN and ExpressRoute. The site-to-site VPN connection goes over the public Internet. IPsec is used to encrypt the network traffic. ExpressRoute is a private connection to Azure. You can connect to Azure either through an [Exchange Provider (EXP)](../expressroute-exchange-providers) or a [Network Service Provider (NSP)](../expressroute-network-service-providers).
