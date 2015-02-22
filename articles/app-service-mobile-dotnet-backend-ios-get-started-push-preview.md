@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Create a mobile app with Push Notifications (iOS) | Mobile Dev Center" 
 	description="Learn how to use Azure App Service to send push notifications to your iOS app." 
-	services="app-services" 
+	services="app-service-mobile" 
 	documentationCenter="ios" 
 	manager="dwrede"
 	editor="" 
 	authors="yuaxu"/>
 
 <tags 
-	ms.service="app-services" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
@@ -19,9 +19,9 @@
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
-This topic shows you how to use Azure App Services to send push notifications to an iOS app with Apple Push Notification service (APNS). On completion, your .NET backend will send a push notification to your QuickStart app each time a record is inserted.
+This topic shows you how to use Azure App Service to send push notifications to an iOS app with Apple Push Notification service (APNS). On completion, your .NET backend will send a push notification to your QuickStart ToDo app each time a record is inserted.
 
 
 This tutorial walks you through these basic steps to enable push notifications:
@@ -38,14 +38,15 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial requires the following:
 
-+ [App Service Mobile SDK]
++ [App Service Mobile iOS SDK]
++ [Azure Notification Hubs Nuget]
 + [XCode 4.5][Install Xcode]
 + An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
    > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Add Mobile Services to your app][Get started with data].
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with App Service mobile apps].
 
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
@@ -53,61 +54,79 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Configure Mobile Services to send push requests
 
-[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
 
 ##<a id="update-server"></a>Update the server to send push notifications
 
-1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
+1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**.
+
+2. Search for **WindowsAzure.ServiceBus** and click **Install** for all projects in the solution.
+
+3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
 		using System;
 		using System.Collections.Generic;
+        using Microsoft.ServiceBus.Notifications;
 
-2. Update the `PostTodoItem` method definition with the following code:  
+4. Update the `PostTodoItem` method definition with the following code:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
 
-            ApplePushMessage message = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
+            // get notification hubs credentials associated with this mobile app
+            string notificationHubName = this.Services.Settings.NotificationHubName;
+            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+
+            // connect to notification hub
+            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+
+            var appleNotificationPayload = "{\"aps\":{\"alert\":" + item.Text + "}}";
 
             try
             {
-                var result = await Services.Push.SendAsync(message);
-                Services.Log.Info(result.State.ToString());
+                var result = await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
             }
             catch (System.Exception ex)
             {
-                Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
+                throw;
             }
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
+    This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
+<h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
 ## Add push notifications to your app
 
 1. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
 
-        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+        #import <WindowsAzureAppServiceMobile/WindowsAzureAppServiceMobile.h>
 
-2. In QSAppDelegate.m, replace the following handler method inside the implementation:
+2. Update the project for devices to register with APNs:
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
         {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+            // register iOS8 or previous devices for notifications
+            if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            }
+            else {
+                // Register for remote notifications
+                [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+                UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+            }
+
             return YES;
         }
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the Mobile Service Url and Application Key values and switch them in for the placeholders:
+3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the App Service Mobile Url and Application Key values and switch them in for the placeholders:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
@@ -115,7 +134,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             // TODO: update @"MobileServiceUrl" and @"AppKey" placeholders
             MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
 
-            [client.push registerNativeWithDeviceToken:deviceToken tags:@[@"uniqueTag"] completion:^(NSError *error) {
+            [client.push register:deviceToken completion:^(NSError *error) {
                 if (error != nil) {
                     NSLog(@"Error registering for notifications: %@", error);
                 }
@@ -147,10 +166,6 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Your app is now updated to support push notifications.
 
-##<a id="local-testing"></a> Enable push notifications for local testing
-
-[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
-
 ## Test push notifications in your app
 
 1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications
@@ -175,30 +190,7 @@ You have successfully completed this tutorial.
 
 ## Next steps
 
-This tutorial demonstrated the basics of enabling an iOS app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-<!--+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send broadcast notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
-
-+ [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
--->
-Learn more about Mobile Services and Notification Hubs in the following topics:
-
-* [Get started with data]
-  <br/>Learn more about storing and querying data using mobile services.
-
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with different account types using mobile services.
-
-* [What are Notification Hubs?]
-  <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
-
-* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+This tutorial demonstrated the basics of enabling an iOS app to use App Service to send push notifications.
 
 <!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates
@@ -254,7 +246,8 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[App Service Mobile iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Azure Notification Hubs Nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 [Azure Management Portal]: https://manage.windowsazure.com/
