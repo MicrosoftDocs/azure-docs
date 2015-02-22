@@ -22,7 +22,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 1. Log on to the [Preview Azure Management Portal], and navigate to your App Services gateway.
 
-2. Click the **User authentication** part and select **Azure Active Directory**. Copy the **APP URL**.
+2. Under **Settings**, choose **Identity**, and then select **Azure Active Directory**. Copy the **APP URL**.
 
     ![][1]
 
@@ -53,7 +53,7 @@ You are now ready to use Azure Active Directory for authentication in your app.
 ## <a name="related-content"> </a>Related Content
 Add authentication to your Mobile App: [Xamarin.iOS](xamarin)
 
-Authenticate users of your Mobile App with Azure Active Directory single sign-on: [Xamarin.iOS](xamarin-adal)
+Authenticate users of your Mobile App with Azure Active Directory single sign-on: [iOS](ios-adal)
 
 <!-- Anchors. -->
 
@@ -66,4 +66,4 @@ Authenticate users of your Mobile App with Azure Active Directory single sign-on
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [xamarin]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview/
-[xamarin-adal]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview/
+[ios-adal]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview/

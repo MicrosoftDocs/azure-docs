@@ -52,7 +52,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 12. Log on to the [Azure Management Portal], and navigate to your App Services gateway.
 
-13. Click the **User authentication** part and select **Facebook**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
+13. Under **Settings**, choose **Identity**, and then select **Facebook**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
 
     ![][1]
 

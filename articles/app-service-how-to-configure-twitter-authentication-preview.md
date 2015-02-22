@@ -38,7 +38,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 6. Log on to the [Azure Management Portal], and navigate to your App Service gateway.
 
-7. Click the **User authentication** part and select **Facebook**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
+7. Under **Settings**, choose **Identity**, and then select **Twitter**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
 
     ![][1]
 

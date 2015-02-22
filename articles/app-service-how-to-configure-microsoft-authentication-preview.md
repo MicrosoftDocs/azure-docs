@@ -36,7 +36,7 @@ This topic shows you how to configure Azure App Services to use Microsoft Accoun
 
 5. Log on to the [Azure Management Portal], and navigate to your App Services gateway.
 
-6. Click the **User authentication** part and select **Microsoft Account**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
+6. Under **Settings**, choose **Identity**, and then select **Microsoft Account**. Paste in the App ID and App Secret values which you obtained previously. Then click **Save**.
 
     ![][1]
 
