@@ -1,14 +1,14 @@
 <properties
 	pageTitle="I already use Mobile Services - how does App Service help me?"
 	description="Learn what advantages does App Service bring to your existing Mobile Services projects."
-	services="app-service-mobile"
+	services="app-services"
 	documentationCenter="ios"
 	authors="kirillg"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm=""
 	ms.devlang=""
