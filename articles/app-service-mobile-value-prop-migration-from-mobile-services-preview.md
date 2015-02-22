@@ -20,7 +20,7 @@
 
 This article summarize why you should take advantage of App Service for your existing Mobile Service solutions.
 
-#TO DO
+## TO DO
 
 Learn more about App Service:
 
