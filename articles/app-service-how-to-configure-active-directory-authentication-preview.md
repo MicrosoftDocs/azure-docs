@@ -22,7 +22,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 1. Log on to the [Preview Azure Management Portal], and navigate to your App Services gateway.
 
-2. Click the **User authentication** part and select **Azure Active Directory**. Copy the **APP URL**.
+2. Under **Settings**, choose **Identity**, and then select **Azure Active Directory**. Copy the **APP URL**.
 
     ![][1]
 
@@ -38,7 +38,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 7. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your gateway. Enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
 
-8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your gateway appended with the path, _/signin-aad_. For example, `https://contoso.azurewebsites.net/signin-aad`.
+8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your gateway appended with the path, _/signin-aad_. For example, `https://contosoproxysite.azurewebsites.net/signin-aad`.
 
     ![][3]
 
@@ -53,17 +53,17 @@ You are now ready to use Azure Active Directory for authentication in your app.
 ## <a name="related-content"> </a>Related Content
 Add authentication to your Mobile App: [Xamarin.iOS](xamarin)
 
-Authenticate users of your Mobile App with Azure Active Directory single sign-on: [Xamarin.iOS](xamarin-adal)
+Authenticate users of your Mobile App with Azure Active Directory single sign-on: [iOS](ios-adal)
 
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ./media/app-services-how-to-configure-active-directory-authentication/app-services-aad-settings.png
-[2]: ./media/app-services-how-to-configure-active-directory-authentication/app-services-navigate-aad.png
-[3]: ./media/app-services-how-to-configure-active-directory-authentication/app-services-aad-app-configure.png
+[1]: ./media/app-service-how-to-configure-active-directory-authentication/app-service-aad-settings.png
+[2]: ./media/app-service-how-to-configure-active-directory-authentication/app-service-navigate-aad.png
+[3]: ./media/app-service-how-to-configure-active-directory-authentication/app-service-aad-app-configure.png
 
 <!-- URLs. -->
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
-[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/
-[xamarin-adal]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-aad-sso-preview/
+[xamarin]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview/
+[ios-adal]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview/

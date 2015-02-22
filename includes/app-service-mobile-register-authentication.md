@@ -4,9 +4,9 @@ To be able to authenticate users, you must register your app with an identity pr
 
 1. Log on to the [Azure Management Portal], click **Browse**, and choose **App Service Gateways**.
 
-2. Select your gateway, and make a note of the **Gateway URL** value. You may need to provide this value to the identity provider when you register your app.
+2. Select your gateway, and make a note of the **URL** value under **Properties**. You may need to provide this value to the identity provider when you register your app.
 
-   	![](./media/app-services-mobile-apps-register-authentication/gateway-uri.png)
+   	![](./media/app-service-mobile-register-authentication/gateway-uri.png)
 
 3. Choose a supported identity provider from the list below and follow the steps to configure your app with that provider:
 

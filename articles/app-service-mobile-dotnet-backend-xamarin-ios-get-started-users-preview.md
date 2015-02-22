@@ -18,7 +18,7 @@
 
 # Add authentication to your mobile app (Xamarin.iOS)
 
-[AZURE.INCLUDE [app-services-mobile-apps-selector-get-started-users](../includes/app-services-mobile-apps-selector-get-started-users.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../includes/app-service-mobile-selector-get-started-users.md)]
 
 This topic shows you how to authenticate users in App Services Mobile Apps from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Services. After being successfully authenticated and authorized by Mobile Apps, the user ID value is displayed.
 
@@ -32,11 +32,11 @@ This tutorial is based on the Mobile Apps quickstart. You must also first comple
 
 ##<a name="register"></a>Register your app for authentication and configure App Services
 
-[AZURE.INCLUDE [app-services-mobile-apps-register-authentication](../includes/app-services-mobile-apps-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
-[AZURE.INCLUDE [app-services-mobile-apps-restrict-permissions-dotnet-backend](../includes/app-services-mobile-apps-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="7">
 <li><p>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
@@ -126,10 +126,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Apps]: /en-us/documentation/articles/app-services-mobile-apps-dotnet-backend-xamarin-ios-get-started/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/
-[Authorize users with scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript and HTML]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Get started with Mobile Apps]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started/push/
 
 [Azure Management Portal]: https://portal.azure.com
