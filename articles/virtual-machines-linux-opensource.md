@@ -265,6 +265,7 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
     - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
     - [Github: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 13. [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
+14. [Packer plugin for Azure](https://github.com/msopentech/packer-azure)
 
 ### <a id='supportdebug'>Support, Troubleshooting, and "It Just Doesn't Work"</a>
 
