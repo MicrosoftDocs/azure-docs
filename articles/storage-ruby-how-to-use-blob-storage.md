@@ -146,6 +146,6 @@ Finally, to delete a blob, use the **delete\_blob()** method. The following exam
 
 Now that you have learned the basics of blob storage, follow these links to learn about more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
+-   See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 -   Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

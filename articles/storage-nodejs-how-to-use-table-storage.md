@@ -416,11 +416,11 @@ to learn how to do more complex storage tasks.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Site with WebMatrix]: /documentation/articles/web-sites-nodejs-use-webmatrix/
   [Node.js Cloud Service with Storage]: /documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/

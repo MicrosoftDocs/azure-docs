@@ -211,7 +211,7 @@ The following table describes the scalability targets for Premium storage accoun
 - Inbound refers to all data (requests) being sent to a storage account.
 - Outbound refers to all data (responses) being received from a storage account.
 
-For more information, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/dn249410.aspx).
+For more information, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
 ## Throttling when using Premium Storage
 You may see throttling if your application’s IOPS or throughput exceed the allocated limits for a Premium Storage disk or if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for disk based on based on the scalability and performance targets for the disk you have provisioned and based on the disk bandwidth available to the VM.  
@@ -272,7 +272,7 @@ In this section:
 ### Create a Premium Storage account in the Azure Preview Portal
 This section shows how to create a Premium Storage account using Azure Preview Portal.
 
-1.	Sign in to the [Azure Preview Portal](https://portal.azure.com/). Check out the [Free Trial](http://www.windowsazure.com/pricing/free-trial/) offer if you do not have a subscription yet. 
+1.	Sign in to the [Azure Preview Portal](https://portal.azure.com/). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet. 
 
 
     > [AZURE.NOTE] If you log in to the Azure Management Portal, click your user account name at the top right corner of the portal. Then, click **Switch to new portal**.

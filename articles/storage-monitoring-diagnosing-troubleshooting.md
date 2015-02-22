@@ -22,7 +22,7 @@ Diagnosing and troubleshooting issues in a distributed application hosted in a c
 
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications. 
 
-For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../articles/storage-e2e-troubleshooting/).
+For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting/).
 
 + [Introduction]
 	+ [How this guide is organized]
@@ -431,7 +431,7 @@ An increase in **PercentThrottlingError** often occurs at the same time as an in
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Transient increase in PercentThrottlingError
 
-If you are seeing spikes in the value of **PercentThrottlingError** that coincide with periods of high activity for the application, you should implement an exponential (not linear) back off strategy for retries in your client: this will reduce the immediate load on the partition and help your application to smooth out spikes in traffic. For more information about how to implement retry policies using the Storage Client Library, see <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies Namespace</a> on MSDN.
+If you are seeing spikes in the value of **PercentThrottlingError** that coincide with periods of high activity for the application, you should implement an exponential (not linear) back off strategy for retries in your client: this will reduce the immediate load on the partition and help your application to smooth out spikes in traffic. For more information about how to implement retry policies using the Storage Client Library, see <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies Namespace</a> on MSDN.
 
 > [AZURE.NOTE] You may also see spikes in the value of **PercentThrottlingError** that do not coincide with periods of high activity for the application: the most likely cause here is the storage service moving partitions to improve load balancing.
 
@@ -893,7 +893,7 @@ If you are using a JavaScript client and the storage service is returning HTTP 4
 
 These errors occur because the web browser implements the <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">same-origin policy</a> security restriction that prevents a web page from calling an API in a different domain from the domain the page comes from. 
 
-To work around the JavaScript issue, you can configure Cross Origin Resource Sharing (CORS) for the storage service the client is accessing. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dn535601.aspx" target="_blank">Cross-Origin Resource Sharing (CORS) Support for the Windows Azure Storage Services</a> on MSDN.
+To work around the JavaScript issue, you can configure Cross Origin Resource Sharing (CORS) for the storage service the client is accessing. For more information, see <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Cross-Origin Resource Sharing (CORS) Support for the Windows Azure Storage Services</a> on MSDN.
 
 The following code sample shows how to configure your blob service to allow JavaScript running in the Contoso domain to access a blob in your blob storage service:
 
@@ -1012,7 +1012,7 @@ You typically use the storage emulator during development and test to avoid the 
 
 #### <a name="feature-X-is-not-working"></a>Feature "X" is not working in the storage emulator
 
-The storage emulator does not support all of the features of the Azure storage services such as the file service. For more information, see <a href="http://msdn.microsoft.com/library/gg433135.aspx" target="_blank">Differences Between the Storage Emulator and Azure Storage Services</a> on MSDN.
+The storage emulator does not support all of the features of the Azure storage services such as the file service. For more information, see <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Differences Between the Storage Emulator and Azure Storage Services</a> on MSDN.
 
 For those features that the storage emulator does not support, use the Azure storage service in the cloud.
 
@@ -1028,7 +1028,7 @@ This scenario typically occurs if you install and use the latest version of the 
 
 You are prompted for administrator credentials when you run the storage emulator. This only occurs when you are initializing the storage emulator for the first time. After you have initialized the storage emulator, you do not need administrative privileges to run it again. 
 
-For more information, see <a href="http://msdn.microsoft.com/library/gg433132.aspx" target="_blank">Initialize the Storage Emulator by Using the Command-Line Tool</a> on MSDN (you can also initialize the storage emulator in Visual Studio, which will also require administrative privileges).
+For more information, see <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">Initialize the Storage Emulator by Using the Command-Line Tool</a> on MSDN (you can also initialize the storage emulator in Visual Studio, which will also require administrative privileges).
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>You are encountering problems installing the Windows Azure SDK for .NET
 
@@ -1142,7 +1142,7 @@ For more information about the Microsoft Message Analyzer Local Link Layer trace
 
 ### <a name="appendix-4"></a>Appendix 4: Using Excel to view metrics and log data
 
-Many tools enable you to download the Storage Metrics data from Azure table storage in a delimited format that makes it easy to load the data into Excel for viewing and analysis. Storage Logging data from Azure blob storage is already in a delimited format that you can load into Excel. However, you will need to add appropriate column headings based in the information at <a href="http://msdn.microsoft.com/library/hh343259.aspx" target="_blank">Storage Analytics Log Format</a> and <a href="http://msdn.microsoft.com/library/hh343264.aspx" target="_blank">Storage Analytics Metrics Table Schema</a>.
+Many tools enable you to download the Storage Metrics data from Azure table storage in a delimited format that makes it easy to load the data into Excel for viewing and analysis. Storage Logging data from Azure blob storage is already in a delimited format that you can load into Excel. However, you will need to add appropriate column headings based in the information at <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">Storage Analytics Log Format</a> and <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Metrics Table Schema</a>.
 
 To import your Storage Logging data into Excel after you download it from blob storage:
 
@@ -1159,7 +1159,7 @@ You can also use the Application Insights feature for Visual Studio Online as pa
 - Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there’s a problem. 
 - Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app’s performance drops below acceptable limits, we can send you an email. You can monitor both .NET and Java web services.
 
-At the time of writing Application Insights is in preview. You can find more information at <a href="http://msdn.microsoft.com/library/dn481095.aspx" target="_blank">Application Insights for Visual Studio Online on MSDN</a>.
+At the time of writing Application Insights is in preview. You can find more information at <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights for Visual Studio Online on MSDN</a>.
 
 
 <!--Anchors-->
