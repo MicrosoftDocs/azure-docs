@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Why run your enterprise mobile apps on App Service?"
 	description="Learn what advantages does App Service bring to your enterprise mobile apps."
-	services="app-service-mobile"
+	services="app-services"
 	documentationCenter=""
 	authors="kirillg"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm=""
 	ms.devlang=""
@@ -20,7 +20,7 @@
 
 This article summarize why you should take advantage of App Service for your enterprise Mobile Apps.
 
-#TO DO
+## TO DO
 
 Learn more about App Service:
 
