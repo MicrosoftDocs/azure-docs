@@ -457,10 +457,10 @@ Creating a website in Azure is very easy. If this is your first Azure website, y
 	Replace 'myuniquesitename' with the unique site name for your website. If the website is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
 	
 	The `--git` parameter will create:
-	A. a local git repository in the **tasklist** folder, if none exists.
-	A. a [Git remote] named 'azure', which will be used to publish the application to Azure.
-	A. an [iisnode.yml] file, which contains settings used by Azure to host node applications.
-	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
+	* a local git repository in the **tasklist** folder, if none exists.
+	* a [Git remote] named 'azure', which will be used to publish the application to Azure.
+	* an [iisnode.yml] file, which contains settings used by Azure to host node applications.
+	* a .gitignore file to prevent the node-modules folder from being published to .git.  
 	  
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
 
