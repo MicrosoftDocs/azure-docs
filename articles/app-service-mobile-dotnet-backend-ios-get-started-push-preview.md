@@ -19,7 +19,7 @@
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
 This topic shows you how to use Azure App Service to send push notifications to an iOS app with Apple Push Notification service (APNS). On completion, your .NET backend will send a push notification to your QuickStart ToDo app each time a record is inserted.
 
