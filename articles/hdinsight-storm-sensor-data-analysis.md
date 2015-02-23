@@ -206,7 +206,7 @@ Before testing, you must start the dashboard to view the output of the topology,
 
 ###Start generating data
 
-> [AZURE.NOTE] The steps in this section use Node.js so that they can be ran on any platform. For other language examples, see the **SendEvents** directory.
+> [AZURE.NOTE] The steps in this section use Node.js so that they can be run on any platform. For other language examples, see the **SendEvents** directory.
 
 
 1. Open a new command prompt or terminal, and change directories to the **hdinsight-eventhub-example/SendEvents/nodejs**, then use the following to install dependencies needed by the application.
@@ -262,7 +262,7 @@ On your development environment, use the following steps to run the Temperature 
 
 1. To deploy the dashboard to an Azure Website, follow the steps in <a href="../web-sites-nodejs-develop-deploy-mac/" target="_blank">Build and deploy a Node.js website to Azure</a>. Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
 
-2. Once the Website has been created, go to the site in the Azure Portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save* at the bottom of the page.
+2. Once the Website has been created, go to the site in the Azure Portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
 
 2. Open **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** and change the following line to point to the URL of the published dashboard.
 
@@ -391,7 +391,7 @@ Before running the topology, you must prepare HBase to accept the data.
 
 2. From the desktop, start the HDInsight Command Line and enter the following commands.
 
-    cd %hbase_home%
+    cd %HBASE_HOME%
     bin\hbase shell
 
 3. From the HBase shell, enter the following command to create a table that sensor data will be stored in.

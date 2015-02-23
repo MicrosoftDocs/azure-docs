@@ -22,7 +22,7 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 
 > [AZURE.NOTE] You must have an HDInsight cluster to use the information in this article. For information on creating one, see [Get started using Hadoop in HDInsight][getstarted].
 >
-> Mahout is provided with HDInsight 3.1 clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
+> Mahout is provided with HDInsight 3.1 or later version of the clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before continuing.
 
 ##<a name="learn"></a>What you will learn
 
@@ -349,7 +349,7 @@ The current Mahout implementation is compatible with the University of Californi
 
 ###<a name="install"></a>Install Mahout
 
-Mahout is installed on HDInsight 3.1 clusters, and can be installed manually on 3.0 or 2.1 clusters using the following steps.
+Mahout is installed on HDInsight 3.1 and later versions of the clusters, and can be installed manually on 3.0 or 2.1 clusters using the following steps.
 
 1. The version of Mahout to use depends on the HDInsight version of your cluster. You can find the cluster version by using the following with [Azure PowerShell][aps]:
 
@@ -378,7 +378,7 @@ To avoid errors when running Mahout jobs, either delete temp and output files be
 
 ###Cannot find the jar file
 
-While HDInsight 3.1 includes Mahout, the path and filename include the version number of Mahout installed on the cluster. The example PowerShell script in this tutorial uses a path that is valid as of July 2014, but the version number will change in future updates to HDInsight. To determine the current path to the Mahout jar file for your cluster, use the following PowerShell commands, then modify the script to reference the file path returned.
+While HDInsight 3.1 and later versions of the clusters include Mahout, the path and filename include the version number of Mahout installed on the cluster. The example PowerShell script in this tutorial uses a path that is valid as of July 2014, but the version number will change in future updates to HDInsight. To determine the current path to the Mahout jar file for your cluster, use the following PowerShell commands, then modify the script to reference the file path returned.
 
 	Use-AzureHDInsightCluster -Name $clusterName
 	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'

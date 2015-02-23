@@ -35,7 +35,7 @@ The storage emulator is a local account with a well-known name and key. Since th
 
 You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the DevelopmentStorageProxyUri option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
 
-`UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri`
+    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
 
 ##Connecting to a storage account in Azure
 
@@ -52,11 +52,11 @@ You can define a connection string to a storage account in Azure in one of the f
 
 To create a connection string that relies on the default endpoints for the storage service, use the following connection string format. Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace myAccountName with the name of your storage account, replace myAccountKey with your account access key:
 
-`DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey` 
+    DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 For example, your connection string should look similar to the following sample connection string:
 
-`DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==` 
+    DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==
 
 ##Creating a connection string with explicit endpoints
 
@@ -71,11 +71,10 @@ If you have registered a custom domain name for use with the Blob service, you m
 
 To create a connection string that specifies explicit endpoints, specify the complete service endpoint for each service, including the protocol specification (HTTP or HTTPS) by using the following format:
 
-`BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;[credentials]`
+    BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;[credentials]
 
-When you explicitly specify service endpoints, you have two options for specifying credentials. You can specify the account name and key (AccountName=myAccountName;AccountKey=myAccountKey), as shown in the previous section, or you can **specify a shared access signature**, as shown in the Specifying endpoints with a shared access signature section. If you are specifying the account name and key, the complete string format is:
-
-`BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;AccountName=myAccountName;AccountKey=myAccountKey` 
+When you explicitly specify service endpoints, you have two options for specifying credentials. You can specify the account name and key (`AccountName=myAccountName;AccountKey=myAccountKey`), as shown in the previous section, or you can **specify a shared access signature**, as shown in the Specifying endpoints with a shared access signature section. If you are specifying the account name and key, the complete string format is:
+    BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;AccountName=myAccountName;AccountKey=myAccountKey
 
 You can specify endpoints for blob, table, and queue in a connection string. You must specify at least one endpoint, but you do not need to specify all three. For example, if you're creating a connection string for use with a custom blob endpoint, specifying the queue and table endpoints is optional. Note that if you choose to omit the queue and table endpoints from the connection string, then you will not be able to access the Queue and Table services from your code by using that connection string.
 
@@ -84,6 +83,6 @@ You can create a connection string with explicit endpoints to access storage res
 
 To create a connection string that includes a shared access signature, specify the string in the following format:
 
-`BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature` 
+    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
 
 The endpoint can be either the default service endpoint or a custom endpoint. The `base64Signature` corresponds to the signature portion of a shared access signature. The signature is an HMAC computed over a valid string-to-sign and key using the SHA256 algorithm, that is then Base64-encoded.

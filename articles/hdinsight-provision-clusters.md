@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/19/2015"
+   ms.date="02/23/2015"
    ms.author="nitinme"/>
 
 #Provision Hadoop clusters in HDInsight using custom options

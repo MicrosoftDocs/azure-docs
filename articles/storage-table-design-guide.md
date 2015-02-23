@@ -1,15 +1,15 @@
 <properties 
    pageTitle="Azure Storage Table Design Guide | Microsoft Azure" 
    description="Design Scalable and Performant Tables in Azure Table Storage" 
-   services="service-name" 
-   documentationCenter="dev-center-name" 
+   services="storage" 
+   documentationCenter="na" 
    authors="Tamram,jahogg" 
-   manager="manager-alias" 
+   manager="adinah" 
    editor=""/>
 
 <tags
    ms.service="storage"
-   ms.devlang="none/na"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage" 
@@ -122,7 +122,7 @@ The following example shows a simple table design to store employee and departme
 </table>
 
 
-So far, this looks very similar to a table in a relational database with the key differences being the mandatory columns, and the ability to store multiple entity types in the same table. In addition, each of the user-defined properties such as **FirstName** or **Age** has a data type, such as integer or string, just like a column in a relational database. Although unlike in a relational database, the schema-less nature of the Table service means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information about the table service such as supported data types, supported date ranges, naming rules, and size constraints, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/dd179338.aspx) on MSDN.
+So far, this looks very similar to a table in a relational database with the key differences being the mandatory columns, and the ability to store multiple entity types in the same table. In addition, each of the user-defined properties such as **FirstName** or **Age** has a data type, such as integer or string, just like a column in a relational database. Although unlike in a relational database, the schema-less nature of the Table service means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information about the table service such as supported data types, supported date ranges, naming rules, and size constraints, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) on MSDN.
 
 As you will see, your choice of **PartitionKey** and **RowKey** is fundamental to good table design. Every entity stored in a table must have a unique combination of **PartitionKey** and **RowKey**. As with keys in a relational database table, the **PartitionKey** and **RowKey** values are indexed to create a clustered index that enables fast look-ups; however, the Table service does not create any secondary indexes so these are the only two indexed properties (some of the patterns described later show how you can work around this apparent limitation).  
 
@@ -139,7 +139,7 @@ Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsaz
 ####<a name="EGTs"></a>Entity Group Transactions (EGTs)  
 In the Table service, Entity Group Transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are also referred to as *batch transactions* in some documentation. EGTs can only operate on entities stored in the same partition (share the same partition key in a given table), so anytime you need atomic transactional behavior across multiple entities you need to ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition) and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  
 
-EGTs also introduce a potential trade-off for you to evaluate in your design: using more partitions will increase the scalability of your application because Azure has more opportunities for load balancing requests across nodes, but this might limit the ability of your application to perform atomic transactions and maintain strong consistency for your data. Furthermore, there are specific scalability targets at the level of a partition that might limit the throughput of transactions you can expect for a single node: for more information about the scalability targets for Azure storage accounts and the table service, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/dd179338.aspx) on MSDN. Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
+EGTs also introduce a potential trade-off for you to evaluate in your design: using more partitions will increase the scalability of your application because Azure has more opportunities for load balancing requests across nodes, but this might limit the ability of your application to perform atomic transactions and maintain strong consistency for your data. Furthermore, there are specific scalability targets at the level of a partition that might limit the throughput of transactions you can expect for a single node: for more information about the scalability targets for Azure storage accounts and the table service, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dd179338.aspx) on MSDN. Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
 
 ####Capacity considerations
 The following table includes some of the key values to be aware of when you are designing a Table service solution:  
@@ -154,13 +154,13 @@ The following table includes some of the key values to be aware of when you are 
 | Size of the **RowKey** | A string up to 1 KB in size |
 |Size of an Entity Group Transaction | A transaction can include at most 100 entities and the payload must be less than 4 MB in size. An EGT can only update an entity once. |
 
-For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/dd179338.aspx) on MSDN.  
+For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) on MSDN.  
 
 ####Cost considerations  
 Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any solution that uses the Table service. However, in many scenarios storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach to take. For more information about pricing, see [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/).  
 
 ####Comparing Azure Tables and SQL Azure  
-For a comparison between Azure SQL Database (a relational database service) and the Table service, see [Windows Azure Table Storage and Windows Azure SQL Database - Compared and Contrasted](http://msdn.microsoft.com/library/jj553018.aspx) on MSDN.  
+For a comparison between Azure SQL Database (a relational database service) and the Table service, see [Windows Azure Table Storage and Windows Azure SQL Database - Compared and Contrasted](http://msdn.microsoft.com/library/azure/jj553018.aspx) on MSDN.  
 
 ###<a name="Heading3"></a>Guidelines for table design  
 These lists summarize some of the key guidelines you should keep in mind when you are designing your tables, and this guide will address them all in more detail later in. These guidelines are very different from the guidelines you would typically follow for relational database design.  
@@ -209,7 +209,7 @@ The following examples assume the table service is storing employee entities wit
 |**Age**|Integer|
 |**EmailAddress**|String|
 
-The earlier section "[Azure Table service  overview](#Heading2)" describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. Note that the filter syntax used in the examples below is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/dd179421.aspx) on MSDN.  
+The earlier section "[Azure Table service  overview](#Heading2)" describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. Note that the filter syntax used in the examples below is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) on MSDN.  
 
 -	A ***Point Query*** is the most efficient lookup to use and is recommended to be used for high-volume lookups or lookups requiring lowest latency. Such a query can use the indexes to locate an individual entity very efficiently by specifying both the **PartitionKey** and **RowKey** values. For example:
 $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
@@ -422,7 +422,7 @@ In previous sections, you have seen some detailed discussions about how to optim
 
 ![][5]
  
-The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to store [Materialized Views](https://msdn.microsoft.com/library/dn589782.aspx) from the [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/jj554200.aspx) (CQRS) pattern.  
+The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to store [Materialized Views](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS) pattern.  
 
 ####<a name="Subheading7.1"></a>Intra-partition secondary index pattern
 Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values. Updates between copies can be kept consistent using EGT’s.  
@@ -451,7 +451,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 
 -	To find all the employees in the Sales department with an email address starting with the letter 'a' use:
 $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
 
- Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/dd179421.aspx) on MSDN.  
+ Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) on MSDN.  
 
 #####Issues and considerations  
 
@@ -510,7 +510,7 @@ $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le 
 -	To find all the employees in the Sales department with an email address that starts with 'a' sorted in email address order use:
 $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/dd179421.aspx) on MSDN.  
+Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) on MSDN.  
 
 #####Issues and considerations  
 Consider the following points when deciding how to implement this pattern:  

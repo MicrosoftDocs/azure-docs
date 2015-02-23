@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
@@ -22,7 +22,7 @@
 
 # .NET Multi-Tier Application Using Service Bus Queues
 
-##Introduction
+## Introduction
 
 Developing for Azure is easy using Visual Studio 2013 and the
 free Azure SDK for .NET. If you do not already have Visual
