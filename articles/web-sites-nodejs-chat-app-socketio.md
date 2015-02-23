@@ -3,7 +3,7 @@
 	description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -32,7 +32,7 @@ For this project, we will use the chat example from the [Socket.IO
 GitHub repository]. Perform the following steps to download the example
 and add it to the project you previously created.
 
-1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.0.6 was used for this document)
+1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.3.4 was used for this document)
 
 
 3.  Extract the archive and copy the **examples\\chat**
@@ -88,9 +88,9 @@ install required modules::
     relative path, Socket.IO was not referenced in the package.json
     file, so we must install it by issuing the following command:
 
-        npm install socket.io@1.0.6 -save
+        npm install socket.io@1.3.4 -save
 
-	> [AZURE.NOTE] While newer versions of Socket.IO may work with the steps in this article, it was tested with version 1.0.6.
+	> [AZURE.NOTE] While newer versions of Socket.IO may work with the steps in this article, it was tested with version 1.3.4.
 
 ## <a id="Publish"></a>Create an Azure Website
 
@@ -155,7 +155,7 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 
 1. From a command-line, change to the __\\node\\chat__ directory and use the following command.
 
-		npm install socket.io-redis@0.1.3 redis@0.11.0 --save
+		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
 	> [AZURE.NOTE] The versions specified in this command are the versions used when testing this article.
 
@@ -167,12 +167,11 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 		var redis = require('socket.io-redis');
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
-
 	Replace __redishostname__ and __rediskey__ with the host name and key for your Redis cache.
 
 	This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
 
-	> [AZURE.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
+	> [AZURE.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
 	> 
 	> While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6380.
 
