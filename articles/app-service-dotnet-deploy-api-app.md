@@ -49,7 +49,15 @@ This is the third tutorial in a series of four:
 
 	![Select Existing API Services dialog](./media/app-service-dotnet-deploy-api-app/23-publish-to-apiapps.png)
 
-5. Provide a name for the API App as well as the resource group into which the API App will be placed, and specify the region in which you want your API App and resource group created. Select the **Access Level** labeled **Available to Anyone** to make your API completely public. You can change this later using the Azure portal if you want to restrict access to your API. 
+5. For the **API Name**, provide the same name you used in the [Publish tutorial](../app-service-publish-api-app/).
+
+7. Enter a name for the **Resource Group**. This name must be unique; consider using the **API Name** as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
+
+9. If you have multiple Azure subscriptions, select the one you want to use.
+
+11. Select the **Access Level** labeled **Available to Anyone** to make your API completely public. You can change this later using the Azure portal if you want to restrict access to your API.
+
+13. Specify the **US East** region.  
 
 	![Configure Microsoft Azure Web App dialog](./media/app-service-dotnet-deploy-api-app/24-new-api-app-dialog.png)
 
@@ -59,7 +67,7 @@ This is the third tutorial in a series of four:
 
 	![API Service Creation Started confirmation message](./media/app-service-dotnet-deploy-api-app/25-api-provisioning-started.png)
 
-7. Click **OK**. The provisioning process will create the resource group and API App in your Azure subscription, and when the process completes Visual Studio will display a message. 
+7. Click **OK**. The provisioning process will create the resource group and API App in your Azure subscription, and when the process completes Visual Studio will display a message in the **Web Publish Activity** window. 
 
 	![Status notification via the Web Publish Activity window](./media/app-service-dotnet-deploy-api-app/26-provisioning-success.png)
 
@@ -92,11 +100,11 @@ In this section, you see how to navigate to the portal to view the basic setting
     
 	![Adding the Post method to the controller](./media/app-service-dotnet-deploy-api-app/30-post-method-added.png)
 
-7. In **Solution Explorer**, right-click the project node and select the **Publish...** context menu option. 
+7. In **Solution Explorer**, right-click the project node and select the **Publish** context menu option. 
 
 	![Project Publish context menu](./media/app-service-dotnet-deploy-api-app/31-publish-gesture.png)
 
-8. Click **Microsoft Azure API Apps**.  
+8. In the **Profile** tab of the **Publish Web** wizard, click **Microsoft Azure API Apps**.  
 
 	![Publish Web dialog](./media/app-service-dotnet-deploy-api-app/32-select-api-apps.png)
 
@@ -104,7 +112,7 @@ In this section, you see how to navigate to the portal to view the basic setting
 
 	![Publish to Azure API Services dialog](./media/app-service-dotnet-deploy-api-app/33-select-host.png)
 
-10. Select the desired API App to which you want to deploy your project. 
+10. Select the desired API App to which you want to deploy your project, and then click **OK**. 
 
 	![Select Existing API Services dialog](./media/app-service-dotnet-deploy-api-app/35-select-the-web-site.png)
 
