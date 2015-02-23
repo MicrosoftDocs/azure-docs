@@ -22,6 +22,8 @@
 
 Visual Studio's remote debugging capabilities have been extended to include support for Azure API Apps. As a result, you can use familiar debugging tools and utilities to see how your code is running live in Azure. This topic demonstrates how to use the integrated Swagger UI installed when you enable **Automatic Metadata Generation** to execute your Azure API App calls, which can then be remotely debugged using Visual Studio.
 
+This tutorial is the last in a series of four:
+
 * In [Publish an API App](../app-service-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
 * In [Publish an API App](../app-service-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
 * In [Deploy an API App](../app-service-deploy-api-app/) you deploy the API app you created to your Azure subscription.
