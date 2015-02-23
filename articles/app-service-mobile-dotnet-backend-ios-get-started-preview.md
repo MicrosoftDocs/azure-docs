@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure App Service for iOS development."
 	services="app-service-mobile"
 	documentationCenter="ios"
-	authors="ysxu"
+	authors="yuaxu"
 	manager="dwrede"
 	editor=""/>
 
