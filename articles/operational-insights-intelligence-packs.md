@@ -22,7 +22,7 @@ Intelligence Packs are a collection of **logic**, **visualization** and **data a
 
 This guide walks you through the various Intelligence Packs available and what they are used for.
 
->[AZURE.INFO] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](../operational-insights-add-intelligence-pack.md)
+>[AZURE.NOTE] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](../operational-insights-add-intelligence-pack.md)
 
 ## SQL Assessment
 
@@ -48,6 +48,7 @@ Configuration data is gathered from monitored servers and then sent to the Opera
 - **Change History:** Shows a list of configuration changes made to your monitored servers
 
 > [AZURE.IMPORTANT] Configuration Assessment can only be enabled for computers managed by **Operations Manager**.  For additional information, see [Connect Operations Manager](../operational-insights-connect-scom.md)
+
 ## Malware Assessment
 
 If insufficient protection is found, servers with active threats and servers with insufficient protection are shown in the **Malware**  page. By using the information on the **Malware** page, you can develop a plan to apply protection to the servers that need it.
