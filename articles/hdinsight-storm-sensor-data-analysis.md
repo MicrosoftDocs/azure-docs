@@ -145,7 +145,7 @@ Event Hub is the data source for this example. Use the following steps to create
 
 Use the following to download the project from GitHub.
 
-	git clone https://Blackmist/hdinsight-eventhub-example
+	git clone https://github.com/Blackmist/hdinsight-eventhub-example
 
 After the command completes, you will have the following directory structure:
 
