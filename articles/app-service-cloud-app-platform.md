@@ -3,7 +3,7 @@
 	description="Learn why Azure App Service is the best platform for developing, publishing, and hosting cloud apps." 
 	services="app-service" 
 	documentationCenter="na" 
-	authors="" 
+	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
