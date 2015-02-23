@@ -196,7 +196,7 @@ This tutorial demonstrated the basics of enabling an iOS app to use App Service 
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
-[Configure Mobile Services]: #configure
+[Configure App Service Mobile to send push requests]: #configure
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push
 [Insert data to receive notifications]: #test
