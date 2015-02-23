@@ -59,6 +59,19 @@ scaling, load balancing, and back-ups, as well as deployment and
 monitoring. You save the overhead of managing infrastructure, and still
 have flexibility to deploy apps across public and private clouds. Here are some of *Azure App Service’s* key benefits.
 
+Here are a few of the benefits the platform provides:
+
+* Platform-as-a-service (PaaS) with auto patching.
+* Secure cloud platform that is ISO, SOC2, and PIC compliant.
+* Support for .NET, Java, PHP, Node, and Python. 
+* Rich integration with Visual Studio, including simple publish and remote debugging.
+* Built-in staging, backup, roll-back, and testing-in-production capabilities.  
+* Built-in autoscale, load balancing, and performance monitoring.
+* High availability with geo-distributed deployments.
+* Continuous deployment with Git, TFS, and GitHub.
+* Access to on premises data with VPN and Hybrid Connections.
+* Delegated and role-based administration of cloud apps and their resources.
+
 ## Deliver Multi-Channel (Web + Mobile) Apps
 
 *Azure App Service lets developers rapidly build, deploy and manage powerful web and mobile multi-channel apps for employees or customers using a single back-end.*  Build standards-based web apps and APIs
