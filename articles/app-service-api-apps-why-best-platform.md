@@ -83,7 +83,7 @@ There is also an API Apps SDK which makes it easy to use some of the advanced pl
 
 ## Simple Transition of Existing API’s
 
-Azure App Service can take your existing API’s and give them all these advantages with little to no work. You don’t even need to change your existing code. Adding a simple *apiapp.json* file to your existing API is all you have to do to start taking advantage of all the capabilities described in this article. There is no need to rewrite your APIs, just add the file, publish, and start taking advantage of the functionality. 
+Azure App Service can take your existing API’s and give them all these advantages with little to no work. You don’t even need to change your existing code. Adding a simple *apiapp.json* file to your existing API is all you have to do to start taking advantage of all the capabilities described in this article. There is no need to rewrite your APIs; just add the file, publish, and start taking advantage of the functionality. 
 
 ## Next Steps
 
