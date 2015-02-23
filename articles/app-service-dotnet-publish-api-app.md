@@ -29,11 +29,11 @@ This is the second tutorial in a series of four:
 
 ## Publish the API App
 
-1. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Publish...**. 
+1. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Publish**. 
 
 	![](./media/app-service-dotnet-publish-api-app/12-publish-gesture.png) 
 
-2. Click **Microsoft Azure API Apps**. 
+2. In the **Profile** tab of the **Publish Web** wizard, click **Microsoft Azure API Apps**. 
 
 	![](./media/app-service-dotnet-publish-api-app/13-select-api-apps.png)
 
@@ -49,19 +49,19 @@ This is the second tutorial in a series of four:
 
 5. In the **Description** field enter a value such as "My first API App.".
 
-4. Get the **Api Key** value by creating an account at [http://ema-gallery.azurewebsites.net.](http://ema-gallery.azurewebsites.net). Once you've created the account, click your profile name in the upper-right corner. The key will be displayed in the Credentials section of the page. Paste this value into the **Api Key** field.
+4. Get the **Api Key** value by creating an account at [http://ema-gallery.azurewebsites.net](http://ema-gallery.azurewebsites.net). Once you've created the account, click your profile name in the upper-right corner. The key will be displayed in the Credentials section of the page. Paste this value into the **Api Key** field.
+
+5. Click **OK**.
 
 	![](./media/app-service-dotnet-publish-api-app/17-gallery-publish.png)
 
 	You've now provided the basic gallery information so that users can more easily search for and find your API in the API Marketplace.  
 
-5. Click **Next**.
-
-	If your API code has any app settings or connection strings in the Web.config file, a **Settings** dialog box will provide the opportunity to select which settings portal users will have the ability to customize when they're installing your API from the API Marketplace.
+5. If your API code has any app settings or connection strings in the Web.config file, a **Settings** dialog box will provide the opportunity to select which settings portal users will have the ability to customize when they're installing your API from the API Marketplace. Click **OK** on this dialog.
  
 	![](./media/app-service-dotnet-publish-api-app/16-final-settings-screen.png)
 
-7. Click **OK**. 
+7. In the Preview tab of the Publish Web wizard, click **Publish**. 
 
 	The API is now packaged as a NuGet package and published into the gallery. When the process completes, Visual Studio displays messages in the **Web Publish Activity** and **Output** windows. 
 

@@ -35,7 +35,7 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/01-filenew.png)
 
-2. Select the **Empty** project template, click the **Web API** checkbox, and then click **OK**.
+2. Select the **Empty** project template, click the **Web API** checkbox, clear the **Host in the Cloud **checkbox, and then click **OK**.
 
 	![](./media/app-service-dotnet-create-api-app/02-empty-plug-webapi.png)
 
@@ -43,7 +43,7 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/03-add-new-class.png) 
 
-4. Name the new file *Contact.cs*.
+4. Name the new file *Contact.cs*, and then click **OK**.
 
 5. Replace the content of the new *.cs* file with the following code. 
 
@@ -57,17 +57,17 @@ This is the first tutorial in a series of four:
 			}
 		}
 
-![](./media/app-service-dotnet-create-api-app/04-contacts-model.png)
+	![](./media/app-service-dotnet-create-api-app/04-contacts-model.png)
 
 5. Right-click the **Controllers** folder, and then in the context menu click **Add > Controller**. 
 
 	![](./media/app-service-dotnet-create-api-app/05-new-controller.png)
 
-6. Select the **Web API 2 Controller - Empty** option from the **Add Scaffold** dialog that appears. 
+6. In the **Add Scaffold** dialog, select the **Web API 2 Controller - Empty** option, and then click **Add**. 
 
 	![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog.png)
 
-7. Name the Controller **ContactsController**, and then click **Add**. 
+7. Name the controller **ContactsController**, and then click **Add**. 
 
 	![](./media/app-service-dotnet-create-api-app/07-new-controller-name.png)
 
@@ -98,7 +98,7 @@ This is the first tutorial in a series of four:
 		    }
 		}
 
-![](./media/app-service-dotnet-create-api-app/08-contacts-controller-with-get.png)
+	![](./media/app-service-dotnet-create-api-app/08-contacts-controller-with-get.png)
 
 8. In Solution Explorer, right-click the project (not the solution), and then in the context menu click **Add - Azure API Apps SDK**. 
 
