@@ -38,7 +38,7 @@ In this example we'll walk through deploying a simple LAMP application to Ubuntu
 
 ### <a id="Prereq"></a>Prerequisites
 
-For this walk-through, create two Azure VMs running Ubuntu 14.04. I'll call them *script-vm* and *lamp-vm* here, though give them your own names when you try this. One will be for running the CLI commands and one is to deploy the LAMP app to.
+For this walk-through, create two Azure VMs running Ubuntu 14.04. I'll call them *script-vm* and *lamp-vm* here. Use unique names when you try this. One will be for running the CLI commands and one is to deploy the LAMP app to.
 
 You also need an Azure Storage account and key to access it (you can get this from the Azure portal).
 
@@ -87,27 +87,33 @@ Also create a JSON file which describes how to download the script from Azure st
 
 <h3><a id="Deploy"></a>Deploying the extension</h3>
 
-Now we're ready to deploy the Linux CustomScript extension to a remote VM using the xplat-cli:
+Now we're ready to deploy the Linux CustomScript extension to the remote VM using the xplat-cli:
 
-    azure vm extension set -c "./public_config.json" script-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
+    azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-This will download and execute the *lamp_install.sh* script on the VM called *script-vm*.
+This will download and execute the *lamp_install.sh* script on the VM called *lamp-vm*.
 
 Since the app includes a web server remember to open an HTTP listening port on the remote VM:
 
-    azure vm endpoint create -n Apache -o tcp script-vm 80 80
+    azure vm endpoint create -n Apache -o tcp lamp-vm 80 80
 
 <h3><a id="Help"></a>Monitoring and troubleshooting</h3>
 
-You can check on the progress of the custom script execution by looking at the log file on the remote VM. SSH to *script-vm* and tail the log file:
+You can check on the progress of the custom script execution by looking at the log file on the remote VM. SSH to *lamp-vm* and tail the log file:
 
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-Once the CustomScript extension has finished executing you can browse to the PHP page you created, which in this example would be: *http://script-vm.cloudapp.net/phpinfo.php*.
+Once the CustomScript extension has finished executing you can browse to the PHP page you created, which in this example would be: *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
 <h3> <a id="Resources"></a>Additional Resources </h3>
 
 You can use the same basic steps to deploy more complex apps. In this example the install script was saved as a public blob in Azure Storage. A more secure option would be to store the install script as a secure blob with a [Secure Access Signature](https://msdn.microsoft.com/en-us/library/azure/ee395415.aspx) (SAS).
 
 Here are some additional resources for xplat-cli, Linux and the CustomScript extension:
+
+[Automate Linux VM Customization Tasks Using CustomScript Extension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+
+[Azure Linux Extensions (GitHub)](https://github.com/Azure/azure-linux-extensions)
+
+[Linux and Open-Source Computing on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-opensource/)
