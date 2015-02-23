@@ -16,7 +16,7 @@
 	ms.date="2/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
-# Publishing an API App
+# Publish an API App
 
 ## Overview
 
@@ -29,7 +29,7 @@ This is the second tutorial in a series of four:
 
 ## Publish the API App
 
-1. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Publish...**. 
+1. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Publish**. 
 
 	![](./media/app-service-dotnet-publish-api-app/12-publish-gesture.png) 
 
