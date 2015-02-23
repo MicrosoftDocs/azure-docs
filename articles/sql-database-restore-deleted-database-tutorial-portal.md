@@ -9,11 +9,11 @@
 
 <tags
    ms.service="sql-database"
-   ms.devlang="multiple"
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="ibiza"
+   ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/19/2015"
+   ms.date="02/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restore a deleted Azure SQL database in Azure portal
