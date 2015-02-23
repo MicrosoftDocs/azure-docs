@@ -16,9 +16,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
+<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
    />
    
 # Manage virtual network: Load Balancer distribution mode (Source IP Affinity)
+=======
+   /> 
+   
+# Manage virtual network: Load balancer distribution mode (Source IP Affinity)
+>>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 
 **Source IP Affinity** (also known as **session affinity** or **client IP affinity**), an Azure load balancer distribution mode, ties connections from a single client to a single Azure-hosted server, rather than distributing each client connection dynamically to different Azure-hosted servers (the default load balancer behavior).
 
@@ -51,18 +57,32 @@ Source IP Affinity can be configured for:
 * Using Source IP Affinity may result in an unequal distribution of traffic across Azure-hosted servers
 * Clients that route their traffic through a proxy may be seen as a single client by the Azure load balancer
 
+<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
+=======
+## Next Steps
+* TBD
+   
+>>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 ## PowerShell examples
 Please download [the latest Azure PowerShell release](https://github.com/Azure/azure-sdk-tools/releases) for best results.
 
 ### Add an Azure endpoint to a Virtual Machine and set load balancer distribution mode
 
+<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
+=======
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
+>>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 
 LoadBalancerDistribution can be set to sourceIP for 2-tuple (source IP, Destination IP) load balancing, sourceIPProtocol for 3-tuple (source IP, Destination IP, protocol) load balancing, or none if you want the default behavior (5-tuple load balancing).  
 
 ### Retrieve an endpoint load balancer distribution mode configuration
 
+<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
     PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+=======
+    PS C:\> Get-AzureVM â€“ServiceName â€œMyServiceâ€� â€“Name â€œMyVMâ€� | Get-AzureEndpoint
+>>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -86,7 +106,11 @@ If the LoadBalancerDistribution element is not present then the Azure Load balan
 
 ### Set the Distribution mode on a load balanced endpoint set
 
+<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+=======
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
+>>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
     
 If endpoints are part of a load balanced endpoint set, the distribution mode must be set on the load balanced endpoint set.
 

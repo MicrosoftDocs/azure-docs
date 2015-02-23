@@ -120,15 +120,15 @@ In this section you will set up your development environment and lay the code fo
  
 3. To create the scaffolding which will be used for this application, use the **express** command:
 
-    express
+    	express
 
     Note that this tutorial is using Express v4.x.x. If you already have the Express 3 app generator installed on your system, you should first uninstall it:
 
-    npm uninstall -g express
+    	npm uninstall -g express
 
     Now install the new generator for version 4.x.x:
 
-    npm install -g express-generator
+    	npm install -g express-generator
 
 	Once the **express** command runs, the output should appear similar to the following:
 

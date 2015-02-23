@@ -31,14 +31,18 @@ SQL Assessment Intelligence Pack assesses the risk and health of your SQL Server
 - **quickly** understand the **risk and health** of your environments
 - easily take **action** to decrease risk and improve health
 - **prioritize** your work and become more **productive**
+
+
 ## Configuration Assessment
 
-Configuration assessment provides you with detailed information about the current state of your server infrastructure. Unlike intelligence packs, configuration assessment is available when you first start using Operational Insights.
+Configuration assessment provides you with detailed information about the current state of your server infrastructure. 
+
+Unlike intelligence packs, configuration assessment is available when you first start using Operational Insights with System Center Operations Manager. It is not available if you only use Directly-connected agents.
 
 Configuration data is gathered from monitored servers and then sent to the Operational Insights service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. Processed data for the servers is shown for the following areas:
 
-- **Alerts:** Shows the alerts that affect your monitored servers
-- **Knowledge Recommendations:** Shows the Microsoft Knowledge Base articles that are recommended for workloads that are found in your infrastructure
+- **Alerts:** Shows the configuration-related, proactive alerts that have been raised for your monitored servers. These are produced by rules authored by Microsoft Customer and Support organization (CSS) with best practices from the field
+- **Knowledge Recommendations:** Shows the Microsoft Knowledge Base articles that are recommended for workloads that are found in your infrastructure; these are automatically suggested based on your configuration thru the use of machine learning 
 - **Servers and Workloads Analyzed:** Shows the servers and workloads that are being monitored by Operational Insights
 - **Current Snapshot:** Shows the most recent information about servers that reported data to the Operational Insights service
 - **Change History:** Shows a list of configuration changes made to your monitored servers
@@ -59,7 +63,9 @@ You can get insights into key scenarios, including:
 - Top active critical and warning alerts that are raised within a specified time frame.
 - Ability to search through all alerts and view every alert in detail
 
-> [AZURE.IMPORTANT] Alert Management can only be enabled for computers managed by **Operations Manager**.  For additional information, see [Connect Operations Manager](../operational-insights-connect-scom)
+> [AZURE.IMPORTANT] Alert Management can only be enabled when Operational Insights is used in conjunction with **System Center Operations Manager**. This does not send any data from agents, but simply synchronizes Operations Manager alerts to the cloud to allow you to triage them in Operational Insights and use Search. For additional information, see [Connect Operations Manager](../operational-insights-connect-scom)
+
+
 ## Capacity Planning
 
 You can use the Capacity Management intelligence pack in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. The intelligence pack reads performance counters on the monitored server and sends usage data to the Operational Insights service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
@@ -72,6 +78,8 @@ For more information on using the Capacity Management Intelligence Pack, see:
 
 - [How to use the Compute page](https://msdn.microsoft.com/library/azure/dn873965.aspx)
 - [How to use the Direct Attached Storage page](https://msdn.microsoft.com/library/azure/dn873954.aspx) 
+
+
 ## Change Tracking
 
 You can use the Configuration Change Tracking intelligence pack to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues. By using the information on the Change Tracking page, you can easily see the changes that were made in your server infrastructure. You can view changes to your infrastructure and then drill-into details for the following categories:
@@ -80,6 +88,8 @@ You can use the Configuration Change Tracking intelligence pack to help you easi
 - Software changes to applications and updates for individual servers
 - Total number of software changes for each application
 - Windows service changes for individual servers
+
+
 ## System Update Assessment
 
 You can use the System Updates intelligence pack in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure. If missing updates are found, they are shown on the **Updates** page. You can use the **Updates** page to work with missing updates and develop a plan to apply them to the servers that need them.
