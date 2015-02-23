@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sql-database" 
-   ms.date="02/13/2015"
+   ms.date="02/23/2015"
    ms.author="nadavh; ronmat; v-romcal; v-stste"/>
 
-# Get started with SQL Database Dynamic Data Masking 
+#Get started with SQL Database Dynamic Data Masking 
 
-## Overview
+##Overview
 
 SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking is in preview for Basic, Standard, and Premium service tiers in the V12 version of Azure SQL Database.
 
@@ -26,15 +26,15 @@ Dynamic data masking helps prevent unauthorized access to sensitive data by enab
 
 For example, a call center support person may identify callers by several digits of their social security number or credit card number, but those data items should not be fully exposed to the support person. A developer can define a masking rule to be applied to each query result that masks all but the last four digits of any social security number or credit card number in the result set. For another example, by using the appropriate data mask to protect personally identifiable information (PII) data, a developer can query production environments for troubleshooting purposes without violating compliance regulations.
 
-## SQL Database Dynamic Data Masking basics
+##SQL Database Dynamic Data Masking basics
 
 You set up dynamic data masking policy in the Azure Management Portal and complete the setup by using the security-enabled connection string used by the application or other clients that access the database.
 
-### Dynamic data masking permissions
+###Dynamic data masking permissions
 
 Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
 
-### Dynamic data masking policy
+###Dynamic data masking policy
 
 * **Privileged logins** - A set of logins that will get the unmasked data in the SQL queries results.
   
@@ -59,7 +59,7 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 
   
 <a name="Anchor1"></a>
-### Security-enabled connection string
+###Security-enabled connection string
 
 When you set up dynamic data masking Azure gives you a security-enabled connection string for the database. Only clients that use this connection string have their sensitive data masked according to the dynamic data masking policy. You also need to update existing clients (example: applications) to use the new connection string format.
 
@@ -70,7 +70,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 ![Navigation pane][Image3]<br/><br/>
 
-## Set up dynamic data masking for your database using the Azure Management Portal
+##Set up dynamic data masking for your database using the Azure Management Portal
 
 1. Launch the Azure Management Portal at [https://portal.azure.com](https://portal.azure.com).
 	 
@@ -112,7 +112,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 	![Navigation pane][Image8]
 	
-## Set up dynamic data masking for your database using the Classic Azure Management Portal
+##Set up dynamic data masking for your database using the Classic Azure Management Portal
 
 1. Launch the Classic Azure Management Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
 
@@ -142,7 +142,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 11. Click **SAVE** to save the new or updated masking rule.
 
-## Set up dynamic data masking for your database using REST API
+##Set up dynamic data masking for your database using REST API
 
 See [Operations for Azure SQL Databases](https://msdn.microsoft.com/en-us/library/dn505719.aspx).
 
