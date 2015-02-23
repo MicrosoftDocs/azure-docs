@@ -37,19 +37,17 @@ In this section you will download a new Xamarin iOS app and a service project fo
 
 1. In the Azure Portal, click **Mobile App**, and then click the mobile app backend that you just created.
 
-2. In the quickstart section, click **Xamarin** under **Choose platform** and expand **Create a new Xamarin app**.
+2. At the top of the blade, click **Add Client** and expand **Xamarin iOS**.
 
 	![][6]
 
 	This displays the three easy steps to create a Xamarin iOS app connected to your mobile app backend.
 
-	![][7]
-
 3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.  
 
 4. Download and install [Xcode] v4.4 or a later version and [Xamarin Studio]. You can also use Xamarin for Visual Studio.
 
-5. Under **Download and publish your service to the cloud**, select **iOS** and click **Download**.
+5. Under **Download and publish your service to the cloud**, click **Download**.
 
  This downloads a solution contains projects for both the mobile app backend and for the sample _To do list_ application that is connected to your mobile app backend. Save the compressed project file to your local computer, and make a note of where you save it.
 
@@ -96,9 +94,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
-* [Troubleshoot a mobile app backends .NET backend]
-  <br/> Learn how to diagnose and fix issues that can arise with a mobile app .NET backend.
-
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
 [Create a new mobile app backend]:#create-new-service
@@ -107,9 +102,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- Images. -->
-[0]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-quickstart-completed-ios.png
-[6]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-portal-quickstart-xamarin-ios.png
-[7]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-quickstart-steps-xamarin-ios.png
+[6]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/xamarin-ios-quickstart.png
 [8]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-xamarin-project-ios-vs.png
 [9]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-quickstart-startup-ios.png
@@ -120,7 +113,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with push notifications]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[JavaScript and HTML]: mobile-services-win8-javascript/
 [Azure Portal]: https://portal.azure.com/
 [JavaScript backend version]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started
 [Get started with data in app services using Visual Studio 2012]: /en-us/documentation/articles/app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview
