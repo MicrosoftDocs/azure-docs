@@ -22,21 +22,13 @@
 
 The only cloud app service that integrates everything you need for quickly and easily building apps for any platform or device at an enterprise level.  
 
-Azure *App Service* is a fully managed platform as a service offering
-for Enterprise Developers and System Integrators which makes it easy to
-build employee, partner, and customer facing multi-channel (devices and
-platforms) apps backed with business processes.
+Azure *App Service* is a fully managed platform as a service offering for Enterprise Developers and System Integrators which makes it easy to build employee, partner, and customer facing multi-channel (devices and platforms) apps backed with business processes.
 
-*App Service* provides an integrated cloud app platform that spans the
-diverse needs of modern enterprise apps across both client and mobile
-devices.
+*App Service* provides an integrated cloud app platform that spans the diverse needs of modern enterprise apps across both client and mobile devices.
 
 ## Azure App Service components
 
-*Azure App Service* is a single service that replaces Websites, Mobile
-Services, and Biztalk Services, while adding new capabilities. It allows
-developers to build complex multi-platform Web, Mobile, and process
-automation apps. Azure App Service includes the following tools and services needed to build a number of common app types:
+*Azure App Service* is a single service that replaces Websites, Mobile Services, and Biztalk Services, while adding new capabilities. It allows developers to build complex multi-platform Web, Mobile, and process automation apps. Azure App Service includes the following tools and services needed to build a number of common app types:
 
 - Web Apps - Quickly create and deploy mission critical Web apps that scale with your business.
 
@@ -48,16 +40,8 @@ automation apps. Azure App Service includes the following tools and services nee
 
 ## Unique, differentiated value proposition for customers
 
-Focused on rapid development of enterprise web and mobile apps as well
-as backend business processes, *Azure App Service* provides an
-integrated set of enterprise capabilities including mobile app services,
-turnkey connectivity to SaaS and enterprise systems, workflow-based
-creation of business processes, rich ecosystem of pre-built apps and API
-apps that include enterprise grade integration services and role-based
-administration. As a fully managed service, Azure App Service automates
-scaling, load balancing, and back-ups, as well as deployment and
-monitoring. You save the overhead of managing infrastructure, and still
-have flexibility to deploy apps across public and private clouds.
+Focused on rapid development of enterprise web and mobile apps as well as backend business processes, *Azure App Service* provides an integrated set of enterprise capabilities including mobile app services, turnkey connectivity to SaaS and enterprise systems, workflow-based creation of business processes, rich ecosystem of pre-built apps and API
+apps that include enterprise grade integration services and role-based administration. As a fully managed service, Azure App Service automates scaling, load balancing, and back-ups, as well as deployment and monitoring. You save the overhead of managing infrastructure, and still have flexibility to deploy apps across public and private clouds.
 
 Here is a brief summary of a few of the benefits the platform offers:
 
@@ -76,15 +60,11 @@ A more detailed list of benefits can be found below.
 
 ## Deliver Multi-Channel (Web + Mobile) Apps
 
-*Azure App Service lets developers rapidly build, deploy and manage powerful web and mobile multi-channel apps for employees or customers using a single back-end.*  Build standards-based web apps and APIs
-using .NET, NodeJS, PHP, Python, and Java.  Use mobile services to
-support any mobile platform natively (iOS, Android, Windows) or using
-hybrid frameworks such as Xamarin and Cordova. Securely deliver APIs
-enabling additional apps and devices. 
+*Azure App Service lets developers rapidly build, deploy and manage powerful web and mobile multi-channel apps for employees or customers using a single back-end.* Build standards-based web apps and APIs using .NET, NodeJS, PHP, Python, and Java.  Use mobile services to support any mobile platform natively (iOS, Android, Windows) or using hybrid frameworks such as Xamarin and Cordova. Securely deliver APIs enabling additional apps and devices.
 
 ## Familiar and Fast
 
-*Use your existing skills to code in your favorite language, framework, and IDE to build APIs and apps faster than ever before.* With just a few clicks, add versioning, updating, single sign-on, identity broker, isolated storage, and performance monitoring to your existing Web APIs.  Access a rich gallery of APIs, connectors, and workflows to use as building blocks to accelerate your development. Experience unparalleled developer productivity with cutting-edge capabilities like continuous integration, live-site debugging, and industry leading Visual Studio IDE.
+*Use your existing skills to code in your favorite language, framework, and IDE to build APIs and apps faster than ever before.* With just a few clicks, add versioning, updating, single sign-on, identity broker, isolated storage, and performance monitoring to your existing Web APIs. Access a rich gallery of APIs, connectors, and workflows to use as building blocks to accelerate your development. Experience unparalleled developer productivity with cutting-edge capabilities like continuous integration, live-site debugging, and industry leading Visual Studio IDE.
 
 ## Enterprise Grade
 
