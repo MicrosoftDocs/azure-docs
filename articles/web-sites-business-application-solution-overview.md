@@ -33,7 +33,7 @@ Below is an example of a line-of-business application running on Azure Websites.
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
 > [AZURE.NOTE]
-> This guide presents some of the most common areas and tasks that are aligned with line-of-business applications. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on [Global Web Presence](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/) and [Digital Marketing Campaigns](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview).
+> This guide presents some of the most common areas and tasks that are aligned with line-of-business applications. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on [Global Web Presence](../web-sites-global-web-presence-solution-overview/) and [Digital Marketing Campaigns](../web-sites-digital-marketing-application-solution-overview/).
 
 ## Bring existing assets
 
@@ -79,43 +79,43 @@ In the **Standard** hosting plan, monitor site responsiveness receive email noti
 
 ## More Resources
 
-- [Azure Websites Documentation](/en-us/documentation/services/websites/)
-- [Learning map for Azure Websites](/en-us/documentation/articles/websites-learning-map/)
+- [Azure Websites Documentation](/documentation/services/websites/)
+- [Learning map for Azure Websites](../websites-learning-map/)
 - [Azure Web Blog](/blog/topics/web/)
 
 
 
-[Azure Websites]:/en-us/services/websites/
+[Azure Websites]:/services/websites/
 
-[FTP]:/en-us/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/en-us/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/en-us/documentation/articles/web-sites-publish-source-control/
+[FTP]:../web-sites-deploy/#ftp
+[Visual Studio]:../web-sites-dotnet-get-started/
+[Visual Studio Online]:../cloud-services-continuous-delivery-use-vso/
+[Git]:../web-sites-publish-source-control/
 
-[HTTPS]:/en-us/documentation/articles/web-sites-configure-ssl-certificate/
-[Websites Pricing Details]:/en-us/pricing/details/web-sites/#service-ssl
-[Authenticate users]:/en-us/documentation/articles/web-sites-authentication-authorization/
+[HTTPS]:../web-sites-configure-ssl-certificate/
+[Websites Pricing Details]:/pricing/details/web-sites/#service-ssl
+[Authenticate users]:../web-sites-authentication-authorization/
 [Easy Auth]:/blog/2014/11/13/azure-websites-authentication-authorization/
-[Authorize users]:/en-us/documentation/articles/web-sites-authentication-authorization/
+[Authorize users]:../web-sites-authentication-authorization/
 
-[Azure Trust Center]:/en-us/support/trust-center/
-[MySQL]:/en-us/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[Azure SQL Database]:/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[hybrid connection]:/en-us/documentation/articles/web-sites-hybrid-connection-get-started/
-[Azure Virtual Network]:/en-us/documentation/articles/web-sites-integrate-with-vnet/
+[Azure Trust Center]:/support/trust-center/
+[MySQL]:../web-sites-php-mysql-deploy-use-git/
+[Azure SQL Database]:../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+[hybrid connection]:../web-sites-hybrid-connection-get-started/
+[Azure Virtual Network]:../web-sites-integrate-with-vnet/
 
-[scale up and out]:/en-us/manage/services/web-sites/how-to-scale-websites/
+[scale up and out]:../web-sites-scale/
 [Azure Management Portal]:http://manage.windowsazure.com/
-[Service Management API]:http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-[PowerShell scripting]:http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[Service Management API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell scripting]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis Cache]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[ASP.NET session state]:https://msdn.microsoft.com/en-us/library/azure/dn690522.aspx
-[output cache]:https://msdn.microsoft.com/en-us/library/azure/dn798898.aspx
+[ASP.NET session state]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[output cache]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[quick glance]:/en-us/manage/services/web-sites/how-to-monitor-websites/
+[quick glance]:../web-sites-monitor/
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:/en-us/develop/net/how-to-guides/new-relic/
+[New Relic]:../store-new-relic-cloud-services-dotnet-application-performance-management/
 [How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 

@@ -454,7 +454,7 @@ At this point, you should be able to visit your website using `HTTPS://` instead
 
 Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may compromise your website's security. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure Websites.** 
 
-> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 > 
 > For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.
 
@@ -520,17 +520,17 @@ Once you deploy a web.config with a rewrite rule to force HTTPS, it should take 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation. 
 
 ## More Resources ##
-- [Microsoft Azure Trust Center](/en-us/support/trust-center/security/)
+- [Microsoft Azure Trust Center](/support/trust-center/security/)
 - [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Enable diagnostic logging](/en-us/documentation/articles/web-sites-enable-diagnostic-log/)
-- [Configuring Web Sites](/en-us/documentation/articles/web-sites-configure/)
+- [Enable diagnostic logging](../web-sites-enable-diagnostic-log/)
+- [Configuring Web Sites](../web-sites-configure/)
 - [Azure Management Portal](https://manage.windowsazure.com)
 
-[customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
-[iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
+[customdomain]: ../web-sites-custom-domain-name/
+[iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
-[installcertiis]: http://technet.microsoft.com/en-us/library/cc771816(WS.10).aspx
-[exportcertiis]: http://technet.microsoft.com/en-us/library/cc731386(WS.10).aspx
+[installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
+[exportcertiis]: http://technet.microsoft.com/library/cc731386(WS.10).aspx
 [openssl]: http://www.openssl.org/
 [portal]: https://manage.windowsazure.com/
 [tls]: http://en.wikipedia.org/wiki/Transport_Layer_Security
@@ -538,7 +538,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 [website]: ./media/configure-ssl-web-site/sslwebsite.png
 [scale]: ./media/configure-ssl-web-site/sslscale.png
 [standard]: ./media/configure-ssl-web-site/sslreserved.png
-[pricing]: https://www.windowsazure.com/en-us/pricing/details/
+[pricing]: /pricing/details/
 [configure]: ./media/configure-ssl-web-site/sslconfig.png
 [uploadcert]: ./media/configure-ssl-web-site/ssluploadcert.png
 [uploadcertdlg]: ./media/configure-ssl-web-site/ssluploaddlg.png

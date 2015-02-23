@@ -27,7 +27,7 @@
 > - [Queues](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
 > - [Tables](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
 
 Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 

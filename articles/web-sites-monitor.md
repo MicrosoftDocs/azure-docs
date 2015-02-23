@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="2/20/2015" 
 	ms.author="cephalin"/>
 
 
@@ -36,7 +36,7 @@ Websites provide monitoring functionality via the Monitor management page. The M
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
 
 ##<a name="howtoreceivealerts"></a> How to: Receive alerts from website metrics
-In **Standard** website mode, you can receive alerts based on your website monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
+In **Standard** website mode, you can receive alerts based on your website monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Management Services** page of the Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
 
 ##<a name="howtoviewusage"></a> How to: View usage quotas for a website
 
