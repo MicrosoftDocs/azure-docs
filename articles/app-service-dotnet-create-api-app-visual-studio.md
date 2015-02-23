@@ -176,4 +176,4 @@ You write code for an API App project as you would for any Web API project. To a
 
 ## Next steps
 
-You now have a working API App. You can deploy it directly to Azure or you can publish it to the Gallery and deploy it from the Azure Marketplace. In the Gallery you can make the API App public, keep it private so only you can see it, or restrict access to members of your organization. For more information, see [“Publish an API App”](../app-service-publish-api-app/) and [“Deploying an API App”](../app-service-publish-api-app/).
+You now have a working API App. You can deploy it directly to Azure or you can publish it to the Gallery and deploy it from the Azure Marketplace. In the Gallery you can make the API App public, keep it private so only you can see it, or restrict access to members of your organization. For more information, see [Publish an API App](../app-service-publish-api-app/) and [“Deploy an API App”](../app-service-deploy-api-app/).
