@@ -22,7 +22,7 @@
 
 Today there are many development technologies for building RESTful APIs, such as ASP.NET, PHP, Node.js, and Python. While these technologies are great for building APIs, they're just one part of building and running an API in production. 
 
-To be competitive you also 0need a reliable hosting environment that makes it easy to manage APIs, easy to deploy them, easy to scale them, and easy to backup and restore them. You need an easy way to publish your APIs where customers can find them and easily consume them from their own Web apps and APIs.  You need troubleshooting resources that enable you to respond quickly to problems encountered by your customers in production use. You need a way to do authentication and authorization simply but reliably. And you need development lifecycle tools that facilitate debugging and work tracking as well as writing code.
+To be competitive you also need a reliable hosting environment that makes it easy to manage APIs, easy to deploy them, easy to scale them, and easy to back up and restore them. You need an easy way to publish your APIs where customers can find them and easily consume them from their own Web apps and APIs. You need troubleshooting resources that enable you to respond quickly to problems encountered by your customers in production use. You need a way to do authentication and authorization simply but reliably. And you need development lifecycle tools that facilitate debugging and work tracking as well as writing code.
 
 Azure App Service meets all of those needs better than any other cloud hosting platform.
 
