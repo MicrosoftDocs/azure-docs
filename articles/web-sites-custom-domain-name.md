@@ -3,7 +3,7 @@
 	description="Learn how to use a custom domain name with Azure Web Sites" 
 	services="web-sites" 
 	documentationCenter="" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/18/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 #Configuring a custom domain name for an Azure Website
 
