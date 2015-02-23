@@ -1,14 +1,18 @@
-<tags 
+<properties
    pageTitle="Prerequisites for ExpressRoute adoption"
-   description="This page provides a list of requirements to be met before you can order an ExpressRoute circuit"
+   description="This page provides a list of requirements to be met before you can order an ExpressRoute circuit."
    services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/21/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Prerequisites to connectivity 
