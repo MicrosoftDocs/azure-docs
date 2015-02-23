@@ -57,9 +57,9 @@ apps that include enterprise grade integration services and role-based
 administration. As a fully managed service, Azure App Service automates
 scaling, load balancing, and back-ups, as well as deployment and
 monitoring. You save the overhead of managing infrastructure, and still
-have flexibility to deploy apps across public and private clouds. Here are some of *Azure App Service’s* key benefits.
+have flexibility to deploy apps across public and private clouds.
 
-Here are a few of the benefits the platform provides:
+Here is a brief summary of a few of the benefits the platform offers:
 
 * Platform-as-a-service (PaaS) with auto patching.
 * Secure cloud platform that is ISO, SOC2, and PIC compliant.
@@ -71,6 +71,8 @@ Here are a few of the benefits the platform provides:
 * Continuous deployment with Git, TFS, and GitHub.
 * Access to on premises data with VPN and Hybrid Connections.
 * Delegated and role-based administration of cloud apps and their resources.
+ 
+A more detailed list of benefits can be found below.
 
 ## Deliver Multi-Channel (Web + Mobile) Apps
 
