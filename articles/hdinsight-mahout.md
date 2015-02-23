@@ -3,7 +3,7 @@
 	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/23/2015" 
 	ms.author="larryfr"/>
 
 #Generate movie recommendations using Apache Mahout with HDInsight (Hadoop)
@@ -33,13 +33,6 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 * How to run Mahout jobs from the Hadoop command line
 
 * How to install Mahout on HDInsight 2.0 and 3.0 clusters
-
-##In this article
-
-* [Generate recommendations using PowerShell](#recommendations)
-* [Classify data using the Hadoop command line](#classify)
-* [Troubleshooting](#troubleshooting)
-
 
 ##<a name="recommendations"></a>Generate recommendations using PowerShell
 

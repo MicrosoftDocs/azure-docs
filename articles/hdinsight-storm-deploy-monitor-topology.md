@@ -56,6 +56,8 @@ From the Storm Dashboard, select the **Storm UI** link. This will display inform
 
 ![the storm ui][storm-dashboard-ui] 
 
+> [AZURE.NOTE] With some versions of Internet Explorer, you may discover that the Storm UI does not refresh after you have first visited it. For example, not showing new topologies you have submitted or showing a topology as active when you have previously killed it. Microsoft is aware of this problem and is working on a solution.
+
 ####Main page
 
 The main page of the Storm UI provides the following information.
