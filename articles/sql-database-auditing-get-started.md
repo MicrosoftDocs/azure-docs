@@ -136,7 +136,11 @@ In production you are likely to refresh your storage keys periodically. The Audi
 4. Go back to the storage UI and **regenerate** the *Secondary Access Key* (as preparation for the next keys refresh cycle.
   
 ##<a id="subheading-4"></a>Automation
-There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database. To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode. [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) mode is accessed by running the Switch-AzureMode cmdlet (`Switch-AzureMode AzureResourceManager`). When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to list the available cmdlets.
+There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database. To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode.
+
+> [AZURE.NOTE] The AzureResourceManager module is currently in preview. It might not provide the same management capabilities as the Azure module.
+
+ [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) mode is accessed by running the Switch-AzureMode cmdlet (`Switch-AzureMode AzureResourceManager`). When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to list the available cmdlets.
 
 
 
