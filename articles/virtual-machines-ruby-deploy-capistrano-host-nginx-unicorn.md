@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" 
 	description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor="" 
 	services="virtual-machines" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 #Deploy a Ruby on Rails Web application to an Azure VM using Capistrano
@@ -205,9 +205,8 @@ After the virtual machine has been created, connect to it using SSH and use the 
 	~/.rbenv/bin/rbenv rehash
 
 > [AZURE.NOTE] You may wish to save the above into a script (.sh file,) to avoid typos when executing the commands.
-
-
-> [AZURE.NOTE] The **~/.rbenv/bin/rbenv install 2.0.0-p451** command can take several minutes to complete.
+> 
+> The **~/.rbenv/bin/rbenv install 2.0.0-p451** command can take several minutes to complete.
 
 The **rbenv-install.sh** script performs the following actions:
 	
