@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Deploy an Azure API App" 
-	description="" 
+	description="Learn how to deploy an API App project to your Azure subscription." 
 	services="app-service" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
@@ -24,10 +24,10 @@ If you're actively developing your own Azure API App using Visual Studio and you
 
 This is the third tutorial in a series of four:
 
-* In [Publish an API App](../app-service-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
+1. In [Create an API App](../app-service-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
 * In [Publish an API App](../app-service-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
 * In this tutorial you deploy the API app you created to your Azure subscription.
-* In [Debug an API App](../app-service-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
+* In [Debug an API App](../app-service-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Deploy the API App 
 
