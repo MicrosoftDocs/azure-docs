@@ -120,7 +120,6 @@ This section describes the steps you can take to encode your content with Azure 
 
 	To view the progress of the encoding job, switch to the **JOBS** page.  
 
-
 	If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
 ##<a id="encrypt"></a>How to: Encrypt content

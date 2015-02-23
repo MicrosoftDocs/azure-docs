@@ -59,7 +59,7 @@ In this section you will create a new PhoneGap app that is connected to your mob
 
 3. If you haven't already done so, download and install PhoneGap and at least one of the platform development tools (Windows Phone, iOS, or Android).
 
-4. Click **Create TodoItems table** to create a table to store app data.
+4. Click **Create TodoItem table** to create a table to store app data.
 
 5. Under **Download and run your app**, click **Download**. 
 
@@ -108,7 +108,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	> [AZURE.IMPORTANT] Changes to this platform project will be overwritten if the main project is rebuilt with the PhoneGap tools. Instead, make changes in the project's root www directory as outlined in the section below.
 
-4. Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItems</strong> table.
+4. Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItem</strong> table.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 

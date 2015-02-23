@@ -525,7 +525,7 @@ To install the command-line tools, use the following command:
 	
 	npm install azure-cli -g
 
-> [AZURE.NOTE] For more information, see [Install and configure the Azure Cross-Platform Command-Line Interface](/en-us/documentation/articles/xplat-cli/);
+> [AZURE.NOTE] For more information, see [Install and configure the Azure Cross-Platform Command-Line Interface](/documentation/articles/xplat-cli/);
 
 > [AZURE.NOTE] While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
@@ -658,9 +658,9 @@ While the steps in this article describe using the Table Service to store inform
 ## Additional resources
 
 [Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Azure Web Sites]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Publishing to Azure Web Sites with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
-[Azure Developer Center]: /en-us/develop/nodejs/
+[Create and deploy a Node.js application to Azure Web Sites]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Publishing to Azure Web Sites with Git]: /documentation/articles/web-sites-publish-source-control/
+[Azure Developer Center]: /develop/nodejs/
 
 
 [node]: http://nodejs.org
@@ -669,10 +669,10 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
-[Node.js Web Application with MongoDB]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
-[Azure command-line tool for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
+[Node.js Web Application with MongoDB]: /documentation/articles/web-sites-nodejs-store-data-mongodb/
+[Azure command-line tool for Mac and Linux]: /documentation/articles/xplat-cli/
 
-[Publishing to Azure Web Sites with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+[Publishing to Azure Web Sites with Git]: /documentation/articles/web-sites-publish-source-control/
 [azure]: https://github.com/Azure/azure-sdk-for-node
 
 
@@ -692,4 +692,4 @@ While the steps in this article describe using the Table Service to store inform
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Create and deploy a Node.js application to an Azure Web Site]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/

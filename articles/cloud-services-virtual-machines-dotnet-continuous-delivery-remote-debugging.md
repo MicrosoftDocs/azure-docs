@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Enable remote debugging with continuous delivery" 
-	description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure." 
+	description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure" 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="cloud-services" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/18/2015" 
 	ms.author="kempb"/>
 # Enable remote debugging when using continuous delivery to publish to Azure
 

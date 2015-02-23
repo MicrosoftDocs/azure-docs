@@ -127,7 +127,7 @@ A **BlobRestProxy** object lets you create a blob container with the **createCon
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -160,7 +160,7 @@ To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. T
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -194,7 +194,7 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -222,7 +222,7 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -250,7 +250,7 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -276,7 +276,7 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -292,9 +292,9 @@ Now that you've learned the basics of the Azure Blob service, follow these links
 - See the PHP page blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-[container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
-[error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
+[error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen

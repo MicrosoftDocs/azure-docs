@@ -10,8 +10,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="02/03/2015" 
 	ms.author="ricksal,glenga"/>
@@ -33,20 +33,17 @@
 
 <p>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-android">Get started with Mobile Services</a>.</p>
 
-<div class="dev-callout"><b>Note</b>
+> [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">here</a>.
 
-<p>If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">here</a>.
-</p>
-<p>If you would like to see the Eclipse version of this tutorial, go to : [Get started with data (Eclipse)].</p>
-</div>
+If you would like to see the Eclipse version of this tutorial, go to 
+[Get started with data using Eclipse](/en-us/documentation/articles/mobile-services-android-get-started-data-EC/).
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure Free Trial</a>.</p>
-</div> 
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure Free Trial</a>.
 
 This tutorial requires the [Mobile Services Android SDK]; the <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android Studio integrated development environment</a>, which includes the Android SDK; and Android 4.2 or a later version. 
 
 > [AZURE.NOTE] This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK. The downloaded GetStartedWithData project requires Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.
-<1-- -->
+<!-- -->
 
 > [AZURE.NOTE] This tutorial uses the latest version of the Mobile Services SDK. You can find an earlier version of it <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> here</a> for backward compatibility purposes, but the code contained in these tutorials does not work with it.
 

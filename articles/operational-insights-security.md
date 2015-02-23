@@ -46,4 +46,4 @@ We currently meet the following security standards:
 - Windows Common Engineering Criteria
 - Microsoft Trustworthy Computing Certification
 
-
+For more information see [Operational Insights data collection and security](https://msdn.microsoft.com/library/azure/dn874001.aspx)

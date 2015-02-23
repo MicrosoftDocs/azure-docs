@@ -12,11 +12,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="1/23/2015" 
+    ms.date="2/17/2015" 
     ms.author="elizapo" />
 
 
-#How to publish an app in RemoteApp
+# How to publish an app in RemoteApp
 
 After you create your cloud or hybrid collection, you need to publish the apps or resources that you want to make available for your users. The template images provided with your subscription only have a few apps published by default - to share the other apps, you need to publish them.
  

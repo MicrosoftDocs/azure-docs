@@ -286,7 +286,7 @@ Create symbolic links in $CASS_HOME/lib directory so that Cassandra startup scri
 
 	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
-	ln -s /usr/share/java/jna-platrom-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
+	ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 ####Step 5: Configure cassandra.yaml####
 Edit cassandra.yaml on each VM to reflect configuration needed by all the virtual machines [we will tweak this during the actual provisioning]: 

@@ -10,8 +10,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="02/06/2015" 
 	ms.author="ricksal,glenga"/>
@@ -29,7 +29,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">15:32</span></div>
 </div>
 
-> [AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services](/en-us/develop/mobile/tutorials/get-started-android).
+> [AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services](/en-us/develop/mobile/tutorials/get-started-android-EC).
 > 
 > If you would like to see the source code of the completed app, go [here](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
 
@@ -48,7 +48,9 @@ This tutorial requires the [Mobile Services Android SDK]; the <a href="https://g
 
 > [AZURE.NOTE] This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK. The downloaded GetStartedWithData project requires Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.
 
->[AZURE.NOTE] This tutorial uses the latest version of the Mobile Services SDK. You can find an earlier version of it <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> here</a> for backward compatibility purposes, but the code contained in these tutorials does not work with it.
+<!-- -->
+
+> [AZURE.NOTE] This tutorial uses the latest version of the Mobile Services SDK. You can find an earlier version of it <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> here</a> for backward compatibility purposes, but the code contained in these tutorials does not work with it.
 
 <h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
 

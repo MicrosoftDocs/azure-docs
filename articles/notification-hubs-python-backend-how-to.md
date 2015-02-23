@@ -1,4 +1,11 @@
-<properties pageTitle="How to use Notification Hubs with Python" description="Learn how to use Azure Notification Hubs from a Python back-end." services="notification-hubs" documentationCenter="" authors="piyushjo" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to use Notification Hubs with Python" 
+	description="Learn how to use Azure Notification Hubs from a Python back-end." 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="yuaxu" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -7,11 +14,11 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="12/09/2014" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from Python
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/en-us/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/en-us/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a>
+    	<a href="/en-us/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/en-us/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/en-us/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/en-us/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
 You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/en-us/library/dn223264.aspx).

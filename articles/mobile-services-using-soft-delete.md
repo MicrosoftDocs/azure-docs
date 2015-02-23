@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # Using soft delete in Mobile Services
+
+##Overview
 
 Tables created with either the JavaScript or .NET backend can optionally have soft delete enabled. When using soft delete, a new column called *\__deleted* of [SQL bit type] is added to the database. With soft delete enabled, a delete operation does not physically delete rows from the database, but rather sets the value of the deleted column to TRUE.
 
@@ -34,16 +36,9 @@ However, soft deleted records take up space in the database, so you should consi
 
 
 
-Overview of this topic:
-
-1. [Enabling soft delete for the .NET backend]
-2. [Enabling soft delete for the JavaScript backend]
-3. [Using soft delete with the .NET backend] 
-4. [Using soft delete with the JavaScript backend] 
 
 
-
-## <a name="enable-for-dotnet"></a>Enabling soft delete for the .NET backend
+##Enabling soft delete for the .NET backend
 
 Soft delete support for the .NET backend first released with version 1.0.402 of the Microsoft Azure Mobile Services .NET Backend. The latest NuGet packages are available here, [Microsoft Azure Mobile Services .NET Backend](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -63,7 +58,7 @@ The following steps guide you on how to enable soft delete for a .NET backend mo
         }
 
 
-## <a name="enable-for-javascript"></a>Enabling soft delete for the JavaScript backend
+##Enabling soft delete for the JavaScript backend
 
 If you are creating a new table for your mobile service, you can enable soft delete on the table creation page.
 
@@ -114,7 +109,7 @@ To learn more about schedule jobs with .NET backend Mobile Services, see: [Sched
 
 
 
-## <a name="using-with-javascript"></a>Using soft delete with the JavaScript backend
+##Using soft delete with the JavaScript backend
 
 You use table scripts to add logic around the soft delete feature with JavaScript backend mobile services.
 
@@ -155,11 +150,6 @@ To learn more about scheduled jobs with JavaScript backend Mobile Services, see:
 
 
 
-<!-- Anchors. -->
-[Enabling soft delete for the .NET backend]: #enable-for-dotnet
-[Enabling soft delete for the JavaScript backend]: #enable-for-javascript
-[Using soft delete with the .NET backend]: #using-with-dotnet
-[Using soft delete with the JavaScript backend]: #using-with-javascript
 
 <!-- Images -->
 [0]: ./media/mobile-services-using-soft-delete/enable-soft-delete-button.png
