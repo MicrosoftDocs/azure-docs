@@ -19,7 +19,7 @@
 
 # <a name="getting-started"> </a>Get started with your mobile app (Xamarin iOS)
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../includes/app-service-mobile-selector-get-started.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../includes/app-service-mobile-selector-get-started-preview.md)]
 
 This tutorial shows you how to add a cloud-based backend service to a Xamarin iOS app with Azure Mobile App. In this tutorial, you will create both a new .NET service and a simple _To do list_ app that stores app data in the .NET backend.
 
