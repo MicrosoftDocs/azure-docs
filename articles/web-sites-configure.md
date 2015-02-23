@@ -13,25 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="02/23/2015" 
 	ms.author="mwasson"/>
 
 
 # How to Configure Websites #
 In the Azure Management Portal, you can change the configuration options for websites and link to other Azure resources, such as a database.
 
-## Table of Contents ##
-- [How to: Change configuration options for a web site](#howtochangeconfig)
-- [How to: Configure a web site to use a SQL database](#howtoconfigSQL)
-- [How to: Configure a web site to use a MySQL database](#howtoconfigMySQL)
-- [How to: Configure a custom domain name](#howtodomain)
-- [How to: Configure a web site to use SSL](#howtoconfigSSL)
-- [Next steps](#next)
-
-
-##<a name="howtochangeconfig"></a> How to: Change configuration options for a website
-
-<!-- HOW TO: CHANGE CONFIGURATION OPTIONS FOR A WEBSITE -->
+## Change configuration options for a website
 
 To set configuration options for a website:
 
@@ -179,10 +168,7 @@ Use this area to add custom script processors to handle requests for specific fi
 
 To configure virtual applications and directories associated with your website, specify each virtual directory and its corresponding physical path relative to the site root. Optionally, you can select the <strong>Application</strong> checkbox to mark a virtual directory as an application in site configuration.
 
-	
-
-<!-- HOW TO: CONFIGURE A WEBSITE TO USE A SQL DATABASE -->
-##<a name="howtoconfigSQL"></a> How to: Configure a website to use a SQL database
+## Configure a website to use a SQL database
 
 Follow these steps to link a website to a SQL Database:
 
@@ -202,23 +188,15 @@ Follow these steps to link a website to a SQL Database:
 
 Azure will create a SQL database with the specified parameters and link the database to the website.
 
-<!-- HOW TO: CONFIGURE A WEBSITE TO USE A MYSQL DATABASE -->
-##<a name="howtoconfigMySQL"></a> How to: Configure a website to use a MySQL database##
+## Configure a website to use a MySQL database
 To configure a website to use a MySQL database, follow the same steps to use a SQL database, but in the **Link a Resource** wizard, choose **MySQL Database** instead of **SQL Database**. 
 
 Alternatively, you can create the website with the **Custom Create** option. In the **Database** dropdown, choose either **Create a new MySQL database** or **Use an existing MySQL database**. 
 
-##<a name="howtodomain"></a> How to: Configure a custom domain name
-
-For information about configuring your website to use a custom domain name, see [Configuring a custom domain name for an Azure Web Site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
-
-##<a name="howtoconfigSSL"></a> How to: Configure a website to use SSL##
-
-For information about configuring SSL for a custom domain on Azure, see [Enable HTTPS for an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
-
 ##<a name="next"></a> Next steps
 
-* [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)
-
-* [How to Monitor Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/)
+- [Configure a custom domain name](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/)
+- [Enable HTTPS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+- [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)
+- [How to Monitor Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/)
 
