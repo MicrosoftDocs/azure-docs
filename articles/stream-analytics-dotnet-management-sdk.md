@@ -26,23 +26,6 @@ Azure Stream Analytics is a fully managed service providing low latency, highly 
 This article demonstrates how to use the Azure Stream Analytics Management .NET SDK.
 
 
-##In this article
-
-+ [Prerequisites](#prerequisites)
-+ [Setup a project](#setupproject)
-+ [How to: create a Stream Analytics management client](#createclient)
-+ [How to: create a Stream Analytics job](#createjob)
-+ [How to: create a Stream Analytics input source](#createinput)
-+ [How to: test a Stream Analytics input source](#testinput)
-+ [How to: create a Stream Analytics output target](#createoutput)
-+ [How to: test a Stream Analytics output target](#testoutput)
-+ [How to: create a Stream Analytics transformation](#createtransform)
-+ [How to: start a Stream Analytics job](#startjob)
-+ [How to: stop a Stream Analytics job](#stopjob)
-+ [How to: delete a Stream Analytics job](#deletejob)
-+ [Next steps](#nextsteps)
-
-
 ##<a name="inputs"></a>Prerequisites
 Before you begin this article, you must have the following:
 

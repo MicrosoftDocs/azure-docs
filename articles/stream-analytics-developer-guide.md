@@ -35,18 +35,6 @@ For more information, see [Introduction to Azure Stream Analytics][stream.analyt
 Stream Analytics jobs are defined as one or more input sources, a query over the incoming stream data, and an output target.  
 
 
-##In this article
-
-+ [Inputs](#inputs) 
-+ [Query](#query)
-+ [Output](#output)
-+ [Scale jobs](#scale)
-+ [Monitor and troubleshoot jobs](#monitor)
-+ [Manage jobs](#manage)
-+ [Next steps](#nextsteps)
-
-
-
 ##<a name="inputs"></a>Inputs
 
 ### Data stream

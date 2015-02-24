@@ -21,14 +21,6 @@
 
 Learn how to define workflows and coordinators, and how to trigger the coordinator jobs based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before this article. 
 
-##In this article
-
-0. [What is Oozie](#whatisoozie)
-1. [Prerequisites](#prerequisites)
-2. [Define Oozie workflow file](#defineworkflow)
-2. [Deploy the Oozie project and prepare the tutorial](#deploy)
-3. [Run workflow](#run)
-4. [Next steps](#nextsteps)
 
 ##<a id="whatisoozie"></a>What is Oozie
 
