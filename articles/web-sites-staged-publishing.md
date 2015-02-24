@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Staged Deployment on Microsoft Azure Websites" 
 	description="Learn how to use staged publishing on Microsoft Azure Websites." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -18,24 +18,24 @@
 	ms.author="cephalin"/>
 
 <a name="Overview"></a>
-#Staged Deployment on Microsoft Azure Websites#
+#Staged Deployment on Microsoft Azure web apps#
 
 [AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
-When you deploy your application to Azure Websites, you can deploy to a separate deployment slot instead of the default production slot, which are actually live sites with their own hostnames. This option is available in the **Standard** web hosting plan. Furthermore, you can swap the sites and site configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your application to Azure web apps, you can deploy to a separate deployment slot instead of the default production slot, which are actually live sites with their own hostnames. This option is available in the **Standard** web hosting plan. Furthermore, you can swap the sites and site configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
-- You can validate website changes in a staging deployment slot before swapping it with the production slot.
+- You can validate web app changes in a staging deployment slot before swapping it with the production slot.
 
 - After a swap, the slot with previously staged site now has the previous production site. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back. 
  
-- Deploying a site to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your site. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. 
+- Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your site. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. 
 
 Four deployment slots in addition to the production slot are supported for each website in the **Standard** plan. 
 
 <a name="Add"></a>
-##To Add a Deployment Slot to a Website##
+##To Add a Deployment Slot to a web app##
 
-The website must be running in the **Standard** hosting plan to enable multiple deployment slots. 
+The web app must be running in the **Standard** hosting plan to enable multiple deployment slots. 
 
 1. On the Quick Start page, or in the Quick Glance section of the Dashboard page for your website, click **Add a new deployment slot**. 
 	
