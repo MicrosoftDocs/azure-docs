@@ -125,7 +125,7 @@ when it is deployed to the cloud.
 	[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 
-###<a id="download_publishing_settings"></a>Download the Azure Publishing Settings
+###<a id="download_publishing_settings"></a>Download the Azure publishing settings
 
 To deploy your application to Azure, you must first download the publishing settings for your Azure subscription. 
 
@@ -145,7 +145,7 @@ To deploy your application to Azure, you must first download the publishing sett
 	> [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
     
 
-### Publish the Application
+### Publish the application
 
 To publish, run the **Publish-AzureServiceProject** cmdlet as follows:
 
