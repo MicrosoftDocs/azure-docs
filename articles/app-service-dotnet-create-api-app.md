@@ -43,7 +43,7 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/03-add-new-class.png) 
 
-4. Name the new file *Contact.cs*, and then click **OK**.
+4. Name the new file *Contact.cs*, and then click **Add**.
 
 5. Replace the content of the new *.cs* file with the following code. 
 
