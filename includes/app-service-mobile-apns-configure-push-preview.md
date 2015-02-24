@@ -10,17 +10,17 @@ After you have registered your app with APNS and configured your project, you mu
 
 2. Log on to the [Azure Preview Portal], click **Mobile Services**, and then click your app.
 
-   	![](./media/app-service-mobile-apns-configure-push/mobile-selection-preview.png)
+   	![](./media/app-service-mobile-apns-configure-push/mobile-selection.png)
 
 3. Click the **Push** tab and click **Upload**.
 
-   	![](./media/app-service-mobile-apns-configure-push/mobile-push-tab-ios-preview.png)
+   	![](./media/app-service-mobile-apns-configure-push/mobile-push-tab-ios.png)
 
 	This displays the Upload Certificate dialog.
 
 4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected (either Dev/Sandbox or Prod/Production), click the check icon, then click **Save**.
 
-   	![](./media/app-service-mobile-apns-configure-push/mobile-push-tab-ios-upload-preview.png)
+   	![](./media/app-service-mobile-apns-configure-push/mobile-push-tab-ios-upload.png)
 
     > [AZURE.NOTE] This tutorial uses developement certificates.
 
