@@ -1,12 +1,10 @@
-<properties urlDisplayName="Authenticate users of your Mobile app with Azure Active Directory Single Sign-On" 
-pageTitle="Authenticate users of your iOS app with Azure Active Directory Single Sign-On" 
-metaKeywords="" 
-description="Learn how to log users into your iOS application with the Active Directory Authentication Library." 
-metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" 
-title="Authenticate users of your iOS app with Azure Active Directory Single Sign-On" 
-authors="mattchenderson" 
-services="app-service-mobile" 
-manager="dwrede" />
+<properties 
+        pageTitle="Authenticate users of your iOS app with Azure Active Directory Single Sign-On" 
+        description="Learn how to log users into your iOS application with the Active Directory Authentication Library." 
+        documentationCenter="Mobile" 
+        authors="mattchenderson" 
+        services="app-service-mobile" 
+        manager="dwrede" />
 
 <tags ms.service="app-service"
 ms.workload="mobile"
