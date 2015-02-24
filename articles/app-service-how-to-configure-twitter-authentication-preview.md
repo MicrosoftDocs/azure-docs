@@ -1,14 +1,14 @@
 <properties 
-	pageTitle="How to configure Twitter authentication for your App Services application 
+	pageTitle="How to configure Twitter authentication for your App Services application"
 	description="Learn how to configure Twitter authentication for your App Services application." 
-	services="app-services" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 

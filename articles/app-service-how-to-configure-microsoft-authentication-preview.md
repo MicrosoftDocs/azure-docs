@@ -1,14 +1,14 @@
 <properties 
-	pageTitle="How to configure Microsoft Account authentication for your App Services application 
+	pageTitle="How to configure Microsoft Account authentication for your App Services application"
 	description="Learn how to configure Microsoft Account authentication for your App Services application." 
 	authors="mattchenderson,ggailey777" 
-	services="app-services" 
+	services="app-service" 
 	documentationCenter="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
