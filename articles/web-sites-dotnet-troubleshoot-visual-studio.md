@@ -18,6 +18,8 @@
 
 # Troubleshooting Azure Websites in Visual Studio
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 ## Overview
 
 This tutorial shows how to use Visual Studio tools that help debug an application while it runs in an Azure Website, by running in [debug mode](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.

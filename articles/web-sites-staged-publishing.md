@@ -19,6 +19,9 @@
 
 <a name="Overview"></a>
 #Staged Deployment on Microsoft Azure Websites#
+
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 When you deploy your application to Azure Websites, you can deploy to a separate deployment slot instead of the default production slot, which are actually live sites with their own hostnames. This option is available in the **Standard** web hosting plan. Furthermore, you can swap the sites and site configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 - You can validate website changes in a staging deployment slot before swapping it with the production slot.
