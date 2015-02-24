@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website" 
 	description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." 
-	services="web-sites, sql-database" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	writer="Rick-Anderson" 
@@ -9,7 +9,7 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="web-apps" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -31,7 +31,7 @@ This tutorial assumes that you have no prior experience using Azure. On completi
 
 You'll learn:
 
-* How to create a secure ASP.NET MVC 5 project and publish it to an Azure Website.
+* How to create a secure ASP.NET MVC 5 project and publish it to an Azure web app.
 * How to use [OAuth](http://oauth.net/ "http://oauth.net/") and the ASP.NET membership database to secure your application.
 * How to use a SQL database to store data in Azure.
 
