@@ -5,7 +5,7 @@
    documentationCenter="dev-center-name" 
    authors="leylakazemi" 
    manager="jwhit" 
-   editor=""/>
+   editor="banders"/>
 
 <tags
    ms.service="operational-insights"
@@ -16,7 +16,7 @@
    ms.date="02/20/2015"
    ms.author="leylak"/>
 
-# How to use Log Management 
+# Use Log Management 
 
 Before you can use Log Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](https://msdn.microsoft.com/en-us/library/azure/dn873980.aspx). After it is installed, you can view log events collected from your monitored servers by using the **Log Management** tile on the **Overview** page in Operational Insights. The tile opens the **Log Management** page where you can view a summary of the events contained in the logs.
 
