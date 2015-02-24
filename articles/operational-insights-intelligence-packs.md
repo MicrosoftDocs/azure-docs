@@ -20,9 +20,9 @@
 
 Intelligence Packs are a collection of **logic**, **visualization** and **data acquisition rules** that address key customer challenges today. Intelligence Packs are powered by Operational Insights Search to bring you metrics pivoted around a particular problem area. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing. 
 
-This guide walks you through the various Intelligence Packs available and what they are used for. 
+This guide walks you through the various Intelligence Packs available and what they are used for.
 
->[AZURE.INFO] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](../operational-insights-add-intelligence-pack.md)
+>[AZURE.NOTE] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](../operational-insights-add-intelligence-pack.md)
 
 ## SQL Assessment
 
