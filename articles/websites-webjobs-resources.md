@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure WebJobs Recommended Resources" 
 	description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." 
-	services="web-sites, storage" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
