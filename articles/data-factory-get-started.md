@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="02/24/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -137,7 +137,7 @@ A table is a rectangular dataset and it is the only type of dataset that is supp
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
     ![Azure Storage Explorer][image-data-factory-get-started-storage-explorer]
-3. Use the following SQL script to create the **emp** table in your Azure SQL Database. You can use Azure SQL Management Console to connect to an Azure SQL Database and to run SQL script. You can also SQL Server Management Studio to do this task. 
+3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
 
         CREATE TABLE dbo.emp 
@@ -150,7 +150,10 @@ A table is a rectangular dataset and it is the only type of dataset that is supp
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-	In the Azure Preview Portal ([http://portal.azure.com](http://portal.sazure.com)), you can launch Visual Studio 2013 to run the SQL query. You can also use SQL Server Management Studio or sqlcmd.exe to run this query against the Azure SQL database. 
+	If you have SQL Server 2014 installed on your computer: follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the release management portal (http://manage.windowsazure.com), not the preview portal (http://portal.azure.com), to cofigure firewall for an Azure SQL server. 
+
+	If you have Visual Studio 2013 installed on your computer: in the Azure Preview Portal ([http://portal.azure.com](http://portal.sazure.com)), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you will need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to cofigure the firewall for your Azure SQL server.
+		
 
 ### Create input table 
 A table is a rectangular dataset and has a schema. In this step, you will create a table named **EmpBlobTable** that points to a blob container in the Azure Storage represented by the **StorageLinkedService** linked service.
@@ -418,6 +421,8 @@ Article | Description
 
 [azure-preview-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
+[sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
+[sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
 [monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
