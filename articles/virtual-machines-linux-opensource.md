@@ -131,6 +131,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 19. [Blogging the Basics: Automate Provisioning Linux on Azure with xplat, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 20. [The Basics: The Azure Docker VM Extension](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/)
 23. [Azure Service Management REST API](https://msdn.microsoft.com/en-us/library/azure/ee460799.aspx) reference
+24. [GlusterFS on Azure] (http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ### <a id='images'>Community Images and Repositories</a>
 3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) &mdash; for community provided virtual machine images.
@@ -224,6 +225,7 @@ This section contains information about several different storage approaches and
 - [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-mariadb-cluster/)
 7. PostgreSQL
 - [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+8. Installing Postgres with corosync, pg_bouncer using ILB  (https://github.com/chgeuer/postgres-azure) 
 
 
 ### <a id='security'>Auth and Encryption</a>
@@ -265,6 +267,7 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
     - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
     - [Github: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 13. [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
+14. [Packer plugin for Azure](https://github.com/msopentech/packer-azure)
 
 ### <a id='supportdebug'>Support, Troubleshooting, and "It Just Doesn't Work"</a>
 
