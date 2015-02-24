@@ -63,7 +63,7 @@ Depending on the BizTalk Services Edition, all options listed may not be availab
 
 <tr>
         <td><strong>Learn more about BizTalk Services</strong></td>
-        <td>Go to the <a HREF="http://azure.microsoft.com/en-us/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
+        <td>Go to the <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
 </tr>
 </table>
 
@@ -355,7 +355,7 @@ Hybrid Connections connect an Azure application, like Websites or Mobile Service
 
 To create Hybrid Connections in Azure Websites, see [Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-To use Hybrid Connections in Azure Mobile Services, see [Azure Mobile Services and Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+To use Hybrid Connections in Azure Mobile Services, see [Azure Mobile Services and Hybrid Connections](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
 To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 

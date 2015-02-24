@@ -322,11 +322,11 @@ Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sent
 [hdinsight-hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/ 
+[azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/ 
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-hive-editor.png

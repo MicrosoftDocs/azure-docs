@@ -18,19 +18,19 @@
 
 # Recover an Azure SQL database using Geo-Restore in Azure PowerShell  
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-portal/" title="Geo-Restore - portal">Geo-Restore - portal</a><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-rest/" title="Geo-Restore - REST API">Geo-Restore - REST API</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-management-portal/" title="Geo-Restore - portal">Geo-Restore - portal</a><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-rest/" title="Geo-Restore - REST API">Geo-Restore - REST API</a></div>
 
-This tutorial shows you how to recover an Azure SQL database using Geo-Restore in [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/). Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
+This tutorial shows you how to recover an Azure SQL database using Geo-Restore in [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
 
 ## Restrictions and Security
 
-See [Recover an Azure SQL database using Geo-Restore in Azure portal](/en-us/documentation/articles/sql-database-geo-restore-tutorial-portal).
+See [Recover an Azure SQL database using Geo-Restore in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-management-portal/).
 
 ## How to: Recover an Azure SQL database with Geo-Restore in Azure PowerShell
 
 <iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-SQL-Database-Using-Geo-Restore-With-Microsoft-Azure-PowerShell/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/#use-the-certificate-method).
+You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#use-the-certificate-method).
 
 1. Get the list of recoverable databases by using the [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx) cmdlet. Specify the following parameter:
 	* **ServerName** where the database is located.	
@@ -65,9 +65,9 @@ The **State** and **PercentComplete** fields show the status of the restore.
 
 For more information, see the following:  
 
-[Restore an Azure SQL database using Point in Time Restore in Azure portal](http://www.azure.microsoft.com/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal)
+[Restore an Azure SQL database using Point in Time Restore in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
 
-[Restore a deleted Azure SQL database in Azure portal](http://www.azure.microsoft.com/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal)
+[Restore a deleted Azure SQL database in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
 
 [Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
@@ -75,4 +75,4 @@ For more information, see the following:
 
 [Azure SQL Database Geo-Restore (blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
-[Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
+[Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)

@@ -200,7 +200,7 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [add_ca_cert]: ../java-add-certificate-ca-store
 [azure_java_eclipse_hello_world]: http://msdn.microsoft.com/library/windowsazure/hh690944.aspx
 [howto_twilio_voice_sms_java]: ../partner-twilio-java-how-to-use-voice-sms
-[howto_blob_storage_java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
+[howto_blob_storage_java]: http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: http://msdn.microsoft.com/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: http://msdn.microsoft.com/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc

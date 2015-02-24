@@ -561,7 +561,7 @@ autoscaling scenarios:
   [How To: Define your Service Model]: #DefineServiceModel
   [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
   [How To: Configure the Autoscaling Application Block]: #Configure
-  [Using performance counters in Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
+  [Using performance counters in Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Azure Management Portal]: http://manage.windowsazure.com
   [Storing Your Service Information Data]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx		

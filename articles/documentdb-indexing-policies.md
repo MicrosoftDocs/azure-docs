@@ -8,12 +8,12 @@
 	editor="monicar"/>
 
 <tags 
-	ms.service="" 
+	ms.service="documentdb" 
 	ms.devlang="may be required" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="may be required" 
-	ms.workload="required" 
-	ms.date="01/05/2015" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="02/23/2015" 
 	ms.author="mimig"/>
 
 

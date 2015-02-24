@@ -20,9 +20,9 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/" title="Point in Time Restore - PowerShell">Point in Time Restore - PowerShell</a><a href="/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-rest/" title="Point in Time Restore - REST API">Point in Time Restore - REST API</a></div>   
 
-This tutorial shows you how to restore an Azure SQL database using Point in Time Restore in the [Azure portal](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?response_type=code+id_token&redirect_uri=https%3a%2f%2fmanage.windowsazure.com%2fmicrosoft.onmicrosoft.com&client_id=00000013-0000-0000-c000-000000000000&resource=https%3a%2f%2fmanagement.core.windows.net%2f&scope=user_impersonation+openid&nonce=22afb166-50d7-4dc6-baff-409a84b46d0f&domain_hint=microsoft.onmicrosoft.com&site_id=500879&response_mode=query). Azure SQL Database has built-in backups to support self-service Point in Time Restore for Basic, Standard, and Premium service tiers.
+This tutorial shows you how to restore an Azure SQL database using Point in Time Restore in the [Azure portal](http://manage.windowsazure.com/). Azure SQL Database has built-in backups to support self-service Point in Time Restore for Basic, Standard, and Premium service tiers.
 
-Point in Time Restore creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/en-us/support/options/).
+Point in Time Restore creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/support/options/).
 
 ## Restrictions and Security
 

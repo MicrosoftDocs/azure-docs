@@ -304,7 +304,7 @@ When copy data into SQL Server or Azure SQL Database, a user specified stored pr
 The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters]. 
 
 
-[copy-activity-video]: http://azure.microsoft.com/en-us/documentation/videos/introducing-azure-data-factory-copy-activity/
+[copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 [table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
 

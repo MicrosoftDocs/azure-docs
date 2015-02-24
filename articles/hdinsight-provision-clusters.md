@@ -57,7 +57,7 @@ During configuration, you must specify an Azure Blob Storage account, and a defa
 
 >[WACOM.NOTE] Don't share one Blob storage container amount multiple clusters.  This is not supported. 
 
-For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-blob-storage/).
+For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/).
 
 ###Metastore
 
@@ -70,7 +70,7 @@ You can install additional components or customize cluster configuration using s
 
 ###Virtual Networking
 
-[Azure Virtual Network](http://azure.microsoft.com/en-us/documentation/services/virtual-network/) allows you to create a secure, persistent, network containing the resources you need for your solution. A virtual network allows you to:
+[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent, network containing the resources you need for your solution. A virtual network allows you to:
 
 * Connect cloud resources together in a private network (cloud-only)
 
@@ -120,7 +120,7 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 		<tr><td>Cluster Type</td>
 			<td>For cluster type, select <strong>Hadoop</strong>.</td></tr>
 		<tr><td>Operating System</td>
-			<td>Select <b>Windows Server 2012 R2 Data Center</b> to provision a Windows cluster. To provision a Linux cluster, see <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provision Hadoop Linux clusters in HDInsight</a></td></tr>
+			<td>Select <b>Windows Server 2012 R2 Data Center</b> to provision a Windows cluster. To provision a Linux cluster, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provision Hadoop Linux clusters in HDInsight</a></td></tr>
 		<tr><td>HDInsight version</td>
 			<td>Choose the version. For Hadoop, the default is HDInsight version 3.1, which uses Hadoop 2.4.</td></tr>
 		</table>
@@ -139,7 +139,7 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 	<tr><td>Data node size</td><td><p>Select a VM size for the data nodes.</p></td></tr>
 	</table>
 
-	>[WACOM.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
+	>[WACOM.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
 
 
 5. On the **Configure Cluster User** page, provide the following values:
@@ -466,7 +466,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 **To install the command-line interface using windows installer**
 
-1.	Browse to **http://azure.microsoft.com/en-us/downloads/**.
+1.	Browse to **http://azure.microsoft.com/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
 **To download and import publish settings**
@@ -718,7 +718,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 [hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
 [hdinsight-get-started]: ../hdinsight-get-started/
@@ -737,10 +737,10 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
-[hdi-remote]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
 [Powershell-install-configure]: ../install-configure-powershell/

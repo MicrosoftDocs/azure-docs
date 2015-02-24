@@ -20,7 +20,7 @@
 
 This article shows you how to create and upload a virtual hard disk (VHD) so you can use it as your own image to create virtual machines in Azure. You'll learn how to prepare the operating system so you can use it to create multiple virtual machines based on that image.  
 
-> [AZURE.NOTE] You don't need any experience with Azure VMs to complete the steps in this article. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] You don't need any experience with Azure VMs to complete the steps in this article. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 A virtual machine in Azure runs the operating system that's based on the image you choose when you create the virtual machine. Your images are stored in VHD format, in .vhd files in a storage account. For more information about disks and images in Azure, see [Manage Disks and Images](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx).
 
@@ -42,7 +42,7 @@ This article assumes that you have the following items:
 
 - **Linux Azure command-line tool** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409) to upload the VHD.
 
-- **Azure Powershell tools** - the `Add-AzureVhd` cmdlet can also be used to upload the VHD. Please visit [Azure Downloads](http://azure.microsoft.com/en-us/downloads/) to download the Azure Powershell cmdlets. For reference information, see [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
+- **Azure Powershell tools** - the `Add-AzureVhd` cmdlet can also be used to upload the VHD. Please visit [Azure Downloads](http://azure.microsoft.com/downloads/) to download the Azure Powershell cmdlets. For reference information, see [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 
 
 This task includes the following steps:
@@ -112,7 +112,7 @@ Use the Linux command-line tool to upload the image. You can upload an image by 
 
 ### If using PowerShell
 
-You will need a storage account to upload your VHD file to. You can either pick an existing one or create a new one. To create a storage account please refer to [Create a Storage Account](http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/)
+You will need a storage account to upload your VHD file to. You can either pick an existing one or create a new one. To create a storage account please refer to [Create a Storage Account](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
 When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account you plan to use, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
 

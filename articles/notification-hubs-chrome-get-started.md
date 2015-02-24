@@ -39,7 +39,7 @@ This tutorial demonstrates the simple broadcast scenario using Notification Hubs
 
 Be sure to follow along with the tutorials in Next Steps to see how to use notification hubs to address specific users and groups of devices. 
 
->[AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-chrome-get-started/" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/" target="_blank">Azure Free Trial</a>.
 
 ##<a id="register"></a>Enable Google Cloud Messaging (GCM)
 
@@ -495,5 +495,5 @@ In order to target specific users refer to the tutorial [Azure Notification Hubs
 [crypto-js library]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs Notify Users]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
-[Azure Notification Hubs Breaking News]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Azure Notification Hubs Notify Users]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
+[Azure Notification Hubs Breaking News]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/

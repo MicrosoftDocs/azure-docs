@@ -24,7 +24,7 @@
 
 This tutorial walks you through the steps to create an example cross-premises virtual network with a site-to-site connection. 
 
-If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](http://azure.microsoft.com/en-us/documentation/articles/create-virtual-network/). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
+If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](http://azure.microsoft.com/documentation/articles/create-virtual-network/). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
 
 This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create an example cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
@@ -266,7 +266,7 @@ If you want to export your virtual network settings to a network configuration f
 -  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
--  [Set up a hybrid cloud environment for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)
+-  [Set up a hybrid cloud environment for testing](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)
 
 
 

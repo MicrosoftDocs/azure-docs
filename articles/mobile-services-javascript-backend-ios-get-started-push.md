@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-This topic shows you how to use Azure Mobile Services to send push notifications through Apple Push Notification service (APNS) to an iOS app. In this tutorial, you enable push notifications using Azure Notification Hubs to the [quickstart project](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/). When complete, your mobile service will send a push notification each time a record is inserted.
+This topic shows you how to use Azure Mobile Services to send push notifications through Apple Push Notification service (APNS) to an iOS app. In this tutorial, you enable push notifications using Azure Notification Hubs to the [quickstart project](http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/). When complete, your mobile service will send a push notification each time a record is inserted.
 
 This tutorial walks you through these basic steps to enable push notifications:
 

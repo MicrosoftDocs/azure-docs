@@ -36,7 +36,7 @@ Assume you have a large unstructured data set and you want to run queries on it 
 Before you begin this tutorial, you must have the following:
 
 
-- An Azure subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/en-us/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/en-us/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/" target="_blank">Free Trial</a>.
+- An Azure subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Free Trial</a>.
 
 **Estimated time to complete:** 30 minutes
 
@@ -78,7 +78,7 @@ For more information, see
 	
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision an HDInsight cluster on Linux using the quick-create option. This option uses default user names and Azure storage containers, and configures a cluster with HDInsight version 3.2 (Hadoop version 2.5, HDP version 2.2) running on Ubuntu 12.04 LTS. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision an HDInsight cluster on Linux using the quick-create option. This option uses default user names and Azure storage containers, and configures a cluster with HDInsight version 3.2 (Hadoop version 2.5, HDP version 2.2) running on Ubuntu 12.04 LTS. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) page.
 
 >[AZURE.NOTE]  You can also create Hadoop clusters running Windows Server OS. For instructions, see [Get Started with HDInsight on Windows](../hdinsight-get-started/).
 

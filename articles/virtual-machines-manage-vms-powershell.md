@@ -18,7 +18,7 @@
 
 # Manage your VMs using Azure PowerShell
 
-Before getting started you'll need to make sure you have Azure PowerShell installed. To do this, visit [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
+Before getting started you'll need to make sure you have Azure PowerShell installed. To do this, visit [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
 
 ## Get an Image
 

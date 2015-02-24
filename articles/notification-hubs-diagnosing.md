@@ -224,8 +224,8 @@ More details here -
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[Notification Hubs Overview]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-overview/
-[Getting Started Tutorials]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Notification Hubs Overview]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
+[Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Template guidance]: https://msdn.microsoft.com/en-us/library/dn530748.aspx 
 [APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM guidance]: http://developer.android.com/google/gcm/adv.html

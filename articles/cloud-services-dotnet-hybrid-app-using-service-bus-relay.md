@@ -507,7 +507,7 @@ Run the application to verify that it works.
 
 ##Make your application ready to deploy to Azure
 
-You can deploy your application to an Azure cloud cervice or to an Azure Website. To learn more about the difference between Websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure cloud service.
+You can deploy your application to an Azure cloud cervice or to an Azure Website. To learn more about the difference between Websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure cloud service.
 
 To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution. The deployment project contains configuration information that is needed to properly run your application in the cloud.
 
@@ -780,4 +780,4 @@ To learn more about Service Bus, see the following resources:
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
-  [executionmodels]: http://azure.microsoft.com/en-us/develop/net/fundamentals/compute/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/

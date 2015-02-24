@@ -249,7 +249,7 @@ constant across delivery attempts.
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
-  [Azure SDK for Java]: http://azure.microsoft.com/en-us/develop/java/
+  [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials

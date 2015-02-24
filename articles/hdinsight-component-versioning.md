@@ -47,7 +47,7 @@ The component versions associated with HDInsight cluster versions may change in 
 
 **Release notes**	
 
-See [HDInsight Release Notes](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/) for additional release notes on the latest versions of HDInsight.
+See [HDInsight Release Notes](http://azure.microsoft.com/documentation/articles/hdinsight-release-notes/) for additional release notes on the latest versions of HDInsight.
 
 ### Select a version when provisioning an HDInsight cluster
 
@@ -139,7 +139,7 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/en-us/support/forums/
+[wa-forums]: http://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 

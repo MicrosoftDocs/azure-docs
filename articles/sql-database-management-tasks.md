@@ -143,7 +143,7 @@ You have now created and tested several logins. For more information, see [Manag
 
 [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
 [Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
-[Managing SQL Database using Management Studio]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
+[Managing SQL Database using Management Studio]: http://www.windowsazure.com/develop/net/common-tasks/sql-azure-management/
 
 
 

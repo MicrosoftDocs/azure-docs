@@ -33,7 +33,7 @@ In this topic we show how to:
 * Send notifications using the Python interface to the Notification Hub REST APIs. 
 * Get a dump of the HTTP REST request/response for debugging/educational purpose. 
 
-You can follow the [Get started tutorial](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) for your mobile platform of choice, implementing the back-end portion in Python.
+You can follow the [Get started tutorial](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) for your mobile platform of choice, implementing the back-end portion in Python.
 
 > [AZURE.NOTE] The scope of the sample is only limited to send notifications and it doesn't do any registration management.
 
@@ -343,9 +343,9 @@ In this topic we showed how to create a simple Python REST client for Notificati
 
 <!-- URLs -->
 [Python REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[Get started tutorial]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Breaking News tutorial]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Localizing News tutorial]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Breaking News tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Localizing News tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

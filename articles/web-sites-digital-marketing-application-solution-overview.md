@@ -26,7 +26,7 @@ Below is an example of a global, multi-channel digital marketing campaign using 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
 > [AZURE.NOTE]
-> This guide presents some of the most common areas and tasks that are aligned with running a digital marketing campaign in Azure Websites. However, there are other common solutions that you can implement in Azure Websites. To review these solutions, see the other guides on [Global Web Presence](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/) and [Business Applications](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview).
+> This guide presents some of the most common areas and tasks that are aligned with running a digital marketing campaign in Azure Websites. However, there are other common solutions that you can implement in Azure Websites. To review these solutions, see the other guides on [Global Web Presence](http://www.windowsazure.com/manage/services/web-sites/global-web-presence-solution-overview/) and [Business Applications](http://www.windowsazure.com/manage/services/web-sites/business-application-solution-overview).
 
 ## Create from scratch or bring existing assets
 

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle=".NET Multi-Tier Application - Azure Tutorial" 
 	description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." 
-	services="cloud-services, service-bus" 
+	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
@@ -634,7 +634,7 @@ To implement the application you create in this tutorial as a standard web proje
 
 3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
 
-To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/). To learn how to deploy the back end to an Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
+To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/develop/net/tutorials/get-started/). To learn how to deploy the back end to an Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
 
 
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
@@ -681,4 +681,4 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
   [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/ 
-  [executionmodels]: http://azure.microsoft.com/en-us/develop/net/fundamentals/compute/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/

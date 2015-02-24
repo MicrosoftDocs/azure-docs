@@ -30,7 +30,7 @@ Engineering and selection are the **data enhancement** step of machine learning.
 * **feature engineering** This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem. 
 
-This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](http://azure.microsoft.com/en-us/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
+This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 
 ## Creating Features from Your Data - Feature Engineering
@@ -41,7 +41,7 @@ What kind of features should be created to enhance the dataset when training a m
 
 When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
 
-* A regression example [Prediction of the number of bike rentals](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) in a supervised experiment where the target values are known 
+* A regression example [Prediction of the number of bike rentals](http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) in a supervised experiment where the target values are known 
 * A text mining classification example using [Feature Hashing](http://help.azureml.net/Content/html/C9A82660-2D9C-411D-8122-4D9E0B3CE92A.htm)
 
 ### Example 1: Adding Temporal Features for Regression Model ###

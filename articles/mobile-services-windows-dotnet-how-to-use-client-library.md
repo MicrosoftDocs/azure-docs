@@ -694,12 +694,12 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Windows Store quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/
-[Windows Phone quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/
-[Windows Store data tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Windows Phone data tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-wp8/
-[Windows Store authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Windows Phone authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/
+[Windows Store quickstart tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started/
+[Windows Phone quickstart tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-wp8/
+[Windows Store data tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Windows Phone data tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-wp8/
+[Windows Store authentication]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Windows Phone authentication]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-users-wp8/
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
@@ -715,8 +715,8 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-[Optimistic Concurrency Tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Optimistic Concurrency Tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx

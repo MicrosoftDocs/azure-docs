@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# Delivering Video-on-Demand with Media Services SDK for .NET 
+# Quickstart: Delivering Video-on-Demand with Media Services SDK for .NET 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
 This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET. 
 
@@ -35,8 +35,8 @@ This tutorial uses Azure Management Portal and Media Services SDK for .NET to ac
 
 
 1.  [Create a Media Services account using Portal](#create_ams).
-2.  [Configure streaming units using Portal](#configure_streaming_units).
 3.  [Create and configure a Visual Studio project](#configure_VS)
+2.  [Configure streaming units using Portal](#configure_streaming_units).
 4.  [Use .NET to upload, encode, and deliver content](#use_dotnet)
 	5.  [Connect to the Media Services account](#connect).
 	1.  [Create a new asset and upload a video file](#upload).

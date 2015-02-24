@@ -66,7 +66,7 @@ Apache Hadoop is the rapidly expanding technology stack that is the go-to soluti
 
 * HDInsight uses the **Hortonworks Data Platform (HDP)** Hadoop distribution.
 
-* Apache Hadoop is a software framework for big data management and analysis. HDInsight provides several configurations for specific workloads, or you can <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters using Script Actions</a>.
+* Apache Hadoop is a software framework for big data management and analysis. HDInsight provides several configurations for specific workloads, or you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters using Script Actions</a>.
 
 	* **Hadoop for HDInsight** - Apache Hadoop core provides reliable data storage with the [Hadoop Distributed File System (HDFS)](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 	
@@ -180,7 +180,7 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 ### HDInsight on Windows
 
-* [HDInsight documentation](../documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight documentation](http://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
 * [Learning map for HDInsight](../hdinsight-learn-map): A guided tour of Hadoop documentation for HDInsight.
 

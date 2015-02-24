@@ -473,10 +473,10 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 
 
 
-[azure-sdk]: http://azure.microsoft.com/en-us/downloads/
+[azure-sdk]: http://azure.microsoft.com/downloads/
 [azure-create-storage-account]: ../storage-create-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
-[netstat-url]: http://technet.microsoft.com/en-us/library/ff961504.aspx
+[netstat-url]: http://technet.microsoft.com/library/ff961504.aspx
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 

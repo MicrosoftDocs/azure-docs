@@ -1,16 +1,21 @@
-<tags 
-   pageTitle="Configuring Expressroute with EXPs"
-   description="This tutorial walks you through setting up ExpressRoute through EXPs"
+<properties
+   pageTitle="Configuring ExpressRoute through an exchange provider."
+   description="This article walks you through setting up ExpressRoute through an exchange provider (EXP)."
    services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/21/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
-#  Configure an ExpressRoute Connection through an Exchange Provider
+   
+#  Configure an ExpressRoute Connection through an exchange provider
 
 To configure your ExpressRoute connection through an exchange provider, you’ll need to complete multiple steps in the proper order. These instructions will help you do the following:
 

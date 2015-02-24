@@ -129,7 +129,7 @@ Before you begin this tutorial, you must have the following:
 		<tr><td>Zookeper size</td><td><p>Select a VM size for the zookeper node.</p></td></tr>
 	</table>	
 
-	>[WACOM.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
+	>[WACOM.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
 
 	Click the right button.
 
@@ -371,9 +371,9 @@ In this tutorial we have learned how to provision an HBase cluster. To learn mor
 - [Virtual Network Overview][vnet-overview].
 
 
-[1]: http://azure.microsoft.com/en-us/services/virtual-network/
-[2]: http://technet.microsoft.com/en-us/library/ee176961.aspx
-[3]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+[1]: http://azure.microsoft.com/services/virtual-network/
+[2]: http://technet.microsoft.com/library/ee176961.aspx
+[3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: ../hdinsight-hbase-get-started/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment/
@@ -382,9 +382,9 @@ In this tutorial we have learned how to provision an HBase cluster. To learn mor
 
 [azure-portal]: https://manage.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/#rdp

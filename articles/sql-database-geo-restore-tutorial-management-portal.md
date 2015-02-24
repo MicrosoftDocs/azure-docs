@@ -20,7 +20,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-powershell/" title="Geo-Restore - PowerShell">Geo-Restore - PowerShell</a><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-rest/" title="Geo-Restore - REST API">Geo-Restore - REST API</a></div>
 
-This tutorial shows you how to recover an Azure SQL database using Geo-Restore in the [Azure portal](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?response_type=code+id_token&redirect_uri=https%3a%2f%2fmanage.windowsazure.com%2fmicrosoft.onmicrosoft.com&client_id=00000013-0000-0000-c000-000000000000&resource=https%3a%2f%2fmanagement.core.windows.net%2f&scope=user_impersonation+openid&nonce=22afb166-50d7-4dc6-baff-409a84b46d0f&domain_hint=microsoft.onmicrosoft.com&site_id=500879&response_mode=query). Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
+This tutorial shows you how to recover an Azure SQL database using Geo-Restore in the [Azure portal](http://manage.windowsazure.com/). Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
 
 ## Restrictions and Security
 
@@ -66,9 +66,9 @@ A restore may take some time to complete. To monitor the status of the restore, 
 
 For more information, see the following: 
 
-[Restore an Azure SQL database using Point in Time Restore in Azure portal](http://www.azure.microsoft.com/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-portal)
+[Restore an Azure SQL database using Point in Time Restore in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
 
-[Restore a deleted Azure SQL database in Azure portal](http://www.azure.microsoft.com/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-portal)
+[Restore a deleted Azure SQL database in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
 
 [Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 

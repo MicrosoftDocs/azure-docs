@@ -13,21 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # How to add operations to an API in Azure API Management
 
 Before an API in API Management can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
-
-## In this topic
-
--   [Add an operation][]
--   [Operation caching][]
--   [Request parameters][]
--   [Request body][]
--   [Responses][]
--   [Next steps][]
 
 ## <a name="add-operation"> </a>Add an operation
 

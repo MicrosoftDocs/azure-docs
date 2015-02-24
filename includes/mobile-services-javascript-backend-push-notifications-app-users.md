@@ -1,11 +1,7 @@
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png)
-
 2. Click the **Push** tab, select **Only Authenticated Users** for **Permissions**, then click **Edit Script**.
-
-   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png)
 	
 	This allows you to customize the push notification registration callback function. If you use Git to edit your source code, this same registration function is found in `.\service\extensions\push.js`.
 

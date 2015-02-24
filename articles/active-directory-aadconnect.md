@@ -26,4 +26,4 @@ With this preview release of Azure Active Directory Connect you can do the follo
 - Configure additional synchronization options such as Exchange Hybrid mode, password writeback, and alternate ID attribute
 
 ##  Additional Resources
-[Azure Active Directory Documentation](http://azure.microsoft.com/en-us/documentation/services/active-directory/)
+[Azure Active Directory Documentation](http://azure.microsoft.com/documentation/services/active-directory/)

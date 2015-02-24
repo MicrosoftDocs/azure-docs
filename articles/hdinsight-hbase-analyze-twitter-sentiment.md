@@ -1348,9 +1348,9 @@ In this tutorial we have learned how to get Tweets, analyze the sentiment of Twe
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-get-started]: ../hdinsight-get-started/

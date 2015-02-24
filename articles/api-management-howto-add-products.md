@@ -13,22 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # How to create and publish a product in Azure API Management
 
 In Azure API Management, a product contains one or more APIs as well as a usage quota and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs. The topic provides a guide to creating a product, adding an API, and publishing it for developers.
-
-## In this topic
-
--   [Create a product][]
--   [Add APIs to a product][]
--   [Add descriptive information to a product][]
--   [Publish a product][]
--   [Make a product visible to developers][]
--   [View subscribers to a product][]
--   [Next steps][]
 
 ## <a name="create-product"> </a>Create a product
 

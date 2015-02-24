@@ -648,8 +648,8 @@ Now you have learned how to use Sqoop. To learn more, see:
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

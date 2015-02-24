@@ -290,12 +290,12 @@ In this tutorial, you have learned how to use Stream Analytics to process the we
 
 
 [azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/en-us/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/en-us/services/sql-database/
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/en-us/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/en-us/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/en-us/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/

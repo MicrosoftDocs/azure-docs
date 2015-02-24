@@ -122,9 +122,9 @@ For information about how to deploy to Azure Websites from Visual Studio, see th
 
 For information about how to deploy to Azure Websites from WebMatrix, see the following resources:
 
-* [Develop and deploy a web site with Microsoft WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-using-webmatrix/). How to create a simple ASP.NET website by using a WebMatrix template and deploy it to an Azure Website by using WebMatrix and Web Deploy.
-* [Build and deploy a Node.js web site to Azure using WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-use-webmatrix/).
-* [Create and deploy a PHP-MySQL Azure Web Site using WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+* [Develop and deploy a web site with Microsoft WebMatrix](http://www.windowsazure.com/documentation/articles/web-sites-dotnet-using-webmatrix/). How to create a simple ASP.NET website by using a WebMatrix template and deploy it to an Azure Website by using WebMatrix and Web Deploy.
+* [Build and deploy a Node.js web site to Azure using WebMatrix](http://www.windowsazure.com/documentation/articles/web-sites-nodejs-use-webmatrix/).
+* [Create and deploy a PHP-MySQL Azure Web Site using WebMatrix](http://www.windowsazure.com/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 * [WebMatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). How to use WebMatrix to deploy from a Git source control repository.
 
 For more information, see the following resources:
@@ -201,7 +201,7 @@ For more information, see the following resource:
 For more information, see the following resource:
 
 * [Simple Azure Websites: Deployment](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.
-* [Web Deployment Tool](http://technet.microsoft.com/en-us/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
+* [Web Deployment Tool](http://technet.microsoft.com/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
 * [Using Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Official documentation on the Microsoft IIS.NET site. Also dated but a good place to start.
 * [StackOverflow](http://www.stackoverflow.com). The best place to go for more current information about how to use Web Deploy from the command line.
 * [ASP.NET Web Deployment using Visual Studio: Command Line Deployment](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild is the build engine used by Visual Studio, and it can also be used from the command line to deploy web applications to Azure Websites. This tutorial is part of a series that is mainly about Visual Studio deployment.

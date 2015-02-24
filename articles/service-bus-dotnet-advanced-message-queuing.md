@@ -312,6 +312,6 @@ You can also use Service Bus AMQP 1.0 from other languages including Java, C, Py
 * [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
 * [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx)
-* [How to Use Service Bus Queues](http://azure.microsoft.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+* [How to Use Service Bus Queues](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
-[How to Use Service Bus Queues]: http://azure.microsoft.com/en-us/develop/net/how-to-guides/service-bus-queues/
+[How to Use Service Bus Queues]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/

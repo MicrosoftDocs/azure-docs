@@ -36,7 +36,7 @@ In this tutorial you will learn how to set up a basic Azure cloud-only virtual n
 
 ##  Prerequisites
 
-*  A Microsoft account with at least one valid, active Azure subscription. If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+*  A Microsoft account with at least one valid, active Azure subscription. If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##  Create the Virtual Network for this tutorial
 
@@ -82,9 +82,9 @@ To create this example cloud-only virtual network, do the following
 
 You can continue learning about Azure infrastructure services with the following:
 
-- [How to Create a Custom Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/custom-create-a-vm/) Use this topic to install a virtual machine in your virtual network. For more information about virtual machines and installation options, see [Azure Virtual Machines](http://www.windowsazure.com/en-us/manage/windows/).
+- [How to Create a Custom Virtual Machine](http://www.windowsazure.com/manage/windows/how-to-guides/custom-create-a-vm/) Use this topic to install a virtual machine in your virtual network. For more information about virtual machines and installation options, see [Azure Virtual Machines](http://www.windowsazure.com/manage/windows/).
 
-- [Install a new Active Directory forest on an Azure Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/active-directory-forest/) - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs by using the Management Portal. For more information, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
+- [Install a new Active Directory forest on an Azure Virtual Network](http://www.windowsazure.com/manage/services/networking/active-directory-forest/) - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs by using the Management Portal. For more information, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 To remove this virtual network, select it, click **Delete**, and then click **Yes**.
 

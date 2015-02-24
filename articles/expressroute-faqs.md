@@ -1,18 +1,23 @@
-<tags 
-   pageTitle="Expressroute FAQs"
-   description="This page has a list off FAQ for ExpressRoute."
+<properties
+   pageTitle="ExpressRoute FAQs"
+   description="This article is a FAQ for ExpressRoute."
    services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/21/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
+   
 #  ExpressRoute FAQ
 
-What is ExpressRoute?
+
 
 [What is ExpressRoute?](#WA_EXWhatis)
 

@@ -104,7 +104,7 @@ During cluster creation, you select to use either an existing storage account an
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* <a href="http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface</a> - after installing see `azure storage` for help on using storage, or `azure blob` for blob specific commands.
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface</a> - after installing see `azure storage` for help on using storage, or `azure blob` for blob specific commands.
 
 * A variety of SDKs:
 

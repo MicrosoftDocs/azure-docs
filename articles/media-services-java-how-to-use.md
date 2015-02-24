@@ -126,7 +126,7 @@ This section contains general prerequisites for Media Services development using
 
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and download the output files of the transformed asset.
 
-You'll need to set up a media services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/).
+You'll need to set up a media services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](http://www.windowsazure.com/manage/services/media-services/how-to-create-a-media-services-account/).
 
 Substitute your values for the `clientId` and `clientSecret` variables. The code also relies on a locally stored file, `c:/media/MPEG4-H264.mp4`. You'll need to provide your own file to use. The code also requires an output folder, `c:/output`, which is where the output files will be downloaded.
 
@@ -448,7 +448,7 @@ For Media Services Javadoc documentation, see [Azure Libraries for Java document
 <!-- URLs. -->
 
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
+  [Azure Java Developer Center]: http://www.windowsazure.com/develop/java/
   [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
   [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
