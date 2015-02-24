@@ -26,17 +26,17 @@ If you don't want to use either of those techniques, for example, if you want to
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. 
 > 
-> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+> If you want to get started with Azure Web Apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
-# Create a Java website using the Azure application gallery
+# Create a Java web app using the Azure application gallery
 
-This information shows how to use the Azure application gallery to select a Java application container, either Apache Tomcat or Jetty, for your website.
+This information shows how to use the Azure application gallery to select a Java application container, either Apache Tomcat or Jetty, for your web app.
 
-The following shows how a website built using Tomcat from the application gallery would appear:
+The following shows how a web app built using Tomcat from the application gallery would appear:
 
 ![Web site using Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)
 
-The following shows how a website built using Jetty from the application gallery would appear:
+The following shows how a web app built using Jetty from the application gallery would appear:
 
 ![Web site using Jetty](./media/web-sites-java-get-started/jetty.png)
 
@@ -52,7 +52,7 @@ Within a few moments, your website will be created. To view the website, within 
 
 Now that you've create the website with an app container, see the **Next steps** section for information about uploading your application to the website.
 
-# Create a Java website using the Azure configuration UI
+# Create a Java web app using the Azure configuration UI
 
 This information shows how to use the Azure configuration UI to select a Java application container, either Apache Tomcat or Jetty, for your website.
 
@@ -74,4 +74,4 @@ Now that you've create the website with an app container, see the **Next steps**
 
 # Next steps
 
-At this point, you have a Java application server running as your Java website on Azure. To add in your own application or web page, see [Add an application or web page to your Java web site](../web-sites-java-add-app).
+At this point, you have a Java application server running as your Java web app on Azure. To add in your own application or web page, see [Add an application or web page to your Java web site](../web-sites-java-add-app).
