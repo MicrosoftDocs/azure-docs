@@ -116,4 +116,4 @@ This is the first tutorial in a series of four:
 
 ## Next Steps
 
-At this point your Web API project has everything it needs to be published into the Azure API Apps Marketplace or to be directly deployed and hosted as an Azure API App by the Azure App Service. The [next tutorial](../app-service-dotnet-create-api-app/) shows how to publishing your API App into the Azure API App Marketplace.
+At this point your Web API project has everything it needs to be published into the Azure API Apps Marketplace or to be directly deployed and hosted as an Azure API App by the Azure App Service. The [next tutorial](../app-service-dotnet-publish-api-app/) shows how to publishing your API App into the Azure API App Marketplace.
