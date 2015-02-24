@@ -23,9 +23,9 @@
 This is the first tutorial in a series of four:
 
 1. In this tutorial you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
-* In [Publish an API App](../app-service-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
-* In [Deploy an API App](../app-service-create-api-app/) you deploy the API app you created to your Azure subscription.
-* In [Debug an API App](../app-service-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
+* In [Publish an API App](../app-service-dotnet-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
+* In [Deploy an API App](../app-service-dotnet-create-api-app/) you deploy the API app you created to your Azure subscription.
+* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Create Your First Azure API App 
 
@@ -35,7 +35,7 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/01-filenew.png)
 
-2. Select the **Empty** project template, click the **Web API** checkbox, clear the **Host in the Cloud **checkbox, and then click **OK**.
+2. Select the **Web API** project template, click **Change Authentication** and then select **No Authentication**, clear the **Host in the Cloud** checkbox, and then click **OK**.
 
 	![](./media/app-service-dotnet-create-api-app/02-empty-plug-webapi.png)
 
@@ -43,7 +43,7 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/03-add-new-class.png) 
 
-4. Name the new file *Contact.cs*, and then click **OK**.
+4. Name the new file *Contact.cs*, and then click **Add**.
 
 5. Replace the content of the new *.cs* file with the following code. 
 
@@ -100,7 +100,9 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/08-contacts-controller-with-get.png)
 
-8. In Solution Explorer, right-click the project (not the solution), and then in the context menu click **Add - Azure API Apps SDK**. 
+8. Open *ValuesController.cs* in the *Controllers* folder, delete the `Get(int id)` method, and save the file.
+
+9. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Add - Azure API Apps SDK**. 
 
 	![](./media/app-service-dotnet-create-api-app/09-add-aas-sdk.png)
 
@@ -114,4 +116,4 @@ This is the first tutorial in a series of four:
 
 ## Next Steps
 
-At this point your Web API project has everything it needs to be published into the Azure API Apps Marketplace or to be directly deployed and hosted as an Azure API App by the Azure App Service. The [next tutorial](../app-service-create-api-app/) shows how to publishing your API App into the Azure API App Marketplace.
+At this point your Web API project has everything it needs to be published into the Azure API Apps Marketplace or to be directly deployed and hosted as an Azure API App by the Azure App Service. The [next tutorial](../app-service-dotnet-create-api-app/) shows how to publishing your API App into the Azure API App Marketplace.

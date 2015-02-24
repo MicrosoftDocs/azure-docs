@@ -12,14 +12,19 @@ Follow these steps to create a new mobile app.
 
   > [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile app backend, you can instead choose **Use existing Database** and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.
 
-3.	In **Package Settings**, select **USERDATABASE**, you can choose an existing database or create a new one. For this tutorial, create a new database, type the name of the new **database**, create a new **server**, type the name of that server, then choose a **login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the ok button to complete the process.
+ >[AZURE.NOTE] It is sometimes useful to use an existing hosting plan. In this case, 1) Pick a name, 2) Pick subscription, 3) Pick existing web hosting plan (this determines the resource group and pricing tier), 4) Create new database or pick existing
+s
+
+3. Select your subscription.
+
+4. Create a new resource group with the same name as your mobile app.
+
+5.	In **Package Settings**, select **USERDATABASE**, you can choose an existing database or create a new one. For creating a new database, type the name of the new **database**, create a new **server**, type the name of that server, then choose a **login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the ok button to complete the process. If selecting an existing database, you will need to provide a **Server Administrator Password**.
 	![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
 
-4. Create a new webhosting plan with the same name as your mobile app.
+6. Create a new webhosting plan with the same name as your mobile app.
 
-5. Create a new resource group with the same name as your mobile app.
-
-6. Select your subscription.
+ >[AZURE.NOTE] Type your webhosting plan name, do not copy/paste. There is name validation on this field that fails if you don't type the name. It doesn't have to be exactly the same name as the website (but it needs to follow the same rules).
 
 7. Select a region. In this tutorial, we use **East US**.
 
@@ -30,6 +35,7 @@ Follow these steps to create a new mobile app.
    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create.png)
 
 9. Click the **Create** button at the bottom of the blade and you should see it starting deployment in the notifications window.
+
 
 You have now created a new mobile app backend that can be used by your mobile apps.
 

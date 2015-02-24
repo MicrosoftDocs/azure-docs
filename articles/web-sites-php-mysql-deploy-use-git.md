@@ -41,9 +41,9 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 > [AZURE.NOTE]
 > If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK for PHP</a>.
 
-##<a id="create-web-site-and-set-up-git"></a>Create an Azure website and set up Git publishing
+##<a id="create-web-site-and-set-up-git"></a>Create an Azure web app and set up Git publishing
 
-Follow these steps to create an Azure website and a MySQL database:
+Follow these steps to create an Azure web app and a MySQL database:
 
 1. Login to the [Azure Management Portal][management-portal].
 2. Click the **New** icon on the bottom left of the portal.

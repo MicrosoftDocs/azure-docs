@@ -22,10 +22,10 @@
 
 This is the second tutorial in a series of four:
 
-1. In [Create an API App](../app-service-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
+1. In [Create an API App](../app-service-dotnet-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
 * In this tutorial you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
-* In [Deploy an API App](../app-service-deploy-api-app/) you deploy the API app you created to your Azure subscription.
-* In [Debug an API App](../app-service-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
+* In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deploy the API app you created to your Azure subscription.
+* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Publish the API App
 
@@ -43,7 +43,7 @@ This is the second tutorial in a series of four:
 
 	The **Publish to API Marketplace** dialog appears.
 
-4. In the **Microservice ID** field add some characters to make the ID unique. A red exclamation mark will appear to the right of the field if the ID is not unique. 
+4. In the **Microservice ID** field add some characters to make the ID unique. A red exclamation mark will appear to the right of the field if the ID is not unique. The ID must be at least 8 characters long.
 
 5. In the **Author** field enter your name.
 
@@ -76,4 +76,4 @@ This is the second tutorial in a series of four:
 
 At this point the API has been published into the Gallery and can be installed or deployed by users from the Azure portal. 
 
-In the meantime, you may have other development you need to do, tests you'd like to run, or additional features to add. To make your live testing easier, Visual Studio also provides the functionality for deploying directly to existing API Apps in your subscription, or to provision new API Apps. The [next tutorial](../app-service-create-api-app/) covers direct provisioning and deployment of your API Apps using Visual Studio. 
+In the meantime, you may have other development you need to do, tests you'd like to run, or additional features to add. To make your live testing easier, Visual Studio also provides the functionality for deploying directly to existing API Apps in your subscription, or to provision new API Apps. The [next tutorial](../app-service-dotnet-create-api-app/) covers direct provisioning and deployment of your API Apps using Visual Studio. 

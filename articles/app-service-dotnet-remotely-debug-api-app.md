@@ -24,16 +24,18 @@ Visual Studio's remote debugging capabilities have been extended to include supp
 
 This tutorial is the last in a series of four:
 
-1. In [Create an API App](../app-service-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
-* In [Publish an API App](../app-service-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
-* In [Deploy an API App](../app-service-deploy-api-app/) you deploy the API app you created to your Azure subscription.
+1. In [Create an API App](../app-service-dotnet-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
+* In [Publish an API App](../app-service-dotnet-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
+* In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deploy the API app you created to your Azure subscription.
 * In this tutorial you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Use Swagger to Access the API 
 
 When you navigate to the the URL of your running Azure API App's gateway site, appended with the Azure API App's ID, you can access the Azure API App directly. The exact URL format of the Swagger UI dashboard is as follows:
 
-    http://[AzureApiAppProxySite].azurewebsites.net/[Azure API ID]/Swagger/ui
+    http://[AzureApiAppProxySite].azurewebsites.net/[Azure API ID]/Swagger
+
+For example, if you named your resource group ContactsListRG and your API ID ContactsList2, the URL would be `http://contactsListrgproxysite.azurewebsites.net/contactslist2/Swagger`. 
 
 The Swagger UI provides an easy-to-use interface that provides details about your API App's endpoints. 
 
@@ -51,7 +53,7 @@ When you click **Try it out!**, the API method will be called directly from the 
 
 2. Open Visual Studio **Server Explorer**. 
 
-3. In **Server Explorer**, you'll see the **API Apps** node underneath the top-level **Azure** node. Right-click the individual API App you want to debug, and select the **Attach Debugger** context menu item. The debugger attach process will provide status as it attaches. The process may take a few seconds to complete. 
+3. In **Server Explorer**, you'll see the **App Service** node underneath the top-level **Azure** node. Expand that node and you'll see resource groups under it.  Expand the node for the resource group that you created, and then right-click the individual API App you want to debug, and select the **Attach Debugger** context menu item. The debugger attach process will provide status as it attaches. The process may take a few seconds to complete. If the attach process fails the first time you try it, try again.
 
 	![API App Attach Debugger context menu option](./media/app-service-dotnet-remotely-debug-api-app/42-attach-debugger.png)
 

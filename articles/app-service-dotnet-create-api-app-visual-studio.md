@@ -29,13 +29,7 @@ You'll create the same Web API that is created by the [Getting Started with ASP.
 ## Prerequisites
 
 This tutorial requires Visual Studio 2013 with [Update
-4](http://www.microsoft.com/en-us/download/details.aspx?id=44921). It
-also requires the new features for Azure API Services support that are
-included in the following installers.
-
-|:-----------|:------------
-| Visual Studio       | [\\\\vwdbuild01\\Temp\\EMA\_Tooling\\Release\\Signed\\MSI\\WebToolsExtensionsVS2013.msi](file://vwdbuild01/Temp/EMA_Tooling/Release/Signed/MSI/WebToolsExtensionsVS2013.msi)      
-| Visual Web Developer| [\\\\vwdbuild01\\Temp\\EMA\_Tooling\\Release\\Signed\\MSI\\WebToolsExtensionsVWD2013.msi](file://vwdbuild01/Temp/EMA_Tooling/Release/Signed/MSI/WebToolsExtensionsVWD2013.msi)     
+4](http://www.microsoft.com/en-us/download/details.aspx?id=44921).
 
 ## Create an API App project
 
@@ -176,4 +170,4 @@ You write code for an API App project as you would for any Web API project. To a
 
 ## Next steps
 
-You now have a working API App. You can deploy it directly to Azure or you can publish it to the Gallery and deploy it from the Azure Marketplace. In the Gallery you can make the API App public, keep it private so only you can see it, or restrict access to members of your organization. For more information, see [Publish an API App](../app-service-publish-api-app/) and [“Deploy an API App”](../app-service-deploy-api-app/).
+You now have a working API App. You can deploy it directly to Azure or you can publish it to the Gallery and deploy it from the Azure Marketplace. In the Gallery you can make the API App public, keep it private so only you can see it, or restrict access to members of your organization. For more information, see [Publish an API App](../app-service-dotnet-publish-api-app/) and [“Deploy an API App”](../app-service-dotnet-deploy-api-app/).

@@ -2,7 +2,7 @@
 	pageTitle="Create a flow app" 
 	description="Create a flow app" 
 	authors="stepsic-microsoft-com" 
-	manager="cshankar" 
+	manager="dwrede" 
 	editor="" 
 	services="app-service" 
 	documentationCenter=""/>
@@ -16,7 +16,7 @@
 	ms.devlang=""
 	ms.topic=""
 	ms.date="2/24/2015"
-	ms.author="stepsic-microsoft-com"/>
+	ms.author="stepsic"/>
 
 # Create a flow app
 You can get started with flow apps in just a few minutes. In this scenario, I’ll walk you through how you can get tweets that you’re interested in delivered right to your inbox.

@@ -24,10 +24,10 @@ If you're actively developing your own Azure API App using Visual Studio and you
 
 This is the third tutorial in a series of four:
 
-1. In [Create an API App](../app-service-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
-* In [Publish an API App](../app-service-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
+1. In [Create an API App](../app-service-dotnet-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
+* In [Publish an API App](../app-service-dotnet-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
 * In this tutorial you deploy the API app you created to your Azure subscription.
-* In [Debug an API App](../app-service-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
+* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Deploy the API App 
 
@@ -75,7 +75,7 @@ This is the third tutorial in a series of four:
 
 In this section, you see how to navigate to the portal to view the basic settings available there for API Apps and to make iterative changes to your API App. With each deployment direct to your Azure subscription, the portal will reflect the changes you're making to your API App. 
 
-1. In your browser, navigate to the Azure Portal. 
+1. In your browser, navigate to the Azure Portal at `http://aka.ms/apiappspublicpreview`. 
 
 2. Click the **Browse** button on the sidebar and select the **API Apps** menu option.
 
@@ -136,4 +136,4 @@ In this section, you see how to navigate to the portal to view the basic setting
 
 ## Next steps
 
-You've seen how the direct deployment capabilities in Visual Studio for API App developers make it easy to iterate and deploy rapidly and test that your API is executing properly. In the [next tutorial](../app-service-debug-api-app/), you'll see how to debug your API App while it runs in Azure.
+You've seen how the direct deployment capabilities in Visual Studio for API App developers make it easy to iterate and deploy rapidly and test that your API is executing properly. In the [next tutorial](../app-service-dotnet-debug-api-app/), you'll see how to debug your API App while it runs in Azure.

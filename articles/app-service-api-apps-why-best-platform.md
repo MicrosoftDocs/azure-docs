@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Why Azure App Service is the best platform for RESTful APIs" 
 	description="Learn why Azure App Service is the best platform for developing, publishing, and hosting RESTful APIs." 
-	services="app-service-api" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -87,9 +87,9 @@ Azure App Service can take your existing API’s and give them all these advanta
 
 ## Next Steps
 
-For more information, see [The Azure Cloud Hosting Platform](../app-service-cloud-app-platform).
+For more information, see [The Azure Cloud Hosting Platform](../app-service-value-prop-what-is).
 
-To get started with Azure API apps, see [Create an API app](../app-service-create-api-app).
+To get started with Azure API apps, see [Create an API app](../app-service-dotnet-create-api-app).
 
 
 

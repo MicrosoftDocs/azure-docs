@@ -2,7 +2,7 @@
 	pageTitle="Create a business process" 
 	description="Create a business process" 
 	authors="stepsic-microsoft-com" 
-	manager="cshankar" 
+	manager="dwrede" 
 	editor="" 
 	services="app-service" 
 	documentationCenter=""/>
@@ -16,7 +16,7 @@
 	ms.devlang=""
 	ms.topic=""
 	ms.date="2/24/2015"
-	ms.author="stepsic-microsoft-com"/>
+	ms.author="stepsic"/>
 
 # Developing a business process using Flow and API apps
 

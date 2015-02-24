@@ -1,14 +1,14 @@
 <properties 
-	pageTitle="Publishing from Source Control to Azure Websites" 
-	description="Learn how to use Git to publish an Azure website, and then enable continuous deployment from Bitbucket, CodePlex, Dropbox, GitHub, or Mercurial." 
-	services="web-sites" 
+	pageTitle="Publishing from Source Control to Azure Web Apps" 
+	description="Learn how to use Git to publish an Azure web app, and then enable continuous deployment from Bitbucket, CodePlex, Dropbox, GitHub, or Mercurial." 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" 
-	description="Learn how to run background tasks in Microsoft Azure Websites." 
-	services="web-sites" 
+	pageTitle="Use WebJobs to run background tasks in Azure web apps" 
+	description="Learn how to run background tasks in Azure web apps." 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	writer="tdykstra" 
@@ -9,7 +9,7 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -17,15 +17,15 @@
 	ms.date="10/12/2014" 
 	ms.author="tdykstra"/>
 
-#Use WebJobs to run background tasks in Azure Websites
+#Use WebJobs to run background tasks in Azure Web Apps
 
 [AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
 ## Overview
 
-Azure Websites enables you to run programs or scripts in your website in three ways: on demand, continuously, or on a schedule. There is no additional cost to use Microsoft Azure WebJobs.
+Azure web apps enables you to run programs or scripts in your web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use Microsoft Azure WebJobs.
 
-This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Websites](http://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-deploy-webjobs).
+This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Web Apps](http://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-deploy-webjobs).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk).
 
@@ -52,7 +52,7 @@ The following file types are accepted:
 	
 4. In the **How to Run** box, choose **Run on Demand**.
 	
-5. Check the check mark on the bottom right of the dialog to upload the script to your website. The name you specified for the task appears in the list:
+5. Check the check mark on the bottom right of the dialog to upload the script to your web app. The name you specified for the task appears in the list:
 	
 	![Task List][WebJobsList]
 	
@@ -68,9 +68,9 @@ The following file types are accepted:
 	
 2. To start or stop a continuously running task, select the task in the list and click **Start** or **Stop** in the command bar.
 
-> [AZURE.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On-demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
+> [AZURE.NOTE] If your web app runs on more than one instance, a continuously running task will run on all of your instances. On-demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
 
-> [AZURE.NOTE] For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your website. The Always On feature, available in Basic and Standard mode, prevents websites from being unloaded, even if they have been idle for some time. If your website is always loaded, your continuously running task may run more reliably. 
+> [AZURE.NOTE] For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your web app. The Always On feature, available in Basic and Standard mode, prevents web apps from being unloaded, even if they have been idle for some time. If your web app is always loaded, your continuously running task may run more reliably. 
 
 ## <a name="CreateScheduled"></a>Create a Scheduled Task
 
@@ -161,7 +161,7 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 
 ## <a name="WHPNotes"></a>Notes
 	
-- As of March 2014, websites in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the website's portal is not open in Azure. Requests to the actual site will not reset this.
+- As of March 2014, web apps in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web app's portal is not open in Azure. Requests to the actual site will not reset this.
 - Code for a continuous job needs to be written to run in an endless loop.
 - Continuous jobs run continuously only when the site is up.
 - Basic and Standard modes offer the Always On feature which, when enabled, prevents sites from becoming idle.
