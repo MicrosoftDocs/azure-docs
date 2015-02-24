@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
@@ -21,13 +21,6 @@
 Many APIs support OAuth 2.0 to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
 
 >For more information about OAuth 2.0, see the specification at [http://oauth.net/2/][].
-
-## In this topic
-
--   [Prerequisites][]
--   [Configure an OAuth 2.0 authorization server in API Management][]
--   [Configure an API to use OAuth 2.0 user authorization][]
--   [Test the OAuth 2.0 user authorization in the Developer Portal][]
 
 ## <a name="prerequisites"> </a>Prerequisites
 

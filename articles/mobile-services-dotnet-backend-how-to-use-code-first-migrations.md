@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/27/2014" 
+	ms.date="02/27/2015" 
 	ms.author="glenga"/>
 
 # How to make data model changes to a .NET backend mobile service
 
 This topic shows how to use Entity Framework Code First Migrations to make data model changes to an existing Azure SQL Database to avoid losing existing data. This procedure assumes that you have already published your mobile service project to Azure, that there is existing data in your database, and that the remote and local data models are still in sync. This topic also describes the default Code First initializers implemented by Azure Mobile Services that are used during development. These initializers let you easily make schema changes without using Code First Migrations when it is not necessary to maintain you existing data. 
+
+>[AZURE.NOTE]The schema name that is used to prefix your tables in the SQL Database is defined by the <strong>MS_MobileServiceName</strong> app setting in the web.config file. When you download the starter project from the portal, this value is already set to the mobile service name. When your schema name matches the mobile service, multiple mobile services can safely share the same database instance. 
 
 ## Data model initializers
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # How to cache operation results in Azure API Management
@@ -21,13 +21,6 @@
 Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
 
 In this tutorial you will review the caching settings and policies for one of the sample Echo Api operations, and call the operation in the developer portal to see the caching in operation.
-
-## In this topic
-
--   [Configure an operation for caching][]
--   [Review the caching policies][]
--   [Call an operation and test the caching][]
--   [Next steps][]
 
 ## <a name="configure-caching"> </a>Configure an operation for caching
 

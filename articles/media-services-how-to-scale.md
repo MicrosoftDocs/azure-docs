@@ -37,6 +37,7 @@ For information about scaling encoding units, see the following **Portal** and *
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
 
+Note that the reserved units are the same for Encoding and Indexing tasks.
 
 ##<a id="storage"></a>Scale Storage
 

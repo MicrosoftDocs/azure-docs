@@ -1,18 +1,22 @@
-<tags 
+<properties
    pageTitle="Prerequisites for ExpressRoute adoption"
-   description="This page provides a list of requirements to be met before you can order an ExpressRoute circuit"
+   description="This page provides a list of requirements to be met before you can order an ExpressRoute circuit."
    services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/21/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Prerequisites to connectivity 
-In order to connect to Azure by using ExpressRoute, you’ll need to verify that the following perquisites have been met. You must have the following:
+In order to connect to Azure by using ExpressRoute, you’ll need to verify that the following prerequisites have been met. You must have the following:
 
 - Microsoft Azure Account
 - A relationship with a network service provider or an exchange provider from the [supported list](../expressroute-locations) through whom connectivity needs to be facilitated. You must have an existing business relationship with the network service provider or exchange provider. You’ll need to make sure that the service you use is compatible with ExpressRoute. 

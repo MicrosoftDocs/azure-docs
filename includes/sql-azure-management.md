@@ -287,7 +287,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
 * [Transact-SQL Reference (SQL Database)][]
 
   [How to use Azure SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
-  [Step 1: Get SQL Server Management Studio]: #Step1
+  [Step 1: Get SQL Server 2014 Management Studio]: #Step1
   [Step 2: Connect to SQL Database]: #Step2
   [Step 3: Create and manage databases]: #Step3
   [Step 4: Create and manage logins]: #Step4
