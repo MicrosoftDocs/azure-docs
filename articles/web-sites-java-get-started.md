@@ -18,6 +18,8 @@
 
 # Get started with Azure websites and Java
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 This tutorial shows how to create a website on Microsoft Azure using Java, using either the Azure application gallery, or the Azure website configuration UI. 
 
 If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web site to Azure](../web-sites-java-custom-upload).

@@ -21,6 +21,8 @@
 
 # Create a WordPress website from the gallery in Azure
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 [AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="nextsteps"></a>Next Steps

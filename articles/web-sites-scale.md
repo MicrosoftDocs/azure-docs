@@ -18,6 +18,8 @@
 
 # How to Scale Websites #
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 For increased performance and throughput for your websites on Microsoft Azure, you can use the Azure Management Portal to scale your Web Hosting Plan mode from Free to Shared, Basic, or Standard. 
 
 Scaling up on Azure Websites involves two related actions: changing your Web Hosting Plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.

@@ -18,6 +18,8 @@
 
 #How to Create a Website
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 This topic shows how to create a website from the gallery or by using the management portal.
 
 For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Web Sites](/en-us/documentation/services/web-sites/).
