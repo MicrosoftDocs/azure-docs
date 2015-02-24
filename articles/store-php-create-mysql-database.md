@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/24/2015" 
 	ms.author="robmcm"/>
 
 [AZURE.INCLUDE [create-mysql-db](../includes/create-mysql-db.md)]
