@@ -6,18 +6,14 @@ The new Twitter v1.1 APIs requires your app to authenticate before accessing res
   
   	Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. You can get these credentials from the Twitter Developers website. 
 
-2. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter Developers</a> website, sign-in with your Twitter account credentials, navigate to **My Applications**, and select your Twitter app.
+2. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter Developers</a> website, sign-in with your Twitter account credentials and select your Twitter app.
 
-    ![](./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png)
-
-3. In the **Details** tab for the app, make a note of the following values:
+3. In the **Keys and Access Tokens** tab for the app, make a note of the following values:
 
 	+ **Consumer key**
 	+ **Consumer secret**
 	+ **Access token**
 	+ **Access token secret**
-
-	![](./media/mobile-services-register-twitter-access/mobile-twitter-app-secrets.png)
 
 4. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
