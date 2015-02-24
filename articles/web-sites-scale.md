@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Scale Websites" 
 	description="required" 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -16,13 +16,13 @@
 	ms.date="11/24/2014" 
 	ms.author="cephalin"/>
 
-# How to Scale Websites #
+# How to Scale Web apps #
 
 [AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
-For increased performance and throughput for your websites on Microsoft Azure, you can use the Azure Management Portal to scale your Web Hosting Plan mode from Free to Shared, Basic, or Standard. 
+For increased performance and throughput for your web apps on Microsoft Azure, you can use the Azure Management Portal to scale your Web Hosting Plan mode from Free to Shared, Basic, or Standard. 
 
-Scaling up on Azure Websites involves two related actions: changing your Web Hosting Plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
+Scaling up on Azure Web apps involves two related actions: changing your Web Hosting Plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
 
 Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all websites in your Web Hosting Plan. They do not require your code to be changed or your applications to be redeployed.
 
