@@ -1,4 +1,4 @@
-<properties title="Process Data in Azure Blob" pageTitle="Process Data in  Azure Blob" description="Process Data in Azure Blob" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="sunliangms,fashah,msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties title="Process Data in Azure Blob" pageTitle="Process Data in  Azure Blob" description="Process Data in Azure Blob" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="sunliangms,fashah,msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
 
 <tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="sunliangms,fashah,msolhab,garye" /> 
 
