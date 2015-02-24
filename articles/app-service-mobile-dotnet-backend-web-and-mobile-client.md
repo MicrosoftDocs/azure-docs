@@ -9,7 +9,7 @@
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="2/24/2015"
