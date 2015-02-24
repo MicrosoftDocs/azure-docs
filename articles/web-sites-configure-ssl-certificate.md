@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Enable HTTPS for an Azure website - .NET Dev Center" 
 	description="Learn how to enable SSL with an Azure Website." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
