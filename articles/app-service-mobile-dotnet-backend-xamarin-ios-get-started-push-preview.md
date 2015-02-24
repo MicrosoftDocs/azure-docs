@@ -70,7 +70,8 @@ Next, you will register your app with Apple, enable push notifications, and uplo
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and register for push notifications. 
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to create an app ID for your app.
+1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=27
+2. 56" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to create an app ID for your app.
     
     ![][102]
 
@@ -336,7 +337,7 @@ Your app is now updated to support push notifications.
 
 2. In the app, type a task, and then click the plus (**+**) icon.
 
-    ![][24]
+    <!--![][24]-->
 
 3. Verify that a notification is received, then click **OK** to dismiss the notification.
 
