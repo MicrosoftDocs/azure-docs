@@ -87,7 +87,7 @@ Now you should be in a state where your mobile service has been recovered to a n
 <!-- Images. -->
 
 <!-- URLs. -->
-[SQL Database business continuity guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
+[SQL Database business continuity guidance]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
 [source control feature]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/

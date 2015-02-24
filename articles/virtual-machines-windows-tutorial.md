@@ -74,7 +74,7 @@ This section shows you how to attach an empty data disk to the virtual machine. 
 
 	![Specify the size of the empty disk](./media/virtual-machines-windows-tutorial/emptydisksize.png)	
 	
-	>[AZURE.NOTE] The .vhd files are stored as page blobs in Azure storage. Outside of Azure, virtual hard disks can use either a VHD or a VHDX format. They can also be fixed, dynamically expanding, or differencing. Azure supports VHD format, fixed disks. For more details, see [About VHDs in Azure](http://msdn.microsoft.com/en-us/library/azure/dn790344.aspx)  
+	>[AZURE.NOTE] The .vhd files are stored as page blobs in Azure storage. Outside of Azure, virtual hard disks can use either a VHD or a VHDX format. They can also be fixed, dynamically expanding, or differencing. Azure supports VHD format, fixed disks. For more details, see [About VHDs in Azure](http://msdn.microsoft.com/library/azure/dn790344.aspx)  
 
 6. Return to the dashboard to verify that the empty data disk was successfully attached to the virtual machine. It should appear in the **Disks** list after the OS Disk.
 

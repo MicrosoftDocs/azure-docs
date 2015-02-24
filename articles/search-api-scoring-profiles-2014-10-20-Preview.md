@@ -18,7 +18,7 @@
       
 #Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)#
 
-> [AZURE.NOTE] This article describes scoring profiles in the 2014-10-20-Preview version of the REST API. The released version of this API can be found at [Add scoring profiles to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN. For more information about the 2014-10-20-Preview version, see [Azure Search Service REST API: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
+> [AZURE.NOTE] This article describes scoring profiles in the 2014-10-20-Preview version of the REST API. The released version of this API can be found at [Add scoring profiles to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) on MSDN. For more information about the 2014-10-20-Preview version, see [Azure Search Service REST API: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
 
 Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
 
@@ -144,7 +144,7 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
 
 Start with the [Template][#bkmk_template] provided in this topic.
 
-Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/en-us/library/azure/dn857353.aspx) for more information.
+Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/library/azure/dn857353.aspx) for more information.
 
 The body of the scoring profile is constructed from weighted fields and functions.
 
@@ -357,9 +357,9 @@ For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.o
 
 **See Also**
 
-[Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) on MSDN <br/>
-[Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798941.aspx) on MSDN<br/>
-[Add a scoring profile to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN<br/>
+[Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) on MSDN <br/>
+[Create Index (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798941.aspx) on MSDN<br/>
+[Add a scoring profile to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) on MSDN<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2014-10-20-Preview/scoring_interpolations.png

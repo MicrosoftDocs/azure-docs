@@ -59,7 +59,7 @@ In this tutorial, you will:
     > Select A3 or higher when using SQL Server Enterprise Edition.
    	> Select A4 when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images.  
    	> Select A7 when using SQL Server 2012 or 2014 Enterprise Optimized for Data Warehousing Workloads images. 
-   	> The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx).
+   	> The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 	Click the next arrow on the bottom right to continue.
 
@@ -178,7 +178,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 	![Rule Name][Image17]
 
-Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/en-us/library/cc646023.aspx).
+Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
 
 
 ###<a id="TCP">Configure SQL Server to listen on the TCP protocol</a>
@@ -203,7 +203,7 @@ Open additional ports for other components as needed. For more information, see 
 
 7. Close SQL Server Configuration Manager.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/en-us/library/ms191294.aspx).
+For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
 
 ###<a id="Mixed">Configure SQL Server for mixed mode authentication</a>
 
@@ -271,7 +271,7 @@ To connect to the Database Engine from another computer, you must create at leas
 
 12. Click OK.
 
-For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).
+For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
 
 
 

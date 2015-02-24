@@ -216,7 +216,7 @@ In this article, you have learned how to create an HDInsight cluster using the A
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hdinsight-support]: http://azure.microsoft.com/en-us/support/options/
-[makecert-info]: http://msdn.microsoft.com/en-us/library/bfsktky3(v=vs.110).aspx
+[makecert-info]: http://msdn.microsoft.com/library/bfsktky3(v=vs.110).aspx
 
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/

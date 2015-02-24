@@ -174,7 +174,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
-   For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+   For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
    For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/). 
 

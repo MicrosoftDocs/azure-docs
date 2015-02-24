@@ -299,7 +299,7 @@ Cloud9 focuses on providing an IDE and does not provide a direct method of stopp
 
 
   [Cloud9 IDE]: http://cloud9ide.com/ 
-  [Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
-  [Overview of Managing Deployments in Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
+  [Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+  [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/library/windowsazure/ee814754.aspx
+  [Overview of Managing Deployments in Azure.]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
   [Cloud9 documentation]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409

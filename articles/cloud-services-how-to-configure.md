@@ -141,7 +141,7 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 5. Click **OK** (checkmark).
 
-[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
+[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
 
-[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
 			

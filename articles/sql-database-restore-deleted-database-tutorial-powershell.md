@@ -34,7 +34,7 @@ See [Restore a deleted Azure SQL database in Azure portal](/en-us/documentation/
 
 You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/#use-the-certificate-method).
 
-1. Get the list of recoverable databases by using the [Get-AzureSqlDatabase](http://msdn.microsoft.com/en-us/library/azure/dn546735.aspx) cmdlet.
+1. Get the list of recoverable databases by using the [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx) cmdlet.
 	* Use the **RestorableDropped** switch and specify the **ServerName** of the server from which the database was deleted.
 	* Running the following command stores the results in a variable called **$RecoverableDBs**.
 	
@@ -46,9 +46,9 @@ You must use certificate based authentication to run the following cmdlets. For 
 
 	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
 
-	* For more information about how to get a restorable dropped database object, see [Get-AzureSqlDatabase](http://msdn.microsoft.com/en-us/library/dn546735.aspx).
+	* For more information about how to get a restorable dropped database object, see [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx).
 
-3. Begin the restore by using the [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/en-us/library/azure/dn720218.aspx) cmdlet. Specify the following parameters:	
+3. Begin the restore by using the [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx) cmdlet. Specify the following parameters:	
 	* **SourceRestorableDroppedDatabase**
 	* **TargetDatabaseName** of the database you are restoring to.
 
@@ -56,7 +56,7 @@ You must use certificate based authentication to run the following cmdlets. For 
 	
 	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
 
-A restore may take some time to complete. To monitor the status of the restore, use the [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/en-us/library/azure/dn546738.aspx) cmdlet and specify the following parameters:
+A restore may take some time to complete. To monitor the status of the restore, use the [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) cmdlet and specify the following parameters:
 
 * **ServerName** of the database you are restoring to.
 * **OperationGuid** which is the Restore Request ID that was stored in the **$RestoreRequest** variable in Step 3.
@@ -69,8 +69,8 @@ The **State** and **PercentComplete** fields show the status of the restore.
 
 For more information, see the following:
 
-[Azure SQL Database Business Continuity](http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx)
+[Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
-[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/en-us/library/azure/jj650016.aspx)
+[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-[Azure PowerShell](http://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
+[Azure PowerShell](http://msdn.microsoft.com/library/azure/jj156055.aspx)

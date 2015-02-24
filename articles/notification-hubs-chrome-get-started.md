@@ -277,7 +277,7 @@ Chrome App is created using JavaScript and you can use any of your preferred wor
 		  sendNHRegistrationRequest();
 		}
 		
-		// From http://msdn.microsoft.com/en-us/library/dn495627.aspx 
+		// From http://msdn.microsoft.com/library/dn495627.aspx 
 		function splitConnectionString()
 		{
 		  var parts = connectionString.split(';');
@@ -375,7 +375,7 @@ Chrome App is created using JavaScript and you can use any of your preferred wor
 	- *registerWithGCM* is the first button click handler which makes the *chrome.gcm.register* call to GCM to register this Chrome App instance. 
 	- *registerCallback* is the callback function which gets called when the above GCM registration call returns. 
 	- *registerWithNH* is the second button click handler which registers with Notification Hubs. It gets the *hubName* and *connectionString* which the user has specified and crafts the Notification Hubs Registration REST API call. 
-	- *splitConnectionString* and *generateSaSToken* are Javascript implementation of creating a SaS token which must be sent in all REST API calls. More on this here - http://msdn.microsoft.com/en-us/library/dn495627.aspx 
+	- *splitConnectionString* and *generateSaSToken* are Javascript implementation of creating a SaS token which must be sent in all REST API calls. More on this here - http://msdn.microsoft.com/library/dn495627.aspx 
 	- *sendNHRegistrationRequest* is the function which makes an HTTP REST call. 
 	- *registrationPayload* defines the registration xml payload. More on this here - [Create Registration NH REST API]. We update the registration id in it with what we received from GCM. 
 	- *client* is an instance of *XMLHttpRequest* we use to make the HTTP POST request. Note that we update the *Authorization* header with the sasToken. Successful completion of this call will register this Chrome App instance with Azure Notification Hubs. 
@@ -408,7 +408,7 @@ Chrome App is created using JavaScript and you can use any of your preferred wor
 
 ##<a name="send"></a>Send notification to your Chrome App
 
-In this tutorial you send notifications with a .NET console application though you can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. 
+In this tutorial you send notifications with a .NET console application though you can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. 
 
 For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [JavaScript backend](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)).  
 For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP/Python** ([Java](/en-us/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/en-us/documentation/articles/notification-hubs-php-backend-how-to/) | [Python](/en-us/documentation/articles/notification-hubs-python-backend-how-to/)).
@@ -486,12 +486,12 @@ In order to target specific users refer to the tutorial [Azure Notification Hubs
 [Chrome App Notification Hub Sample]: http://google.com
 [Google Cloud Console]: http://cloud.google.com/console
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Notification Hubs Overview]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Notification Hubs Overview]: http://msdn.microsoft.com/library/jj927170.aspx
 [Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
 [Chrome App GCM Sample]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [Chrome Apps on Mobile]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Create Registration NH REST API]: http://msdn.microsoft.com/en-us/library/azure/dn223265.aspx
+[Create Registration NH REST API]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [crypto-js library]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1

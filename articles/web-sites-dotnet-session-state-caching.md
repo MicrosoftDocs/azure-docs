@@ -99,7 +99,7 @@ For more details about how to use ASP.NET session state, see [ASP.NET Session St
   *By [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
   [installed the latest]: http://www.windowsazure.com/en-us/downloads/?sdk=net  
-  [ASP.NET Session State Overview]: http://msdn.microsoft.com/en-us/library/ms178581.aspx
+  [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png

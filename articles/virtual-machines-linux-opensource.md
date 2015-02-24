@@ -75,7 +75,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 2. [Image Gallery](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
 3. [How to: Prepare a Custom CentOS-Based VM for Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-centos/)
 4. [Blog: How to Deploy a CentOS VM Image from OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
-6. [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](http://msdn.microsoft.com/en-us/library/azure/dn235560.aspx)
+6. [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](http://msdn.microsoft.com/library/azure/dn235560.aspx)
 7. [Images: Apache 2.2.15 on OpenLogic CentOS 6.3](http://azure.microsoft.com/en-us/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [Images: Drupal 7.2, LAMP Server on OpenLogic CentOS 6.3](http://azure.microsoft.com/en-us/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
@@ -113,7 +113,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 ### <a id='basics'>The Basics</a>
 
 1. [The Basics: Azure Command-Line Interface (cli)](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/)
-4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx)
+4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [The Basics: Selecting Linux Usernames](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-usernames/)
 6. [The Basics: Log on to a Linux VM Using the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-log-on/)
 7. [The Basics: SSH](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/)
@@ -125,7 +125,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 13. [The Basics: RAID](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-raid/)
 14. [The Basics: Capturing a Linux VM to Make a Template](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-capture-image/)
 15. [The Basics: The Azure Linux Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)
-16. [The Basics: Azure VM Extensions and Features](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx)
+16. [The Basics: Azure VM Extensions and Features](http://msdn.microsoft.com/library/azure/dn606311.aspx)
 17. [The Basics: Injecting Custom Data into a VM to use with Cloud-init](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-how-to-inject-custom-data/)
 18. [Blogging the Basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blogging the Basics: Automate Provisioning Linux on Azure with xplat, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
@@ -142,7 +142,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 #### [Azure Java Dev Center](http://azure.microsoft.com/en-us/develop/java/)
 
 1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
-2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/en-us/library/azure/jj841073.aspx)
+2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841073.aspx)
 3. [How to: Set up Tomcat7 on Linux Using the Azure Portal](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-setup-tomcat7-linux/)
 4. [Video: Azure Java SDK for Service Management](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
 5. [Blog: Getting Started with Azure Management Libraries for Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
@@ -230,7 +230,7 @@ This section contains information about several different storage approaches and
 
 Authentication and encryption are critical topics in software development, and there are many, many topics on the web that describe how to learn and use proper security techniques for both. We describe some of the basic usage to get up and running quickly with Linux and opensource workloads, as well pointing to tools to use to reset or remove remote security features on Azure.
 
-4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx)
+4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 7. [The Basics: SSH](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/)
 8. [The Basics: How to Reset a Password or SSH Properties for Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/)
 9. [The Basics: Using Root](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-root-privileges/)

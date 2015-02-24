@@ -62,7 +62,7 @@ In addition to this storage account, you can add additional storage accounts fro
 - **Public containers or public blobs in the storage accounts that are NOT connected to an cluster:** You have read-only permission to the blobs in the containers.
 
 	> [AZURE.NOTE]
-        > Public container allows you to get a list of all blobs available in that container and get container metadata. Public blob allows  you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.
+        > Public container allows you to get a list of all blobs available in that container and get container metadata. Public blob allows  you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.
 
 - **Private containers in the storage accounts that are NOT connected to an cluster:** You can not access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. There is explained later in the article.
 
@@ -296,7 +296,7 @@ To learn more, see the following articles:
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [Powershell-install]: ../install-configure-powershell/
-[blob-storage-restAPI]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../storage-create-storage-account/
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 

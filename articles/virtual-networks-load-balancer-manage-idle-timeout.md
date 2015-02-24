@@ -24,7 +24,7 @@
 
 When a client-server connection is closed, the client application will get an error message similar to “The underlying connection was closed: A connection that was expected to be kept alive was closed by the server”.
 
-[TCP Keep-Alive](http://tools.ietf.org/html/rfc1122#page-101) is a common practice to maintain connections during a long otherwise-inactive period [(MSDN example)](http://msdn.microsoft.com/en-us/library/system.net.servicepoint.settcpkeepalive.aspx). When TCP Keep-Alive is used, simple packets are sent periodically by a client (typically with a frequency period shorter than the server's idle timeout threshold).  The server considers these transmissions as evidence of connection activity even when no other activity occurs -- thus the idle timeout value is never met and the connection can be maintained over a long period of time.
+[TCP Keep-Alive](http://tools.ietf.org/html/rfc1122#page-101) is a common practice to maintain connections during a long otherwise-inactive period [(MSDN example)](http://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). When TCP Keep-Alive is used, simple packets are sent periodically by a client (typically with a frequency period shorter than the server's idle timeout threshold).  The server considers these transmissions as evidence of connection activity even when no other activity occurs -- thus the idle timeout value is never met and the connection can be maintained over a long period of time.
 
 While TCP Keep-Alive works well, it is generally not an option for mobile applications since it consumes limited power resources on mobile devices. A mobile application that uses TCP Keep-Alive will exhaust the device battery more quickly since it is continuously drawing power for network usage.
 
@@ -34,11 +34,11 @@ To support mobile device scenarios, the Azure load balancer supports a configura
 
 TCP idle timeout can be configured for: 
 
-* [Instance-Level Public IPs](http://msdn.microsoft.com/en-us/library/azure/dn690118.aspx)
-* [Load-Balanced endpoint sets](http://msdn.microsoft.com/en-us/library/azure/dn655055.aspx)
+* [Instance-Level Public IPs](http://msdn.microsoft.com/library/azure/dn690118.aspx)
+* [Load-Balanced endpoint sets](http://msdn.microsoft.com/library/azure/dn655055.aspx)
 * [Virtual Machine endpoints](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/)
-* [Web roles](http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx)
-* [Worker roles](http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx)
+* [Web roles](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
+* [Worker roles](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
 ## Next Steps
 * TBD

@@ -983,8 +983,8 @@ Here are some additional resources to help you use role-based access control:
 + [Managing role-based access control with XPLAT CLI](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/)
 + [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx)
-+ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + For an introduction to self-service group management for security groups, see the [Active Directory Team Blog](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 

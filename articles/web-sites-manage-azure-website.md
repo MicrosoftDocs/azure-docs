@@ -70,7 +70,7 @@ While your site is running, you want to make sure it is available, and that it s
 ### Backups
 
 - Set [automatic backups](http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/) of your website. Learn more about backups in [this video](http://azure.microsoft.com/en-us/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Learn about the options for [database recovery](http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx) in Azure SQL Database.
+- Learn about the options for [database recovery](http://msdn.microsoft.com/library/azure/hh852669.aspx) in Azure SQL Database.
 
 ### Troubleshooting
 

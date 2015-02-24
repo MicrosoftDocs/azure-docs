@@ -84,7 +84,7 @@ You can continue learning about Azure infrastructure services with the following
 
 - [How to Create a Custom Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/custom-create-a-vm/) Use this topic to install a virtual machine in your virtual network. For more information about virtual machines and installation options, see [Azure Virtual Machines](http://www.windowsazure.com/en-us/manage/windows/).
 
-- [Install a new Active Directory forest on an Azure Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/active-directory-forest/) - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs by using the Management Portal. For more information, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+- [Install a new Active Directory forest on an Azure Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/active-directory-forest/) - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs by using the Management Portal. For more information, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 To remove this virtual network, select it, click **Delete**, and then click **Yes**.
 
@@ -101,7 +101,7 @@ For additional Virtual Network configuration procedures and settings, see [Azure
 
 -  [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+-  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
 -  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
 

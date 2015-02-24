@@ -44,7 +44,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription** For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 - **An Azure storage account** For instructions, see [How To Create a Storage Account][azure-create-storageaccount].
-- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
+- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="create-hbase-cluster"></a>Provision an HBase cluster on the Azure portal
 

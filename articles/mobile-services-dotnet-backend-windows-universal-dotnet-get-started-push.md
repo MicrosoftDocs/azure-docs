@@ -49,7 +49,7 @@ To complete this tutorial, you need the following:
 </li>
 </ol>
 
-> [AZURE.NOTE] You can also simplify the generated code by unifying the <code>#if...#endif</code> wrapped [MobileServiceClient](http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) definitions into a single unwrapped definition used by both versions of the app.
+> [AZURE.NOTE] You can also simplify the generated code by unifying the <code>#if...#endif</code> wrapped [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) definitions into a single unwrapped definition used by both versions of the app.
 
 Now that push notifications are enabled in the app, you must update the mobile service to send push notifications. 
 
@@ -68,14 +68,14 @@ The remaining steps in this section are optional. They allow you to test your ap
 >[AZURE.NOTE]Never use a production mobile service for testing and development work. Always publish your mobile service project to a separate staging service for testing.
 
 <ol start="5">
-<li><p>Open the shared App.xaml.cs project file and locate any the lines of code that create a new instance of the <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> class to access the mobile service running in Azure.</p></li>
-<li><p>Comment-out this code and add code that creates a new <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> of the same name but using the URL of the local host in the constructor, similar to the following:</p>
+<li><p>Open the shared App.xaml.cs project file and locate any the lines of code that create a new instance of the <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> class to access the mobile service running in Azure.</p></li>
+<li><p>Comment-out this code and add code that creates a new <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> of the same name but using the URL of the local host in the constructor, similar to the following:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.
 public static MobileServiceClient todolistClient = new MobileServiceClient(
 	"http://localhost:4584"
 );
-</code></pre><p>Using this <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, the app will connect to the local service instead of the version hosted in Azure. When you want to switch back and run app against the mobile service hosted in Azure, change back to the original <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> definitions.</p></li>
+</code></pre><p>Using this <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, the app will connect to the local service instead of the version hosted in Azure. When you want to switch back and run app against the mobile service hosted in Azure, change back to the original <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> definitions.</p></li>
 </ol>
 
 ##<a id="test"></a> Test push notifications in your app

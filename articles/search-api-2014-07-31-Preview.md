@@ -24,7 +24,7 @@ Other API content related to this version includes the following:
 
 - [Scoring Profiles (Azure Search Service REST API: 2014-07-31-Preview)](http://azure.microsoft.com/en-us/documentation/articles/search-api-scoring-profiles-2014-07-31-preview/)
 
-Documentation for the released version of the Azure Search REST API can be found on MSDN. See [Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) for more information.
+Documentation for the released version of the Azure Search REST API can be found on MSDN. See [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) for more information.
 
 ##About the Service REST API##
 
@@ -60,7 +60,7 @@ The endpoint for service operations is the URL of the Azure Search service you p
 
 ### Versions ###
 
-There are multiple API versions for Azure Search. If you are evaluating Azure Search for use with a production application, we recommend that you review the version information published for each set of APIs. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for guidance on choosing a  specific version.
+There are multiple API versions for Azure Search. If you are evaluating Azure Search for use with a production application, we recommend that you review the version information published for each set of APIs. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for guidance on choosing a  specific version.
 
 
 <a name="Authentication"></a>
@@ -166,7 +166,7 @@ Alternatively, you can use PUT and specify the index name on the URI. If the ind
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
 
-**Note**: The maximum number of indexes allowed varies by pricing tier. The free service allows up to 3 indexes. Standard service allows 50 indexes per Search service. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for details. 
+**Note**: The maximum number of indexes allowed varies by pricing tier. The free service allows up to 3 indexes. Standard service allows 50 indexes per Search service. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for details. 
 
 **Request**
 
@@ -174,7 +174,7 @@ HTTPS is required for all service requests. The **Create Index** request can be 
 
 The index name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the index name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.
 
-The `api-version` is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features, such as support for language analyzers expressed through the analyzer index attribute. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details about API versions. See [Language support](#LanguageSupport) for details about language analyzers.
+The `api-version` is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features, such as support for language analyzers expressed through the analyzer index attribute. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details about API versions. See [Language support](#LanguageSupport) for details about language analyzers.
 
 **Request Headers**
 
@@ -257,7 +257,7 @@ Note: Data type `Edm.Int64` is supported starting with API version 2014-10-20-Pr
     
 **Index Attributes**
 
-The following attributes can be set when creating an index. For details about scoring and scoring profiles, see [Add scoring profiles to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx).
+The following attributes can be set when creating an index. For details about scoring and scoring profiles, see [Add scoring profiles to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 `name` - Sets the name of the field.
 
@@ -283,7 +283,7 @@ The following attributes can be set when creating an index. For details about sc
 
 `retrievable` - Sets whether the field can be returned in a search result.  This is useful when you want to use a field (for example, margin) as a filter, sorting, or scoring mechanism but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.
 
-`scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of weighted fields and functions. See [Add scoring profiles to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) for more information about the attributes used in a scoring profile.
+`scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of weighted fields and functions. See [Add scoring profiles to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for more information about the attributes used in a scoring profile.
 
 `analyzer` - Sets the name of the text analyzer to use for the field. For the allowed set of values see [Language Support](#LanguageSupport). This option can be used only with `searchable` fields. Once the analyzer is chosen, it cannot be changed for the field. 
 
@@ -640,7 +640,7 @@ By default the response body will contain the JSON for the index definition that
 <a name="UpdateIndex"></a>
 ## Update Index ##
 
-You can update an existing index within Azure Search using an HTTP PUT request. In the Public Preview, updates can include adding new fields to the existing schema, modifying CORS options, and modifying scoring profiles (see [Add scoring profiles to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx)). You specify the name of the index to update on the request URI:
+You can update an existing index within Azure Search using an HTTP PUT request. In the Public Preview, updates can include adding new fields to the existing schema, modifying CORS options, and modifying scoring profiles (see [Add scoring profiles to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx)). You specify the name of the index to update on the request URI:
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
     Content-Type: application/json
@@ -656,7 +656,7 @@ HTTPS is required for all service requests. The **Update Index** request is cons
 
 The index name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the index name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.
 
-The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 **Request Headers**
 
@@ -749,7 +749,7 @@ The **List Indexes** operation returns a list of the indexes currently in your A
 
 HTTPS is required for all service requests. The **List Indexes** request can be constructed using the GET method.
 
-The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 **Request Headers**
 
@@ -816,7 +816,7 @@ HTTPS is required for service requests. The **Get Index** request can be constru
  
 The [index name] in the request URI specifies which index to return from the indexes collection.
 
-The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 **Request Headers**
 
@@ -850,7 +850,7 @@ HTTPS is required for service requests. The **Delete Index** request can be cons
  
 The [index name] in the request URI specifies which index to delete from the indexes collection. 
 
-The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 **Request Headers**
 
@@ -882,7 +882,7 @@ HTTPS is required for all services requests. The **Get Index Statistics** reques
 
 The [index name] in the request URI tells the service to return index statistics for the specified index.
 
-The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 **Request Headers**
 
@@ -940,7 +940,7 @@ HTTPS is required for all service requests. You can upload, merge, merge-or-uplo
 
 The request URI includes [index name], specifying which index to post documents. You can only post documents to one index at a time.
 
-The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 **Request Headers**
 
@@ -1112,7 +1112,7 @@ The request URI specifies which index to query, for all documents that match the
 
 `scoringParameter=[string]` (zero or more) - indicates the value for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format name:value. For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be &scoringParameter=mylocation:-122.2,44.8
 
-`api-version=[string]` (required). Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+`api-version=[string]` (required). Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
 
@@ -1247,7 +1247,7 @@ The request URI includes an [index name] and [key], specifying which document to
 
 `$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified or set to `*`, all fields marked as retrievable in the schema are included in the projection.
 
-`api-version=[string]` (required). Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+`api-version=[string]` (required). Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
 
@@ -1296,7 +1296,7 @@ HTTPS is required for service requests. The **Count Documents** request can be c
 
 The [index name] in the request URI tells the service to return a count of all items in the docs collection of the specified index. 
 
-The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+The `api-version` parameter is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 **Request Headers**
 
@@ -1349,7 +1349,7 @@ The request URI specifies the name of the index to query. It also includes the p
 
 `$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified, only the document key and suggestion text is returned.
 
-`api-version=[string]` (required). Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+`api-version=[string]` (required). Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
 

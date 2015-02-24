@@ -317,7 +317,7 @@ Now that you understand how to get data into HDInsight, use the following articl
 
 
 [azure-management-portal]: https://manage.windowsazure.com
-[azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: ../storage-create-storage-account/

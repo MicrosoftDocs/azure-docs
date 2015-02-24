@@ -24,8 +24,8 @@ Dynamic demand is a reality for today's applications.  From seasonal and variabl
  
 ## Explore
 - [Windows Azure Service Bus - David Chappell](http://azure.microsoft.com/en-us/documentation/articles/fundamentals-service-bus-hybrid-solutions/)
-- [Queue-Based Load Leveling Pattern](http://msdn.microsoft.com/en-us/library/dn589783.aspx)
-- [Competing Consumers](http://msdn.microsoft.com/en-us/library/dn568101.aspx)
+- [Queue-Based Load Leveling Pattern](http://msdn.microsoft.com/library/dn589783.aspx)
+- [Competing Consumers](http://msdn.microsoft.com/library/dn568101.aspx)
 - [Transportation Solution Provider Screens Commercial Vehicles - Xerox](http://www.microsoft.com/casestudies/Case_Study_Detail.aspx?CaseStudyID=710000000945)
  
 ## Build
@@ -36,8 +36,8 @@ Dynamic demand is a reality for today's applications.  From seasonal and variabl
 - [Multi-Tier application with Azure Service Bus](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
  
 ## Popular
-- [Azure Queues and Azure Service Bus Queues - compared and contrasted](http://msdn.microsoft.com/en-us/library/azure/hh767287.aspx)
-- [Service Bus REST API Reference](http://msdn.microsoft.com/en-us/library/azure/hh780717.aspx)
+- [Azure Queues and Azure Service Bus Queues - compared and contrasted](http://msdn.microsoft.com/library/azure/hh767287.aspx)
+- [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 
 ## Related services
 - [Cloud Services](http://azure.microsoft.com/en-us/documentation/services/cloud-services/) 

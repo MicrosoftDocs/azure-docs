@@ -76,7 +76,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 The image is ready to be used as a template to create virtual machines. To do this, you'll create a custom virtual machine by using the **From Gallery** method and select the image you just created. For instructions, see [How to Create a Custom Virtual Machine] [].
 
 	
-[About Virtual Machine Images in Azure]: http://msdn.microsoft.com/en-us/library/azure/dn790290.aspx
+[About Virtual Machine Images in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [How to Create a Custom Virtual Machine]: ../virtual-machines-create-custom/
 [How to Attach a Data Disk to a Virtual Machine]: ../storage-windows-attach-disk/
 [How to Log on to a Virtual Machine Running Windows Server]:http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/

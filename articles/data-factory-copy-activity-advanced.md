@@ -305,7 +305,7 @@ The stored procedure feature takes advantage of [Table-Valued Parameters][table-
 
 
 [copy-activity-video]: http://azure.microsoft.com/en-us/documentation/videos/introducing-azure-data-factory-copy-activity/
-[table-valued-parameters]: http://msdn.microsoft.com/en-us/library/bb675163.aspx
+[table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
 
 [adfgetstarted]: ../data-factory-get-started

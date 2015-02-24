@@ -57,7 +57,7 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 ##<a id="about"></a>About the Azure PowerShell Modules ##
 Beginning in version 0.8.0, the Azure PowerShell installation includes three Windows PowerShell modules:
 
-- **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, websites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/en-us/library/jj152841.aspx).
+- **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, websites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/jj152841.aspx).
 
 - **AzureResourceManager**: Includes cmdlets for creating, managing, and deploying the Azure resources for a resource group. For more information, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765).
 

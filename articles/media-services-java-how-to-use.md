@@ -80,7 +80,7 @@ For PCs and Macs you can target a streaming experience using Microsoft Silverlig
 ####Windows 8 applications
 For Windows 8, you can build Windows Store applications using any of the supported development languages and constructs like HTML, Javascript, XAML, C# and C+.
 
--	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). For more information on how to create a Windows Store application using this SDK, see [How to Build a Smooth Streaming Windows Store Application](http://go.microsoft.com/fwlink/?LinkId=271647). For information on how to create a smooth streaming player in HTML5, see [Walkthrough: Building Your First HTML5 Smooth Streaming Player](http://msdn.microsoft.com/en-us/library/jj573656.aspx).
+-	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). For more information on how to create a Windows Store application using this SDK, see [How to Build a Smooth Streaming Windows Store Application](http://go.microsoft.com/fwlink/?LinkId=271647). For information on how to create a smooth streaming player in HTML5, see [Walkthrough: Building Your First HTML5 Smooth Streaming Player](http://msdn.microsoft.com/library/jj573656.aspx).
 
 -	[Microsoft Media Platform: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
@@ -285,7 +285,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 	
 	        // Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
 	        // Information on the various configurations can be found at
-	        // http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx.
+	        // http://msdn.microsoft.com/library/windowsazure/jj129582.aspx.
 	        // This example uses only one task, but others could be added.
 	        Task.CreateBatchOperation task = Task.create(
 	                mediaProcessor.getId(),
@@ -450,5 +450,5 @@ For Media Services Javadoc documentation, see [Azure Libraries for Java document
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
   [Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
   [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
-  [Media Services Client Development]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
+  [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 

@@ -25,7 +25,7 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. S
 ## Explore
 
 - [Service Bus Relay](http://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-how-to-use-relay/)
-- [Relayed and Brokered Messaging](http://msdn.microsoft.com/en-us/library/azure/hh367519.aspx)
+- [Relayed and Brokered Messaging](http://msdn.microsoft.com/library/azure/hh367519.aspx)
 
 ## Build
 

@@ -92,7 +92,7 @@ or
 	ChangeClusterSizeAsync(string dnsName, string location, int newSize) 
 
 
-Both synchronous and asynchronous versions of this method return [ClusterDetails](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clusterdetails_properties.aspx) object.
+Both synchronous and asynchronous versions of this method return [ClusterDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterdetails_properties.aspx) object.
 
 Here is some sample code that shows how to use the synchronous version of this method:
 

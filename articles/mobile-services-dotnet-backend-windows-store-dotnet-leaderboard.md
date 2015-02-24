@@ -94,7 +94,7 @@ These aren't needed for the tutorial, so you can delete them from the project. A
 
 ## Add data models
 
-You will use [EF Code First](http://msdn.microsoft.com/en-US/data/ee712907#codefirst) to define the database tables. Under the DataObjects folder, add a class named `Player`.
+You will use [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) to define the database tables. Under the DataObjects folder, add a class named `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -125,7 +125,7 @@ Add another class named `PlayerRank`.
 
 Notice that both classes inherit from the **EntityData** class. Deriving from **EntityData** makes it easy for the app consume the data, using the cross-platform client library for Azure Mobile Services. **EntityData** also makes it easier for an app to [handle database write conflicts](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
 
-The `PlayerRank` class has a [navigation property](http://msdn.microsoft.com/en-us/data/jj713564.aspx) that points to the related `Player` entity. The **[ForeignKey]** attribute tells EF that the `Player` property represents a foreign key.
+The `PlayerRank` class has a [navigation property](http://msdn.microsoft.com/data/jj713564.aspx) that points to the related `Player` entity. The **[ForeignKey]** attribute tells EF that the `Player` property represents a foreign key.
 
 # Add Web API controllers
 
@@ -153,7 +153,7 @@ This step adds a file named PlayerController.cs to the project.
 
 The controller derives from **TableController<T>**. This class inherits **ApiController**, but is specialized for Azure Mobile Services.
  
-- Routing: The default route for a **TableController** is `/tables/{table_name}/{id}`, where *table_name* matches the entity name. So the route for the Player controller is */tables/player/{id}*. This routing convention makes **TableController** consistent with the Mobile Services [REST API](http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx).
+- Routing: The default route for a **TableController** is `/tables/{table_name}/{id}`, where *table_name* matches the entity name. So the route for the Player controller is */tables/player/{id}*. This routing convention makes **TableController** consistent with the Mobile Services [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx).
 - Data access: For database operations, the **TableController** class uses the **IDomainManager** interface, which defines an abstraction for data access.  The scaffolding uses **EntityDomainManager**, which is a concrete implementation of **IDomainManager** that wraps an EF context. 
 
 Now add a second controller for PlayerRank entities. Follow the same steps, but choose PlayerRank for the model class. Use the same data context class; don't create a new one. Name the controller "PlayerRankController".

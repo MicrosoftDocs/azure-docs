@@ -701,7 +701,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Use Pig with HDInsight][hdinsight-use-pig]
 
 
-[azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
+[azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
@@ -714,7 +714,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-develop-streaming-jobs]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 

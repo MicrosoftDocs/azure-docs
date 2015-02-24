@@ -99,6 +99,6 @@ The relevant .NET managed API references for push notifications are located here
   [Kindle]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-kindle-get-started
   [Xamarin.iOS]: http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
   [Xamarin.Android]: http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started
-  [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.messaging.notificationhub.aspx
-  [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.notifications.aspx
+  [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
+  [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   

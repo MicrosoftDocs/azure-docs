@@ -69,7 +69,7 @@ To create Docker-enabled VMs right now, see:
 ## <a id='Virtual Machine Extensions for Linux and Windows'>Virtual Machine Extensions for Linux and Windows</a>
 The Docker VM extension for Azure is just one of several VM extensions that provide special behaviour, and more are in development. For example, several of the [Linux VM Agent extension](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) features allow you to modify and manage the Virtual Machine, including security features, kernel and networking features, and so on. The VMAccess extension for example lets you reset the administrator password or SSH key.
 
-For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx).
+For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/library/azure/dn606311.aspx).
 
 <!--Anchors-->
 [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/

@@ -434,6 +434,6 @@ links to learn more.
   
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/en-us/library/hh367512.aspx
+  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/hh367512.aspx

@@ -201,9 +201,9 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 ### SQL Database on Azure	
 		
-* [Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
+* [Azure SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
 	
-* [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+* [Management Portal for SQL Database](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304): Download page for SQL Database sample database.	
 
@@ -221,7 +221,7 @@ These BI tools can help in your big data analysis:
 
 * <a target="_blank" href="http://www.microsoft.com/en-us/server-cloud/solutions/business-intelligence/analysis.aspx">Learn more about SQL Server Analysis Services</a>.
 
-* <a target="_blank" href="http://msdn.microsoft.com/en-us/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>
 
 
 ### Try HDInsight solutions for big data analysis (for HDInsight on Widows)

@@ -215,7 +215,7 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 [azure.blob.storage.use]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
 
 [azure.event.hubs]: http://azure.microsoft.com/en-us/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151

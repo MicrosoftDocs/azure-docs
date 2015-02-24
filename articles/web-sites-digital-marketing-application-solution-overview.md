@@ -124,8 +124,8 @@ In the **Standard** hosting plan, monitor site responsiveness receive email noti
 
 [scale up and out]:/en-us/manage/services/web-sites/how-to-scale-websites/
 [Azure Management Portal]:http://manage.windowsazure.com/
-[Service Management API]:http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-[PowerShell scripting]:http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[Service Management API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell scripting]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis Cache]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

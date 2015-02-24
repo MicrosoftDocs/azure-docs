@@ -599,7 +599,7 @@ Article | Description
 [azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/en-us/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/en-us/library/azure/jj553530.aspx
+[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
 [download-azure-powershell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495

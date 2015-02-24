@@ -70,7 +70,7 @@ To use Azure cmdlets:
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[AZURE.NOTE] Run `Get-AzureVMImage` without parameters to get a list of all images that apply to your subscription. This might return a large list. To shorten the list, use properties such as the image family name. For tips and examples that show you how to do this to find a specific image, see [Manage Images using Windows PowerShell](http://msdn.microsoft.com/en-us/library/azure/dn790330.aspx).
+	>[AZURE.NOTE] Run `Get-AzureVMImage` without parameters to get a list of all images that apply to your subscription. This might return a large list. To shorten the list, use properties such as the image family name. For tips and examples that show you how to do this to find a specific image, see [Manage Images using Windows PowerShell](http://msdn.microsoft.com/library/azure/dn790330.aspx).
 
 3.	Specify the configuration for the new virtual machine, and then use the pipeline to pass a configuration object to the cmdlet that creates the VM. Be sure to substitute your own values for the placeholders, such as  &lt;VmName&gt; and &lt;VmSize&gt;.
 
@@ -120,5 +120,5 @@ Open an Azure PowerShell session and run the following command. Be sure to subst
 [Azure Virtual Network Overview]: http://go.microsoft.com/fwlink/p/?linkid=294063
 [About Affinity Groups for Virtual Network]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
 [How to connect virtual machines in a cloud service]: ../virtual-machines-connect-cloud-service
-[About Azure VM configuration settings]: http://msdn.microsoft.com/en-us/library/azure/dn763935.aspx
+[About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 

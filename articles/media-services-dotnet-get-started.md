@@ -171,7 +171,7 @@ The code in this section demonstrates how perform the following tasks:
 
 When using Media Services with .NET, you must use the **CloudMediaContext** class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc. 
  
-Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the CloudMediaContext object in order to connect to Media Services. For more information about connecting to Media Services, see [Connecting to Media Services with the Media Services SDK for .NET](http://msdn.microsoft.com/en-us/library/azure/jj129571.aspx).
+Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the CloudMediaContext object in order to connect to Media Services. For more information about connecting to Media Services, see [Connecting to Media Services with the Media Services SDK for .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 The **Main** function calls methods that will be defined further in this section.
 	
@@ -317,9 +317,9 @@ Add the following method to the Program class.
 
 For information about how to configure content protection see the following articles:
 
-- [Using AES-128 Dynamic Encryption and Key Delivery Service](http://msdn.microsoft.com/en-us/library/azure/dn783457.aspx)
-- [Using PlayReady Dynamic Encryption and License Delivery Service](http://msdn.microsoft.com/en-us/library/azure/dn783467.aspx)
-- [Delivering Storage Encrypted Content](http://msdn.microsoft.com/en-us/library/azure/dn783451.aspx)
+- [Using AES-128 Dynamic Encryption and Key Delivery Service](http://msdn.microsoft.com/library/azure/dn783457.aspx)
+- [Using PlayReady Dynamic Encryption and License Delivery Service](http://msdn.microsoft.com/library/azure/dn783467.aspx)
+- [Delivering Storage Encrypted Content](http://msdn.microsoft.com/library/azure/dn783451.aspx)
 
 ### <a id="configure_delivery_method"></a>Configure delivery policy for the encoded asset
 

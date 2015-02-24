@@ -346,7 +346,7 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 
 [msdn-supported-sources-sinks]: https://msdn.microsoft.com/library/dn894007.aspx
 [copy-activity-video]: http://azure.microsoft.com/en-us/documentation/videos/introducing-azure-data-factory-copy-activity/
-[table-valued-parameters]: http://msdn.microsoft.com/en-us/library/bb675163.aspx
+[table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
 
 [adfgetstarted]: ../data-factory-get-started

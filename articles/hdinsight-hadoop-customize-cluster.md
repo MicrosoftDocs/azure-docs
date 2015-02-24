@@ -86,7 +86,7 @@ You can use Script Action from the Azure Management Portal, PowerShell cmdlets, 
   
 **Using the PowerShell cmdlets**
 
-Use HDInsight PowerShell commands to run a single Script Action or multiple Script Actions. You can use the **<a href = "http://msdn.microsoft.com/en-us/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke custom scripts. To use these cmdlets, you must have Azure PowerShell installed and configured. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
+Use HDInsight PowerShell commands to run a single Script Action or multiple Script Actions. You can use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke custom scripts. To use these cmdlets, you must have Azure PowerShell installed and configured. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 Use the following PowerShell command to run a single Script Action when deploying an HDInsight cluster:
 
@@ -106,7 +106,7 @@ Use the following PowerShell command to run multiple Script Actions when deployi
 
 **Using the HDInsight .NET SDK**
 
-HDInsight .NET SDK provides a <a href="http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> class to invoke custom scripts. To use the HDInsight .NET SDK:
+HDInsight .NET SDK provides a <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> class to invoke custom scripts. To use the HDInsight .NET SDK:
 
 1. Create a Visual Studio application, and then install the SDK from Nuget. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. Run the following commands in the console to install the package:
 

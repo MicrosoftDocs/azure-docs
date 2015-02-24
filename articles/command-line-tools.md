@@ -669,7 +669,7 @@ To force the deletion, use the `-q` parameter.
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Azure certificates
 
-Azure service certificates are SSL certificates connected to your Azure account. For more information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx).
+Azure service certificates are SSL certificates connected to your Azure account. For more information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/library/azure/gg981929.aspx).
 
 **service cert list [options]**
 
@@ -1530,7 +1530,7 @@ This command removes the existing insert script from the TodoItem table.
 
 ###<a name="Mobile_Jobs"></a>Commands to manage scheduled jobs
 
-Commands in this section are used to manage scheduled jobs that belong to a mobile service. For more information, see [Schedule jobs](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx).
+Commands in this section are used to manage scheduled jobs that belong to a mobile service. For more information, see [Schedule jobs](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [options] [servicename]**
 
@@ -1600,7 +1600,7 @@ This command removes the getUpdates scheduled job from the TodoList server.
 
 ###<a name="Mobile_Scale"></a>Commands to scale a mobile service
 
-Commands in this section are used to scale a mobile service. For more information, see [Scaling a mobile service](http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx).
+Commands in this section are used to scale a mobile service. For more information, see [Scaling a mobile service](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [options] [servicename]**
 

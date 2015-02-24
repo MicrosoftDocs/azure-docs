@@ -394,7 +394,7 @@ and add the following import statements at the top:
 
 ##<a id="send"></a>Send notifications to your app
 
-You can send notifications using Notification Hubs from any back-end that uses our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we show it using a .NET console app. 
+You can send notifications using Notification Hubs from any back-end that uses our <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we show it using a .NET console app. 
 
 1. Create a new Visual C# console application:
 

@@ -45,7 +45,7 @@ It is important to understand the different database tiers you have at your disp
 - Web and Business Edition (retired)
 - Basic, Standard, and Premium Edition 
 
-While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium Edition in preparation for this change. This new edition provides a variety of new tiers and monitoring capabilities that make it even easier to understand and troubleshoot database performance. All new mobile services are created using the new Edition.
+While the Web and Business Edition is fully supported, it is being sunset by April 24, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium Edition in preparation for this change. This new edition provides a variety of new tiers and monitoring capabilities that make it even easier to understand and troubleshoot database performance. All new mobile services are created using the new Edition.
 
 To convert a mobile service using the Web and Business Edition to the Basic, Standard, and Premium Edition, follow these steps.
 
@@ -61,7 +61,7 @@ Here are some recommendations on selecting the right tier for your database:
 - **Standard** - use for production services where you expect multiple concurrent database queries
 - **Premium** - use for large scale production services with many concurrent queries, high peak load, and expected low latency for every request.
 
-For more information on when to use each tier, see [Reasons to Use the New Service Tiers](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons)
+For more information on when to use each tier, see [Reasons to Use the New Service Tiers](http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons)
 
 ### Analyzing Database Metrics
 
@@ -81,7 +81,7 @@ Once you are familiar with the different database tiers, we can explore database
 
     ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
 
-If any metric exceeds 80% utilization for an extended period of time, this could indicate a performance problem. For more detailed information on understanding database utilization, see [Understanding Resource Use](http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource).
+If any metric exceeds 80% utilization for an extended period of time, this could indicate a performance problem. For more detailed information on understanding database utilization, see [Understanding Resource Use](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource).
 
 If the metrics indicate your database is incurring high utilization, consider **scaling up the database to a higher service tier** as a first mitigation step. To immediately resolve issues, consider using the **Scale** tab for your database to scale up your database. This will result in an increase in your bill.
 ![Azure Management Portal - SQL Database Scale][PortalSqlScale]
@@ -187,10 +187,10 @@ Here are some guidelines to consider when querying the database:
 
 - **Always execute join operations in the database.** Frequently you will need to combine records from two or more tables where the records being combined share a common field (also known as a *join*). This operation can be inefficient if performed incorrectly since it may involve pulling down all the entities from both tables and then iterating through all of them. This kind of operation is best left to the database itself, but it is sometimes easy to mistakenly perform it on the client or in the mobile service code.
     - Don't perform joins in your app code
-    - Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
+    - Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
 - **Implement paging.** Querying the database can sometimes result in a large number of records being returned to the client. To minimize the size and latency of operations, consider implementing paging.
     - By default your mobile service will limit any incoming queries to a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](http://azure.microsoft.com/en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging).
-    - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/en-us/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/en-us/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.  
+    - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.  
 
 For more information on improving query design, including how to analyze query plans, see [Advanced Query Design](#AdvancedQuery) at the bottom of this document.
 
@@ -268,7 +268,7 @@ To execute any of the queries below, past it into the window and select **Run**.
 
 #### Advanced Metrics
 
-The management portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/en-us/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
+The management portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
@@ -282,7 +282,7 @@ The result will contain the following useful metrics: CPU (% of tier limit), Sto
 
 #### SQL connectivity events
 
-The **[sys.event\_log](http://msdn.microsoft.com/en-us/library/azure/jj819229.aspx)** view contains the details of connectivity-related events.
+The **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** view contains the details of connectivity-related events.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
@@ -458,7 +458,7 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 [Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
 [Monitoring SQL Database Using Dynamic Management Views]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Azure SQL Database performance and scaling]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
-[Troubleshooting Azure SQL Database]: http://msdn.microsoft.com/en-us/library/azure/ee730906.aspx
+[Troubleshooting Azure SQL Database]: http://msdn.microsoft.com/library/azure/ee730906.aspx
 
 <!-- MSDN -->
 [Creating and Modifying PRIMARY KEY Constraints]: http://technet.microsoft.com/en-us/library/ms181043(v=sql.105).aspx
@@ -466,7 +466,7 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 [Create Unique Indexes]: http://technet.microsoft.com/en-us/library/ms187019.aspx
 [Create Nonclustered Indexes]: http://technet.microsoft.com/en-us/library/ms189280.aspx
 
-[Primary and Foreign Key Constraints]: http://msdn.microsoft.com/en-us/library/ms179610(v=sql.120).aspx
+[Primary and Foreign Key Constraints]: http://msdn.microsoft.com/library/ms179610(v=sql.120).aspx
 [Index Basics]: http://technet.microsoft.com/en-us/library/ms190457(v=sql.105).aspx
 [General Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms191195(v=sql.105).aspx 
 [Unique Index Design Guidelines]: http://technet.microsoft.com/en-us/library/ms187019(v=sql.105).aspx
@@ -475,9 +475,9 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 [sys-missing-index-stats]: http://technet.microsoft.com/en-us/library/ms345421.aspx
 
 <!-- EF -->
-[Performance Considerations for Entity Framework 5]: http://msdn.microsoft.com/en-us/data/hh949853
-[Code First Data Annotations]: http://msdn.microsoft.com/en-us/data/jj591583.aspx
-[Index Annotations in Entity Framework]:http://msdn.microsoft.com/en-us/data/jj591583.aspx#Index
+[Performance Considerations for Entity Framework 5]: http://msdn.microsoft.com/data/hh949853
+[Code First Data Annotations]: http://msdn.microsoft.com/data/jj591583.aspx
+[Index Annotations in Entity Framework]:http://msdn.microsoft.com/data/jj591583.aspx#Index
 
 <!-- BLOG LINKS -->
 [How much does that key cost?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/

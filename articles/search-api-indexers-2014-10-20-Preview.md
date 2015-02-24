@@ -4,7 +4,7 @@
 
 #Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)#
 
-> [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
+> [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
 
 ## Overview ##
 
@@ -46,7 +46,7 @@ Typical steps to set up automatic indexing are as follows:
 
 ## Limits and Constraints ##
 
-See [Limits and Constraints page](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for details. 
+See [Limits and Constraints page](http://msdn.microsoft.com/library/azure/dn798934.aspx) for details. 
 
 # Data Source Operations #
 You can create and manage data sources in Azure Search service via simple HTTP requests (POST, GET, PUT, DELETE) against a given data source resource. 

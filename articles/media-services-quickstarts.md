@@ -27,5 +27,5 @@
 
 ##<a id="live_quickstart"></a>Live Streaming
  
-[Getting started with .NET](http://msdn.microsoft.com/en-us/library/azure/dn783465.aspx)
+[Getting started with .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 

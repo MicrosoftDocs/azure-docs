@@ -22,7 +22,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) so you
 
 > [AZURE.NOTE] You don't need any experience with Azure VMs to complete the steps in this article. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
 
-A virtual machine in Azure runs the operating system that's based on the image you choose when you create the virtual machine. Your images are stored in VHD format, in .vhd files in a storage account. For more information about disks and images in Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+A virtual machine in Azure runs the operating system that's based on the image you choose when you create the virtual machine. Your images are stored in VHD format, in .vhd files in a storage account. For more information about disks and images in Azure, see [Manage Disks and Images](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx).
 
 When you create the virtual machine, you can customize some of the operating system settings so they're appropriate for the application you want to run. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
@@ -99,7 +99,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
-	For more information, see [Get Started with Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+	For more information, see [Get Started with Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 
 
 ## <a id="upload"> </a>Step 3: Upload the image to Azure ##
@@ -122,7 +122,7 @@ From the Azure PowerShell window you used in the previous step, type:
 
 
 
-For more information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+For more information, see [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn205185.aspx).
 
 
 

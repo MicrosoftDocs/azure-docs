@@ -22,9 +22,9 @@ Modern applications create a tremendous amount of information while they are run
 
 
 ## Explore
-- [Event Hubs](http://msdn.microsoft.com/en-us/library/dn789973.aspx)
+- [Event Hubs](http://msdn.microsoft.com/library/dn789973.aspx)
 - [Event Hubs Pricing Details](http://azure.microsoft.com/en-us/pricing/details/event-hubs/)
-- [Event Sourcing Pattern](http://msdn.microsoft.com/en-us/library/dn589792.aspx)
+- [Event Sourcing Pattern](http://msdn.microsoft.com/library/dn589792.aspx)
  
 ## Build
 - [Event Hub REST API Reference](http://go.microsoft.com/fwlink/?LinkId=403977)

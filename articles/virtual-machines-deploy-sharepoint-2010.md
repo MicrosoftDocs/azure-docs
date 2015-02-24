@@ -195,8 +195,8 @@ You can deploy SharePoint 2010 on Azure by following these steps:
 <li>When you choose this option, the provisioning process keeps a copy of SQL Server 2012 setup files in the <em>C:\SQLServer_11.0_Full</em> directory path so that you can customize the installation. For example, you can convert the evaluation installation of SQL Server 2012 to a licensed version by using your license key.</li>
 </ul>
 </li>
-<li>Use the SQL Server System Preparation (SysPrep) tool to install SQL Server on the VM with base operating system (as shown above in steps 1 to 7). For more information, go to <a href="http://msdn.microsoft.com/en-us/library/ee210664.aspx">Install SQL Server 2012 Using SysPrep</a>.</li>
-<li>Use the Command Prompt to install SQL Server. For more information, go to <a href="http://msdn.microsoft.com/en-us/library/ms144259.aspx#SysPrep">Install SQL Server 2012 from the Command Prompt</a>.</li>
+<li>Use the SQL Server System Preparation (SysPrep) tool to install SQL Server on the VM with base operating system (as shown above in steps 1 to 7). For more information, go to <a href="http://msdn.microsoft.com/library/ee210664.aspx">Install SQL Server 2012 Using SysPrep</a>.</li>
+<li>Use the Command Prompt to install SQL Server. For more information, go to <a href="http://msdn.microsoft.com/library/ms144259.aspx#SysPrep">Install SQL Server 2012 from the Command Prompt</a>.</li>
 <li>Use supported SQL Server media and your license key to install SQL Server on the VM with base operating system (as shown above in steps 1 to 7).</li>
 </ul>
 </li>
@@ -278,7 +278,7 @@ Figure 4 shows a SharePoint development and testing environment in an Azure VM. 
 To implement a SharePoint development and testing environment on Azure, follow these steps:
 
 <ol>
-<li><em>Provision</em>: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx">Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>. Then, use the Management Portal to provision a new VM using a stock image from the image library.
+<li><em>Provision</em>: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to <a href="http://msdn.microsoft.com/library/windowsazure/jj156007.aspx">Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>. Then, use the Management Portal to provision a new VM using a stock image from the image library.
 <ul>
 <li>You can upload the on-premises SharePoint development and testing VMs to your Azure storage account and reference those VMs through the image library for building the required environment.</li>
 <li>You can use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to <a href="/en-us/manage/windows/common-tasks/install-sql-server/">Provisioning a SQL Server Virtual Machine on Azure</a>.</li>
@@ -293,8 +293,8 @@ To implement a SharePoint development and testing environment on Azure, follow t
 <li>Use the CodePlex Project's AutoSPInstaller. For more information, go to <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.</li>
 </ul>
 </li>
-<li>Install Visual Studio. For more information, go to <a href="http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx">Visual Studio Installation</a>.</li>
-<li>Install SQL Server. For more information, go to <a href="http://msdn.microsoft.com/en-us/library/ee210664.aspx">Install SQL Server Using SysPrep</a>.
+<li>Install Visual Studio. For more information, go to <a href="http://msdn.microsoft.com/library/e2h7fzkw.aspx">Visual Studio Installation</a>.</li>
+<li>Install SQL Server. For more information, go to <a href="http://msdn.microsoft.com/library/ee210664.aspx">Install SQL Server Using SysPrep</a>.
 <ul>
 <li>Refer to the hands-on lab for creating and configuring SQL Server 2012 for a SharePoint farm deployment: <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint">Configuring SQL Server 2012 for SharePoint in Azure</a>.</li>
 <li>Refer to the hands-on lab for creating a SharePoint farm by configuring Active Directory and using a single SQL Server database: <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Deploying a SharePoint Farm with Azure Virtual Machines</a>.</li>
@@ -347,7 +347,7 @@ In this scenario, more front-end web servers for SharePoint Server must be added
 To implement a public-facing SharePoint farm on Azure, follow these steps:
 
 <ol>
-<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Azure Virtual Machines</a>. To deploy Active Directory in Azure:
+<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Azure Virtual Machines</a>. To deploy Active Directory in Azure:
 <ul>
 <li>Define and create a virtual network where the VMs can be assigned to specific subnets. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configure Virtual Networking</a>.</li>
 <li>Use the Management Portal to create and deploy the domain controller on a new VM on Azure. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Deploying and Creating the Domain Controller</a>.
@@ -404,7 +404,7 @@ To scale out a BI environment on Azure, follow these steps:
 <ol>
 <li><em>Provision</em>:
 <ul>
-<li>Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx">Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>.</li>
+<li>Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to <a href="http://msdn.microsoft.com/library/windowsazure/jj156007.aspx">Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>.</li>
 <li>Use the Management Portal to provision a new VM from a stock image in the image library.
 <ul>
 <li>You can upload SharePoint Server or SQL Server BI workload images to the image library, and any authorized user can pick those BI component VMs to build the scaled-out environment.</li>
@@ -415,7 +415,7 @@ To scale out a BI environment on Azure, follow these steps:
 <li><em>Install</em>: If your organization does not have prebuilt images of SharePoint Server or SQL Server BI components, install SharePoint Server and SQL Server on the VMs using a Remote Desktop connection.
 <ul>
 <li>For more information about installing SharePoint, go to <a href="http://technet.microsoft.com/en-us/library/cc262839.aspx">Install SharePoint Server 2010 by Using Windows PowerShell</a> or <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.</li>
-<li>For more information about installing SQL Server, go to <a href="http://msdn.microsoft.com/en-us/library/ee210664.aspx">Install SQL Server using SysPrep</a>.</li>
+<li>For more information about installing SQL Server, go to <a href="http://msdn.microsoft.com/library/ee210664.aspx">Install SQL Server using SysPrep</a>.</li>
 <li>Refer to the hands-on lab for creating and configuring SQL Server 2012 for a SharePoint farm deployment: <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint">Configuring SQL Server 2012 for SharePoint in Azure</a>.</li>
 <li>Refer to the hands-on lab for creating a SharePoint farm by configuring Active Directory and using a single SQL Server database: <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Deploying a SharePoint Farm with Azure Virtual Machines</a>.</li>
 </ul>
@@ -457,7 +457,7 @@ To implement a completely customized SharePoint website on Azure, an organizatio
 The following steps show how to create a customized SharePoint farm environment from prebuilt images available in the image library. Note, however, that you also can upload SharePoint farm VMs to the image library, and authorized users can choose those VMs to build the required SharePoint farm on Azure.
 
 <ol>
-<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Azure Virtual Machines</a>. To deploy Active Directory in Azure:</em>
+<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Azure Virtual Machines</a>. To deploy Active Directory in Azure:</em>
 <ul>
 <li>Define and create a virtual network where the VMs can be assigned to specific subnets. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configure Virtual Networking</a>.</li>
 <li>Use the Management Portal to create and deploy the domain controller on a new VM on Azure. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Deploying and Creating the Domain Controller</a>.
@@ -471,13 +471,13 @@ The following steps show how to create a customized SharePoint farm environment 
 <li><em>Deploy SQL Server</em>:
 <ul>
 <li>Use the Management Portal to provision a new VM from a stock image in the image library.</li>
-<li>Configure SQL Server on the VM. For more information, go to <a href="http://msdn.microsoft.com/en-us/library/ee210664.aspx">Install SQL Server Using SysPrep</a>.</li>
+<li>Configure SQL Server on the VM. For more information, go to <a href="http://msdn.microsoft.com/library/ee210664.aspx">Install SQL Server Using SysPrep</a>.</li>
 <li>Join the VM to the newly created Active Directory domain.</li>
 </ul>
 </li>
 <li><em>Deploy a multiserver SharePoint farm</em>:
 <ul>
-<li>Create a virtual network. For more information, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx">Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>.
+<li>Create a virtual network. For more information, go to <a href="http://msdn.microsoft.com/library/windowsazure/jj156007.aspx">Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>.
 <ul>
 <li>When deploying the SharePoint VMs, you need subnets provided for SharePoint Server so that the DNS addresses in the local Active Directory box are available during provisioning.</li>
 </ul>
@@ -520,11 +520,11 @@ Successful deployment of SharePoint Server on Azure Virtual Machines requires so
 </li>
 <li>
 <p>Getting Started with Azure PowerShell</p>
-<p><a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156055">http://msdn.microsoft.com/en-us/library/windowsazure/jj156055</a></p>
+<p><a href="http://msdn.microsoft.com/library/windowsazure/jj156055">http://msdn.microsoft.com/library/windowsazure/jj156055</a></p>
 </li>
 <li>
 <p>Azure Management Cmdlets</p>
-<p><a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152841">http://msdn.microsoft.com/en-us/library/windowsazure/jj152841</a></p>
+<p><a href="http://msdn.microsoft.com/library/windowsazure/jj152841">http://msdn.microsoft.com/library/windowsazure/jj152841</a></p>
 </li>
 <li>
 <p>Command-line Tools and PowerShell Cmdlets for Different Operating Systems</p>

@@ -30,20 +30,20 @@ See [Restore a deleted Azure SQL database in Azure portal](/en-us/documentation/
 
 ## How to: Restore a deleted Azure SQL database using REST API
 
-1.	List all of your restorable deleted databases by using the [List Restorable Dropped Databases](http://msdn.microsoft.com/en-us/library/azure/dn509562.aspx) operation.
+1.	List all of your restorable deleted databases by using the [List Restorable Dropped Databases](http://msdn.microsoft.com/library/azure/dn509562.aspx) operation.
 	
-2.	Get the details for the deleted database you want to restore by using the [Get Restorable Dropped Database](http://msdn.microsoft.com/en-us/library/azure/dn509574.aspx) operation.
+2.	Get the details for the deleted database you want to restore by using the [Get Restorable Dropped Database](http://msdn.microsoft.com/library/azure/dn509574.aspx) operation.
 
-3.	Begin your restore by using the [Create Database Restore Request](http://msdn.microsoft.com/en-us/library/azure/dn509571.aspx) operation.
+3.	Begin your restore by using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
 	
-4.	Track the status of your restore by using the [Database Operation Status](http://msdn.microsoft.com/en-us/library/azure/dn720371.aspx) operation.
+4.	Track the status of your restore by using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
 
 ## Next steps
 
 For more information, see the following:
 
-[Azure SQL Database Business Continuity](http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx)
+[Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
-[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/en-us/library/azure/jj650016.aspx)
+[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-[Service Management REST API Reference](http://msdn.microsoft.com/en-us/library/azure/ee460799.aspx)
+[Service Management REST API Reference](http://msdn.microsoft.com/library/azure/ee460799.aspx)

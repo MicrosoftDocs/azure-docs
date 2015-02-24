@@ -65,7 +65,7 @@ In the following steps, you will:
     information on available virtual machine sizes and the number of
     data disks that you can attach to a virtual machine, see [Virtual
     Machine Sizes for
-    Azure](http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/).
+    Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/).
 
     Click the next arrow on the bottom right to continue.
 
@@ -246,7 +246,7 @@ directly from your SQL Server VM databases in the
 To connect to the Database Engine from another computer, you must create
 at least one SQL Server authentication login.  
 
-> [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).  
+> [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).  
 	
     USE master
     go
