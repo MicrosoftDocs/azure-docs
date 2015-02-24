@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Create a Node.js website on Mac - Azure tutorials" 
 	description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="nodejs" 
 	authors="blackmist" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="web-apps" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
@@ -21,9 +21,9 @@
 
 
 
-# Build and deploy a Node.js website to Azure
+# Build and deploy a Node.js web app to Azure
 
-This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to an Azure Website using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
+This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to an Azure web app using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
 If you prefer to watch this tutorial as a video, the following clip shows similiar steps:
 [AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
@@ -32,9 +32,9 @@ A screenshot of the completed application is below:
 
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
 
-##Create an Azure Website and enable Git publishing
+##Create an Azure Web app and enable Git publishing
 
-Follow these steps to create an Azure Website, and then enable Git publishing for the website.
+Follow these steps to create an Azure Web app, and then enable Git publishing for the website.
 
 > [AZURE.NOTE]
 > To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
