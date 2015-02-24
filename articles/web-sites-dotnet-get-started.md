@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Get started with Azure Web Apps for ASP.NET" 
-	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." 
+	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Web App. In less than 15 minutes you'll have an app up and running in the cloud." 
 	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -29,15 +29,15 @@ You'll learn:
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio ASP.NET web project and deploy it to an Azure Web app.
 * How to make a change to the web project and redeploy the application.
-* How to use the Azure Management Portal to monitor and manage your website.
+* How to use the Azure Management Portal to monitor and manage your web app.
 
 You need an Azure account to complete this tutorial:
 
-* You can [open an Azure account for free](/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
+* You can [open an Azure account for free](/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 * You can [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
 
 > [AZURE.NOTE]
-> If you want to get started with Azure Web apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites.
+> If you want to get started with Azure Web apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter app in Azure Web Apps.
 
 The following illustration shows the completed application:
 
@@ -71,7 +71,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template. If you prefer to work with ASP.NET Web Forms, you can select the **Web Forms** template. 
 
-	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for developing websites. For this tutorial you can choose either one, but if you choose Web Forms, you'll have to edit *Default.aspx* later where the tutorial instructs you to edit *Index.cshtml*.
+	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for developing web apps. For this tutorial you can choose either one, but if you choose Web Forms, you'll have to edit *Default.aspx* later where the tutorial instructs you to edit *Index.cshtml*.
 
 7. Click **Change Authentication**. 
 
@@ -87,7 +87,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
-	The default settings specify that Visual Studio will create an Azure Web app for your web project. In the next section of the tutorial you'll deploy the web project to the newly created website.
+	The default settings specify that Visual Studio will create an Azure Web app for your web project. In the next section of the tutorial you'll deploy the web project to the newly created web app.
 
 	(The check box caption might be **Host in the cloud** or **Create remote resources**. In either case the effect is the same.)
 	
