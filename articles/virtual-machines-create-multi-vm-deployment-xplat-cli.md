@@ -22,7 +22,7 @@ The following script will show you how to configure a multi-VM multi-cloud servi
 
 The image below explains how your deployment will look after the script completes:
 
-![](/media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
+![](media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
 The script creates one VM (**servervm**) in cloud service **servercs** with two data disks attached and two VMs (**clientvm1, clientvm2**) in the cloud service **workercs**. Both the cloud services are placed in the VNET **samplevnet**. The **servercs** cloud service also has an endpoint configured for external connectivity.
 
