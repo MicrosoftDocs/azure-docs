@@ -53,7 +53,7 @@ When you click **Try it out!**, the API method will be called directly from the 
 
 2. Open Visual Studio **Server Explorer**. 
 
-3. In **Server Explorer**, you'll see the **API Apps** node underneath the top-level **Azure** node. Right-click the individual API App you want to debug, and select the **Attach Debugger** context menu item. The debugger attach process will provide status as it attaches. The process may take a few seconds to complete. 
+3. In **Server Explorer**, you'll see the **App Service** node underneath the top-level **Azure** node. Expand that node and you'll see resource groups under it.  Expand the node for the resource group that you created, and then right-click the individual API App you want to debug, and select the **Attach Debugger** context menu item. The debugger attach process will provide status as it attaches. The process may take a few seconds to complete. If the attach process fails the first time you try it, try again.
 
 	![API App Attach Debugger context menu option](./media/app-service-dotnet-remotely-debug-api-app/42-attach-debugger.png)
 
