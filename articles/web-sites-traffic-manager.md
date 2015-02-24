@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" 
 	description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -17,7 +17,7 @@
 	ms.date="11/24/2014" 
 	ms.author="cephalin"/>
 
-# Controlling Azure Websites Traffic with Azure Traffic Manager
+# Controlling Azure Web app Traffic with Azure Traffic Manager
 
 > [AZURE.NOTE] This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure Websites. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.
 
