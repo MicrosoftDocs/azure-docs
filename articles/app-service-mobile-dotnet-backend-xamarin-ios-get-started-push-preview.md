@@ -18,7 +18,7 @@
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-xamarin-preview](../includes/app-service-mobile-selector-get-started-push-xamarin-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
 <p>This topic shows you how to use Azure App Service to send push notifications to a Xamarin.iOS 8 app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the [Get started with App Service mobile apps] project. When complete, your mobile backend will send a push notification each time a record is inserted.</p>
 

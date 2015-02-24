@@ -17,9 +17,9 @@
 	ms.author="yuaxu"/>
 
 
-# Add push notifications to your Mobile Services app
+# Add push notifications to your Mobile App
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-xamarin-preview](../includes/app-service-mobile-selector-get-started-push-xamarin-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
 This topic shows you how to use Azure App Service to send push notifications to an iOS app with Apple Push Notification service (APNS). On completion, your .NET backend will send a push notification to your QuickStart ToDo app each time a record is inserted.
 
@@ -31,10 +31,10 @@ This tutorial walks you through these basic steps to enable push notifications:
 3. [Create a provisioning profile for the app]
 4. [Configure App Service Mobile to send push requests]
 5. [Update the server to send push notifications](#update-server)
-6. [Publish the mobile service to Azure]
+6. [Publish the mobile backend to Azure]
 7. [Add push notifications to the app]
 8. [Enable push notifications for local testing](#local-testing)
-9. [Test the app against the published mobile service]
+9. [Test the app against the published mobile backend]
 
 This tutorial requires the following:
 
@@ -63,7 +63,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 2. Search for **WindowsAzure.ServiceBus** and click **Install** for all projects in the solution.
 
-3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
+3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
 		using System;
 		using System.Collections.Generic;
@@ -200,11 +200,11 @@ This tutorial demonstrated the basics of enabling an iOS app to use App Service 
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push
 [Insert data to receive notifications]: #test
-[Test the app against the published mobile service]: #test-app
+[Test the app against the published mobile backend]: #test-app
 [Next Steps]:#next-steps
 [Download the service locally]: #download-the-service-locally
-[Test the mobile service]: #test-the-service
-[Publish the mobile service to Azure]: #publish-mobile-service
+[Test the mobile backend]: #test-the-service
+[Publish the mobile backend to Azure]: #publish-mobile-service
 
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
