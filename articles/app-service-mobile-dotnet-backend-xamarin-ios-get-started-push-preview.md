@@ -355,7 +355,7 @@ You have successfully completed this tutorial.
 
 <!-- Images. -->
 
-[24]: ./media/app-service-mobile-ios-get-started-push-preview/app-service-mobile-quickstart-push2-ios-preview.png
+[24]: ./media/mobile-services-ios-get-started-push/mobile-services-quickstart-push2-ios.png
 [Get started with App Service mobile apps]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview
 
 [5]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
