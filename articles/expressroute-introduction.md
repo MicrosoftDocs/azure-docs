@@ -1,15 +1,20 @@
-<tags 
-   pageTitle="Introduction to Expressroute"
-   description="This page provides an overview of the ExpressRoute service. "
+<properties
+   pageTitle="Introduction to ExpressRoute"
+   description="This page provides an overview of the ExpressRoute service."
    services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/21/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
+   
 #  ExpressRoute Technical Overview
 
 Microsoft Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Azure at an ExpressRoute partner co-location facility, or directly connect to Azure from your existing WAN network (such as a MPLS VPN provided by a network service provider). Use ExpressRoute to extend your network to Azure and unlock hybrid IT scenarios.
