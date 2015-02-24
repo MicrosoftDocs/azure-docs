@@ -16,7 +16,7 @@
 	ms.date="02/22/2015" 
 	ms.author="yuaxu"/>
 
-# Add push notifications to your Mobile Services app
+# Add push notifications to your Mobile App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
