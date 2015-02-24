@@ -1,3 +1,4 @@
+
 ##<a name="storage-client-server"></a>Install the storage client in the mobile service project
 
 To be able to generate an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library in the mobile service project. 
@@ -35,12 +36,8 @@ The existing **TodoItemController** is updated so that the **PostTodoItem** meth
 
 1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
-
 2. Make a note of the **Storage Account Name** and **Access Key**.
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
-
+ 
 3. In your mobile service, click the **Configure** tab, scroll down to **App settings** and enter a **Name** and **Value** pair for each of the following that you obtained from the storage account, then click **Save**.
 
 	+ `STORAGE_ACCOUNT_NAME`

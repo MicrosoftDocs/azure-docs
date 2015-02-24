@@ -12,18 +12,12 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/15/2014" 
+	ms.date="02/25/2015" 
 	ms.author="glenga"/>
 
 # Supporting multiple device platforms from a single mobile service
  
-One of the major benefits of using Azure Mobile Services in your mobile app development is the ability to use a single backend service that supports your app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms, which makes it easier to develop apps using a single backend service and by using cross-platform developer tools. This topic discusses the following considerations for getting your app running on multiple client platforms while using a single mobile service backend:
-
-+ [Cross-platform push notifications](#push)
-+ [Cross-platform app development](#xplat-app-dev)
-+ [Sharing code in Visual Studio projects](#shared-vs)
-
-For more general information about Mobile Services, see the [Mobile Services developer center](/en-us/documentation/services/mobile-services/).
+One of the major benefits of using Azure Mobile Services in your mobile app development is the ability to use a single backend service that supports your app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms, which makes it easier to develop apps using a single backend service and by using cross-platform developer tools. This topic discusses considerations for getting your app running on multiple client platforms while using a single mobile service backend. For more general information about Mobile Services, see the [Mobile Services developer center](/en-us/documentation/services/mobile-services/).
 
 ##<a id="push"></a>Cross-platform push notifications
 
