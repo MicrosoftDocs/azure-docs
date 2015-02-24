@@ -1,14 +1,14 @@
 <properties 
-	pageTitle="Get started with Azure Websites for ASP.NET" 
+	pageTitle="Get started with Azure Web Apps for ASP.NET" 
 	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="web-apps" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -16,7 +16,7 @@
 	ms.date="11/12/2014" 
 	ms.author="tdykstra"/>
 
-# Get started with Azure Websites and ASP.NET
+# Get started with Azure Web Apps and ASP.NET
 
 [AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
