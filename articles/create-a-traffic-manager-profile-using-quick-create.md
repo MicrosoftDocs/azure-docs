@@ -1,14 +1,18 @@
-<tags 
-   pageTitle="Create a Traffic Manager profile using quick create"
-   description="How to create a Traffic Manager profile"
+<properties
+   pageTitle="Create a Traffic Manager profile by using Quick Create"
+   description="This article will help you create a Traffic Manager profile that you can then configure."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Create a Traffic Manager Profile Using Quick Create
