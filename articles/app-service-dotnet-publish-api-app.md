@@ -76,4 +76,4 @@ This is the second tutorial in a series of four:
 
 At this point the API has been published into the Gallery and can be installed or deployed by users from the Azure portal. 
 
-In the meantime, you may have other development you need to do, tests you'd like to run, or additional features to add. To make your live testing easier, Visual Studio also provides the functionality for deploying directly to existing API Apps in your subscription, or to provision new API Apps. The [next tutorial](../app-service-dotnet-create-api-app/) covers direct provisioning and deployment of your API Apps using Visual Studio. 
+In the meantime, you may have other development you need to do, tests you'd like to run, or additional features to add. To make your live testing easier, Visual Studio also provides the functionality for deploying directly to existing API Apps in your subscription, or to provision new API Apps. The [next tutorial](../app-service-dotnet-deploy-api-app/) covers direct provisioning and deployment of your API Apps using Visual Studio. 
