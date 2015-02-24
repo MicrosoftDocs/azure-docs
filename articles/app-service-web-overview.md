@@ -24,7 +24,7 @@ Web Apps in Azure App Service is part of a new paradigm which allows you to buil
 
 Web Apps in Azure App Service focuses on building web applications. It is a fully featured managed web applications platform, which can easily be integrated with any other Azure component. 
 
-## Types of web apps ## 
+## Types of web apps ##
 
 There are three main types of web apps. The easiest way to get started is by using one of the many CMS templates that are found in our application gallery. Therein you will find popular applications, such as, WordPress, Orchard, Joomla, Umbraco, and many more. If you want to bring your coding expertise to Azure, we offer a plethora of development frameworks, including .NET, Java, Node.js, Python, and PHP. Finally, you can use this scalable platform to run background processing without a Web front-end.
 
@@ -46,7 +46,7 @@ You can also geo-scale with Azure Traffic Manager. You can integrate with Azure 
  
 Web Apps can also help scale your on-premises resources by connecting them to an Azure Virtual Network with a VPN gateway to your on-premises network.
 
-## Shape your application ## 
+## Shape your application ##
 
 Depending on your need, whether it is a website or generic compute process, Web Apps can make building your application easier and faster. App Service Web Apps brings true enterprise grade services to your fingertips.
 
