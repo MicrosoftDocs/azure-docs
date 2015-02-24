@@ -23,9 +23,9 @@
 This is the first tutorial in a series of four:
 
 1. In this tutorial you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
-* In [Publish an API App](../app-service-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
-* In [Deploy an API App](../app-service-create-api-app/) you deploy the API app you created to your Azure subscription.
-* In [Debug an API App](../app-service-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
+* In [Publish an API App](../app-service-dotnet-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
+* In [Deploy an API App](../app-service-dotnet-create-api-app/) you deploy the API app you created to your Azure subscription.
+* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Create Your First Azure API App 
 
@@ -116,4 +116,4 @@ This is the first tutorial in a series of four:
 
 ## Next Steps
 
-At this point your Web API project has everything it needs to be published into the Azure API Apps Marketplace or to be directly deployed and hosted as an Azure API App by the Azure App Service. The [next tutorial](../app-service-create-api-app/) shows how to publishing your API App into the Azure API App Marketplace.
+At this point your Web API project has everything it needs to be published into the Azure API Apps Marketplace or to be directly deployed and hosted as an Azure API App by the Azure App Service. The [next tutorial](../app-service-dotnet-create-api-app/) shows how to publishing your API App into the Azure API App Marketplace.
