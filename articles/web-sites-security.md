@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Securing an Azure Website." 
 	description="Learn how to secure an Azure Website." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -17,7 +17,7 @@
 	ms.author="cephalin"/>
 
 
-#Securing a web application in an Azure Website
+#Securing a web application in an Azure Web App
 
 One of the challenges of developing a web application is how to provide a safe and secure service for your customers. In this article, you will learn about features of Azure Websites that can secure your web application.
 
