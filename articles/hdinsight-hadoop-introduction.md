@@ -180,7 +180,7 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 ### HDInsight on Windows
 
-* [HDInsight documentation](../documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight documentation](http://azure.microsoft.com/en-us/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
 * [Learning map for HDInsight](../hdinsight-learn-map): A guided tour of Hadoop documentation for HDInsight.
 

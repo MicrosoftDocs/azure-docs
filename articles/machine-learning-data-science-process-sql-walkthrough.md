@@ -71,7 +71,7 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/)
+1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/)
 
 2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
 
