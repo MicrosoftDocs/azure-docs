@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Websites Backups" 
+	pageTitle="Azure Web Apps Backups" 
 	description="Learn how to create backups of your Azure websites." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -16,9 +16,9 @@
 	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
-#Azure Websites Backups
+#Azure Web Apps Backups
 
-The Azure Websites Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your website to a previous state, or create a new website based on one of your original site's backups. 
+The Azure Web apps Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original site's backups. 
 
 
 For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
