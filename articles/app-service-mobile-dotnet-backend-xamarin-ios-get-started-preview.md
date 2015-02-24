@@ -12,9 +12,9 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm=""
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="02/19/2015"
-	ms.author="mahender"/>
+	ms.topic="hero-article"
+	ms.date="02/24/2015"
+	ms.author="chrande"/>
 
 
 # <a name="getting-started"> </a>Get started with your mobile app (Xamarin iOS)
