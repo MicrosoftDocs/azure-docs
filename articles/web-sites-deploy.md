@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to deploy an Azure Website" 
 	description="Learn what methods are available for deploying content to an Azure Website." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -16,16 +16,16 @@
 	ms.date="01/07/2015" 
 	ms.author="tdykstra"/>
 
-#How to Deploy an Azure Website
+#How to Deploy an Azure web app
 
 ## Overview
 
-You have many options for deploying your own content to an Azure Website. This topic provides a brief overview of each option and links to more information.
+You have many options for deploying your own content to an Azure web app. This topic provides a brief overview of each option and links to more information.
 
 
 ###<a name="cloud"></a>Deploy from a cloud-hosted source control system
 
-The best way to deploy a website is to set up a [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrated with your [source control system](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable. 
+The best way to deploy a web app is to set up a [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrated with your [source control system](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable. 
 
 If you don't have source control set up yet, the easiest way to get started is to use a cloud-hosted source control system.
 
