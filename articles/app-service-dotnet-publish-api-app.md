@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Publish an Azure API App" 
 	description="Learn how to publish an Azure API App to the Azure API Apps Gallery using Visual Studio." 
-	services="app-service" 
+	services="app-service-api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-api" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
