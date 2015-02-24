@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade SQL Database Web/Business Databases to New Service Tiers" 
-	description="Upgrade Azure SQL Database Web or Business database to the new Azure SQL Database service tiers/performance levels." 
+	pageTitle="Upgrade SQL Database Web or Business Databases to New Service Tiers" 
+	description="Upgrade Azure SQL Database Web or Business database to the new Azure SQL Database service tiers/performance levels. Upgrade SQL Database, Change Service Tiers, Change Performance Level." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="jenniehubbard" 
@@ -9,10 +9,10 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.date="2/10/2015" 
-	ms.author="jhubbard" 
-	ms.workload="" 
-	ms.topic="" 
+	ms.date="2/23/2015" 
+	ms.author="jhubbard; v-stste@microsoft.com" 
+	ms.workload="data-services" 
+	ms.topic="article" 
 	ms.tgt_pltfrm=""/>
 
 

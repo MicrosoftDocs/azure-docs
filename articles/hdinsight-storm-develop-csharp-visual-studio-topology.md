@@ -533,7 +533,9 @@ To view errors that have occurred in a running topology, use the following steps
 
 ##Next steps
 
-Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn about other ways to work with HDInsight.
+Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, discover more information about getting started creating C# applications by visiting [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+
+For more ways to work with HDInsight, or more Storm on HDinsight samples, see the following.
 
 **Apache Storm on HDInsight**
 
@@ -542,6 +544,8 @@ Now that you have learned how to develop and deploy Storm topologies from the HD
 * [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
 
 * [Trending hashtags for Twitter with Apache Storm on HDInsight](../hdinsight-storm-twitter-trending/)
+
+* [Storm on HDInsight examples](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop on HDInsight**
 

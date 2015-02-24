@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [February 2015 Release](#february_changes_15)
 - [January 2015 Release](#january_changes_15)
 - [December 2014 Release](#december_changes_14)
 - [November 2014 Release](#november_changes_14)
@@ -66,6 +67,12 @@ These release notes summarize changes from previous releases and known issues.
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="february_changes_15"></a>February 2015 Release
+
+### General Media Services Updates
+
+Media Services REST API is now version 2.9. Starting with this version, you can enable the Azure CDN integration with streaming endpoints. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/dn783468.aspx).
 
 ##<a id="january_changes_15"></a>January 2015 Release
 

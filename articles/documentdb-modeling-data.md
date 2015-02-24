@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Modelling data in Azure DocumentDB" 
-	description="Learn how to model data for a NoSQL document database like Azure DocumentDB" 
+	pageTitle="Modeling data in Azure DocumentDB" 
+	description="Learn how to model data for a NoSQL document database like Azure DocumentDB." 
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="02/23/2015" 
 	ms.author="ryancraw"/>
 
 #Modeling data in DocumentDB#
@@ -32,7 +32,7 @@ After reading this article, you will be able to answer the following questions:
 ##Embedding data##
 When you start modeling data in a document store, such as DocumentDB, try to treat your entities as **self-contained documents** represented in JSON.
 
-Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with. 
+Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with. The following example shows how a person might be stored in a relational database. 
 
 ![Relational database model](./media/documentdb-modeling-data/relational-data-model.png)
 
@@ -72,15 +72,16 @@ Now let's take a look at how we would model the same data as a self-contained en
 	}
 
 Using the approach above we have now **denormalized** the person record where we **embedded** all the information relating to this person, such as their contact details and addresses, in to a single JSON document.
-In addition, because we're not confined to a fixed schema we have the flexibility to do things like having Contact Details of different shapes entirely. 
+In addition, because we're not confined to a fixed schema we have the flexibility to do things like having contact details of different shapes entirely. 
 
-Retrieving a complete person record from the database is now a single read operation against a single collection and for a single document. Updating a person record, with their contact details and addresses is also a single write operation against a single document.
+Retrieving a complete person record from the database is now a single read operation against a single collection and for a single document. Updating a person record, with their contact details and addresses, is also a single write operation against a single document.
 
 By denormalizing data, your application may need to issue fewer queries and updates to complete common operations. 
 
 ###When to embed
 
 In general, use embedded data models when:
+
 - There are **contains** relationships between entities.
 - There are **one-to-few** relationships between entities.
 - There is embedded data that **changes infrequently**.
@@ -91,9 +92,9 @@ In general, use embedded data models when:
 
 ###When not to embed
 
-While the rule of thumb in a document database is to denormalize everything and embed all data in to a single document this can lead to some situations which should be avoided.
+While the rule of thumb in a document database is to denormalize everything and embed all data in to a single document, this can lead to some situations that should be avoided.
 
-Take this JSON snippet;
+Take this JSON snippet.
 
 	{
 		"id": "1",
@@ -113,11 +114,11 @@ Take this JSON snippet;
 
 This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there is no (practical) limit to the number of comments any single post can have. This will become a problem as the size of the document could grow significantly.
 
-> [AZURE.TIP] Documents in DocumentDB have a maximum size. For more on this refer to [DocumentDB limits](../documentdb-limits.md)
+> [AZURE.TIP] Documents in DocumentDB have a maximum size. For more on this refer to [DocumentDB limits](../documentdb-limits).
 
 As the size of the document grows the ability to transmit the data over the wire as well as reading and updating the document, at scale, will be impacted.
 
-In this case it would be better to consider the following model;
+In this case it would be better to consider the following model.
 		
 	Post document:
 	{
@@ -150,11 +151,11 @@ In this case it would be better to consider the following model;
 		]
 	}
 
-This model has the 3 most recent comments embedded on the post itself, which is an array with a fixed bound this time. The other comments are batched in to batches of 100 comments and stored in separate documents. The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.  
+This model has the three most recent comments embedded on the post itself, which is an array with a fixed bound this time. The other comments are grouped in to batches of 100 comments and stored in separate documents. The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.  
 
 Another case where embedding data is not a good idea is when the embedded data is used often across documents and will change frequently. 
 
-Take this JSON snippet;
+Take this JSON snippet.
 
 	{
 	    "id": "1",
@@ -218,7 +219,7 @@ In the JSON below we chose to use the example of a stock portfolio from earlier 
     }
     
 
-An immediate downside to this approach though is if your application is required to show information about each stock that is held when displaying a person's portfolio; in this case you would need to make multiple trips to the database to load the information for each stock document.Here we've made a decision to improve the efficiency of write operations, which happen frequently throughout the day, but in turn compromised on the read operations that potentially have less impact on the performance of this particular system.
+An immediate downside to this approach though is if your application is required to show information about each stock that is held when displaying a person's portfolio; in this case you would need to make multiple trips to the database to load the information for each stock document. Here we've made a decision to improve the efficiency of write operations, which happen frequently throughout the day, but in turn compromised on the read operations that potentially have less impact on the performance of this particular system.
 
 > [AZURE.NOTE] Normalized data models **can require more round trips** to the server.
 
@@ -238,7 +239,7 @@ In general, use normalized data models when:
 ###Where do I put the relationship?
 The growth of the relationship will help determine in which document to store the reference.
 
-If we look at the JSON below that models publishers and books;
+If we look at the JSON below that models publishers and books.
 
 	Publisher document:
 	{
@@ -258,7 +259,7 @@ If we look at the JSON below that models publishers and books;
 
 If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher document may be useful. However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher document above. 
 
-Switching things around a bit would result in a model that still represents the same data but now avoids these large mutable collections
+Switching things around a bit would result in a model that still represents the same data but now avoids these large mutable collections.
 
 	Publisher document: 
 	{
@@ -304,7 +305,7 @@ You might be tempted to replicate the same thing using documents and produce a d
 This would work. However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database. One query to the joining document and then another query to fetch the actual document being joined. 
 
 If all this join table is doing is gluing together two pieces of data, then why not drop it completely?
-Consider the following;
+Consider the following.
 
 	Author documents:
 	{"id": 1, "name": "Thomas Andersen", "books": [1, 2, 3]}
@@ -325,7 +326,7 @@ It doesn't always have to be either or, don't be scared to mix things up a littl
 
 Based on your application's specific usage patterns and workloads there may be cases where mixing embedded and referenced data makes sense and could lead to simpler application logic with fewer server round trips while still maintaining a good level of performance.
 
-Consider the following JSON; 
+Consider the following JSON. 
 
 	Author documents: 
 	{
@@ -380,7 +381,7 @@ The ability to have a model with pre-calculated fields is made possible because 
 
 ##<a name="NextSteps"></a>Next steps
 
-The biggest takeaways from this article are to understand that data modeling in a schema-free world is just as important as ever. 
+The biggest takeaways from this article is to understand that data modeling in a schema-free world is just as important as ever. 
 
 Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily. 
 
@@ -388,6 +389,6 @@ To learn more about Azure DocumentDB, refer to the service’s [documentation]( 
 
 To learn about tuning indexes in Azure DocumentDB, refer to the article on [indexing policies](../documentdb-indexing-policies).
 
-To understand how to shard your data across multiple partitions, refer to []()
+To understand how to shard your data across multiple partitions, refer to [Partitioning Data in DocumentDB](../documentdb-partition-data). 
 
-And finally, for guidance on data modeling and sharding for multi-tenant applications, consult []()
+And finally, for guidance on data modeling and sharding for multi-tenant applications, consult [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).

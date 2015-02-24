@@ -1,14 +1,18 @@
-<tags 
-   pageTitle="Configure failover load balancing"
-   description="Failover load balancing in Traffic Manager"
+<properties
+   pageTitle="Configure Traffic Manager failover load balancing"
+   description="This article will help you configure failover load balancing for Traffic Manager."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Configure Failover Load Balancing

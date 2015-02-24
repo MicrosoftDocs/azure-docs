@@ -1,14 +1,18 @@
-<tags 
-   pageTitle="About Traffic Manager balancing methods"
-   description="Balacing methods used by Traffic Manager"
+<properties
+   pageTitle="About Traffic Manager load balancing methods"
+   description="This article will help you determine and set up the load balancing method for your Traffic Manager profile."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # About Traffic Manager Load Balancing Methods
