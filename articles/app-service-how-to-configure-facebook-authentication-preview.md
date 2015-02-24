@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to configure Facebook authentication for your App Services application 
+	pageTitle="How to configure Facebook authentication for your App Services application"
 	description="Learn how to configure Facebook authentication for your App Services application." 
 	services="app-services" 
 	documentationCenter="" 
