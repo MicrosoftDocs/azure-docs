@@ -58,7 +58,7 @@ In this section you will create a new universal Windows app that is connected to
 
 ## Test the app against the local mobile app backend
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-dotnet-preview](../includes/app-service-mobile-dotnet-backend-test-local-service-dotnet-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
 >[AZURE.NOTE]You can review the code that accesses your mobile app backend to query and insert data, which is found in the MainPage.xaml.cs file.
 
