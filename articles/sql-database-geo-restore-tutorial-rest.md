@@ -18,7 +18,9 @@
 
 # Recover an Azure SQL database using Geo-Restore with REST API
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-management-portal/" title="Geo-Restore - portal">Geo-Restore - portal</a><a href="/en-us/documentation/articles/sql-database-geo-restore-tutorial-powershell/" title="Geo-Restore - PowerShell">Geo-Restore - PowerShell</a></div>
+> [AZURE.SELECTOR]
+- [Geo-Restore - portal](/en-us/documentation/articles/sql-database-geo-restore-tutorial-management-portal/)
+- [Geo-Restore - PowerShell](/en-us/documentation/articles/sql-database-geo-restore-tutorial-powershell/)
 
 This guide shows you how to recover an Azure SQL database using REST API. Links to more detailed operations are provided. Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
 
