@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Integrate an Azure Website with Azure CDN" 
+	pageTitle="Integrate an Azure Web app with Azure CDN" 
 	description="A tutorial that teaches you how to deploy a website that serves content from an integrated Azure CDN endpoint" 
-	services="cdn, web-sites" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -17,13 +17,13 @@
 	ms.author="cephalin"/>
 
 <a name="intro"></a>
-# Integrate an Azure Website with Azure CDN #
+# Integrate an Azure web app with Azure CDN #
 
-Azure Websites can be integrated with [Azure CDN](http://azure.microsoft.com/en-us/services/cdn/), adding to the global scaling capabilities inherent in Azure Websites by serving your website content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx). This integration dramatically increases the performance of your Azure website and significantly improves the website's user experience worldwide. 
+Azure web apps can be integrated with [Azure CDN](http://azure.microsoft.com/en-us/services/cdn/), adding to the global scaling capabilities inherent in Azure Web apps by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx). This integration dramatically increases the performance of your Azure website and significantly improves the website's user experience worldwide. 
 
-Integrating Azure Websites with Azure CDN gives you the following advantages:
+Integrating Azure Web apps with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure website's [continuous deployment](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/) process
+- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure web app's [continuous deployment](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/) process
 - Easily upgrade the NuGet packages in your Azure website, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 - Integrate ASP.NET bundling and minification with Azure CDN
