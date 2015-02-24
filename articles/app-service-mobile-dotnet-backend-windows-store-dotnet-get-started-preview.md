@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure mobile app backends for Windows Store development in C#, VB, or JavaScript."
 	services="app-service-mobile"
 	documentationCenter="windows"
-	authors="ggailey777"
+	authors="christopheranderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="02/10/2015"
-	ms.author="glenga"/>
+	ms.author="chrande"/>
 
 
 # <a name="getting-started"> </a>Get started with your mobile app (Windows)
