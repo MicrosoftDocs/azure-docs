@@ -13,23 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # Get started with Azure API Management
 
 This guide shows you how to quickly get started using API Management and make your first API call.
-
-## In this topic
-
--	[Create an API Management instance][]
--	[Create an API][]
--	[Add an operation][]
--	[Add the new API to a product][]
--	[Subscribe to the product that contains the API][]
--	[Call an operation from the Developer Portal][]
--	[View analytics][]
--	[Next steps][]
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
 
