@@ -4,13 +4,13 @@ After testing the client app against the local mobile app, the final stage of th
 
 >[AZURE.NOTE] This procedure shows how to publish your mobile app backend by using Visual Studio tools. You can also publish your .NET backend by using source control.
 
-1. In Solution Explorer, right-click the mobile app project, click **Publish**, then in the **Publish Web** dialog box click **Microsoft Azure Websites**.
+1. Go to your **Mobile App** in the **Portal**, and look for the **Related** section for a **WEBSITE** which will be named like **code-microsoft-mobile**. Click on that part and it will show the **Website** blade which contains a link at the top called **Get Publish Profile**. Click that link and save it somewhere to access later.
 
-2. Sign in with your Azure account credentials, select your service from **Existing Websites**, and click **OK**. Visual Studio downloads your publish settings directly from Azure.
+ ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-profile.png)
 
- >[AZURE.NOTE] Your website name for your backend is code-microsoft-mobile<GUID>. Choose this name for your publish target.
+2. In Solution Explorer, right-click the mobile app project, click **Publish**, then in the **Publish Web** dialog box click **Import**. From there, select your file you just downloaded.
 
- ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-select.png)
+ ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-import.png)
 
 3. Click **Validate connection** to verify that publishing is correctly configured, then click **Publish**.
 
