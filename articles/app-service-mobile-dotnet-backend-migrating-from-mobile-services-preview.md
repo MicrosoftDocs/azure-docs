@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
@@ -49,9 +49,11 @@ The full set of steps for this migration is as follows:
 4. Delete your original Mobile Services instance
 
 ##<a name="mobile-app-version"></a>Setting up a Mobile App version of your application
-The first step in migrating is to create the App Service which will host the new version of your application. You can create a new Mobile App in the [Azure Management Portal]. You can consult the [Get Started with Mobile Apps] for further detail.
+The first step in migrating is to create the App Service which will host the new version of your application. You can create a new Mobile App in the [Preview Azure Management Portal]. You can consult the [Get Started with Mobile Apps] for further detail.
 
-Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. You should remove the Mobile Services NuGet project from your existing project and instead include the Server SDK. You may need to modify some using statements, with which Visual Studio will assist. The main item that one may find missing from the Server SDK is a PushRegistrationHandler class. Registrations are not handled by the code site, but instead provided by the Mobile App resource. However, tag registrations still are and need to be supported explicitly. Please see the [Register for notifications] topic for more information.
+You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values from the **Configure** tab of the Mobile Services section of the [Current Azure Management Portal]. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your Mobile App Code site and select **Settings**, **Application settings**, and add these connection strings, overwriting any existing values. You should additionally add these values to the Mobile App as well. To do this, navigate to the Mobile App blade, select **Settings** and then **Properties**. Select **Advanced Application Settings** and paste in the connection string as in the code site. Do not change other values as this could break Mobile App functionality. Please note that at the moment, the Mobile App blade will continue to show the existing connections even after this configuration step. Additional action may be required once the Mobile Apps experience has been updated.
+
+Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. You should remove the Mobile Services NuGet project from your existing project and instead include the Server SDK. You may need to modify some using statements, with which Visual Studio will assist. The main item that one may find missing from the Server SDK is a PushRegistrationHandler class. Registrations are not handled by the code site, but instead provided by the Mobile App resource. However, tag registrations still are and need to be supported explicitly. Please see the [How to work with push notifications] topic for more information.
 
 Scheduled jobs are not built into Mobile Apps, so any existing jobs that you have in your .NET backend will need to be migrated individually. One option is to create a scheduled [Web Job] on the Mobile App code site. You could also set up a controller that holds your job code and configure the [Azure Scheduler] to hit that endpoint on the expected schedule.
 
@@ -88,19 +90,20 @@ In the same update, you will need to adjust any push notification registration c
     var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     await MobileServices.GetPush().Register(channel.Uri); 
 
-Please see the [Get Started with Push] topics for details specific to your platform.
+Please see the [Get Started with Push] and [How to work with push notifications] topics for details specific to your platform.
 
 Once your customers have had a chance to receive these updates, you can delete the Mobile Services version. At this point, you have completely migrated to an App Service Mobile App.
 
 <!-- URLs. -->
 
-[Azure Management Portal]: https://portal.azure.com/
-[What are App Service Mobile Apps?]: https://azure.microsoft.com/
-[I already use web sites and mobile services – how does App Service help me?]: https://azure.microsoft.com/
+[Preview Azure Management Portal]: https://portal.azure.com/
+[Current Azure Management Portal]: https://manage.windowsazure.com/
+[What are App Service Mobile Apps?]: /en-us/documentation/articles/app-service-mobile-value-prop-preview
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [Mobile App Server SDK]:  https://azure.microsoft.com/
 [Get Started with Mobile Apps]: https://azure.microsoft.com/
 [Get Started with Push]: https://azure.microsoft.com/
 [Add authentication to your mobile app]: https://azure.microsoft.com/
 [Azure Scheduler]: http://azure.microsoft.com/en-us/documentation/services/scheduler/
-[Web Job]: http://azure.microsoft.com/en-us/documentation/articles/websites-webjobs-resources/
+[Web Job]: /en-us/documentation/articles/websites-webjobs-resources/
 [Register for notifications]: https://azure.microsoft.com/
