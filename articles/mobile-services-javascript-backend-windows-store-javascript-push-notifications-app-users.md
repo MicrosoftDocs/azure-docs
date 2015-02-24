@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Send push notifications to authenticated users
@@ -24,9 +24,9 @@ This topic shows you how to send push notifications to an authenticate user on a
 
 This tutorial walks you through the following process:
 
-+ [Updating the service to require authentication for registration]
-+ [Updating the app to log in before registration]
-+ [Testing the app]
+1. [Updating the service to require authentication for registration]
+2. [Updating the app to log in before registration]
+3. [Testing the app]
  
 This tutorial supports both Windows Store and Windows Phone Store apps.
 
