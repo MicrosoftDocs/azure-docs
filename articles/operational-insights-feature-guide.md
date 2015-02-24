@@ -26,7 +26,7 @@ Operational Insights is an analysis service that enables IT administrators to ga
 
 With Operational Insights, you can transform machine data into operational intelligence. Specifically, you can:
 
-- Send machine data to the system with or withot using an agent or in conjunction with Sysem Center Operations Manager.
+- Send machine data to the system with or withot using an agent or in conjunction with System Center Operations Manager.
 - Manage the capacity of your private cloud infrastructure
 - Check update status of your servers 
 - Understand relationships between data in server log files
@@ -35,6 +35,7 @@ With Operational Insights, you can transform machine data into operational intel
 - Track configuration changes across your servers
 - Optimize SQL Server and Active Directory
 - Search Event and IIS logs
+- Do all of the above on the go with the Mobile application
 
 <h2 id="">Operational Insights environment</h2>
 
