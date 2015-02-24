@@ -1,14 +1,18 @@
-<tags 
+<properties
    pageTitle="ExpressRoute Locations"
    description="This page provides a detailed overview of locations where services are offered and how to connect to Azure regions."
    services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="2/21/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 #ExpressRoute Service Locations
@@ -65,7 +69,7 @@ The table below provides a list of Network Service Providers and locations where
 
 Visit the [Network Service Providers page](../expressroute-network-service-providers) for more information on how to enable the service.
 
-## Connectivity through service providers not mentioned above
+## Connectivity through service providers that are not listed above
 If your network provider is not in the list above, you can still get connected to Azure. 
 
 - Check with your network provider to see if they are present in any of the Exchange locations listed above.
