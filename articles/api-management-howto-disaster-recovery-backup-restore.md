@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
@@ -22,11 +22,6 @@ By choosing to publish and manage your APIs via Azure API Management you are tak
 To recover from availability problems affecting the region where your API Management service is hosted you should be ready to reconstitute your service in a different region at any time. Depending on your availability goals and recovery time objective  you might want to reserve a backup service in one or more regions and try to maintain their configuration and content in sync with the active service. The service backup and restore feature provides the necessary building block for implementing your disaster recovery strategy.
 
 The service backup and restore feature is available via the Service Management REST API. See [Authenticating Azure Resource Manager requests][] for instructions on how to obtain access to the API.
-
-## In this topic
-
--   [Backup an API Management service][]
--   [Restore an API Management service][]
 
 ## <a name="step1"> </a>Backup an API Management service
 To backup an API Management service issue the following HTTP request:
