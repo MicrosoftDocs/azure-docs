@@ -49,7 +49,7 @@ This is the third tutorial in a series of four:
 
 	![Select Existing API Services dialog](./media/app-service-dotnet-deploy-api-app/23-publish-to-apiapps.png)
 
-5. For the **API Name**, provide the same name you used in the [Publish tutorial](../app-service-publish-api-app/).
+5. For the **API Name**, provide the same name you used in the [Publish tutorial](../app-service-dotnet-publish-api-app/).
 
 7. Enter a name for the **Resource Group**. This name must be unique; consider using the **API Name** as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
 
