@@ -19,16 +19,6 @@
 # Get started with Azure Data Factory
 This article helps you get started with using Azure Data Factory. The tutorial in this article shows you how to create an Azure data factory and create a pipeline in the data factory to copy sample data from an Azure blob storage to an Azure SQL database.
 
-The following list provides typical steps that developers need to perform: 
-
-1.	Create an **Azure data factory**.
-2.	Create **linked services** to link data stores (Azure Storage, Azure SQL Database, etc...) and compute services (Azure HDInsight cluster) to the data factory.  
-3.	Create **tables** that describe input data and output data for pipelines. Tables also specify actual location of data within the data stores linked to a data factory. For example, a table may specify the name of the SQL table in an Azure SQL database (or) a blob container in an Azure blob. 
-4.	Create **pipelines**. A pipeline consists of one or more activities that consumes input data and produces output data. A Copy activity copies data from a source data store to a destination data store and an HDInsight activity processes input data by using Hive/Pig scripts.  
-5.	Specify the **active period** for pipelines (for data processing). The active period defines the time duration in which data slices will be produced.You can specify start date-time and end date-time for a pipeline (or) you can have it run all the time.
-
-In this tutorial, you will use the **Azure Preview Portal** to create an Azure data factory, linked services, tables and a pipeline. You will also use the portal to monitor the data factory you create. 
-
 
 ##Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -437,7 +427,7 @@ Article | Description
 [copy-activity]: ../data-factory-copy-activity/
 [troubleshoot]: ../data-factory-troubleshoot
 [data-factory-introduction]: ../data-factory-introduction
-[data-factory-create-storage]: ../storage-whatis-account
+[data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [data-factory-create-sql-database]: ../sql-database-create-configure/
 
 
