@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
@@ -52,7 +52,7 @@ In this section, you will modify the app to display a login screen before displa
 
 1. In the client project, open the file **QSTodoService.cs** and add the following declarations to QSTodoService:
 
-		// Mobile Service logged in user
+		// Logged in user
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
