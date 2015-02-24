@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2014" 
+	ms.date="02/25/2015" 
 	ms.author="glenga"/>
 
 
@@ -24,8 +24,6 @@
 This topic shows you how to use Azure Mobile Services with a JavaScript backend to send push notifications to a universal Windows app. In this tutorial you enable push notifications using Azure Notification Hubs in a universal Windows app project. When complete, your mobile service will send a push notification from the JavaScript backend to all registered Windows Store and Windows Phone Store apps each time a record is inserted in the TodoList table. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
 >[AZURE.NOTE]This topic shows you how to use the tooling in Visual Studio 2013 with Update 3 to add support for push notifications from Mobile Services to a universal Windows app. The same steps can be used to add push notifications from Mobile Services to a Windows Store or Windows Phone Store 8.1 app. To add push notifications to a Windows Phone 8 or Windows Phone Silverlight 8.1 app, see this version of [Get started with push notifications in Mobile Services](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
-
-> If you cannot upgrade to Visual Studio 2013 Update 3 or you prefer to manually add your mobile service project to a Windows Store app solution, see [this version](/en-us/documentation/articles/mobile-services-javscript-backend-windows-store-dotnet-get-started-push) of the topic.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -64,21 +62,27 @@ The following steps update the insert script registered to the TodoItem table. Y
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
+This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
+
++ [Send push notifications to authenticated users](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/)
+	<br/>Learn how to use tags to send push notifications from your mobile service to only an authenticated user.
+
++ [Send broadcast notifications to subscribers](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/)
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+
++ [Send platform-agnostic notifications to subscribers](/en-us/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/)
+	<br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Get started with data]
-  <br/>Learn more about storing and querying data using mobile services.
+* [Azure Notification Hubs - Diagnosis guidelines](/en-us/documentation/articles/notification-hubs-diagnosing/)
+	<br/>Learn how to troubleshoot your push notification issues.
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
 * [What are Notification Hubs?]
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
-
-* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
 
 * [How to use a .NET client for Azure Mobile Services]
   <br/>Learn more about how to use Mobile Services from C# Windows apps.

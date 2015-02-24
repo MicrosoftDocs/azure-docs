@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2014" 
+	ms.date="02/23/2015" 
 	ms.author="mwasson"/>
 
 # Manage an Azure website

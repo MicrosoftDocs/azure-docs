@@ -14,27 +14,23 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 # Add push notifications to your Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
+##Overview
+
 This topic shows you how to use Azure Mobile Services with a .NET backend to send push notifications to a Windows Phone Silverlight 8 app. In this tutorial you enable push notifications using Windows Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
-This tutorial walks you through these basic steps to enable push notifications:
-
-1. [Update the app to register for notifications](#update-app)
-3. [Update the server to send push notifications](#update-server)
-4. [Enable push notifications for local testing](#local-testing)
-3. [Insert data to receive push notifications](#test)
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Add Mobile Services to an existing app] to connect your project to the mobile service.
 
 >[AZURE.NOTE]This tutorial targets Windows Phone 8.1 "Silverlight" apps. If you are instead building a Windows Phone 8.1 Store app, see the [Windows Store app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) version of this tutorial. For information on Windows Phone Silverlight apps and how they compare with Windows Phone Store apps, see [Windows Phone Silverlight 8.1 apps]. 
 
-##<a id="update-app"></a> Update the app to register for notifications
+##Update the app to register for notifications
 
 Before your app can receive push notifications, you must register a notification channel.
 
@@ -111,7 +107,7 @@ Before your app can receive push notifications, you must register a notification
 
    	This makes sure that your app can raise toast notifications. 
 
-##<a id="update-server"></a> Update the server to send push notifications
+##Update the server to send push notifications
 
 1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs and update the `PostTodoItem` method definition with the following code:  
 
@@ -150,12 +146,12 @@ Before your app can receive push notifications, you must register a notification
 
 This enables the mobile service to connect to MPNS in unauthenticated mode to send push notifications.
 
-##<a id="local-testing"></a> Enable push notifications for local testing
+##Enable push notifications for local testing
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 
-##<a id="test"></a> Test push notifications in your app
+##Test push notifications in your app
 
 1. In Visual Studio, press the F5 key to run the app.
 
@@ -171,7 +167,7 @@ This enables the mobile service to connect to MPNS in unauthenticated mode to se
 
 	>[AZURE.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx) event.
 
-## <a name="next-steps">Next steps</a>
+##Next steps
 
 This tutorial demonstrated the basics of enabling a Windows Phone app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
@@ -198,7 +194,7 @@ Consider finding out more about the following Mobile Services and Notification H
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
 
-<!-- Anchors. -->
+
 
 <!-- Images. -->
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="02/23/2015" 
 	ms.author="mwasson"/>
 
 #<a name="howtomanage"></a> Manage websites through the Azure Management Portal
