@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Enterprise Multichannel Apps" 
 	description="Overview of how a multichannel app spans on-premises resources and cloud based software services." 
-	services="web-sites" 
+	services="app-service" 
 	documentationCenter="na" 
 	authors="stefsch" 
 	writer="tdykstra" 
@@ -9,13 +9,15 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/23/2015" 
 	ms.author="stefsch"/>
+
+# Create multi-channel applications for the enterprise
 
 ## Overview
 
