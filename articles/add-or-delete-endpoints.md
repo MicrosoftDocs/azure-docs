@@ -1,14 +1,18 @@
-<tags 
+<properties 
    pageTitle="Add or delete endpoints"
-   description="Add and delete endpoints in Traffic Manager"
+   description="This article will help you add and remove endpoints from Traffic Manager."
    services="traffic-manager"
+   documentationCenter=""
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Add or Delete Endpoints
