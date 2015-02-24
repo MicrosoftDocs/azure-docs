@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Troubleshooting Azure Websites in Visual Studio" 
 	description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -16,7 +16,7 @@
 	ms.date="11/13/2014" 
 	ms.author="tdykstra"/>
 
-# Troubleshooting Azure Websites in Visual Studio
+# Troubleshooting Azure Web Apps in Visual Studio
 
 [AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
