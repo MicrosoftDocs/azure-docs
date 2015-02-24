@@ -1,4 +1,4 @@
-<properties title="SQL Table data story" pageTitle="Move data to SQL Server on Azure| Azure" description="Move data to SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="SQL Table data story" pageTitle="Move data to SQL Server on Azure| Azure" description="Move data to SQL Server on Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="fashah" manager="paulettm" editor="" videoId="" scriptId="" />
 
 <tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="fashah,garye" /> 
 
