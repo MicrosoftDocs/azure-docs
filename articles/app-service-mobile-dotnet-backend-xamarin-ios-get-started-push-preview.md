@@ -337,8 +337,6 @@ Your app is now updated to support push notifications.
 
 2. In the app, type a task, and then click the plus (**+**) icon.
 
-    <!--![][24]-->
-
 3. Verify that a notification is received, then click **OK** to dismiss the notification.
 
 4. Repeat step 2 and immediately close the app, then verify that a notification is shown.
