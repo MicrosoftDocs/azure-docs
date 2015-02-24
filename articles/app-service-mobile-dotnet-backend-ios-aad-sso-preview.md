@@ -8,7 +8,7 @@ authors="mattchenderson"
 services="app-service-mobile" 
 manager="dwrede" />
 
-<tags ms.service="mobile-services"
+<tags ms.service="app-service"
 ms.workload="mobile"
 ms.tgt_pltfrm="mobile-ios" 
 ms.devlang="objective-c" 
