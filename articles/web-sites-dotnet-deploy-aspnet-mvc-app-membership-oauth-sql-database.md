@@ -21,6 +21,8 @@
 
 # Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Azure.
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Azure for free.

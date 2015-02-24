@@ -18,6 +18,8 @@
 
 # Get started with Azure Websites and ASP.NET
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 ## Overview
 
 This tutorial shows how to create an ASP.NET web application and deploy it to an Azure Website by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.

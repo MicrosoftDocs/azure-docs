@@ -22,6 +22,8 @@
 
 #Enable diagnostic logging for Azure Websites
 
+[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+
 Azure provides built-in diagnostics to assist with debugging an application hosted in Azure Websites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
 > [AZURE.NOTE] This article describes using the Azure Management Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).

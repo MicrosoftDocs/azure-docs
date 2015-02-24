@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
