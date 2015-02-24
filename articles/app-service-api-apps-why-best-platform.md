@@ -87,9 +87,9 @@ Azure App Service can take your existing API’s and give them all these advanta
 
 ## Next Steps
 
-For more information, see [The Azure Cloud Hosting Platform](../app-service-cloud-app-platform).
+For more information, see [The Azure Cloud Hosting Platform](../app-service-value-prop-what-is).
 
-To get started with Azure API apps, see [Create an API app](../app-service-create-api-app).
+To get started with Azure API apps, see [Create an API app](../app-service-dotnet-create-api-app).
 
 
 
