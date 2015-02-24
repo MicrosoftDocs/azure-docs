@@ -1,14 +1,18 @@
-<tags 
-   pageTitle="Configure round robin load balancing"
-   description="How to configure round robin load balancing in Traffic Manager"
+<properties
+   pageTitle="Configure Traffic Manager round robin load balancing"
+   description="This article will help you set up round robin load balancing for your Traffic Manager endpoints."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Configure Round Robin Load Balancing
