@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Operational Insights - Troubleshoot Agents or Operations Manager Data Flow" 
-	description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." 
+	description="Learn how to troubleshoot issues with directly-connected agents and Operations Manage data flow to Azure Operational Insights" 
 	services="operational-insights" 
 	documentationCenter="" 
 	authors="dani3l3" 
@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/20/2015" 
+	ms.date="2/23/2015" 
 	ms.author="dmuscett"/>
 
 
-#Troubleshoot Agents or Operations Manager Data Flow to Operational Insights
+#Troubleshoot agents or Operations Manager data flow to Operational Insights
 The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.
-
 
 ##Procedure 1: Validate if the right Management Packs get downloaded to your Operations Manager Environment
 *Note: If you only use Direct Agent, you can skip to the next procedure.*
