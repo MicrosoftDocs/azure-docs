@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Remotely debug an Azure API App" 
 	description="Learn how to remotely debug an Azure API App using Visual Studio." 
-	services="app-service" 
+	services="app-service-api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-api" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
