@@ -16,7 +16,7 @@
 	ms.date="2/23/2015"
 	ms.author="guybo"/>
 
-#How to deploy an application using the Azure CustomScript Extension for Linux#
+# How to deploy an application using the Azure CustomScript Extension for Linux
 
 The Azure CustomScript extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (e.g. Python, Bash etc.). This provides a very flexible way to automate application deployment to multiple machines.
 
@@ -24,7 +24,7 @@ You can deploy the CustomScript extension using the Azure Portal, PowerShell, or
 
 In this example we'll walk through deploying a simple LAMP application to Ubuntu using the xplat-cli.
 
-##Prerequisites##
+## Prerequisites
 
 For this walk-through, create two Azure VMs running Ubuntu 14.04. I'll call them *script-vm* and *lamp-vm* here. Use unique names when you try this. One will be for running the CLI commands and one is to deploy the LAMP app to.
 
@@ -36,7 +36,7 @@ Though the specific install commands will assume Ubuntu, you can adapt the gener
 
 The *script-vm* VM needs to have xplat-cli installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.comdocumentation/articles/xplat-cli/).
 
-##Uploading a script##
+## Uploading a script
 
 In this example the CustomScript extension will execute a script on a remote VM to install the LAMP stack and create a PHP page. In order to access the script from anywhere we'll upload it as an Azure blob.
 
@@ -73,7 +73,7 @@ Also create a JSON file which describes how to download the script from Azure st
     {fileUris":["https://mystorage.blob.core.windows.net/vhds/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
 
-##Deploying the extension##
+## Deploying the extension
 
 Now we're ready to deploy the Linux CustomScript extension to the remote VM using the xplat-cli:
 
@@ -85,7 +85,7 @@ Since the app includes a web server remember to open an HTTP listening port on t
 
     azure vm endpoint create -n Apache -o tcp lamp-vm 80 80
 
-##Monitoring and troubleshooting##
+## Monitoring and troubleshooting
 
 You can check on the progress of the custom script execution by looking at the log file on the remote VM. SSH to *lamp-vm* and tail the log file:
 
@@ -94,7 +94,7 @@ You can check on the progress of the custom script execution by looking at the l
 
 Once the CustomScript extension has finished executing you can browse to the PHP page you created, which in this example would be: *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
-##Additional Resources##
+## Additional Resources
 
 You can use the same basic steps to deploy more complex apps. In this example the install script was saved as a public blob in Azure Storage. A more secure option would be to store the install script as a secure blob with a [Secure Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS).
 
