@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to monitor websites - Azure service management" 
 	description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -18,7 +18,7 @@
 
 
 
-#<a name="howtomonitor"></a>How to Monitor Websites
+#<a name="howtomonitor"></a>How to Monitor Web apps
 
 [AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
