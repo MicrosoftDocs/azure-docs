@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Why Azure App Service is the best platform for RESTful APIs" 
 	description="Learn why Azure App Service is the best platform for developing, publishing, and hosting RESTful APIs." 
-	services="app-service" 
+	services="app-service-api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-api" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
