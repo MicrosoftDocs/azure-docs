@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Operational Insights - Troubleshoot Agents or Operations Manager Data Flow" 
-	description="Learn how to troubleshoot issues with directly-connected agents and Operations Manage data flow to Azure Operational Insights" 
+	description="Learn how to troubleshoot issues with directly-connected agents and Operations Manager data flow to Azure Operational Insights" 
 	services="operational-insights" 
 	documentationCenter="" 
 	authors="dani3l3" 
