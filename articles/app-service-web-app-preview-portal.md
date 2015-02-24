@@ -42,40 +42,40 @@ The preview portal enables users to build applications end-to-end with a series 
 
 Creating new sites is still as easy as 1-2-3. Notice that, other than layout, not much has changed in the number of steps needed to get a site up and running. 
 
-![](../media/app-service-web-app-preview-portal/CreateWebApp.png)
+![](./media/app-service-web-app-preview-portal/CreateWebApp.png)
 
 The [preview portal] shows you the most common types of websites, including popular gallery applications like WordPress. For a full list of available applications, visit the [Azure Marketplace].
 
-![](../media/app-service-web-app-preview-portal/CreateWebAppSettings.png)
+![](./media/app-service-web-app-preview-portal/CreateWebAppSettings.png)
 
 The same steps are needed, but the preview portal lets you define other common settings. The resource groups make it simple to see and manage related Azure resources. You are able to create custom domains by clicking on **Settings**, then on **Custom domains and SSL**.
 
-![](../media/app-service-web-app-preview-portal/ConfigureWebApp.png)
+![](./media/app-service-web-app-preview-portal/ConfigureWebApp.png)
 
 ### Settings and Features ###
 
 All the settings and features are now logically grouped in a single blade, from which you can navigate.
 
-![](../media/app-service-web-app-preview-portal/WebAppSettings.png)
+![](./media/app-service-web-app-preview-portal/WebAppSettings.png)
 
 #### Example: Setup auto-scaling for web apps ####
 
-![](../media/app-service-web-app-preview-portal/AutoScaling.png)
+![](./media/app-service-web-app-preview-portal/AutoScaling.png)
 
 #### Example: Monitoring, troubleshooting and logging #### 
 
-![](../media/app-service-web-app-preview-portal/Monitoring.png)
-![](../media/app-service-web-app-preview-portal/Diagnostics.png)
+![](./media/app-service-web-app-preview-portal/Monitoring.png)
+![](./media/app-service-web-app-preview-portal/Diagnostics.png)
  
 #### Example: Application Settings #### 
 
 Other than the brand name, other few things in the portal have been renamed to better reflect the content. This effort is made so that customers find what they are looking for more intuitively. 
 
-![](../media/app-service-web-app-preview-portal/AppSettingsPreview.png)
+![](./media/app-service-web-app-preview-portal/AppSettingsPreview.png)
 
 Below is a screenshot of the corresponding page for app settings (**Configure**) in the management portal.
 
-![](../media/app-service-web-app-preview-portal/AppSettings.png)
+![](./media/app-service-web-app-preview-portal/AppSettings.png)
 
 ## More Resources ##
 [The Azure cloud application platform](../app-service-cloud-app-platform/)
