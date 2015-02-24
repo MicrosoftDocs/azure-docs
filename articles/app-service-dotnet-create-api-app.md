@@ -35,7 +35,7 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/01-filenew.png)
 
-2. Select the **Empty** project template, click the **Web API** checkbox, clear the **Host in the Cloud **checkbox, and then click **OK**.
+2. Select the **Web API** project template, click **Change Authentication** and then select **No Authentication**, clear the **Host in the Cloud** checkbox, and then click **OK**.
 
 	![](./media/app-service-dotnet-create-api-app/02-empty-plug-webapi.png)
 
@@ -100,7 +100,9 @@ This is the first tutorial in a series of four:
 
 	![](./media/app-service-dotnet-create-api-app/08-contacts-controller-with-get.png)
 
-8. In Solution Explorer, right-click the project (not the solution), and then in the context menu click **Add - Azure API Apps SDK**. 
+8. Open *ValuesController.cs* in the *Controllers* folder, delete the `Get(int id)` method, and save the file.
+
+9. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Add - Azure API Apps SDK**. 
 
 	![](./media/app-service-dotnet-create-api-app/09-add-aas-sdk.png)
 

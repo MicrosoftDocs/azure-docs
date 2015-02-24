@@ -33,7 +33,9 @@ This tutorial is the last in a series of four:
 
 When you navigate to the the URL of your running Azure API App's gateway site, appended with the Azure API App's ID, you can access the Azure API App directly. The exact URL format of the Swagger UI dashboard is as follows:
 
-    http://[AzureApiAppProxySite].azurewebsites.net/[Azure API ID]/Swagger/ui
+    http://[AzureApiAppProxySite].azurewebsites.net/[Azure API ID]/Swagger
+
+For example, if you named your resource group ContactsListRG and your API ID ContactsList2, the URL would be `http://contactsListrgproxysite.azurewebsites.net/contactslist2/Swagger`. 
 
 The Swagger UI provides an easy-to-use interface that provides details about your API App's endpoints. 
 

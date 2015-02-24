@@ -43,7 +43,7 @@ This is the second tutorial in a series of four:
 
 	The **Publish to API Marketplace** dialog appears.
 
-4. In the **Microservice ID** field add some characters to make the ID unique. A red exclamation mark will appear to the right of the field if the ID is not unique. 
+4. In the **Microservice ID** field add some characters to make the ID unique. A red exclamation mark will appear to the right of the field if the ID is not unique. The ID must be at least 8 characters long.
 
 5. In the **Author** field enter your name.
 

@@ -75,7 +75,7 @@ This is the third tutorial in a series of four:
 
 In this section, you see how to navigate to the portal to view the basic settings available there for API Apps and to make iterative changes to your API App. With each deployment direct to your Azure subscription, the portal will reflect the changes you're making to your API App. 
 
-1. In your browser, navigate to the Azure Portal. 
+1. In your browser, navigate to the Azure Portal at `http://aka.ms/apiappspublicpreview`. 
 
 2. Click the **Browse** button on the sidebar and select the **API Apps** menu option.
 
