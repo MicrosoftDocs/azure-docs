@@ -27,7 +27,7 @@ This tutorial shows you how to add a cloud-based backend service to a Xamarin iO
 
 ## Create a new mobile app backend
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../includes/app-service-moible-dotnet-backend-create-new-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
 ## Create a new Xamarin iOS app
 
@@ -81,18 +81,6 @@ The final stage of this tutorial is to build and run your new app.
 
 >[AZURE.NOTE]You can review the code that accesses your mobile app backend to query and insert data in the QSTodoService.cs C# file.
 
-
-## Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks with mobile app backends:
-
-* [Get started with offline data sync]
-  <br/>Learn how the quickstart uses offline data sync to make the app responsive and robust.
-
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with an identity provider.
-
-* [Get started with push notifications]
-  <br/>Learn how to send a very basic push notification to your app.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
