@@ -125,7 +125,7 @@ when it is deployed to the cloud.
 	[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 
-###<a id="download_publishing_settings"></a>Download the Azure publishing settings
+### Download the Azure publishing settings
 
 To deploy your application to Azure, you must first download the publishing settings for your Azure subscription. 
 
