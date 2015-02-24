@@ -14,7 +14,7 @@
 	ms.devlang=""
 	ms.topic=""
 	ms.date="2/24/2015"
-	ms.author="jaime-espinosa"/>
+	ms.author="jaime.espinosa"/>
 
 # Web Apps Overview #
 
