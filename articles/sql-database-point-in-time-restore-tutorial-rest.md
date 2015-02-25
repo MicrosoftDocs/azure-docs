@@ -18,32 +18,34 @@
 
 # Restore an Azure SQL database using Point in Time Restore with REST API
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-portal/" title="Point in Time Restore - portal" >Point in Time Restore - portal</a><a href="/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/" title="Point in Time Restore - PowerShell">Point in Time Restore - PowerShell</a></div>  
+> [AZURE.SELECTOR]
+- [Point in Time Restore - portal](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
+- [Point in Time Restore - PowerShell](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/) 
 
 This guide shows you how to restore an Azure SQL database using Point in Time Restore with REST API. Links to more detailed operations are provided.
 
-Point in Time Restore creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/en-us/support/options/).
+Point in Time Restore creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/support/options/).
 
 ## Restrictions and Security
 
-See [Restore an Azure SQL database using Point in Time Restore in Azure portal](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-portal).
+See [Restore an Azure SQL database using Point in Time Restore in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/).
 
 ## How to: Restore an Azure SQL database using REST API
 
-1.	Get the database you want to restore using the [Get Database](http://msdn.microsoft.com/en-us/library/azure/dn505708.aspx) operation.
+1.	Get the database you want to restore using the [Get Database](http://msdn.microsoft.com/library/azure/dn505708.aspx) operation.
 
-2.	Create the restore request using the [Create Database Restore Request](http://msdn.microsoft.com/en-us/library/azure/dn509571.aspx) operation.
+2.	Create the restore request using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
 	
-3.	Track the restore request using the [Database Operation Status](http://msdn.microsoft.com/en-us/library/azure/dn720371.aspx) operation.
+3.	Track the restore request using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
 
 ## Next steps
 
 For more information, see the following: 
 
-[Azure SQL Database Business Continuity](http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx)
+[Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
-[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/en-us/library/azure/jj650016.aspx)
+[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
 [Azure SQL Database Point in Time Restore (blog)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-[Service Management REST API Reference](https://msdn.microsoft.com/en-us/library/azure/ee460799.aspx)
+[Service Management REST API Reference](https://msdn.microsoft.com/library/azure/ee460799.aspx)

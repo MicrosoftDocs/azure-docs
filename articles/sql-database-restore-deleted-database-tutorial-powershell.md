@@ -18,23 +18,25 @@
 
 # Restore a deleted Azure SQL database in Azure PowerShell
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-portal/" title="Restore deleted database - portal">Restore deleted database - portal</a><a href="/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-rest/" title="Restore deleted database - REST API">Restore deleted database - REST API</a></div>   
+> [AZURE.SELECTOR]
+- [Restore deleted database - portal](/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
+- [Restore deleted database - REST API](/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-rest/)
 
-This tutorial shows you how to restore a deleted Azure SQL database in [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/). You can restore a database that was deleted during its retention period to the point at which it was deleted. The retention period is determined by the service tier of the database.
+This tutorial shows you how to restore a deleted Azure SQL database in [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). You can restore a database that was deleted during its retention period to the point at which it was deleted. The retention period is determined by the service tier of the database.
 
-Restoring a deleted Azure SQL database creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/en-us/support/options/).
+Restoring a deleted Azure SQL database creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/support/options/).
 
 ## Restrictions and Security
 
-See [Restore a deleted Azure SQL database in Azure portal](/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-portal).
+See [Restore a deleted Azure SQL database in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/).
 
 ## How to: Restore a deleted Azure SQL database in Azure PowerShell
 
 <iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-Deleted-SQL-Database-With-Microsoft-Azure-PowerShell/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/#use-the-certificate-method).
+You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#use-the-certificate-method).
 
-1. Get the list of recoverable databases by using the [Get-AzureSqlDatabase](http://msdn.microsoft.com/en-us/library/azure/dn546735.aspx) cmdlet.
+1. Get the list of recoverable databases by using the [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx) cmdlet.
 	* Use the **RestorableDropped** switch and specify the **ServerName** of the server from which the database was deleted.
 	* Running the following command stores the results in a variable called **$RecoverableDBs**.
 	
@@ -46,9 +48,9 @@ You must use certificate based authentication to run the following cmdlets. For 
 
 	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
 
-	* For more information about how to get a restorable dropped database object, see [Get-AzureSqlDatabase](http://msdn.microsoft.com/en-us/library/dn546735.aspx).
+	* For more information about how to get a restorable dropped database object, see [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx).
 
-3. Begin the restore by using the [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/en-us/library/azure/dn720218.aspx) cmdlet. Specify the following parameters:	
+3. Begin the restore by using the [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx) cmdlet. Specify the following parameters:	
 	* **SourceRestorableDroppedDatabase**
 	* **TargetDatabaseName** of the database you are restoring to.
 
@@ -56,7 +58,7 @@ You must use certificate based authentication to run the following cmdlets. For 
 	
 	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
 
-A restore may take some time to complete. To monitor the status of the restore, use the [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/en-us/library/azure/dn546738.aspx) cmdlet and specify the following parameters:
+A restore may take some time to complete. To monitor the status of the restore, use the [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) cmdlet and specify the following parameters:
 
 * **ServerName** of the database you are restoring to.
 * **OperationGuid** which is the Restore Request ID that was stored in the **$RestoreRequest** variable in Step 3.
@@ -69,8 +71,8 @@ The **State** and **PercentComplete** fields show the status of the restore.
 
 For more information, see the following:
 
-[Azure SQL Database Business Continuity](http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx)
+[Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
-[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/en-us/library/azure/jj650016.aspx)
+[Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-[Azure PowerShell](http://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
+[Azure PowerShell](http://msdn.microsoft.com/library/azure/jj156055.aspx)
