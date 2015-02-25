@@ -19,8 +19,8 @@
 # Restore an Azure SQL database using Point in Time Restore in the Azure portal
 
 > [AZURE.SELECTOR]
-- [Point in Time Restore - PowerShell](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/)
-- [Point in Time Restore - REST API](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-rest/) 
+- [Point in Time Restore - PowerShell](./documentation/articles/sql-database-point-in-time-restore-tutorial-powershell.md/)
+- [Point in Time Restore - REST API](./documentation/articles/sql-database-point-in-time-restore-tutorial-rest.md/) 
 
 This tutorial shows you how to restore an Azure SQL database using Point in Time Restore in the [Azure portal](http://manage.windowsazure.com/). Azure SQL Database has built-in backups to support self-service Point in Time Restore for Basic, Standard, and Premium service tiers.
 

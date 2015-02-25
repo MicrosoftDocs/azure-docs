@@ -19,8 +19,8 @@
 # Restore an Azure SQL database using Point in Time Restore with REST API
 
 > [AZURE.SELECTOR]
-- [Point in Time Restore - portal](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
-- [Point in Time Restore - PowerShell](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/) 
+- [Point in Time Restore - portal](./documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal.md/)
+- [Point in Time Restore - PowerShell](./documentation/articles/sql-database-point-in-time-restore-tutorial-powershell.md/) 
 
 This guide shows you how to restore an Azure SQL database using Point in Time Restore with REST API. Links to more detailed operations are provided.
 

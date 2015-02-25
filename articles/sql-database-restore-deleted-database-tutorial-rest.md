@@ -19,8 +19,8 @@
 # Restore a deleted Azure SQL database with REST API
 
 > [AZURE.SELECTOR]
-- [Restore deleted database - portal](/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
-- [Restore deleted database - PowerShell](/en-us/documentation/articles/sql-database-restore-deleted-database-tutorial-powershell/) 
+- [Restore deleted database - portal](./documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal.md/)
+- [Restore deleted database - PowerShell](./documentation/articles/sql-database-restore-deleted-database-tutorial-powershell.md/) 
 
 This guide shows you how to restore a deleted Azure SQL database with REST API. Links to more detailed operations are provided.
 
