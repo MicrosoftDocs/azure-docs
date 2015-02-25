@@ -23,4 +23,4 @@
 
 Q: How do you scale indexing?
 
-A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [how to scale encoding reserved units](../media-services-how-to-scale).
+A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](../media-services-how-to-scale). Note that Indexer performance is not affected by Reserved Unit Type.

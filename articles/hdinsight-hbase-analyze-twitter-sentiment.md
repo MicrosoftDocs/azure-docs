@@ -67,13 +67,6 @@ A complete Visual Studio solution sample can be found at [https://github.com/max
 
 
 
-##In this article
-
-- [Prerequisites](#prerequisites)
-- [Create a Twitter application](#twitter)
-- [Create a simple Twitter streaming service](#streaming)
-- [Create an Azure Website to visualize Twitter sentiment](#web)
-- [Next steps](#nextsteps)
 
 ##<a id="prerequisites"></a>Prerequisites
 Before you begin this tutorial, you must have the following:
