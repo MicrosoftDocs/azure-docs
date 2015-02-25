@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Service Bus topics (.NET) - Azure" 
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor="mattshel"/>
+    pageTitle="How to use Service Bus topics (.NET) - Azure" 
+    description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications." 
+    services="service-bus" 
+    documentationCenter=".net" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="02/10/2015" 
+    ms.author="sethm"/>
 
 
 
@@ -78,28 +78,28 @@ projects and enables you to dynamically change configuration settings
 from the Azure management portal without redeploying your
 application.  For example, add a Setting to your service definition (`*.csdef`) file, as shown below:
 
-	<ServiceDefinition name="WindowsAzure1">
-	...
-		<WebRole name="MyRole" vmsize="Small">
-	    	<ConfigurationSettings>
-	      		<Setting name="Microsoft.ServiceBus.ConnectionString" />
-    		</ConfigurationSettings>
-  		</WebRole>
-	...
-	</ServiceDefinition>
+    <ServiceDefinition name="WindowsAzure1">
+    ...
+        <WebRole name="MyRole" vmsize="Small">
+            <ConfigurationSettings>
+                <Setting name="Microsoft.ServiceBus.ConnectionString" />
+            </ConfigurationSettings>
+        </WebRole>
+    ...
+    </ServiceDefinition>
 
 You then specify values in the service configuration (`*.cscfg`) file:
 
-	<ServiceConfiguration serviceName="WindowsAzure1">
-	...
-		<Role name="MyRole">
-			<ConfigurationSettings>
-				<Setting name="Microsoft.ServiceBus.ConnectionString" 
-						 value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-			</ConfigurationSettings>
-		</Role>
-	...
-	</ServiceConfiguration>
+    <ServiceConfiguration serviceName="WindowsAzure1">
+    ...
+        <Role name="MyRole">
+            <ConfigurationSettings>
+                <Setting name="Microsoft.ServiceBus.ConnectionString" 
+                         value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
+            </ConfigurationSettings>
+        </Role>
+    ...
+    </ServiceConfiguration>
 
 Use the key values retrieved from the management portal as
 described in the previous section.
@@ -108,12 +108,12 @@ described in the previous section.
 
 When using Websites or Virtual Machines, it is recommended you use the .NET configuration system (e.g. `web.config`).  You store the connection string using the `<appSettings>` element:
 
-	<configuration>
-	    <appSettings>
-		    <add key="Microsoft.ServiceBus.ConnectionString"
-			     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-		</appSettings>
-	</configuration>
+    <configuration>
+        <appSettings>
+            <add key="Microsoft.ServiceBus.ConnectionString"
+                 value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
+        </appSettings>
+    </configuration>
 
 Use the issuer and key values retrieved from the management portal as
 described in the previous section.
@@ -126,16 +126,16 @@ This example constructs a **NamespaceManager** object using the Azure **CloudCon
 with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
 
-	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
+    Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
 
 For example, given the configuration settings in the previous section:
 
-	// Create the topic if it does not exist already
-	string connectionString = 
-	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+    // Create the topic if it does not exist already
+    string connectionString = 
+        CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	var namespaceManager = 
-		NamespaceManager.CreateFromConnectionString(connectionString);
+    var namespaceManager = 
+        NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.TopicExists("TestTopic"))
     {
@@ -149,17 +149,17 @@ by using the **TopicDescription** class. The following example shows how
 to create a topic named "TestTopic" with a maximum size of 5 GB and a
 default message time-to-live of 1 minute.
 
-	// Configure Topic Settings
+    // Configure Topic Settings
     TopicDescription td = new TopicDescription("TestTopic");
     td.MaxSizeInMegabytes = 5120;
     td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-	// Create a new Topic with custom settings
-	string connectionString = 
-	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+    // Create a new Topic with custom settings
+    string connectionString = 
+        CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	var namespaceManager = 
-		NamespaceManager.CreateFromConnectionString(connectionString);
+    var namespaceManager = 
+        NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.TopicExists("TestTopic"))
     {
@@ -186,11 +186,11 @@ subscription's virtual queue. The following example creates a
 subscription named "AllMessages" and uses the default **MatchAll**
 filter.
 
-	string connectionString = 
-	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+    string connectionString = 
+        CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	var namespaceManager = 
-		NamespaceManager.CreateFromConnectionString(connectionString);
+    var namespaceManager = 
+        NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
     {
@@ -214,11 +214,11 @@ The example below creates a subscription named "HighMessages" with a
 
      // Create a "HighMessages" filtered subscription
      SqlFilter highMessagesFilter = 
-		new SqlFilter("MessageNumber > 3");
+        new SqlFilter("MessageNumber > 3");
 
      namespaceManager.CreateSubscription("TestTopic", 
-		"HighMessages", 
-		highMessagesFilter);
+        "HighMessages", 
+        highMessagesFilter);
 
 Similarly, the following example creates a subscription named
 "LowMessages" with a **SqlFilter** that only selects messages that have
@@ -226,11 +226,11 @@ a **MessageNumber** property less than or equal to 3:
 
      // Create a "LowMessages" filtered subscription
      SqlFilter lowMessagesFilter = 
-		new SqlFilter("MessageNumber <= 3");
+        new SqlFilter("MessageNumber <= 3");
 
      namespaceManager.CreateSubscription("TestTopic", 
-		"LowMessages", 
-		lowMessagesFilter);
+        "LowMessages", 
+        lowMessagesFilter);
 
 Now when a message is sent to "TestTopic", it will always be
 delivered to receivers subscribed to the "AllMessages" topic
@@ -246,13 +246,13 @@ To send a message to a Service Bus topic, your application creates a
 The code below demonstrates how to create a **TopicClient** object
 for the "TestTopic" topic created above using the **CreateFromConnectionString** API call:
 
-	string connectionString = 
-	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+    string connectionString = 
+        CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-   	TopicClient Client = 
-		TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
+    TopicClient Client = 
+        TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
 
-	Client.Send(new BrokeredMessage());
+    Client.Send(new BrokeredMessage());
  
 
 Messages sent to Service Bus topics are instances of the
@@ -275,7 +275,7 @@ receive it):
      {
        // Create message, passing a string message for the body
        BrokeredMessage message = 
-		new BrokeredMessage("Test message " + i);
+        new BrokeredMessage("Test message " + i);
 
        // Set additional custom app-specific property
        message.Properties["MessageNumber"] = i;
@@ -319,44 +319,52 @@ process by calling **Complete** on the received message. When the Service
 Bus sees the **Complete** call, it marks the message as being
 consumed and removes it from the subscription.
 
-The example below demonstrates how messages can be received and
-processed using the default **PeekLock** mode. To specify a different **ReceiveMode** value, you can use another overload for **CreateFromConnectionString**. This example creates an infinite loop and processes messages as they arrive to the "HighMessages" subscription. Note that the path to the "HighMessages"
-subscription is supplied in the form "<*topic
-path*\>/subscriptions/<*subscription name*\>".
+The example below demonstrates how messages can be received and processed 
+using the default **PeekLock** mode. To specify a different **ReceiveMode** 
+value, you can use another overload for **CreateFromConnectionString**. This 
+example uses the **OnMessage** callback to process messages as they arrive 
+in the "HighMessages" subscription.
 
-	string connectionString = 
-	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+    string connectionString = 
+        CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
     SubscriptionClient Client = 
-		SubscriptionClient.CreateFromConnectionString
+        SubscriptionClient.CreateFromConnectionString
                 (connectionString, "TestTopic", "HighMessages");
 
-	Client.Receive();
-     
-	// Continuously process messages received from the HighMessages subscription 
-    while (true) 
-    {  
-       BrokeredMessage message = Client.Receive();
+    // Configure the callback options
+    OnMessageOptions options = new OnMessageOptions();
+    options.AutoComplete = false;
+    options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-       if (message != null)
-       {
-          try 
-          {
-             Console.WriteLine("Body: " + message.GetBody<string>());
-             Console.WriteLine("MessageID: " + message.MessageId);
-             Console.WriteLine("MessageNumber: " + 
-				message.Properties["MessageNumber"]);
+    subscriptionClientHigh.OnMessage((message) =>
+    {
+        try
+        {
+            // Process message from subscription
+            Console.WriteLine("\n**High Messages**");
+            Console.WriteLine("Body: " + message.GetBody<string>());
+            Console.WriteLine("MessageID: " + message.MessageId);
+            Console.WriteLine("Message Number: " +
+                message.Properties["MessageNumber"]);
 
-             // Remove message from subscription
-             message.Complete();
-          }
-          catch (Exception)
-          {
-             // Indicate a problem, unlock message in subscription
-             message.Abandon();
-          }
-       }
-    } 
+            // Remove message from subscription
+            message.Complete();
+        }
+        catch (Exception)
+        {
+            // Indicates a problem, unlock message in subscription
+            message.Abandon();
+        }
+    }, options);
+
+This example configures the **OnMessage** callback using an 
+**OnMessageOptions** object. **AutoComplete** is set to **false** to enable 
+manual control of when to call **Complete** on the received message.
+**AutoRenewTimeout** is set to one minute which causes the client to wait for up 
+to one minute for a message before the call times out and the client makes a new 
+call to check for messages - this reduces the number of times the client makes 
+chargeable calls that do not retrieve messages.
 
 ## How to handle application crashes and unreadable messages
 
