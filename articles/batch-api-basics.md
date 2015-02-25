@@ -1,8 +1,20 @@
+<properties 
+	pageTitle="API basics for Azure Batch" 
+	description="Concepts to introduce developers to the Azure Batch APIs and Batch service" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<properties title="API basics for Azure Batch" pageTitle="API basics for Azure Batch" description="Concepts to introduce developers to the Azure Batch APIs and Batch service" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
-
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="24/02/2015" ms.author="yidingz, karran.batta" />
-
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="25/02/2015" 
+	ms.author="yidingz, kabatta"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # API basics for Azure Batch
@@ -18,26 +30,6 @@ The following are some of the scenarios that you can enable by using the Batch s
 - Daily cleanup of files
 
 - Batch processing
-
-You can learn more about the Batch service by reading the following sections:
-
-- [Resources of the Batch service](#resource)
-
-- [Workflow of the Batch service](#workflow)
-
-- [Files and directories](#files)
-
-- [Scaling applications](#scaling)
-
-- [Pool and VM Lifetime](#lifetime)
-
-- [Certificates for applications](#cert)
-
-- [Scheduling Priority](#scheduling)
-
-- [Environment settings for tasks](#environment)
-
-- [Error Handling](#errorhandling)
 
 ## <a name="resource"></a> Resources of the Batch service
 
