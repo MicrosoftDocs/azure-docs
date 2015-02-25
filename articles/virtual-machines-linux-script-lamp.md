@@ -16,11 +16,7 @@
 	ms.date="2/23/2015"
 	ms.author="guybo"/>
 
-<<<<<<< HEAD
 #Deploy a LAMP app using the Azure CustomScript Extension for Linux#
-=======
-# How to deploy an application using the Azure CustomScript Extension for Linux
->>>>>>> 9aa15c947e2a552eff9864aaa71abc2a21e388ac
 
 The Azure CustomScript extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (e.g. Python, Bash etc.). This provides a very flexible way to automate application deployment to multiple machines.
 
