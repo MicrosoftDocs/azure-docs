@@ -98,7 +98,7 @@ Now, run the sample application:
 5.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
 
-## <a name="next"></a>Next Steps
+## Next Steps
 In this tutorial, you've learned how to program against Azure Blob Storage, Azure Table Storage, and Azure Storage Queues. 
 
 If you want to learn more about them, follow these links:
@@ -114,4 +114,3 @@ If you want to learn more about them, follow these links:
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
-[Next Steps]: #next
