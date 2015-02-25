@@ -31,7 +31,7 @@ include **creating queues, sending and receiving messages**, and
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##Configure the application to use Service Bus
+## Configure the application to use Service Bus
 
 When you create an application that uses Service Bus, you must
 add a reference to the Service Bus assembly and include the
@@ -60,7 +60,7 @@ To install the NuGet package in your application, do the following:
 You are now ready to write code for Service Bus.
 
 
-##How to set up a Service Bus connection string
+## How to set up a Service Bus connection string
 
 Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -116,7 +116,7 @@ When using Websites or Virtual Machines, it is recommended you use the .NET conf
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
-##How to create a queue
+## How to create a queue
 
 You can perform management operations for Service Bus queues via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -167,7 +167,7 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
-##How to send messages to a queue
+## How to send messages to a queue
 
 To send a message to a Service Bus queue, your application creates a
 **QueueClient** object using the connection string.
@@ -216,7 +216,7 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-##How to receive messages from a queue
+## How to receive messages from a queue
 
 The easiest way to receive messages from a queue is to use a
 **QueueClient** object. These objects can work in two
@@ -287,7 +287,7 @@ is set to **false** to enable manual control of when to call **Complete** on the
 message before the call times out and the client makes a new call to check for messages - this reduces
 the number of times the client makes chargeable calls that do not retrieve messages.
 
-##How to handle application crashes and unreadable messages
+## How to handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -315,7 +315,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-##Next Steps
+## Next Steps
 
 Now that you've learned the basics of Service Bus queues, follow these
 links to learn more.
