@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.topic="hero-article" 
+	ms.date="02/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
@@ -40,8 +40,9 @@ Don't have time to complete the tutorial and just want to get the complete solut
 > [AZURE.TIP] This tutorial assumes that you have some prior experience using Node.js and Azure Websites.
 
 Before following the instructions in this article, you should ensure
-that you have the following installed:
+that you have the following:
 
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
 - [Node.js][] version v0.10.29 or higher.
 - [Git][].
 - [Visual Studio 2013][] with update 3, or higher. 

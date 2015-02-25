@@ -120,7 +120,7 @@ For bandwidth, the problem is often the capabilities of the client. For example,
 As with any network usage, be aware that network conditions resulting in errors and packet loss will slow effective throughput.  Using WireShark or NetMon may help in diagnosing this issue.  
 
 #####Useful Resources
-For more information about virtual machine sizes and allocated bandwidth, see [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](http://msdn.microsoft.com/library/dn197896.aspx) on MSDN.  
+For more information about virtual machine sizes and allocated bandwidth, see [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](http://msdn.microsoft.com/library/azure/dn197896.aspx) on MSDN.  
 
 ####<a name="subheading4"></a>Location
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
@@ -152,7 +152,7 @@ In some cases, you may decide that your application can assume that the blob rem
 
 Configuration, lookup, and other data that are always used by the application are great candidates for caching.  
 
-For an example of how to get a blob’s properties to discover the last modified date using .NET, see [Set and Retrieve Properties and Metadata](http://msdn.microsoft.com/library/hh225342.aspx) on MSDN. For more information about conditional downloads, see [Conditionally Refresh a Local Copy of a Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
+For an example of how to get a blob’s properties to discover the last modified date using .NET, see [Set and Retrieve Properties and Metadata](http://msdn.microsoft.com/library/azure/hh225342.aspx) on MSDN. For more information about conditional downloads, see [Conditionally Refresh a Local Copy of a Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
 
 ####<a name="subheading8"></a>Uploading Data in Batches
 In some application scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, a web application might keep a log file of activities: the application could either upload details of every activity as it happens as a table entity (which requires many storage operations), or it could save activity details to a local log file, and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1KB in size, you can upload thousands in a single “Put Blob” transaction (you can upload a blob of up to 64MB in size in a single transaction). Of course, if the local machine crashes prior to the upload, you will potentially lose some log data: the application developer must design for the possibility of client device or upload failures.  If the activity data needs to be downloaded for timespans (not just single activity), then blobs are recommended over tables. 
@@ -218,7 +218,7 @@ One consideration, however, is that, when copying between storage accounts, ther
  
 Note that copies within the same storage account itself are generally completed quickly.  
 
-For more information, see [Copy Blob on MSDN](http://msdn.microsoft.com/library/dd894037.aspx).  
+For more information, see [Copy Blob on MSDN](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 ####<a name="subheading18"></a>Use AzCopy
 The Azure Storage team has released a command line tool “AzCopy” that is meant to help with bulk transferring many blobs to, from, and across storage accounts.  This tool is optimized for this scenario, and can achieve high transfer rates.  Its use is encouraged for bulk upload, download, and copy scenarios.  You can learn more about it and download it [here](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/).  
@@ -229,7 +229,7 @@ For very large volumes of data (more than 1TB), the Azure Storage offers the Imp
 ###<a name="subheading20"></a>Use metadata
 The blob service supports head requests, which can include metadata about the blob. For example, if your application needed the EXIF data out of a photo, it could retrieve the photo and extract it. To save bandwidth and improve performance, your application could store the EXIF data in the blob’s metadata when the application uploaded the photo: you can then retrieve the EXIF data in metadata using only a HEAD request, saving significant bandwidth and the processing time needed to extract the EXIF data each time the blob is read. This would be useful in scenarios where you only need the metadata, and not the full content of a blob.  Note that only 8KB of metadata can be stored per blob (the service will not accept a request to store more than that), so if the data does not fit in that size, you may not be able to use this approach.  
 
-For an example of how to get a blob’s metadata using .NET, see [Set and Retrieve Properties and Metadata](http://msdn.microsoft.com/library/hh225342.aspx) on MSDN.  
+For an example of how to get a blob’s metadata using .NET, see [Set and Retrieve Properties and Metadata](http://msdn.microsoft.com/library/azure/hh225342.aspx) on MSDN.  
 
 ###Uploading Fast
 To upload blobs fast, the first question to answer is: are you uploading one blob or many?  Use the below guidance to determine the correct method to use depending on your scenario.  

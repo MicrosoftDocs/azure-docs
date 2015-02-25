@@ -41,14 +41,6 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
-##Prerequisites
-
-* [Prerequisites](#prerequisite)
-* [Provision HDInsight cluster and run Hive/Sqoop jobs (M1)](#runjob)
-* [Appendix A: Upload flight delay data to Azure Blob storage (A1)](#appendix-a)
-* [Appendix B: Create and upload a HiveQL script (A2)](#appendix-b)
-* [Appendix C: Prepare an Azure SQL database for the Sqoop job output (A3)](#appendix-c)
-* [Next steps](#nextsteps)
 
 ##<a id="prerequisite"></a>Prerequisites
 

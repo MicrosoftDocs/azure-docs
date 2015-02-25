@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="02/24/2015" 
 	ms.author="MicrosoftHelp@twilio.com"/>
 
 
@@ -23,20 +23,6 @@
 <h1>How to use Twilio for voice and SMS capabilities from Azure</h1>
 
 This guide demonstrates how to perform common programming tasks with the Twilio API service on Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next steps](#NextSteps) section.
-
-<h2>Table of Contents</h2>
-* [What is Twilio?](#WhatIs)
-* [Twilio pricing](#Pricing)
-* [Concepts](#Concepts)
-* [Create a Twilio account](#CreateAccount)
-* [Verify phone numbers](#VerifyPhoneNumbers)
-* [Create an Azure application](#create_app)
-* [Configure your application to use Twilio libraries](#configure_app)
-* [How to: Make an outgoing call](#howto_make_call)
-* [How to: Send an SMS message](#howto_send_sms)
-* [How to: Provide TwiML responses from your own web site](#howto_provide_twiml_responses)
-* [How to: Use additional Twilio services](#AdditionalServices)
-* [Next steps](#NextSteps)
 
 <h2><a id="WhatIs"></a>What is Twilio?</h2>
 Twilio is powering the future of business communications, enabling developers to embed voice, VoIP, and messaging into applications. They virtualize all infrastructure needed in a cloud-based, global environment, exposing it through the Twilio communications API platform. Applications are simple to build and scalable. Enjoy flexibility with pay-as-you go pricing, and benefit from cloud reliability.

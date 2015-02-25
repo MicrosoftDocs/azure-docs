@@ -1,4 +1,4 @@
-<properties title="Preprocess and Clean Data" pageTitle="Preprocess and Clean Data | Azure" description="Preprocess and Clean Data" metaKeywords="data cleansing" services="data-science-process" solutions="" documentationCenter="" authors="xibingaomsft,msolhab" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties title="Preprocess and Clean Data" pageTitle="Prepmachine-learningrocess and Clean Data | Azure" description="Preprocess and Clean Data" metaKeywords="data cleansing" services="machine-learning" solutions="" documentationCenter="" authors="xibingaomsft,msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
 
 <tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/16/2015" ms.author="xibingaomsft,msolhab" /> 
 

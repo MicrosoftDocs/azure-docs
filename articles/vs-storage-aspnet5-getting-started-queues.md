@@ -53,7 +53,7 @@ Before you can do anything with a queue, you need to get the connection string f
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 #####Create a Queue
-A **CloudQueueClient** object lets you get reference objects for queues. The following code creates a **CloudQueueClient** object. All code in this topic uses a storage connection string stored in the Azure application's service configuration. There are also other ways to create a **CloudStorageAccount** object. See the [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") documentation for details.
+A **CloudQueueClient** object lets you get reference objects for queues. The following code creates a **CloudQueueClient** object. All code in this topic uses a storage connection string stored in the Azure application's service configuration. There are also other ways to create a **CloudStorageAccount** object. See the [CloudStorageAccount](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") documentation for details.
 
 **NOTE:** The APIs that perform calls out to Azure storage in ASP.NET 5 are asynchronous. See [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
 

@@ -82,7 +82,7 @@ The following C# snippet (using the Client Storage Library 4.2.0) shows a simple
 	        throw;
 	}  
 
-The Storage Service also includes support for additional conditional headers such as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match** as well as combinations thereof. For more information see [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/dd179371.aspx) on MSDN.  
+The Storage Service also includes support for additional conditional headers such as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match** as well as combinations thereof. For more information see [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
 
 The following table summarizes the container operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.  
 
