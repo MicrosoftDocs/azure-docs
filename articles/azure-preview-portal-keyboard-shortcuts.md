@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure portal Keyboard Shortcuts" 
-   description="This article will always be ab up=to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services mights have their own specialized keyboard shortcuts" 
+   pageTitle="Azure portal keyboard shortcuts" 
+   description="This article will always be an up=to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts" 
    services="cloud-services" 
    documentationCenter="dev-center-name" 
    authors="Curtand" 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="na" 
    ms.date="02/13/2015"
-   ms.author="curtand"/>
+   ms.author="Curtand"/>
 
 # Azure portal keyboard shortcuts 
 
@@ -30,16 +30,14 @@ Azure provides a number of keyboards shortcuts that you can use anywhere in the 
 | Open notifications hub | N |
 | Open browse (services) hub | S or / |
 | Select and active session | A |
-| Open billing | B |
 | Create | C |
 | Close a hub menu, dialog box, account menu, any open menu | Esc |
 | Scroll to the top of the current blade | Home |
 | Scroll to the bottom of the current blade | End |
-| Open shortcut legend | ? |
-| To tab to move between controls in the portal | CTRL+M |
+| To tab out of an editing control | CTRL+M |
 | To use tabs to indent in an editing control | CTRL+M |
 
 ## Next steps
 
-Get to know the Azure Portal better: [./azure.microsoft.com]. 
+Get to know the Azure Portal better: [http://azure.microsoft.com]. 
 
