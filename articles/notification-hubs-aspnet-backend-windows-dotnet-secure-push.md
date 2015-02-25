@@ -2,7 +2,7 @@
 	pageTitle="Azure Notification Hubs Secure Push" 
 	description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." 
 	documentationCenter="windows" 
-	authors="ggailey777" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="glenga"/>
+	ms.date="02/24/2015" 
+	ms.author="wesmc"/>
 
 #Azure Notification Hubs Secure Push
 
