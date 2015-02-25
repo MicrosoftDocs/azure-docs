@@ -133,18 +133,18 @@ The V12 version of Azure SQL Database was released only for preview and testing 
 
 | Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA |
 | :--- | :--- | :--- |
-| South Central US | General Availability (GA) | 2015-February-09, Monday |
-| Central US | General Availability (GA) | 2015-February-09, Monday |
-| North Central US | General Availability (GA) | 2015-February-09, Monday |
-| West US | General Availability (GA) | 2015-February-09, Monday |
-| East US | General Availability (GA) | 2015-February-09, Monday |
-| East US 2 | General Availability (GA) | 2015-February-09, Monday |
-| East Asia | Preview | First quarter 2015, estimated |
-| Southeast Asia | Preview | First quarter 2015, estimated |
-| Japan West | Preview | First quarter 2015, estimated |
-| Japan East | Preview | First quarter 2015, estimated |
-| North Europe | General Availability (GA) | 2015-January-29, Thursday |
-| West Europe | General Availability (GA) | 2015-January-29, Thursday |
+| South Central US | General Availability (GA) | February 9th, 2015 |
+| Central US | General Availability (GA) | February 9th, 2015 |
+| North Central US | General Availability (GA) | February 9th, 2015 |
+| West US | General Availability (GA) | February 9th, 2015 |
+| East US | General Availability (GA) | February 9th, 2015 |
+| East US 2 | General Availability (GA) | February 9th, 2015 |
+| East Asia | Preview | February 24th, 2015 |
+| Southeast Asia | Preview | February 24th, 2015 |
+| Japan West | Preview | February 24th, 2015 |
+| Japan East | Preview | February 24th, 2015 |
+| North Europe | General Availability (GA) | January 29th, 2015 |
+| West Europe | General Availability (GA) | January 29th, 2015 |
 | Brazil South | Not available | Third quarter 2015, estimated |
 | Australia East | Preview | Second quarter 2015, estimated |
 | Australia Southeast | Preview | Second quarter 2015, estimated |
