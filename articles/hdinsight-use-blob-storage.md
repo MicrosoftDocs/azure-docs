@@ -31,14 +31,6 @@ Storing data in Blob storage enables the HDInsight clusters used for computation
 
 For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 
-##In this article
-
-* [HDInsight storage architecture](#architecture)
-* [Benefits of Azure Blob storage](#benefits)
-* [Prepare a container for Blob storage](#preparingblobstorage)
-* [Address files in Blob storage](#addressing)
-* [Access blob using PowerShell](#powershell)
-* [Next steps](#nextsteps)
 
 ##<a id="architecture"></a>HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:

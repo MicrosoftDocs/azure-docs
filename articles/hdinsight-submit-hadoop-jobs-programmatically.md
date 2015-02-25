@@ -20,23 +20,13 @@
 
 In this article, you will learn how to submit MapReduce and Hive jobs using PowerShell and HDInsight .NET SDK.
 
-**Prerequisites:**
+##Prerequisites
 
 Before you begin this article, you must have the following:
 
 * An Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 * Install and configure Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 
-
-##In this article
-
-* [Submit MapReduce jobs using PowerShell](#mapreduce-powershell)
-* [Submit Hive jobs using PowerShell](#hive-powershell)
-* [Submit Sqoop jobs using PowerShell](#sqoop-powershell)
-* [Submit MapReduce jobs using HDInsight .NET SDK](#mapreduce-sdk)
-* [Submit Hadoop Streaming MapReduce jobs using HDInsight .NET SDK](#streaming-sdk)
-* [Submit Hive Jobs using HDInsight .NET SDK](#hive-sdk)
-* [Next steps](#nextsteps)
 
 ##<a id="mapreduce-powershell"></a> Submit MapReduce jobs using PowerShell
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].

@@ -19,7 +19,7 @@
 # Develop Java MapReduce programs for Hadoop in HDInsight
 This tutorial walks you through an end-to-end scenario for developing a word counting Hadoop MapReduce job in Java using Apache Maven. The tutorial also shows how to test the application on the HDInsight Emulator and then deploy and run it on Azure HDInsight cluster.
 
-**Prerequisites:**
+##<a name="prerequisites"></a>Prerequisites
 
 Before you begin this tutorial, you must have completed the following:
 
@@ -29,14 +29,6 @@ Before you begin this tutorial, you must have completed the following:
 - Install and configure [Apache Maven](http://maven.apache.org/).
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-##In this article
-
-- [Use Apache Maven to create a word counting MapReduce program in Java](#develop)
-- [Test the program on the emulator](#test)
-- [Upload data files and the application to Azure Blob storage](#upload)
-- [Run the MapReduce program on Azure HDInsight](#run)
-- [Retrieve the MapReduce results](#retrieve)
-- [Next steps](#nextsteps)
 
 ##<a name="develop"></a>Use Apache Maven to create a MapReduce program in Java
 
