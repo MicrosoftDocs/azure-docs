@@ -28,7 +28,7 @@ Before we get started, couple of things to keep in mind:
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment below. Someone will get back to you (yes, we do read comments).
 
-## <a id="create-vnet"></a>Create a Virtual Network
+##Create a Virtual Network
 
 You can create a Virtual Network in Azure using the Azure Portal or Powershell. For this tutorial, we will use Powershell. To create a Virtual Network using the Azure Portal, see [Create Virtual Network](http://azure.microsoft.com/en-us/documentation/articles/create-virtual-network/).
 
