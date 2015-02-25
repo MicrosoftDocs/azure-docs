@@ -17,16 +17,16 @@
 	ms.author="spelluru"/>
 
 # Creating alerts on Azure events
-Azure events provide useful insights into what is happening in your Azure resources. When an Azure resource (e.g. data factory) is created, updated or deleted, Azure logs user events. When using the Azure Data Factory, events are generated when:
+Azure events provide useful insights into what is happening in your Azure resources. Azure logs user events when an Azure resource (e.g. data factory) is created, updated or deleted. When using the Azure Data Factory, events are generated when:
  
 1.	Azure Data Factory is created/updated/deleted.
 2.	Data processing (called as Runs) has started/completed.
 3.	When an on-demand HDInsight cluster is created and removed.
 
-You can create alerts on these user events and configure to send email notifications to the admin/co-admin of the subscription. In addition, you can specify additional email addresses to send the email notifications when the conditions are met.
+You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription. In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met.
 
 ## Specifying an alert definition
-To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on. In the example below, the alert will send an email notification for the “RunFinished” operation. Specifically, when a run in the data factory has completed, and the run has failed (Status = FailedExecution), an email notification is sent.
+To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on. In the example below, the alert will send an email notification for the **RunFinished** operation. To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).
 
 	{
     	"contentVersion": "1.0.0.0",
@@ -65,12 +65,12 @@ To specify an alert definition, you create a JSON file describing the operations
     	]
 	}
 
-From the above definition, “subStatus” can be removed it you don’t want to be alerted on a specific failure.
+From the above JSON definition, **subStatus** can be removed if you don’t want to be alerted on a specific failure.
 
 See [Available Operations and Statuses](#AvailableOperationsStatuses) for the list of operations and statuses (and sub-statuses). 
 
 ## Deploying the Alert
-To deploy the alert, use the Azure PowerShell cmdlet: New-AzureResourceGroupDeployment, as shown in the following example:
+To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureResourceGroupDeployment**, as shown in the following example:
 
 	New-AzureResourceGroupDeployment -ResourceGroupName adf 	-TemplateFile .\ADFAlertFailedSlice.json -StorageAccountName testmetricsabc
 
@@ -94,7 +94,7 @@ Once the resource group deployment has completed successfully, you will see the 
 	Outputs           :
 
 ## Retrieving the list of Azure Resource Group Deployments
-To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: Get-AzureResourceGroupDeployment, as shown in the following example:
+To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureResourceGroupDeployment**, as shown in the following example:
 	
 	Get-AzureResourceGroupDeployment -ResourceGroupName adf
 	
@@ -110,9 +110,9 @@ To retrieve the list of deployed Azure Resource Group deployments, use the cmdle
 ## <a name="AvailableOperationsStatuses"></a>Available Operation Names and Status Values
 
 <table>
-<th>Operation Name</th>
-<th>Status</th>
-<th>Sub Status</th>
+<th align="left">Operation Name</th>
+<th align="left">Status</th>
+<th align="left">Sub Status</th>
 
 <tr>
 <td>RunStarted</td>
