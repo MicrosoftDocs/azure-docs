@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Install the LAMP stack on a Linux virtual machine" 
-	description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+<properties
+	pageTitle="Install the LAMP stack on a Linux virtual machine"
+	description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="2/24/2014"
 	ms.author="szark"/>
 
 
@@ -118,6 +118,8 @@ Setting Up
 
 ##Further Reading
 
-There are many resources for setting up a LAMP stack on Ubuntu.
+Suppose you want to automate these steps to deploy applications to remote Linux virtual machines? You can do this using the Linux CustomScript extension. See [Deploy a LAMP app using the Azure CustomScript Extension for Linux](../virtual-machines-linux-script-lamp/).
+
+There are many other resources for setting up a LAMP stack on Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
