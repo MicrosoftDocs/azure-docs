@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
+	ms.date="02/24/2015" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
@@ -22,7 +22,7 @@
 
 # How to Send Email Using SendGrid with Azure
 
-Last Update: October 27, 2014
+Last Update: Feburary 24, 2015
 
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written in C\#
@@ -109,9 +109,9 @@ the SendGrid APIs.
 
 <h2><a name="createemail"></a>How to: Create an email</h2>
 
-Use the static **SendGrid.GetInstance** method to create an email
-message that is of type **SendGrid**. Once the message is created, you
-can use **SendGrid** properties and methods to set values including the
+Use the **SendGridMessage** object to create an email
+message. Once the message object is created, you
+can set properties and methods, including the
 email sender, the email recipient, and the subject and body of the
 email.
 
