@@ -16,9 +16,9 @@
    ms.date="02/20/2015"
    ms.author="kasing"/>
 
-# Manage your VMs using Azure PowerShell
+# Manage your Virtual Machines using Azure PowerShell
 
-Before getting started you'll need to make sure you have Azure PowerShell installed. To do this, visit [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
+Before getting started you'll need to make sure you have Azure PowerShell installed. To do this, visit [How to install and configure Azure PowerShell](../install-configure-powershell/)
 
 ## Get an Image
 
@@ -44,7 +44,7 @@ Next you'll need to choose the **username** and **password** for your VM. You ca
 
 Finally, you are ready to spin up your VM on Azure. To do this you'll need to use the **New-AzureVM** cmdlet
 
-> AZURE.NOTE You'll need to configure the cloud service before you create your VM. There are two ways to do this.
+> [AZURE.NOTE] You'll need to configure the cloud service before you create your VM. There are two ways to do this.
 * Create the cloud service using the New-AzureService cmdlet. If you choose this method, then you'll need to make sure that the location specified in the New-AzureVM cmdlet below matches the location of your cloud service, otherwise New-AzureVM cmdlet execution cmdlet will fail.
 * Let the New-AzureVM cmdlet do this for you. You'll need to make sure that the name of the service is unique otherwise New-AzureVM cmdlet execution will fail.
 
