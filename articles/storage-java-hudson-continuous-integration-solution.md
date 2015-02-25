@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/25/2015" 
 	ms.author="robmcm"/>
 
 #Using Azure Storage with a Hudson Continuous Integration solution
