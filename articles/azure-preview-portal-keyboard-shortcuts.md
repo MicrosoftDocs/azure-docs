@@ -39,5 +39,5 @@ Azure provides a number of keyboards shortcuts that you can use anywhere in the 
 
 ## Next steps
 
-Get to know the Azure Portal better: [http://azure.microsoft.com]. 
+Get to know the Azure Portal better: http://azure.microsoft.com. 
 
