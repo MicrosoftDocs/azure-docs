@@ -18,8 +18,6 @@
 
 
 
-
-
 # Node.js Web Application using the Azure Table Service
 
 ## Overview
@@ -34,17 +32,14 @@ You will learn:
 
 * How to use the Azure command-line tool for Mac and Linux to create an Azure Website
 
-By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
+By following this tutorial, you will build a simple web-based "to-do list" application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
  
-The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
+Here is the completed application:
 
 ![A web page displaying an empty tasklist][node-table-finished]
 
-> [AZURE.NOTE] This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**.
 
-> [AZURE.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
-
-##Prerequisites
+## Prerequisites
 
 Before following the instructions in this article, you should ensure that you have the following installed:
 
@@ -52,15 +47,12 @@ Before following the instructions in this article, you should ensure that you ha
 
 * [Git]
 
-* A text editor
-
-* A web browser
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##Create a storage account
+## Create a storage account
 
-Perform the following steps to create a storage account. This account will be used by subsequent instructions in this tutorial.
+Create an Azure storage account. The app will use this account to store the to-do items. 
 
 1. Open your web browser and go to the [Azure Portal]. If prompted, login with your Azure subscription information.
 
