@@ -2,7 +2,7 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/22/2015" ms.author="tysonn" />
 
-## General markdown
+## Markdown for Azure.microsoft.com
 
 For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
 
