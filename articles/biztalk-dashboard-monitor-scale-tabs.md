@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" 
+	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Azure" 
 	description="Learn about the controls and monitor performance on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/25/2015" 
 	ms.author="mandia"/>
 
 
@@ -27,20 +27,7 @@ When you open the Azure Management Portal, you are automatically placed at the *
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
-- ![Quick Start][QuickStart]  [Quick Start](#QuickStart)
-
-- [Dashboard](#Dashboard)
-
-- [Monitor](#Monitor)
-
-- [Scale](#Scale)
-
-- [Configure](#Configure)
-
-- [Hybrid Connections](#HybridConnections)
-
-
-## <a name="QuickStart"></a>Quick Start (![Quick Start][QuickStart])
+## Quick Start (![Quick Start][QuickStart])
 Depending on the BizTalk Services Edition, all options listed may not be available. 
 <table border="1">
     <tr>
@@ -111,7 +98,7 @@ This process is called "rollover keys". The purpose is to enable users to switch
 </table>
 
 
-## <a name="Dashboard"></a>Dashboard
+## Dashboard
 Depending on the BizTalk Services Edition, all options listed may not be available. 
 
 When you select your BizTalk Service name, the Dashboard tab is displayed. In Dashboard, you can:
@@ -237,7 +224,7 @@ This process is called "rollover keys". The purpose is to enable users to switch
 </table>
 
 
-## <a name="Monitor"></a>Monitor
+## Monitor
 Does not apply to the Free Edition.
 
 When you select your BizTalk Service name, the Monitor tab is available and displays the following:
@@ -332,7 +319,7 @@ In a Request-Reply scenario, the metric is incremented when the route destinatio
 </table>
 
 
-## <a name="Scale"></a>Scale
+## Scale
 In the Scale tab, you can add or subtract the number of units used by your BizTalk Service. By default, there is one Unit configured. Additional Units can be added to scale your BizTalk Service. When you increase the scale, you are increasing throughput. The amount of resources also increases, including deployed bridges, agreements, LOB connections, and processing power. For example, you increase the scale from 1 Unit to 2 Units. In this situation, you can deploy double the number of bridges, double the agreements, double the LOB connections, and double the processing power.
 
 Some BizTalk editions do not offer a scale option. In this situation, one Unit is permitted. To determine how many units your edition can be scaled, refer to [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279).
@@ -342,7 +329,7 @@ Increasing the number of units may impact pricing. If you increase the Units, se
 [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279) defines a "Unit".
 
 
-## <a name="Configure"></a>Configure
+## Configure
 Does not apply to Hybrid Connections.
 
 Sets the Backup Status to None or Automatic. When set to None, no backups are automatically created. When set to Automatic, you configure the backup location, the frequency of the backup, and how long to keep the backup files. 

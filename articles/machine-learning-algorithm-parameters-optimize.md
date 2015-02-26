@@ -1,12 +1,20 @@
-<properties title="" pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Azure" 
-description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Azure" 
+	description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/14/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/14/2015" 
+	ms.author="bradsev" />
 
 
 # How to choose parameters to optimize your algorithms in Azure Machine Learning

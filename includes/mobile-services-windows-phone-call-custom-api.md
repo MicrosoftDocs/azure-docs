@@ -1,6 +1,6 @@
 ##<a name="update-app"></a>Update the app to call the custom API
 
-1. In Visual Studio 2012 Express for Windows Phone, open the MainPage.xaml file in your quickstart project, locate the **Button** element named `ButtonRefresh`, and replace it with the following XAML code: 
+1. In Visual Studio, open the MainPage.xaml file in your quickstart project, locate the **Button** element named `ButtonRefresh`, and replace it with the following XAML code: 
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button Width="225" Name="ButtonRefresh" 

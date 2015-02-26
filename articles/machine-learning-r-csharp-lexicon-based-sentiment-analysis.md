@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Step 1: Lexicon Based Sentiment Analysis | Azure" 
+	pageTitle="Lexicon Based Sentiment Analysis | Azure" 
 	description="Lexicon Based Sentiment Analysis" 
 	services="machine-learning" 
 	documentationCenter="" 

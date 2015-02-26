@@ -1,6 +1,22 @@
-<properties title="Process Data from SQL Azure" pageTitle="Process Data from SQL Azure | Azure" description="Process Data from SQL Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="fashah" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Process Data from SQL Azure | Azure" 
+	description="Process Data from SQL Azure" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="fashah,garye" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="fashah,garye" /> 
 
 #<a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
 
