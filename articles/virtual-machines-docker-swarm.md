@@ -18,18 +18,20 @@
 
 # How to use Docker with Swarm 
 
-This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. 
+This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it.
 
-## azure vm docker create 
+> [AZURE.NOTE] This is an early version of software, so check back for updates about using this on Azure to create large, balanced, and controlled clusters of Docker containers, as well as checking the docker swarm documentation to discover all its features.
 
-four vms (but you can use any number more than one vm) call the following with *&lt;password&gt;* replaced by the password you have chosen.
+## Create Azure Virtual Machines
+
+This topic creates four VMs, but you can use any number you want. Call the following with *&lt;password&gt;* replaced by the password you have chosen.
 
     azure vm docker create swarm-master -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-1 -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-2 -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-3 -l "East US" -e 22 $imagename ops <password>
 
-When you're done you have:
+When you're done you should be able to use **azure vm list** to see your Azure VMs:
 
     $ azure vm list | grep "swarm-[mn]"
     data:    swarm-master     ReadyRole           East US       swarm-master.cloudapp.net                               100.78.186.65 
@@ -37,10 +39,9 @@ When you're done you have:
     data:    swarm-node-2     ReadyRole           East US       swarm-node-2.cloudapp.net                               100.72.18.47  
     data:    swarm-node-3     ReadyRole           East US       swarm-node-3.cloudapp.net                               100.78.24.68  
     
+## Installing Swarm on the Swarm Master VM
 
-## Installing Swarm on Swarm Master VM
-
-We use the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image). In this model, **swarm** is downloaded as a container running swarm. We can just invoke that remotely from our laptop by using docker to connect to the **swarm-master** VM and telling it to use the cluster id creation command, **create**.
+This topic uses the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image) -- but you could also SSH to the swarm-master . In this model, **swarm** is downloaded as a docker container running swarm. We can invoke that remotely from our laptop by using docker to connect to the **swarm-master** VM and telling it to use the cluster id creation command, **create**. The cluster id is how swarm discovers the members of the swarm group.
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run --rm swarm create
     Unable to find image 'swarm:latest' locally
@@ -56,13 +57,12 @@ We use the [container model of installation from the docker swarm documentation]
     Status: Downloaded newer image for swarm:latest
     36731c17189fd8f450c395db8437befd
     
-we need to capture the cluster id we just created to use it again when we join the node VMs to the swarm master to create the "swarm". Ours is **36731c17189fd8f450c395db8437befd**.
+That last line is the cluster id; copy it somewhere because you will use it again when you join the node VMs to the swarm master to create the "swarm". In this example, the cluster id is **36731c17189fd8f450c395db8437befd**.
 
 > [AZURE.NOTE] Just to be clear, we are using our local docker installation to connect to the **swarm-master** VM in Azure and instruction **swarm-master** to download, install, and run the **create** command, which returns our cluster id that we use for discovery purposes later.
-<b />
-> To confirm this, run `docker -H tcp://`*&lt;hostname&gt;* ` images` to list the container processes on the **swarm-master** machine and on another node for comparison:
+<br />
+> To confirm this, run `docker -H tcp://`*&lt;hostname&gt;* ` images` to list the container processes on the **swarm-master** machine and on another node for comparison (because we ran the previous swarm command with the **--rm** switch, the container was removed after it finished, so using **docker ps -a** won't return anything).:
 
-[rasquill note: using 'ps -a' did not list that swarm had ever run. Very strange]
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 images
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
@@ -75,7 +75,7 @@ we need to capture the cluster id we just created to use it again when we join t
 
 ## Join the Node VMs to our Docker Cluster
 
-For each node, list the endpoint information using the xplat-cli:
+For each node, list the endpoint information using the xplat-cli. Below we do that for the swarm-node-1 docker host in order to obtain the node's docker port.
 
     $ azure vm endpoint list swarm-node-1
     info:    Executing command vm endpoint list
@@ -87,7 +87,7 @@ For each node, list the endpoint information using the xplat-cli:
     info:    vm endpoint list command OK
     
  
-and join that to the swarm you are creating by passing the cluster id and the node's docker port:
+Using docker and the -H option to point the docker client at your node VM, join that node to the swarm you are creating by passing the cluster id and the node's docker port (the latter using **--addr**):
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 run -d swarm join --addr=138.91.112.194:4243 token://36731c17189fd8f450c395db8437befd
     Unable to find image 'swarm:latest' locally
@@ -103,7 +103,7 @@ and join that to the swarm you are creating by passing the cluster id and the no
     Status: Downloaded newer image for swarm:latest
     bbf88f61300bf876c6202d4cf886874b363cd7e2899345ac34dc8ab10c7ae924
 
-and to confirm that swarm is running on **swarm-node-1** we type:
+That seemed to work. To confirm that swarm is running on **swarm-node-1** we type:
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
@@ -123,24 +123,9 @@ and then you can list out your nodes in your cluster:
     54.187.164.89:2375
     92.222.76.190:2375
     
-## Run Things on Your Swarm
-
-To run things, you should just run something. 
-
-
-
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
+Go run things on your swarm. To look for inspiration, see [https://github.com/docker/swarm/](https://github.com/docker/swarm/).
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
-<!--Link references--In actual articles, you only need a single period before the slash.>
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
