@@ -428,4 +428,4 @@ You can retrieve the value of environment settings by using the Get Task operati
 
 
 <!--Image references-->
-[1]: ./media/batch-api-basics/batch-api-basics-01.PNG
+[1]: ./media/batch-api-basics/batch-api-basics-01.png
