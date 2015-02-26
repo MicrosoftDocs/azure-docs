@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app
@@ -71,7 +71,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in the [Mobile Services .NET How-to Conceptual Reference]
+In the next tutorial, [Service-side authorization of Mobile Services users](/en-us/documentation/articles/mobile-services-javascript-backend-service-side-authorization/), you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in the [Mobile Services .NET How-to Conceptual Reference]
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
