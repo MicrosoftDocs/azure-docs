@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to deploy a Linux application using the Azure CustomScript Extension"
+	pageTitle="Deploy a Linux application using the Azure CustomScript Extension"
 	description="Learn how to use the Azure CustomScript extension to deploy applications on Linux virtual machines."
 	editor="tysonn"
 	manager="timlt"
@@ -16,7 +16,7 @@
 	ms.date="2/23/2015"
 	ms.author="guybo"/>
 
-# How to deploy an application using the Azure CustomScript Extension for Linux
+#Deploy a LAMP app using the Azure CustomScript Extension for Linux#
 
 The Azure CustomScript extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (e.g. Python, Bash etc.). This provides a very flexible way to automate application deployment to multiple machines.
 
@@ -30,11 +30,11 @@ For this walk-through, create two Azure VMs running Ubuntu 14.04. I'll call them
 
 You also need an Azure Storage account and key to access it (you can get this from the Azure portal).
 
-If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](http://azure.microsoft.comdocumentation/articles/virtual-machines-linux-tutorial/).
+If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](../virtual-machines-linux-tutorial/).
 
 Though the specific install commands will assume Ubuntu, you can adapt the general steps for any supported distro.
 
-The *script-vm* VM needs to have xplat-cli installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.comdocumentation/articles/xplat-cli/).
+The *script-vm* VM needs to have xplat-cli installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli/).
 
 ## Uploading a script
 
@@ -44,7 +44,7 @@ In this example the CustomScript extension will execute a script on a remote VM 
 
 This script installs a LAMP stack to Ubuntu (including setting up a silent install of MySQL), writes a simple PHP file and starts Apache:
 
-		#!/bin/bash
+	#!/bin/bash
 	# set up a silent install of MySQL
 	dbpass="mySQLPassw0rd"
 

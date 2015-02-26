@@ -22,7 +22,7 @@ In Azure API Management, products are highly configurable to meet the requiremen
 
 In this tutorial you will create a Free Trial product that allows up to 10 calls per minute up to a maximum of 200 calls per week, publish it, and test the rate limit policy.
 
->[!AZURE.NOTE] If you have a product configured and want to use it for this tutorial, you can jump ahead to [Configure call rate limit and quota policies][] and follow the tutorial from there using your product in place of the **Free Trial** product.
+>[AZURE.NOTE] If you have a product configured and want to use it for this tutorial, you can jump ahead to [Configure call rate limit and quota policies][] and follow the tutorial from there using your product in place of the **Free Trial** product.
 
 ## <a name="create-product"> </a>Create a product
 

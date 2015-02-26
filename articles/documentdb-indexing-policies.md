@@ -61,15 +61,6 @@ index precision in bytes to improve query performance. This article
 describes the various indexing configuration options available in
 DocumentDB, and how to customize indexing policy for your workloads.
 
-## In this article ##
-
-Section | Description
------| -----------
-[How DocumentDB indexing works](#HowWorks) | Explains how DocumentDB represented JSON documents as trees for indexing.  
-[Configuring the indexing policy of a collection](#ConfigPolicy) | In this step, you create a hello world project in Eclipse.
-[Performance tuning](#Perf) | In this step, you add the DocumentDB SDK as a dependency to the project.
-
-
 <a id="HowWorks"></a>How DocumentDB indexing works
 -----------------------------
 

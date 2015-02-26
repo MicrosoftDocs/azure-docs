@@ -13,26 +13,12 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/23/2015" 
 	ms.author="mwasson"/>
 
 # Creating a Leaderboard App with Azure Mobile Services .NET Backend
 
 This tutorial shows how build a Windows Store app using Azure Mobile Services with a .NET backend. Azure Mobile Services provides a scalable and secure backend with built-in authentication, monitoring, push notifications, and other features, plus a cross-platform client library for building mobile apps. The .NET backend for Mobile Services is based on [ASP.NET Web API](http://asp.net/web-api), and gives .NET developers a first-class way to create REST APIs.   
-
-+ [Overview] 
-+ [About the sample app] 
-+ [Add data models]
-+ [Add Web API controllers]
-+ [Use a DTO to return related entities]
-+ [Define a custom API to submit scores]
-+ [Create the Windows Store app]
-+ [Add model classes]
-+ [Create a view model]
-+ [Add a MobileServiceClient instance]
-+ [Create the main page]
-+ [Publish your mobile service]
-+ [Next Steps]
 
 ## Overview
 
@@ -51,7 +37,7 @@ In this tutorial you will:
 - Use Entity Framework (EF) to create foreign key relations and data transfer objects (DTOs).
 - Use ASP.NET Web API to define a custom API.
 
-This tutorial uses [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/p/?LinkID=390465). 
+This tutorial uses [Visual Studio 2013 latest update](http://go.microsoft.com/fwlink/p/?LinkID=390465). 
 
 
 ## About the sample app
@@ -82,7 +68,7 @@ Launch Visual Studio and create a new ASP.NET Web Application project. Name the 
 
 ![][3]
 
-In Visual Studio 2013 Update 3, the ASP.NET Web Application project includes a template for Windows Azure Mobile Service. Select this template and click **OK**.
+In Visual Studio 2013, the ASP.NET Web Application project includes a template for Windows Azure Mobile Service. Select this template and click **OK**.
 
 ![][4]
  
@@ -131,7 +117,7 @@ The `PlayerRank` class has a [navigation property](http://msdn.microsoft.com/en-
 
 Next, you will add Web API controllers for `Player` and `PlayerRank`. Instead of plain Web API controllers, you will add a special kind of controller called a *table controller*, designed specifically for Azure Mobile Services.
 
-Right click the Controllers folder, select Add, then select New Scaffolded Item.
+Right click the Controllers folder >  **Add** > **New Scaffolded Item**.
 
 ![][6] 
 
@@ -328,7 +314,7 @@ The `PostPlayerScore` method takes a `PlayerScore` instance as input. (The clien
 2.	Updates the player's score.
 3.	Run a SQL query that batch updates all of the player ranks.
 
-The **[Route]** attribute to define a custom route for this method:
+The **[Route]** attribute defines a custom route for this method:
 
 	[Route("api/score")]
 
@@ -603,7 +589,7 @@ Finally, add methods that call through to the service layer.
 
 ## Add a MobileServiceClient instance
 
-Open the App.xaml.cs file and add a **MobileServiceClient** instance to the `App` class.
+Open the *App.xaml.cs*file and add a **MobileServiceClient** instance to the `App` class.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -774,3 +760,4 @@ Now when you run the app, it communicates with the real service.
 [Handle database write conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
 [Add push notifications]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+

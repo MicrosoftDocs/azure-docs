@@ -68,6 +68,8 @@ This section names and explains the new features in each category.
 | Larger transactions | With the V12 preview you are no longer limited to a maximum of 2 GB of data modifications in a single transaction. <br/><br/> One benefit is that rebuilding a large index is no longer limited by 2 GB transaction size limit. For general information, see [Azure SQL Database Resource Limits](http://msdn.microsoft.com/library/azure/dn338081.aspx). |
 | Online index build and rebuild | Before the V12 preview, Azure SQL Database generally supported the (ONLINE=ON) clause of the ALTER INDEX statement, but this was not supported for indexes on a BLOB type column. Now the V12 preview does support (ONLINE=ON) even for indexes on BLOB columns.<br/><br/> The ONLINE feature enables queries to benefit from an index even while the index is being rebuilt. |
 | CHECKPOINT support | With the V12 preview you can issue the T-SQL CHECKPOINT statement for your database. |
+| ALTER TABLE enhancement | Allows many alter column actions to be performed while the table remains available. For more information, see [ALTER TABLE (Transact-SQL)](http://msdn.microsoft.com/library/ms190273.aspx) |
+| TRUNCATE TABLE enhancement | Allows truncation of specific partitions. For more information, see [TRUNCATE TABLE (Transact-SQL)](http://msdn.microsoft.com/library/ms177570.aspx). |
 | More options on ALTER DATABASE | The V12 preview supports more of the options that are available on the ALTER DATABASE statement. <br/><br/> For more information, see [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) or [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 | More DBCC commands | Several more DBCC commands are now available in the V12 preview. For details see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 
@@ -131,18 +133,18 @@ The V12 version of Azure SQL Database was released only for preview and testing 
 
 | Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA |
 | :--- | :--- | :--- |
-| South Central US | General Availability (GA) | 2015-February-09, Monday |
-| Central US | General Availability (GA) | 2015-February-09, Monday |
-| North Central US | General Availability (GA) | 2015-February-09, Monday |
-| West US | General Availability (GA) | 2015-February-09, Monday |
-| East US | General Availability (GA) | 2015-February-09, Monday |
-| East US 2 | General Availability (GA) | 2015-February-09, Monday |
-| East Asia | Preview | First quarter 2015, estimated |
-| Southeast Asia | Preview | First quarter 2015, estimated |
-| Japan West | Preview | First quarter 2015, estimated |
-| Japan East | Preview | First quarter 2015, estimated |
-| North Europe | General Availability (GA) | 2015-January-29, Thursday |
-| West Europe | General Availability (GA) | 2015-January-29, Thursday |
+| South Central US | General Availability (GA) | February 9th, 2015 |
+| Central US | General Availability (GA) | February 9th, 2015 |
+| North Central US | General Availability (GA) | February 9th, 2015 |
+| West US | General Availability (GA) | February 9th, 2015 |
+| East US | General Availability (GA) | February 9th, 2015 |
+| East US 2 | General Availability (GA) | February 9th, 2015 |
+| East Asia | Preview | February 24th, 2015 |
+| Southeast Asia | Preview | February 24th, 2015 |
+| Japan West | Preview | February 24th, 2015 |
+| Japan East | Preview | February 24th, 2015 |
+| North Europe | General Availability (GA) | January 29th, 2015 |
+| West Europe | General Availability (GA) | January 29th, 2015 |
 | Brazil South | Not available | Third quarter 2015, estimated |
 | Australia East | Preview | Second quarter 2015, estimated |
 | Australia Southeast | Preview | Second quarter 2015, estimated |
