@@ -1,12 +1,20 @@
-<properties title="" pageTitle="Feature Engineering and Selection in Azure Machine Learning | Azure" 
-description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="zhangya, bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="Feature Engineering and Selection in Azure Machine Learning | Azure" 
+	description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="zhangya, bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/14/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/14/2015" 
+	ms.author="bradsev" />
 
 
 # Feature Engineering and Selection in Azure Machine Learning
