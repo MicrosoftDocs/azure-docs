@@ -1,6 +1,20 @@
-<properties title="Set up a Data Science Virtual Machine" pageTitle="Set up a Data Science Virtual Machine" description="Set up a Data Science Virtual Machinee" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,xibingaomsft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Set up a Data Science Virtual Machine" 
+	description="Set up a Data Science Virtual Machinee" 
+	services="machine-learning" 
+	solutions="" documentationCenter="" 
+	authors="msolhab,xibingaomsft" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/05/2015" ms.author="msolhab,xibingaomsft" />
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="msolhab,xibingaomsft" />
 
 # Set up a Data Science Virtual Machine in Azure
 

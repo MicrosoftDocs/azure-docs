@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="02/25/2015" 
 	ms.author="szark"/>
 
 
@@ -161,13 +161,17 @@ In this example, after running this command a new RAID device called **/dev/md12
 		.................
 		/dev/md127 on /data type ext4 (rw)
 
-5. Optional Parameters
+5. (Optional) Failsafe Boot Parameters
+
+	**fstab configuration**
 
 	Many distributions include either the `nobootwait` or `nofail` mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
 
 	Example (Ubuntu):
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
+
+	**Linux boot parameters**
 
 	In addition to the above parameters, the kernel parameter "`bootdegraded=true`" can allow the system to boot even if the RAID is perceived as damaged or degraded, for example if a data drive is inadvertently removed from the virtual machine. By default this could also result in a non-bootable system.
 

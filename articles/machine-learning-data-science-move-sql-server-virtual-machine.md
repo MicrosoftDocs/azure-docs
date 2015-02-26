@@ -1,6 +1,22 @@
-<properties title="SQL Table data story" pageTitle="Move data to SQL Server on Azure| Azure" description="Move data to SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Move data to SQL Server on Azure| Azure" 
+	description="Move data to SQL Server on Azure" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="fashah,garye" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="fashah,garye" /> 
 
 #Move data to SQL Server on Azure
 
@@ -22,17 +38,17 @@ This document covers the movement of data from flat files (csv/tsv) or an on-pre
 <tr>
   <td><b>Flat File</b></td>  
   <td>
-    1. <a href="#insert-tables-bcp">Command line bulk copy utility (BCP)<br>
-    2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query<br>
-    3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server
+    1. <a href="#insert-tables-bcp">Command line bulk copy utility (BCP) </a><br>
+    2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query </a><br>
+    3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server </a>
   </td>
 </tr>
 <tr>
   <td><b>On-Premise SQL Server</b></td>
   <td>
-    1. <a href="#export-flat-file">Export to a flat File<br>
-    2. <a href="#sql-migration">SQL Database Migration Wizard<br>    
-    3. <a href="#sql-backup">Database backup and restore<br>
+    1. <a href="#export-flat-file">Export to a flat File </a><br>
+    2. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
+    3. <a href="#sql-backup">Database backup and restore </a> <br>
   </td>
 </tr>
 </table>

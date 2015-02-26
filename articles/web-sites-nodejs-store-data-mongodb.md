@@ -3,7 +3,7 @@
 	description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." 
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
+	authors="wpickett" 
 	writer="" 
 	manager="wpickett" 
 	editor=""/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 # Create a Node.js Application on Azure with MongoDB in a Virtual Machine

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="02/25/2015" 
 	ms.author="tomfitz"/>
 
 #Create an Umbraco website from the gallery in Microsoft Azure#

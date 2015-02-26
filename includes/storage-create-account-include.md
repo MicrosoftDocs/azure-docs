@@ -29,7 +29,7 @@ create a storage account by using the Azure service management client library or
 
 6.  Click **CREATE STORAGE ACCOUNT**.
 
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Management Portal]: http://manage.windowsazure.com
 [plus-new]: ./media/storage-create-account-include/plus-new.png
 [quick-create-storage]: ./media/storage-create-account-include/quick-storage-2.png

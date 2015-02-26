@@ -145,7 +145,7 @@ Event Hub is the data source for this example. Use the following steps to create
 
 Use the following to download the project from GitHub.
 
-	git clone https://Blackmist/hdinsight-eventhub-example
+	git clone https://github.com/Blackmist/hdinsight-eventhub-example
 
 After the command completes, you will have the following directory structure:
 
@@ -206,7 +206,7 @@ Before testing, you must start the dashboard to view the output of the topology,
 
 ###Start generating data
 
-> [AZURE.NOTE] The steps in this section use Node.js so that they can be ran on any platform. For other language examples, see the **SendEvents** directory.
+> [AZURE.NOTE] The steps in this section use Node.js so that they can be run on any platform. For other language examples, see the **SendEvents** directory.
 
 
 1. Open a new command prompt or terminal, and change directories to the **hdinsight-eventhub-example/SendEvents/nodejs**, then use the following to install dependencies needed by the application.
@@ -262,7 +262,7 @@ On your development environment, use the following steps to run the Temperature 
 
 1. To deploy the dashboard to an Azure Website, follow the steps in <a href="../web-sites-nodejs-develop-deploy-mac/" target="_blank">Build and deploy a Node.js website to Azure</a>. Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
 
-2. Once the Website has been created, go to the site in the Azure Portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save* at the bottom of the page.
+2. Once the Website has been created, go to the site in the Azure Portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
 
 2. Open **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** and change the following line to point to the URL of the published dashboard.
 
@@ -391,7 +391,7 @@ Before running the topology, you must prepare HBase to accept the data.
 
 2. From the desktop, start the HDInsight Command Line and enter the following commands.
 
-    cd %hbase_home%
+    cd %HBASE_HOME%
     bin\hbase shell
 
 3. From the HBase shell, enter the following command to create a table that sensor data will be stored in.
@@ -408,6 +408,12 @@ Once you have started the topology on the Storm cluster and processed data, you 
 ##Summary
 
 You have now learned how to use Storm to read data from Event Hub and display information from Storm on an external dashboard using SignalR and D3.js. If you've used the optional steps, you've also learned how to configure HDInsight in a Virtual Network and how to communicate between a Storm topology and HBase using the HBase bolt.
+
+* For more examples of Storm topologies with HDinsight, see:
+
+	* [Storm on HDInsight Examples](https://github.com/hdinsight/hdinsight-storm-examples)
+	
+	* [Twitter Trending Hashtags](../hdinsight-storm-twitter-trending/)
 
 * For more information on Apache Storm, see [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 

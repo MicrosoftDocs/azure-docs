@@ -13,7 +13,7 @@ This guide will show you how to use [ClearDB] to create a MySQL database from th
 To create a MySQL database from the [Azure Store], do the following:
 
 1. Log in to the [Azure Management Portal][portal].
-2. Click **+NEW** at the bottom of the page, then select **STORE**.
+2. Click **+NEW** at the bottom of the page, then select **MARKETPLACE**.
 
 	![Select add-on from store](./media/create-mysql-db/select-store.png)
 

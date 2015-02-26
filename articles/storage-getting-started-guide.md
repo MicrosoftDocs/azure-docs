@@ -12,7 +12,7 @@
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="02/18/2015" 
 	ms.author="selcint"/>
 
@@ -98,7 +98,7 @@ Now, run the sample application:
 5.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
 
-## <a name="next"></a>Next Steps
+## Next Steps
 In this tutorial, you've learned how to program against Azure Blob Storage, Azure Table Storage, and Azure Storage Queues. 
 
 If you want to learn more about them, follow these links:
@@ -109,9 +109,8 @@ If you want to learn more about them, follow these links:
 * [How to use Queue Storage from .NET](./storage-dotnet-how-to-use-queues.md)
 * [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-* [Azure Storage Client Library](https://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-* [Azure Storage REST API](https://msdn.microsoft.com/library/dd179355.aspx)
+* [Azure Storage Client Library](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
+* [Azure Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
-[Next Steps]: #next

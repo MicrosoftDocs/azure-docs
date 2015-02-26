@@ -20,13 +20,6 @@
  
 Learn how to monitor HDInsight clusters versions 3.1 and 2.1 using Ambari APIs.
 
-##In this article
-
-- [What is Ambari?](#whatisambari)
-- [Prerequisites](#prerequisites)
-- [Jump start](#jumpstart)
-- [Ambari monitoring APIs](#monitor)
-- [Next steps](#nextsteps)
 
 
 ## <a id="whatisambari"></a> What is Ambari?

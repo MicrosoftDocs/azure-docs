@@ -1,6 +1,21 @@
-<properties title="Azure Data Science Process in Action" pageTitle="Azure Data Science Process in Action | Azure" description="Azure Data Science Process in Action" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Azure Data Science Process in Action | Azure" 
+	description="Azure Data Science Process in Action" metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab,fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab,fashah" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="msolhab,fashah" /> 
 
                 
 # Azure Data Science Process in Action
@@ -71,7 +86,7 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/)
+1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/)
 
 2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
 

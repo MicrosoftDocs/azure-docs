@@ -1,6 +1,22 @@
-<properties title="Plan Your Cloud Data Science Environment" pageTitle="Plan Your Cloud Data Science Environment | Azure" description="Plan Your Cloud Data Science Environment" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Plan Your Cloud Data Science Environment | Azure" 
+	description="Plan Your Cloud Data Science Environment" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab"
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="mohabib, sidneyh" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="mohabib, sidneyh" /> 
 
 
 # Plan Your Azure Machine Learning Data Science Environment

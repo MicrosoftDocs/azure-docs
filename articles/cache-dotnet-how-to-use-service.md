@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Managed Cache Service
@@ -26,21 +26,6 @@ and **enabling ASP.NET page output caching using the cache**. For more
 information on using Azure Cache, refer to the [Next Steps][] section.
 
 >For guidance on choosing the right Azure Cache offering for your application, see [Which Azure Cache offering is right for me?][].
-
-## Table of Contents
-
--   [What is Azure Managed Cache Service?][]
--	[Getting Started with Managed Cache Service]
-	-	[Create the cache][]
-	-	[Configure the cache][]
-	-	[Configure the cache clients][]
--	[Working with caches][]
-	-	[How To: Create a DataCache Object][]
-	-   [How To: Add and Retrieve an Object from the Cache][]
-	-   [How To: Specify the Expiration of an Object in the Cache][]
-	-   [How To: Store ASP.NET Session State in the Cache][]
-	-   [How To: Store ASP.NET Page Output Caching in the Cache][]
--   [Next Steps][]
 
 <a name="what-is"></a>
 ## What is Azure Managed Cache Service?

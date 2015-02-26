@@ -1,6 +1,22 @@
-<properties title="Parallel Bulk Data Import Using SQL Partition Tables" pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Azure" description="Parallel Bulk Data Import Using SQL Partition Tables" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Azure" 
+	description="Parallel Bulk Data Import Using SQL Partition Tables" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="msolhab" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="msolhab" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables
 

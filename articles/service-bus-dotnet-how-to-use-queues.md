@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="How to use Service Bus queues (.NET) - Azure" 
-    description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." 
-    services="service-bus" 
-    documentationCenter=".net" 
-    authors="sethmanheim" 
-    manager="timlt" 
+<properties
+    pageTitle="How to use Service Bus queues (.NET) - Azure"
+    description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
     editor="mattshel"/>
 
-<tags 
-    ms.service="service-bus" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="02/26/2015" 
+<tags
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="02/26/2015"
     ms.author="sethm"/>
 
 
@@ -92,7 +92,7 @@ You then specify values in the service configuration (`*.cscfg`) file:
     ...
         <Role name="MyRole">
             <ConfigurationSettings>
-                <Setting name="Microsoft.ServiceBus.ConnectionString" 
+                <Setting name="Microsoft.ServiceBus.ConnectionString"
                          value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
             </ConfigurationSettings>
         </Role>
@@ -118,21 +118,21 @@ described in the previous section.
 
 ## How to create a queue
 
-You can perform management operations for Service Bus queues via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
+You can perform management operations for Service Bus queues via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues.
 
 This example constructs a **NamespaceManager** object using the Azure **CloudConfigurationManager** class
 with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
-SAS credentials with permissions to manage it. This connection string is of the form 
+SAS credentials with permissions to manage it. This connection string is of the form
 
     Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey
 
 For example, given the configuration settings in the previous section:
 
     // Create the queue if it does not exist already
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    var namespaceManager = 
+    var namespaceManager =
         NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.QueueExists("TestQueue"))
@@ -152,10 +152,10 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
     qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
     // Create a new Queue with custom settings
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    var namespaceManager = 
+    var namespaceManager =
         NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.QueueExists("TestQueue"))
@@ -175,10 +175,10 @@ To send a message to a Service Bus queue, your application creates a
 The code below demonstrates how to create a **QueueClient** object
 for the "TestQueue" queue created above using the **CreateFromConnectionString** API call:
 
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    QueueClient Client = 
+    QueueClient Client =
         QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
 
     Client.Send(new BrokeredMessage());
@@ -203,7 +203,7 @@ The following example demonstrates how to send five test messages to the
 
        // Set some addtional custom app-specific properties
        message.Properties["TestProperty"] = "TestValue";
-       message.Properties["Message number"] = i;   
+       message.Properties["Message number"] = i;
 
        // Send message to the queue
        Client.Send(message);
@@ -245,10 +245,10 @@ Bus sees the **Complete** call, it marks the message as being
 consumed and removes it from the queue.
 
 The example below demonstrates how messages can be received and
-processed using the default **PeekLock** mode. To specify a different 
-**ReceiveMode** value, you can use another overload for 
+processed using the default **PeekLock** mode. To specify a different
+**ReceiveMode** value, you can use another overload for
 **CreateFromConnectionString**. This example uses the **OnMessage** callback
-to process messages as they arrive into the "TestQueue". 
+to process messages as they arrive into the "TestQueue".
 
     string connectionString =
       CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -279,7 +279,7 @@ to process messages as they arrive into the "TestQueue".
             // Indicates a problem, unlock message in queue
             message.Abandon();
         }
-    }, options); 
+    }, options);
 
 This example configures the **OnMessage** callback using an **OnMessageOptions** object. **AutoComplete**
 is set to **false** to enable manual control of when to call **Complete** on the received message.
@@ -315,7 +315,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-## Next Steps
+## Next steps
 
 Now that you've learned the basics of Service Bus queues, follow these
 links to learn more.
@@ -338,12 +338,12 @@ links to learn more.
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ./media/service-bus-dotnet-how-to-use-queues/sb-queues-08.png
   [Azure Management Portal]: http://manage.windowsazure.com
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx

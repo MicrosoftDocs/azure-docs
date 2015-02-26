@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # How to create and use groups to manage developer accounts in Azure API Management
@@ -29,13 +29,6 @@ API Management has the following built-in groups.
 In addition to these built-in groups, administrators can create custom groups. Custom groups have the same privileges as the built-in developers group, and can be used to manage multiple groups of developers. For example, you could create one custom group for developers that will use the APIs from one product, and another group for developers that will use the APIs from a different product.
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
-
-## In this topic
-
--   [Create a group][]
--   [Associate a group with a product][]
--   [Associate groups with developers][]
--   [Next steps][]
 
 ## <a name="create-group"> </a>Create a group
 
