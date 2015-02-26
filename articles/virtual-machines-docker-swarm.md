@@ -21,8 +21,10 @@
 This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it.
 
 > [AZURE.NOTE] This is an early version of software, so check back for updates about using this on Azure to create large, balanced, and controlled clusters of Docker containers, as well as checking the docker swarm documentation to discover all its features.
+<br />
+> In addition, this topic uses docker with swarm and the xplat-cli *without* using docker-machine in order to show how the different tools work together but remain independent. docker-machine has **--swarm** switches that enable you to use docker-machine to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed docker-machine running against Azure VMs, see [How to Use Docker and Machine with Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-docker-machine/).
 
-## Create Azure Virtual Machines
+## Create docker hosts with Azure Virtual Machines
 
 This topic creates four VMs, but you can use any number you want. Call the following with *&lt;password&gt;* replaced by the password you have chosen.
 
@@ -103,7 +105,7 @@ Using docker and the -H option to point the docker client at your node VM, join 
     Status: Downloaded newer image for swarm:latest
     bbf88f61300bf876c6202d4cf886874b363cd7e2899345ac34dc8ab10c7ae924
 
-That seemed to work. To confirm that swarm is running on **swarm-node-1** we type:
+That looks good. To confirm that swarm is running on **swarm-node-1** we type:
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
@@ -126,6 +128,8 @@ and then you can list out your nodes in your cluster:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-Go run things on your swarm. To look for inspiration, see [https://github.com/docker/swarm/](https://github.com/docker/swarm/).
+Go run things on your swarm. To look for inspiration, see [https://github.com/docker/swarm/](https://github.com/docker/swarm/), or perhaps a [video](https://www.youtube.com/watch?v=EC25ARhZ5bI).
 
+<!-- links -->
 
+[docker-machine-azure]: ../virtual-machines-docker-machine/
