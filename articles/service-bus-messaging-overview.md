@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="02/26/2015"
 	ms.author="sethm"/>
 
 
@@ -31,8 +31,8 @@ Azure Service Bus messaging has two separate features: queues and topics. Both m
 
 For more about Service Bus messaging, see the following topics.
 
-- [Azure Service Bus Architectural Overview](./fundamentals-service-bus-hybrid-solutions/)
+- [Azure Service Bus Architectural Overview](../fundamentals-service-bus-hybrid-solutions/)
 
-- [How to use Service Bus Queues](./service-bus-dotnet-how-to-use-queues)
+- [How to use Service Bus Queues](../service-bus-dotnet-how-to-use-queues)
 
-- [How to use Service Bus Topics](./service-bus-dotnet-how-to-use-topics-subscriptions)
+- [How to use Service Bus Topics](../service-bus-dotnet-how-to-use-topics-subscriptions)
