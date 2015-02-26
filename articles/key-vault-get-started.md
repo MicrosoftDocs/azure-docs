@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="02/26/2015" 
 	ms.author="cabailey"/>
 
 # Get Started with Azure Key Vault #
@@ -107,6 +107,8 @@ Use the [New-AzureKeyVault](http://go.microsoft.com/fwlink/?LinkId=522255) scrip
 For example, if you use the  vault name of **ContosoKeyVault**, the resource group name of **ContosoResourceGroup**, and the location of **East Asia**, type:
 
     New-AzureKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' 
+
+For the -Location parameter, use the command [Get-AzureLocation](https://msdn.microsoft.com/library/dn654582.aspx) to identify how to specify an alternative location to the one in this example. If you need more information, type: `Get-Help Get-AzureLocation`
 
 The output of this script shows properties of the key vault that you’ve just created. The two most important properties are:
 
