@@ -61,6 +61,8 @@ As an example, let's assume we have an experiment with a **Writer** module that 
  
 5.	To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the **Enter** key.
 
+	![Web Service Parameter][parameter]
+
 6.	Click **Run**. 
 
 7.	Click **PUBLISH WEB SERVICE** to publish the web service.
@@ -77,3 +79,4 @@ For more information on accessing a Machine Learning web service, see [How to co
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png
+[parameter]: ./media/machine-learning-web-service-parameters/parameter.png
