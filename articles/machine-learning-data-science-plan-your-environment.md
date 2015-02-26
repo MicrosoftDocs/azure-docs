@@ -1,13 +1,29 @@
-<properties title="Plan Your Cloud Data Science Environment" pageTitle="Plan Your Cloud Data Science Environment | Azure" description="Plan Your Cloud Data Science Environment" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Plan Your Cloud Data Science Environment | Azure" 
+	description="Plan Your Cloud Data Science Environment" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab"
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="mohabib, sidneyh" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="mohabib, sidneyh" /> 
 
 
 # Plan Your Azure Machine Learning Data Science Environment
 
 To set up an environment, choose options based on the data source locations and your target destination in the cloud. For example, determine the size of the data, where it exists, and its format. Repeat the set up process to support additional users and scenarios. Conduct end-to-end data science exercises, starting with the original data source through creation and publishing of a model as an Azure web service for consumption in applications.
 
-This article discusses different scenarios and options available, and serves as an introduction to the Cloud Data Science Process flow presented in the **[Data Science Process map](.\machine-learning-data-science-how-to-create-machine-learning-service.md)**. To learn more about any step in the Data Science Process, click the relevant item in the [map](./machine-learning-data-science-how-to-create-machine-learning-service.md).
+This article discusses different scenarios and options available, and serves as an introduction to the Cloud Data Science Process flow presented in the **[Data Science Process map](./machine-learning-data-science-how-to-create-machine-learning-service.md)**. To learn more about any step in the Data Science Process, click the relevant item in the [map](./machine-learning-data-science-how-to-create-machine-learning-service.md).
 
 ## Questions to Consider
 

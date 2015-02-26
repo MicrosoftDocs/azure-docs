@@ -34,7 +34,7 @@ You will also learn how to create hybrid topologies that use both C# and Java co
 
 * Azure SDK 2.5.1 or newer
 
-* HDInsight Tools for Visual Studio - see <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
+* HDInsight Tools for Visual Studio - see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
 
 * Apache Storm on HDInsight cluster - see <a href="../hdinsight-storm-getting-started/" target="_blank">Getting started with Apache Storm on HDInsight</a> for steps on creating a cluster
 
@@ -42,7 +42,7 @@ You will also learn how to create hybrid topologies that use both C# and Java co
 
 ##Create a C# topology
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
 
 2. Open Visual Studio, select **File**, **New**, and then **Project**.
 
@@ -500,7 +500,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 
 3. Save the changes, then use **F5** or **Debug**, **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. Once **Tests finished** appears, press any key to close the window.
 
-4. Using **Explorer**, go to the directory that contains your project. For example, **C:\Users\&lt;your user name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then **Debug**. You should see the text files produced when the tests were ran - sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
+4. Using **Explorer**, go to the directory that contains your project. For example, **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then **Debug**. You should see the text files produced when the tests were ran - sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
 
 	> [AZURE.NOTE] String data is persisted as an array of decimal values in these files. For example, [[97,103,111]] in the **splitter.txt** file is the word 'and'.
 
@@ -533,7 +533,9 @@ To view errors that have occurred in a running topology, use the following steps
 
 ##Next steps
 
-Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn about other ways to work with HDInsight.
+Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, discover more information about getting started creating C# applications by visiting [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+
+For more ways to work with HDInsight, or more Storm on HDinsight samples, see the following.
 
 **Apache Storm on HDInsight**
 
@@ -542,6 +544,8 @@ Now that you have learned how to develop and deploy Storm topologies from the HD
 * [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
 
 * [Trending hashtags for Twitter with Apache Storm on HDInsight](../hdinsight-storm-twitter-trending/)
+
+* [Storm on HDInsight examples](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop on HDInsight**
 

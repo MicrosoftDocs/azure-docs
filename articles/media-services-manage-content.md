@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/24/2015" 
 	ms.author="juliako"/>
-
-
-
 
 
 # How to Manage Content in Media Services #
@@ -26,7 +23,7 @@ This article is part of the [Media Services Video on Demand workflow](../media-s
 
 This topic shows how to use Azure Management Portal to manage media content in your Media Services account.
 
-Currently you can perform the following content operations directly from the portal:
+This topic shows how to perform the following content operations directly from the portal:
 
 - View content information like published state, published URL, size, datetime of last update, and whether or not the asset is encrypted.
 - Upload new content
@@ -35,8 +32,6 @@ Currently you can perform the following content operations directly from the por
 - Play content
 - Encrypt
 - Publish/Unpublish content
-
-
 
 ##<a id="upload"></a>How to: Upload content 
 
@@ -119,7 +114,6 @@ This section describes the steps you can take to encode your content with Azure 
 	After the encoding is done, the CONTENT page will contain the encoded file. 
 
 	To view the progress of the encoding job, switch to the **JOBS** page.  
-
 
 	If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
 

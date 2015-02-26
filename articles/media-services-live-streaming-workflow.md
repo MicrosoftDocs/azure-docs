@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="02/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -75,7 +75,7 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
 
-For information about scale streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
 
 
 

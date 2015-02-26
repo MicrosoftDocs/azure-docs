@@ -4,8 +4,6 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 
 1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
-
 2. Make a note of the **Storage Account Name** and **Access Key**.
 
    	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
@@ -20,8 +18,6 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 	The storage account access key is stored encrypted in app settings. You can access this key from any server script at runtime. For more information, see [App settings].
 
 4. Click the **Data** tab and then click the **TodoItem** table. 
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
 
 5.  In **todoitem**, click the **Script** tab and select **Insert**, replace the insert function with the following code, then click **Save**:
 
@@ -77,8 +73,6 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 		        request.execute();
 		    }
 		}
-
- 	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
 
    	This replaces the function that is invoked when an insert occurs in the TodoItem table with a new script. This new script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the `sasQueryString` property of the returned item. The `imageUri` property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.
 

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Introduction to Hadoop in HDInsight: Big data analysis in the cloud | Azure" 
-   description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud to provide a software framework to manage, analyze, and report on big data." 
+   description="An introduction to the Hadoop components on HDInsight. Learn how HDInsight uses Hadoop clusters in the cloud to manage, analyze, and report on big data." 
    services="hdinsight" 
    documentationCenter="" 
    authors="cgronlun" 
@@ -19,7 +19,7 @@
 
 # Introduction to Hadoop in HDInsight: Big data processing and analysis in the cloud
 
-Get an overview of HDInsight components, common terminology, and scenarios, and see resources for using Hadoop in HDInsight.
+Get an introduction to the Hadoop ecosystem in HDInsight - components, common terminology, and scenarios. Also, find out about tutorials and resources for using Hadoop in HDInsight.
 
 Azure HDInsight deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system.
 
@@ -158,7 +158,7 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * Integration with other Azure services, including [Websites](../documentation/services/websites/) and [SQL Database](../documentation/services/sql-database/).
 
-* Low entry cost. Start a [free trial](/pricing/free-trial/), or consult [HDInsight pricing details](../pricing/details/hdinsight/).
+* Low entry cost. Start a [free trial](/pricing/free-trial/), or consult [HDInsight pricing details](/pricing/details/hdinsight/).
 
 To read more about the advantages on Hadoop in HDInsight, see the [Azure features page for HDInsight][marketing-page].
 
@@ -180,7 +180,7 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 ### HDInsight on Windows
 
-* [HDInsight documentation](../documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight documentation](http://azure.microsoft.com/en-us/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
 * [Learning map for HDInsight](../hdinsight-learn-map): A guided tour of Hadoop documentation for HDInsight.
 

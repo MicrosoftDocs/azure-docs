@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Get started with SQL Database Dynamic Data Masking" 
    description="How to get started with SQL Database Dynamic Data Masking" 
-   services="Azure SQL Database, dynamic data masking" 
+   services="sql-database" 
    documentationCenter="" 
    authors="nadavhelfman" 
    manager="jeffreyg" 
@@ -12,8 +12,8 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sql-database" 
-   ms.date="02/13/2015"
+   ms.workload="data-services" 
+   ms.date="02/24/2015"
    ms.author="nadavh; ronmat; v-romcal; v-stste"/>
 
 # Get started with SQL Database Dynamic Data Masking 

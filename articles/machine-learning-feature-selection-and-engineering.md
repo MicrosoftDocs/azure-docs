@@ -1,12 +1,20 @@
-<properties title="" pageTitle="Feature Engineering and Selection in Azure Machine Learning | Azure" 
-description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="zhangya, bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="Feature Engineering and Selection in Azure Machine Learning | Azure" 
+	description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="zhangya, bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/14/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/14/2015" 
+	ms.author="bradsev" />
 
 
 # Feature Engineering and Selection in Azure Machine Learning
@@ -30,7 +38,7 @@ Engineering and selection are the **data enhancement** step of machine learning.
 * **feature engineering** This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem. 
 
-This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-ml-studio/) video.
+This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](http://azure.microsoft.com/en-us/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 
 ## Creating Features from Your Data - Feature Engineering

@@ -13,32 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/25/2015" 
 	ms.author="mandia"/>
-
-
 
 
 # BizTalk Services: Editions Chart
 
-Azure BizTalk Services offers the following editions:
+Azure BizTalk Services offers several editions to choose. Use this topic to determine which edition is right for your scenario and business needs.
 
-**Free (Preview)**: 
+## Describing the Editions
+
+**FREE (Preview)**
+
 Can create and manage Hybrid Connections. A Hybrid Connection is an easy way to connect an Azure Website to an on-premises system, like SQL Server. 
 
-**Developer**: 
+**DEVELOPER**
+
 Includes Hybrid Connections, EAI & EDI message processing with an easy-to-use trading partner management portal, and support for common EDI schemas and rich EDI processing over X12 and AS2. Can create common EAI scenarios connecting services in the cloud with any HTTP/S, REST, FTP, WCF and SFTP protocols to read and write messages.  Utilize connectivity to on-premises LOB systems with ready-to-use SAP, Oracle eBusiness, Oracle DB, Siebel, and SQL Server adapters. Use a developer centric environment with Visual Studio tools for easy development and deployment. Limited to development and test purposes only with no Service Level Agreement (SLA).
 
-**Basic**: 
+**BASIC**
+
 Includes most of the Developer capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
 
-**Standard**: 
+**STANDARD** 
+
 Includes all the Basic capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
 
-**Premium**: 
+**PREMIUM** 
+
 Includes all the Standard capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also includes archiving, high availability, and the option to scale with a Service Level Agreement (SLA).
 
-
+## Editions Chart
 The following table lists the differences:
 
 <table border="1">

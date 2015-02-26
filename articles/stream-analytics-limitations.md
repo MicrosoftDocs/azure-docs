@@ -21,10 +21,6 @@
 This document describes the limitations and known issues of [Azure Stream Analytics][stream.analytics.documentation] during the Preview release.  In most cases these limits exist with an intent to get your early feedback or based on current capacity constraints. 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-##In this article
-+ [Limitations](#limitations) 
-+ [Release notes and known issues](#knownissues)
-+ [Next steps]
 
 ##<a name="limitations"></a> Limitations
 
