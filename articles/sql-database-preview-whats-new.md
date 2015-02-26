@@ -139,10 +139,10 @@ The V12 version of Azure SQL Database was released only for preview and testing 
 | West US | General Availability (GA) | February 9th, 2015 |
 | East US | General Availability (GA) | February 9th, 2015 |
 | East US 2 | General Availability (GA) | February 9th, 2015 |
-| East Asia | Preview | February 24th, 2015 |
-| Southeast Asia | Preview | February 24th, 2015 |
-| Japan West | Preview | February 24th, 2015 |
-| Japan East | Preview | February 24th, 2015 |
+| East Asia | General Availability (GA) | February 24th, 2015 |
+| Southeast Asia | General Availability (GA) | February 24th, 2015 |
+| Japan West | General Availability (GA) | February 24th, 2015 |
+| Japan East | General Availability (GA) | February 24th, 2015 |
 | North Europe | General Availability (GA) | January 29th, 2015 |
 | West Europe | General Availability (GA) | January 29th, 2015 |
 | Brazil South | Not available | Third quarter 2015, estimated |
