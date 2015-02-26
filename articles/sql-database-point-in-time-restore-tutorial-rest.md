@@ -28,7 +28,7 @@ Point in Time Restore creates a new database. The service automatically selects 
 
 ## Restrictions and Security
 
-See [Restore an Azure SQL database using Point in Time Restore in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/).
+See [Restore an Azure SQL database using Point in Time Restore in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/).
 
 ## How to: Restore an Azure SQL database using REST API
 
