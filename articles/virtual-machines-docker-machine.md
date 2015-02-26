@@ -51,7 +51,7 @@ If you have experience with Linux distributions, you may already have these file
 
 1. Create a local folder and on the command-line, navigate to that folder and type:
 
-		openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out mycert.pem
+		openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 		openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
 
 	Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
