@@ -16,7 +16,7 @@
    ms.date="02/24/2015"
    ms.author="rasquill"/>
 
-# How to use Docker with Swarm 
+# How to use docker with swarm 
 
 This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it.
 
@@ -39,7 +39,7 @@ When you're done you should be able to use **azure vm list** to see your Azure V
     data:    swarm-node-2     ReadyRole           East US       swarm-node-2.cloudapp.net                               100.72.18.47  
     data:    swarm-node-3     ReadyRole           East US       swarm-node-3.cloudapp.net                               100.78.24.68  
     
-## Installing Swarm on the Swarm Master VM
+## Installing swarm on the swarm master VM
 
 This topic uses the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image) -- but you could also SSH to the swarm-master . In this model, **swarm** is downloaded as a docker container running swarm. We can invoke that remotely from our laptop by using docker to connect to the **swarm-master** VM and telling it to use the cluster id creation command, **create**. The cluster id is how swarm discovers the members of the swarm group.
 
@@ -73,7 +73,7 @@ That last line is the cluster id; copy it somewhere because you will use it agai
 <b />
 > The other nodes have no entries; no images have been downloaded and run yet.
 
-## Join the Node VMs to our Docker Cluster
+## Join the node VMs to our docker cluster
 
 For each node, list the endpoint information using the xplat-cli. Below we do that for the swarm-node-1 docker host in order to obtain the node's docker port.
 
@@ -111,7 +111,7 @@ That seemed to work. To confirm that swarm is running on **swarm-node-1** we typ
 
 Repeat for all the other nodes in the cluster. In our case, we do that for **swarm-node-2** and **swarm-node-3**. 
 
-## Begin Managing the Swarm Cluster
+## Begin managing the swarm cluster
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
     d7e87c2c147ade438cb4b663bda0ee20981d4818770958f5d317d6aebdcaedd5
