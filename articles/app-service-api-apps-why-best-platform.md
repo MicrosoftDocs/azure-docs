@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Why Azure App Service is the best platform for RESTful APIs" 
+	pageTitle="API Apps in Azure App Service" 
 	description="Learn why Azure App Service is the best platform for developing, publishing, and hosting RESTful APIs." 
 	services="app-service" 
 	documentationCenter=".net" 
@@ -16,80 +16,74 @@
 	ms.date="2/19/2015" 
 	ms.author="tdykstra"/>
 
-# Why Azure App Service is the best platform for RESTful APIs
+# API Apps in Azure App Service
 
 ## Overview
 
-Today there are many development technologies for building RESTful APIs, such as ASP.NET, PHP, Node.js, and Python. While these technologies are great for building APIs, they're just one part of building and running an API in production. 
+*API Apps* in Azure *App Service* provide the ability to discover, host, manage and monetize API’s and SaaS connectors on a modern, feature rich, scalable, and globally available cloud platform.
 
-To be competitive you also need a reliable hosting environment that makes it easy to manage APIs, easy to deploy them, easy to scale them, and easy to back up and restore them. You need an easy way to publish your APIs where customers can find them and easily consume them from their own Web apps and APIs. You need troubleshooting resources that enable you to respond quickly to problems encountered by your customers in production use. You need a way to do authentication and authorization simply but reliably. And you need development lifecycle tools that facilitate debugging and work tracking as well as writing code.
+Azure *App Service* is a fully managed platform as a service (PaaS) offering for Enterprise Developers and System Integrators that brings a rich set of capabilities to *web app* development, including:
 
-Azure App Service meets all of those needs better than any other cloud hosting platform.
+- Fully managed platform - automatic patching and management.
+- Secure cloud platform that is ISO, SOC2, and PIC compliant.
+- Ability to provision and deploy web apps in seconds.
+- Support for .NET, Java, PHP, Node, and Python.
+- Rich integration with Visual Studio, including simple publish and remote debugging.
+- Built-in staging, backup, roll-back, and testing-in-production capabilities.
+- Built-in autoscale, load balancing, and performance monitoring.
+- High availability with geo-distributed deployments.
+- Continuous deployment with Git, TFS, and GitHub.
+- Access to on premises data with VPN and Hybrid Connections.
+- Delegated and role-based administration of cloud apps and their resources.
 
-## Hosting 
+## Bring your API’s as-is
 
-Azure App Service provides a rich platform for hosting API projects. Here are a few of the benefits the platform provides:
+Use ASP.NET, Java, PHP, Node.js or Python for your APIs. Your APIs can take advantage of the features of Azure App Service with no changes.
 
-* Platform-as-a-service (PaaS) with auto patching.
-* Secure cloud platform that is ISO, SOC2, and PIC compliant.
-* Support for .NET, Java, PHP, Node, and Python. 
-* Rich integration with Visual Studio, including simple publish and remote debugging.
-* Built-in staging, backup, roll-back, and testing-in-production capabilities.  
-* Built-in autoscale, load balancing, and performance monitoring.
-* High availability with geo-distributed deployments.
-* Continuous deployment with Git, TFS, and GitHub.
-* Access to on premises data with VPN and Hybrid Connections.
-* Delegated and role-based administration of cloud apps and their resources.
+## Connect Your apps To popular SaaS platforms
 
-## API Apps Gallery
+Azure App Service makes it easy to connect your applications to popular SaaS platforms with a continually growing list of connectors, including Salesforce, Office 365, Twitter, Facebook, Dropbox, and many more.
 
-As you're building an API, you often need it to consume other APIs: how do you find the ones you need?  And once your API is built, how do you share it with other developers? When you update it to a new version, how do you notify all your customers and deliver the update? The Azure API Apps Gallery solves all these problems.
+## Enterprise grade security
 
-### Find other APIs 
+Azure App Service makes it easy to secure your APIs. Secure your API apps with support for Azure Active Directory including Single Sign-On support for many third party services and connectors. Rich support for
+social authentication to Google, Microsoft, Facebook, and Twitter is also available.
 
-The Azure API Apps Gallery is a marketplace that makes it easy to find and deploy APIs provided by other developers. The Gallery also contains Microsoft-provided connector API apps that make it easy for you to connect your API app or Web app to common Software-as-a-Service (SaaS) platforms such as Office 365, Sales Force, and many more.  
+## Simple access control
 
-### Share your API
+Azure App Service provides simple access controls for your API apps. APIs can be exposed to just the other apps inside of your Azure App Service or to the public, with no changes to your code.
 
-When you publish your API to the Gallery you can make it publicly available or limit access to members of your organization. And you can include with your API a simple *.json* dependencies definition file that specifies which other Gallery APIs your app needs. Then when someone deploys your app into their Azure subscription, Azure automatically deploys and hosts all of the dependent APIs along with yours. 
+## Public and organization gallery of APIs
 
-The Gallery also provides an easy means for you to be compensated for the use of your API by your customers -- Azure bills them for usage and passes the income on to you.
+With Azure App Service, teams can easily share API’s with other teams in your organization, by using your own private organizational gallery of APIs. APIs can also be shared publicly for consumption by third party developers.
 
-### Update your API
+## Automatic SDK generation
 
-Sooner or later an API is going to have to be updated to a new version. Azure knows who has deployed your API from the Gallery, and your customers can opt in to an automatic update process. Minor updates can be automatically pushed to their copy of your API running in their Azure subscription, and they can get notifications of major updates that are available but contain breaking changes.
+Azure App Service enables you to take your existing APIs and automatically build SDKs for a variety of languages including C#, Java, and Javascript, making your APIs available to many platforms.
 
-## Monitoring
+## Use the best IDE in the market
 
-The Azure App Service platform automatically does logging for your API apps, without your having to write logging code. It also organizes presentation of the logs for you. You can see logs across all consumers of one of your APIs (dependent on privacy settings for each user), or you can see logs across all of your APIs; either way you have the resources you need to spot and respond to trends and issues as they arise.
+[Visual
+Studio](http://azure.microsoft.com/en-us/campaigns/visual-studio-2013/) integration allows for full lifecycle app management in one place. Azure VS integration allows you to create and continuously package and publish your API apps. With VS you can debug in the cloud as well as view live log diagnostic data.
 
-## Authentication
+## No ops
 
-Authentication and authorization are complex and difficult to manage for APIs. Azure App Service makes this easier and seamless. By setting some configuration values you can define which endpoints are protected and which are public, and you can secure endpoints by Azure Active Directory, Google, Microsoft, Facebook and Twitter; you don't have to write any code.
+Run your API apps in a high-availability environment with automatic patching. API apps deployed with Azure App Service are isolated and are hosted in VMs dedicated to your applications – ensuring predictable performance and security isolation.
 
-For Azure Active Directory, App Service provides single sign on scenarios where the authentication token can be flowed from one API to the next API automatically. Secret Stores are also available so tokens for services can be stored in secure places outside of your API.
+## Automatically scale
 
-## Tooling
+Azure App Service enables you to quickly scale up or out to handle any incoming customer load. Manually select the number and size of VMs or set up
+[auto-scaling](http://azure.microsoft.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+to scale your servers based on load or schedule.
 
-App Service offers full support for all its management capabilities from the command line, which enables the functionality to be used with all of the supported programming languages.
+## Access on-premises data
 
-.NET developers can use the full capabilities of Visual Studio, which supports creating new API apps, converting existing ASP.NET Web APIs into App Service API apps, remote debugging, and live streaming logs of your API apps as they run in the cloud. In Visual Studio you can publish to the Gallery with a single click, and you can generate client SDKs on the fly, making it simple to call the APIs you are using no matter what programming language they were written in.  
+Azure App Service enables you to build APIs that can consume data from your own data center. With [Hybrid Connections](../integration-hybrid-connection-overview/) and [VNET](../web-sites-integrate-with-vnet/) it's easy to access your data securely from your on-premises data
+centers - or anywhere else in the world. [Azure Active Directory](http://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) enables you to limit access to only your employees or partners.
+Interested in moving an on-premises website to the cloud? Use the [Migration Assistant](http://azure.microsoft.com/en-us/documentation/articles/web-sites-migration-from-iis-server/) to analyze and migrate your site with just a few clicks.
 
-There is also an API Apps SDK which makes it easy to use some of the advanced platform capabilities. Here are a few of the feaures the SDK makes available:
+## Friction-free deploy
 
-* Isolated storage - a secure storage area that API apps in an Azure resource group can use to store and share data.
-* Shared configuration - an easy way to specify data such as connection strings that need to be shared among multiple API apps in a resource group.
-* Simplified code syntax for consuming other API apps.  
+Set up continuous integration and deployment workflows with Visual Studio Online, GitHub, TeamCity, Hudson, or BitBucket – enabling you to automatically build, test and deploy your API app on each successful code check-in or integration tests.
 
-## Simple Transition of Existing API’s
-
-Azure App Service can take your existing API’s and give them all these advantages with little to no work. You don’t even need to change your existing code. Adding a simple *apiapp.json* file to your existing API is all you have to do to start taking advantage of all the capabilities described in this article. There is no need to rewrite your APIs; just add the file, publish, and start taking advantage of the functionality. 
-
-## Next Steps
-
-For more information, see [The Azure Cloud Hosting Platform](../app-service-value-prop-what-is).
-
-To get started with Azure API apps, see [Create an API app](../app-service-dotnet-create-api-app).
-
-
-
+For more information about the Azure App Service platform, see [Azure App Service](http://acom-feature-app-service.azurewebsites.net/en-us/documentation/articles/app-service-value-prop-what-is/).
