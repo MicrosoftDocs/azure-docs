@@ -1,7 +1,20 @@
+<properties 
+	pageTitle="Sample Data in SQL Server on Azure| Azure" 
+	description="Sample Data in SQL Server on Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<properties title="Sample Data in SQL Server on Azure" pageTitle="Sample Data in SQL Server on Azure| Azure" description="Sample Data in SQL Server on Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="fashah" manager="paulettm" editor="" videoId="" scriptId="" />
-
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/18/2015" ms.author="fashah,garye" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="fashah,garye" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
 
