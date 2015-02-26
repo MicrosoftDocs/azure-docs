@@ -42,7 +42,7 @@ Point in Time Restore creates a new database. The service automatically selects 
 
 	* Web and Business Editions will be retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-## How to: Restore an Azure SQL database using Point in Time Restore in Azure portal
+## How to: Restore an Azure SQL database using Point in Time Restore in the Azure portal
 
 <iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-SQL-Database-Using-Point-in-Time-Restore/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 

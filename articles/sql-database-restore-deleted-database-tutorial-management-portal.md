@@ -41,7 +41,7 @@ Restoring a deleted Azure SQL database creates a new database. The service autom
 	* If you have a Web or Business Edition database you can use database copy to get a transactional-consistent copy of your database, and then export the copied database to a Microsoft Azure storage account. For more information, see How to: Use Database Copy (Azure SQL Database) and How to: Use the Import and Export Service in Azure SQL Database.
 	* Web and Business Editions will be retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-## How to: Restore a deleted Azure SQL database in Azure portal
+## How to: Restore a deleted Azure SQL database in the Azure portal
 
 <iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-Deleted-SQL-Database/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 

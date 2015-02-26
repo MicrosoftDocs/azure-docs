@@ -28,7 +28,7 @@ Restoring a deleted Azure SQL database creates a new database. The service autom
 
 ## Restrictions and Security
 
-See [Restore a deleted Azure SQL database in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/).
+See [Restore a deleted Azure SQL database in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/).
 
 ## How to: Restore a deleted Azure SQL database using REST API
 

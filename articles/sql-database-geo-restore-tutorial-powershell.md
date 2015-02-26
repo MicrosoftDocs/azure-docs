@@ -26,7 +26,7 @@ This tutorial shows you how to recover an Azure SQL database using Geo-Restore i
 
 ## Restrictions and Security
 
-See [Recover an Azure SQL database using Geo-Restore in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-management-portal/).
+See [Recover an Azure SQL database using Geo-Restore in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-management-portal/).
 
 ## How to: Recover an Azure SQL database with Geo-Restore in Azure PowerShell
 
@@ -67,9 +67,9 @@ The **State** and **PercentComplete** fields show the status of the restore.
 
 For more information, see the following:  
 
-[Restore an Azure SQL database using Point in Time Restore in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
+[Restore an Azure SQL database using Point in Time Restore in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
 
-[Restore a deleted Azure SQL database in Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
+[Restore a deleted Azure SQL database in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
 
 [Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
