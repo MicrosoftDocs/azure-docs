@@ -64,13 +64,13 @@ This script installs a LAMP stack to Ubuntu (including setting up a silent insta
 
 **Upload**
 
-Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure storage. You can do this easily with xplat-cli as follows:
+Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure storage. You can do this easily with xplat-cli. The following example uploads the file to a storage container named "scripts". Note: If the container doesn't exist you'll need to create it first.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-Also create a JSON file which describes how to download the script from Azure storage. Save this as *public_config.json*.
+Also create a JSON file which describes how to download the script from Azure storage. Save this as *public_config.json* (replacing "mystorage" with the name of your storage account):
 
-    {fileUris":["https://mystorage.blob.core.windows.net/vhds/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
+    {fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
 
 ## Deploying the extension
