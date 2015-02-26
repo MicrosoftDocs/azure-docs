@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/10/2015"
+	ms.date="02/26/2015"
 	ms.author="sethm"/>
 
 
@@ -22,7 +22,7 @@
 
 # .NET Multi-Tier Application Using Service Bus Queues
 
-##Introduction
+## Introduction
 
 Developing for Azure is easy using Visual Studio 2013 and the
 free Azure SDK for .NET. If you do not already have Visual
@@ -148,7 +148,7 @@ application.
 
 Note that you can also manage namespaces and Service Bus messaging entities using the Visual Studio Server Explorer, but you can only create new namespaces from within the portal.
 
-###Set up the namespace using the Management Portal
+### Set up the namespace using the Management Portal
 
 1.  Log into the [Azure Management Portal][].
 
