@@ -3,7 +3,7 @@
 	description="How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="raymondlag" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/10/2015" 
-	ms.author="garye"/>
+	ms.author="raymondl,garye"/>
 
 #Use Azure Machine Learning Web Service Parameters
 

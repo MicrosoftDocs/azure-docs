@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm=""
 	ms.workload="big-data" 
 	ms.date="02/12/2015"
-	ms.author="raymondl"/>
+	ms.author="raymondl,garye"/>
 
 #Enable logging for Machine Learning web services  
 
