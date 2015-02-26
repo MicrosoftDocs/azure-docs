@@ -80,7 +80,7 @@ The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks tha
 
 	![Runbook Details](./media/automation/automation_08_RunbookDetails.png)
 
-## <a name="publishrunbook"></a>Publish Runbook 
+### <a name="publishrunbook"></a>Publish Runbook 
 
 The runbook is first imported in Draft mode. This means you can continue to do work on it before authorizing it as a new version that can be run. Since this sample runbook requires no additional configuration, you will now publish it as-is.  For more information, see [Publishing a Runbook](http://aka.ms/runbookauthor/azure/publishrunbook).
 
@@ -102,7 +102,7 @@ The runbook is first imported in Draft mode. This means you can continue to do w
  
 	![Save and Pub prompt](./media/automation/automation_09_SavePubPrompt.png)
 
-## <a name="startrunbook"></a>Start Runbook
+### <a name="startrunbook"></a>Start Runbook
 
 With the runbook imported and published, you can now run it and then inspect the output.  For more information, see [Starting a Runbook](http://aka.ms/runbookauthor/azure/startrunbook) and [Runbook Output and Messages](http://aka.ms/runbookauthor/azure/runbookoutput).
 
