@@ -1,7 +1,8 @@
 <properties
-	pageTitle="article-title"
-	description="Article description that will be displayed on landing pages and in some search results"
+	pageTitle="Manage Service Bus with PowerShell"
+	description="Manage Service Bus with PowerShell scripts instead of .NET"
 	services="service-bus"
+	documentationCenter=".net"
 	authors="bennage"
 	manager="masimms"
 	editor=""/>
@@ -12,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
-	ms.author="christb"/>
+	ms.date="02/26/2015"
+	ms.author="sethm"/>
 
 # Manage Service Bus with PowerShell
 
 ## Overview
 
-Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to provision and manage Service Bus entities such as namespaces, queues, and event hubs using a local Azure PowerShell console through the use of Windows PowerShell.
+Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to use PowerShell to provision and manage Service Bus entities such as namespaces, queues, and event hubs using a local Azure PowerShell console.
 
 ## Prerequisites
 
@@ -29,30 +30,30 @@ Before you begin this article, you must have the following:
 information about obtaining a subscription, see [Purchase Options][azure-purchase-options],
 [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-- A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
+- A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
 
-- A general understanding of of PowerShell scripts, NuGet packages, and .NET.
+- A general understanding of of PowerShell scripts, NuGet packages, and the .NET Framework.
 
 ## Including a reference to the .NET assembly for Service Bus
 
-There are a limited number of PowerShell cmdlets available for Service Bus. In order to provision
+There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision
 entities that are not exposed through the existing cmdlets, we will make use of the .NET client for
-Service Bus by way of the [Service Bus NuGet package][].
+Service Bus by using the [Service Bus NuGet package][].
 
-First, we'll want to make sure that our script can locate the `Microsoft.ServiceBus.dll` assembly, which is installed
-with the NuGet package. In order to be flexible, the script will perform these steps:
+First, we'll want to make sure that our script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed with the NuGet package. In order to be flexible, the script will perform these steps:
 
-1. The script will determine the path where it was invoked.
-1. It will recurse up the path until it finds a folder named `packages`. (This is a folder created when installing NuGet packages.)
-1. It will recursively search the `packages` folder for an assembly named `Microsoft.ServiceBus.dll`.
-1. It will then reference the assembly so that the types are available for later use.
+1. The script determines the path where it was invoked.
+2. It recurses the path until it finds a folder named `packages`. This is a folder created when installing NuGet packages.
+3. It recursively searches the `packages` folder for an assembly named **Microsoft.ServiceBus.dll**.
+4. It then references the assembly so that the types are available for later use.
 
 Here's how these steps are implemented in a PowerShell script:
 
-``` powershell
+```powershell
+
 try
 {
-    # WARNING: Make sure to reference the latest version of the \Microsoft.ServiceBus.dll
+    # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
     Write-Output "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
     $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
     $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
@@ -61,28 +62,30 @@ try
 
     Write-Output "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
 }
+
 catch [System.Exception]
 {
     Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
+
 ```
 
-## Provision a Service Bus Namespace
+## Provision a Service Bus namespace
 
-When working with Service Bus namespaces, we can use two cmdlets instead of the .NET SDK. In particular, we we will use [Get-AzureSBNamespace][] and [New-AzureSBNamespace][].
+When working with Service Bus namespaces, you can use two cmdlets instead of the .NET SDK. Specifically, you can use [Get-AzureSBNamespace][] and [New-AzureSBNamespace][].
 
 In our example, we'll create a few local variables in the script, `$Namespace` and `$Location`.
-- `$Namespace` is the name the of the Service Bus namespace that we want to work with.
-- `$Location` identifies the data center where will we provision the namespace.
-- `$CurrentNamespace` will store the reference namespace that we retrieve (or create).
+- `$Namespace` is the name the of the Service Bus namespace with which we want to work.
+- `$Location` identifies the data center in which will we provision the namespace.
+- `$CurrentNamespace` stores the reference namespace that we retrieve (or create).
 
 In an actual script, `$Namespace` and `$Location` can be passed in as parameters.
 
 This part of the script will
 
 1. Attempt to retrieve a Service Bus namespace with the provided name.
-1. If the namespace is found, it simply reports what was found.
-1. If the namespace is not found, it creates the namespace and then retrieves the newly create namespace.
+2. If the namespace is found, it simply reports what was found.
+3. If the namespace is not found, it creates the namespace and then retrieves the newly create namespace.
 
 ``` powershell
 
@@ -107,8 +110,8 @@ else
 }
 ```
 
-In order to provision other Service Bus entities, we'll need to create an instance of the `NamespaceManager` from the SDK.
-We can use the [Get-AzureSBAuthorizationRule][] to retrieve an authorization rule used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` later in the script to provision other entities.
+In order to provision other Service Bus entities, we create an instance of the `NamespaceManager` object from the SDK.
+We can use the [Get-AzureSBAuthorizationRule][] cmdlet to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` later in the script to provision other entities.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -120,13 +123,13 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## Provisioning other Service Bus entities
 
-In order provision other entities, such as queues, topics, and event hubs, we will need to utilize the [.NET API for Service Bus][dotnet-servicebus-api]. We'll focus just on event hubs for this article, but the steps for other entities are similiar. In addition, more detailed examples including other entities on referenced at the end of this article.
+In order provision other entities, such as queues, topics, and event hubs, we can use the [.NET API for Service Bus][dotnet-servicebus-api]. We'll focus only on event hubs for this article, but the steps for other entities are similiar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
 
-In this part of the script, we will create four more local variables. These variables will be used to instantiate `EventHubDescription`. We'll do the following:
+In this part of the script, we create four more local variables. These variables will be used to instantiate `EventHubDescription`. We'll do the following:
 
-1. Using the namespace manager, we'll first check to see is the event hub identified by `$Path` exists.
-1. If it does not exist, we create an `EventHubDescription` and pass that to the namespace manager's `CreateEventHubIfNotExists`.
-1. After we know that the event hub is available, we create a consumer group using `ConsumerGroupDescription` and the namespace manager.
+1. Using the `NamespaceManager` object, we'll first check to see if the event hub identified by `$Path` exists.
+2. If it does not exist, we create an `EventHubDescription` and pass that to the `NamespaceManager` class `CreateEventHubIfNotExists` method.
+3. After we know that the event hub is available, we create a consumer group using `ConsumerGroupDescription` and `NamespaceManager`.
 
 ``` powershell
 
@@ -153,7 +156,7 @@ else
     Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
 }
 
-# Create the consumer group if not exists
+# Create the consumer group if it doesn't exist
 Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
 $ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
 $ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
@@ -163,9 +166,10 @@ Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub 
 
 ## Next steps
 
-This article provides you with a basic outline for provisioning Service Bus entities using PowerShell. Anything that you can do using the .NET client libraries, can be done in a PowerShell script.
+This article provides you with a basic outline for provisioning Service Bus entities using PowerShell. Anything that you can do using the .NET client libraries, you can also do in a PowerShell script.
 
 There are more detailed examples available on these blogs posts:
+
 - [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
@@ -180,5 +184,5 @@ Some ready-made script are also available for download:
 [Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
-[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/en-us/library/azure/dn495113.aspx
-[dotnet-servicebus-api]: https://msdn.microsoft.com/en-us/library/microsoft.servicebus.aspx
+[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
+[dotnet-servicebus-api]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
