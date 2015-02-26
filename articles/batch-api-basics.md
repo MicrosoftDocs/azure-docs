@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-compute" 
-	ms.date="25/02/2015" 
+	ms.date="02/25/2015" 
 	ms.author="yidingz, kabatta"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -428,4 +428,4 @@ You can retrieve the value of environment settings by using the Get Task operati
 
 
 <!--Image references-->
-[1]: ./media/batch-api-basics/batch-api-basics-01.JPG
+[1]: ./media/batch-api-basics/batch-api-basics-01.PNG
