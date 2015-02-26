@@ -1,14 +1,20 @@
 <properties 
-title="" pageTitle="Access datasets from Python with the Machine Learning Python client library  | Azure" 
-description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
-services="machine-learning" 
-documentationCenter="python" 
-authors="huvalo, bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+	pageTitle="Access datasets from Python with the Machine Learning Python client library  | Azure" 
+	description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
+	services="machine-learning" 
+	documentationCenter="python" 
+	authors="huvalo, bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/10/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="bradsev" />
 
 
 #Access datasets with Python using the Azure Machine Learning Python client library 
