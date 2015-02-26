@@ -263,6 +263,7 @@ To publish changes to application, follow these steps:
 [install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
+[install-mysql]: http://dev.mysql.com/downloads/mysql/
 
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
