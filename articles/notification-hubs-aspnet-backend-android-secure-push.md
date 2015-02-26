@@ -2,7 +2,7 @@
 	pageTitle="Azure Notification Hubs Secure Push" 
 	description="Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#." 
 	documentationCenter="android" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="ricksal"/>
+	ms.date="02/26/2016" 
+	ms.author="wesmc"/>
 
 #Azure Notification Hubs Secure Push
 
@@ -22,6 +22,8 @@
     	<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
 		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
+
+#Overview
 
 Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. 
 
