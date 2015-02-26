@@ -1,6 +1,22 @@
-<properties title="Cloud Data Science Process Walkthroughs" pageTitle="Cloud Data Science Process Walkthroughs | Azure" description="Cloud Data Science Process Walkthroughs" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Cloud Data Science Process Walkthroughs | Azure" 
+	description="Cloud Data Science Process Walkthroughs" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="msolhab" /> 
 
 Cloud Data Science Process in Azure Machine Learning
 ========================================

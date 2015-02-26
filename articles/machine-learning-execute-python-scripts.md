@@ -1,12 +1,20 @@
-<properties title="" pageTitle="Execute Python scripts in Azure Machine Learning | Azure" 
-description="Outlines the design principles underlying support for Python in Azure Machine Learning and the basic usage scenarios, capabilities, and limitations." 
-services="machine-learning"
-documentationCenter="" 
-authors="bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="Execute Python scripts in Azure Machine Learning | Azure" 
+	description="Outlines the design principles underlying support for Python in Azure Machine Learning and the basic usage scenarios, capabilities, and limitations." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/14/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/14/2015" 
+	ms.author="bradsev" />
 
 
 # Execute Python scripts in Azure Machine Learning

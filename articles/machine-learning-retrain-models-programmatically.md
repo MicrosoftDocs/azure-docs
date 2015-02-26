@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Retrain Machine Learning models programmatically | Azure" 
-   description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning." 
-   services="machine-learning" 
-   documentationCenter="" 
-   authors="raymondl" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+	pageTitle="Retrain Machine Learning models programmatically | Azure" 
+	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="raymondlag" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
 <tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="big-data" 
-   ms.date="02/20/2015"
-   ms.author="raymondl"/>
+	ms.service="machine-learning"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm=""
+	ms.workload="big-data" 
+	ms.date="02/20/2015"
+	ms.author="raymondl,garye"/>
 
 
 

@@ -1,6 +1,21 @@
-<properties title="Azure Data Science Process in Action" pageTitle="Azure Data Science Process in Action | Azure" description="Azure Data Science Process in Action" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="msolhab,fashah" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Azure Data Science Process in Action | Azure" 
+	description="Azure Data Science Process in Action" metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab,fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab,fashah" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="msolhab,fashah" /> 
 
                 
 # Azure Data Science Process in Action

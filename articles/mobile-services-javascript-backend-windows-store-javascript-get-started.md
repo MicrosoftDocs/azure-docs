@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="08/18/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -69,13 +69,10 @@ In this section you will create a new universal Windows app that is connected to
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Get started with authentication]
+* [Add authentication to your app]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* [Add push notifications to your app] 
   <br/>Learn how to send a very basic push notification to your app.
 
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
