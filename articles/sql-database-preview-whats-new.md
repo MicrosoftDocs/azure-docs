@@ -24,7 +24,7 @@ GeneMi , 2015-Feb-23  15:52pm
 UC, Contained database users.
 -->
 
-The latest Azure SQL Database Update V12 (preview) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
+The latest Azure SQL Database Update V12 (preview in some regions) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
 
 This preview marks the first step in delivering the next generation of the Azure SQL Database service. It gives customers more compatibility, flexibility, and performance. Internal tests of the preview at the Premium service tier showed that some queries now complete in a fraction of the time they take on today's Premium Azure SQL Database. Even bigger improvements were seen in some scenarios that benefit from the in-memory columnstore technology.
 
