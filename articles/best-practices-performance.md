@@ -117,7 +117,7 @@ One common design pattern where you can consider Table Storage involves a table 
 
 For more discussion of Table Storage, see: 
 
-* [Azure Table Storage and Azure SQL Database - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/jj553018.aspx)
+* [Azure Table Storage and Azure SQL Database - Compared and Contrasted](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Azure Table Storage Performance Considerations](http://go.microsoft.com/fwlink/?LinkId=252663) 
 * [SQL Database and Azure Table Storage](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [Improving Performance by Batching Azure Table Storage Inserts](http://go.microsoft.com/fwlink/?LinkID=252665), which discusses some performance results. 

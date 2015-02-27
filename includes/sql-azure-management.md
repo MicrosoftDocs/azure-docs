@@ -286,7 +286,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
 * [Monitoring SQL Database using Dynamic Management Views][]   
 * [Transact-SQL Reference (SQL Database)][]
 
-  [How to use Azure SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+  [How to use Azure SQL Database]: http://www.windowsazure.com/develop/net/how-to-guides/sql-azure/
   [Step 1: Get SQL Server 2014 Management Studio]: #Step1
   [Step 2: Connect to SQL Database]: #Step2
   [Step 3: Create and manage databases]: #Step3
@@ -302,15 +302,15 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png
-  [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/en-us/library/bb510741(v=sql.120).aspx
+  [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
   [CREATE DATABASE (SQL Database)]: https://msdn.microsoft.com/en-us/library/dn268335.aspx
   [ALTER DATABASE (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms174269.aspx
   [DROP DATABASE (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms178613.aspx
-  [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
+  [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
   [CREATE LOGIN (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms189751.aspx
   [CREATE USER (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms173463.aspx
-  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/en-us/library/ms187750.aspx
+  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
   [ALTER LOGIN (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms189828.aspx
-  [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
-  [Introducing SQL Database]: http://azure.microsoft.com/en-us/services/sql-database/
+  [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+  [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database/
  

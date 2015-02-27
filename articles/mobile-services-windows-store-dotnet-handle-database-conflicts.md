@@ -375,7 +375,7 @@ This tutorial demonstrated how to enable a Windows Store app to handle write con
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Azure Account]: http://www.windowsazure.com/pricing/free-trial/
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started

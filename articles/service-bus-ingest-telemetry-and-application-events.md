@@ -22,14 +22,14 @@ Modern applications create a tremendous amount of information while they are run
 
 
 ## Explore
-- [Event Hubs](http://msdn.microsoft.com/en-us/library/dn789973.aspx)
-- [Event Hubs Pricing Details](http://azure.microsoft.com/en-us/pricing/details/event-hubs/)
-- [Event Sourcing Pattern](http://msdn.microsoft.com/en-us/library/dn589792.aspx)
+- [Event Hubs](http://msdn.microsoft.com/library/dn789973.aspx)
+- [Event Hubs Pricing Details](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Event Sourcing Pattern](http://msdn.microsoft.com/library/dn589792.aspx)
  
 ## Build
 - [Event Hub REST API Reference](http://go.microsoft.com/fwlink/?LinkId=403977)
 - [Event Hub Code Samples](http://go.microsoft.com/fwlink/?LinkID=402449)
  
 ## Related services
-- [Storage](http://azure.microsoft.com/en-us/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/en-us/documentation/services/hdinsight/)
+- [Storage](http://azure.microsoft.com/documentation/services/storage/)
+- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)

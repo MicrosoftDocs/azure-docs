@@ -69,7 +69,7 @@ To create the `.cer` certificate, execute this:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-For more information about Azure certificates, see [Overview of Certificates in Azure](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+For more information about Azure certificates, see [Overview of Certificates in Azure](http://msdn.microsoft.com/library/azure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 If you have downloaded and imported your publish settings file using the [Azure Command Line Tools][command-line-tools], you can use the `.pem` file that the tools create instead of creating your own. The tools create a `.cer` for you and upload it to Azure, and they put the corresponding `.pem` file in the `.azure` directory on your computer (in your user directory).
 
@@ -110,7 +110,7 @@ To list the locations that are available for hosting services, use the **Service
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -159,7 +159,7 @@ When you create an application and run it in Azure, the code and configuration t
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -244,7 +244,7 @@ The following example creates a new deployement in the production slot of a host
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -302,7 +302,7 @@ The **changeDeploymentConfiguration** method allows you to upload a new service 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -332,7 +332,7 @@ The **updateDeploymentStatus** method allows you to set a deployment status to R
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -358,7 +358,7 @@ The following example shows how to use the **swapDeployment** method to swap two
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -387,7 +387,7 @@ To delete a deployment, use the **deleteDeployment** method. The following examp
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -422,7 +422,7 @@ A [storage service] gives you access to Azure [Blobs][azure-blobs], [Tables][azu
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -463,7 +463,7 @@ You can delete a storage service by passing the storage service name to the **de
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -497,7 +497,7 @@ To create an affinity group, you need a name, label (the base 64-encoded name), 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -538,7 +538,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -546,7 +546,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [win-azure-account]: /en-us/pricing/free-trial/
 [storage-account]: ../storage-create-storage-account/
 
@@ -559,13 +559,13 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
-[service package]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
+[service package]: http://msdn.microsoft.com/library/windowsazure/gg433093
 [Azure PowerShell cmdlets]: ../install-configure-powershell/
-[cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
+[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
-[Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
+[Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
 [storage service]: ../storage-whatis-account/
 [azure-blobs]: ../storage-php-how-to-use-blobs/
 [azure-tables]: ../storage-php-how-to-use-table-storage/
@@ -573,4 +573,4 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx

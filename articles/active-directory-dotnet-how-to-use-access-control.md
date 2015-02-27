@@ -305,7 +305,7 @@ In this section we will modify the application to view the claims sent by ACS.  
 
 ![][666]
 
-For more information on using claims in your application, see the [Windows Identity Foundation library](http://msdn.microsoft.com/en-us/library/hh377151.aspx).
+For more information on using claims in your application, see the [Windows Identity Foundation library](http://msdn.microsoft.com/library/hh377151.aspx).
 
 <h2><a name="bkmk_VP"></a>View the App in the ACS Management Portal</h2>
 

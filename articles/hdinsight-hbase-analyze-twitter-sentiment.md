@@ -80,7 +80,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
 	</table>
 
-- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
+- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 
 
@@ -1341,9 +1341,9 @@ In this tutorial we have learned how to get Tweets, analyze the sentiment of Twe
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-get-started]: ../hdinsight-get-started/

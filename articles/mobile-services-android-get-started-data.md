@@ -38,7 +38,7 @@
 If you would like to see the Eclipse version of this tutorial, go to 
 [Get started with data using Eclipse](/en-us/documentation/articles/mobile-services-android-get-started-data-EC/).
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure Free Trial</a>.
 
 This tutorial requires the [Mobile Services Android SDK]; the <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android Studio integrated development environment</a>, which includes the Android SDK; and Android 4.2 or a later version. 
 

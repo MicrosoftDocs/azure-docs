@@ -65,7 +65,7 @@
 [adf-custom-activities]: ../data-factory-use-custom-activities
 [adf-copy-activity]: ../data-factory-copy-activity
 
-[on-demand-hdi-parameters]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
+[on-demand-hdi-parameters]: http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
 [adf-gateway-download]: http://www.microsoft.com/download/details.aspx?id=39717
 [adf-github-samples]: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON
 [adf-msdn-linked-services]: https://msdn.microsoft.com/library/dn834986.aspx

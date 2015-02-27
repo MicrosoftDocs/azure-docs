@@ -218,7 +218,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 ###PowerShell
 
-These steps use Windows Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) before using the following steps.
+These steps use Windows Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) before using the following steps.
 
 1. Using the Python examples [streaming.py](#streamingpy) and [jython.py](#jythonpy), create local copies of the files on your development machine.
 

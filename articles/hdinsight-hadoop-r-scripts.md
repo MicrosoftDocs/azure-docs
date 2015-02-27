@@ -43,9 +43,9 @@ R scripts can be run on Hadoop clusters in HDInsight that were customized using 
 
 A sample script to install R on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1). This section provides instructions on how to use the sample script while provisioning the cluster using the Azure Management Portal.
 
-> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1 or later. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1 or later. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
-1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the Script Action, as shown below:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
@@ -69,7 +69,7 @@ You can also use the script to install R on HDInsight using PowerShell or the HD
 ## <a name="useR"></a>How do I run R scripts in HDInsight?
 This section describes how to run an R script on the Hadoop cluster with HDInsight.
 
-1. **Establish a remote desktop connection to the cluster**: From the Azure Management Portal, enable remote desktop for the cluster you created with R installed, and then remote into the cluster. For instructions, see <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+1. **Establish a remote desktop connection to the cluster**: From the Azure Management Portal, enable remote desktop for the cluster you created with R installed, and then remote into the cluster. For instructions, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
 
 2. **Open the R console**: The R installation puts a link to the R console on the desktop of the headnode. Click on it to open the R console.
 
@@ -94,7 +94,7 @@ The first two line calls the RHadoop libraries installed with R. The final line 
 
 ## <a name="usingPS"></a>Install R on HDInsight using PowerShell
 
-In this section we use the **<a href = "http://msdn.microsoft.com/en-us/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured PowerShell. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
+In this section we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured PowerShell. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 Perform the following steps:
 
@@ -259,7 +259,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
             Version = "3.1"
         };        
 
-10. Append the following code to the Main() function to use the [ScriptAction](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) class to invoke a custom script to install R.
+10. Append the following code to the Main() function to use the [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) class to invoke a custom script to install R.
 
 		// ADD THE SCRIPT ACTION TO INSTALL R
 

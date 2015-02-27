@@ -146,7 +146,7 @@ PHP | [PHP Sample App for Azure AD Graph API](http://code.msdn.microsoft.com/PHP
 
 [Azure AD Graph API Helper Library](http://code.msdn.microsoft.com/Windows-Azure-AD-Graph-API-a8c72e18) 
 
-[Developing Modern Applications using OAuth and Active Directory Federation Services](http://msdn.microsoft.com/en-us/library/dn633593.aspx)
+[Developing Modern Applications using OAuth and Active Directory Federation Services](http://msdn.microsoft.com/library/dn633593.aspx)
 
 
 

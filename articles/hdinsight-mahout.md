@@ -401,11 +401,11 @@ To run jobs that use these classes, connect to the HDInsight cluster and run the
 
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
-[aps]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/
-[upload]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-upload-data/
+[getstarted]: http://azure.microsoft.com/documentation/articles/hdinsight-get-started/
+[upload]: http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
 [management]: https://manage.windowsazure.com/

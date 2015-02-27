@@ -32,6 +32,10 @@ The following diagram shows the major parts of the Media Services platform that 
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
 
+##Configuring streaming endpoints
+
+[work in in progress]
+
 ##Setting up development environment  
 
 Choose **.NET** or **REST API** for your development environment.
@@ -52,7 +56,7 @@ For more information, see [Using 3rd Party Live Encoders with Azure Media Servic
 
 For more information, see [Live Streaming](https://msdn.microsoft.com/en-us/library/azure/dn783466.aspx).
 
-##Configure content key authorization policy 
+##Configure content protection and content key authorization policy 
 
 Configure key authorization policy using **.NET** or **REST API**.
 
