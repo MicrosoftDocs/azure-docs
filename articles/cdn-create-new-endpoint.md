@@ -22,7 +22,7 @@ Once you enable a CDN endpoint for a storage account or cloud service, all publi
 
 If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.  
 
-> AZURE.NOTE Note that the CDN has a separate [billing plan](http://azure.microsoft.com/en-us/pricing/details/cdn/) from Azure Storage or Azure Cloud Services.  
+> AZURE.NOTE Note that the CDN has a separate [billing plan](http://azure.microsoft.com/pricing/details/cdn/) from Azure Storage or Azure Cloud Services.  
 
 ##To Create a New CDN Endpoint  
 

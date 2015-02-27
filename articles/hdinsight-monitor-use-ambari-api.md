@@ -168,7 +168,7 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [Powershell-install]: ../install-configure-powershell/
-[Powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx 
+[Powershell-script]: http://technet.microsoft.com/library/ee176949.aspx 
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/

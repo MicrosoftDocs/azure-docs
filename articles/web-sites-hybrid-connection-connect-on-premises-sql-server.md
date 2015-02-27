@@ -27,7 +27,7 @@ In this tutorial, you will learn how to create a website in the Azure Preview Po
 ## Prerequisites ##
 To complete this tutorial, you'll need the following products. All are available in free versions, so you can start developing for Azure entirely for free.
 
-- **Azure subscription** - For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
+- **Azure subscription** - For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
 
 - **Visual Studio 2013** - To download a free trial version of Visual Studio 2013, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). Install this before continuing.
 
@@ -114,7 +114,7 @@ This section shows you how to install SQL Server Express, enable TCP/IP, and cre
 6. Step through the rest of the wizard to complete the installation.
 
 ### Enable TCP/IP ###
-To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/en-us/library/hh231672%28v=sql.110%29.aspx) before continuing.
+To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) before continuing.
 
 <a name="CreateSQLDB"></a>
 ### Create a SQL Server database on-premises ###
@@ -383,7 +383,7 @@ You have now created and deployed an ASP.NET web application that uses a hybrid 
 
 [Josh Twist introduces hybrid connections (Channel 9 video)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
+[Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 
 [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-dashboard-monitor-scale-tabs/)
 

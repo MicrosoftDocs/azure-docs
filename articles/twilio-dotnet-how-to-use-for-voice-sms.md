@@ -293,7 +293,7 @@ For additional information about using Twilio on Azure with ASP.NET, see [How to
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
+[vs_project]:http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
 [nuget]:http://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 

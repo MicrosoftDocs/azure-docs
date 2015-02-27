@@ -29,24 +29,24 @@ Certificates are configured in two ways.
 
 ## <a name="obtain-certificates"></a>To Obtain Certificates
 
-Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/en-us/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
+Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
  
 ## <a name="tools"></a>Tools to Generate Certificates
 
-* [makecert.exe](http://msdn.microsoft.com/en-us/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/en-us/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ###To Run the Tools
 
-* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/en-us/library/ms229859.aspx) 
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/library/ms229859.aspx) 
 
     If installed, go to:
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)
+* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ##    <a name="to-configure-ssl-cert"></a>To Configure the SSL Certificate
 A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:

@@ -32,7 +32,7 @@ This tutorial contains four lessons:
 4. Select Smooth Streaming Tracks
 
 #Prerequisites
-- Windows 8 32-bit or 64-bit. You can get [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx) from MSDN.
+- Windows 8 32-bit or 64-bit. You can get [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) from MSDN.
 - Visual Studio 2012 or Visual Studio Express 2012 for Windows 8 installed on Windows 8. You can get the trial version from [here](http://www.microsoft.com/visualstudio/11/en-us/downloads).
 - [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
@@ -43,7 +43,7 @@ In this lesson, you will create a Windows Store application with a MediaElement 
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
  
-For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx). 
+For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). 
 This lesson contains the following procedures:
 
 1.	Create a Windows Store project

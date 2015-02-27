@@ -21,7 +21,7 @@
 
 Learn how to manage Azure Stream Analytics resources using Azure PowerShell.
 
->WACOM.NOTE The following error messages indicates that Azure Stream Analytics is not enabled on the subscription:
+>[WACOM.NOTE] The following error messages indicates that Azure Stream Analytics is not enabled on the subscription:
 >
 	Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
 
@@ -253,8 +253,7 @@ This tests the connection status of the output Output in StreamingJob.
 
 ##<a name="seealso"></a>See Also
 
-- [In
-- troduction to Azure Stream Analytics][stream.analytics.introduction]
+- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
 - [Get started with Stream Analytics][stream.analytics.get.started]
 - [Limits in the Stream Analytics preview release][stream.analytics.limitations]
 - [Developer guide for Stream Analytics][stream.analytics.developer.guide]
@@ -264,8 +263,8 @@ This tests the connection status of the output Output in StreamingJob.
 
 
 
-[msdn-switch-azuremode]: http://msdn.microsoft.com/en-us/library/dn722470.aspx
-[powershell-install]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
+[powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [stream-analytics-introduction]: ../

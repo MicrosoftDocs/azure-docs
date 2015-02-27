@@ -101,7 +101,7 @@ Setting Up
 
 		- CentOS & Oracle: `sudo service httpd restart`
 
-	- Apache listens on port 80 by default. You may need to open an endpoint to access your Apache server remotely.  Please see the documentation on [configuring endpoints](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/) for more detailed instructions.
+	- Apache listens on port 80 by default. You may need to open an endpoint to access your Apache server remotely.  Please see the documentation on [configuring endpoints](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more detailed instructions.
 
 	- You can now check to see that Apache is running and serving content. Point your browser to `http://[MYSERVICE].cloudapp.net`, where **[MYSERVICE]** is the name of the cloud service in which your virtual machine resides. On some distributions you may be greeted by a default web page that simply states "It works!". On others you may see a more complete web page with links to additional documentation and content for configuring the Apache server.
 

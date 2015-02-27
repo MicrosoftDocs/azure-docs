@@ -68,6 +68,14 @@ To use Azure PowerShell commands to create an Azure VM and add it to a new or ex
 - [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines-ps-create-preconfigure-windows-vms/)
 - [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](../virtual-machines-ps-create-preconfigure-linux-vms/)
 
+<<<<<<< HEAD
+	>[AZURE.NOTE] Run `Get-AzureVMImage` without parameters to get a list of all images that apply to your subscription. This might return a large list. To shorten the list, use properties such as the image family name. For tips and examples that show you how to do this to find a specific image, see [Manage Images using Windows PowerShell](http://msdn.microsoft.com/library/azure/dn790330.aspx).
+
+3.	Specify the configuration for the new virtual machine, and then use the pipeline to pass a configuration object to the cmdlet that creates the VM. Be sure to substitute your own values for the placeholders, such as  &lt;VmName&gt; and &lt;VmSize&gt;.
+
+	`C:\PS> New-AzureVMConfig -Name "<VmName>" -InstanceSize <VmSize> -AvailabilitySetName "<SetName>" -ImageName $image | Add-AzureProvisioningConfig -Windows -AdminUsername "<UserName>" -Password "<MyPassword>" | Add-AzureDataDisk -CreateNew -DiskSizeInGB 50 -DiskLabel 'datadisk1' -LUN 0 | New-AzureVM –ServiceName "<MySvc1>" `
+=======
+>>>>>>> 1dc830a16302e6b943a5d55ebacef659451b22d6
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
@@ -110,6 +118,11 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 [Create a Virtual Machine Running Windows]: ../virtual-machines-windows-tutorial
 [Azure Virtual Network Overview]: http://go.microsoft.com/fwlink/p/?linkid=294063
 [About Affinity Groups for Virtual Network]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
+<<<<<<< HEAD
+[How to connect virtual machines in a cloud service]: ../virtual-machines-connect-cloud-service
+[About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+=======
 [How to connect virtual machines in a cloud service]: ../cloud-services-connect-virtual-machine
-[About Azure VM configuration settings]: http://msdn.microsoft.com/en-us/library/azure/dn763935.aspx
+[About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+>>>>>>> 1dc830a16302e6b943a5d55ebacef659451b22d6
 
