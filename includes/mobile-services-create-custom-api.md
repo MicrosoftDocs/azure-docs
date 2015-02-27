@@ -28,16 +28,11 @@
 
 
 > [AZURE.NOTE]
-> The <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> and <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> object supplied to custom API functions are implemented by the <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js library</a>. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">Custom API</a>. 
+> The <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> and <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> object supplied to custom API functions are implemented by the <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js library</a>. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">Custom API</a>.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
 
 <!-- URLs. -->
-<<<<<<< HEAD
 [mssql object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-=======
-[Azure Management Portal]: https://manage.windowsazure.com/
-[mssql object]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
->>>>>>> b827c2a96edd530828744b4ceba18c8f66403fce
