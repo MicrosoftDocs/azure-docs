@@ -1,6 +1,20 @@
-<properties pageTitle="Customize HDInsight Clusters using Script Action| Azure" description="Learn how to customize HDInsight clusters using Script Action." services="hdinsight" documentationCenter="" authors="nitinme" manager="paulettm" editor="cgronlun"/> 
+<properties 
+	pageTitle="Customize HDInsight Clusters using Script Action| Azure" 
+	description="Learn how to customize HDInsight clusters using Script Action." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
+	editor="cgronlun"/> 
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/15/2015" ms.author="nitinme"/> 
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/15/2015" 
+	ms.author="nitinme"/> 
 
 # Customize HDInsight clusters using Script Action
 
@@ -10,7 +24,7 @@ HDInsight clusters can be customized in a variety of other ways as well such as 
 
 
 
-> [AZURE.NOTE] Using Script Action to customize a cluster is supported only on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Using Script Action to customize a cluster is supported only on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 
 
@@ -51,7 +65,7 @@ You can use Script Action from the Azure Management Portal, PowerShell cmdlets, 
 
 **From the Management Portal**
 
-1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. On the Script Actions page of the wizard, click **add script action** to provide details about the Script Action, as shown below:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -72,7 +86,7 @@ You can use Script Action from the Azure Management Portal, PowerShell cmdlets, 
   
 **Using the PowerShell cmdlets**
 
-Use HDInsight PowerShell commands to run a single Script Action or multiple Script Actions. You can use the **<a href = "http://msdn.microsoft.com/en-us/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke custom scripts. To use these cmdlets, you must have Azure PowerShell installed and configured. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
+Use HDInsight PowerShell commands to run a single Script Action or multiple Script Actions. You can use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke custom scripts. To use these cmdlets, you must have Azure PowerShell installed and configured. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 Use the following PowerShell command to run a single Script Action when deploying an HDInsight cluster:
 
@@ -92,13 +106,13 @@ Use the following PowerShell command to run multiple Script Actions when deployi
 
 **Using the HDInsight .NET SDK**
 
-HDInsight .NET SDK provides a <a href="http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> class to invoke custom scripts. To use the HDInsight .NET SDK:
+HDInsight .NET SDK provides a <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> class to invoke custom scripts. To use the HDInsight .NET SDK:
 
 1. Create a Visual Studio application, and then install the SDK from Nuget. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. Run the following commands in the console to install the package:
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
-2. Create a cluster using the SDK. For instructions, see [Provision HDInsight cluster using .NET SDK](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/#sdk).
+2. Create a cluster using the SDK. For instructions, see [Provision HDInsight cluster using .NET SDK](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#sdk).
 
 3. Use the **ScriptAction** class to invoke a custom script as shown below:
 
@@ -131,11 +145,11 @@ To get you started, HDInsight provides sample scripts to install the following c
 - **Install Giraph**. [Install and use Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install)
 
 ## <a name="support"></a>Support for open source software used on HDInsight cluster
-Microsoft Azure HDInsight service is a flexible platform that enables you to build big data applications in the cloud using ecosystem of Open Source technologies formed around Hadoop. Microsoft Azure provides general level of support for Open Source technologies as discussed in the <a href="http://azure.microsoft.com/en-us/support/faq/" target="_blank">Support Scope section of the Azure Support FAQ Website</a>. In addition to that, HDInsight service provides additional level of support for some of the components as described below.
+Microsoft Azure HDInsight service is a flexible platform that enables you to build big data applications in the cloud using ecosystem of Open Source technologies formed around Hadoop. Microsoft Azure provides general level of support for Open Source technologies as discussed in the <a href="http://azure.microsoft.com/support/faq/" target="_blank">Support Scope section of the Azure Support FAQ Website</a>. In addition to that, HDInsight service provides additional level of support for some of the components as described below.
 
 There are two types of Open Source components that are available in HDInsight service:
 
-- **Built-in components**. These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, Yarn resource manager, Hive query language and Mahout Library belong to this category. Full list of cluster components is available <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/" target="_blank">here</a>.
+- **Built-in components**. These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, Yarn resource manager, Hive query language and Mahout Library belong to this category. Full list of cluster components is available <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">here</a>.
 - **Custom components**. You as a user of the cluster can install or use in your workload, any component available in the community or created by you.
 
 Built-in components are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.

@@ -1,6 +1,20 @@
-<properties pageTitle="Single sign-on with Azure Active Directory (PHP)" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." services="active-directory" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Single sign-on with Azure Active Directory (PHP)" 
+	description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." 
+	services="active-directory" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 # Web Single Sign-On with PHP and Azure Active Directory
 
@@ -191,7 +205,7 @@ A sample that shows how to use Azure Active Directory and single sign-on for PHP
 [Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
-[Office 365 Powershell Commandlets]: http://msdn.microsoft.com/en-us/library/azure/jj151815.aspx
+[Office 365 Powershell Commandlets]: http://msdn.microsoft.com/library/azure/jj151815.aspx
 [ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
 [PHP Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP 

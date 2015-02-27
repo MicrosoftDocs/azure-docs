@@ -35,7 +35,10 @@ Processing
 Problems? Questions?
 
 <ul>
+<li><a href="../app-insights-platforms/">Can I use Application Insights with...?</a></li>
 <li><a href="../app-insights-troubleshoot-faq/">Q & A and troubleshooting</a>
+</li>
+<li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
 </li>
 </ul>
 
@@ -43,7 +46,9 @@ Problems? Questions?
 
 Device apps
 <ul>
-<li><a href="../app-insights-windows-monitor-usage-crashes/">Monitor usage and crashes in Windows device apps</a>
+<li><a href="../app-insights-windows-get-started/">Monitor usage and crashes in Windows device apps</a>
+</li>
+<li><a href="../app-insights-windows-desktop/">Monitor Windows desktop apps</a>
 </li>
 </ul>
 
@@ -54,9 +59,9 @@ Web sites and web applications
 <li> Getting started
 
 <ul>
-<li><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights SDK to your project</a>
+<li><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights SDK to your Visual Studio project</a>
 </li>
-<li><a href="../app-insights-monitor-performance-live-website-now/">Install Status Monitor to track web application performance and dependencies</a>
+<li><a href="../app-insights-monitor-performance-live-website-now/">Install Status Monitor to track ASP.NET application performance and dependencies</a>
 </li>
 <li><a href="../app-insights-web-track-usage/">Insert a script to monitor usage in web pages</a>
 </li>
@@ -64,15 +69,19 @@ Web sites and web applications
 </li>
 <li><a href="../insights-perf-analytics/">Enable Application Insights for Azure websites</a>
 </li>
+<li><a href="../app-insights-java-get-started/">Get started with Java applications</a>
+</li>
 </ul>
 </li>
 <li>Performance monitoring
 <ul>
 <li><a href="../app-insights-web-monitor-performance/">Detect performance issues in web applications</a>
 </li>
-<li><a href="../app-insights-search-diagnostic-logs/">Search traces and logs</a>
+<li><a href="../app-insights-search-diagnostic-logs/">Search ASP.NET traces and logs</a>
 </li>
-<li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">API for tracing and events</a>
+<li><a href="../app-insights-java-trace-logs/">Search Java traces and logs</a>
+</li>
+<li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">Telemetry API reference</a>
 </li>
 </ul>
 </li>
@@ -95,6 +104,7 @@ Web sites and web applications
 
 <!--Link references-->
 
+[portal]: http://portal.azure.com/
 [start]: ../app-insights-get-started/
 [greenbrown]: ../app-insights-start-monitoring-app-health-usage/
 [redfield]: ../app-insights-monitor-performance-live-website-now/
@@ -106,12 +116,15 @@ Web sites and web applications
 [qna]: ../app-insights-troubleshoot-faq/
 [data]: ../app-insights-data-retention-privacy/
 [export]: ../app-insights-export-telemetry/
-[windows]: ../app-insights-windows-monitor-usage-crashes/
 [azure]: ../insights-perf-analytics/
 [metrics]: ../app-insights-metrics-explorer/
 [trace]: ../app-insights-search-diagnostic-logs/
 [api]: http://msdn.microsoft.com/library/azure/dn887942.aspx
 [detect]: ../app-insights-detect-triage-diagnose/
+[knowUsers]: ../app-insights-overview-usage/
 [java]: ../app-insights-java-get-started/
 [javalogs]: ../app-insights-java-trace-logs/
-
+[windows]: ../app-insights-windows-get-started/
+[windowsUsage]: ../app-insights-windows-usage/
+[windowsCrash]: ../app-insights-windows-crashes/
+[platforms]: ../app-insights-platforms/

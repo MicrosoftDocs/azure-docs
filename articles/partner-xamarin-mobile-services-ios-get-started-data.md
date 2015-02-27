@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with data (Xamarin.iOS) - Azure Mobile Services" description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app." documentationCenter="xamarin" authors="lindydonna" manager="dwrede" services="mobile-services" editor=""/>
+<properties 
+	pageTitle="Add Mobile Services to an existing app (Xamarin.iOS) - Azure Mobile Services" 
+	description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="donnam"/>
 
 # Add Mobile Services to an existing app
 
@@ -20,7 +34,7 @@ This tutorial walks you through these basic steps:
 
 This tutorial requires the [Azure Mobile Services Component], [XCode 5.0][Install Xcode], [Xamarin.iOS], and iOS 5.0 or later versions.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F"%20target="_blank).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F"%20target="_blank).
 
 <h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
 

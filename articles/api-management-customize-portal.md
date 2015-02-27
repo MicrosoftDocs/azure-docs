@@ -1,18 +1,24 @@
-<properties pageTitle="Customizing the developer portal in Azure API Management" description="Customizing the developer portal in Azure API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Customizing the developer portal in Azure API Management" 
+	description="Customizing the developer portal in Azure API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/24/2015" 
+	ms.author="sdanie"/>
 
 # Customizing the developer portal in Azure API Management
 
 This guide shows you how to modify the look and feel of the developer portal in API Management for consistency with your brand.
-
-## In this topic
-
--	[Change the text/logo in the page headers][]
--	[Change the styling of the headers][]
--	[Edit the contents of a page][]
--	[Next steps][]
-
 
 ## <a name="change-page-headers"> </a>Change the text/logo in the page header
 

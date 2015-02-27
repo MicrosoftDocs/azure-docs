@@ -1,22 +1,26 @@
-<properties pageTitle="Azure Batch technical overview" description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" services="batch" documentationCenter="" authors="dlepow" manager="timlt"/>
+<properties 
+	pageTitle="Azure Batch technical overview" 
+	description="Learn about the concepts, workflows, and scenarios of the Azure Batch service" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep"/>
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Azure Batch technical overview
 Azure Batch helps you run large-scale parallel and high performance computing (HPC) applications in the cloud. It's a platform service that provides job scheduling and autoscaling of a managed collection of virtual machines (VMs) to run the jobs. By using the Batch service, you can configure batch workloads to run in Azure on demand or on a schedule, and not worry about the complexity of scheduling jobs and managing VMs in the underlying platform.
  
->[AZURE.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to sign up for the Batch Preview. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+>[AZURE.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to sign up for the Batch Preview. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
-
-This article gives you an overview of:
- 
-* [Use cases](#BKMK_Scenarios)
-* [Developer scenarios](#BKMK_Approaches)
-* [Batch concepts](#BKMK_Entities)
-* [Workitem workflow](#BKMK_Workflow_workitems)
-* [Workflow to publish and run applications](#BKMK_Workflow_cloudappss)
-* [Additional resources](#BKMK_Resources)
 
 <h2 id="BKMK_Scenarios">Use cases</h2>
 
@@ -53,7 +57,7 @@ The REST-based Batch APIs support two developer scenarios to help you configure 
 
 <h2 id="BKMK_Entities">Batch concepts</h2>
 
-The following sections summarize key concepts for working with the Batch service and APIs. For more information, see [API basics for Azure Batch](http://azure.microsoft.com/en-us/documentation/articles/batch-api-basics). 
+The following sections summarize key concepts for working with the Batch service and APIs. For more information, see [API basics for Azure Batch](http://azure.microsoft.com/documentation/articles/batch-api-basics). 
 
 * [Batch account](#BKMK_Account)
 * [Task virtual machines and pools](#BKMK_TVM)
@@ -173,8 +177,8 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 	
 <h2 id="BKMK_Resources">Additional resources</h2>
 
-* [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/articles/batch-dotnet-get-started/)
-* [Azure Batch development libraries and tools](http://azure.microsoft.com/en-us/documentation/articles/batch-development-libraries-tools/)
+* [Get Started with the Azure Batch Library for .NET](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)
+* [Azure Batch development libraries and tools](http://azure.microsoft.com/documentation/articles/batch-development-libraries-tools/)
 * [Azure Batch REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Azure Batch Apps REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 

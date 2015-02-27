@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Apache Giraph with Azure HDInsight" description="Learn how to use Apache Giraph to perform graph processing with Azure HDInsight" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor=""/>
+<properties 
+	pageTitle="How to use Apache Giraph with Azure HDInsight" 
+	description="Learn how to use Apache Giraph to perform graph processing with Azure HDInsight" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/14/2014" 
+	ms.author="larryfr"/>
 
 #Learn how to use Apache Giraph with Azure HDInsight (Hadoop)
 
@@ -74,7 +88,7 @@ Giraph is not provided as part of the HDInsight cluster, so must be built from s
 
 	Once the command completes, the JAR file will have been uploaded to wasb:///example/jars/giraph.jar.
 
-	> [AZURE.NOTE] for a list of utilities that can be used to upload files to HDInsight, see [Upload data for Hadoop jobs in HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-upload-data/).
+	> [AZURE.NOTE] for a list of utilities that can be used to upload files to HDInsight, see [Upload data for Hadoop jobs in HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/).
 
 ##<a id="run"></a>Run the example
 
@@ -190,7 +204,7 @@ To connect to the HDInsight cluster, perform the following steps:
 
 ###Older versions of HDInsight
 
-If you wish to use Giraph with older versions of HDInsight, you must compile it for the specific Hadoop version supported by that version. See [What's new in HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) to determine the version of Hadoop corresponds with your HDInsight version.
+If you wish to use Giraph with older versions of HDInsight, you must compile it for the specific Hadoop version supported by that version. See [What's new in HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) to determine the version of Hadoop corresponds with your HDInsight version.
 
 Additionally, older versions of HDInsight may require you to run the Giraph job from the Hadoop command line. If you receive errors when running the job from PowerShell, try running the job from the [Hadoop command line](#cmd).
 
@@ -200,6 +214,6 @@ Now that you have learned how to use Giraph with HDInsight, try [Pig][] and [Hiv
 
 [giraph]: http://giraph.apache.org
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
-[pig]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-pig/
-[hive]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-hive/
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[pig]: http://azure.microsoft.com/documentation/articles/hdinsight-use-pig/
+[hive]: http://azure.microsoft.com/documentation/articles/hdinsight-use-hive/

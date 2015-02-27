@@ -1,6 +1,20 @@
-<properties pageTitle="How to use Access Control (.NET) - Azure feature guide" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." services="active-directory" documentationCenter=".net" authors="msmbaldwin" manager="mbaldwin" editor=""/>
+<properties 
+	pageTitle="How to use Access Control (.NET) - Azure feature guide" 
+	description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." 
+	services="active-directory" 
+	documentationCenter=".net" 
+	authors="msmbaldwin" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="mbaldwin"/>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mbaldwin"/>
 
 
 
@@ -291,7 +305,7 @@ In this section we will modify the application to view the claims sent by ACS.  
 
 ![][666]
 
-For more information on using claims in your application, see the [Windows Identity Foundation library](http://msdn.microsoft.com/en-us/library/hh377151.aspx).
+For more information on using claims in your application, see the [Windows Identity Foundation library](http://msdn.microsoft.com/library/hh377151.aspx).
 
 <h2><a name="bkmk_VP"></a>View the App in the ACS Management Portal</h2>
 

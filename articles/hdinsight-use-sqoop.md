@@ -1,21 +1,24 @@
-<properties pageTitle="Use Hadoop Sqoop in HDInsight | Azure" description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database." editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" authors="mumian"/>
+<properties 
+	pageTitle="Use Hadoop Sqoop in HDInsight | Azure" 
+	description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # Use Sqoop with Hadoop in HDInsight
  
 Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
-
-##In this article
-
-- [What is Sqoop?](#whatissqoop)
-- [Prerequisites](#prerequisites)
-- [Understand the tutorial scenario](#scenario)
-- [Prepare the tutorial](#prepare)
-- [Use PowerShell to run Sqoop export](#export)
-- [Use HDInsight SDK to run Sqoop export](#export-sdk)
-- [Use PowerShell to run Sqoop import](#import)
-- [Next steps](#nextsteps)
 
 
 ## <a id="whatissqoop"></a> What is Sqoop?
@@ -60,7 +63,7 @@ Before you begin this tutorial, you must have the following:
 
 	> [AZURE.NOTE] > Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
 
-	* To **create and configure a Virtual Network**, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
+	* To **create and configure a Virtual Network**, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 
 		* When using SQL Server **in your datacenter**, you must configure the Virtual Network as either *site-to-site* or *point-to-site*.
 
@@ -348,7 +351,7 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 
 > [AZURE.NOTE] Other than connection string information, the steps in this section should work for either Azure SQL Database or SQL Server. These steps were tested against the following configuration:
 > 
-> * **Azure Virtual Network point-to-site configuration** - A virtual network connecting the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](http://msdn.microsoft.com/en-us/library/azure/dn133792.aspx) for more information.
+> * **Azure Virtual Network point-to-site configuration** - A virtual network connecting the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](http://msdn.microsoft.com/library/azure/dn133792.aspx) for more information.
 > * **Azure HDInsight 3.1** - See [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/) for information on creating a cluster on a Virtual Network
 > * **SQL Server 2014** - Configured to allow SQL Authentication and running the VPN client configuration package to connect securely to the Virtual Network
 
@@ -634,8 +637,8 @@ Now you have learned how to use Sqoop. To learn more, see:
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

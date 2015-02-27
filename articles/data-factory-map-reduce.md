@@ -1,6 +1,20 @@
-<properties pageTitle="Invoke MapReduce Program from Azure Data Factory" description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Invoke MapReduce Program from Azure Data Factory" 
+	description="Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
 This article describes how to invoke a **MapReduce** program from an Azure Data Factory pipeline by using the **HDInsight Activity** with **MapReduce transformation**. 
@@ -13,8 +27,9 @@ A pipeline in an Azure data factory processes data in linked storage services by
  
 See [Use Pig and Hive with Data Factory][data-factory-pig-hive-activities] for details about running Pig/Hive scripts on an HDInsight cluster from an Azure data factory pipeline by using Pig/Hive transformations of the HDInsight Activity. This article describes using the MapReduce transformation of the HDInsight Activity.
 
-## Pipeline JSON
-In the JSON file for a pipeline:
+## JSON for HDInsight Activity using MapReduce transformation 
+
+In the JSON definition for the HDInsight Activity: 
  
 1. Set the **type** of the **activity** to **HDInsightActivity**.
 2. Set the **type** of the **transformation** to **MapReduce**.
@@ -23,7 +38,7 @@ In the JSON file for a pipeline:
 5. Specify the linked service that refers to the Azure Blob Storage that contains the JAR file for **jarLinkedService** property.   
 6. Specify any arguments for the MapReduce program in the **arguments** section. 
 
-You can use the MapReduce transformation to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.   
+   
  
 
 		{  
@@ -74,6 +89,8 @@ You can use the MapReduce transformation to run any MapReduce jar file on an HDI
 		      ]
 		   }
 		}
+
+You can use the MapReduce transformation to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
 
 ## Sample
 You can download a sample for using the HDInsight Activity with MapReduce Transformation from: [Data Factory Samples on GitHub][data-factory-samples].  

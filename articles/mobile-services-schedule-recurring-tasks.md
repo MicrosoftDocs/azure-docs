@@ -1,12 +1,26 @@
-<properties pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" 
+	description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/26/2015" 
+	ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
+- [(Any | Javascript)](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/)
  
 This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 
@@ -30,15 +44,7 @@ Next, you need to create a new table in which to store tweets.
 
 2. In the Management Portal, click the **Data** tab for your mobile service, then click **+Create**.
 
-   	![][2]
-
-   	This displays the **Create new table** dialog.
-
 3. In **Table name** type _Updates_, then click the check button.
-
-   	![][3]
-
-  	This creates a new storage table **Updates**. 
 
 ##<a name="add-job"></a>Create a new scheduled job  
 
@@ -46,21 +52,13 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 
 2. Click the **Scheduler** tab, then click **+Create**. 
 
-   	![][4]
-
     >[AZURE.NOTE]When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.
 
 3. In the scheduler dialog, enter _getUpdates_ for the **Job Name**, set the schedule interval and units, then click the check button. 
-   
-   	![][5]
 
    	This creates a new job named **getUpdates**. 
 
-4. Click the new job you just created, then click the **Script** tab.
-
-   	![][6] 
-
-5. Replace the placeholder function **getUpdates** with the following code:
+4. Click the new job you just created, click the **Script** tab and replace the placeholder function **getUpdates** with the following code:
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -142,17 +140,11 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 
 6. Click **Run Once** to test the script. 
 
-  	![][7]
-
    	This saves and executes the job while it remains disabled in the scheduler.
 
 7. Click the back button, click **Data**, click the **Updates** table, click **Browse**, and verify that Twitter data has been inserted into the table.
 
-   	![][8]
-
 8. Click the back button, click **Scheduler**, select **getUpdates**, then click **Enable**.
-
-   	![][9]
 
    	This enables the job to run on the specified schedule, in this case every hour.
 
@@ -189,4 +181,4 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /en-us/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

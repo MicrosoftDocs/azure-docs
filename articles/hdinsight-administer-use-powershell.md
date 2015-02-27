@@ -1,12 +1,28 @@
-<properties pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" editor="cgronlun" manager="paulettm" authors="mumian" documentationCenter=""/>
+<properties 
+	pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" 
+	description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using Azure PowerShell
 
+##Overview
+
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in HDInsight using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
-**Prerequisites:**
+##Prerequisites
 
 Before you begin this article, you must have the following:
 
@@ -14,22 +30,8 @@ Before you begin this article, you must have the following:
 
 - A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
 
-			
-	
 
-## In this article
-
-* [Provision a cluster](#provision)
-* [List and show clusters](#listshow)
-* [Delete a cluster](#delete)
-* [Grant/Revoke HTTP services access](#httpservices)
-* [Submit MapReduce jobs](#mapreduce)
-* [Submit Hive jobs](#hive)
-* [Upload data to the Blob storage](#upload)
-* [Download MapReduce output data from the Blob storage](#download)
-
-
-##<a id="provision"></a> Provision an HDInsight cluster
+##Provision an HDInsight cluster
 HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. 
 
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
@@ -44,16 +46,8 @@ After you have imported the publishsettings file, you can use the following comm
 
 	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-> [AZURE.NOTE] The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:
 
-><ul>
-<li>Southeast Asia</li>
-<li>North Europe</li>
-<li>West Europe</li>
-<li>East US</li>
-<li>West US</li>
-</ul>
-
+[AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
 For information on creating an Azure storage account using the management portal, see [Create, manage, or delete a storage account](../storage-create-storage-account/).
@@ -107,7 +101,7 @@ The following screenshot shows the script execution:
 
 
 
-##<a id="listshow"></a> List and show cluster details
+##List and show cluster details
 Use the following commands to list and show cluster details:
 
 **To list all clusters in the current subscription**
@@ -118,12 +112,12 @@ Use the following commands to list and show cluster details:
 
 	Get-AzureHDInsightCluster -Name <ClusterName> 
 
-##<a id="delete"></a> Delete a cluster
+##Delete a cluster
 Use the following command to delete a cluster:
 
 	Remove-AzureHDInsightCluster -Name <ClusterName> 
 
-##<a id="httpservice"></a> Grant/revoke HTTP services access
+##Grant/revoke HTTP services access
 
 HDInsight clusters have the following HTTP Web services (all of these services have RESTful endpoints):
 
@@ -144,7 +138,7 @@ In the sample <i>hdiv2</i> is an HDInsight cluster name.
 
 This can also be done using the Windows Azure Management portal. See [Administer HDInsight using the Management portal][hdinsight-admin-portal].
 
-##<a id="mapreduce"></a> Submit MapReduce jobs
+##Submit MapReduce jobs
 The HDInsight cluster distribution comes with some MapReduce samples. One of the samples is for counting word frequencies in source files.
 
 **To submit a MapReduce job**
@@ -220,7 +214,7 @@ For more information on developing and running MapReduce jobs, see [Using MapRed
 
 
 
-##<a id="hive"></a> Submit Hive jobs
+##Submit Hive jobs
 The HDInsight cluster distribution comes with a sample Hive table called *hivesampletable*. You can use a HiveQL "show tables;" to list the Hive tables on a cluster.
 
 **To submit a Hive job**
@@ -245,10 +239,10 @@ The Hive job will first show the Hive tables created on the cluster, and the dat
 For more information on using Hive, see [Using Hive with HDInsight][hdinsight-use-hive].
 
 
-##<a id="upload"></a>Upload data to the Blob storage
+##Upload data to the Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
 
-##<a id="download"></a>Download the MapReduce output from the Blob storage
+##Download the MapReduce output from the Blob storage
 See the [Submit MapReduce jobs](#mapreduce) session in this article.
 
 ## See Also
@@ -261,9 +255,9 @@ See the [Submit MapReduce jobs](#mapreduce) session in this article.
 * [Get started with Azure HDInsight][hdinsight-get-started]
 
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -277,7 +271,7 @@ See the [Submit MapReduce jobs](#mapreduce) session in this article.
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 

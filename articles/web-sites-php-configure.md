@@ -1,6 +1,20 @@
-<properties pageTitle="How to Configure PHP in Azure Websites" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." services="" documentationCenter="php" authors="tfitzmac" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to Configure PHP in Azure Websites" 
+	description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." 
+	services="" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="tomfitz"/>
 
 #How to configure PHP in Azure Websites
 
@@ -107,5 +121,5 @@ Now that you've learned how to configure PHP in Azure Websites, follow the links
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[Configure, monitor, and scale your web sites in Azure]: http://www.windowsazure.com/en-us/manage/services/web-sites/
-[Download the Azure SDK for PHP]: http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
+[Configure, monitor, and scale your web sites in Azure]: http://www.windowsazure.com/manage/services/web-sites/
+[Download the Azure SDK for PHP]: http://www.windowsazure.com/develop/php/common-tasks/download-php-sdk/

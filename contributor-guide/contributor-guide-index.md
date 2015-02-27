@@ -23,8 +23,14 @@
 
 - [File names and locations for Azure technical articles](./file-names-and-locations.md)
 
+- [Linking guidelines](./create-links-markdown.md/)
+
 
 ##Authoring articles: markdown
+
+- [Markdown basics](https://help.github.com/articles/markdown-basics/)
+
+- [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
 
 - [Create tables in markdown](./create-tables-markdown.md)
 

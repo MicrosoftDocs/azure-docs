@@ -1,37 +1,39 @@
-<properties pageTitle="Stream Analytics monitor and manage jobs using PowerShell | Azure" description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs" services="stream-analytics" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Stream Analytics monitor and manage jobs using PowerShell | Azure" 
+	description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="12/9/2014" ms.author="jgao"/>
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 
 #Monitor and manage Stream Analytics jobs using Azure PowerShell
 
 Learn how to manage Azure Stream Analytics resources using Azure PowerShell.
 
-##In this article
+>[WACOM.NOTE] The following error messages indicates that Azure Stream Analytics is not enabled on the subscription:
+>
+	Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
 
-- [Prerequisites](#prerequisites)
-- [Stream Analytics PowerShell cmdlets](#cmdlets)
-	- [Get-AzureStreamAnalyticsJob](#Get-AzureStreamAnalyticsJob)
-	- [Get-AzureStreamAnalyticsInput](#Get-AzureStreamAnalyticsInput)
-	- [Get-AzureStreamAnalyticsOutput](#Get-AzureStreamAnalyticsOutput)
-	- [Get-AzureStreamAnalyticsQuota](#Get-AzureStreamAnalyticsQuota)
-	- [Get-AzureStreamAnalyticsTransformation](#Get-AzureStreamAnalyticsTransformation)
-	- [New-AzureStreamAnalyticsInput](#New-AzureStreamAnalyticsInput)
-	- [New-AzureStreamAnalyticsJob](#New-AzureStreamAnalyticsJob)
-	- [New-AzureStreamAnalyticsOutput](#New-AzureStreamAnalyticsOutput)
-	- [New-AzureStreamAnalyticsTransformation](#New-AzureStreamAnalyticsTransformation)
-	- [Remove-AzureStreamAnalyticsInput](#Remove-AzureStreamAnalyticsInput)
-	- [Remove-AzureStreamAnalyticsJob](#Remove-AzureStreamAnalyticsJob)
-	- [Remove-AzureStreamAnalyticsOutput](#Remove-AzureStreamAnalyticsOutput)
-	- [Start-AzureStreamAnalyticsJob](#Start-AzureStreamAnalyticsJob)
-	- [Stop-AzureStreamAnalyticsJob](#Stop-AzureStreamAnalyticsJob)
-	- [Test-AzureStreamAnalyticsInput](#Test-AzureStreamAnalyticsInput)
-	- [Test-AzureStreamAnalyticsOutput](#Test-AzureStreamAnalyticsOutput)
-- [See also](#seealso)
+>To resolve this issue, please enable Stream Analytics preview on the subscription and then run the following cmdlets to switch the subscription:
+>
+	Select-AzureSubscription –SubscriptionId xxxxxxxx -Default
+  	Select-AzureSubscription –SubscriptionId xxxxxxxx -Current 
+
 
 ## <a name="prerequisites"></a>Prerequisites for running Stream Analytics PowerShell cmdlets
 
-1.	Install and configure Azure Powershell
+1.	Install and configure Azure PowerShell
 
 	Follow the instructions on [How to install and configure Azure PowerShell][powershell-install] to install Azure PowerShell.
 
@@ -261,8 +263,8 @@ This tests the connection status of the output Output in StreamingJob.
 
 
 
-[msdn-switch-azuremode]: http://msdn.microsoft.com/en-us/library/dn722470.aspx
-[powershell-install]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
+[powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [stream-analytics-introduction]: ../

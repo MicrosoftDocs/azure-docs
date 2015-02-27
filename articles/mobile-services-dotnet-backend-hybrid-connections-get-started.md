@@ -1,6 +1,20 @@
-<properties pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" 
+	description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
   
 # Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections 
@@ -156,9 +170,9 @@ Changes generated in your app have been pushed by your mobile service to your on
 
 ##See Also##
  
-+ [Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
++ [Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 + [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 <!-- IMAGES -->
  

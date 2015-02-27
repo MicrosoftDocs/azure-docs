@@ -1,6 +1,20 @@
-<properties pageTitle="Develop streaming data processing apps with SCP.NET on Storm | Azure" description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." services="hdinsight" documentationCenter="" authors="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Develop streaming data processing apps with SCP.NET on Storm | Azure" 
+	description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="weedqian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/15/2014" 
+	ms.author="qixia"/>
 
 #Develop streaming data processing applications in C# with Stream Computing Platform and Storm in HDInsight
 
@@ -34,7 +48,7 @@ Apache Storm is a distributed computation system that runs on Hadoop clusters, a
 
 SCP provides the libraries that make it easy to create Storm solutions using .NET. Storm clusters on HDInsight include the necessary server-side components to run SCP solutions that you create.
 
-For more information on Storm on HDInsight, see the [HDInsight Storm Overview](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/).
+For more information on Storm on HDInsight, see the [HDInsight Storm Overview](http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/).
 
 ###Design an SCP solution
 
@@ -55,7 +69,7 @@ Designing a solution involves the following:
 
 ##Install the SCP SDK
 
-The SCP SDK is provided on the Storm cluster on HDInsight. After [creating a Storm cluster on HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-getting-started/), use the following steps to download the SDK to your local development environment.
+The SCP SDK is provided on the Storm cluster on HDInsight. After [creating a Storm cluster on HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/), use the following steps to download the SDK to your local development environment.
 
 1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com).
 
@@ -83,7 +97,7 @@ The SCP SDK is provided on the Storm cluster on HDInsight. After [creating a Sto
 
 2. In **Solution Explorer**, right-click **References** and then select **Add reference**.
 
-3. Select the **Browse** button at the bottom of **Reference Manager**, and then browse to the SDK folder you downloaded earlier. Select **Microsoft.SCP.dll** and **Microsoft.SCPLogger.dll**, and then click **Add**. Click **Ok** to close the Reference Manager window.
+3. Select the **Browse** button at the bottom of **Reference Manager**, and then browse to the SDK folder you downloaded earlier. Select **Microsoft.SCPNet.dll** and **Microsoft.SCPLogger.dll**, and then click **Add**. Click **Ok** to close the Reference Manager window.
 
 ###Create the spout
 

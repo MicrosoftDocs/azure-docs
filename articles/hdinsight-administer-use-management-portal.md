@@ -1,34 +1,35 @@
-<properties pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" 
+	description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
+#Manage Hadoop clusters in HDInsight using the Azure Management Portal
 
-
-# Manage Hadoop clusters in HDInsight using the Azure Management Portal
-
+##Overview
 Using the Azure management portal, you can provision Hadoop clusters in HDInsight, change the Hadoop user password, and enable RDP so you can access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the Management portal. 
 
 - For more information on administering HDInsight using Azure PowerShell, see [Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
 
 - For more information on administering HDInsight using the Cross-platform Command-line Tools, see [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]. 
 
-**Prerequisites:**
+##Prerequisites
 
 Before you begin this article, you must have the following:
 
 - **Azure subscription**. Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-
-
-##In this article
-
-* [Provision HDInsight clusters](#create)
-* [Customize HDInsight clusters](#customize)
-* [Change HDInsight cluster username and password](#password)
-* [Connect to HDInsight clusters using RDP](#rdp)
-* [Create a self-signed certificate](#cert)
-* [Grant/revoke HTTP services access](#httpservice)
-* [Open Hadoop command console](#hadoopcmd)
-* [Next steps](#nextsteps)
 
 ##<a id="create"></a> Provision HDInsight clusters
 
@@ -36,13 +37,9 @@ There are several methods for creating HDInsight clusters, this article only cov
 
 An HDInsight cluster uses an Azure Blob Storage container as the default file system. For more information about how Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
-An Azure storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can be provisioned in five data centers: 
 
-- Southeast Asia 
-- North Europe
-- West Europe 
-- East US 
-- West US 
+[AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
+
 
 For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
@@ -67,7 +64,7 @@ For details on creating an Azure storage account, see [How to Create a Storage A
 	![HDI.ClusterLanding][image-cluster-landing]
 
 
-##<a id="customize"></a> Customize HDInsight clusters
+##Customize HDInsight clusters
 
 HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, see [What version of Hadoop is in Azure HDInsight][hdinsight-versions]. HDInsight customization can be done using one of the following options:
 
@@ -82,7 +79,7 @@ HDInsight works with a wide range of Hadoop components. For the list of the comp
 
 Installation of custom software on the cluster using remote desktop connection is not supported. You should avoid storing any files on the drives of the head node as they are lost if you need to recreate the clusters. We recommend to store files on Azure Blob storage. Blob storage is persistent.
 
-##<a id="password"></a> Change the HDInsight cluster username and password
+##Change the HDInsight cluster username and password
 An HDInsight cluster can have two user accounts.  The HDInsight cluster user account is created during the provision processs.  You can also create a RDP user account for accessing the cluster via RDP. See [Enable remote desktop](#enablerdp).
 
 **To change HDInsight cluster username and password**
@@ -98,7 +95,7 @@ An HDInsight cluster can have two user accounts.  The HDInsight cluster user acc
 8. Click **SAVE**.
 
 
-##<a id="rdp"></a> Connect to HDInsight clusters using RDP
+##Connect to HDInsight clusters using RDP
 
 The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through remote desktop. Remote Desktop access is turned off by default and so direct access to the cluster using it requires some additional, post-creation configuration.
 
@@ -125,7 +122,7 @@ The credentials for the cluster that you provided at its creation give access to
 4. From the top of the page, click **CONFIGURATION**.
 5. Click **CONNECT**, and then follow the instructions.
 
-##<a id="cert"></a>Create a self-signed certificate
+##Create a self-signed certificate
 
 If you want to perform any operations on the cluster using the .NET SDK, you must create a self-signed certificate on the workstation, and also upload the certificate to your Azure subscription. This is a one-time task. You can install the same certificate on other machines, as long as the certificate is valid.
 
@@ -140,7 +137,7 @@ If you want to perform any operations on the cluster using the .NET SDK, you mus
 	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
 
-##<a id="httpservice"></a> Grant/revoke HTTP services access
+##Grant/revoke HTTP services access
 
 HDInsight clusters have the following HTTP Web services (all of these services have RESTful endpoints):
 
@@ -171,7 +168,7 @@ This can also be done using the Azure PowerShell cmdlets:
 
 See [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
 
-##<a id="hadoopcmd"></a> Open Hadoop command line
+##Open Hadoop command line
 
 To connect to the cluster using remote desktop and use the Hadoop command line, you must first have enabled remote desktop access to the cluster as described in the previous section. 
 
@@ -200,7 +197,7 @@ On the previous screenshot, the folder name has the Hadoop version number embedd
 	cd %sqoop_home%   
 	cd %hcatalog_home%
 
-##<a id="nextsteps"></a> Next steps
+##Next steps
 In this article, you have learned how to create an HDInsight cluster using the Azure Management Portal, and how to open the Hadoop command line tool. To learn more, see the following articles:
 
 * [Administer HDInsight Using PowerShell][hdinsight-admin-powershell]
@@ -218,15 +215,15 @@ In this article, you have learned how to create an HDInsight cluster using the A
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-support]: http://azure.microsoft.com/en-us/support/options/
-[makecert-info]: http://msdn.microsoft.com/en-us/library/bfsktky3(v=vs.110).aspx
+[hdinsight-support]: http://azure.microsoft.com/support/options/
+[makecert-info]: http://msdn.microsoft.com/library/bfsktky3(v=vs.110).aspx
 
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hadoop-command-reference]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html

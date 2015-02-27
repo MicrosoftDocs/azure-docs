@@ -1,6 +1,20 @@
-<properties pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" description="Learn how to make calls to SharePoint on behalf of the user" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" 
+	description="Learn how to make calls to SharePoint on behalf of the user" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Access SharePoint on behalf of the user
 
@@ -202,4 +216,4 @@ To create a Word document, you will use the OpenXML NuGet package. Install this 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
-[Authenticate your app with Active Directory Authentication Library Single Sign-On]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[Authenticate your app with Active Directory Authentication Library Single Sign-On]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/

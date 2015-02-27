@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." services="web-sites" documentationCenter="" authors="btardif" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" 
+	description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="byvinyal, yochayk"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Azure Websites Web Hosting Plans In-Depth Overview#
 </br>

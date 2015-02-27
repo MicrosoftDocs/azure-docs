@@ -1,21 +1,27 @@
-<properties pageTitle="Get started with data (Windows Store JavaScript) | Mobile Dev Center" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Add Mobile Services to an existing app (Windows Store JavaScript) | Mobile Dev Center" 
+	description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="02/26/2015" 
+	ms.author="glenga"/>
 
 
 # Add Mobile Services to an existing app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title=".NET backend">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/" title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
-
-
 This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
-
->[AZURE.NOTE]This topic shows you how to use Visual Studio 2013 to add Azure Mobile Services to a Windows Store project. You can add the same JavaScript backend mobile service to a universal Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data) of this tutorial.
 
 This tutorial walks you through these basic steps:
 
@@ -27,8 +33,13 @@ This tutorial walks you through these basic steps:
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+<<<<<<< HEAD
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Visual Studio 2013, which makes it easier to connect your Windows Store app to Mobile Services. To complete the same basic procedure using Visual Studio 2012, follow the steps in the topic <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012">Get started with data in Mobile Services using Visual Studio 2012</a>. 
+=======
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* Visual Studio 2013, which you will use to connect your Windows Store app project to Mobile Services.
+>>>>>>> bb81e0a0c229c77be3c16e1fe2a2c34bba94885f
 
 <h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
 
@@ -67,8 +78,11 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
+<<<<<<< HEAD
+>[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
+=======
+>>>>>>> bb81e0a0c229c77be3c16e1fe2a2c34bba94885f
 #<a name="update-app"></a>Update the app to use the mobile service
 
 [AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
@@ -84,8 +98,6 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 3. In the [Management Portal], click **Mobile Services**, and then click your mobile service.
 
 4. Click the **Data** tab, then click **Browse**.
-
-   	![][9]
   
    	Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
 
@@ -113,15 +125,7 @@ This concludes the **Get started with data** tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services. Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
-
-* [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
-
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
-Once you have completed the data series, try one of these other tutorials:
+This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services.  Next, consider reading up on one of these other topics:
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app.
@@ -129,7 +133,7 @@ Once you have completed the data series, try one of these other tutorials:
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
-* [Mobile Services HTML/JavaScript How-to Conceptual Reference]
+* [Mobile Services HTML/JavaScript How-to Conceptual Reference](/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/)
   <br/>Learn more about how to use Mobile Services with HTML and JavaScript.
 
 <!-- Anchors. -->

@@ -1,8 +1,24 @@
-<properties pageTitle="Get started with Azure Websites for ASP.NET" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." services="web-sites" documentationCenter=".net" authors="tdykstra" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Get started with Azure Websites for ASP.NET" 
+	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="11/12/2014" 
+	ms.author="tdykstra"/>
 
 # Get started with Azure Websites and ASP.NET
+
+## Overview
 
 This tutorial shows how to create an ASP.NET web application and deploy it to an Azure Website by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
@@ -24,16 +40,6 @@ You need an Azure account to complete this tutorial:
 The following illustration shows the completed application:
 
 ![Web site home page](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
-
-### Tutorial segments
-
-* [Sign up for Microsoft Azure (Video)](#video)
-* [Set up the development environment](#set-up-the-development-environment)
-* [Create an ASP.NET web application in Visual Studio](#create-an-aspnet-web-application)
-* [Deploy the application to Azure](#deploy-the-application-to-azure)
-* [Make a change and redeploy](#make-a-change-and-redeploy)
-* [Monitor and manage the site in the management portal](#monitor-and-manage-the-site-in-the-management-portal)
-* [Next steps](#next-steps)
 
 ##<a name="video"></a>Sign up for Microsoft Azure (Video)
 
@@ -290,11 +296,11 @@ In this tutorial you've seen how to create a simple web application and deploy i
 	For information about how to use SSL and your own domain (for example www.contoso.com instead of contoso.azurewebsites.net), see the following resources:
 
 	* [Configuring a custom domain name for an Azure Website](/en-us/documentation/articles/web-sites-custom-domain-name/). 
-	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * How to avoid wake-up wait time after idle time-outs 
 
-	By default, websites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Websites](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/).
+	By default, websites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Websites](http://azure.microsoft.com/documentation/articles/web-sites-configure/).
 
 * How to add real-time features such as chat
 

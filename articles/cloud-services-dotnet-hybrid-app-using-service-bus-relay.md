@@ -1,6 +1,20 @@
-<properties pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." services="service-bus" documentationCenter=".net" authors="sethmanheim" manager="timlt" editor="mattshel"/>
+<properties 
+	pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" 
+	description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="sethm"/>
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -25,7 +39,7 @@ You will learn:
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-###How the Service Bus relay helps with hybrid solutions
+##How the Service Bus relay helps with hybrid solutions
 
 Business solutions are typically composed of a combination of custom
 code written to tackle new and unique business requirements and existing
@@ -50,7 +64,7 @@ incoming sessions and requests to the cloud-hosted Service Bus. The
 Service Bus also protects those services from unauthorized access by
 using Azure Active Directory Access Control.
 
-###The solution scenario
+##The solution scenario
 
 In this tutorial, you will create an ASP.NET MVC 4 website that will
 allow you to see a list of products on the product inventory page.
@@ -154,9 +168,9 @@ In order to perform management operations on the new namespace, such as creating
 
 4.  Make a note of the key, or copy it to the clipboard.
 
-###Manage a service namespace using the Visual Studio Server Explorer
+##Manage a service namespace using the Visual Studio Server Explorer
 
-To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
 
 ![][44]
 
@@ -493,7 +507,7 @@ Run the application to verify that it works.
 
 ##Make your application ready to deploy to Azure
 
-You can deploy your application to an Azure cloud cervice or to an Azure Website. To learn more about the difference between Websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure cloud service.
+You can deploy your application to an Azure cloud cervice or to an Azure Website. To learn more about the difference between Websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure cloud service.
 
 To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution. The deployment project contains configuration information that is needed to properly run your application in the cloud.
 
@@ -702,7 +716,7 @@ application.
 
 	![][43]
 
-##<a name="nextsteps"></a>Next steps  
+## Next steps  
 
 To learn more about Service Bus, see the following resources:  
   
@@ -763,7 +777,7 @@ To learn more about Service Bus, see the following resources:
   [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [45]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
-  [sbmsdn]: http://msdn.microsoft.com/en-us/library/azure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /en-us/documentation/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
-  [executionmodels]: http://azure.microsoft.com/en-us/develop/net/fundamentals/compute/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/

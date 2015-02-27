@@ -1,26 +1,26 @@
-<properties pageTitle="Azure Machine Learning Recommendations - JavaScript Integration" description="Azure Machine Learning Recommendations - JavaScript Integration – documentation" services="machine-learning" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Azure Machine Learning Recommendations - JavaScript Integration" 
+	description="Azure Machine Learning Recommendations - JavaScript Integration – documentation" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="javascript" ms.topic="article" ms.date="01/25/2015" ms.author="AharonGumnik" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="01/25/2015" 
+	ms.author="v-ahgumn"/>
 
 # Azure Machine Learning Recommendations - JavaScript Integration
 
 This document depict how to integrate your site using JavaScript. The JavaScript enables you to send Data Acquisition events and to consume recommendations once you build a recommendation model. All operations done via JS can be also done from server side.
 
-##Contents
-
-- [1. General Overview](#1-general-overview)
-- [2. Prerequisites](#2-prerequisites)
-- [3. Send Data Acquisition events using JavaScript](#3-send-data-acquisition-events-using-javascript)
-	- [3.1. Browser Support](#31-browser-support)
-	- [3.2. Type of Events](#32-type-of-events)
-		- [3.2.1. Click Event](#321-click-event)
-		- [3.2.2. Recommendation Click Event](#322-recommendation-click-event)
-		- [3.2.3. Add Shopping Cart Event](#323-add-shopping-cart-event)
-		- [3.2.4. Remove Shopping Cart Event](#324-remove-shopping-cart-event)
-		- [3.2.5. Purchase Event](#325-purchase-event)
-		- [3.2.6. User Login Event](#326-user-login-event)
-- [4. Consume Recommendations via JavaScript](#4-consume-recommendations-via-javascript)
-	- [4.1. Consume I2I Recommendations](#41-consume-i2i-recommendations)
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ##1. General Overview
 Integrating your site with Azure ML Recommendations consist on 2 Phases:

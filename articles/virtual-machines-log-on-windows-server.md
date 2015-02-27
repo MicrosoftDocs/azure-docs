@@ -1,6 +1,20 @@
-<properties pageTitle="Log on to a virtual machine running Windows Server" description="Learn to use the Azure Management Portal to log on to a virtual machine running Windows Server." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Log on to a virtual machine running Windows Server" 
+	description="Learn to use the Azure Management Portal to log on to a virtual machine running Windows Server." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/22/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/22/2015" 
+	ms.author="kathydav"/>
 
 
 #How to Log on to a Virtual Machine Running Windows Server#

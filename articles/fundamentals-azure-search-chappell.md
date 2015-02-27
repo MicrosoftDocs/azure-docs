@@ -1,6 +1,20 @@
-<properties pageTitle="Introduction to Azure Search | Azure" description="Learn how Azure Search can help you build rich search applications." editor="monicar" manager="mblythe" services="search" documentationCenter="" authors="HeidiSteen"/>
+<properties 
+	pageTitle="Introduction to Azure Search | Azure" 
+	description="Learn how Azure Search can help you build rich search applications." 
+	editor="monicar" 
+	manager="mblythe" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2014" ms.author="heidist"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="heidist"/>
 
 # Introduction to Azure search #
 

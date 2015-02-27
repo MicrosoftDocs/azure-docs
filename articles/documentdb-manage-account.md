@@ -1,22 +1,26 @@
-<properties pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." services="documentdb" documentationCenter="" authors="docdbadmin" manager="jhubbard" editor="cgronlun"/>
+<properties 
+	pageTitle="Manage a DocumentDB account | Azure" 
+	description="Learn how to manage your DocumentDB account." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="hawong"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="stbaro"/>
 
 #How to manage a DocumentDB account
 
-
 Learn how to work with keys, consistency settings, and capacity settings, and learn how to delete an account.
 
-In this article
------------------
-
--   [How to: View, copy, and regenerate DocumentDB access keys](#keys)
--   [How to: Manage DocumentDB consistency settings](#consistency)
--   [How to: Manage DocumentDB capacity settings](#capacity)
--   [How to: Delete a DocumentDB account](#delete)
--   [Next steps](#next)
-
-## <a id="keys"></a> How to: View, copy, and regenerate access keys
+## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that 
 can be used for authentication when the DocumentDB
 account is accessed. By providing two access keys, DocumentDB enables
@@ -79,7 +83,7 @@ your application code to reference the new primary access key.
 *Note that it can take several minutes before a newly generated key can
 be used to access your DocumentDB account.*
 
-## <a id="consistency"></a> How to: Manage DocumentDB Consistency Settings
+## <a id="consistency"></a>Manage DocumentDB Consistency Settings
 DocumentDB supports four well-defined user-configurable data consistency
 levels to allow developers to make predictable
 consistency-availability-latency trade-offs.
@@ -126,7 +130,7 @@ management preview portal Notifications hub.
 *Note that it can take several minutes before a change to the default
 consistency setting takes affect across your DocumentDB account.*
 
-## <a id="capacity"></a> How to: Manage DocumentDB capacity settings
+## <a id="capacity"></a>Manage DocumentDB capacity settings
 Microsoft Azure DocumentDB allows you to scale elastically as the
 demands of your application change throughout its lifecycle. Scaling
 DocumentDB is accomplished by increasing the capacity of your DocumentDB

@@ -1,6 +1,20 @@
-<properties pageTitle="Manage experiment iterations in Machine Learning Studio | Azure" description="How to manage experiment iterations in Azure Machine Learning Studio" services="machine-learning" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Manage experiment iterations in Machine Learning Studio | Azure" 
+	description="How to manage experiment iterations in Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/09/2015" ms.author="garye"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/09/2015" 
+	ms.author="garye"/>
 
 #Manage experiment iterations in Azure Machine Learning Studio 
 

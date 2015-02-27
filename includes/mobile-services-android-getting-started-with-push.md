@@ -1,4 +1,4 @@
-1. In your app project, open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
+1. In your **app** project, open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
 2. Add the following new permissions after the existing `uses-permission` element:
 
@@ -20,11 +20,15 @@
         </receiver>
 
 
-4. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
+4. Add these lines under *dependencies* in the **build.gradle** file in the app directory: 
 
-    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
+	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5.  Open the file *ToDoItemActivity.java*, and add the following import statement:
+
+5. Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
@@ -39,13 +43,18 @@
 
 
 
-9. Next we need to add a new class to handle notifications. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
+8. Next we need to add a new class to handle notifications. In the Project Explorer, find the `src` node, open it, and right-click the  package name node: click **New**, then click **Java Class**.
 
-10. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
+9. In **Name** type `MyHandler`, then click **OK**. 
 
-	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
-	This creates the new MyHandler class.
+	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
+
+
+10. In the MyHandler file, replace the class declaration with 
+
+		public class MyHandler extends NotificationsHandler {
+
 
 11. Add the following import statements for the `MyHandler` class:
 

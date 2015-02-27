@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." services="web-sites, virtual-machines, cloud-services" documentationCenter="" authors="tdykstra" manager="wpickett" editor="jimbe"/>
+<properties 
+	pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" 
+	description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="tdykstra"/>
 
 # Azure Websites, Cloud Services, and Virtual Machines comparison
 
@@ -17,12 +31,6 @@ If you have an existing application that would require substantial modifications
 The following diagram illustrates the relative degree of control versus ease of use for each of these web hosting options on Azure. 
 
 ![ChoicesDiagram][ChoicesDiagram]
-
-## Table of contents
-
-- [Scenarios and recommendations](#scenarios)
-- [Feature comparison](#features)
-- [Next Steps](#nextsteps)
 
 ##<a name="scenarios"></a>Scenarios and recommendations
 
@@ -332,7 +340,7 @@ The following table compares the capabilities of Websites, Cloud Services, and V
 For more information about the three web hosting options, see the following resources:
 
 * [Introducing Azure](../fundamentals-introduction-to-azure/)
-* [Azure Execution Models](../fundamentals-application-models/)
+* [Compute Hosting Options Provided by Azure](../fundamentals-application-models/)
 
 To get started with the option(s) you choose for your application, see the following resources:
 
@@ -346,13 +354,13 @@ To get started with the option(s) you choose for your application, see the follo
   [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
-  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
-  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
-  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [Storage]: http://www.windowsazure.com/documentation/services/storage/

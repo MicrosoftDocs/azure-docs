@@ -1,6 +1,20 @@
-<properties pageTitle="Availability of Hadoop clusters in HDInsight | Azure" description="HDInsight deploys highly available and reliable clusters." services="hdinsight" editor="cgronlun" manager="paulettm" authors="bradsev" documentationCenter=""/>
+<properties 
+	pageTitle="Availability of Hadoop clusters in HDInsight | Azure" 
+	description="HDInsight deploys highly available and reliable clusters." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 #Availability and reliability of Hadoop clusters in HDInsight

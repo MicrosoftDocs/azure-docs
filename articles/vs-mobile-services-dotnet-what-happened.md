@@ -1,6 +1,20 @@
-<properties pageTitle="" description="" services="mobile-services" documentationCenter="" authors="kempb" manager="douge" editor=""/>
+<properties 
+	pageTitle="" 
+	description="Describes what happened in your Azure Mobile Services .NET project in Visual Studio" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea123" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="patshea"/>
 
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-mobile-services-dotnet-getting-started/)

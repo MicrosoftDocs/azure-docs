@@ -1,18 +1,26 @@
-<properties pageTitle="How to create APIs in Azure API Management" description="Learn how to create and configure APIs in Azure API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to create APIs in Azure API Management" 
+	description="Learn how to create and configure APIs in Azure API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/24/2015" 
+	ms.author="sdanie"/>
 
 # How to create APIs in Azure API Management
 
 An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the management console, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be used by subscribed to and used by developers.
 
 This guide shows the first step in the process: how to create and configure a new API in API Management. For more information on adding operations and publishing a product, see [How to add operations to an API][] and [How to create and publish a product][].
-
-## In this topic
-
--   [Create a new API][]
--   [Configure API settings][]
--   [Next Steps][]
 
 ## <a name="create-new-api"> </a>Create a new API
 

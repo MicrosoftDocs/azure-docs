@@ -1,6 +1,20 @@
-<properties pageTitle="How to scale a website" description="Learn how to scale your hosting plan in Azure." authors="stepsic-microsoft-com" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
+<properties 
+	pageTitle="How to scale a website" 
+	description="Learn how to scale your hosting plan in Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # How to Scale a Website
 

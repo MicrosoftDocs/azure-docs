@@ -1,6 +1,21 @@
-<properties pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" description="Shows how to use Azure Websites Migration Assistant to quickly migrate existing IIS websites to Azure Websites" services="web-sites" documentationCenter="" authors="cephalin" writer="cephalin" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Migrate your IIS Websites to Azure Websites using the Migration Assistant" 
+	description="Shows how to use Azure Websites Migration Assistant to quickly migrate existing IIS websites to Azure Websites" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="cephalin"/>
 
 # Migrate your IIS Websites to Azure Websites using the Migration Assistant #
 You can easily migrate to Azure Websites your existing websites that run on Internet Information Service (IIS) 6 or later. [Azure Websites Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to Azure Websites, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
@@ -91,7 +106,7 @@ This section steps through an example to to migrate a few websites that use a SQ
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](http://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Once you make all the desired changes, click **Create** to start the migration process. The migration tool will create the Azure SQL Database and Azure Website, and then publish the website content and databases. The migration progress is clearly shown in the migration tool, and you will see a summary screen at the end, which details the sites migrated, whether they were successful, links to the newly-created Azure websites. 
 
@@ -103,4 +118,8 @@ This section steps through an example to to migrate a few websites that use a SQ
  
 20.	Click the links to the Azure websites and verify that the migration has succeeded.
 
+21. You can now manage the migrated websites in Microsoft Azure. To do this, log into the [Azure Portal](https://portal.azure.com).
 
+22. In the Azure Portal, open the Websites blade to see your migrated websites, then click on any one of them to start managing the website, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.
+
+	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)

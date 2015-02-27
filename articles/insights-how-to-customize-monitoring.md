@@ -1,6 +1,20 @@
-<properties pageTitle="How to customize monitoring" description="Learn how to customize monitoring charts in Azure." authors="alancameronwills" manager="kamrani" editor="" services="application-insights" documentationCenter=""/>
+<properties 
+	pageTitle="How to customize monitoring" 
+	description="Learn how to customize monitoring charts in Azure." 
+	authors="alancameronwills" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="awills"/>
 
 # Customizing monitoring
 

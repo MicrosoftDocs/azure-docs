@@ -1,18 +1,38 @@
-<properties pageTitle="Use custom activities in an Azure Data Factory pipeline" description="Learn how to create custom activities and use them in an Azure Data Factory pipeline." services="data-factory" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Use custom activities in an Azure Data Factory pipeline" 
+	description="Learn how to create custom activities and use them in an Azure Data Factory pipeline." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
 Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and process data. You can also create a custom activity with your own transformation/processing logic and use the activity in a pipeline. The custom activity runs as a map-only job on an HDInsight cluster, so you will need to link an HDInsight cluster for the custom activity in your pipeline.
  
 This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity.
 
+## Prerequisites
+2.	Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the [walkthrough](#SupportedSourcesAndSinks) in this article.
+3.	Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package. 
+
+> [AZURE.NOTE] In the 12/11/2014 release of Azure Data Factory, a breaking change was introduced. The **ICustomActivity** interface was renamed to **IDotNetActivity**. The **type** of custom activity in the JSON definition has changed from **CustomActivity** to **DotNetActivity**. The **CustomActivity** and **CustomActivityProperties** classes were renamed to **DotNetActivity** and **DotNetActivityProperties** with the same set of properties.
+
+
 ## Creating a custom activity
 
 To create a custom activity:
  
 1.	Create a **Class Library** project in Visual Studio 2013.
-2.	Download [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions for installing are in the walkthrough.
 3. Add the following using statements at the top of the source file in the class library.
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
@@ -35,7 +55,7 @@ To create a custom activity:
 5. Compile the project.
 
 
-## Use the custom activity in a pipeline
+## Using the custom activity in a pipeline
 To use the custom activity in a pipeline:
 
 1.	**Zip up** all the binary files from the **bin\debug** or **bin\release** output folders for the project. 
@@ -66,10 +86,10 @@ To use the custom activity in a pipeline:
     	    "PackageLinkedService": "MyBlobStore",
     	    "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
 
-## To update custom activity
+## Updating a custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage. 
 
-## Walkthrough
+## <a name="walkthrough" /> Walkthrough
 This Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline. This walkthrough extends the tutorial from the [Get started with Azure Data Factory][adfgetstarted]. If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough. 
 
 **Prerequisites:**
@@ -78,10 +98,11 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 - Tutorial from [Get started with Azure Data Factory][adfgetstarted]. You must complete the tutorial from this article before continuing further with this walkthrough.
 - Visual Studio 2012 or 2013
 - Download and install [Windows Azure .NET SDK][azure-developer-center]
-- Download [NuGet packages for Azure Data Factory][nuget-package].
+- Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the walkthrough.
+- Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package.
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
 
-### Step 1: Create a custom activity
+## Step 1: Create a custom activity
 
 1.	Create a .NET Class Library project.
 	<ol type="a">
@@ -336,10 +357,10 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 
 
 
-### Step 2: Use the custom activity in a pipeline
+## Step 2: Use the custom activity in a pipeline
 Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetstarted] to create another pipeline to test this custom activity.
 
-#### Create a linked service for the HDInsight cluster to be used for running custom activity
+### Create a linked service for the HDInsight cluster to be used for running custom activity
 
 
 1.	Create a JSON for the pipeline as shown in the following example and save it as **ADFTutorialPipelineCustom.json** in **C:\ADFGetStarted\Custom** folder. Change the name of **LinkedServiceName** to the name of the HDInsight cluster (**HDInsightOnDemandCluster** or **MyHDInsightCluster**)
@@ -477,6 +498,7 @@ Article | Description
 [use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
 [troubleshoot]: ../data-factory-troubleshoot
 [data-factory-introduction]: ../data-factory-introduction
+[azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
@@ -486,7 +508,7 @@ Article | Description
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/en-us/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 

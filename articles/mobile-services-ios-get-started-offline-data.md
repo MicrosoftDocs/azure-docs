@@ -1,6 +1,20 @@
-<properties pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="01/16/2015" 
+	ms.author="krisragh,donnam"/>
 
 # Get started with offline data sync in Mobile Services
 
@@ -15,7 +29,7 @@ Offline sync has several potential uses:
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
 If this is your first experience with Mobile Services, consider first completing the tutorial [Get Started with Mobile Services].
 
@@ -133,7 +147,7 @@ When using the Core Data offline store, you need to define particular tables and
     | Attribute  |    Type     |
     |----------- |   ------    |
     | id         | String      |
-    | operationID | Integer 64 |
+    | operationId | Integer 64 |
     | properties | Binary Data |
     | tableKind  | Integer 16  |
 
@@ -155,14 +169,15 @@ When using the Core Data offline store, you need to define particular tables and
 
     **TodoItem**
 
-    | Attribute    |  Type   | Note                                                       | 
-    |-----------   |  ------ | -----------------------------------------------------------|
-    | id           | String  | primary key in remote store                                |
-    | complete     | Boolean | todo item field                                            |
-    | text         | String  | todo item field                                            |
-    | ms_createdAt | Date    | *(optional)* maps to `__createdAt` system property         |
-    | ms_updatedAt | Date    | *(optional)* maps to `__updatedAt` system property         |
-    | ms_version   | String  | *(optional)* used to detect conflicts, maps to `__version` |
+
+    | Attribute    |  Type   | Note                                                   | 
+    |-----------   |  ------ | -------------------------------------------------------|
+    | id           | String  | primary key in remote store                            |
+    | complete     | Boolean | todo item field                                        |
+    | text         | String  | todo item field                                        |
+    | ms_createdAt | Date    | (optional) maps to __createdAt system property         |
+    | ms_updatedAt | Date    | (optional) maps to __updatedAt system property         |
+    | ms_version   | String  | (optional) used to detect conflicts, maps to __version |
 
 
 ## <a name="setup-sync"></a>Change the sync behavior of the app
@@ -278,4 +293,4 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 [Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

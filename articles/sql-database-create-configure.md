@@ -1,12 +1,26 @@
-<properties pageTitle="How to Create and Configure an Azure SQL Database - Azure tutorial" description="How to create and configure an Azure SQL Database." services="sql-database" documentationCenter="" authors="sidneyh" manager="jhubbard" editor=""/>
+<properties 
+	pageTitle="How to Create and Configure an Azure SQL Database - Azure tutorial" 
+	description="How to create and configure an Azure SQL Database." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="sidneyh" 
+	manager="jhubbard" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="sidneyh"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="sidneyh"/>
 
 <h1><a id="configLogical"></a>How to Create and Configure an Azure SQL Database</h1>
 
 In this topic, you'll create and configure a new Azure SQL database using the Azure Management Portal's **QUICK CREATE** option. This process shows you how to create a SQL database using an existing server, and also shows how to create a new server if needed.
 
-> [AZURE.NOTE] Creating a SQL Database with **QUICK CREATE** provisions a Standard (S0) database. To create a SQL Database at a service tier and performance level other than Standard (S0) use **CUSTOM CREATE**. For details on creating an Azure SQL Database using **CUSTOM CREATE**, see [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/).
+> [AZURE.NOTE] Creating a SQL Database with **QUICK CREATE** provisions a Standard (S0) database. To create a SQL Database at a service tier and performance level other than Standard (S0) use **CUSTOM CREATE**. For details on creating an Azure SQL Database using **CUSTOM CREATE**, see [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started/).
 
 ##Table of Contents##
 * [How to: Create an Azure SQL Database](#createDatabase)

@@ -1,10 +1,26 @@
-<properties pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" services="hdinsight" documentationCenter="" authors="blackmist" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" 
+	description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="larryfr"/>
 
 #Analyzing sensor data using Hive with HDInsight
 
-Learn how to analyze sensor data using Hive with HDInsight (Hadoop), then visualize the data in Microsoft Excel using Power View.
+Learn how to analyze sensor data using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel using Power View.
+
+> [AZURE.NOTE] The steps in this document only work with Windows-based HDInsight clusters
 
 In this sample, you'll use Hive to process historical data produced by heating, ventilation, and air conditioning (HVAC) systems to identify systems that are not able to reliably maintain a set temperature. You will learn how to:
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with authentication (Android) | Mobile Dev Center" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." services="mobile-services" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get started with authentication (Android) | Mobile Dev Center" 
+	description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/27/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ricksal,mahender"/>
 
 # Add authentication to your Mobile Services app
 
@@ -8,13 +22,8 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
-This tutorial walks you through these basic steps to enable authentication in your app:
+This tutorial walks you through the basic steps to enable authentication in your app.
 
-1. [Register your app for authentication and configure Mobile Services]
-2. [Restrict table permissions to authenticated users]
-3. [Add authentication to the app]
-4. [Store authentication tokens on the client]
-5. [Refresh expired tokens]
 
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
@@ -29,9 +38,9 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-3. In Eclipse, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
+3. Open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-4. From the **Run** menu, then click **Run** to start the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
+4. From the **Run** menu, then click **Run app** to start the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
 
 	 This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 

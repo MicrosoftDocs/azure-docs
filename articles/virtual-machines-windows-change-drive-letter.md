@@ -1,6 +1,20 @@
-<properties pageTitle="How To Change the Drive Letter of the Windows Temporary Disk" description="Describes how to remap the temporary disk on a Windows VM in Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="How To Change the Drive Letter of the Windows Temporary Disk" 
+	description="Describes how to remap the temporary disk on a Windows VM in Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/15/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/15/2015" 
+	ms.author="kathydav"/>
 
 #How To Change the Drive Letter of the Windows Temporary Disk
 
@@ -39,7 +53,7 @@ If you want to use an existing data disk on the D drive, make sure you've also u
 
 <!--Link references-->
 [How to Attach a Data Disk to a Windows Virtual Machine]: ../storage-windows-attach-disk
-[About Virtual Machine Disks in Azure]: ../http://msdn.microsoft.com/en-us/library/azure/dn790303.aspx
+[About Virtual Machine Disks in Azure]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
 [Create and Upload a Windows Server VHD to Azure]: ../virtual-machines-create-upload-vhd-windows-server/
 [How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
 [How to Detach a Data Disk from a Virtual Machine]: ../storage-windows-detach-disk/

@@ -1,6 +1,18 @@
-<properties pageTitle="How to use end user analytics" description="End user analytics for Microsoft Azure websites." services="application-insights" authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="How to use end user analytics" 
+	description="End user analytics for Microsoft Azure websites." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
 
 # Performance analytics for Microsoft Azure websites
 
@@ -8,9 +20,8 @@ After enabling the Azure WebSite extension (detailed steps below) you’ll be ab
 
 Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
-![](./media/insights-perf-analytics/01-example.png)
+![](./media/insights-perf-analytics/01-example.png) 
 
-Application Insights is a preview service available in the Azure Preview portal designed to help development teams get 360° views of their applications across Availability, Performance and Usage with fast & powerful troubleshooting, diagnostics and usage insights.  
 
 
 ## Set up Performance Analytics
@@ -33,6 +44,15 @@ When you're asked to login, use the credentials for your Azure account.
 Enable the Application Insights Extension on the Azure web site blade (not the Application Insight blade):
 
 ![In your Azure website blade, click Extensions. In the Extensions blade, click Add, then Choose Extension, then Application Insights](./media/insights-perf-analytics/05-extend.png)
+
+*Can I automate this step?*
+
+Yes, there's a REST API for Azure websites. In PowerShell:
+
+    $extension = "https://<sitename>.scm.azurewebsites.net/api/siteextensions/Microsoft.ApplicationInsights.AzureWebSites"
+    Invoke-RestMethod -Uri $extension -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method PUT -Verbose
+
+
 
 ## Explore the data
 

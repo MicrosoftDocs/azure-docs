@@ -1,6 +1,21 @@
-<properties pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." services="web-sites, virtual-machines" documentationCenter="nodejs" authors="blackmist" writer="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" 
+	description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." 
+	services="web-sites, virtual-machines" 
+	documentationCenter="nodejs" 
+	authors="wpickett" 
+	writer="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 # Create a Node.js Application on Azure with MongoDB in a Virtual Machine
@@ -575,5 +590,5 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [vmname]: ./media/web-sites-nodejs-store-data-mongodb/vmname.png
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
-[sshazure]: http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/
+[sshazure]: http://www.windowsazure.com/documentation/articles/linux-use-ssh-key/
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/ 

@@ -1,13 +1,23 @@
-<properties pageTitle="Frequently asked questions about DocumentDB | Azure" description="Answers to frequently asked questions about Azure DocumentDB nosql document database service. Learn about capacity and request units, and understand how to scale to your application needs." services="documentdb" authors="spelluru" manager="jhubbard" editor="monicar" documentationCenter=""/>
+<properties 
+	pageTitle="Frequently asked questions about DocumentDB | Azure" 
+	description="Answers to frequently asked questions about Azure DocumentDB nosql document database service. Learn about capacity and request units, and understand how to scale to your application needs." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/22/2014" ms.author="spelluru"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 
 #Frequently asked questions about DocumentDB
-
-- [Azure DocumentDB fundamentals](#fundamentals)
-- [Set up Azure DocumentDB](#setup)
-- [Develop against Azure DocumentDB](#develop)
 
 ## <a id="fundamentals"></a> Microsoft Azure DocumentDB fundamentals
 

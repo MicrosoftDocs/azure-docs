@@ -1,6 +1,20 @@
-<properties pageTitle="How to Use Twilio for Voice and SMS (PHP) - Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP." services="" documentationCenter="python" authors="devinrader" manager="twilio" editor=""/>
+<properties
+	pageTitle="How to Use Twilio for Voice and SMS (PHP) - Azure"
+	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP."
+	services=""
+	documentationCenter="python"
+	authors="devinrader"
+	manager="twilio"
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com"/>
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python" 
+	ms.topic="article"
+	ms.date="02/19/2015"
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 
@@ -117,7 +131,7 @@ The following shows how to make an outgoing call using the **Services_Twilio** c
 
 	// Use the Twilio-provided site for the TwiML response.
     $url = "http://twimlets.com/message";
-	
+
 	// The phone message text.
 	$message = "Hello world.";
 
@@ -128,12 +142,12 @@ The following shows how to make an outgoing call using the **Services_Twilio** c
 	try
 	{
 		$call = $client->account->calls->create(
-			$from_number, 
+			$from_number,
 			$to_number,
   			$url.'?Message='.urlencode($message)
 		);
 	}
-	catch (Exception $e) 
+	catch (Exception $e)
 	{
 		echo 'Error: ' . $e->getMessage();
 	}
@@ -141,7 +155,7 @@ The following shows how to make an outgoing call using the **Services_Twilio** c
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
 
-- **Note**: To troubleshoot SSL certificate validation errors, see [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+- **Note**: To troubleshoot SSL certificate validation errors, see [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation]
 
 
 <h2><a id="howto_send_sms"></a>How to: Send an SMS message</h2>
@@ -170,7 +184,7 @@ The following shows how to send an SMS message using the **Services_Twilio** cla
 	{
 		$client->account->sms_messages->create($from_number, $to_number, $message);
 	}
-	catch (Exception $e) 
+	catch (Exception $e)
 	{
 		echo 'Error: ' . $e->getMessage();
 	}
@@ -182,23 +196,23 @@ Instead of relying on the Twilio-provided URL, you can create your own site that
 
 The following PHP page results in a TwiML response that says **Hello World** on the call.
 
-    <?php    
-		header("content-type: text/xml");    
+    <?php
+		header("content-type: text/xml");
 		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 	?>
-	<Response>    
+	<Response>
 		<Say>Hello world.</Say>
 	</Response>
 
 As you can see from the example above, the TwiML response is simply an XML document. The Twilio library for PHP contains classes that will generate TwiML for you. The example below produces the equivalent response as shown above, but uses the **Services\_Twilio\_Twiml** class in the Twilio library for PHP:
 
 	require_once('Services/Twilio.php');
-	
+
 	$response = new Services_Twilio_Twiml();
 	$response->say("Hello world.");
 	print $response;
 
-For more information about TwiML, see [https://www.twilio.com/docs/api/twiml][twiml_reference]. 
+For more information about TwiML, see [https://www.twilio.com/docs/api/twiml][twiml_reference].
 
 Once you have your PHP page set up to provide TwiML responses, use the URL of the PHP page as the URL passed into the  `Services_Twilio->account->calls->create`  method. For example, if you have a Web application named **MyTwiML** deployed to an Azure hosted service, and the name of the PHP page is **mytwiml.php**, the URL can be passed to  **Services_Twilio->account->calls->create**  as shown in the following example:
 
@@ -218,12 +232,12 @@ Once you have your PHP page set up to provide TwiML responses, use the URL of th
 	try
 	{
 		$call = $client->account->calls->create(
-			$from_number, 
+			$from_number,
 			$to_number,
   			$url.'?Message='.urlencode($message)
 		);
 	}
-	catch (Exception $e) 
+	catch (Exception $e)
 	{
 		echo 'Error: ' . $e->getMessage();
 	}
@@ -238,7 +252,7 @@ Now that you have learned the basics of the Twilio service, follow these links t
 
 * [Twilio Security Guidelines] [twilio_security_guidelines]
 * [Twilio HowTo Guides and Example Code] [twilio_howtos]
-* [Twilio Quickstart Tutorials][twilio_quickstarts] 
+* [Twilio Quickstart Tutorials][twilio_quickstarts]
 * [Twilio on GitHub] [twilio_on_github]
 * [Talk to Twilio Support] [twilio_support]
 

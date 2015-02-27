@@ -1,6 +1,20 @@
-<properties pageTitle="How to authorize developer accounts using Azure Active Directory in Azure API Management" description="Learn how to authorize users using Azure Active Directory in API Management." services="api-management" documentationCenter="API Management" authors="sdanie" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to authorize developer accounts using Azure Active Directory in Azure API Management" 
+	description="Learn how to authorize users using Azure Active Directory in API Management." 
+	services="api-management" 
+	documentationCenter="API Management" 
+	authors="sdanie" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/8/2015" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/24/2015" 
+	ms.author="sdanie"/>
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 
@@ -151,7 +165,7 @@ Your user is now logged into the developer portal for your API Management servic
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/en-us/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1

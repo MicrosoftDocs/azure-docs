@@ -1,20 +1,35 @@
-<properties pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" editor="tysonn" manager="timlt" documentationCenter="" authors="squillace" services=""/>
+<properties 
+	pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" 
+	description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="rasquill"/>
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="rasquill"/>
 
 #Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
-We recently introduced a preview of Resource Manager, which is a new way to manage Microsoft Azure. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
+In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
->[AZURE.NOTE] The Resource Manager is currently in preview, and does not provide the same level of management capabilities as Azure Service Management.
+>[AZURE.NOTE] The Resource Manager is currently in preview, and does not provide the same level of management capabilities as Azure Service Management. 
+>
+> If you have not already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
->[AZURE.NOTE] If you have not already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
 ##Resource Manager
 
-The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or website,) as a single logical unit, or _resource group_. For example, a resource group might contain a Website and SQL Database resources.
+The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or website,) as a single logical unit, or _resource group_. For example, a resource group might contain a Website and SQL Database as resources.
 
 To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the the region the Website will be located in, and other common parameters.
 
@@ -26,23 +41,23 @@ When a template is used to modify or create a group, a _deployment_ is created, 
 
 ##Authentication
 
-Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational account. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
+Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
 
 For more information on authenticating using an organizational account, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
 
-##Working with Groups and Templates
+##Locating and Configuring a Resource Group Template
 
-1. The Resource Manager is currently in preview, so the xplat-cli commands to work with it are not enabled by default. Use the following command to enable the commands.
+1. Because the Resource Manager mode is not enabled by default, you must use the following command to enable xplat-cli resource manager commands.
 
 		azure config mode arm
 
 	>[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-2. When working with templates, you can either create your own, or use one from the Template Gallery. To list available templates from the gallery, use the following command.
+2. When working with templates, you can either create your own, or use one from the Template Gallery. In this case, let's use one from the Template Gallery. To list available templates from the gallery, use the following command. (Because there are thousands of templates available, be sure to paginate the results or use **grep** or **findstr** [on Windows] or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching. The example below uses the template called **Microsoft.WebSiteSQLDatabase.0.2.6-preview**.)	
 
 		azure group template list
 
-	The response will list the publisher and template name, and will appear similar to the following.
+	The response will list the publisher and template name, and will appear similar to the following (although there will be far more).
 
 		data:    Publisher               Name
 		data:    ----------------------------------------------------------------------------
@@ -52,23 +67,25 @@ For more information on authenticating using an organizational account, see [Ins
 		data:    Microsoft               Microsoft.ASPNETEmptySite.0.1.0-preview1
 		data:    Microsoft               Microsoft.WebSiteMySQLDatabase.0.1.0-preview1
 
-3. To view details of a template that will create an Azure Website, use the following command.
+3. To view the details of a template that will create an Azure Website, use the following command.
 
-		azure group template show Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+		azure group template show Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
-	This will return descriptive information about the template.
+	This will return descriptive information about the template. 
 
-4. Once you have selected a template, you can download it with the following command.
+4. Once you have selected a template (**azure group template show Microsoft.WebSiteSQLDatabase.0.2.6-preview**), you can download it with the following command.
 
-		azure group template download Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+		azure group template download Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
 	Downloading a template allows you to customize it to better suite your requirements. For example, adding another resource to the template.
 
 	>[AZURE.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
 
-5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**. When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
+5. To configure the resource group template for your use, open the template file in a text editor. Note the **parameters** JSON collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**. 
+	
+	When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format, and you must provide your own values for those keys that do not have default values.
 
-	To create a file that contains parameters for the Microsoft.WebSiteSQLDatabase.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**.
+	For example, to create a file that contains parameters for the **Microsoft.WebSiteSQLDatabase.0.2.6-preview** template, use the following data to create a file named **params.json**. Replace the values below beginning with **_My_** such as **_MyWebSite_** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**. (This example uses **West US**)
 
 		{
 		  "siteName": {
@@ -78,13 +95,13 @@ For more information on authenticating using an organizational account, see [Ins
 		    "value": "MyHostingPlan"
 		  },
 		  "siteLocation": {
-		    "value": "North Europe"
+		    "value": "West US"
 		  },
 		  "serverName": {
 		    "value": "MySQLServer"
 		  },
 		  "serverLocation": {
-		    "value": "North Europe"
+		    "value": "West US"
 		  },
 		  "administratorLogin": {
 		    "value": "MySQLAdmin"
@@ -97,11 +114,10 @@ For more information on authenticating using an organizational account, see [Ins
 		  }
 		}
 
-1. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step.
 
-		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e params.json
+1. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step. Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in your **params.json** template parameter file.
 
-	Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in the template.
+		azure group create MyGroupName "West US" -y Microsoft.WebSiteSQLDatabase.0.2.6-preview -d MyDeployment -e params.json
 
 	>[AZURE.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 	>
@@ -162,8 +178,8 @@ To view logged information on operations performed on a group, use the `azure gr
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
 * For information on working with Resource Manager using Windows Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
 
-[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
+[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /en-us/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

@@ -1,6 +1,20 @@
-<properties pageTitle="DocumentDB Indexing Policies | Azure" description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." services="documentdb" documentationCenter="" authors="mimig1" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="DocumentDB Indexing Policies | Azure" 
+	description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="01/05/2015" ms.author="mimig"/>
+<tags 
+	ms.service="documentdb" 
+	ms.devlang="may be required" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="02/23/2015" 
+	ms.author="mimig"/>
 
 
 DocumentDB indexing policies
@@ -46,15 +60,6 @@ the type of index to be better suited for range queries, or increase the
 index precision in bytes to improve query performance. This article
 describes the various indexing configuration options available in
 DocumentDB, and how to customize indexing policy for your workloads.
-
-## In this article ##
-
-Section | Description
------| -----------
-[How DocumentDB indexing works](#HowWorks) | Explains how DocumentDB represented JSON documents as trees for indexing.  
-[Configuring the indexing policy of a collection](#ConfigPolicy) | In this step, you create a hello world project in Eclipse.
-[Performance tuning](#Perf) | In this step, you add the DocumentDB SDK as a dependency to the project.
-
 
 <a id="HowWorks"></a>How DocumentDB indexing works
 -----------------------------
@@ -214,7 +219,7 @@ The index precision for values at any path can be between 3 and 7 bytes.
 Since the same path might have numeric and string
 values in different documents, these can be controlled separately. In
 the .NET SDK, these values correspond to the [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) and
-[StringPrecision](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx) properties.
+[StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx) properties.
 
 There are two supported kinds of index types: Hash and Range. Choosing
 an index type of **Hash** enables efficient equality queries. For most
@@ -418,8 +423,8 @@ the DocumentDB APIs.
 
 To check the storage quota and usage of a collection, run a HEAD or GET request
 against the collection resource, and inspect the x-ms-request-quota and
-the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/en-us/library/dn850325.aspx)
-and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/en-us/library/dn799209.aspx) contain these
+the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx)
+and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these
 corresponding values.
 
 
@@ -431,7 +436,7 @@ corresponding values.
 
 To measure the overhead of indexing on each write operation (create,
 update, or delete), inspect the x-ms-request-charge header (or the
-equivalent [RequestCharge](http://msdn.microsoft.com/en-us/library/dn799099.aspx) property in [ResourceResponse<T\>](http://msdn.microsoft.com/en-us/library/dn799209.aspx) in the .NET
+equivalent [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) property in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in the .NET
 SDK) to measure the number of request units consumed by these
 operations.
 

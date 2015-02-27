@@ -1,6 +1,20 @@
-<properties pageTitle="Optimizing MySQL Performance on Azure Linux VMs" description="Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Optimizing MySQL Performance on Azure Linux VMs" 
+	description="Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="NingKuang" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="ningk"/>
 
 #Optimizing MySQL Performance on Azure Linux VMs 
 
@@ -53,7 +67,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
 ####Step 2: Create RAID with the additional disks
 Follow this article for detailed RAID setup steps:  
 
-[http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/)
+[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
 >[AZURE.NOTE] If you are using the XFS file system, follow the steps below after you have created RAID.
 

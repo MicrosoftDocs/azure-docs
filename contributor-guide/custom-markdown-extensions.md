@@ -2,9 +2,15 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/22/2015" ms.author="tysonn" />
 
-#Custom markdown extensions used in our technical articles
+## Markdown for Azure.microsoft.com
 
-Our articles use standard markdown for most article formatting - paragraphs, links, lists, headings, etc. But we use custom markdown extensions where we need richer formatting in the rendered pages on azure.microsoft.com. Here's the extensions we are currently using:
+For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
+
+Azure.microsoft.com does not support [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) or [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block. 
+
+## Custom markdown extensions used in our technical articles
+
+Our articles use GitHub flavored markdown for most article formatting - paragraphs, links, lists, headings, etc. But we use custom markdown extensions where we need richer formatting in the rendered pages on azure.microsoft.com. Here's the extensions we are currently using:
 
 + [Notes and tips]
 + [Includes]
@@ -59,7 +65,7 @@ Multiparagraph:
 
     > [AZURE.NOTE] To complete this tutorial, you must have an active Microsoft Azure account. 
     > 
-    > If you don't have an account, you can [create a free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/) in just a couple of minutes.
+    > If you don't have an account, you can [create a free trial account](http://www.windowsazure.com/pricing/free-trial/) in just a couple of minutes.
 
 ## Includes
 
@@ -115,13 +121,13 @@ In the rendered HTML on azure.microsoft.com, the HTML from the includes is merge
 
 ## Embedded videos
 
-Our technical articles support embeddeded videos in technical articles as long as the videos are on Microsoft's [Channel 9](http://channel9.msdn.com/) site. The videos from Channel 9 must be integrated with [the azure.microsoft.com Video Center](http://azure.microsoft.com/en-us/documentation/videos/home/). We currently do not support embedded YouTube videos; if you're a community contributor, you are welcome to link to YouTube if the video you want to feature is posted there. Microsoft contributors should use Channel 9 and the Video Center.
+Our technical articles support embeddeded videos in technical articles as long as the videos are on Microsoft's [Channel 9](http://channel9.msdn.com/) site. The videos from Channel 9 must be integrated with [the azure.microsoft.com Video Center](http://azure.microsoft.com/documentation/videos/home/). We currently do not support embedded YouTube videos; if you're a community contributor, you are welcome to link to YouTube if the video you want to feature is posted there. Microsoft contributors should use Channel 9 and the Video Center.
 
 ### Usage
 
 - Make sure that the video is on the Video Center. 
 
-- Copy the video ID from the friendly URL of the video on Channel 9 or from the Azure Video Center. For example, the video ID for the video at [http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/](http://azure.microsoft.com/en-us/documentation/videos/azure-scheduler-unusual-schedules/) is **azure-scheduler-unusual-schedules**.
+- Copy the video ID from the friendly URL of the video on Channel 9 or from the Azure Video Center. For example, the video ID for the video at [http://azure.microsoft.com/documentation/videos/azure-scheduler-unusual-schedules/](http://azure.microsoft.com/documentation/videos/azure-scheduler-unusual-schedules/) is **azure-scheduler-unusual-schedules**.
 
 ### Syntax
 
@@ -131,7 +137,7 @@ Our technical articles support embeddeded videos in technical articles as long a
 
 On GitHub: [https://github.com/Azure/azure-content-pr/blob/master/articles/web-sites-backup.md](https://github.com/Azure/azure-content-pr/blob/master/articles/web-sites-backup.md)
 
-Published article: [http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/](http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/)
+Published article: [http://azure.microsoft.com/documentation/articles/web-sites-backup/](http://azure.microsoft.com/documentation/articles/web-sites-backup/)
 
 
 ## Technology and platform selectors
@@ -140,7 +146,7 @@ Use technology and platform switchers in technical artilces when you author mult
 
 Usage
 
-See [Get started with Notification Hubs](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
+See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
 
 ![](./media/custom-markdown-extensions/selectors.PNG)
 

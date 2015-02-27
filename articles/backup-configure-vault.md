@@ -1,6 +1,20 @@
-<properties pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." services="site-recovery" documentationCenter="" authors="markgalioto" manager="jwhit" editor="tysonn"/>
+<properties 
+	pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" 
+	description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="markgalioto" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal"/>
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="markgal"/>
 
 
 
@@ -10,7 +24,7 @@
 <ul><li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Azure Free Trial</a>.</li></ul>
   
 
-<p>To backup files and data from your Windows Server to Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, downloading a vault credential, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.</p>
+<p>To back up files and data from your Windows Server to Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, downloading a vault credential, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.</p>
 
 
 
@@ -52,8 +66,8 @@ Vault credentials replace certificates as the way to register your Azure service
 
 3. On the Quick Start page, select the type of agent you want to download. You can choose **Download Azure Backup Agent**, **Windows Server and System Center Data Protection Manager**, or **Windows Server Essentials**.  For more information see:
 
-	* [Install Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/en-us/library/hh831761.aspx#BKMK_installagent)
-	* [Install Azure Backup Agent for Windows Server 2012 Essentials](http://technet.microsoft.com/en-us/library/jj884318.aspx)
+	* [Install Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Install Azure Backup Agent for Windows Server 2012 Essentials](http://technet.microsoft.com/library/jj884318.aspx)
 
 Once the agent is installed you can use the appropriate local management interface (such as the Microsoft Management Console snap-in, System Center Data Protection Manager Console, or Windows Server Essentials Dashboard) to configure the backup policy for the server.
 	

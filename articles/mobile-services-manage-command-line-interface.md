@@ -1,6 +1,20 @@
-<properties pageTitle="Administering a Mobile Service at the command line - Azure tutorial" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Administering a Mobile Service at the command line - Azure tutorial" 
+	description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Automate mobile services with command-line tools 
 
@@ -18,9 +32,9 @@ When combined into a single script or batch file, these individual commands auto
 
 To use the Azure command-line tools to manage Mobile Services, you need an Azure account that has the Azure Mobile Services feature enabled.
 
-+ If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
++ If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
 
-+ If you have an existing account but need to enable the Azure Mobile Services preview, see <a href="http://azure.microsoft.com/en-us/documentation/articles/php-create-account/#enable" target="_blank">Enable Azure preview features</a>.
++ If you have an existing account but need to enable the Azure Mobile Services preview, see <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">Enable Azure preview features</a>.
 
 This topic covers a selection of common administration tasks supported by the Azure command-line tools. For more information, see [Azure command-line tools documentation][reference-docs].
 

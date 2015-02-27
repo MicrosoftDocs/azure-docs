@@ -1,8 +1,24 @@
-<properties pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" editor="cgronlun" manager="paulettm" authors="mumian" documentationCenter=""/>
+<properties 
+	pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" 
+	description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Cross-platform Command-line Interface
+
+##Overview
 
 In this article, you learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDInsight. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. 
 
@@ -11,23 +27,13 @@ The command-line tool is open source.  The source code is managed in GitHub at <
 This article only covers using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool].
 
 
-**Prerequisites:**
+##Prerequisites
 
 Before you begin this article, you must have the following:
 
 - **Azure subscription**. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-##In this article
-
-* [Installation](#installation)
-* [Download and import Azure account publishsettings](#importsettings)
-* [Provision a cluster](#provision)
-* [Provision a cluster using configuration file](#provisionconfigfile)
-* [List and show clusters](#listshow)
-* [Delete a cluster](#delete)
-* [Next steps](#nextsteps)
-
-##<a id="installation"></a> Installation
+##Installation
 The command-line interface can be installed using *Node.js Package Manager (NPM)* or Windows Installer.
 
 **To install the command-line interface using NPM**
@@ -55,10 +61,10 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 **To install the command-line interface using windows installer**
 
-1.	Browse to **http://azure.microsoft.com/en-us/downloads/**.
+1.	Browse to **http://azure.microsoft.com/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
-##<a id="importsettings"></a> Download and import Azure account publishsettings
+##Download and import Azure account publishsettings
 
 Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publishsettings once.
 
@@ -85,7 +91,7 @@ Before using the command-line interface, you must configure connectivity between
 	In the previous screenshot, the publishsettings file was saved to C:\HDInsight folder on the workstation.
 
 
-##<a id="provision"></a> Provision an HDInsight cluster
+##Provision an HDInsight cluster
 
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -97,15 +103,7 @@ After you have imported the publishsettings file, you can use the following comm
 	azure account storage create [options] <StorageAccountName>
 
 
-> [AZURE.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
-
-><ul>
-<li>Southeast Asia</li>
-<li>North Europe</li>
-<li>West Europe</li>
-<li>East US</li>
-<li>West US</li>
-</ul>
+> [AZURE.NOTE] The storage account must be collocated in the same data center with HDInsight.
 
 
 For information on creating an Azure storage account using Azure Management portal, see [Create, manage, or delete a storage account][azure-create-storageaccount].
@@ -148,7 +146,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 
 
-##<a id="provisionconfigfile"></a> Provision an HDInsight cluster using a configuration file
+##Provision an HDInsight cluster using a configuration file
 Typically, you provision an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.  
  
 	azure hdinsight cluster config create <file>
@@ -171,7 +169,7 @@ Typically, you provision an HDInsight cluster, run jobs on it, and then delete t
 ![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
 
 
-##<a id="listshow"></a> List and show cluster details
+##List and show cluster details
 Use the following commands to list and show cluster details:
 	
 	azure hdinsight cluster list
@@ -180,7 +178,7 @@ Use the following commands to list and show cluster details:
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
 
-##<a id="delete"></a> Delete a cluster
+##Delete a cluster
 Use the following command to delete a cluster:
 
 	azure hdinsight cluster delete <ClusterName>
@@ -188,7 +186,7 @@ Use the following command to delete a cluster:
 
 
 
-##<a id="nextsteps"></a> Next steps
+##Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
 * [Administer HDInsight using management portal][hdinsight-admin-portal]
@@ -201,9 +199,9 @@ In this article, you have learned how to perform different HDInsight cluster adm
 [azure-command-line-tools]: ../xplat-cli/
 [azure-command-line-tool]: ../command-line-tools/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/

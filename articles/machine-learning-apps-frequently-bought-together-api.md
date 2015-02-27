@@ -1,10 +1,28 @@
-<properties pageTitle="Machine Learning example app: Frequently Bought Together | Azure" description="A Machine Learning web service that performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions provided by the user." services="machine-learning" documentationCenter="" authors="CoromT" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Machine Learning example app: Frequently Bought Together | Azure" 
+	description="A Machine Learning web service that performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions provided by the user." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt"/> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/> 
 
 # Machine Learning example app: Frequently Bought Together
+
+##Overview
  
 The [Frequently Bought Together web service]( https://datamarket.azure.com/dataset/amla/mba) in Machine Learning performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions. Frequently Bought Together recommendations help shoppers identify products in a catalog that are most relevant when purchasing a specific item. Prominently showing these recommendations has proven effective in improving sales for online retailers. 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
   
 ##Get started 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Create a Website that uses MongoDB on MongoLab (.NET)" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." services="web-sites" documentationCenter=".net" authors="chrischang12" manager="partners@mongolab.com" editor="mollybos"/>
+<properties 
+	pageTitle="Create a Website that uses MongoDB on MongoLab (.NET)" 
+	description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="chrischang12" 
+	manager="partners@mongolab.com" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com"/>
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="chris@mongolab.com"/>
 
 
 

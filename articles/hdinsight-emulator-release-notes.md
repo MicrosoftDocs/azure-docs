@@ -1,6 +1,20 @@
-<properties pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." editor="cgronlun" manager="paulettm" services="hdinsight" authors="mumian" documentationCenter=""/>
+<properties 
+	pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" 
+	description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2014" 
+	ms.author="jgao"/>
 
 
 
@@ -20,7 +34,7 @@
 
 ### What's New? 
  
-* [Updated Hadoop component versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) corresponding to version 3.1 of the service.  This includes Hive 0.13 and Tez support.
+* [Updated Hadoop component versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) corresponding to version 3.1 of the service.  This includes Hive 0.13 and Tez support.
 
 ## v1.0.0.0, Released 10/28/2013
 
@@ -78,7 +92,7 @@
  
 * Connect to multiple clusters, including the local installation as well as those running remotely using Azure HDInsight Service. 
  
-* For more information on HDInsight Service, see [http://azure.microsoft.com/en-us/documentation/services/hdinsight/](http://azure.microsoft.com/en-us/documentation/services/hdinsight/).
+* For more information on HDInsight Service, see [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/).
 
 * Configure WASB on local cluster
 

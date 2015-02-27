@@ -1,6 +1,20 @@
-<properties pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your iOS application" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your iOS application" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/26/2015" ms.author="krisragh,donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/26/2015" 
+	ms.author="krisragh,donnam"/>
 
 
 # Handling Conflicts with Offline Data Sync in Mobile Services
@@ -9,7 +23,7 @@
 
 This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services. This tutorial builds on the steps and the sample app from the previous tutorial [Get Started with Offline Data]. Before you begin this tutorial, you must first complete [Get Started with Offline Data].
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
 This tutorial walks you through these basic steps:
 
@@ -157,9 +171,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 7. Verify that the app works with all the changes you've made so far. Run the app now in the simulator. Add items to the todo list, and then click on them. You'll see the (currently empty) item view controller.
 
-      ![][add-todo-item-view-controller-4]
-
-      ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4]          ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Add Item Details to Todo Item View Controller
 

@@ -1,7 +1,20 @@
-<properties pageTitle="Media Services REST API overview - Azure" description="Media Services REST API overview" services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Media Services REST API overview" 
+	description="This topic gives an overview of REST API." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/19/2015" ms.author="juliako"/>
-
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/23/2015" 
+	ms.author="juliako"/>
 
 # Media Services REST API overview 
 
@@ -16,13 +29,13 @@ For every call you make into Media Services, there is a set of required headers 
 <table border="1">
 <tr><th>Header</th><th>Type</th><th>Value</th></tr>
 <tr><td>Authorization</td><td>Bearer</td><td>Bearer is the only accepted authorization mechanism. The value must also include the access token provided by ACS.</td></tr>
-<tr><td>x-ms-version</td><td>Decimal</td><td>2.8</td></tr>
+<tr><td>x-ms-version</td><td>Decimal</td><td>2.9</td></tr>
 <tr><td>DataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
 <tr><td>MaxDataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
 </table><br/>
 
 
->[AZURE.NOTE] Because Media Services uses OData to expose its underlying asset metadata repository through REST APIs, the DataServiceVersion and MaxDataServiceVersion headers should be included in any request; however, if they are not, then currently Media Services assumes the DataServiceVersion value in use is 3.0.
+>AZURE.NOTE Because Media Services uses OData to expose its underlying asset metadata repository through REST APIs, the DataServiceVersion and MaxDataServiceVersion headers should be included in any request; however, if they are not, then currently Media Services assumes the DataServiceVersion value in use is 3.0.
 
 The following is a set of optional headers:
 

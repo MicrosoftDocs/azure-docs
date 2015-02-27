@@ -1,24 +1,26 @@
-<properties pageTitle="Deploy Azure WebJobs to Azure Websites" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." services="web-sites" documentationCenter="" authors="tdykstra" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Deploy Azure WebJobs to Azure Websites" 
+	description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/12/2014" ms.author="tdykstra"/>
+<tags 
+	ms.service="web-sites" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="web" 
+	ms.date="11/12/2014" 
+	ms.author="tdykstra"/>
 
 # How to Deploy Azure WebJobs to Azure Websites
 
-This topic explains how to use Visual Studio to deploy a Console Application project to an Azure Website as an [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226). An alternative way to deploy WebJobs is to use the Azure Management Portal; for information about that method, see [Use WebJobs to run background tasks in Microsoft Azure Websites](/en-us/documentation/articles/web-sites-create-web-jobs/).
+## Overview
 
-## Table of Contents ##
-
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Enable WebJobs deployment for an existing Console Application project](#convert)
-- [Create a new WebJobs-enabled project](#create)
-- [The Add Azure WebJob dialog](#configure)
-- [The webjob-publish-settings.json file](#publishsettings)
-- [The webjobs-list.json file](#webjobslist)
-- [Deploy a WebJobs project](#deploy)
-- [Next Steps](#next-steps)
-
-## <a id="overview"></a>Overview
+This topic explains how to use Visual Studio to deploy a Console Application project to an Azure Website as an [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the Azure Management Portal, see [Use WebJobs to run background tasks in Microsoft Azure Websites](/en-us/documentation/articles/web-sites-create-web-jobs/).
 
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 

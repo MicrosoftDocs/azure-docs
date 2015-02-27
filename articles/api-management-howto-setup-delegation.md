@@ -1,16 +1,24 @@
-<properties pageTitle="How to delegate user registration and product subscription" description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." services="api-management" documentationCenter="" authors="antonba" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to delegate user registration and product subscription" 
+	description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="antonba" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/14/2015" ms.author="antonba"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/24/2015" 
+	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
 
 Delegation allows you to use your existing website for handling developer sign-in/sign-up and subscription to products as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.
-
-
-## In this topic
-
--   [Delegating developer sign-in and sign-up][]
--   [Delegating product subscription][]
 
 ## <a name="delegate-signin-up"> </a>Delegating developer sign-in and sign-up
 

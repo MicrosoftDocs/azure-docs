@@ -1,16 +1,26 @@
-<properties pageTitle="Stream Analytics limitations in the preview release | Azure" description="Learn the limitations in the public preview release of Azure Stream Analytics jobs" services="stream-analytics" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Stream Analytics limitations in the preview release | Azure" 
+	description="Learn the limitations in the public preview release of Azure Stream Analytics jobs" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao"/>
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 #Azure Stream Analytics Preview limitations and known issues
 
 This document describes the limitations and known issues of [Azure Stream Analytics][stream.analytics.documentation] during the Preview release.  In most cases these limits exist with an intent to get your early feedback or based on current capacity constraints. 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-##In this article
-+ [Limitations](#limitations) 
-+ [Release notes and known issues](#knownissues)
-+ [Next steps]
 
 ##<a name="limitations"></a> Limitations
 
@@ -43,6 +53,10 @@ For the CSV and JSON input sources, UTF-8 is the only support  encoding format.
 ###Query complexity
 The maximum number of supported aggregate functions in a Stream Analytics job query definition is seven.
 
+###Number of queries
+The maximum number of supported queries for a given input source is five.  
+
+
 ###Lifecycle management
 
 **Job upgrade**
@@ -62,7 +76,7 @@ This contains a list of known issues for Azure Stream Analytics. This section wi
 
 
 ###Elevated Event Hub permissions required
-At this time Stream Analytics requires a Shared Access Policy with Manage permissions for Event Hub input and output sources.
+At this time Stream Analytics requires a Shared Access Policy with Manage permissions for Event Hub input sources and output targets.
 
 ###Delay in Azure Storage account configuration
 When creating a Stream Analytics job in a region for the first time, you will be prompted to create a new storage account or specify an existing account for monitoring Stream Analytics jobs in that region.  Due to latency in configuring monitoring, creating another Stream Analytics job in the same region within 30 minutes will prompt for the specifying of a second storage account instead of showing the recently configured one in the Monitoring Storage Account Dropdown.  To avoid creating an unnecessary storage account, wait 30 minutes after creating a job in a region for the first time before provisioning additional jobs in that region. 
@@ -87,13 +101,10 @@ Streaming Analytics jobs with a large tolerance windows for out of order events 
 When running a partitioned query with a non-partitioned sub-query as the second step, if one of the Event Hub partitions on the input is completely empty, the query will not generate results. An error for this will be reflected in the Operation Logs for the job.  Please make sure all Event Hub partitions have incoming events at all times to avoid this problem.
 
 ###SQL Database event volume limitation
-When using SQL Database as an output source, very high volumes of output data may cause the Stream Analytics job to time out. To resolve this issue, either reduce the output volume using aggregates or join operators, or choose Blob Storage or Event Hub as an output source instead.
+When using SQL Database as an output target, very high volumes of output data may cause the Stream Analytics job to time out. To resolve this issue, either reduce the output volume using aggregates or join operators, or choose Blob Storage or Event Hub as an output target instead.
 
 ###Large blob inputs not supported
 Consuming large files from Blob Storage may cause Stream Analytics jobs to crash.  To avoid this issue, keep each blob under 10 MB in size.
-
-###LEFT OUTER JOIN not supported
-The LEFT OUTER JOIN operation is enabled in the Stream Analytics Query Language but not supported.  Running a query with a LEFT OUTER JOIN for more than a few minutes will result in memory consumption issues.  We do not recommend using this operation for any scenarios beyond short-lived query experimentation.  This limitation will be addressed in an upcoming release.
 
 ###Whitespace in column headers causes null output entries
 Stream Analytics does not trim whitespace on column headers. Including whitespace at the beginning or end or a column name will result in null entries in the job output.   
@@ -134,7 +145,7 @@ Stream Analytics does not trim whitespace on column headers. Including whitespac
 
 
 [microsoft.support]: http://support.microsoft.com/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
