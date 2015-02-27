@@ -72,6 +72,6 @@ Once the desired regions are removed, click **Save**.
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region
 
-[unit]: http://azure.microsoft.com/en-us/pricing/details/api-management/
-[Premium]: http://azure.microsoft.com/en-us/pricing/details/api-management/
+[unit]: http://azure.microsoft.com/pricing/details/api-management/
+[Premium]: http://azure.microsoft.com/pricing/details/api-management/
 

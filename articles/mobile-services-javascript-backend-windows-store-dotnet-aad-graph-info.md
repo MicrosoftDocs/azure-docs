@@ -175,7 +175,7 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 [Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
 [Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Graph REST API]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
-[Get User]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
+[Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Role based access control with the AAD in Mobile Services]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
 [Windows Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536

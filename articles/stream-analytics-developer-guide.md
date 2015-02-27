@@ -126,7 +126,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 - Azure Service Bus Event Hubs: Choose Event Hub as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
 - Azure Blob storage: Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure Table storage: Azure Table storage is a structured data store with less constraints on the schema. Entities with different schema and different types can be stored in the same Azure table.  Azure Table storage can be used to store data for persistence and efficient retrieval. For more information see [Introduction to Azure Storage]( http://azure.microsoft.com/en-us/documentation/articles/storage-introduction/), and [Designing a Scalable Partitioning Strategy for Azure Table Storage]( https://msdn.microsoft.com/en-us/library/azure/hh508997.aspx).
+- Azure Table storage: Azure Table storage is a structured data store with less constraints on the schema. Entities with different schema and different types can be stored in the same Azure table.  Azure Table storage can be used to store data for persistence and efficient retrieval. For more information see [Introduction to Azure Storage]( http://azure.microsoft.com/documentation/articles/storage-introduction/), and [Designing a Scalable Partitioning Strategy for Azure Table Storage]( https://msdn.microsoft.com/en-us/library/azure/hh508997.aspx).
 - Azure SQL Database: This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
@@ -199,11 +199,11 @@ For additional support, see [Azure Stream Analytics forum][stream.analytics.foru
 
 
 <!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/en-us/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 
-[azure.event.hubs]: http://azure.microsoft.com/en-us/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151

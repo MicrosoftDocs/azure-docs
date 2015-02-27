@@ -314,7 +314,7 @@ In this tutorial, you will create a container on a separate storage account for 
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	The **$subscripionName** is associated with your Azure subscription. You must name the **$storageAccountName\_Data** and **$containerName\_Data**. For the naming restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx). 
+	The **$subscripionName** is associated with your Azure subscription. You must name the **$storageAccountName\_Data** and **$containerName\_Data**. For the naming restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx). 
 
 3. Run the following command to create a storage account and a Blob storage container on the account
 
@@ -578,9 +578,9 @@ In this tutorial, you have learned how to develop a Java MapReduce job, how to t
 - [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
 - [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/

@@ -26,7 +26,7 @@ from Node.js applications. The scenarios covered include **sending notifications
 
 ##<a id="hub"></a> What are Notification Hubs?
 
-Azure Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices. For more information, see [Azure Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Azure Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices. For more information, see [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
 ##<a id="create"></a> Create a Node.js Application
 
@@ -150,11 +150,11 @@ The **MpnsService** object provides a **send** method that can be used to send n
 * Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients
 * Payload - the message's XML payload
 * TargetName - 'toast' for toast notifications. 'token' for tile notifications.
-* NotificationClass - The priority of the notification. See the HTTP Header Elements section of [Push notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx) for valid values.
+* NotificationClass - The priority of the notification. See the HTTP Header Elements section of [Push notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx) for valid values.
 * Options - optional request headers
 * Callback - the callback function
 
-For a list of valid TargetName, NotificationClass, and header options, see [Push notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx).
+For a list of valid TargetName, NotificationClass, and header options, see [Push notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx).
 
 The following code uses the **MpnsService** instance exposed by the **NotificationHubService** to send a toast alert:
 
@@ -175,7 +175,7 @@ The **WnsService** object provides a **send** method that can be used to send no
 * Options - optional request headers
 * Callback - the callback function
 
-For a list of valid Types and request headers, see [Push notification service request and response headers](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx).
+For a list of valid Types and request headers, see [Push notification service request and response headers](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 The following code uses the **WnsService** instance exposed by the **NotificationHubService** to send a toast alert:
 
@@ -215,9 +215,9 @@ links to learn more.
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
   [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
   [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
-  [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
   [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png

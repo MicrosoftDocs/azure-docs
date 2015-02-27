@@ -354,13 +354,13 @@ To get started with the option(s) you choose for your application, see the follo
   [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
-  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
-  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
-  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [Storage]: http://www.windowsazure.com/documentation/services/storage/

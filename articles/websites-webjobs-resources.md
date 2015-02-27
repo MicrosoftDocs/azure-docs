@@ -79,7 +79,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ##<a name="scale"></a>Scaling WebJobs
 
-* [Scaling Your Web Application with Azure Websites](http://msdn.microsoft.com/en-us/magazine/dn786914.aspx)
+* [Scaling Your Web Application with Azure Websites](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * [Azure Web Sites: Architecting Massive-Scale Ready-For-Business Web Apps](https://channel9.msdn.com/Events/Build/2014/3-626). Covers scaling of Azure Web Sites with WebJobs, including the WebJobs SDK.
 * Videos
 	* [Scaling out WebJobs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)

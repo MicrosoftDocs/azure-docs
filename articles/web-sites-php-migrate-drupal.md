@@ -102,7 +102,7 @@ For more information, see the following posts and topics:
   [Modify Settings.php]: #modify-settingsphp
   [Deploy the Drupal Code]: #deploy-drupalcode
   [Related information]: #related-information
-  [Create a PHP-MySQL Azure web site and deploy using Git]: http://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/
+  [Create a PHP-MySQL Azure web site and deploy using Git]: http://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/
   
   [Azure Websites, a PHP Perspective]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
   [Azure Web Sites, Cloud Services, and VMs: When to use which?]: http://go.microsoft.com/fwlink/?LinkId=310123

@@ -17,7 +17,7 @@
 	- Type a **Virtual Machine Name**, such as "testlinuxvm".
 	- Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from.
 	- Type a **New User Name**, such as "newuser", which will be added to the Sudoers list file.
-	- Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/en-us/library/ms161962.aspx).
+	- Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
 
 
 5. On the next **Virtual machine configuration** page, fill in or verify the settings:

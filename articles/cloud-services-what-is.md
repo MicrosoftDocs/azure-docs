@@ -66,7 +66,7 @@ Each cloud service has two environments to which you can deploy your service pac
 
 - **Azure Service Level Agreement (SLA):** The Azure Compute SLA guarantees that, when you deploy two or more role instances for every role, access to your cloud service will be maintained at least 99.95 percent of the time. Also, detection and corrective action will be initiated 99.9 percent of the time when a role instance's process is not running. For more information, see [Service Level Agreements] [SLA].
 
-[HTMonitorCloudServices]:http://azure.microsoft.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/
-[SLA]: http://azure.microsoft.com/en-us/support/legal/sla/
-[CloudServicesDiagnostics]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-diagnostics/
-[Comparison]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+[HTMonitorCloudServices]:http://azure.microsoft.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/
+[SLA]: http://azure.microsoft.com/support/legal/sla/
+[CloudServicesDiagnostics]: http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/
+[Comparison]: http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/
