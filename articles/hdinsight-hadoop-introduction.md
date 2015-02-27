@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Introduction to Hadoop in HDInsight: Big data analysis in the cloud | Azure" 
-   description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud to provide a software framework to manage, analyze, and report on big data." 
+   description="An introduction to the Hadoop components on HDInsight. Learn how HDInsight uses Hadoop clusters in the cloud to manage, analyze, and report on big data." 
    services="hdinsight" 
    documentationCenter="" 
    authors="cgronlun" 
@@ -19,7 +19,7 @@
 
 # Introduction to Hadoop in HDInsight: Big data processing and analysis in the cloud
 
-Get an overview of HDInsight components, common terminology, and scenarios, and see resources for using Hadoop in HDInsight.
+Get an introduction to the Hadoop ecosystem in HDInsight - components, common terminology, and scenarios. Also, find out about tutorials and resources for using Hadoop in HDInsight.
 
 Azure HDInsight deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system.
 
@@ -66,7 +66,7 @@ Apache Hadoop is the rapidly expanding technology stack that is the go-to soluti
 
 * HDInsight uses the **Hortonworks Data Platform (HDP)** Hadoop distribution.
 
-* Apache Hadoop is a software framework for big data management and analysis. HDInsight provides several configurations for specific workloads, or you can <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters using Script Actions</a>.
+* Apache Hadoop is a software framework for big data management and analysis. HDInsight provides several configurations for specific workloads, or you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters using Script Actions</a>.
 
 	* **Hadoop for HDInsight** - Apache Hadoop core provides reliable data storage with the [Hadoop Distributed File System (HDFS)](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 	
@@ -158,7 +158,7 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * Integration with other Azure services, including [Websites](../documentation/services/websites/) and [SQL Database](../documentation/services/sql-database/).
 
-* Low entry cost. Start a [free trial](/pricing/free-trial/), or consult [HDInsight pricing details](../pricing/details/hdinsight/).
+* Low entry cost. Start a [free trial](/pricing/free-trial/), or consult [HDInsight pricing details](/pricing/details/hdinsight/).
 
 To read more about the advantages on Hadoop in HDInsight, see the [Azure features page for HDInsight][marketing-page].
 
@@ -180,7 +180,7 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 ### HDInsight on Windows
 
-* [HDInsight documentation](../documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight documentation](http://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
 * [Learning map for HDInsight](../hdinsight-learn-map): A guided tour of Hadoop documentation for HDInsight.
 
@@ -201,9 +201,9 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 ### SQL Database on Azure	
 		
-* [Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
+* [Azure SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
 	
-* [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+* [Management Portal for SQL Database](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304): Download page for SQL Database sample database.	
 
@@ -221,7 +221,7 @@ These BI tools can help in your big data analysis:
 
 * <a target="_blank" href="http://www.microsoft.com/en-us/server-cloud/solutions/business-intelligence/analysis.aspx">Learn more about SQL Server Analysis Services</a>.
 
-* <a target="_blank" href="http://msdn.microsoft.com/en-us/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>
 
 
 ### Try HDInsight solutions for big data analysis (for HDInsight on Widows)

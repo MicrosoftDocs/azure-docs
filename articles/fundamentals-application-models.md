@@ -51,7 +51,7 @@ The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operati
 -	BizTalk Server 
 -	SharePoint Server
 
-Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).  
+Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).  
 
 -	**Extra Small**, with a shared core and 768MB  of memory.
 -	**Small**, with 1 core and 1.75GB  of memory.

@@ -1,6 +1,22 @@
-<properties title="SQL Table data story" pageTitle="Move data to SQL Server on Azure| Azure" description="Move data to SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Move data to SQL Server on Azure| Azure" 
+	description="Move data to SQL Server on Azure" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="fashah,garye" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="fashah,garye" /> 
 
 #Move data to SQL Server on Azure
 
@@ -22,17 +38,17 @@ This document covers the movement of data from flat files (csv/tsv) or an on-pre
 <tr>
   <td><b>Flat File</b></td>  
   <td>
-    1. <a href="#insert-tables-bcp">Command line bulk copy utility (BCP)<br>
-    2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query<br>
-    3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server
+    1. <a href="#insert-tables-bcp">Command line bulk copy utility (BCP) </a><br>
+    2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query </a><br>
+    3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server </a>
   </td>
 </tr>
 <tr>
   <td><b>On-Premise SQL Server</b></td>
   <td>
-    1. <a href="#export-flat-file">Export to a flat File<br>
-    2. <a href="#sql-migration">SQL Database Migration Wizard<br>    
-    3. <a href="#sql-backup">Database backup and restore<br>
+    1. <a href="#export-flat-file">Export to a flat File </a><br>
+    2. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
+    3. <a href="#sql-backup">Database backup and restore </a> <br>
   </td>
 </tr>
 </table>
@@ -42,7 +58,7 @@ Please note that this document assumes that SQL commands are executed from SQL S
 
 ## <a name="sqlonazurevm"></a>Moving your data to a SQL Server VM on an Azure
 
-This section documents the process of moving data to a SQL Server VM on Azure. If you haven't set up the SQL Server VM, provision a new SQL Server virtual machine for Data Science as described in [Set up a Data Science Virtual Machine in Azure](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/ "Set up a Data Science Virtual Machine in Azure"). 
+This section documents the process of moving data to a SQL Server VM on Azure. If you haven't set up the SQL Server VM, provision a new SQL Server virtual machine for Data Science as described in [Set up a Data Science Virtual Machine in Azure](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/ "Set up a Data Science Virtual Machine in Azure"). 
 
 This document describes moving data from the following data sources: 
   
@@ -64,7 +80,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 BCP is a command line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premise SQL Server, SQL Azure and SQL Server VM on Azure). 
 
 > [AZURE.NOTE] **Where should my data be for BCP?**  
-> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](http://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
+> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 
 1. Ensure that the database and the tables are created on the target SQL Server database. Here is an example of how to do that using the `Create Database` and `Create Table` commands:
 
@@ -92,7 +108,7 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 If the data you are moving is large, you can speed things up by simultaneously executing multiple BCP commands in parallel in a PowerShell Script.
 
 > [AZURE.NOTE] **Big data Ingestion** 
-> To optimize data loading for large and very large datasets, partition your logical and physical database tables using multiple filegroups and partition tables. For more information about creating and loading data to partition tables, see  [Parallel Load SQL Partition Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables).
+> To optimize data loading for large and very large datasets, partition your logical and physical database tables using multiple filegroups and partition tables. For more information about creating and loading data to partition tables, see  [Parallel Load SQL Partition Tables](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables).
 
 
 The sample PowerShell script below demonstrate parallel inserts using bcp :

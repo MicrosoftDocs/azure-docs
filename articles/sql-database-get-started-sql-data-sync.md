@@ -70,7 +70,7 @@ Be sure that you have the following installed on the computer you install the Cl
 
 <h3><a id="InstallClient"></a>Step 2b: Install a new Client Agent</h3>
 
-Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.microsoft.com/en-us/library/jj823137.aspx) to install the agent. 
+Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.microsoft.com/library/jj823137.aspx) to install the agent. 
 
 
 <h3><a id="RegisterSSDb"></a>Step 2c: Finish the New SQL Data Sync Agent wizard</h3> 
@@ -86,7 +86,7 @@ Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.m
 <h2><a id="RegisterSSDB"></a>Step 3: Register a SQL Server database with the Client Agent</h2>
 
 After the Client Agent is installed, register every on-premises SQL Server database that you intend to include in a sync group with the agent.
-To register a database with the agent, follow the instructions at [Register a SQL Server Database with a Client Agent](http://msdn.microsoft.com/en-us/library/jj823138.aspx).
+To register a database with the agent, follow the instructions at [Register a SQL Server Database with a Client Agent](http://msdn.microsoft.com/library/jj823138.aspx).
 
 
 
@@ -191,7 +191,7 @@ Congratulations. You have created a sync group that includes both a SQL Database
 For additional information on SQL Database and SQL Data Sync see:
 
 * [Sign up for the Premium Offer for SQL Database] (../sign-up-for-sql-database-premium/)
-* [SQL Data Sync (WA Portal)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
+* [SQL Data Sync (WA Portal)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
 * [Getting Started with Azure SQL Database](../getting-started-w-sql-databases/)
 * [SQL Server Database Lifecycle ](http://go.microsoft.com/fwlink/?LinkId=275193)
 

@@ -4,7 +4,7 @@
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	writer="glenga" 
-	services="mobile-services" 
+	services="mobile-services,storage" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/25/2015" 
 	ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-This topic shows you how to use Azure Mobile Services to enable your app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
+This topic shows you how to use Azure Mobile Services to enable your Windows Phone 8 or Windows Phone 8.1 Silverlight app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
 
 You cannot securely distribute with the client app the credentials required to securely upload data to the Blob Storage service. Instead, you must store these credentials your mobile service and use them to generate a Shared Access Signature (SAS) that is used to upload a new image. The SAS, a credential with a short expiration&mdash;in this case 5 minutes, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. In this example, downloads from the Blob service are public.
 
@@ -41,6 +41,8 @@ This tutorial requires the following:
 + Nuget Package Manager installed for Microsoft Visual Studio.
 + [Azure Storage account][How To Create a Storage Account]
 + Complete the tutorial [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)  
+
+>[AZURE.NOTE]This tutorial only support Windows Phone 8 and Windows Phone 8.1 Silverlight apps. It does not support Windows Phone Store 8.1 or universal Windows 8.1 apps.
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 

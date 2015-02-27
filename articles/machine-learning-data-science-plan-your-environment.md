@@ -1,6 +1,22 @@
-<properties title="Plan Your Cloud Data Science Environment" pageTitle="Plan Your Cloud Data Science Environment | Azure" description="Plan Your Cloud Data Science Environment" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Plan Your Cloud Data Science Environment | Azure" 
+	description="Plan Your Cloud Data Science Environment" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab"
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="mohabib, sidneyh" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="mohabib, sidneyh" /> 
 
 
 # Plan Your Azure Machine Learning Data Science Environment
@@ -67,12 +83,12 @@ data science exercises. Since the process is iterative in nature, it shows the c
 
 Here are example variations based on original data size, data source location, and target repository in Azure.
 
-- [Scenario \#1: Small to medium tabular dataset in local files](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocal)
-- [Scenario \#2: Small to medium dataset in local files requiring processing](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocalprocess)
-- [Scenario \#3: Large dataset in local files that target Azure blobs](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocal)
-- [Scenario \#4: Small to medium dataset in local files that target SQL Server on Azure VMs](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocaltodb)
-- [Scenario \#5: Large dataset in local files that target SQL Server on Azure VMs](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocaltodb)
-- [Scenario \#6: Large dataset in a SQL Server database running on-premises that targets SQL Server running on Azure VMs](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largedbtodb)
+- [Scenario \#1: Small to medium tabular dataset in local files](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocal)
+- [Scenario \#2: Small to medium dataset in local files requiring processing](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocalprocess)
+- [Scenario \#3: Large dataset in local files that target Azure blobs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocal)
+- [Scenario \#4: Small to medium dataset in local files that target SQL Server on Azure VMs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocaltodb)
+- [Scenario \#5: Large dataset in local files that target SQL Server on Azure VMs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocaltodb)
+- [Scenario \#6: Large dataset in a SQL Server database running on-premises that targets SQL Server running on Azure VMs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largedbtodb)
 
 Sample Data Scenarios
 ---------------------
@@ -83,7 +99,7 @@ This diagram summarizes some scenarios and examples of process flows. Note that 
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
 
 [1]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-local-with-processing.png

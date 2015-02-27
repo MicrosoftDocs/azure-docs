@@ -79,8 +79,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 For more information about delivering assets, see:
 <ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/jj129575.aspx">Deliver Assets with the Media Services for .NET</a></li>
-<li><a href="http://msdn.microsoft.com/en-us/library/jj129578.aspx">Deliver Assets with the Media Services REST API</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Deliver Assets with the Media Services for .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Deliver Assets with the Media Services REST API</a></li>
 </ul>
 
 <h2>Next steps</h2>

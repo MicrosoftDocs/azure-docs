@@ -10,7 +10,7 @@
 
 	This creates a new empty controller class named **CompleteAllController**.
 
->[AZURE.NOTE]If your dialog doesn't have Mobile Services-specific scaffolds, instead create a new **Web API Controller - Empty**. In this new controller class, add a public **Services** property, which returns the **ApiServices** type. This property is used to access server-specific settings from inside your controller.
+	>[AZURE.NOTE]If your dialog doesn't have Mobile Services-specific scaffolds, instead create a new **Web API Controller - Empty**. In this new controller class, add a public **Services** property, which returns the **ApiServices** type. This property is used to access server-specific settings from inside your controller.
 
 3. In the new CompleteAllController.cs project file, add the following **using** statements:
 
@@ -28,7 +28,6 @@
         {
             public Int32 count;
         }
-
 
 5. Add the following code to the new controller:
 
@@ -58,7 +57,7 @@
 
 	In the above code, replace `todolistContext` with the name of the DbContext for your data model, which should be the mobile service name appended with `Context`. Also replace the schema name in the UPDATE statement with the name of your mobile service. 
 
-	This code uses the [Database Class](http://msdn.microsoft.com/en-us/library/system.data.entity.database.aspx) to access the **TodoItems** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
+	This code uses the [Database Class](http://msdn.microsoft.com/library/system.data.entity.database.aspx) to access the **TodoItems** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
 
 	> [AZURE.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service. 
 

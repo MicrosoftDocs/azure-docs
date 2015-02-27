@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Build a Node.js web application using DocumentDB | Azure" 
-	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js application hosted on Azure." 
+	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="ryancrawcour" 
@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.topic="hero-article" 
+	ms.date="02/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
@@ -40,8 +40,9 @@ Don't have time to complete the tutorial and just want to get the complete solut
 > [AZURE.TIP] This tutorial assumes that you have some prior experience using Node.js and Azure Websites.
 
 Before following the instructions in this article, you should ensure
-that you have the following installed:
+that you have the following:
 
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
 - [Node.js][] version v0.10.29 or higher.
 - [Git][].
 - [Visual Studio 2013][] with update 3, or higher. 
@@ -615,8 +616,8 @@ The source code for the complete reference application can be downloaded [here][
 
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/vstudio/cc136611.aspx
   [Node.js Tools for Visual Studio]: https://nodejstools.codeplex.com/
   [here]: https://github.com/Azure/azure-documentdb-node/tree/master/core_sdk/tutorial/todo
-  [Azure CLI]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
+  [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [Azure Management Portal]: http://portal.azure.com

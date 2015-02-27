@@ -124,7 +124,7 @@ Standard search starts with one replica and partition each, but can be easily re
 
 Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
 
-You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
 
  ![][15]
 
@@ -295,7 +295,7 @@ The response code should be 200, and the response output should look similar to 
  
    ![][19]
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
+The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
 
 **Before spaces are replaced:**
 
@@ -363,9 +363,9 @@ Ready for the next step? The following links take you to additional material tha
 
 - [Manage your search solution in Microsoft Azure](../search-manage/) 
 
-- [Azure Search Technical Overview](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
+- [Azure Search Technical Overview](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
+- [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 

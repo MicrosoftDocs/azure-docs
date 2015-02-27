@@ -30,7 +30,7 @@ Hive allows you to project structure on largely unstructured data. Once you defi
 
 Hive understands how to work with structured/semi-structured documents, such as text files where the fields are delimited by a specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex, or irregularly structured data. For more information, see <a href="http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx" target="_blank">How to use a custom JSON SerDe with HDInsight</a>.
 
-Hive can also be extended through **User Defined Functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using a UDF with Hive, see <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-python/" target="_blank">Using Python with Hive and Pig in HDInsight</a> and <a href="http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx" target="_blank">How to add a custom Hive UDF to HDInsight</a>.
+Hive can also be extended through **User Defined Functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using a UDF with Hive, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-python/" target="_blank">Using Python with Hive and Pig in HDInsight</a> and <a href="http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx" target="_blank">How to add a custom Hive UDF to HDInsight</a>.
 
 ##<a id="data"></a>About the sample data
 
@@ -108,8 +108,9 @@ HDInsight can run HiveQL jobs using a variety of methods. Use the following tabl
 <a href="../hdinsight-hadoop-use-hive-curl/" target="_blank">Curl</a> | &nbsp; | ✔ | Linux or Windows | Linux, Unix, Mac OS X, or Windows
 <a href="../hdinsight-hadoop-use-hive-query-console/" target="_blank">Query console</a> | &nbsp; | ✔ | Windows | Browser-based
 <a href="../hdinsight-hadoop-use-hive-visual-studio/" target="_blank">HDInsight tools for Visual Studio</a> | &nbsp; | ✔ | Linux or Windows | Windows
+<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
 <a href="../hdinsight-hadoop-use-hive-powershell/" target="_blank">PowerShell</a> | &nbsp; | ✔ | Linux or Windows | Windows
-<a href="../hdinsight-hadoop-use-hive-remote-desktop/" target="_blank">Remote Desktop</a> | &nbsp; | ✔ | Windows | Windows
+<a href="../hdinsight-hadoop-use-hive-remote-desktop/" target="_blank">Remote Desktop</a> | ✔ | ✔ | Windows | Windows
 
 ##<a id="nextsteps"></a>Next steps
 
@@ -125,15 +126,15 @@ Now that you have learned how to use Hive with HDInsight, use the links below to
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -149,7 +150,7 @@ Now that you have learned how to use Hive with HDInsight, use the links below to
 [hdinsight-get-started]: ../hdinsight-get-started/
 
 [Powershell-install-configure]: ../install-configure-powershell/
-[powershell-here-strings]: http://technet.microsoft.com/en-us/library/ee692792.aspx
+[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

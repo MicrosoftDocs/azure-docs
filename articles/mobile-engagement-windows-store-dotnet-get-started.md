@@ -29,7 +29,7 @@ This tutorial requires the following:
 + Visual Studio 2013
 + The [Mobile Engagement Windows Store SDK]
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Store apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Store apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your app
 
@@ -73,9 +73,9 @@ This tutorial presents a "basic integration" which is the minimal set required t
 
 We will create a basic app with Visual Studio to demonstrate the integration.
 
-###Create a new Windows Phone project
+###Create a new Windows Store project
 
-You may skip this step if you already have an app and are familiar with Windows Phone development.
+You may skip this step if you already have an app and are familiar with Windows development.
 
 1. Launch Visual Studio, and in the home screen, select **New Project...**.
 
@@ -92,7 +92,7 @@ Your project is now created with the demo app to which we will integrate Mobile 
 Download and integrate the SDK library
 
 1. Download the [Mobile Engagement Windows Store SDK].
-2. Extract the .tar.gz file to a folder in your computer.
+2. Extract the .zip file to a folder in your computer.
 3. Go to `PROJECT` then `Manage NuGet Packages...`
 4. In the popup, click Settings
 5. Then hit the `+` button to create a new source
@@ -146,7 +146,7 @@ Download and integrate the SDK library
 			  //... rest of the code
 			}
 
-	3. Insert the following in the `Application_Activated`
+	3. Insert the following in the `Application_Activated` (you will have to add this operation if it is not present already)
 
 			protected override void OnActivated(IActivatedEventArgs args)
 			{
@@ -165,7 +165,7 @@ In order to start sending data and ensuring the users are active, you must send 
 
 	>[AZURE.NOTE] Don't forget to resolve the class if it appears underlined in red by adding `using Microsoft.Azure.Engagement;` to the `using` clauses.
 
-2. In your `MainPage.xml` file:
+2. In your `MainPage.xaml` file:
 	1. Add to your namespaces declarations:
 
 			xmlns:engagement="using:Microsoft.Azure.Engagement"
@@ -231,11 +231,12 @@ The following sections will setup your app to receive them.
 		   EngagementReach.Instance.OnActivated(args);
 		}
 
+3. Run the application. 
 You're all set for sending a Toast, now we will verify that you have correctly done this basic integration.
 
 ###Grant Access to Mobile Engagement to send Notifications
 
-1. You'll then have to associate your app with the Windows Store to obtain your `Package security identifier (SID)` and your `Secret Key`.
+1. You'll then have to associate your app with the Windows Store to obtain your `Package security identifier (SID)` and your `Secret Key` (*Client Secret*).
 
 2. Then Navigate to the Settings of your Mobile Engagement Portal, and click `Native Push` section on the left
 
