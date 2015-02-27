@@ -13,26 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
-#API Management key concepts
+#What is API Management?
 
 API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
 
 To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
 
 This topic provides an overview of API Management key concepts.
-
-## In this topic
-
--   [APIs and operations][]
--   [Products][]
--   [Groups][]
--   [Developers][]
--   [Policies][]
--	[Developer portal][]
-
 
 ## <a name="apis"> </a>APIs and operations
 

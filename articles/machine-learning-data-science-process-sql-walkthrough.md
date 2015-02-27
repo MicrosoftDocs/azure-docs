@@ -1,6 +1,21 @@
-<properties title="Azure Data Science Process in Action" pageTitle="Azure Data Science Process in Action | Azure" description="Azure Data Science Process in Action" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Azure Data Science Process in Action | Azure" 
+	description="Azure Data Science Process in Action" metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab,fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab,fashah" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="msolhab,fashah" /> 
 
                 
 # Azure Data Science Process in Action
@@ -71,19 +86,19 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/)
+1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/)
 
 2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
 
 3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as a SQL Server as well an IPython Notebook server.
 
-> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
-> - Sample Scripts: C:\Users\<user\_name\>\Documents\Data Science Scripts  
-> - Sample IPython Notebooks: C:\Users\<user\_name\>\Documents\IPython Notebooks\DataScienceSamples  
-> where <user\_name\> is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
+	> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
+	> - Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+	> - Sample IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+	> where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
 
 
-Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](#largelocaltodb).
+Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios/#largelocaltodb).
 
 ## <a name="getdata"></a>Get the Data from Public Source
 
@@ -633,13 +648,13 @@ A typical training experiment consists of the following:
 
 In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure ML. To build one or more of the prediction models we decided:
 
-1. Get the data to Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader](http://msdn.microsoft.com/en-US/library/dn784775) module reference page.
+1. Get the data to Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004) module reference page.
 
 	![Azure ML Reader][17]
 
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 
-3. Enter the database DNS name in the **Database server name** field. Format: tcp:<your\_virtual\_machine\_DNS\_name\>,1433
+3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 
 4. Enter the **Database name** in the corresponding field.
 
@@ -655,11 +670,11 @@ An example of a binary classification experiment reading data directly from the 
 
 > [AZURE.IMPORTANT] In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For e.g., when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
 >
-> To exclude unnecessary columns and/or target leaks, you may use the **Project Columns** module or the **Metadta Editor**. For more information, see [Project Columns](http://msdn.microsoft.com/en-US/library/dn784740) and [Metadata Editor](http://msdn.microsoft.com/en-US/library/dn784761) reference pages.
+> To exclude unnecessary columns and/or target leaks, you may use the **Project Columns** module or the **Metadta Editor**. For more information, see [Project Columns](https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223) and [Metadata Editor](https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66) reference pages.
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Publish an Azure Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-a-machine-learning-web-service/).
 
 To deploy a new web service, you need to:
 

@@ -32,7 +32,7 @@ This topic shows you how to:
 - Run the same MapReduce job on Azure HDInsight 
 - Retrieve the results of the MapReduce job
 
-**Prerequisites:**
+##<a name="prerequisites"></a>Prerequisites
 
 Before you begin this tutorial, you must have done the following:
 
@@ -40,14 +40,6 @@ Before you begin this tutorial, you must have done the following:
 - Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure]
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-##In this article
-
-- [Develop a word count Hadoop streaming program in C#](#develop)
-- [Test the program on the emulator](#test)
-- [Upload data and the applications to Azure Blob storage](#upload)
-- [Run the MapReduce program on Azure HDInsight](#run)
-- [Retrieve the MapReduce results](#retrieve)
-- [Next steps](#nextsteps)
 
 ##<a name="develop"></a>Develop a word count Hadoop streaming program in C&#35;
 

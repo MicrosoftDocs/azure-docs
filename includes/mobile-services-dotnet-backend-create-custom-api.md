@@ -10,7 +10,7 @@
 
 	This creates a new empty controller class named **CompleteAllController**.
 
->[AZURE.NOTE]If your dialog doesn't have Mobile Services-specific scaffolds, instead create a new **Web API Controller - Empty**. In this new controller class, add a public **Services** property, which returns the **ApiServices** type. This property is used to access server-specific settings from inside your controller.
+	>[AZURE.NOTE]If your dialog doesn't have Mobile Services-specific scaffolds, instead create a new **Web API Controller - Empty**. In this new controller class, add a public **Services** property, which returns the **ApiServices** type. This property is used to access server-specific settings from inside your controller.
 
 3. In the new CompleteAllController.cs project file, add the following **using** statements:
 
@@ -28,7 +28,6 @@
         {
             public Int32 count;
         }
-
 
 5. Add the following code to the new controller:
 

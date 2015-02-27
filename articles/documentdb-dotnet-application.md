@@ -13,8 +13,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.topic="hero-article" 
+	ms.date="02/20/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -29,8 +29,9 @@ This walk-through shows you how to use the DocumentDB service provided by Azure 
 
 ## <a name="_Toc395637760"></a>Prerequisites
 
-Before following the instructions in this article, you should ensure that you have the following installed:
+Before following the instructions in this article, you should ensure that you have the following:
 
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) or higher, or [Visual Studio Express], which is the free version.
 - Azure SDK for .NET version 2.3 or higher, available through the [Microsoft Web Platform Installer][].
 
@@ -401,7 +402,7 @@ In this section, we'll add code to handle the following:
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 	This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of **Home**, use **Item** as the controller and user **Index** as the view.
-	Now if you run the application, it will call into your **ItemController** and return the results of the **GetIncompleteItems** method to the **Views**\**Item**\**Index** view. 
+	Now if you run the application, it will call into your **ItemController** and return the results of the **GetIncompleteItems** method to the **Views**\\**Item**\\**Index** view. 
 
 12. If you build and run this project now, you should now see something that looks this.    
 

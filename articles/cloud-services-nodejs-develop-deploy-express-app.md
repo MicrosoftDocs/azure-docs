@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Web App with Express (Node.js) - Azure Tutorial" 
-	description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
+	description="A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
 	authors="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/25/2015" 
 	ms.author="wpickett"/>
 
 

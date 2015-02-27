@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="02/24/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -282,7 +282,7 @@ The following binary operators are currently supported and can be used in querie
 </tr>
 <tr>
 <td>Bitwise</td>	
-<td>|, &, ^</td>
+<td>|, &, ^, <<, >>, >>> (zero-fill right shift) </td>
 </tr>
 <tr>
 <td>Logical</td>
@@ -549,6 +549,25 @@ For other comparison operators such as >, >=, !=, < and <=, the following rules 
 
 If the result of the scalar expression in the filter is Undefined, the corresponding document would not be included in the result, since Undefined doesn't logically equate to "true".
 
+###BETWEEN keyword
+You can also use the BETWEEN keyword to express queries against ranges of values like in ANSI SQL. BETWEEN can be used against any JSON primitive type (numbers, strings, Booleans and nulls). 
+
+For example, this query returns all family documents in which the first child's grade is between 1-5 (both inclusive). 
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE c.grade BETWEEN 1 AND 5
+
+Unlike in ANSI-SQL, you can also use the BETWEEN clause in the FROM clause like in the following example.
+
+    SELECT (c.grade BETWEEN 0 AND 10)
+    FROM Families.children[0] c
+
+For faster query execution times, remember to create an indexing policy that uses a range index type against any numeric properties/paths that are filtered in the BETWEEN clause. 
+
+The main difference between using BETWEEN in DocumentDB and ANSI SQL is that you can express range queries against properties of mixed types – for example, you might have "grade" be a number (5) in some documents and strings in others ("grade4"). In these cases, like in JavaScript, a comparison between two different types results in "undefined", and the document will be skipped.
+
+
 ###Logical (AND, OR and NOT) operators
 Logical operators operate on Boolean values. The logical truth tables for these operators are shown in the following tables.
 
@@ -791,10 +810,36 @@ Logical operators operate on Boolean values. The logical truth tables for these 
     </tbody>
 </table>
 
+###Ternary (?) and Coalesce (??) operators:
+The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. 
+
+The Ternary (?) operator can be very handy when constructing new JSON properties on the fly. For example, now you can write queries to classify the class levels into a human readable form like Beginner/Intermediate/Advanced as shown below.
+ 
+     SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
+     FROM Families.children[0] c
+
+You can also nest the calls to the operator like in the query below.
+ 
+    SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
+    FROM Families.children[0] c
+
+As with other query operators, if the referenced properties in the conditional expression are missing in any document, or if the types being compared are different, then those documents will be excluded in the query results.
+
+The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in a document. This is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
+
+    SELECT f.lastName ?? f.surname AS familyName
+    FROM Families f
+
+Similarly, you can also query for the absence of a property ("undefined") like in the following example.
+
+    SELECT *
+    FROM classes c
+    WHERE c.lastName ?? true
+
 ##SELECT Clause
 The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values will be retrieved from the query, just like in ANSI-SQL. The subset that's been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 
 
-The following example shows a typical SELECT query: 
+The following example shows a typical SELECT query. 
 
 **Query**
 
@@ -1308,7 +1353,7 @@ We can now use this UDF in a query in a projection.
 
 **Query**
 
-	SELECT SQRT(c.grade)
+	SELECT udf.SQRT(c.grade)
 	FROM c IN Families.children
 
 **Results**
@@ -1331,7 +1376,7 @@ The UDF can also be used inside a filter as shown in the example below:
 
 	SELECT c.grade
 	FROM c IN Familes.children
-	WHERE SQRT(c.grade) = 1
+	WHERE udf.SQRT(c.grade) = 1
 
 **Results**
 
@@ -1367,7 +1412,7 @@ Below is an example that exercises the UDF.
 
 **Query**
 
-	SELECT f.address.city, SEALEVEL(f.address.city) AS seaLevel
+	SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
 	FROM Families f	
 
 **Results**
@@ -1398,6 +1443,27 @@ In the DocumentDB SQL query language, unlike in traditional SQL, the types of va
 DocumentDB SQL doesn't perform implicit conversions, unlike JavaScript. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches documents which contain an Age property whose value is 21. Any other document whose Age property matches string "21", or
 other possibly infinite variations like "021", "21.0", "0021", "00021", etc. will not be matched. 
 This is in contrast to the JavaScript where the string values are implicitly casted to numbers (based on operator, ex: ==). This choice is crucial for efficient index matching in DocumentDB SQL. 
+
+##Parameterized SQL
+DocumentDB supports queries with parameters expressed with the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, preventing accidental exposure of data through SQL injection. 
+
+For example, you can write a query that takes last name and address state as parameters, and then execute it for various values of last name and address state based on user input.
+
+    SELECT * 
+    FROM Families f
+    WHERE f.lastName = @lastName AND f.address.state = @addressState
+
+This request can then be sent to DocumentDB as a parameterized JSON query like shown below.
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
+        "parameters": [          
+            {"name": "@lastName", "value": "Wakefield"},         
+            {"name": "@addressState", "value": "NY"},           
+        ] 
+    }
+
+Parameter values can be any valid JSON (strings, numbers, Booleans, null, even arrays or nested JSON). Also since DocumentDB is schema-less, parameters are not validated against any type.
 
 ##LINQ to DocumentDB SQL
 LINQ is a .NET programming model that expresses computation as queries on streams of objects. DocumentDB provides a client side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to DocumentDB queries. 
@@ -1723,7 +1789,7 @@ DocumentDB offers an open RESTful programming model over HTTP. Database accounts
 
 The basic interaction model with these resources is through the HTTP verbs GET, PUT, POST and DELETE with their standard interpretation. The POST verb is used for creation of a new resource, for executing a stored procedure or for issuing a DocumentDB query. Queries are always read only operations with no side-effects.
 
-The following examples show a POST for a DocumentDB query made against a collection containing the two sample documents we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/sql` headers to denote that the operation is a query.
+The following examples show a POST for a DocumentDB query made against a collection containing the two sample documents we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers to denote that the operation is a query.
 
 
 **Request**
@@ -1731,9 +1797,15 @@ The following examples show a POST for a DocumentDB query made against a collect
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.id = @familyId",     
+        "parameters": [          
+            {"name": "@familyId", "value": "AndersenFamily"}         
+        ] 
+    }
 	
-	SELECT * FROM Families f WHERE f.id = "AndersenFamily"
 
 **Results**
 
@@ -1793,16 +1865,20 @@ The second example shows a more complex query that returns multiple results from
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
 	
-	SELECT 
-	     f.id AS familyName, 
-	     c.givenName AS childGivenName, 
-	     c.firstName AS childFirstName, 
-	     p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p in c.pets
+    {      
+        "query": "SELECT 
+				     f.id AS familyName, 
+				     c.givenName AS childGivenName, 
+				     c.firstName AS childFirstName, 
+				     p.givenName AS petName 
+				  FROM Families f 
+				  JOIN c IN f.children 
+				  JOIN p in c.pets",     
+        "parameters": [] 
+    }
+
 
 **Results**
 
@@ -1852,6 +1928,15 @@ The .NET SDK supports both LINQ and SQL querying. The following example shows ho
 	    Console.WriteLine("\tRead {0} from SQL", family);
 	}
 	
+    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
+    query.Parameters = new SqlParameterCollection();
+    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
+
+    foreach (var family in client.CreateDocumentQuery(collectionLink, query))
+    {
+        Console.WriteLine("\tRead {0} from parameterized SQL", family);
+    }
+
 	foreach (var family in (
 	    from f in client.CreateDocumentQuery(collectionLink)
 	    where f.Id == "AndersenFamily"

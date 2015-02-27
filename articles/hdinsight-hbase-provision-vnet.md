@@ -27,14 +27,6 @@ With the virtual network integration, HBase clusters can be deployed to the same
 - process sensitive information in a more secure manner without exposing a public endpoint
 
 
-##In this article
-
-- [Prerequisites](#prerequisites)
-- [Provision HBase clusters into a virtual network](#hbaseprovision)
-- [Connect to the HBase cluster provisioned in virtual network using HBase Java RPC APIs](#connect)
-- [Provision an HBase cluster using PowerShell](#powershell)
-- [Next steps](#nextsteps)
-
 ##<a id="prerequisites"></a>Prerequisites
 Before you begin this tutorial, you must have the following:
 

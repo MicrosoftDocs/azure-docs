@@ -20,17 +20,6 @@
  
 Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
-##In this article
-
-- [What is Sqoop?](#whatissqoop)
-- [Prerequisites](#prerequisites)
-- [Understand the tutorial scenario](#scenario)
-- [Prepare the tutorial](#prepare)
-- [Use PowerShell to run Sqoop export](#export)
-- [Use HDInsight SDK to run Sqoop export](#export-sdk)
-- [Use PowerShell to run Sqoop import](#import)
-- [Next steps](#nextsteps)
-
 
 ## <a id="whatissqoop"></a> What is Sqoop?
 

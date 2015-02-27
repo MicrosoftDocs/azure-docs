@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.date="02/19/2015"
    ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@ This article provides instructions on the different ways to provision a cluster.
 Before you begin this article, you must have the following:
 
 - An Azure subscription. Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/en-us/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/en-us/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/" target="_blank">Free Trial</a>.
-- SSH keys. If you want to remote into a Linux cluster using SSH. For instructions on how to generate SSH keys refer to the following articles
+- SSH keys. If you want to remote into a Linux cluster using SSH with a key instead of a password. Using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys refer to the following articles
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](../hdinsight-hadoop-linux-use-ssh-unix).
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](../hdinsight-hadoop-linux-use-ssh-windows).
 
@@ -78,7 +78,7 @@ Windows | Click [here](#portal) | Click [here](#cli) | Click [here](#sdk) | Avai
 
 ### <a id="portal"></a> Using Azure Management Portal
 
-HDInsight clusters use an Azure Blob Storage container as the default file system. An Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+HDInsight clusters use an Azure Blob Storage container as the default file system. An Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage/). For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
 > [WACOM.NOTE] Currently, only the **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, and **South Central US** regions can host HDInsight clusters.
@@ -131,10 +131,10 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 			<td>Specify SSH user name. You will use this username to initiate a remote SSH session on the HDInsight cluster nodes.</td></tr>
 		<tr><td>SSH authentication type</td>
 			<td>Specify whether you want to use a password or an SSH key to authenticate an SSH user</td></tr>
-		<tr><td>SSH Pasword</td>
+		<tr><td>SSH Password</td>
 			<td>If you chose a password as authentication type, specify the SSH password to authenticate an SSH user. You will be prompted for this password when you try to initiate an SSH session on the remote Linux machine.</td></tr>
 		<tr><td>SSH public key</td>
-			<td>If you chose a key as authentication type, specify the SSH public key that you must have already generated. When you initiate an SSH session with a note in the Linux cluster, you will use the private key associated with this public key.<br>
+			<td>If you chose a key as authentication type, specify the SSH public key that you must have already generated. When you initiate an SSH session with a node in the Linux cluster, you will use the private key associated with this public key.<br>
 			For instructions on how to generate an SSH key on a Linux computer, see <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">here</a>. For instructions on how to generate an SSH key on a Windows computer, see <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">here</a>.
 		</td></tr>
 		</table>
@@ -160,14 +160,14 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 			</td></tr>
 		<tr><td>Account Name</td>
 			<td><ul>
-				<li>If you chose to use existing storage, for <strong>Account name</strong>, select an exising storage account. The drop-down only lists the storage accounts located in the same data center where you chose to provision the cluster.</li>
+				<li>If you chose to use existing storage, for <strong>Account name</strong>, select an existing storage account. The drop-down only lists the storage accounts located in the same data center where you chose to provision the cluster.</li>
 				<li>If you chose <strong>Create new storage</strong> or <strong>Use storage from another subscription</strong> option, you must provide the storage account name.</li>
 			</ul></td></tr>
 		<tr><td>Account Key</td>
 			<td>If you chose the <strong>Use Storage From Another Subscription</strong> option, specify the account key for that storage account.</td></tr>
 		<tr><td>Default container</td>
 			<td><p>Specifies the default container on the storage account that is used as the default file system for the HDInsight cluster. If you chose <strong>Use Existing Storage</strong> for the <strong>Storage Account</strong> field, and there are no existing containers in that account, the container is created by default with a the same name as the cluster name. If a container with the name of the cluster already exists, a sequence number will be appended to the container name. For example, mycontainer1, mycontainer2, and so on. However, if the existing storage account has a container with a name different from the cluster name you specified, you can use that container as well.</p>
-            <p>If you chose to create a new storage or use storage from another Azure subscription, you must specify the default container name</p>
+            <p>If you chose to create a new storage or use storage from another Azure subscription, you must specify the default container name.</p>
         </td></tr>
 		<tr><td>Additional Storage Accounts</td>
 			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage account that can be used by a cluster. However, if you create a cluster using the Management Portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information. For example, in the screenshot above, one additional storage account is selected, and hence page 5 is added to the dialog.</td></tr>
@@ -187,9 +187,14 @@ HDInsight clusters use an Azure Blob Storage container as the default file syste
 
 ###<a id="cli"></a> Using Cross-platform command line
 
-> [WACOM.NOTE] As of 8/29/2014, the Cross-Platform Command-line Interface cannot be used to associate a cluster with an Azure Virtual Network.
+Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. You can install the CLI from the following locations:
 
-Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/Azure/azure-sdk-tools-xplat">https://github.com/Azure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool].
+- **Node.JS SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
+- **Cross-platform CLI** - <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+
+For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool].
+
+Instructions below guide you on how to install the cross-platform command line on Linux and Windows, and then how to use the command line to provision a cluster.
 
 - [Set up Azure cross-platform command line for Linux](#clilin)
 - [Set up Azure cross-platform command line for Windows](#cliwin)
@@ -206,7 +211,7 @@ Perform the following procedures to set up your Linux computer to use use Azure 
 
 1.	Open a terminal window on your Linux computer and run the following command:
 
-		sudo npm install -g azure-cli
+		sudo npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 2.	Run the following command to verify the installation:
 
@@ -258,7 +263,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 3.	Open **Command Prompt** (or *Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
 4.	Run the following command in the command prompt window.
 
-		npm install -g azure-cli
+		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 	> [WACOM.NOTE] If you get an error saying the NPM command is not found, verify the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
@@ -333,7 +338,7 @@ If you already have a storage account but do not know the account name and accou
 
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account][azure-create-storageaccount].
 
-An HDInsight cluster also requires a container within a storage account. If the storage account you provide does not already have a containder, the *azure hdinsight cluster create* prompts you for a container name and creates it as well. However, if you want to create the container beforehand, you can use the following command:
+An HDInsight cluster also requires a container within a storage account. If the storage account you provide does not already have a container, the *azure hdinsight cluster create* prompts you for a container name and creates it as well. However, if you want to create the container beforehand, you can use the following command:
 
 	azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
 
@@ -343,7 +348,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 - From the command prompt window, run the following command:
 
-		azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <storageAccountKey> --storageContainer <SorageContainerName> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword> --OSType Linux --SshUserName <SSH username> --SshPassword <SSH user password>
+		azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <StorageAccountKey> --storageContainer <StorageContainerName> --dataNodeCount <NumberOfNodes> --location <DataCenterLocation> --userName <HDInsightClusterUsername> --password <HDInsightClusterPassword> --osType linux --sshUserName <SSH username> --sshPassword <SSH user password>		
 
 	![HDI.CLIClusterCreation][image-cli-clustercreation]
 
@@ -359,7 +364,7 @@ Typically, you provision an HDInsight cluster, run the jobs, and then delete the
 		azure hdinsight cluster config create <file>
 
 		#Add commands to create a basic cluster
-		azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>" --OSType Linux --SshUserName "<SSH username>" --SshPassword <SSH user password>
+		azure hdinsight cluster config set <file> --clusterName <ClusterName> --dataNodeCount <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --userName "<Username>" --password "<UserPassword>" --osType linux --sshUserName <SSH username> --sshPassword <SSH user password>
 
 		#If requred, include commands to use additional blob storage with the cluster
 		azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"

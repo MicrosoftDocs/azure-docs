@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2014" 
-	ms.author="szarkos"/>
+	ms.date="02/25/2015" 
+	ms.author="szark"/>
 
 #How to Use SSH with Linux on Azure
 

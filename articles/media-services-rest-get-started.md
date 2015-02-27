@@ -1,9 +1,22 @@
-<properties pageTitle="Get Started with Azure Media Services REST APIs" description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
+<properties 
+	pageTitle="Delivering Video-on-Demand with Media Services REST APIs" 
+	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.devlang="REST" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/20/2015" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/24/2015" 
+	ms.author="juliako"/>
 
-
-# Delivering Video-on-Demand with Media Services REST APIs 
+# Quickstart: Delivering Video-on-Demand with Media Services REST APIs 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
@@ -11,29 +24,26 @@
 >[AZURE.NOTE]
 > To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
-This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs. 
+This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs. 
 
 The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.  
-
-To implement a VoD content delivery application, you can use different technologies (for example, .NET, REST, or Java) or tools (Azure Management Portal or Azure Media Services Explorer) or a combination of two. 
-
-This tutorial uses Azure Management Portal and Media Services REST APIs to achieve the following tasks:     
-
-
-1.  [Create a Media Services account using Portal](#create_ams).
-1.  [Connect to the Media Services account with REST API](#connect).
-1.  [Create a new asset and upload a video file with REST API](#upload).
-1.  [Configure streaming units with REST API](#configure_streaming_units).
-2.  [Encode the source file into a set of adaptive bitrate MP4 files with REST API](#encode).
-1.  [Configure delivery policy for the encoded asset with REST API](#configure_delivery_method).
-1.  [Publish the asset and get streaming and progressive download URLs with REST API](#publish_get_urls). 
-1.  [Play your content](#play). 
 
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services with REST APIs.
 
 - Understanding of how to develop with Media Services REST API. For more information, see [media-services-rest-overview](http://msdn.microsoft.com/en-us/library/azure/hh973616.aspx).
 - An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler). 
+
+The following tasks are shown in this quickstart.
+
+1.  Create a Media Services account using Portal.
+1.  Connect to the Media Services account with REST API.
+1.  Create a new asset and upload a video file with REST API.
+1.  Configure streaming units with REST API.
+2.  Encode the source file into a set of adaptive bitrate MP4 files with REST API.
+1.  Configure delivery policy for the encoded asset with REST API.
+1.  Publish the asset and get streaming and progressive download URLs with REST API. 
+1.  Play your content. 
 
 
 ## <a id="create_ams"></a>Create a Media Services account using Portal
@@ -544,16 +554,15 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content (described in this section).
+- get at least one streaming unit for the **streaming endpoint **from which you plan to delivery your content (described in this section).
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
 
-Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
 
 >[AZURE.NOTE] For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-To change the number of on-demand streaming reserved units, do the following:
+To change the number of streaming reserved units, do the following:
 	
 ### Get the streaming endpoint you want to update
 
@@ -611,7 +620,7 @@ If successful, the following is returned:
 	
 ### <a id="long_running_op_status"></a> Check on the status of a long-running operation
 
-The allocation of any new units of on-demand streaming takes around 20 minutes to complete. To check the status of the operation use the **Operations** method and specify the Id of the operation. The operation Id was returned in the response to the **Scale** request.
+The allocation of any new units takes around 20 minutes to complete. To check the status of the operation use the **Operations** method and specify the Id of the operation. The operation Id was returned in the response to the **Scale** request.
 
 	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
  
@@ -665,7 +674,7 @@ As was mentioned earlier, when working with Azure Media Services one of the most
 To take advantage of dynamic packaging, you need to do the following:
 
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
-- get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. 
+- get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. 
 
 The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The section also shows how to monitor the job processing progress. When the job is complete you you would be able to create locators that are needed to get access to your assets. 
 
@@ -961,21 +970,6 @@ One of the steps in the Media Services content delivery workflow is configuring 
 The following **AssetDeliveryPolicies** HTTP Request specifies not to apply dynamic encryption (AssetDeliveryPolicyType could be one of these values: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols (AssetDeliveryProtocol could be a combination of the following values: None = 0,        SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535). 
 
 
-As a result of this delivery configuration you would be able to request a Smooth, HLS, or MPEG DASH streams using the following formats:
-
-Smooth Streaming:
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-HLS:
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-
-MPEG DASH
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
-
-
 ### Create AssetDeliveryPolicies
 
 
@@ -1056,15 +1050,15 @@ To stream or download an asset you first need to "publish" it by creating a loca
 Once you create the locators, you can build the URLs that are used to stream or download your files. 
 
 
-An on-demand URL for Smooth Streaming has the following format:
+A streaming URL for Smooth Streaming has the following format:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-An on-demand URL for HLS has the following format:
+A streaming URL for HLS has the following format:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-An on-demand URL for MPEG DASH has the following format:
+A streaming URL for MPEG DASH has the following format:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
@@ -1197,10 +1191,10 @@ As a result of the encoding job that you performed earlier (encoding into Adapti
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-###Creating an on-demand origin URL for streaming content
+###Creating an streaming URL for streaming content
 
 
-The following code shows how to create an origin URL Locator:
+The following code shows how to create a streaming URL Locator:
 
 	POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
 	Content-Type: application/json
