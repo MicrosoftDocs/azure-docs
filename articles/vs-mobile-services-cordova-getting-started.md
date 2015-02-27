@@ -36,7 +36,7 @@ The following code gets a reference to a table that contains data for a TodoItem
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-For these examples to work, permissions on the table must be set to **Anybody with an Application Key**. Later, you can set up authentication. See [Get started with authentication](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-get-started-users/).
+For these examples to work, permissions on the table must be set to **Anybody with an Application Key**. Later, you can set up authentication. See [Get started with authentication](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
 
 #####Add entry 
 

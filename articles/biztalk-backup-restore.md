@@ -25,7 +25,7 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 
 ## Before you Begin
 
-- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](http://azure.microsoft.com/en-us/documentation/articles/biztalk-editions-feature-chart/).
+- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
 
 	**Note**  Hybrid Connections are NOT backed up, regardless of the Edition.
 

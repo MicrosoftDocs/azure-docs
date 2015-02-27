@@ -252,7 +252,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Use Notification Hubs to broadcast localized breaking news]: ./breakingnews-localized-wp8.md 
 [Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users/
 [Mobile Service]: /en-us/develop/mobile/tutorials/get-started
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
 [Azure Management Portal]: https://manage.windowsazure.com/

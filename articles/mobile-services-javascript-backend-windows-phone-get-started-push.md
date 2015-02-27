@@ -138,7 +138,7 @@ Finally, you must update the script registered to the insert operation on the To
 
 	![Toast notification received](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
 
-	>[AZURE.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) event.
+	>[AZURE.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) event.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -184,7 +184,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users
 
-[Setting up an authenticated web service to send push notifications for Windows Phone]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Setting up an authenticated web service to send push notifications for Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

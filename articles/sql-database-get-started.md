@@ -135,7 +135,7 @@ As your skills increase, you will want to explore additional ways of creating a 
 
 In this step, you run two scripts. The first one creates a schema that defines tables, columns, and relationships. The second script adds the data. Each step is performed independently on a separate connection. If you've built databases in SQL Server before, one of the differences you'll notice in SQL Database is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize attacks against the data while it is in transit. 
 
-**Note:** The schema and data values are taken from this [MSDN article](http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "MSDN article") and have been modified to work with SQL Database.
+**Note:** The schema and data values are taken from this [MSDN article](http://msdn.microsoft.com/library/windowsazure/ee621790.aspx "MSDN article") and have been modified to work with SQL Database.
 
 1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of items on the home page.
 
@@ -151,7 +151,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 <h2 id="createschema">Step 5: Create the schema</h2>
 
-In this step, you will create the schema using the following script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
+In this step, you will create the schema using the following script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
 
 Copy the script and paste it into the query window. Click **Run** at the top of the window to execute the script.
 
@@ -397,7 +397,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 
 <h2 id="insertData">Step 6: Insert data</h2>
 
-Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx) statement to add values to each column.
+Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/library/windowsazure/ee336284.aspx) statement to add values to each column.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Insert data into the Person table.
@@ -663,13 +663,13 @@ Now that you are familiar with SQL Database and the management portals, you can 
 
 To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](http://www.azure.microsoft.com/en-us/documentation/articles/sql-database-manage-azure-ssms/).
 
-Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/en-us/library/ms365303.aspx) to learn some basic skills.
+Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/library/ms365303.aspx) to learn some basic skills.
 
 There are other methods for moving an on-premises database to SQL Database. If you have existing databases, or if you downloaded sample databases to practice with, try the following alternative approaches:
 
-* [Migrating Databases to SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
-* [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
-* [Deploy a SQL Server Database to an Azure Virtual Machine](http://msdn.microsoft.com/en-us/library/dn195938)
+* [Migrating Databases to SQL Database](http://msdn.microsoft.com/library/windowsazure/ee730904.aspx)
+* [Copying Databases in SQL Database](http://msdn.microsoft.com/library/windowsazure/ff951624.aspx)
+* [Deploy a SQL Server Database to an Azure Virtual Machine](http://msdn.microsoft.com/library/dn195938)
 
 
 

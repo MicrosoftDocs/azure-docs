@@ -182,12 +182,12 @@ If you want to use SSL for a staging deployment instead of a production deployme
   [Step 2: Modify the service definition and configuration files]: #step2
   [Step 3: Upload the deployment package and certificate]: #step3
   [Step 4: Connect to the role instance by using HTTPS]: #step4
-  [How to create a certificate for a role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
-  [How to associate a certificate with a service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [How to create a certificate for a role]: http://msdn.microsoft.com/library/windowsazure/gg432987.aspx
+  [How to associate a certificate with a service]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx

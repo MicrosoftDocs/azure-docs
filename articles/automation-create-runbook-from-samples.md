@@ -125,7 +125,7 @@ With the runbook imported and published, you can now run it and then inspect the
 Congratulations! You have finished the tutorial.
 
 ## <a name="nextsteps"></a>Next Steps 
-1. The simple runbook in this tutorial **does not manage Azure services**. Most runbooks will use the [Azure cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) to do so, which require authentication to your Azure subscription. Follow the instructions at [Configuring Azure for Management by Runbooks](http://aka.ms/azureautomationauthentication) to configure your Azure subscription to work with these cmdlets.  
+1. The simple runbook in this tutorial **does not manage Azure services**. Most runbooks will use the [Azure cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) to do so, which require authentication to your Azure subscription. Follow the instructions at [Configuring Azure for Management by Runbooks](http://aka.ms/azureautomationauthentication) to configure your Azure subscription to work with these cmdlets.  
 2. Refer to the [Resources](#resources) listed below for more information about Azure Automation's capabilities.
 3. Subscribe to the [Azure Automation Blog](http://azure.microsoft.com/blog/tag/azure-automation) to stay up-to-date with the latest from the Azure Automation team.
 
@@ -134,7 +134,7 @@ Congratulations! You have finished the tutorial.
 A variety of other resources are available for you to learn more about Azure Automation and creating your own runbooks.
 
 - [Azure Automation Library](http://go.microsoft.com/fwlink/p/?LinkId=392860) provides complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks. 
-- [Azure PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/jj156055.aspx) provides information for automation Azure operations using Windows PowerShell.  Runbooks use these cmdlets to work with Azure resources.
+- [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) provides information for automation Azure operations using Windows PowerShell.  Runbooks use these cmdlets to work with Azure resources.
 - [Azure Automation Blog](http://azure.microsoft.com/blog/tag/azure-automation) provides the latest information on Azure Automation from Microsoft.
 - [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community.
 

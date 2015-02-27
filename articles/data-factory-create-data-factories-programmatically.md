@@ -390,4 +390,4 @@ Article | Description
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
-[azure-developer-center]: http://azure.microsoft.com/en-us/downloads/
+[azure-developer-center]: http://azure.microsoft.com/downloads/

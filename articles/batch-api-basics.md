@@ -57,7 +57,7 @@ A Batch account is a uniquely identified entity within the Batch service. All pr
 
 ### <a name="taskvm"></a>Task Virtual Machine
 
-A task virtual machine (TVM) is an Azure VM that is dedicated to a specific workload for your application. The size of a TVM determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the TVM. A TVM can be a small, large, or extralarge virtual machine as described in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/en-us/library/dn197896.aspx).
+A task virtual machine (TVM) is an Azure VM that is dedicated to a specific workload for your application. The size of a TVM determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the TVM. A TVM can be a small, large, or extralarge virtual machine as described in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 The types of programs that a TVM can run include executable files (.exe), command files (.cmd), batch files (.bat), and script files. A TVM also has the following attributes:
 

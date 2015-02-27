@@ -33,14 +33,14 @@ For a list of all topics on Elastic Scale, see [Elastic Scale Documentation Map]
 The sample creates a simple sharded application and explores key capabilities of Elastic Scale. To download and run the application, follow the steps shown below or in the video [Elastic Scale - Get Started](http://go.microsoft.com/?linkid=9862983). 
 
 ###Prerequisites
-To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure. If you do not already have a subscription to Azure, sign up for a [trial subscription](http://azure.microsoft.com/en-us/pricing/free-trial/).
+To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure. If you do not already have a subscription to Azure, sign up for a [trial subscription](http://azure.microsoft.com/pricing/free-trial/).
 ####Visual Studio and Nuget
 
 1. Visual Studio 2012 or higher with C# is required. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 or higher. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
 ####Create an Azure SQL database
 
-* See [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/).
+* See [Getting Started with Microsoft Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started/).
 
 ##Download and Run the Sample App
 The **Elastic Scale with Azure SQL Database - Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL DB Elastic Scale. It focuses on key use cases for [Shard Map Management](http://go.microsoft.com/?linkid=9862595), [Data Dependent Routing](http://go.microsoft.com/?linkid=9862596) and [Multi-Shard Querying](http://go.microsoft.com/?linkid=9862597). To download and run the sample, follow these steps: 
@@ -65,7 +65,7 @@ The **Elastic Scale with Azure SQL Database - Getting Started** sample applicati
 
 Congratulations – you have successfully built and run your first Elastic Scale application on Azure SQL DB. Take a quick look at the shards that the sample created by connecting with SQL Server Management Studio to your Azure DB Server. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
-**Note**   If you do not have SQL Server Management Studio, see [Managing Azure SQL Database using SQL Server Management Studio](http://azure.microsoft.com/en-us/documentation/articles/sql-database-manage-azure-ssms/), which includes instructions for getting the tool.  
+**Note**   If you do not have SQL Server Management Studio, see [Managing Azure SQL Database using SQL Server Management Studio](http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/), which includes instructions for getting the tool.  
 
 ### Key pieces of the code sample
 
@@ -87,7 +87,7 @@ The Elastic Scale libraries and service templates are free. Elastic scale does n
 
 For example, the sample application creates new databases. The cost depends on the Azure SQL DB database edition you choose and the Azure usage of your application.
 
-For pricing information see [SQL Database Pricing Details](http://azure.microsoft.com/en-us/pricing/details/sql-database/).
+For pricing information see [SQL Database Pricing Details](http://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Next Steps
 For more information about the Elastic Scale feature, see:

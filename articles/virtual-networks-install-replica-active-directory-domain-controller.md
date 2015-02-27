@@ -164,7 +164,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 As an alternative to using the management portal to provision VMs, you can use Windows PowerShell for Microsoft Azure. Use <a href = "http://msdn.microsoft.com/library/azure/dn495159.aspx">New-AzureVMConfig</a> and <a href = "http://msdn.microsoft.com/library/azure/dn495299.aspx">Add-AzureProvisioningConfig</a> to provision a VM as a domain-joined machine when it first boots and use <a href = "http://msdn.microsoft.com/library/azure/dn495254.aspx">New-AzureVM</a> to create the VM itself. 
 </p>
 
-For more information about using Windows PowerShell, see [Getting Started with Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
+For more information about using Windows PowerShell, see [Getting Started with Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx) and [Azure Management Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj152841).
 
 
 ## Additional Resources

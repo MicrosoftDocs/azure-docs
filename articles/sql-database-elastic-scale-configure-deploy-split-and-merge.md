@@ -69,7 +69,7 @@ For the purposes of  a simple test deployment suitable to complete this tutorial
 
 ### Creating a Self-signed Certificate 
 
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/en-us/library/ms229859.aspx) window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) window:
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -145,7 +145,7 @@ If your worker role fails to come online, but your web role succeeds, it is most
 * Ensure that the server name does not begin with **https://**.
 * Ensure that your Azure SQL DB server allows Windows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Windows Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
 
-* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Windows Azure** icon to connect to your Azure subscription. Then navigate to Windows Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) 
+* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Windows Azure** icon to connect to your Azure subscription. Then navigate to Windows Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) 
 
     ![][5]
 

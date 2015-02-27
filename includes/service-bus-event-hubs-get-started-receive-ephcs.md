@@ -108,10 +108,10 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 > [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost], as shown in the [Scaled out event processing sample]. In those cases, the various instances  automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost] instances based on the machines (or roles) in which they are deployed. For more information about these topics, refer to the [Event Hubs Overview] and [Event Hubs Programming Guide].
 
 <!-- Links -->
-[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn821413.aspx
+[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [Scaled out event processing sample]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
-[EventProcessorHost]: http://msdn.microsoft.com/en-us/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
+[Azure Storage account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
 
@@ -120,4 +120,4 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Event Hubs developer guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[Event Hubs developer guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx

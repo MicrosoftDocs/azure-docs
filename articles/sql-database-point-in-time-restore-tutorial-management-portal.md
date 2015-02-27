@@ -22,6 +22,8 @@
 - [Point in Time Restore - PowerShell](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/)
 - [Point in Time Restore - REST API](/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-rest/) 
 
+## Overview
+
 This tutorial shows you how to restore an Azure SQL database using Point in Time Restore in the [Azure portal](http://manage.windowsazure.com/). Azure SQL Database has built-in backups to support self-service Point in Time Restore for Basic, Standard, and Premium service tiers.
 
 Point in Time Restore creates a new database. The service automatically selects the service tier based on the backup used at the restore point. Make sure you have available quota on the logical server to create another database. If you'd like to request an increased quota, contact [Azure Support](http://azure.microsoft.com/support/options/).
@@ -42,7 +44,7 @@ Point in Time Restore creates a new database. The service automatically selects 
 
 	* Web and Business Editions will be retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-## How to: Restore an Azure SQL database using Point in Time Restore in Azure portal
+## How to: Restore an Azure SQL database using Point in Time Restore in the Azure portal
 
 <iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-SQL-Database-Using-Point-in-Time-Restore/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
