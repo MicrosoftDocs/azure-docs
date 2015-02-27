@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="02/26/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
 ## Overview
-You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. The Copy Activity can be used in the following scenarios:
+You can use the **Copy Activity** in a pipeline to copy data from a source to a sink (destination) in a batch. This topic describes the advanced scenarios that the Copy Activity supports. For a detailed overview of the Copy Activity and core scenarios that it supports, see [Copy data with Azure Data Factory][adf-copyactivity]. 
 
 
 ## Column filtering using structure definition
@@ -65,7 +65,7 @@ It does not support the following and throw an exception:
 - Duplicate mapping.
 - SQL query result does not have a column name
 
-#### Sample 1 – column mapping from SQL Server to Azure blob
+### Sample 1 – column mapping from SQL Server to Azure blob
 In this sample, the **input table** is defined as follows. The input table has a structure and it points to a SQL table in a SQL Server database.
          
 		{
@@ -146,7 +146,7 @@ To set **folderPath** and **fileName** dynamically based on the **SliceStart** t
 
 In this sample, an activity in a pipeline is defined as follows. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
 
-##### Sample – Define Column mapping
+#### Sample – Define Column mapping
 
 	{
 		"name": "CopyActivity",
@@ -174,7 +174,7 @@ In this sample, an activity in a pipeline is defined as follows. The columns fro
 
 ![Column Mapping][image-data-factory-column-mapping-1]
 
-##### Sample 2 – column mapping with SQL query from SQL Server to Azure blob
+### Sample 2 – column mapping with SQL query from SQL Server to Azure blob
 In this sample, a SQL query (vs. table in the previous sample) is used to extract data from an on-premises SQL Server and columns from query results are mapped to source artifact and then to destination artifact. For the purpose of this sample, the query returns 5 columns.
 
 	{
@@ -204,7 +204,7 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 
 ![Column Mapping 2][image-data-factory-column-mapping-2]
 
-#### Data Type Handling by the Copy Activity
+### Data Type Handling by the Copy Activity
 
 The data types specified in the Structure section of the Table definition is only honored for **BlobSource**.  The table below describes how data types are handled for other types of source and sink.
 
@@ -254,7 +254,7 @@ The data types specified in the Structure section of the Table definition is onl
 </table>
 
 ## Invoke stored procedure for SQL Sink
-When copy data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked. 
+When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked. 
 ### Example
 1. Define the JSON of output Table as follows (take Azure SQL Database table as an example):
 
@@ -309,6 +309,7 @@ The stored procedure feature takes advantage of [Table-Valued Parameters][table-
 
 
 [adfgetstarted]: ../data-factory-get-started
+[adf-copyactivity]: ../data-factory-copy-activity
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
