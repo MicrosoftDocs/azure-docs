@@ -52,7 +52,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
    	![][5]
 
-	> [AZUTE.NOTE] **Security Note**
+	> [AZURE.NOTE] **Security Note**
 	The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 

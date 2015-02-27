@@ -1,5 +1,6 @@
+
 <properties 
-   pageTitle="Getting Started using Docker with Swarm on Azure" 
+   pageTitle="Getting Started using docker with swarm on Azure" 
    description="Describes how to create a group of VMs with the Docker VM Extension and use swarm to create a Docker cluster." 
    services="virtual-machines" 
    documentationCenter="virtual-machines" 
@@ -18,11 +19,11 @@
 
 # How to use docker with swarm 
 
-This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it.
+This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it. 
 
 > [AZURE.NOTE] This is an early version of software, so check back for updates about using this on Azure to create large, balanced, and controlled clusters of Docker containers, as well as checking the docker swarm documentation to discover all its features.
-<br />
-> In addition, this topic uses docker with swarm and the xplat-cli *without* using docker-machine in order to show how the different tools work together but remain independent. docker-machine has **--swarm** switches that enable you to use docker-machine to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed docker-machine running against Azure VMs, see [How to Use Docker and Machine with Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-docker-machine/).
+<p />
+> In addition, this topic uses docker with swarm and the xplat-cli *without* using docker-machine in order to show how the different tools work together but remain independent. docker-machine has **--swarm** switches that enable you to use docker-machine to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed docker-machine running against Azure VMs, see [How to use docker-machine with Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-docker-machine/).
 
 ## Create docker hosts with Azure Virtual Machines
 
@@ -43,7 +44,7 @@ When you're done you should be able to use **azure vm list** to see your Azure V
     
 ## Installing swarm on the swarm master VM
 
-This topic uses the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image) -- but you could also SSH to the swarm-master . In this model, **swarm** is downloaded as a docker container running swarm. We can invoke that remotely from our laptop by using docker to connect to the **swarm-master** VM and telling it to use the cluster id creation command, **create**. The cluster id is how swarm discovers the members of the swarm group.
+This topic uses the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image) -- but you could also SSH to the **swarm-master**. In this model, **swarm** is downloaded as a docker container running swarm. Below, we perform this step *remotely from our laptop by using docker* to connect to the **swarm-master** VM and tell it to use the cluster id creation command, **swarm create**. The cluster id is how **swarm** discovers the members of the swarm group. (You can also clone the repository and build it yourself, which will give you full control and enable debugging.)
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run --rm swarm create
     Unable to find image 'swarm:latest' locally
@@ -62,7 +63,7 @@ This topic uses the [container model of installation from the docker swarm docum
 That last line is the cluster id; copy it somewhere because you will use it again when you join the node VMs to the swarm master to create the "swarm". In this example, the cluster id is **36731c17189fd8f450c395db8437befd**.
 
 > [AZURE.NOTE] Just to be clear, we are using our local docker installation to connect to the **swarm-master** VM in Azure and instruction **swarm-master** to download, install, and run the **create** command, which returns our cluster id that we use for discovery purposes later.
-<br />
+<p />
 > To confirm this, run `docker -H tcp://`*&lt;hostname&gt;* ` images` to list the container processes on the **swarm-master** machine and on another node for comparison (because we ran the previous swarm command with the **--rm** switch, the container was removed after it finished, so using **docker ps -a** won't return anything).:
 
 
@@ -72,12 +73,12 @@ That last line is the cluster id; copy it somewhere because you will use it agai
         $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 images
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
         $ 
-<b />
-> The other nodes have no entries; no images have been downloaded and run yet.
+<P />
+> If you're familiar with **docker**, you'll know that the other nodes have no entries because no images have been downloaded and run yet.
 
 ## Join the node VMs to our docker cluster
 
-For each node, list the endpoint information using the xplat-cli. Below we do that for the swarm-node-1 docker host in order to obtain the node's docker port.
+For each node, list the endpoint information using the xplat-cli. Below we do that for the **swarm-node-1** docker host in order to obtain the node's docker port.
 
     $ azure vm endpoint list swarm-node-1
     info:    Executing command vm endpoint list
@@ -89,7 +90,7 @@ For each node, list the endpoint information using the xplat-cli. Below we do th
     info:    vm endpoint list command OK
     
  
-Using docker and the -H option to point the docker client at your node VM, join that node to the swarm you are creating by passing the cluster id and the node's docker port (the latter using **--addr**):
+Using **docker** and the `-H` option to point the docker client at your node VM, join that node to the swarm you are creating by passing the cluster id and the node's docker port (the latter using **--addr**):
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 run -d swarm join --addr=138.91.112.194:4243 token://36731c17189fd8f450c395db8437befd
     Unable to find image 'swarm:latest' locally
@@ -105,7 +106,7 @@ Using docker and the -H option to point the docker client at your node VM, join 
     Status: Downloaded newer image for swarm:latest
     bbf88f61300bf876c6202d4cf886874b363cd7e2899345ac34dc8ab10c7ae924
 
-That looks good. To confirm that swarm is running on **swarm-node-1** we type:
+That looks good. To confirm that **swarm** is running on **swarm-node-1** we type:
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES

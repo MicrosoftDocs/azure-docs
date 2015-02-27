@@ -2,17 +2,20 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/22/2015" ms.author="tysonn" />
 
-#Custom markdown extensions used in our technical articles
+## Markdown for Azure.microsoft.com
 
-Our articles use standard markdown for most article formatting - paragraphs, links, lists, headings, etc. But we use custom markdown extensions where we need richer formatting in the rendered pages on azure.microsoft.com. Here's the extensions we are currently using:
+For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
+
+Azure.microsoft.com does not support [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) or [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block. 
+
+## Custom markdown extensions used in our technical articles
+
+Our articles use GitHub flavored markdown for most article formatting - paragraphs, links, lists, headings, etc. But we use custom markdown extensions where we need richer formatting in the rendered pages on azure.microsoft.com. Here's the extensions we are currently using:
 
 + [Notes and tips]
 + [Includes]
 + [Embedded videos]
 + [Technology and platform selectors]
-
-For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
-
 
 ## Notes and tips
 
