@@ -49,7 +49,7 @@ Note that if your application code handles *service management operations* as we
 
 The sample application documented in [Get started with Azure Search Management REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) demonstrates the authentication techniques for each type of operation. Instructions for configuring a client application to use Active Directory are included in the getting started. 
 
-Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in Azure Preview portal](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/).
+Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in Azure Preview portal](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/).
 
 
 ### Summary of APIs ##
@@ -160,7 +160,7 @@ The **Create Search Service** operation provisions a new Search service with the
 
 `tags`: Optional. A list of key value pairs that describe the resource. These tags can be used in viewing and grouping a resource across resource groups. A maximum of 10 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.   
 
-`sku`: Required. Valid values are `free` and `standard`. `standard2` is also valid, but can only be used when it's enabled for your Azure subscription by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters. You can only create one Search service at the free pricing tier. Additional services must be created at the standard pricing tier. By default, a service is created with one partition and one replica. Additional partitions and replicas are priced in terms of search units. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for details. You cannot change the `sku` once the service is created.
+`sku`: Required. Valid values are `free` and `standard`. `standard2` is also valid, but can only be used when it's enabled for your Azure subscription by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters. You can only create one Search service at the free pricing tier. Additional services must be created at the standard pricing tier. By default, a service is created with one partition and one replica. Additional partitions and replicas are priced in terms of search units. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for details. You cannot change the `sku` once the service is created.
 
 `replicaCount`: Optional. Default is 1. Valid values include 1 through 6. Valid only when `sku` is `standard`. 
 

@@ -109,7 +109,7 @@ Role assignments can also be managed by using the Microsoft Azure module for Win
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/). 
+For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
 
 <h3><a id="remove"></a>Remove access</h3>
 
@@ -150,7 +150,7 @@ You can also remove a guest from any role, just as you would remove any user. Re
  
 ## Known issues when using role-based access control
 
-If you encounter a problem when you use role based access control feature while it is in preview, see [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/) for any known issues that may be related to the problem.
+If you encounter a problem when you use role based access control feature while it is in preview, see [Troubleshooting role-based access control](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/) for any known issues that may be related to the problem.
 
 
 ## Built-in roles
@@ -979,12 +979,12 @@ Please try Azure RBAC and send us [feedback](http://aka.ms/azurerbacfeedback).
 
 Here are some additional resources to help you use role-based access control: 
 
-+ [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/)
-+ [Managing role-based access control with XPLAT CLI](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/)
++ [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
++ [Managing role-based access control with XPLAT CLI](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
++ [Troubleshooting role-based access control](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx)
-+ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + For an introduction to self-service group management for security groups, see the [Active Directory Team Blog](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 

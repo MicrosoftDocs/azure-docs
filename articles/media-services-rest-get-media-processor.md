@@ -39,17 +39,17 @@ The following table provides the name and description of each available media pr
     <tr>
        <td>Azure Media Encoder</td>
        <td>Lets you run encoding tasks using the Media Encoder.</td>
-       <td><a href="http://msdn.microsoft.com/en-us/library/jj129582.aspx"> Task Preset Strings for the Azure Media Encoder</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Task Preset Strings for the Azure Media Encoder</a></td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
         <td>Lets you convert media assets from .mp4 to smooth streaming format. Also, lets you convert media assets from smooth streaming to the Apple HTTP Live Streaming (HLS) format.</td>
-		<td><a href="http://msdn.microsoft.com/en-us/library/hh973635.aspx">Task Preset Strings for the Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Windows Azure Media Encryptor</td>
         <td>Lets you encrypt media assets using PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/en-us/library/hh973610.aspx">Task Preset Strings for the Azure Media Packager</a></td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Azure Media Indexer</td>
@@ -113,5 +113,5 @@ Response:
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset][] topic which will show you how to use the Azure Media Encoder to encode an asset.
 
 [How to Encode an Asset]: ../media-services-rest-encode-asset/
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/

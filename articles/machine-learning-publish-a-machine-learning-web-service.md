@@ -33,10 +33,10 @@ To train a predictive analytics model, you use Azure Machine Learning Studio to 
 
 The process of creating and managing training experiments is covered more thoroughly elsewhere - see these articles for more information and examples:
 
-- [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/)
-- [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
-- [Import your training data into Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-import-data/)
-- [Manage experiment iterations in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-manage-experiment-iterations/)
+- [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/)
+- [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
+- [Import your training data into Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-import-data/)
+- [Manage experiment iterations in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-manage-experiment-iterations/)
 
 ##Convert the training experiment to a scoring experiment
 

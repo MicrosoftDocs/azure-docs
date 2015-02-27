@@ -178,8 +178,8 @@ To view logged information on operations performed on a group, use the `azure gr
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
 * For information on working with Resource Manager using Windows Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
 
-[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
+[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /en-us/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

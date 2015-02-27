@@ -110,11 +110,11 @@ As mentioned earlier, using SQL Database is very similar to using SQL Server. On
 A sample that shows how to use SQL Database with PHP on Azure is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
 
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
-[limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
+[limitations]: http://msdn.microsoft.com/library/windowsazure/ff394102.aspx
 [odbc-php]: http://www.php.net/odbc
 [manual-config]: http://php.net/manual/en/install.windows.iis7.php
 [install-drivers]: http://php.net/manual/en/sqlsrv.requirements.php
-[driver-docs]: http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx
+[driver-docs]: http://msdn.microsoft.com/library/dd638075(SQL.10).aspx
 [access-php-odbc]: http://social.technet.microsoft.com/wiki/contents/articles/accessing-sql-azure-from-php.aspx
 [install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [management-portal]: https://manage.windowsazure.com

@@ -50,7 +50,7 @@ No, that is not supported, however custom R and Python code can be used to defin
 
 **How does Machine Learning billing work?**
 
-For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/en-us/pricing/details/machine-learning/).
+For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Does Machine Learning have a free trial?**
 

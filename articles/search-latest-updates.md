@@ -24,7 +24,7 @@ Azure Search has been in public preview since August 2014, with a corresponding 
 
 However, over the last several months, we've continued to add new features via  a follow-up API version (`2014-10-20-Preview`). [Versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) the API allows us to isolate changes that could potentially break existing applications. By branching the API, you can control the API rollout in your solution. It's up to you to determine when and if you use the newest features.
 
-The following features are all part of the [2014-10-20-Preview API](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
+The following features are all part of the [2014-10-20-Preview API](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/).
 
 ##Notes for January 12, 2015##
 

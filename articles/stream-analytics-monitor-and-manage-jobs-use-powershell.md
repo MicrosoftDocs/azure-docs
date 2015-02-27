@@ -264,8 +264,8 @@ This tests the connection status of the output Output in StreamingJob.
 
 
 
-[msdn-switch-azuremode]: http://msdn.microsoft.com/en-us/library/dn722470.aspx
-[powershell-install]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
+[powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [stream-analytics-introduction]: ../
