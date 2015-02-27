@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#How to Scale Encoding Reserved Units
+#How to Scale Encoding
 
 This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series.
 

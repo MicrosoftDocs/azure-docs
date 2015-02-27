@@ -32,6 +32,10 @@ The following diagram shows the major parts of the Media Services platform that 
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
 
+##Configuring streaming endpoints
+
+[work in in progress]
+
 ##Setting up development environment  
 
 Choose **.NET** or **REST API** for your development environment.
@@ -50,7 +54,7 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-##Processing media
+##Processing media: encoding, indexing, monitoring jobs
 
 ###Getting Media Processor
 
@@ -84,7 +88,7 @@ For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en
 
 ##Configure content key authorization policy 
 
-Configure key authorization policy using **.NET** or **REST API**.
+Configure content protection and key authorization policy using **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
