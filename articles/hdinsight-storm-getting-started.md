@@ -48,7 +48,7 @@ For more information on creating Storage Accounts, see
 
 ##Provision a Storm cluster on the Azure portal
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contains Apache Storm and related applications. You can also create Hadoop clusters for other versions using the Azure portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contains Apache Storm and related applications. You can also create Hadoop clusters for other versions using the Azure portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) page.
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 

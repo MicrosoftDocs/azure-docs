@@ -138,7 +138,7 @@ In a real-world application, you typically create separate accounts for applicat
  
 	The file contains a SQL connection string and an Azure storage connection string for working with blobs and queues. 
 
-	The SQL connection string points to a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database.
+	The SQL connection string points to a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database.
  
 	The storage connection string is an example that has placeholders for the storage account name and access key. You'll replace this with a connection string that has the name and key of your storage account.  
 
@@ -643,7 +643,7 @@ Similar code gets a reference to the *images* queue.
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/en-us/library/system.web.httppostedfilebase.aspx) object to the method.
+Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) object to the method.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]

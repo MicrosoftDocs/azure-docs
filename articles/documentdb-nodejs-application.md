@@ -616,8 +616,8 @@ The source code for the complete reference application can be downloaded [here][
 
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/vstudio/cc136611.aspx
   [Node.js Tools for Visual Studio]: https://nodejstools.codeplex.com/
   [here]: https://github.com/Azure/azure-documentdb-node/tree/master/core_sdk/tutorial/todo
-  [Azure CLI]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
+  [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [Azure Management Portal]: http://portal.azure.com

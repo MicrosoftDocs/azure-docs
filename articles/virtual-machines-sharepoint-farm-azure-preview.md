@@ -81,10 +81,10 @@ Notes:
 
 ##Azure Resource Manager##
 
-SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/).
+SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
 ##Additional Resources
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Set up a SharePoint intranet farm in a hybrid cloud for testing](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)

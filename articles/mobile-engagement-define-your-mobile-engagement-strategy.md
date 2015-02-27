@@ -127,5 +127,5 @@ All of this type of data can be augmented with Parameters (`extra-information` i
 [2]: ./media/mobile-engagement-define-your-engagement-strategy/use-case2.png
 
 <!-- URLs. -->
-[Mobile Engagement Concepts]: http://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-concepts/
-[Tutorials]: http://azure.microsoft.com/en-us/documentation/articles/mobile-engagement-ios-get-started/
+[Mobile Engagement Concepts]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
+[Tutorials]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/

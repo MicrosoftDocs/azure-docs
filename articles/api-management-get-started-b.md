@@ -170,7 +170,7 @@ After an operation is invoked, the developer portal displays the **Requested URL
 -   Customize the developer portal
 -   Trace calls using API inspector
 
-[Azure Free Trial]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Azure Free Trial]: http://www.windowsazure.com/pricing/free-trial/
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api

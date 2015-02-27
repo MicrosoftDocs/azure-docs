@@ -273,7 +273,7 @@ links to learn more.
   
   
   [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
   [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
