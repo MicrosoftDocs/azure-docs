@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Media Encoder formats and codecs" 
-	description="This topics gives and overview of Azure Media Encoder formats and codecs" 
+	description="This topics gives an overview of Azure Media Encoder formats and codecs" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -18,8 +18,14 @@
 
 #Azure Media Encoder formats and codecs
 
+Encoders compress digital media using codecs. Encoders typically have various settings that allow you to specify properties of the media generated for example, the codecs used, file format, resolution, and bitrate. File formats are containers that hold the compressed video as well as information about what codecs were used to compress the video. 
+
+Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback. There are audio codecs that compress and decompress audio and video codecs that compress and decompress video. Codecs can use lossless or lossy compression. Lossless codecs preserve all of the information when compression occurs. When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage. Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet. The two main codecs used by the Azure Media Encoder to encode are H.264 and VC-1. Other codecs may be available in our partner ecosystem of encoders.
+
+It is important to understand the difference between codecs and file formats. Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video. For more information, see [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+
 This document contains a list of the most common import and export file formats that you can use with Azure Media Encoder.
-The following codecs and formats are provided:
+
 
 [Media Encoder Import Formats ](#import_formats)
 [Media Encoder Export Formats](#import_formats)
