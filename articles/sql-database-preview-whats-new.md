@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="02/26/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-Feb-23  15:52pm
-UC, Contained database users.
+GeneMi , 2015-Feb-26  16:53pm
+Added fixed copy of Ranga's link in the first sentence (need one leading dot, not two).
 -->
 
-The latest Azure SQL Database Update V12 (preview) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
+The latest Azure SQL Database Update V12 ([preview in some regions](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
 
 This preview marks the first step in delivering the next generation of the Azure SQL Database service. It gives customers more compatibility, flexibility, and performance. Internal tests of the preview at the Premium service tier showed that some queries now complete in a fraction of the time they take on today's Premium Azure SQL Database. Even bigger improvements were seen in some scenarios that benefit from the in-memory columnstore technology.
 
-**[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 (Preview) to take advantage of the next generation of  SQL Database on Microsoft Azure. To take advantage of the preview, you first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information.**
+**[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 (Preview) to take advantage of the next generation of  SQL Database on Microsoft Azure. To take advantage of the preview, you first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information.**
 
 > [AZURE.NOTE]
 > Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
@@ -139,10 +139,10 @@ The V12 version of Azure SQL Database was released only for preview and testing 
 | West US | General Availability (GA) | February 9th, 2015 |
 | East US | General Availability (GA) | February 9th, 2015 |
 | East US 2 | General Availability (GA) | February 9th, 2015 |
-| East Asia | Preview | February 24th, 2015 |
-| Southeast Asia | Preview | February 24th, 2015 |
-| Japan West | Preview | February 24th, 2015 |
-| Japan East | Preview | February 24th, 2015 |
+| East Asia | General Availability (GA) | February 24th, 2015 |
+| Southeast Asia | General Availability (GA) | February 24th, 2015 |
+| Japan West | General Availability (GA) | February 24th, 2015 |
+| Japan East | General Availability (GA) | February 24th, 2015 |
 | North Europe | General Availability (GA) | January 29th, 2015 |
 | West Europe | General Availability (GA) | January 29th, 2015 |
 | Brazil South | Not available | Third quarter 2015, estimated |
@@ -207,6 +207,7 @@ However, to use the tools, you must first install their latest updates to ensure
 
 
 [2. V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
+[preview in some regions]:#V12AzureSqlDbPreviewGaTable
 
 
 <!-- EndOfFile -->

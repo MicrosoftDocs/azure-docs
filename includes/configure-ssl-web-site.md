@@ -406,7 +406,7 @@ Enabling HTTPS for a custom domain is only available for the **Standard** web ho
 
 5. Click **Save**. When prompted, click **Yes**.
 
-	> [AZURE.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/en-us/support/options/).
+	> [AZURE.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/support/options/).
 
 
 ##<a name="bkmk_configuressl"></a>Configure SSL

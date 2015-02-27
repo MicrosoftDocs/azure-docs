@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage" 
-   ms.date="01/29/2015"
+   ms.date="02/26/2015"
    ms.author="tamram"/>
 
-# Designing Scalable and Performant Tables with Azure Storage
+# Azure Storage Table Design Guide: Designing Scalable and Performant Tables
 
 ## Overview
 
-## Introduction to table design  
 To design scalable and performant tables you must consider a number of factors such as performance, scalability, and cost. If you have previously designed schemas for relational databases, these considerations will be familiar to you, but while there are some similarities between the Azure Table service storage model and relational models, there are also many important differences. These differences typically lead to very different designs that may look counter-intuitive or wrong to someone familiar with relational databases, but which do make good sense if you are designing for a NoSQL key/value store such as the Azure Table service. Many of your design differences will reflect the fact that the Table service is designed to support cloud-scale applications that can contain billions of entities (rows in relation database terminology) of data or for datasets that must support very high transaction volumes: therefore, you need to think differently about how you store your data and understand how the Table service works. A well designed NoSQL data store can enable your solution to scale much further (and at a lower cost) than a solution that uses a relational database. This guide helps you with these topics.  
 
-## Azure Table service overview  
+## About the Azure Table service
+
 This section highlights some of the key features of the Table service that are especially relevant to designing for performance and scalability. If you are new to Azure Storage and the Table service, first read [Introduction to Microsoft Azure Storage](../storage-introduction/) and [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/) before reading the remainder of this article. Although the focus of this guide is on the Table service, it will include some discussion of the Azure Queue and Blob services, and how you might use them along with the Table service in a solution.  
  
 What is the Table service? As you might expect from the name, the Table service uses a tabular format to store data. In the standard terminology, each row of the table represents an entity, and the columns store the various properties of that entity. Every entity has a pair of keys to uniquely identify it, and a timestamp column that the Table service uses to track when the entity was last updated (this happens automatically and you cannot manually overwrite the timestamp with an arbitrary value). The Table service uses this last modified timestamp (LMT) to manage optimistic concurrency.  
@@ -383,7 +383,7 @@ How you choose between these options, and which of the pros and cons are most si
 
 ### One-to-one relationships  
 
-Domain models may include one-to-one relationships between entities. If you need to implement a one-to-one relationship in the Table service, you must also choose how to link the two related entities when you need to retrieve them both. This link can be either implicit, based on a convention in the key values, or explicit by storing a link in the form of **PartitionKey** and **RowKey** values in each entity to its related entity. For a discussion of whether you should store the related entities in the same partition, see the section [One-to-many relationships](#one-to-many-relationships)."  
+Domain models may include one-to-one relationships between entities. If you need to implement a one-to-one relationship in the Table service, you must also choose how to link the two related entities when you need to retrieve them both. This link can be either implicit, based on a convention in the key values, or explicit by storing a link in the form of **PartitionKey** and **RowKey** values in each entity to its related entity. For a discussion of whether you should store the related entities in the same partition, see the section [One-to-many relationships](#one-to-many-relationships).  
 
 Note that there are also implementation considerations that might lead you to implement one-to-one relationships in the Table service:  
 
@@ -450,7 +450,7 @@ Consider the following points when deciding how to implement this pattern:
 
 -	Table storage is relatively cheap to use so the cost overhead of storing duplicate data should not be a major concern. However, you should always evaluate the cost of your design based on your anticipated storage requirements and only add duplicate entities to support the queries your client application will execute.  
 -	Because the secondary index entities are stored in the same partition as the original entities, you should ensure that you do not exceed the scalability targets for an individual partition.  
--	You can keep your duplicate entities consistent with each other by using EGTs to update the two copies of the entity atomically. This implies that you should store all copies of an entity in the same partition. For more information, see the section [Using Entity Group Transactions](#entity-group-transactions)."  
+-	You can keep your duplicate entities consistent with each other by using EGTs to update the two copies of the entity atomically. This implies that you should store all copies of an entity in the same partition. For more information, see the section [Using Entity Group Transactions](#entity-group-transactions).  
 -	The value used for the **RowKey** must be unique for each entity. Consider using compound key values.  
 -	Padding numeric values in the **RowKey** (for example, the employee id 000223), enables correct sorting and filtering based on upper and lower bounds.  
 -	You do not necessarily need to duplicate all the properties of your entity. For example, if the queries that lookup the entities using the email address in the **RowKey** never need the employee’s age, these entities could have the following structure:
@@ -1336,7 +1336,7 @@ Note that each entity must still have **PartitionKey**, **RowKey**, and **Timest
 
 The first option, prepending the entity type to the **RowKey**, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
  
-The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](#inheritance-relationships) earlier in this guide in the section [Modelling relationships](#modelling-relationships)."  
+The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](#inheritance-relationships) earlier in this guide in the section [Modelling relationships](#modelling-relationships).  
 
 >[AZURE.NOTE] You should consider including a version number in the entity type value to enable client applications to evolve POCO objects and work with different versions.  
 
@@ -1346,7 +1346,7 @@ The remainder of this section describes some of the features in the Storage Clie
 
 If you are using the Storage Client Library, you have three options for working with multiple entity types.  
 
-If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Retrieving a single entity using the Storage Client Library](#retrieving-a-single-entity-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq)."  
+If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Retrieving a single entity using the Storage Client Library](#retrieving-a-single-entity-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
 
 The second option is to use the **DynamicTableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **DynamicTableEntity** instances. It then uses the **EventType** property to determine the type of each entity:  
 

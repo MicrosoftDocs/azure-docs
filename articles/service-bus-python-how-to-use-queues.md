@@ -153,4 +153,4 @@ links to learn more.
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Python Azure package]: https://pypi.python.org/pypi/azure  
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

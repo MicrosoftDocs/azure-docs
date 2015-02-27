@@ -50,9 +50,9 @@ Connect to the fully qualified domain name (FQDN) of your HDInsight cluster usin
 
 Windows does not provide a built-in SSH client. We recommend using **Putty**, which can be downloaded from <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
-For more information on using Putty, see the **Use Putty to Connect to a Linux Machine** section of <a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>.
+For more information on using Putty, see the **Use Putty to Connect to a Linux Machine** section of <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>.
 
-> [AZURE.NOTE] If you used a certificate for SSH authentication for the HDInsight cluster, you will also need to see the **Create a PPK for Putty** section of <a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>
+> [AZURE.NOTE] If you used a certificate for SSH authentication for the HDInsight cluster, you will also need to see the **Create a PPK for Putty** section of <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>
 
 ##<a id="pig"></a>Use the Pig command
 

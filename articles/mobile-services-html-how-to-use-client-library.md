@@ -587,30 +587,30 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-html
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Getting Started with Data]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
+[Getting Started with Data]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-html/
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
 [Get started with authentication Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
-[Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
-[how to handle errors in promises]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700337.aspx
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[Learn more about the  differences between then and done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[how to handle errors in promises]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx
-[Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx
-[Windows Store JavaScript quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started
-[HTML quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html
-[Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
-[Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Windows Store JavaScript quickstart]: http://www.windowsazure.com/develop/mobile/tutorials/get-started
+[HTML quickstart]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-html
+[Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-js
+[Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-html/
+[You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-html
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
+[login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
 [Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502

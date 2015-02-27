@@ -164,7 +164,7 @@ Notes about the decision tree:
 </td>
 <td><ul>
 <li><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></li>
-<li><a href="http://msdn.microsoft.com/en-us/library/azure/ee730904.aspx">SQL Database Migration Tools</a></li>
+<li><a href="http://msdn.microsoft.com/library/azure/ee730904.aspx">SQL Database Migration Tools</a></li>
 </ul>
 </td>
 <td><p><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></p>
@@ -197,7 +197,7 @@ Notes about the decision tree:
 </td>
 <td><p>N/A</p>
 </td>
-<td><p><a href="http://msdn.microsoft.com/en-us/library/azure/hh456371.aspx">SQL Data Sync</a></p>
+<td><p><a href="http://msdn.microsoft.com/library/azure/hh456371.aspx">SQL Data Sync</a></p>
 </td>
 <td><p>SQL Data Sync (preview) synchronizes your data by sync groups which define the databases, tables and columns to synchronize as well as the synchronization schedule.</p>
 </td>
@@ -256,15 +256,15 @@ Notes about the decision tree:
 [pipelines]: ../data-factory-use-onpremises-datasources/
 [copy]: ../data-factory-copy-activity/
 [intro]: ../data-factory-introduction/
-[sql-import]: http://msdn.microsoft.com/en-us/library/azure/hh335292.aspx
-[sql-copy]: http://msdn.microsoft.com/en-us/library/azure/ff951624.aspx
-[integrate]: http://msdn.microsoft.com/en-us/library/azure/jj156150.aspx
-[SSIS]: http://msdn.microsoft.com/en-us/library/jj901708.aspx
-[wizard]: http://msdn.microsoft.com/en-us/library/azure/jj156152.aspx
-[use-wizard]: http://msdn.microsoft.com/en-us/library/azure/jj156144.aspx
-[bcp]: http://msdn.microsoft.com/en-us/library/azure/jj156153.aspx
-[migrate]: http://msdn.microsoft.com/en-us/library/azure/ee730904.aspx
-[overview]: http://msdn.microsoft.com/en-us/library/dn836025.aspx
+[sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
+[sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx
+[integrate]: http://msdn.microsoft.com/library/azure/jj156150.aspx
+[SSIS]: http://msdn.microsoft.com/library/jj901708.aspx
+[wizard]: http://msdn.microsoft.com/library/azure/jj156152.aspx
+[use-wizard]: http://msdn.microsoft.com/library/azure/jj156144.aspx
+[bcp]: http://msdn.microsoft.com/library/azure/jj156153.aspx
+[migrate]: http://msdn.microsoft.com/library/azure/ee730904.aspx
+[overview]: http://msdn.microsoft.com/library/dn836025.aspx
 [stream]: ../stream-analytics-introduction/
-[sync]: http://msdn.microsoft.com/en-us/library/azure/hh456371.aspx
+[sync]: http://msdn.microsoft.com/library/azure/hh456371.aspx
 [hybrid]: ../integration-hybrid-connection-overview/

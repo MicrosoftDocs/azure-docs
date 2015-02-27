@@ -331,7 +331,7 @@ Once you have completed the data series, you can also try one of the following W
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Azure Account]: http://www.windowsazure.com/pricing/free-trial/
 [Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
 [Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started

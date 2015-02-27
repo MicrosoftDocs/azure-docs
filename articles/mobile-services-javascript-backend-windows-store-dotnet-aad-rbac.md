@@ -281,6 +281,6 @@ The following steps demonstrate how to deploy role based access control using sc
 [Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
 [Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Graph API Error Reference]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
-[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+[Graph API Error Reference]: http://msdn.microsoft.com/library/azure/hh974480.aspx
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Accessing Azure Active Directory Graph Information]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/
