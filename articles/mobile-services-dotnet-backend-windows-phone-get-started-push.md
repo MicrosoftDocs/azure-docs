@@ -142,7 +142,7 @@ Before your app can receive push notifications, you must register a notification
 
    	![][4]
 
-	>[AZURE.NOTE]This tutorial uses MPNS in unauthenticated mode. In this mode, MPNS limits the number of notifications that can be sent to a device channel. To remove this restriction, you must generate and upload a certificate by clicking <strong>Upload</strong> and selecting the certificate. For more information on generating the certificate, see <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">Setting up an authenticated web service to send push notifications for Windows Phone</a>.
+	>[AZURE.NOTE]This tutorial uses MPNS in unauthenticated mode. In this mode, MPNS limits the number of notifications that can be sent to a device channel. To remove this restriction, you must generate and upload a certificate by clicking <strong>Upload</strong> and selecting the certificate. For more information on generating the certificate, see <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Setting up an authenticated web service to send push notifications for Windows Phone</a>.
 
 This enables the mobile service to connect to MPNS in unauthenticated mode to send push notifications.
 
@@ -221,5 +221,5 @@ Consider finding out more about the following Mobile Services and Notification H
 
 
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
-[Windows Phone Silverlight 8.1 apps]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Windows Phone Silverlight 8.1 apps]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Azure Management Portal]: https://manage.windowsazure.com/

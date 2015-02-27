@@ -30,8 +30,8 @@ This article demonstrates how to use the Azure Stream Analytics Management .NET 
 Before you begin this article, you must have the following:
 
 - Visual Studio 2012 or 2013.
-- Download and install [Azure .NET SDK](http://azure.microsoft.com/en-us/downloads/). 
-- Create an Azure Resource Group in your subscription. The following is a sample PowerShell script. For PowerShell information, see [Install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/);  
+- Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/). 
+- Create an Azure Resource Group in your subscription. The following is a sample PowerShell script. For PowerShell information, see [Install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/);  
 
 		# Configure the PowerShell session to access the Azure resource manager.
 		Switch-AzureMode AzureResourceManager
@@ -45,7 +45,7 @@ Before you begin this article, you must have the following:
 		# Create an Azure source group	
 		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
 
-4.	This article assumes you have already set up an input source and output target to use. See [Get Started Using Azure Stream Analytics](http://azure.microsoft.com/en-us/documentation/articles/stream-analytics-get-started/) to set up a sample input and/or output to be used by this article.
+4.	This article assumes you have already set up an input source and output target to use. See [Get Started Using Azure Stream Analytics](http://azure.microsoft.com/documentation/articles/stream-analytics-get-started/) to set up a sample input and/or output to be used by this article.
 
 
 ##<a name="setupproject"></a>Setup a project
@@ -270,7 +270,7 @@ Stream Analytics output target also has the TestConnection method for testing co
 
 ##<a name="createtransform"></a>How To: Create a Stream Analytics Transformation
 
-The following code creates a Stream Analytics transformation with the query “select * from Input” and specifies to allocate one streaming unit for the Stream Analytics job. For more information on adjusting streaming unit, see [Scale Azure Stream Analytics jobs](http://azure.microsoft.com/en-us/documentation/articles/stream-analytics-scale-jobs/).
+The following code creates a Stream Analytics transformation with the query “select * from Input” and specifies to allocate one streaming unit for the Stream Analytics job. For more information on adjusting streaming unit, see [Scale Azure Stream Analytics jobs](http://azure.microsoft.com/documentation/articles/stream-analytics-scale-jobs/).
 
 	// Create a Stream Analytics transformation
 	TransformationCreateOrUpdateParameters transformationCreateParameters = new TransformationCreateOrUpdateParameters()
@@ -328,11 +328,11 @@ The delete method will delete the job as well as the underlying sub-resources, i
 
 
 <!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/en-us/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 
-[azure.event.hubs]: http://azure.microsoft.com/en-us/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151

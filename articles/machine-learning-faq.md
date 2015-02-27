@@ -50,7 +50,7 @@ No, that is not supported, however custom R and Python code can be used to defin
 
 **How does Machine Learning billing work?**
 
-For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/en-us/pricing/details/machine-learning/).
+For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Does Machine Learning have a free trial?**
 
@@ -222,13 +222,13 @@ Once a predictive model has been put into production, the Azure Portal lists the
 
 **What happens if my Storage Account cannot be found?** 
 
-Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to Machine Learning Studio at the time a workspace is created. After the workspace is created, if the Storage Account is deleted and can no longer be found, that workspace will stop function and all experiments in that workspace will fail.
+Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to Machine Learning Studio at the time a workspace is created. After the workspace is created, if the Storage Account is deleted and can no longer be found, that workspace will stop functioning and all experiments in that workspace will fail.
  
 If you accidentally deleted the Storage Account, the only way to recover from it is to recreate that Storage Account with the exact same name in the exact same Region as the deleted one. After that, please re-sync the Access Key.
  
 
 **What happens if my Storage Account Access Key is out of sync?** 
-Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace. After the workspace is created, if the Access keys are changed, that workspace can no longer access the Storage Account, and it will stop function and all experiments in that workspace will fail.
+Machine Learning Studio relies on a user supplied Azure Storage Account to save intermediary data when executing the workflow. This Storage Account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace. After the workspace is created, if the Access keys are changed, that workspace can no longer access the Storage Account, and it will stop functioning and all experiments in that workspace will fail.
 
 If you have changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure portal  
 

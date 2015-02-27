@@ -63,7 +63,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 2. You can deploy a website or a cloud service (Azure Application) by following the steps in this walkthrough.
 Create a new Windows Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets the .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role.
-If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure and ASP.NET](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure and ASP.NET](http://www.windowsazure.com/documentation/articles/web-sites-dotnet-get-started/).
 
 3. Open the shortcut menu for the solution, and choose **Commit**.<br/>
 ![][7]
@@ -207,7 +207,7 @@ When you use Git, you usually make changes in a working branch and integrate int
 
 11. Navigate to the **Builds** view and find the build that just got triggered for the working branch.
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). For additional tips on using Git with Visual Studio Online, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Online to publish to Azure, see [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). For additional tips on using Git with Visual Studio Online, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Online to publish to Azure, see [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/documentation/articles/web-sites-publish-source-control).
 
 [Step 1: Create a Git repository.]: #step1
 [Step 2: Create a project and push it to your Git repository.]: #step2

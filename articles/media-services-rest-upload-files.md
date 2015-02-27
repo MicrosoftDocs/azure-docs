@@ -103,7 +103,7 @@ If successful, the following is returned:
 	
 ### Create an AssetFile
 
-The [AssetFile](http://msdn.microsoft.com/en-us/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+The [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
 Note that the **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
@@ -168,7 +168,7 @@ After you upload your digital media file into a blob container, you will use the
 
 ### Creating the AccessPolicy with write permission. 
 
-Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/en-us/library/azure/hh974297.aspx).
+Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 The following example shows how to create an AccessPolicy:
 		
@@ -215,7 +215,7 @@ The following example shows how to create an AccessPolicy:
 
 ### Get the Upload URL
 
-To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators use the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/en-us/library/azure/hh974308.aspx).
+To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators use the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 
 A SAS URL has the following format:
@@ -287,7 +287,7 @@ Once you have the AccessPolicy and Locator set, the actual file is uploaded to a
 
 >[AZURE.NOTE] You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/en-us/library/azure/dd135733.aspx).
+For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
 ### Update the AssetFile 

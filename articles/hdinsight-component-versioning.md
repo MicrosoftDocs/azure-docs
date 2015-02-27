@@ -47,7 +47,7 @@ The component versions associated with HDInsight cluster versions may change in 
 
 **Release notes**	
 
-See [HDInsight Release Notes](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/) for additional release notes on the latest versions of HDInsight.
+See [HDInsight Release Notes](http://azure.microsoft.com/documentation/articles/hdinsight-release-notes/) for additional release notes on the latest versions of HDInsight.
 
 ### Select a version when provisioning an HDInsight cluster
 
@@ -95,7 +95,7 @@ Some of the salient features of the HDInsight platform include:
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their support expiration and deprecation dates will also be provided. Please note  the following:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.
-* Once the support has expired for a particular version, it may not be available through the Azure management portal. The following table indicates which versions are available on the Azure management portal. Cluster versions will continue to be available using the `Version` parameter in the PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/en-us/library/dn593744.aspx) command  and the .NET SDK until its deprecation date. 
+* Once the support has expired for a particular version, it may not be available through the Azure management portal. The following table indicates which versions are available on the Azure management portal. Cluster versions will continue to be available using the `Version` parameter in the PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) command  and the .NET SDK until its deprecation date. 
 
 <table border="1">
 <tr><th>HDInsight Version</th><th>HDP Version</a><th>High Availability</th></th><th>Release Date</th><th>Available on Azure Management Portal</th><th>Support Expiration Date</th><th>Deprecation Date</th></tr>
@@ -119,7 +119,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 The **Deprecation Date** is the date after which the cluster version can not be created on HDInsight.
 
-> [AZURE.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation) which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
+> [AZURE.NOTE] Both HDInsight 2.1 and 3.0 cluster run on Azure Guest OS [Family 4](http://msdn.microsoft.com/library/azure/ee924680.aspx#explanation) which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5. and 4.5.1. 
 
 ## Hortonworks release notes associated with HDInsight versions##
 
@@ -139,7 +139,7 @@ The **Deprecation Date** is the date after which the cluster version can not be 
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/en-us/support/forums/
+[wa-forums]: http://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 

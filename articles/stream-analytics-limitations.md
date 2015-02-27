@@ -145,7 +145,7 @@ Stream Analytics does not trim whitespace on column headers. Including whitespac
 
 
 [microsoft.support]: http://support.microsoft.com/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/

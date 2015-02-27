@@ -270,11 +270,11 @@ following resources to learn more about SQL Database.
   [Azure Free Trial]: {localLink:2187} "Free Trial"
   [Azure Management Portal]: http://manage.windowsazure.com
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
-  [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
+  [Management Portal for SQL Database]: http://msdn.microsoft.com/library/windowsazure/gg442309.aspx
   [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621784.aspx
+  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621784.aspx
   [How to Create a SQL Database on Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Service Level Agreement]: {localLink:1132} "SLA"
-  [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/en-us/library/bb738561.aspx
-  [Development: How-to Topics (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx
-  [SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+  [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/library/bb738561.aspx
+  [Development: How-to Topics (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621787.aspx
+  [SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336279.aspx

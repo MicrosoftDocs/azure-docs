@@ -90,5 +90,5 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Authenticating Azure Resource Manager requests]: http://msdn.microsoft.com/en-us/library/dn790557.aspx
-[Azure API Management REST API]: http://msdn.microsoft.com/en-us/library/azure/dn781421.aspx
+[Authenticating Azure Resource Manager requests]: http://msdn.microsoft.com/library/dn790557.aspx
+[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx

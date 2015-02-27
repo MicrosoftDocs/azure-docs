@@ -209,9 +209,9 @@ The following **CreateChainedTaskEncodingJob** method creates a job that contain
 Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](../media-services-check-job-progress/) topic.
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/en-us/library/dn619392.aspx
+[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
 [How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
 [How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
 [How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [How to Check Job Progress]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx
+[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx

@@ -1,12 +1,20 @@
-<properties title="" pageTitle="Debug your Model in Azure Machine Learning | Azure" 
-description="Explains how to How to debug your Model in Azure Machine Learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="Debug your Model in Azure Machine Learning | Azure" 
+	description="Explains how to How to debug your Model in Azure Machine Learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/13/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="bradsev" />
 
 # Debug your Model in Azure Machine Learning
 
