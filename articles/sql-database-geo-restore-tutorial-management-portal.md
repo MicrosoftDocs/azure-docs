@@ -19,8 +19,8 @@
 # Recover an Azure SQL database using Geo-Restore in the Azure portal
 
 > [AZURE.SELECTOR]
-- [Geo-Restore - PowerShell](/en-us/documentation/articles/sql-database-geo-restore-tutorial-powershell/)
-- [Geo-Restore - REST API](/en-us/documentation/articles/sql-database-geo-restore-tutorial-rest/)   
+- [Geo-Restore - PowerShell](./documentation/articles/sql-database-geo-restore-tutorial-powershell.md/)
+- [Geo-Restore - REST API](./documentation/articles/sql-database-geo-restore-tutorial-rest.md/)   
 
 ## Overview
 
