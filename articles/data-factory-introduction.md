@@ -70,6 +70,15 @@ Once data is in a **hub**, **pipelines** hosted by the compute services of the h
   
 Finally, **pipelines** can be chained (as shown in the diagram) such that the output **dataset(s)** of one are the input(s) of another.  This allows complex data flows to be factored into **pipelines** that run within a data hub or span multiple hubs.  Using **pipelines** in this way provides organizations the building blocks to compose the best of breed on-premises, cloud and Software-as-a-Service (SaaS) services all through the lens of a single, easily managed data factory. 
 
+## Authoring experience
+
+You can author/create data factories using one of the following:
+
+- **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
+- **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an example of using PowerShell cmdles to create ad deploy a data factory. 
+- **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. 
+- **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. 
+
 
 ##Terminology
 This section introduces you to the terminology related to Azure Data Factory.
