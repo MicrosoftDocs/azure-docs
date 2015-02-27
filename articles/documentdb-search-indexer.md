@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Working with the Azure Search indexer for Azure DocumentDB" 
-    description="This article shows you how to use to Azure Search Indexer with DocumentDB as a datasource."
+    pageTitle="Working with Azure Search's indexer for Azure DocumentDB" 
+    description="This article shows you how to use to Azure Search indexer with DocumentDB as a datasource."
     services="documentdb" 
     documentationCenter="" 
     authors="aliuy" 
@@ -16,17 +16,15 @@
     ms.date="02/25/2015" 
     ms.author="andrl"/>
 
-#Working with the Azure Search indexer for Azure DocumentDB
+#Working with Azure Search's indexer for DocumentDB
 
-##<a id="Overview"></a>Overview
+If you're looking to implement great search experiences over your DocumentDB data, use Azure Search's indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
 
-If you're looking to implement great search experiences over your DocumentDB data, use the Azure Search Indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code or maintain any indexing infrastructure!
+To set this up, you have to [setup an Azure Search account](/documentation/articles/search-get-started/#start-with-the-free-service) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
 
-To set this up, you have to [setup an Azure Search account](/documentation/articles/search-get-started/#start-with-the-free-service), and then call the Azure Search REST API to create a DocumentDB **data source** and an **indexer** for that data source. In the future, this functionality will be available in Azure management portal and in the Azure Search client SDKs. 
+##<a id="Concepts"></a>Azure Search indexer concepts
 
-##<a id="Concepts"></a>Azure Search Indexer concepts
-
-The Azure Search Indexer supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
+Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
 
 A **data source** specifies what data needs to be indexed, credentials to access the data, and policies to enable Azure Search to efficiently identify changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
 
@@ -36,15 +34,15 @@ An **indexer** describes how the data flows from your data source into a target 
 - Sync an index with changes in the data source on a schedule. The schedule is part of the indexer definition.
 - Invoke on-demand updates to an index as needed. 
 
-##<a id="CreateDataSource"></a>Step 1: Create a Data Source
+##<a id="CreateDataSource"></a>Step 1: Create a data source
 
-Create a new data source in your Azure Search service by issuing an HTTP POST request with the following headers (replacing the api-key with the admin key to your Search service).
+Issue a HTTP POST request to create a new data source in your Azure Search service, including the following request headers.
     
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
-The `api-version` is required. Valid values include `2014-10-20-Preview` or a later version.
+The `api-version` is required. Valid values include `2015-02-28` or a later version.
 
 The body of the request contains the data source definition, which should include the following fields:
 
@@ -62,11 +60,11 @@ The body of the request contains the data source definition, which should includ
 
     - **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
 
-- **dataChangeDetectionPolicy**: Optional. See Data Change Detection Policy below.
+- **dataChangeDetectionPolicy**: Optional. See [Data Change Detection Policy](#DataChangeDetectionPolicy) below.
 
-- **dataDeletionDetectionPolicy**: Optional. See Data Deletion Detection Policy below.
+- **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) below.
 
-###<a id="DataChangeDetectionPolicy"></a>Capturing Changed Documents
+###<a id="DataChangeDetectionPolicy"></a>Capturing changed documents
 
 The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` last-modified timestamp property provided by DocumentDB - which is specified as follows:
 
@@ -75,12 +73,12 @@ The purpose of a data change detection policy is to efficiently identify changed
         "highWaterMarkColumnName" : "_ts" 
     } 
 
-You will also need to add `_ts` in the projection and where clause for your query. For example:
+You will also need to add `_ts` in the projection and `WHERE` clause for your query. For example:
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
 
 
-###<a id="DataDeletionDetectionPolicy"></a>Capturing Deleted Documents
+###<a id="DataDeletionDetectionPolicy"></a>Capturing deleted documents
 
 When rows are deleted from the source table, you should delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
 
@@ -90,9 +88,9 @@ When rows are deleted from the source table, you should delete those rows from t
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-**Note:** You will need to include the property in your SELECT clause if you are using a custom projection.
+> [AZURE.NOTE] You will need to include the property in your SELECT clause if you are using a custom projection.
 
-###<a id="CreateDataSourceExample"></a>Request Body Example
+###<a id="CreateDataSourceExample"></a>Request body example
 
 The following example creates a data source with a custom query and policy hints:
 
@@ -119,11 +117,11 @@ The following example creates a data source with a custom query and policy hints
 
 ###Response
 
-You will see a HTTP 201 Created response returned if the data source was successfully created.
+You will receive an HTTP 201 Created response if the data source was successfully created.
 
-##<a id="CreateIndex"></a>Step 2: Create an Index
+##<a id="CreateIndex"></a>Step 2: Create an index
 
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](/documentation/articles/search-get-started/#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -169,7 +167,7 @@ Ensure that the schema of your target index is compatible with the schema of the
     </tr>
 </table>
 
-###<a id="CreateIndexExample"></a>Request Body Example
+###<a id="CreateIndexExample"></a>Request body example
 
 The following example creates an index with an id and description field:
 
@@ -190,9 +188,13 @@ The following example creates an index with an id and description field:
        }]
      }
 
-##<a id="CreateIndexer"></a>Step 3: Create an Indexer
+###Response
 
-You can create a new indexer within an Azure Search service using an HTTP POST request with the following headers.
+You will receive an HTTP 201 Created response if the index was successfully created.
+
+##<a id="CreateIndexer"></a>Step 3: Create an indexer
+
+You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.
     
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -206,17 +208,17 @@ The body of the request contains the indexer definition, which should include th
 
 - **targetIndexName**: Required. The name of an existing index.
 
-- **schedule**: Optional. See Indexing Schedule below.
+- **schedule**: Optional. See [Indexing Schedule](#IndexingSchedule) below.
 
-###<a id="IndexingSchedule"></a>Running Indexers on a Schedule
+###<a id="IndexingSchedule"></a>Running indexers on a schedule
 
 An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
 
 - **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P[nD][T[nH][nM]]`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
 
-- **startTime**: Required. An UTC datetime when the indexer should start running. 
+- **startTime**: Required. An UTC datetime that specifies when the indexer should start running. 
 
-###<a id="CreateIndexerExample"></a>Request Body Example
+###<a id="CreateIndexerExample"></a>Request body example
 
 The following example creates an indexer that copies data from the collection referenced by the `myDocDbDataSource` data source to the `mySearchIndex` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.
 
@@ -229,9 +231,9 @@ The following example creates an indexer that copies data from the collection re
 
 ###Response
 
-You will see a HTTP 201 Created response returned if the indexer was successfully created.
+You will receive an HTTP 201 Created response if the indexer was successfully created.
 
-##<a id="RunIndexer"></a>Step 4: Run an Indexer
+##<a id="RunIndexer"></a>Step 4: Run an indexer
 
 In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing the following HTTP POST request: 
 
@@ -240,9 +242,9 @@ In addition to running periodically on a schedule, an indexer can also be invoke
 
 ###Response
 
-You will see a HTTP 202 Accepted response returned if the indexer was successfully invoked.
+You will receive an HTTP 202 Accepted response if the indexer was successfully invoked.
 
-##<a name="GetIndexerStatus"></a>Step 5: Get Indexer Status
+##<a name="GetIndexerStatus"></a>Step 5: Get indexer status
 
 You can issue a HTTP GET request to retrieve the current status and execution history of an indexer: 
 
@@ -283,9 +285,9 @@ The response should look similar to the following:
 
 Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
 
-##<a name="NextSteps"></a>Next Steps
+##<a name="NextSteps"></a>Next steps
 
-Congratulations! You have just learned how to integrate Azure DocumentDB with Azure Search using the Search indexer for DocumentDB.
+Congratulations! You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
 
  - To learn how more about Azure DocumentDB, click [here](/services/documentdb/).
 
