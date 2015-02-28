@@ -24,7 +24,16 @@ Install and extend the Samples **owner: Vas**
 ## Work with Applications and Services- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections.
 
 ### Develop a Service owner: Vas
+
+How to Choose a Programming Model- need decision making info here
+
 DPE tutorials- stateless, stateful, ASP.NET 
+
+Create Windows Fabric Stateless applications 
+
+Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#)
+
+Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
 
 Communicate with a Service
 
@@ -38,13 +47,32 @@ more advanced configuration stuff
 
 ### Package and Deploy an Application P2 owner: Vas
 Package and deploy using VS. Explain VS template.
+
 Package and deploy using Cmdlets
+
+How to Create an Application Instance (PowerShell)
+
+How to Create a Service Instance (PowerShell)
 
 More advanced conceptual topics, this handled by VS
 
 ### Test a Service owner: Vas
+How To Remove a Service and Application (PowerShell)
+
+How to Run the Failover Test Scenario (PowerShell)
+
+How to Run the Chaos Test Scenario
+
+How to Run the Chaos Test Scenario (PowerShell)
 
 ### Upgrade an Application owner: Vas
+How to Perform an Un-monitored Automatic Application Upgrade
+
+How to Perform a Monitored Automatic Application Upgrade
+
+How to Perform an Un-monitored Manual Application Upgrade
+
+How to Upgrade an Application (PowerShell)
 
 ### Scale Services and Partitions owner: Vas
 
@@ -55,30 +83,32 @@ More advanced conceptual topics, this handled by VS
 ### Add/Remove Services from Applications P2 owner: Vas
  
 ### Remove an Application owner: Vas
-Remove using VS
-Remove using PS
+How to Remove an Application in Visual Studio
 
-## Work with Clusters- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections.
+How to Remove an Application
 
-### Plan for Capacity owner: chacko
+How To Remove a Service and Application (PowerShell)
 
-### Choose a Security Model for a Cluster and Clients owner: mark
+## Work with Clusters- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections. (Phosphorus)
+
+### Plan for Capacity owner: chacko (phosphorus)
+
+### Choose a Security Model for a Cluster and Clients owner: mark (phosphorus)
+
+### Create/configure a cluster ARM document (phosphorus)
+Create from template
  
-### Create a Cluster Manifest (need for Build?) owner: chacko
+### Deploy a Cluster (Phosphorus) owner: chacko
 
-### Validate a Cluster Manifest (need for Build?) owner: chacko
+### Upgrade and Scale a Cluster (Phosphorus) owner: chacko
 
-### Deploy a Cluster owner: chacko
+### Upgrade a Certificate (Phosphorus) owner: mark
 
-### Upgrade and Scale a Cluster owner: chacko
-
-### Upgrade a Certificate owner: mark
-
-### Diagnose and Troubleshoot a Cluster owner: kunal
+### Diagnose and Troubleshoot a Cluster (Phosphorus) owner: kunal
  
-### Query and Evaluate Cluster Health owner: kunal
+### Query and Evaluate Cluster Health (Phosphorus) owner: kunal
 
-### Decommission a Cluster owner: chacko
+### Delete a Cluster (Phosphorus) owner: chacko
 
 ## Reference
 ### Managed Reference
@@ -86,9 +116,9 @@ Remove using PS
 ### REST Reference
 ### Application Manifest Schema and Settings P2
 ### Service Manifest Schema and Settings P2
-### Cluster Manifest Schema and Settings (need for Build?)
+### Cluster Manifest Schema and Settings (Phosphorus)
 
-## Further Reading- link back to Work with... topics
+## Further Reading- Deep conceptual content, link back to Work with... topics
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
 ### Cluster
@@ -144,4 +174,7 @@ Replica Role and State Lifetime
  Epochs, LSNs, and Progress Vectors
 
 ### Service Host Activation and Deactivation
+
+### FabricExplorer
+
 ### Glossary
