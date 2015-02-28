@@ -3,7 +3,7 @@
 	description="Learn how to enable logging for Machine Learning web services." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="raymondlag" 
+	authors="raymondlaghaeian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
