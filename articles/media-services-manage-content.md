@@ -56,7 +56,7 @@ If the file size value does not get updated after the uploading process stops, p
 
 ##<a id="index"></a>How to: Index content
 
-Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783455.aspx).
+Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](../media-services-index-content/).
 
 To following steps demonstrate how to use the Management Portal to index your content.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="02/26/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -337,7 +337,11 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
 ## Advanced scenarios
-See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article. 
+- **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.
+- **Transformation rules - Column mapping**. Column mapping can be used to specify how columns in source table map to columns in the sink table.
+- **Invoke stored procedure for SQL Sink**. When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked.
+
+See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article for details on these scenarios. 
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.

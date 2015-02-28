@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="02/17/2015"
+  ms.date="02/28/2015"
   ms.author="rasquill"/>
 
 
@@ -164,14 +164,14 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 4. [Azure Service Management SDK: Java](http://dl.windowsazure.com/javadoc/)
 5. [Azure Service Management SDK: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
 5. [Azure Service Management SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
-- [How to: Install Ruby on Rails](http://azure.microsoft.com/documentation/articles/virtual-machines-ruby-rails-web-app-linux/)
-- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+    - [How to: Install Ruby on Rails](http://azure.microsoft.com/documentation/articles/virtual-machines-ruby-rails-web-app-linux/)
+    - [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
 6. [Azure Service Management SDK: Python](https://github.com/Azure/azure-sdk-for-python)
-- [How to: Django Hello World Web Application (Mac-Linux)](http://azure.microsoft.com/documentation/articles/virtual-machines-python-django-web-app-linux/)
+    - [How to: Django Hello World Web Application (Mac-Linux)](http://azure.microsoft.com/documentation/articles/virtual-machines-python-django-web-app-linux/)
 7. [Azure Service Management SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
 8. [Azure Service Management SDK: PHP](https://github.com/MSOpenTech/azure-sdk-for-php)
-- [How to: Install the LAMP Stack on an Azure VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-install-lamp-stack/)
-- [Video: Install a LAMP Stack on an Azure VM](http://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)
+    - [How to: Install the LAMP Stack on an Azure VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-install-lamp-stack/)
+    - [Video: Install a LAMP Stack on an Azure VM](http://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)
 9. [Azure Service Management SDK: .NET](https://github.com/Azure/azure-sdk-for-net)
 10. [Blog: Mono, ASP.NET 5, Linux, and Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 
@@ -197,17 +197,17 @@ This section contains information about several different storage approaches and
 
 1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
 2. Couchdb
-- [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
-- [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
+    - [Slideshare (MSOpenTech): Experiences with CouchDb on Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
+    - [Blog: Running CouchDB-as-a-Service with node.js, CORS, and Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
 3. MongoDB
-- [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
+    - [How to: Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](http://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/)
 4. Cassandra
-- [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
+    - [How to: Running Cassandra with Linux on Azure and Accessing it from Node.js](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-nodejs-running-cassandra/)
 5. Redis
-- [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
-- [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
+    - [Blog: Redis on Windows in the Azure Redis Cache Service](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
+    - [Blog: Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
 6. RavenHQ
-- [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
+    - [Blog: RavenHQ Now Available in the Azure Marketplace](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
 
 ### Big Data
 2. Hadoop/Cloudera  
@@ -217,17 +217,17 @@ This section contains information about several different storage approaches and
 
 ### Relational Data
 2. MySQL
-- [How to: Install and Run MySQL](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
-- [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
-- [How to: MySQL Clusters](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/)
-- [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/documentation/articles/store-php-create-mysql-database/)
-- [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/documentation/articles/web-sites-python-ptvs-django-mysql/)
-- [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/)
+    - [How to: Install and Run MySQL](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-use-opensuse/)
+    - [How to: Optimize Performance of MySQL on Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/)
+    - [How to: MySQL Clusters](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/)
+    - [How to: Create a MySQL Database using the Marketplace](http://azure.microsoft.com/documentation/articles/store-php-create-mysql-database/)
+    - [How to: Django and MySQL on Azure Websites with Python and Visual Studio](http://azure.microsoft.com/documentation/articles/web-sites-python-ptvs-django-mysql/)
+    - [How to: PHP and MySQL on Azure Websites with WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/)
 7. MariaDB
-- [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/documentation/articles/virtual-machines-mariadb-cluster/)
+    - [How to: Create a Multi-Master cluster of MariaDbs](http://azure.microsoft.com/documentation/articles/virtual-machines-mariadb-cluster/)
 7. PostgreSQL
-- [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
-8. Installing Postgres with corosync, pg_bouncer using ILB  (https://github.com/chgeuer/postgres-azure) 
+    - [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](http://azure.microsoft.com/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)
+8. [Installing Postgres with corosync, pg_bouncer using ILB](https://github.com/chgeuer/postgres-azure) 
 
 
 ## <a id='security'>Auth and Encryption</a>
@@ -248,6 +248,9 @@ This section starts with a blog entry containing a series of videos on [Video: A
 	- [Using the Docker VM Extension from the Azure Cross-Platform Command-line Interface (xplat-cli)](http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/)
 	- [Using the Docker VM Extension from the Azure Preview Portal](http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/)
 	- [Getting Started Quickly with Docker in the Azure Marketplace](http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/)
+	- [How to use docker-machine on Azure]
+	- [How to use docker with swarm on Azure]
+	
 2. [Fleet with CoreOS](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-coreos-how-to/)
 3. Deis
 	- [GitHub repo:
@@ -276,7 +279,6 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
 1. Microsoft support documentation
 	- [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
-
 <!--Anchors-->
 [Distros]: #distros
 [The Basics]: #basics
@@ -286,3 +288,7 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
 [Auth and Encryption]: #security
 [Devops, Management, and Optimization]: #devops
 [Support, Troubleshooting, and "It Just Doesn't Work"]: #supportdebug
+
+<!--Link references--In actual articles, you only need a single period before the slash.>
+[How to use docker-machine with Azure]: ../virtual-machines-docker-machine/
+[How to use docker with swarm on Azure]: ../virtual-machines-docker-swarm/

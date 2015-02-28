@@ -24,12 +24,21 @@ This article is part of the [Media Services Video on Demand workflow](../media-s
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch. You can also index files that are publicly available on the Internet by specifying URLs of the files in the manifest file.
 
 >[AZURE.NOTE] When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
->
-An indexing job generates SAMI and TTML output files (among other files).  Both SAMI and TTML include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+
+
+An indexing job generates four outputs to every indexing file:
+
+- Closed caption file in SAMI format.
+- Closed caption file in Timed Text Markup Language (TTML) format.
+
+	Both SAMI and TTML include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+- Keyword file (XML).
+- Audio indexing blob file (AIB) for use with SQL server.
+	
+	For more information, see [Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+
 
 This topic shows how to create indexing jobs to **Index an asset**, **Index multiple files**, and **files publicly available on the Internet**.
-
-For supported languages, see the **Supported Languages** section .
 
 For the latest Azure Media Indexer updates, see [Media Services blogs](http://azure.microsoft.com/blog/topics/media-services/).
 
@@ -395,9 +404,13 @@ No audio stream in input media.</td></tr>
 </table>
 
 
-##Supported Languages
+##<a id="supported_languages"></a>Supported Languages
 
 Currently, only the English language is supported.
+
+##Related links
+
+[Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 

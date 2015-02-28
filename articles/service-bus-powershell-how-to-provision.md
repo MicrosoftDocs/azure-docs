@@ -3,8 +3,8 @@
 	description="Manage Service Bus with PowerShell scripts instead of .NET"
 	services="service-bus"
 	documentationCenter=".net"
-	authors="bennage"
-	manager="masimms"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
