@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Application Scenarios" 
    description="Categories of applications and services" 
-   services="" 
+   services="winfab" 
    documentationCenter=".net" 
-   authors="rwike77" 
+   authors="msfussell" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="required"
+   ms.service="winfab"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
    ms.date="02/18/2015"
-   ms.author="ryanwi"/>
+   ms.author="mfussell"/>
 
 # Application Scenarios 
 

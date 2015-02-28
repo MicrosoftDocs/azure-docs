@@ -77,8 +77,18 @@ How to Upgrade an Application (PowerShell)
 ### Scale Services and Partitions owner: Vas
 
 ### Diagnose and Troubleshoot an Application owner: Kunal
+How to write application and system events as ETW
+
+How to configure WAD to collect logs and crash dumps
+
+How to view events in VS during one-box development
+
+How to configure Application Insights in VS for perf monitoring and telemetry
+
  
 ### Query and Evaluate Application, Service, Partition, Replica Health owner: Kunal
+
+How to Query Health State and Events (PowerShell)
 
 ### Add/Remove Services from Applications P2 owner: Vas
  
@@ -128,6 +138,14 @@ Create from template
 ### Health Model
 ### Names and Properties/Naming Service
 ### Image Store
+### Monitoring and Diagnostics
+### Programming Models
+ Actor Model
+
+ Distributed Collections
+
+ State and Replica Management APIs
+
 ### System Services 
 Failover Manager Service
 
@@ -144,14 +162,6 @@ Naming Service
  Node-to-Node Security
 
  Client-to-Node Security
-
-### Monitoring and Diagnostics
-### Programming Models
- Actor Model
-
- Distributed Collections
-
- State and Replica Management APIs
 
 ### Resource Balancing a Cluster
 Balancing Strategies
