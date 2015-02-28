@@ -22,7 +22,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## February Guest OS
 
-| Bulletin ID | Parent KB Article   | Vlnerability Description                                                    | Guest OS         | Date First Introduced |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-009    | [3034682][3034682] | Security Update for Internet Explorer                                                   | 4.17, 3.24, 2.36 | N/A |
 | MS15-010    | [3036220][3036220] | Vulnerabilities in Windows Kernel Mode Drivers Could Allow Remote Code Execution        | 4.17, 3.24, 2.36 | N/A |
@@ -35,26 +35,26 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## January Guest OS
 
-| Bulletin ID | Parent KB Article   | Vlnerability Description                                                    | Guest OS         | Date First Introduced |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-001    | [3023266][3023266]  | Vulnerability in Windows AppCompatCache could allow Elevation of Privilege  | 4.16, 3.23, 2.35 | Jan 19 2015           |
 | MS15-002    | [3020393][3020393]  | Vulnerability in Windows Telnet Service Could Cause Remote Code Execution   | 4.16, 3.23, 2.35 | Jan 19 2015           |
-| MS15-003    | [3021674][3021674]  | Vulnerability in Windows User Profile Service could allow Elevation of Privilege   | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-003    | [3021674][3021674]  | Vulnerability in Windows User Profile Service could allow Elevation of Privilege   | 4.16, 3.23, 2.35 | Jan 19 2015    |
 | MS15-004    | [3019978][3019978]  | Vulnerability in Windows Components Could Allow Elevation of Privilege      | 4.16, 3.23, 2.35 | Jan 19 2015           |
 | MS15-005    | [3022777][3022777]  | Vulnerability in NLA Could Allow Security Feature Bypass                    | 4.16, 3.23, 2.35 | Jan 19 2015           |
-| MS15-006    | [3004365][3004365]  | Vulnerability in Windows Error Reporting could Allow Security Feature Bypass | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-006    | [3004365][3004365]  | Vulnerability in Windows Error Reporting could Allow Security Feature Bypass | 4.16, 3.23, 2.35 | Jan 19 2015          |
 | MS15-007    | [3014029][3014029]  | Vulnerability in Network Policy Server RADIUS Could Cause Denial of Service | 4.16, 3.23, 2.35 | Jan 19 2015           |
-| MS15-008    | [3019215][3019215]  | Vulnerability in Windows Kernel Mode Driver Could Allow Elevation of Privilege | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-008    | [3019215][3019215]  | Vulnerability in Windows Kernel Mode Driver Could Allow Elevation of Privilege | 4.16, 3.23, 2.35 | Jan 19 2015        |
 | MS14-080    | [3008923][3008923]  | Cumulative Security Update for Internet Explorer                            | 4.16, 3.23, 2.35 | Jan 19 2015           |
 | MS15-002    | [3020393][3020393]  | Vulnerability in Windows Telnet Service Could Cause Remote Code Execution   | 4.16, 3.23, 2.35 | Jan 19 2015           |
 | MS15-002    | [3020393][3020393]  | Vulnerability in Windows Telnet Service Could Cause Remote Code Execution   | 4.16, 3.23, 2.35 | Jan 19 2015           |
  
-## Descember Guest OS
+## December Guest OS
 
-| Bulletin ID | Parent KB Article   | Vlnerability Description                                                    | Guest OS         | Date First Introduced |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | N/A         | [3013776][3013776]  | System freezes when you use a domain account to start an application | 4.15, 3.22, 2.34 | Jan 13 2015 | 
-| N/A         | [3013043][3013043]  | Filesystem data is corrupted on a Windows-based computer that has more than one NUMA node | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [3013043][3013043]  | File system data is corrupted on a Windows-based computer that has more than one NUMA node | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [3012712][3012712]  | New data blocks initialize incorrectly when a differencing VHD is expanded | 4.15, 3.22, 2.34 | Jan 13 201 |
 | N/A         | [3004905][3004905]  | Windows Hyper-V improvement for Linux virtual machines that have file systems that are larger than 2 TB | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [3004394][3004394]  | December 2014 update for Windows Root Certificate Program in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
@@ -65,8 +65,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
-## Archive
-An archived list of updates (tracked prior to the creation of this article) is available [here][archive].
+
+
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -100,4 +100,4 @@ An archived list of updates (tracked prior to the creation of this article) is a
 [2896881]: http://support.microsoft.com/kb/2896881
 
 [archive]: https://msdn.microsoft.com/en-us/library/azure/dn391773.aspx
-[family-explain]: ..\cloud-services-guestos-update-matrix#guest-os-family-version-and-release-explaination
+[family-explain]: ..\cloud-services-guestos-update-matrix#guest-os-family-version-and-release-explanation

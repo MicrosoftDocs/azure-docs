@@ -278,7 +278,7 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 -  [API Documentation - Reach API][Link 4], [API Documentation - Push API][Link 4]
  
-## Four types of Push notifications:
+### Four types of Push notifications:
 1.    Announcements - allow you to send advertising messages to users that redirect them to another location inside your app or to send them to a webpage or store outside of your app. 
 2.    Polls - allow you to gather information from end-users by asking them questions.
 3.    Data Pushes - allow you to send a binary or base64 data file. The information contained in a data push is sent to your application to modify your users' current experience in your app. Your application needs to be able to process the data in a data push.

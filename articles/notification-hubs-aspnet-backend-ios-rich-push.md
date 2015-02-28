@@ -1,4 +1,4 @@
-<properties pageTitle="Azure Notification Hubs Rich Push" description="Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="ios" services="notification-hubs" authors="ysxu" manager="timlt" editor=""/>
+<properties pageTitle="Azure Notification Hubs Rich Push" description="Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="ios" services="notification-hubs" authors="wesmc7777" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -6,8 +6,8 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="yuaxu"/>
+	ms.date="02/26/2015" 
+	ms.author="wesmc"/>
 
 #Azure Notification Hubs Rich Push
 
@@ -15,7 +15,9 @@
         <a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
 </div>
 
-In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and shows how to send push notifications that incorporate payloads (for example, image).
+##Overview
+
+In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/) topic, and shows how to send push notifications that incorporate payloads (for example, image).
 
 This tutorial is compatible with iOS 7 & 8.
     ![][IOS1]
