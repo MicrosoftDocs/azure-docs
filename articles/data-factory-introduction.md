@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="02/28/2015" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service
