@@ -20,7 +20,8 @@
 
 ##Overview
 
-In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. People watch videos on a variety of devices from TVs with set-top boxes, desktop PCs to tablets and smartphones. Each of these devices have different bandwidth and compression requirements. Encoding is the process of compressing video and audio using Compressor/Decompressors or codecs. The quality of encoded content is determined by the amount of data that is lost when the content is compressed and decompressed. Many factors affect the loss of data in the compression process, but in general, the more complex the original data and the higher the compression ratio, the more detail is lost in the compression process.
+In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. People watch videos on a variety of devices from TVs with set-top boxes, desktop PCs to tablets and smartphones. Each of these devices have different bandwidth and compression requirements. Encoding is the process of compressing video and audio using Compressor/Decompressors or codecs. Transcoding is the process of taking a video that has been encoded and re-encode it into a different encoding format. Since most cameras encode video to some degree, most encoding work done on Azure Media Services is technically transcoding.
+The quality of encoded\transcoded content is determined by the amount of data that is lost when the content is compressed and decompressed. Many factors affect the loss of data in the compression process, but in general, the more complex the original data and the higher the compression ratio, the more detail is lost in the compression process.
 
 Videos can be encoded to single bitrate or multiple bitrate files. The bitrate of a video is the number of bits recorded per second, usually measured in kilobits/sec or megabits/sec.  When encoding to single bitrate, a single video file is produced at a specified bitrate. When encoding to multiple bitrate, multiple files are created at different bitrates. The number and types of files created depends on the technology used.
 Adaptive bitrate technologies allow the video player to determine network conditions and select from among several bitrates. When network conditions degrade, the client can select a lower bitrate allowing the player to continue to play the video at a lower video quality. As network conditions improve the client can switch to a higher bitrate with improved video quality. Media Services supports two adaptive bitrate technologies HTTP Live Streaming and Smooth Streaming. HTTP Live Streaming (HLS) is an adaptive bitrate technology created by Apple. Smooth Streaming is an adaptive bitrate technology created by Microsoft.
@@ -28,8 +29,6 @@ Adaptive bitrate technologies allow the video player to determine network condit
 By default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information about scaling encoding units, see the following **Portal** and **.NET** topics.
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
-
-Note that you will also meet the word *transcoding* being interchanged with *encoding*. Transcoding is the process of taking a video that has been encoded and re-encode it into a different encoding format. Since most cameras encode video to some degree, most encoding work done on Azure Media Services is technically transcoding.
 
 
 Once a video has been encoded\transcoded it can be placed into different file containers. The process of placing encoded media into a container is called packaging. The following blog explains the difference between encoding and packaging: [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
@@ -48,7 +47,10 @@ Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**,
  
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-For more information, see [Delivering Content](https://msdn.microsoft.com/en-us/library/azure/hh973618.aspx).
+Encode with **Dolby Digital Plus**
+
+For more information, see: [Encode with Dolby Digital Plus](../media-services-encode-with-dolby-digital-plus). 
+
 
 ##Related topics
 
