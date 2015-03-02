@@ -1,5 +1,5 @@
 <properties      
-    pageTitle="Partitioning Data in DocumentDB | Azure"      
+    pageTitle="Partitioning data in DocumentDB | Azure"      
     description="Learn about how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning."          services="documentdb"      
     authors="arramac"      
     manager="johnmac"      
@@ -14,7 +14,7 @@
     ms.date="02/20/2015"      
     ms.author="arramac"/> 
 
-# Partitioning Data in DocumentDB
+# Partitioning data in DocumentDB
 
 [Microsoft Azure DocumentDB](../../services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
 

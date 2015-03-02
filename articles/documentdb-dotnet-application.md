@@ -472,22 +472,24 @@ There is one last thing for us to do, and that is to add the ability to edit **I
   	      return View(item);
  	   	}
 		
-	    public ActionResult Edit(string id)
-	    {
-   	     if (id == null)
-   	     {
-       	     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-      	  }
+		public ActionResult Edit(string id)
+		{
+		    if (string.IsNullOrEmpty(id))
+		    {
+		        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+		    }
+					 
+		    Item item = (Item)DocumentDBRepository<Item>.GetItem(d => d.Id == id);
+		 	
+		    if (item == null)
+		    {
+		        return HttpNotFound();
+		    }
+		 	
+		    return View(item);
+		}
+		
 	
-      	  Item item = (Item)DocumentDBRepository.GetItem(id);
-      	  if (item == null)
-      	  {
-      	      return HttpNotFound();
-     	   }
-	
-    	    return View(item);
-  	  	}
-
 	The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the **Edit** view.
 
 	The **Edit** view will then do an Http POST to the **IndexController**. 
