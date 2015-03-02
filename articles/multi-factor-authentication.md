@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="What is Azure Multi-Factor Authentication?" 
-	description="" 
+	description="Learn about Azure Multi-Factor Authentication and how it can benefit you and your organization." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="03/02/2015" 
 	ms.author="billmath"/>
 
 
