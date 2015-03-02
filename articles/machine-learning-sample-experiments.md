@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Azure Machine Learning Gallery | Azure" 
-    description="Description of the Azure Machine Learning Gallery site for community published Machine Learning experiment." 
+    pageTitle="Use sample experiments to create new experiments | Azure" 
+    description="Create new Azure Machine Learning experiments from sample experiments and experiments shared by the community." 
     services="machine-learning" 
     documentationCenter="" 
     authors="chhavib,olgali" 
