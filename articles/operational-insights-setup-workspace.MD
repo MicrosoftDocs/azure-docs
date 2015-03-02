@@ -5,7 +5,7 @@
     documentationCenter="" 
     authors="bandersmsft" 
     manager="jwhit" 
-    editor="banders"/>
+    editor=""/>
 
 <tags 
     ms.service="operational-insights" 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/24/2015" 
-    ms.author="leylakazemi"/>
+    ms.date="03/02/2015" 
+    ms.author="banders"/>
 
 # Set up your workspace 
 

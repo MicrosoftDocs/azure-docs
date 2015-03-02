@@ -3,7 +3,7 @@
    description="With Log Management in Microsoft Azure Operational Insights you can view log events collected from your monitored servers." 
    services="operational-insights" 
    documentationCenter="dev-center-name" 
-   authors="leylakazemi" 
+   authors="bandersmsft" 
    manager="jwhit" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm=""
    ms.workload="operational-insights" 
-   ms.date="02/20/2015"
-   ms.author="leylak"/>
+   ms.date="03/02/2015"
+   ms.author="banders"/>
 
 # How to use Log Management 
 
