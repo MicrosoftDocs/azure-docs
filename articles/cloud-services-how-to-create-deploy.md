@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="3/2/2015" 
 	ms.author="adegeo"/>
-
-
 
 
 
@@ -26,16 +24,19 @@ The Azure Management Portal provides two ways for you to create and deploy a clo
 
 This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure Management Portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**. 
 
-**Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
+> [AZURE.NOTE] If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
 ## Concepts
 Three components are required in order to deploy an application as a cloud service in Azure:
 
->- **service definition file**   The cloud service definition file (.csdef) defines the service model, including the number of roles.
+- **Service Definition**<br/>
+  The cloud service definition file (.csdef) defines the service model, including the number of roles.
 
->- **service configuration file**   The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
+- **Service Configuration**<br/>
+  The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
 
->- **service package**   The service package (.cspkg) contains the application code and the service definition file.
+- **Service Package**<br/>
+  The service package (.cspkg) contains the application code and the service definition file.
 
 ## Prepare your app
 Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). Each cloud service package contains application files and configurations. The service configuration file provides the configuration settings.
@@ -131,7 +132,7 @@ Three cloud service features require special configurations before you export a 
 
 	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
-### To verify that your deployment completed successfully
+## Verify your deployment completed successfully
 
 1. Click **Dashboard**.
 
