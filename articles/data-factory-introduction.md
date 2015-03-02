@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="02/28/2015" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service
@@ -69,6 +69,15 @@ Data Factories enable developers to create **pipelines** which are groups of dat
 Once data is in a **hub**, **pipelines** hosted by the compute services of the hub, are used to transform data into a form suitable for consumption (by BI tools, applications, customers, etc.).  
   
 Finally, **pipelines** can be chained (as shown in the diagram) such that the output **dataset(s)** of one are the input(s) of another.  This allows complex data flows to be factored into **pipelines** that run within a data hub or span multiple hubs.  Using **pipelines** in this way provides organizations the building blocks to compose the best of breed on-premises, cloud and Software-as-a-Service (SaaS) services all through the lens of a single, easily managed data factory. 
+
+## Authoring experience
+
+You can author/create data factories using one of the following:
+
+- **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
+- **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an example of using PowerShell cmdles to create ad deploy a data factory. 
+- **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
+- **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for comprehensive documentation of Data Factory REST API. 
 
 
 ##Terminology
@@ -149,8 +158,12 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 [run-map-reduce]: ../data-factory-map-reduce/
 [azure-ml-adf]: ../data-factory-create-predictive-pipelines/
 [adf-common-scenarios]: ../data-factory-common-scenarios
+[create-factory-using-dotnet-sdk]: ../data-factory-create-data-factories-programmatically
+
 
 [msdn-stored-procedure-activity]: https://msdn.microsoft.com/library/dn912649.aspx
+[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
+[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
 
 [adf-tutorial]: ../data-factory-tutorial
 [datafactory-getstarted]: ../data-factory-get-started/

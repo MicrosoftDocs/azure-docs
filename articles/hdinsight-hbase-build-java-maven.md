@@ -16,7 +16,7 @@
 	ms.date="11/20/2014" 
 	ms.author="larryfr"/>
 
-##Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
+#Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
 
 Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java using Apache Maven. Then use the application with Azure HDInsight (Hadoop).
 

@@ -117,7 +117,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 1. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step. Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in your **params.json** template parameter file.
 
-		azure group create MyGroupName "West US" -y Microsoft.WebSiteSQLDatabase.0.2.6-preview -d MyDeployment -e params.json
+		azure group create MyGroupName "West US" -f Microsoft.WebSiteSQLDatabase.0.2.6-preview.json -d MyDeployment -e params.json
 
 	>[AZURE.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 	>
