@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Working with Azure Search indexer operations for Azure DocumentDB | Azure" 
+    pageTitle="Working with Azure Search indexer operations for DocumentDB | Azure" 
     description="This article shows you how to use to Azure Search indexer operations with DocumentDB as a data source."
     services="documentdb" 
     documentationCenter="" 
