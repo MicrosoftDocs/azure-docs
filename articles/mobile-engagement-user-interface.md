@@ -82,7 +82,6 @@ The overview of your applications includes:
 - New users Trend (Evolution of new users over the last two weeks)
 - Active users (Number of active users over the last 30 days)
 - Active users trend (Evolution of active users over the last two weeks)
-- Plan (Plan of the application and % of the data plan used)
  
 You can also see a chart comparing your applications.
 
@@ -924,7 +923,7 @@ Push Quotas allow you to define the maximum number of times a device can be push
 ![settings12][57]
  
 ### Permissions:
-Allows you to search and view the Email, Name, Organization, and Permission level of users of your application. The permissions concept is an addition to project role. It allows you to associate one set of permissions to a specific user who has access to your application (premium plan apps allow more users than other plans).
+Allows you to search and view the Email, Name, Organization, and Permission level of users of your application. The permissions concept is an addition to project role. It allows you to associate one set of permissions to a specific user who has access to your application.
 
 **The permissions levels current available are:**
 
