@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="What is Azure Multi-Factor Authentication?" 
-	description="" 
+	description="Multi-factor or two-factor authentication is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions.  It can be used in for accessing the cloud, on-premises resources or to secure applications.  Learn about Azure Multi-Facotr Authentication today!" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
