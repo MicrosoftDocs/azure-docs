@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Working with Azure Search's indexer for Azure DocumentDB" 
-    description="This article shows you how to use to Azure Search indexer with DocumentDB as a datasource."
+    pageTitle="Working with Azure Search indexer operations for Azure DocumentDB | Azure" 
+    description="This article shows you how to use to Azure Search indexer operations with DocumentDB as a data source."
     services="documentdb" 
     documentationCenter="" 
     authors="aliuy" 
@@ -13,14 +13,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="02/25/2015" 
+    ms.date="03/02/2015" 
     ms.author="andrl"/>
 
-#Working with Azure Search's indexer for DocumentDB
+#Working with Azure Search index operations for DocumentDB
 
-If you're looking to implement great search experiences over your DocumentDB data, use Azure Search's indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
+If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer operations for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
 
-To set this up, you have to [setup an Azure Search account](/documentation/articles/search-get-started/#start-with-the-free-service) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
+To set this up, you have to [setup an Azure Search account](/documentation/articles/search-get-started/#start-with-the-free-service) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
 
 ##<a id="Concepts"></a>Azure Search indexer concepts
 
@@ -121,7 +121,7 @@ You will receive an HTTP 201 Created response if the data source was successfull
 
 ##<a id="CreateIndex"></a>Step 2: Create an index
 
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](/documentation/articles/search-get-started/#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](/documentation/articles/search-get-started/#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
