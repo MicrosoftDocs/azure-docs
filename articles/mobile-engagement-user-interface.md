@@ -25,17 +25,14 @@
 <a href="#Analytics" title="Analytics">Analytics</a>
 <a href="#Monitor" title="Monitor">Monitor</a>
 <a href="#Reach" title="Reach">Reach</a>
-<a href="#ReachCampaign" title="Reach Campaign">Reach Campaign</a>
-<a href="#ReachCriterion" title="Reach Criterion">Reach Criterion</a>
-<a href="#ReachContent" title="Reach Content">Reach Content</a>
-<a href="#Dashboard" title="Dashboard">Dashboard</a>
 <a href="#Segments" title="Segments">Segments</a>
+<a href="#Dashboard" title="Dashboard">Dashboard</a>
 <a href="#Settings" title="Settings">Settings</a>
 </div>
 
 ## Introduction
  
-Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app: standard users can use the [User Interface][Link 1] and developer users can used the HTTP REST based [APIs][Link 4]. If you have difficulty please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
+Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app: standard users can use the [User Interface][Link 1] and developer users can used the HTTP REST based [APIs][Link 4]. For a walkthrough of common activities please see the [How To Guides][Link 3]. If you have any difficulty please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
 
 ## <a name="Navigation">Navigation</a>
  
@@ -71,7 +68,7 @@ The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ c
 
 ## <a name="Home">Home</a>
  
-The Home section of the UI contains the list of all of your applications in My Applications as well as access to the Demo Application for each platform for testing and the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account and can access the Demo Applications in Favorite Applications, but you need to grant others users need permission in order for them to have to access your custom applications in My Projects.
+The Home section of the UI contains the list of all of your applications in My Applications as well as the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account, but you need to grant others users need permission in order for them to have to access your custom applications in My Projects.
  
 ### My applications:
  
@@ -92,27 +89,11 @@ You can also see a chart comparing your applications.
 - Show comparison chart (Can be used to show the application data in chart form)
 - Check boxes (add/remove this application to/from the comparison chart)
  
-![Home2][3] 
+![Home2][3]
 
-The "new application" button allows you to add a new Windows, Windows Phone, iOS, Web, or Android App and will prompt you for the following information before you can create your app:
-
-1. Choose a name for your application 
-2. Android Only: Enter the package name of your application as defined in your AndroidManifest.xml file. Please double-check your package name. This is vital to your application for interacting with Azure Mobile Engagement.
-3. Select the first day of the week
-
-> Note: New applications are placeholders for applications you create with the SDK and don't actually have to exist yet before you can create them.
- 
-![Home3][4]
-
-### Favorite applications:
- 
-![Home4][5]
-
-The same usage information is available for a subset of your applications that you have added to a favorite applications list. The "manage applications" button allows you to select all the applications you want to see in the current project from a list of all the applications that you have permission to access.
- 
 ### My projects:
  
-![Home5][6] 
+![Home5][6]
 
 You can use projects to group your applications and give permissions to your applications. The New projects button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. You can also deleting this project, which will not destroy the applications it references. Nevertheless, you will lose access to all applications you do not own and that are not accessible from another project. So, be careful! 
 You can also invite a user to your project based on their e-mail address. Users need to have already created an account in Azure Mobile Engagement before you can grant them permissions. 
@@ -900,7 +881,8 @@ Allows you to build tracking URLs to use as target URLs in your sources (ad camp
  
 Creating a New tracking URL requires you to specify a store and the source of either none, customer, or add server. 
 
--    A source of None creates a default tracking URL.
+-    A source of None creates a de
+-    fault tracking URL.
 -    A source of Custom allows you to specify a URL on an external server to download your application.
 -    A source of Ad server creates a default tracking URL in a default named Ad server.
  
@@ -1024,3 +1006,30 @@ Allows you to search and view the Email, Name, Organization, and Permission leve
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 12]: ../mobile-engagement-user-interface-navigation/
+[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 14]: ../mobile-engagement-user-interface-my-account/
+[Link 15]: ../mobile-engagement-user-interface-analytics/
+[Link 16]: ../mobile-engagement-user-interface-monitor/
+[Link 17]: ../mobile-engagement-user-interface-reach/
+[Link 18]: ../mobile-engagement-user-interface-segments/
+[Link 19]: ../mobile-engagement-user-interface-dashboard/
+[Link 20]: ../mobile-engagement-user-interface-settings/
+[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
+[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
+[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
+[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
+[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
+[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
+[Link 27]: ../mobile-engagement-how-tos-first-push/
+[Link 28]: ../mobile-engagement-how-tos-test-campaign/
+[Link 29]: ../mobile-engagement-how-tos-personalize-push/
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
+[Link 32]: ../mobile-engagement-how-tos-text-view/
+[Link 33]: ../mobile-engagement-how-tos-web-view/
