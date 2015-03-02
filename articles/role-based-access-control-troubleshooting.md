@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Role based access control troubleshooting" 
-	description="" 
-	services="" 
+	description="Working with different resource types for role based access control." 
+	services=""
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
 	writer="" 
