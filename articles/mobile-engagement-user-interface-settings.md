@@ -19,6 +19,7 @@
 # Azure Mobile Engagement - User Interface
 
 <div class="dev-center-tutorial-selector sublanding">
+<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
 <a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
 <a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
@@ -30,24 +31,24 @@
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
 </div>
 
-## <a name="Settings">Settings</a>
+# Settings
  
 The Settings menu options available for an application vary depending on the platform of application and the permissions you have been granted for the application. Settings include: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions. Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API. The “Glossary” in “Concepts” includes the definitions of terms and abbreviations such as: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
 
 **See also:** 
 
-- [API Documentation - Device API][Link 4], [Concepts - Glossary][Link 6]
+- [API Documentation - Device API][Link 4], [Concepts - Glossary][Link 6], [Troubleshooting Guide - Service][Link 2]
  
   ![settings1][46]
 
-### Details:
+## Details:
 Allows you to change the name and Description of your application 
 View the owner of your application and your role Permissions. 
 Analytics configuration: Allows you to view or change the day Weeks start on, the Retention time in day(s)
  
   ![settings2][47]
  
-### Projects:
+## Projects:
 Allows you to select all projects you want your application to appear in. 
 You can also search for a project and view the name, description, owner and your role permissions of any project your application is part of.
 
@@ -57,7 +58,7 @@ You can also search for a project and view the name, description, owner and your
  
   ![settings3][48]
 
-### Native Push:
+## Native Push:
 Allows you to register a new certificate or delete and existing certificate for use with native push. 
 Native Push enables Azure Mobile Engagement to push to your application at any time, even when it is not running. 
 After providing credentials or certificates for at least one Native Push service, you can select "Any time" when creating Reach Campaigns, and also use the "notifier" parameter in the PUSH API.
@@ -105,12 +106,12 @@ To enable Native Push using ADM, you must provide <OAuth credentials> consisting
 
 ![settings6][51]
 
-### Push Speed:
+## Push Speed:
 Shows the current push speed of your application and allows you to define the push speed of your application. The push speed defines the maximum number of pushes per second that the Reach module will perform. This can be helpful in situation where your own servers are overloaded by too many requests per second(/s) after a campaign activation.
  
   ![settings7][52]
 
-### Tracking:
+## Tracking:
 The tracking feature allows you to track the origins of the installations of your iOS and Android applications. It lets you know where your users downloaded your application (i.e. from which application store) and which source brought them here (i.e. ad campaign, blog, web site, e-mail, SMS, etc.). The Tracking feature of Azure Mobile Engagement must be integrated into your application from the SDK as a separate step. 
 
 **See also:**
@@ -155,7 +156,7 @@ You can also build a tracking URL allowing users to download one of your applica
  
 ![settings10][55]
 
-### App Info:
+## App Info:
 Allows you to register additional information associated to your application's users. This information can be injected by your application (using the SDK) or by your backend (using the Device API). 
 **See also:**
 
@@ -169,7 +170,7 @@ Registering application information tags allows you to segment your Reach campai
  
 ![settings11][56]
  
-### Commercial Pressure: 
+## Commercial Pressure: 
 Push Quotas allow you to define the maximum number of times a device can be pushed to over a period. Push quotas are used only by Reach campaigns that have the "Apply push quotas" option enabled. Push quotas can be managed either by segment or by default. Quotas can be set to only send a maximum number of pushes over a sliding period of the last hour, day, week, or month.
 
 **See also:**
@@ -183,8 +184,8 @@ Push Quotas allow you to define the maximum number of times a device can be push
 
 ![settings12][57]
  
-### Permissions:
-Allows you to search and view the Email, Name, Organization, and Permission level of users of your application. The permissions concept is an addition to project role. It allows you to associate one set of permissions to a specific user who has access to your application (premium plan apps allow more users than other plans).
+## Permissions:
+Allows you to search and view the Email, Name, Organization, and Permission level of users of your application. The permissions concept is an addition to project role. It allows you to associate one set of permissions to a specific user who has access to your application.
 
 **The permissions levels current available are:**
 
@@ -200,64 +201,64 @@ Allows you to search and view the Email, Name, Organization, and Permission leve
 ![settings13][58]
 
 <!--Image references-->
-[1]: ./media/mobile-engagement-user-interface/navigation1.png
-[2]: ./media/mobile-engagement-user-interface/home1.png
-[3]: ./media/mobile-engagement-user-interface/home2.png
-[4]: ./media/mobile-engagement-user-interface/home3.png
-[5]: ./media/mobile-engagement-user-interface/home4.png
-[6]: ./media/mobile-engagement-user-interface/home5.png
-[7]: ./media/mobile-engagement-user-interface/myaccount1.png
-[8]: ./media/mobile-engagement-user-interface/myaccount2.png
-[9]: ./media/mobile-engagement-user-interface/myaccount3.png
-[10]: ./media/mobile-engagement-user-interface/analytics1.png
-[11]: ./media/mobile-engagement-user-interface/analytics2.png
-[12]: ./media/mobile-engagement-user-interface/analytics3.png
-[13]: ./media/mobile-engagement-user-interface/analytics4.png
-[14]: ./media/mobile-engagement-user-interface/monitor1.png
-[15]: ./media/mobile-engagement-user-interface/monitor2.png
-[16]: ./media/mobile-engagement-user-interface/monitor3.png
-[17]: ./media/mobile-engagement-user-interface/monitor4.png
-[18]: ./media/mobile-engagement-user-interface/reach1.png
-[19]: ./media/mobile-engagement-user-interface/reach2.png
-[20]: ./media/mobile-engagement-user-interface/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface/Reach-Content4.png
-[34]: ./media/mobile-engagement-user-interface/dashboard1.png
-[35]: ./media/mobile-engagement-user-interface/segments1.png
-[36]: ./media/mobile-engagement-user-interface/segments2.png
-[37]: ./media/mobile-engagement-user-interface/segments3.png
-[38]: ./media/mobile-engagement-user-interface/segments4.png
-[39]: ./media/mobile-engagement-user-interface/segments5.png
-[40]: ./media/mobile-engagement-user-interface/segments6.png
-[41]: ./media/mobile-engagement-user-interface/segments7.png
-[42]: ./media/mobile-engagement-user-interface/segments8.png
-[43]: ./media/mobile-engagement-user-interface/segments9.png
-[44]: ./media/mobile-engagement-user-interface/segments10.png
-[45]: ./media/mobile-engagement-user-interface/segments11.png
-[46]: ./media/mobile-engagement-user-interface/settings1.png
-[47]: ./media/mobile-engagement-user-interface/settings2.png
-[48]: ./media/mobile-engagement-user-interface/settings3.png
-[49]: ./media/mobile-engagement-user-interface/settings4.png
-[50]: ./media/mobile-engagement-user-interface/settings5.png
-[51]: ./media/mobile-engagement-user-interface/settings6.png
-[52]: ./media/mobile-engagement-user-interface/settings7.png
-[53]: ./media/mobile-engagement-user-interface/settings8.png
-[54]: ./media/mobile-engagement-user-interface/settings9.png
-[55]: ./media/mobile-engagement-user-interface/settings10.png
-[56]: ./media/mobile-engagement-user-interface/settings11.png
-[57]: ./media/mobile-engagement-user-interface/settings12.png
-[58]: ./media/mobile-engagement-user-interface/settings13.png
+[1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
+[2]: ./media/mobile-engagement-user-interface-home/home1.png
+[3]: ./media/mobile-engagement-user-interface-home/home2.png
+[4]: ./media/mobile-engagement-user-interface-home/home3.png
+[5]: ./media/mobile-engagement-user-interface-home/home4.png
+[6]: ./media/mobile-engagement-user-interface-home/home5.png
+[7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
+[8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
+[9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
+[10]: ./media/mobile-engagement-user-interface-analytics/analytics1.png
+[11]: ./media/mobile-engagement-user-interface-analytics/analytics2.png
+[12]: ./media/mobile-engagement-user-interface-analytics/analytics3.png
+[13]: ./media/mobile-engagement-user-interface-analytics/analytics4.png
+[14]: ./media/mobile-engagement-user-interface-monitor/monitor1.png
+[15]: ./media/mobile-engagement-user-interface-monitor/monitor2.png
+[16]: ./media/mobile-engagement-user-interface-monitor/monitor3.png
+[17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
+[18]: ./media/mobile-engagement-user-interface-reach/reach1.png
+[19]: ./media/mobile-engagement-user-interface-reach/reach2.png
+[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
+[35]: ./media/mobile-engagement-user-interface-segments/segments1.png
+[36]: ./media/mobile-engagement-user-interface-segments/segments2.png
+[37]: ./media/mobile-engagement-user-interface-segments/segments3.png
+[38]: ./media/mobile-engagement-user-interface-segments/segments4.png
+[39]: ./media/mobile-engagement-user-interface-segments/segments5.png
+[40]: ./media/mobile-engagement-user-interface-segments/segments6.png
+[41]: ./media/mobile-engagement-user-interface-segments/segments7.png
+[42]: ./media/mobile-engagement-user-interface-segments/segments8.png
+[43]: ./media/mobile-engagement-user-interface-segments/segments9.png
+[44]: ./media/mobile-engagement-user-interface-segments/segments10.png
+[45]: ./media/mobile-engagement-user-interface-segments/segments11.png
+[46]: ./media/mobile-engagement-user-interface-settings/settings1.png
+[47]: ./media/mobile-engagement-user-interface-settings/settings2.png
+[48]: ./media/mobile-engagement-user-interface-settings/settings3.png
+[49]: ./media/mobile-engagement-user-interface-settings/settings4.png
+[50]: ./media/mobile-engagement-user-interface-settings/settings5.png
+[51]: ./media/mobile-engagement-user-interface-settings/settings6.png
+[52]: ./media/mobile-engagement-user-interface-settings/settings7.png
+[53]: ./media/mobile-engagement-user-interface-settings/settings8.png
+[54]: ./media/mobile-engagement-user-interface-settings/settings9.png
+[55]: ./media/mobile-engagement-user-interface-settings/settings10.png
+[56]: ./media/mobile-engagement-user-interface-settings/settings11.png
+[57]: ./media/mobile-engagement-user-interface-settings/settings12.png
+[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
 [Link 1]: ../mobile-engagement-user-interface/
