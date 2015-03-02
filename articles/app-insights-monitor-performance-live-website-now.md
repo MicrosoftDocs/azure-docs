@@ -21,9 +21,11 @@
 
 Got a web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights Status Monitor in the server, and you'll be able to find performance issues and get stack traces for any exceptions.
 
-Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. It  instruments your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts. It also sends performance counters and exception traces.
+Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. When used on its own Status Monitor will download latest Application Insights SDK and apply it to your application. 
 
-Status Monitor works for ASP.NET applications hosted on an IIS server. 
+Status Monitor works for ASP.NET applications hosted on an IIS server. It enables your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts by turning on code instrumentation feature for all web applications running on computer. It also ensures sufficient permissions of your application identity so windows performance counters can be collected by Application Insights SDK.
+
+Beside enabling of monitoring Status Monitor helps troubleshoot issues with Application Insights SDK and shows you status of monitoring of all web applications running on computer. 
 
 You need admin access to the server, and a Microsoft Azure account. 
 
@@ -97,7 +99,8 @@ You can drill down to specific exceptions (from the last seven days) and get sta
 ### No telemetry?
 
   * Use your site, to generate some data.
-  * Wait a few minutes to let the data arrive, then click Refresh.
+   * Wait a few minutes to let the data arrive, then click Refresh.
+   * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in "Configuration notifications" section
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
   * If on the server you see a message about "insufficient permissions":
    * In IIS Manager, select your application pool, open Advanced Settings, and under Process Model note the Identity.
