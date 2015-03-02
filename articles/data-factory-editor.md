@@ -40,7 +40,7 @@ There are four buttons on the toolbar that you can use to create Azure Data Fact
 1. Click **New data store**, and click one of the options in the menu.
  
 	![New data store menu][new-data-store-menu] 
-2. You will see the JSON template in the **Editor canvas** to the right. You will also see that a draft node appears under **Drafts**. Do the following:
+2. You will see the JSON template for creating a storage linked service in the **Editor canvas** to the right. You will also see that a draft node appears under **Drafts**. Do the following:
 	1. For **Azure storage**: replace **<accountname\>** and **<accountkey\>** with name and key of your Azure storage account.
 	2. For **Azure SQL database**: replace **<servername\>** with name of your Azure SQL server, **<databasename\>** with the name of the database, **<username\>@<servername\>** with the name of the user, and **<password\>** with the password for the user account. 
 	3. For **On-premises SQL server database**: replace **<servername\>** with name of your on-premises SQL server, **<databasename\>** with the name of the database, **<username\>** with the name of the user, and **<password\>** with the password for the user account.
@@ -59,14 +59,14 @@ There are four buttons on the toolbar that you can use to create Azure Data Fact
 1. Click **New compute** and click one of the options in the menu.
  
 	![New compute menu][new-compute-menu] 
-2. You will see the JSON template in the Editor canvas to the right. Do the following:
-	1. For **On-demand HDInsight cluster**, specify the following properties: 
+2. You will see the JSON template for creating a compute linked service in the Editor canvas to the right. Do the following:
+	1. For **On-demand HDInsight cluster**, specify values for the following properties: 
 		1. For the **clusterSize** property, specify the size of the HDInsight cluster you want the Data Factory service to create at runtime. 
 		2. For the **jobsContainer** property, specify the name of the default blob container where you want the cluster logs will be stored.
 		3. For the **timeToLive** property, specify the allowed idle time before the HDInsight cluster is deleted. For example: 00:05:00 indicates that the cluster should be be deleted after 5 minutes of idle time.
 		4. For the **version** property, specify HDInsight version for the cluster (default: version 3.1).
 		5. For the **linkedServiceName** property, specify the Azure storage linked service to be associated with the HDInsight cluster. 
-	6. For **HDInsight cluster** (Bring-your-own), specify the following properties:
+	6. For **HDInsight cluster** (Bring-your-own), specify values for the following properties:
 		1. For the **clusterUri** property, specify the URL for your own HDInsight cluster. 
 		2. For the **userName** property, specify the user account that the Data Factory service should use to connect to your HDInsight cluster. 
 		3. For the **password** property, specify the password for the user account. 
@@ -76,17 +76,135 @@ There are four buttons on the toolbar that you can use to create Azure Data Fact
 		2. for the **apiKey** property, specify the API key for the published workspace model.
 3. Click **Deploy** on the toolbar to deploy the linked service.
 
+> [AZURE.NOTE] See the [Linked Services][msdn-linkedservices-reference] topic in MSDN Library for descriptions of JSON elements that are used to define an Azure Data Factory linked service..  
+
 ### To create a new dataset
+1. Click **New dataset** and click one of the options in the menu.
+2. You will see the JSON template for creating a dataset in the Editor canvas to the right. Do the following: 
+	1. For **Blob table**, specify values for the following properties:
+	2. For **Azure SQL table** or **On-premises table**, specify values for the following properties: 
+		1. In the **location** section: 
+			2. For the **linkedServiceName** property, specify the name of the linked service that referes to your Azure SQL/On-premises SQL Server database.
+			2. For the **tableName** property, specify the name of the table in the Azure SQL Database instance/On-premises SQL server that the linked service referes to.
+		3. In the **availability** section:
+			1. For the **frequency** property, specify the time unit for data slice production. The supported frequency values:Minute, Hour, Day, Week, Month.
+			2. For the **interval** property, specify the interval within the defined frequency. **frequency** set to **Hour** and **interval** set to **1** indicates that new data slices should be produced hourly. 
+		3. In the **structure** section: 
+			1. specify names and types of columns as shown in the following example:
+				
+				    "structure":
+	        		[
+	                	{ "name": "FirstName", "type": "String"},
+	                	{ "name": "LastName", "type": "String"}
+	        		],
+	     
+> [AZURE.NOTE] See the [Tables][msdn-tables-reference] topic in MSDN Library for descriptions of JSON elements that are used to define an Azure Data Factory table.  
+ 		           
+### To create and activate a pipeline 
+1. Click **New pipeline** on the toolbar. If you do not see the **New pipeline** button, click **...(ellipsis)** to see it.   
+2. You will see the JSON template for creating a pipeline in the Editor canvas to the right. Do the following: 
+	1. For the **description** property, specify description for the pipeline.
+	2. For the **activities** section, add activities to the pipeline. Example:
+	 
+			"activities":	
+			[
+				{
+					"name": "CopyFromBlobToSQL",
+					"description": "Push Regional Effectiveness Campaign data to Azure SQL",
+					"type": "CopyActivity",
+					"inputs": [ {"name": "EmpTableFromBlob"} ],
+					"outputs": [ {"name": "EmpSQLTable"} ],		
+					"transformation":
+					{
+						"source":
+						{                               
+							"type": "BlobSource"
+						},
+						"sink":
+						{
+							"type": "SqlSink"
+						}	
+					},
+					"Policy":
+					{
+						"concurrency": 1,
+						"executionPriorityOrder": "NewestFirst",
+						"style": "StartOfInterval",
+						"retry": 0,
+						"timeout": "01:00:00"
+					}		
+				}
+    		]
+	3. For the **start** property, specify when data processing starts or the data slices will be processed. Example : 2014-05-01T00:00:00Z.
+	4. For the **end** property, specify when data processing ends. Example : 2014-05-01T00:00:00Z.       
 
-   
-		
-		           
-   
+> [AZURE.NOTE] See the [Pipelines and Activities][msdn-pipelines-reference] topic in MSDN Library for descriptions of JSON elements that are used to define an Azure Data Factory pipeline.
+
+## To add an activity definition to a pipeline JSON
+You can add an activity definition to a pipeline JSON by clicking **Add Activity** on the toolbar. When you click this button, you choose the type of activity that you want to be added to the pipeline.  
+
+![Add Activity options][add-activity-options]
+
+If you want to copy data from an Azure SQL database to Azure blob storage and process the data in the blob storage by using Pig script on a HDInsight cluster, you first add a **Copy activity** and then add a **Pig activity** to the pipeline. This creates two sections with in the activities[] section of the pipeline JSON. Pig activity is nothing but the HDInsight Activity with Pig transformation. 
+
+	"activities": [
+    	{
+    		"name": "CopyFromTabletoBlob",
+	        "type": "CopyActivity",
+			...
+		}
+		{
+			"name": "ProcessBlobDataWithPigScript",
+            "type": "HDInsightActivity",
+			...
+			"transformation": {
+            	"type": "Pig",
+				...
+			}
+		}
+	]
+
+## Starting a pipeline
+You can specify the start date-time and end date-time for a pipeline by specifying values for the start and end properties in the JSON. 
+
+ 	{
+	    "name": "ADFTutorialPipeline",
+	    "properties":
+	    {   
+	        "description" : "Copy data from a blob to Azure SQL table",
+	        "activities":   
+	        [
+				...
+	        ],
+	
+	        "start": "2015-02-13T00:00:00Z",
+	        "end": "2015-02-14T00:00:00Z",
+	        "isPaused": false
+	    }
+	} 
+  
+## Drafts in the editor
+Drafts allows you to temporarily save your work when you are context switching or navigating to a different entity in the Data Factory. The lifetime of the Drafts is associated with the browser session. If you close the browser or use another machine, the drafts are not going to be available.
+
+## To discard a JSON draft of a Data Factory entity
+You can discard the JSON definition of an Azure Data Factory entity by clicking **Discard** button on the toolbar.   
+
+## To clone a Data Factory entity
+You can clone an existing Azure Data Factory entity (linked service, table, or pipeline) by selecting the entity in the tree view and clicking the **Clone** button on the toolbar.
+
+![Clone data factory entity][clone-datafactory-entity]
+
+You will see a new draft created under **Drafts** node in the tree view. 
+
+## To delete a Data Factory entity
+You can delete an Azure Data Factory entity (linked service, table, or pipeline), select the entity in the tree view and click **Delete** on the toolbar (or) right-click the entity and click **Delete**.
+
+![Delete data factory entity][delete-datafactory-entity] 
 
 
-
-
-         
+[msdn-tables-reference]: https://msdn.microsoft.com/library/dn835002.aspx
+[msdn-linkedservices-reference]: https://msdn.microsoft.com/library/dn834986.aspx       
+[msdn-pipelines-reference]: https://msdn.microsoft.com/library/dn834988.aspx  
 
 [author-and-deploy-tile]: ../media/data-factory-editor/author-and-deploy-tile.png
 [data=factory-editor]: ../media/data-factory-editor/data-factory-editor.png
@@ -95,3 +213,6 @@ There are four buttons on the toolbar that you can use to create Azure Data Fact
 [deploy-button]: ../media/data-factory-editor/deploy-button.png
 [deploy-success-message]: ../media/data-factory-editor/deploy-success-message.png
 [storagelinkedservice-in-treview]: ../media/data-factory-editor/storagelinkedservice-in-treeview.png
+[delete-datafactory-entity]: ../media/data-factory-editor/delete-datafactory-entity.png
+[clone-datafactory-entity]: ../media/data-factory-editor/clone-datafactory-entity.png
+[add-activity-options]: ../media/data-factory-editor/add-activity-options.png
