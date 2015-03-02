@@ -25,7 +25,7 @@
 
 Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. We recognize that when you entrust your data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
-Securing and protecting data is a top priority at Microsoft. Please contact us with any questions, suggestions, or issues about any of the following information, including our security policies: [scdata@microsoft.com](mailto:scdata@microsoft.com).
+Securing and protecting data is a top priority at Microsoft. Please contact us with any questions, suggestions, or issues about any of the following information, including our security policies at [Azure support options](http://azure.microsoft.com/support/options/).
 
 This article explains how data is collected, processed, and secured in Microsoft Azure Operational Insights. You can use either agents to connect directly to the web service or you can use System Center Operations Manager to collect operational data for the Operational Insights service. The collected data is sent over the Internet to the Operational Insights service, which is hosted in Microsoft Azure.
 
