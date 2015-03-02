@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Getting started with SQL Databases Data Sync" 
-	description="" 
+	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="3/2/2015" 
 	ms.author="spelluru"/>
 
 
