@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="2/27/2015" 
+    ms.date="03/02/2015" 
     ms.author="elizapo" />
 
 
@@ -21,7 +21,7 @@
 
 So you've set up your Azure RemoteApp service, created your templates, and are ready to publish apps to your users. But there's still one last thing to figure out: licensing. Just how does licensing work for RemoteApp and for the apps you share through RemoteApp?
 
-RemoteApp does not require any Windows licenses or Remote Desktop CALs. Your subscription takes care of the RemoteApp side itself. (Check out the details of the [pricing plans](http://azure.microsoft.com/pricing/details/remoteapp/).) 
+RemoteApp does not require any Windows licenses or Remote Desktop CALs. Your subscription takes care of the RemoteApp side itself. (Check out the details of the [pricing plans](../../pricing/details/remoteapp/).) 
 
 If you want to use the Office 365 template image that comes with RemoteApp, you must have an *existing* Office 365 ProPlus plan. The same is true for any Office 365 app that you publish using a custom template. You need to activate the apps with your own subscription. This is true for both trial and paid subscriptions. If you want to use the Office 365 template image during the trial, *and you don't already have a subscription*, go to the Office 365 page to [sign up](https://go.microsoft.com/fwlink/p/?LinkID=403802) for a trial subscription. See [How do RemoteApp and Office work together?](../remoteapp-o365/) for more information.
 
