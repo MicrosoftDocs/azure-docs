@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Copy output data from tutorial to an on-premises SQL Server database" 
-	description="The walkthrough in this tutorial extends the data factory tutorial to copy marketing campaign effectiveness data to an on-premises SQL Server database." 
+	description="The walkthrough in this tutorial extends the data factory tutorial to copy marketing campaign effectiveness data to an on-premises SQL Server database."
+	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
