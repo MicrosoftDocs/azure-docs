@@ -327,7 +327,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 				[
 					{
 						"name": "CopyFromBlobToSQL",
-						"description": "Push Regional Effectiveness Campaign data to Sql Azure",
+						"description": "Push Regional Effectiveness Campaign data to Azure SQL database",
 						"type": "CopyActivity",
 						"inputs": [ {"name": "EmpTableFromBlob"} ],
 						"outputs": [ {"name": "EmpSQLTable"} ],		
