@@ -551,7 +551,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [storage-account]: ../storage-create-storage-account/
 
 [download-SDK-PHP]: ../php-download-sdk/
-[command-line-tools]: ../command-line-tools/
+[command-line-tools]: ../virtual-machines-command-line-tools/
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
