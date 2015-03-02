@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="03/02/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -25,6 +25,12 @@ After completing this tutorial, you'll be able to answer the following questions
 
 - How do I load data from DocumentDB using a Hive, Pig, or MapReduce job?
 - How do I store data in DocumentDB using a Hive, Pig, or MapReduce job?
+
+We recommend getting started by watching the following video, where we run through a Hive job using DocumentDB and HDInsight.
+
+> [AZURE.VIDEO use-azure-documentdb-hadoop-connector-with-azure-hdinsight]
+
+Then, return to this article, where you'll receive the full details on how you can run analytics jobs on your DocumentDB data.
 
 > [AZURE.TIP] This tutorial assumes that you have prior experience using Apache Hadoop, Hive, and/or Pig. If you are new to Apache Hadoop, Hive, and Pig, we recommend visiting the [Apache Hadoop documentation][apache-hadoop-doc]. This tutorial also assumes that you have prior experience with DocumentDB and have a DocumentDB account. If you are new to DocumentDB or you do not have a DocumentDB account, please check out our [Getting Started][getting-started] page.
 
