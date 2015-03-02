@@ -533,7 +533,9 @@ To view errors that have occurred in a running topology, use the following steps
 
 ##Next steps
 
-Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, discover more information about getting started creating C# applications by visiting [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
+
+To discover more information about creating C# topologies, visit [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
 For more ways to work with HDInsight, or more Storm on HDinsight samples, see the following.
 

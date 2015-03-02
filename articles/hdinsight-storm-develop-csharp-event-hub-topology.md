@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Process events from Event Hub with Storm on HDInsight | Azure"
+   description="Learn how to process Event Hub data with a C# Storm topology created in Visual Studio using the HDInsight Tools for Visual Studio."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
+
+<tags
+   ms.service="hdinsight"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="03/02/2015"
+   ms.author="larryfr"/>
+
 #Process events from Azure Event Hub with Storm on HDInsight (C#)
 
 Azure Event Hub allows you to process massive amounts of data from websites, apps, and devices. The Event Hub Spout makes it easy to use Apache Storm on HDInsight to analyze this data in real-time. You can also write data to Event Hub from Storm using the Event Hub Bolt. 
