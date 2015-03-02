@@ -74,10 +74,6 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../includes/media-services-selector-job-progress.md)]
 
-###Handling Media Services Job Notifications
-
-For more information, see [Handling Media Services Job Notifications](../media-services-handling-job-notifications).
-
 ###Indexing
 
 [AZURE.INCLUDE [media-services-selector-index-content](../includes/media-services-selector-index-content.md)]
@@ -88,7 +84,10 @@ Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**,
  
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en-us/library/azure/dn621224.aspx).
+Encode with **Dolby Digital Plus**
+
+For more information, see: [Encode with Dolby Digital Plus](../media-services-encode-with-dolby-digital-plus). 
+
 
 ##Configure content key authorization policy 
 

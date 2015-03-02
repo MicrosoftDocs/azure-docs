@@ -57,10 +57,6 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../includes/media-services-selector-job-progress.md)]
 
-###Handling Media Services Job Notifications
-
-For more information, see [Handling Media Services Job Notifications](../media-services-handling-job-notifications).
-
 ##Related links
 
 [Quotas and Limitations](../media-services-quotas-and-limitations) – Describes quotas used and limitations of the Media Services Encoder
