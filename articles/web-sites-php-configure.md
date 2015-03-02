@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Configure PHP in Azure Websites" 
 	description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." 
-	services="" 
+	services="web-sites" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -18,20 +18,14 @@
 
 #How to configure PHP in Azure Websites
 
+## Introduction
+
 This guide will show you how to configure the built-in PHP runtime in Azure Websites, provide a custom PHP runtime, and enable extensions in Azure Websites. To use Azure Websites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Azure Websites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Azure Websites, see [How to Configure Web Sites].
 
-##Table of Contents
-
-* [What is Azure Web Sites?](#WhatIs)
-* [How to: Change the default PHP configuration](#ChangeBuiltInPHP)
-* [How to: Enable extensions in the built-in PHP runtime](#EnableExtDefaultPHP)
-* [How to: Use a custom PHP runtime](#UseCustomPHP)
-* [Next steps](#NextSteps)
-
-<h2><a name="WhatIs"></a>What is Azure Websites?</h2>
+## What is Azure Websites?
 Azure Websites allows you to build highly scalable websites on Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Azure Websites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
 
-<h2><a name="ChangeBuiltInPHP"></a>How to: Change the built-in PHP configuration</h2>
+## How to: Change the built-in PHP configuration
 By default, PHP 5.4 is installed and immediately available for use when you create an Azure Website. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
 PHP 5.5 is also available, but not enabled by default. To enable it, follow these steps:
@@ -62,7 +56,7 @@ For either of the built-in PHP runtimes, you can change any of the configuration
 
 As an alternative to using a `.user.ini` file, you can use the [ini_set()] function in scripts to set configuration options that are not system-level directives.
 
-<h2><a name="EnableExtDefaultPHP"></a>How to: Enable extensions in the default PHP runtime</h2>
+## How to: Enable extensions in the default PHP runtime
 As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, follow the steps below.
 
 1. Add a `bin` directory to your root directoy.
@@ -80,7 +74,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 
 	![Save configuration settings][save-button]
 
-<h2><a name="UseCustomPHP"></a>How to: Use a custom PHP runtime</h2>
+## How to: Use a custom PHP runtime
 Instead of the default PHP runtime, Azure Websites can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime in Azure Websites, follow the steps below.
 
 1. Obtain a non-thread-safe, VC9 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [http://windows.php.net/download/]. Older releases can be found in the archive here: [http://windows.php.net/downloads/releases/archives/].
@@ -100,7 +94,7 @@ Instead of the default PHP runtime, Azure Websites can use a PHP runtime that yo
 
 	![Save configuration settings][save-button]
 
-<h2><a name="NextSteps"></a>Next steps</h2>
+## Next steps
 Now that you've learned how to configure PHP in Azure Websites, follow the links below to learn how to do more.
 
 - [Configure, monitor, and scale your web sites in Azure]
