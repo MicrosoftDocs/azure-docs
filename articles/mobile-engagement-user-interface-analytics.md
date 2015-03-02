@@ -19,6 +19,7 @@
 # Azure Mobile Engagement - User Interface
 
 <div class="dev-center-tutorial-selector sublanding">
+<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
 <a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
 <a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
@@ -30,21 +31,21 @@
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
 </div>
 
-## <a name="Analytics">Analytics</a>
+# Analytics
  
 The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours which is displayed on different dashboards composed of line/bar/pie charts, grids and maps and the data can also be downloaded as csv files. Most of this same information is available in real time in the Monitor section of the UI and can also be accessed from the Analytics API. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring such as: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
 **See also:** 
 
--  [Concepts - Glossary][Link 6]
+-  [Concepts - Glossary][Link 6], [Troubleshooting Guide - Analytics][Link 2]
 
-### Standard and Custom Analytics:
+## Standard and Custom Analytics:
 Azure Mobile Engagement provides a set of basic, standard analytic information about your applications than can be graphed as soon as you integrate your App with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information you want about your end-users' behavior by creating a tag plan of custom "app info tags", created from “Settings” so that Azure Mobile Engagement can collect this additional data for you.
 
 **See also:** 
 -  [UI Documentation - Settings][Link 20]
  
-### Analytics Header:
+## Analytics Header:
 - Item Name: Labels the item being counted
 - Show Help: Displays contextual information about this section
 - Versions: Allows you to show different analytics information about each version of your application or to show information for all versions. (Note: Filtering your analytics data in the UI will show all examples of this type regardless of the version of your app. e.g. "Crashes" filtered by name will show from version 1 and version 2 of your app.)
@@ -54,7 +55,7 @@ Azure Mobile Engagement provides a set of basic, standard analytic information a
  
 ![Analytics1][10] 
 
-### Analytics:
+## Analytics:
 - Dashboard: Shows general information about your new and actives users and their trends.
 - Users: Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval. A user is considered as retained if he has performed at least one session during the last 7 days. Active Users are users that made at least one session during a given period. You can sort by, monthly, weekly, daily, or hourly time periods. All of the charts look similar but allow you to filter by different features, such as the version of your application and then to sort by a period of time. The standard information gathered by integrating the SDK includes: Active users, new user, number of sessions, length of each session, technical information about the country, locals, location, language carrier, devices, firmware, network (WIFI), versions of the App and SDK, used by customers. This information can be viewed in real time from the monitor section. 
 - Tracking by source displays the number of new users who have downloaded the application as a result of a given promotion campaign. Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval.
@@ -74,13 +75,13 @@ Azure Mobile Engagement provides a set of basic, standard analytic information a
  
 ![Analytics2][11] 
 
-### Accessing the Retention Overview
+## Accessing the Retention Overview
  
 ![Analytics3][12] 
 
 The retention overview is broken down in the middle into several cards, each showing the overview for a certain retention period. The 2-day retention period is seen in the example. The other cards show the 4-days and 7 days retention periods. 
 
-### Understanding the Retention Overview cards
+## Understanding the Retention Overview cards
  
 ![Analytics4][13] 
 
@@ -99,64 +100,64 @@ Each card is composed of 3 main parts:
 5.    This is a Sparkline of the history of the retention values. It allows seeing the values in the past to have a broad view of how it evolved.
 
 <!--Image references-->
-[1]: ./media/mobile-engagement-user-interface/navigation1.png
-[2]: ./media/mobile-engagement-user-interface/home1.png
-[3]: ./media/mobile-engagement-user-interface/home2.png
-[4]: ./media/mobile-engagement-user-interface/home3.png
-[5]: ./media/mobile-engagement-user-interface/home4.png
-[6]: ./media/mobile-engagement-user-interface/home5.png
-[7]: ./media/mobile-engagement-user-interface/myaccount1.png
-[8]: ./media/mobile-engagement-user-interface/myaccount2.png
-[9]: ./media/mobile-engagement-user-interface/myaccount3.png
-[10]: ./media/mobile-engagement-user-interface/analytics1.png
-[11]: ./media/mobile-engagement-user-interface/analytics2.png
-[12]: ./media/mobile-engagement-user-interface/analytics3.png
-[13]: ./media/mobile-engagement-user-interface/analytics4.png
-[14]: ./media/mobile-engagement-user-interface/monitor1.png
-[15]: ./media/mobile-engagement-user-interface/monitor2.png
-[16]: ./media/mobile-engagement-user-interface/monitor3.png
-[17]: ./media/mobile-engagement-user-interface/monitor4.png
-[18]: ./media/mobile-engagement-user-interface/reach1.png
-[19]: ./media/mobile-engagement-user-interface/reach2.png
-[20]: ./media/mobile-engagement-user-interface/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface/Reach-Content4.png
-[34]: ./media/mobile-engagement-user-interface/dashboard1.png
-[35]: ./media/mobile-engagement-user-interface/segments1.png
-[36]: ./media/mobile-engagement-user-interface/segments2.png
-[37]: ./media/mobile-engagement-user-interface/segments3.png
-[38]: ./media/mobile-engagement-user-interface/segments4.png
-[39]: ./media/mobile-engagement-user-interface/segments5.png
-[40]: ./media/mobile-engagement-user-interface/segments6.png
-[41]: ./media/mobile-engagement-user-interface/segments7.png
-[42]: ./media/mobile-engagement-user-interface/segments8.png
-[43]: ./media/mobile-engagement-user-interface/segments9.png
-[44]: ./media/mobile-engagement-user-interface/segments10.png
-[45]: ./media/mobile-engagement-user-interface/segments11.png
-[46]: ./media/mobile-engagement-user-interface/settings1.png
-[47]: ./media/mobile-engagement-user-interface/settings2.png
-[48]: ./media/mobile-engagement-user-interface/settings3.png
-[49]: ./media/mobile-engagement-user-interface/settings4.png
-[50]: ./media/mobile-engagement-user-interface/settings5.png
-[51]: ./media/mobile-engagement-user-interface/settings6.png
-[52]: ./media/mobile-engagement-user-interface/settings7.png
-[53]: ./media/mobile-engagement-user-interface/settings8.png
-[54]: ./media/mobile-engagement-user-interface/settings9.png
-[55]: ./media/mobile-engagement-user-interface/settings10.png
-[56]: ./media/mobile-engagement-user-interface/settings11.png
-[57]: ./media/mobile-engagement-user-interface/settings12.png
-[58]: ./media/mobile-engagement-user-interface/settings13.png
+[1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
+[2]: ./media/mobile-engagement-user-interface-home/home1.png
+[3]: ./media/mobile-engagement-user-interface-home/home2.png
+[4]: ./media/mobile-engagement-user-interface-home/home3.png
+[5]: ./media/mobile-engagement-user-interface-home/home4.png
+[6]: ./media/mobile-engagement-user-interface-home/home5.png
+[7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
+[8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
+[9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
+[10]: ./media/mobile-engagement-user-interface-analytics/analytics1.png
+[11]: ./media/mobile-engagement-user-interface-analytics/analytics2.png
+[12]: ./media/mobile-engagement-user-interface-analytics/analytics3.png
+[13]: ./media/mobile-engagement-user-interface-analytics/analytics4.png
+[14]: ./media/mobile-engagement-user-interface-monitor/monitor1.png
+[15]: ./media/mobile-engagement-user-interface-monitor/monitor2.png
+[16]: ./media/mobile-engagement-user-interface-monitor/monitor3.png
+[17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
+[18]: ./media/mobile-engagement-user-interface-reach/reach1.png
+[19]: ./media/mobile-engagement-user-interface-reach/reach2.png
+[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
+[35]: ./media/mobile-engagement-user-interface-segments/segments1.png
+[36]: ./media/mobile-engagement-user-interface-segments/segments2.png
+[37]: ./media/mobile-engagement-user-interface-segments/segments3.png
+[38]: ./media/mobile-engagement-user-interface-segments/segments4.png
+[39]: ./media/mobile-engagement-user-interface-segments/segments5.png
+[40]: ./media/mobile-engagement-user-interface-segments/segments6.png
+[41]: ./media/mobile-engagement-user-interface-segments/segments7.png
+[42]: ./media/mobile-engagement-user-interface-segments/segments8.png
+[43]: ./media/mobile-engagement-user-interface-segments/segments9.png
+[44]: ./media/mobile-engagement-user-interface-segments/segments10.png
+[45]: ./media/mobile-engagement-user-interface-segments/segments11.png
+[46]: ./media/mobile-engagement-user-interface-settings/settings1.png
+[47]: ./media/mobile-engagement-user-interface-settings/settings2.png
+[48]: ./media/mobile-engagement-user-interface-settings/settings3.png
+[49]: ./media/mobile-engagement-user-interface-settings/settings4.png
+[50]: ./media/mobile-engagement-user-interface-settings/settings5.png
+[51]: ./media/mobile-engagement-user-interface-settings/settings6.png
+[52]: ./media/mobile-engagement-user-interface-settings/settings7.png
+[53]: ./media/mobile-engagement-user-interface-settings/settings8.png
+[54]: ./media/mobile-engagement-user-interface-settings/settings9.png
+[55]: ./media/mobile-engagement-user-interface-settings/settings10.png
+[56]: ./media/mobile-engagement-user-interface-settings/settings11.png
+[57]: ./media/mobile-engagement-user-interface-settings/settings12.png
+[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
 [Link 1]: ../mobile-engagement-user-interface/
