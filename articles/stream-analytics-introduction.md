@@ -21,15 +21,6 @@
 
 Azure Stream Analytics is a fully managed service providing low latency, highly available, scalable complex event processing over streaming data in the cloud.
 
-# In this article
-
-+ [Introduction to Azure Stream Analytics (Video)](#video) 
-+ [Motivation & overview](#motivation) 
-+ [Key capabilities](#capabilities)
-+ [Business motivations with choosing Azure Stream Analytics](#decision)
-+ [Scenarios & use cases](#scenarios)
-+ [Next steps](#nextsteps)
-
 
 ##<a name="video"></a>Introduction to Azure Stream Analytics (Video)
 

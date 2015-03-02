@@ -68,7 +68,7 @@ The remaining steps in this section are optional. They allow you to test your ap
 
 <ol start="5">
 <li><p>Browse to the <code>\services\mobileServices\settings</code> project folder, copy the generated &lt;<em>your_service_name</em>&gt;.js script file into the shared <code>\js</code> project folder, and then delete this file from both of the individual Windows and WindowsPhone app projects. Also delete this file from the <code>\services\mobileServices\scripts</code> folder in each app project if it exists there too.</p></li> 
-<li><p>Open this script file in the shared <code>\js</code> project folder and comment-out the existing code that defines the <a href="http://msdn.microsoft.com/en-us/library/azure/jj554219.aspx">MobileServiceClient object</a> used to access the mobile service running in Azure.</p></li>
+<li><p>Open this script file in the shared <code>\js</code> project folder and comment-out the existing code that defines the <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx">MobileServiceClient object</a> used to access the mobile service running in Azure.</p></li>
 <li><p>Add a new <strong>MobileServiceClient</strong> object definition of the same name but using the URL of the local host in the constructor, similar to the following:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.

@@ -1,13 +1,20 @@
 <properties 
-title="Author Custom R Modules in Azure Machine Learning" pageTitle="Author Custom R Modules in Azure Machine Learning | Azure" description="Quick start for authoring custom R modules in Azure Machine Learning." 
-metaKeywords="" 
-services="machine-learning" 
-documentationCenter="" 
-authors="bradsev"  
-manager="paulettm" 
-editor="cgronlun" />
+	pageTitle="Author Custom R Modules in Azure Machine Learning | Azure" 
+	description="Quick start for authoring custom R modules in Azure Machine Learning." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev"  
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="machine-learning" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="tbd" ms.date="02/04/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="tbd" 
+	ms.date="02/04/2015" 
+	ms.author="bradsev" />
 
 
 # Author Custom R Modules in Azure Machine Learning

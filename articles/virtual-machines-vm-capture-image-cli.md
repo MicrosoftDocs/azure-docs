@@ -155,7 +155,7 @@ Visit the [Azure CLI documentation page][] for more details and additional comma
 
 [How to Log on to a Virtual Machine Running Linux]: ../virtual-machines-linux-how-to-log-on
 
-[About Virtual Machine Images in Azure]: http://msdn.microsoft.com/en-us/library/azure/dn790290.aspx
+[About Virtual Machine Images in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 
 [How to Create a Custom Virtual Machine]: ../virtual-machines-create-custom/
 

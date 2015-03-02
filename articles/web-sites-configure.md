@@ -45,7 +45,7 @@ For technical reasons, enabling Java for your website disables the .NET, PHP, an
 
 <strong>Platform</strong>. Selects whether your application runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
 
-<strong>Web Sockets</strong>. Set **ON** to enable the WebSocket protocol; for example, if your website uses [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-chat-app-socketio/).
+<strong>Web Sockets</strong>. Set **ON** to enable the WebSocket protocol; for example, if your website uses [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/).
 
 <strong>Always On</strong>. By default, websites are unloaded if they are idle for some period of time. This lets the system conserve resources. In Basic or Standard mode, you can enable <strong>Always On</strong> to keep the site loaded all the time. If your site runs continuous web jobs, you should enable **Always On**, or the web jobs may not run reliably
 
@@ -56,17 +56,17 @@ Note: If you enable deployment from source control, it is possible for a deploym
 
 ### Certificates
 
-In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
+In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 Your uploaded certificates are listed here. After you upload a certificate, you can assign it to any website in your subscription and region. Wildcard certificates can be used for any site within the domain for which it is valid. A certificate can be deleted only if there are no active bindings for that certificate.
 
 ### Domain names
 
-View or add additional domain names for the website. For more information, see [Configuring a custom domain name for an Azure website](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
+View or add additional domain names for the website. For more information, see [Configuring a custom domain name for an Azure website](http://www.windowsazure.com/documentation/articles/web-sites-custom-domain-name/).
 
 ### SSL Bindings
 
-If you uploaded SSL certificates, you can bind them to custom domain names. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+If you uploaded SSL certificates, you can bind them to custom domain names. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 ### Deployments
 
@@ -82,7 +82,7 @@ To set up deployment from source control, view the **Dashboard** tab, and click 
 
 Options for writing diagnostic logs from a web application that supports logging: 
 
-- <strong>File System</strong>. Writes logs to the website's file system. File system logging lasts for a period of 12 hours. You can access the logs from the FTP share for the website. (See [FTP Credentials](http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage#ftp-credentials)).
+- <strong>File System</strong>. Writes logs to the website's file system. File system logging lasts for a period of 12 hours. You can access the logs from the FTP share for the website. (See [FTP Credentials](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)).
 - <strong>Table Storage</strong>. Writes logs to Azure table storage. There is no time limit, and logging stays enabled until you disable it. 
 - <strong>Blob Storage</strong>. Writes logs to Azure blob storage. There is no time limit, and logging stays enabled until you disable it.
 
@@ -98,13 +98,13 @@ Options for gathering diagnostic information for your website.
 
 <strong>Web Server Logging</strong>. Enables web server logging. Logs are saved in the W3C extended log file format. You can save the logs to Azure Storage or to the website's file System.
  
-- If you choose <strong>File System</strong>, logs are saved to the FTP site listed under "FTP Diagnostic Logs" on the Dashboard page. (See [FTP Credentials](http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage#ftp-credentials).) 
+- If you choose <strong>File System</strong>, logs are saved to the FTP site listed under "FTP Diagnostic Logs" on the Dashboard page. (See [FTP Credentials](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials).) 
 - If you choose **File System**, use the <strong>Quota</strong> box to set the maximum amount of disk space for the log files. The minimum is 25MB and the maximum is 100MB. The default is 35MB. When the quota is reached, the oldest files are successively overwritten by the newest ones. If you need to retain more history 100MB, use Azure Storage, which has a much greater storage capacity.
 - Optionally, click <strong>Set Retention</strong> to automatically delete files after a period of time. By default, logs are never deleted.   
 
-<strong>Detailed Error Messages</strong>. If enabled, detailed error messages are saved as .htm files. To view the files, go to the FTP site listed under "FTP Diagnostic Logs" on the Dashboard page. The files are saved under /LogFiles/DetailedErrors in the FTP site. (See [FTP Credentials](http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage#ftp-credentials).)
+<strong>Detailed Error Messages</strong>. If enabled, detailed error messages are saved as .htm files. To view the files, go to the FTP site listed under "FTP Diagnostic Logs" on the Dashboard page. The files are saved under /LogFiles/DetailedErrors in the FTP site. (See [FTP Credentials](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials).)
 
-<strong>Failed Request Tracing</strong>. If enabled, failed requests are logged to XML files. To view the files, go to the FTP site listed under "FTP Diagnostic Logs" on the Dashboard page. (See [FTP Credentials](http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage#ftp-credentials).) The files are saved under /LogFiles/W3SVC*xxx*, where xxx is a unique identifier. This folder contains an XSL file and one or more XML files. Make sure to download the XSL file, because it provides functionality for formatting and filtering the contents of the XML files.
+<strong>Failed Request Tracing</strong>. If enabled, failed requests are logged to XML files. To view the files, go to the FTP site listed under "FTP Diagnostic Logs" on the Dashboard page. (See [FTP Credentials](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials).) The files are saved under /LogFiles/W3SVC*xxx*, where xxx is a unique identifier. This folder contains an XSL file and one or more XML files. Make sure to download the XSL file, because it provides functionality for formatting and filtering the contents of the XML files.
 
 <strong>Remote Debugging</strong> Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your Azure website. Remote debugging will remain enabled for 48 hours.
 
@@ -121,7 +121,7 @@ For more information, see [How to: Monitor web endpoint status](http://go.micros
 
 Choose <strong>Add-on</strong> to select an analytics add-on from a list, or to go to the Azure store to choose one. Choose <strong>Custom</strong> to select an analytics provider such as New Relic from a list. If you use a custom provider, you must enter the license key in the<strong> Provider Key</strong> box. 
 
-For more information on using New Relic with Azure Websites, see <a href="http://www.windowsazure.com/en-us/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">New Relic Application Performance Management on Azure Websites</a>.
+For more information on using New Relic with Azure Websites, see <a href="http://www.windowsazure.com/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">New Relic Application Performance Management on Azure Websites</a>.
 
 ### App settings
 
@@ -195,8 +195,8 @@ Alternatively, you can create the website with the **Custom Create** option. In 
 
 ##<a name="next"></a> Next steps
 
-- [Configure a custom domain name](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/)
-- [Enable HTTPS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
-- [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)
-- [How to Monitor Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/)
+- [Configure a custom domain name](http://www.windowsazure.com/documentation/articles/web-sites-custom-domain-name/)
+- [Enable HTTPS](http://www.windowsazure.com/documentation/articles/web-sites-configure-ssl-certificate/)
+- [How to Scale Web Sites](http://www.windowsazure.com/documentation/articles/web-sites-scale/)
+- [How to Monitor Web Sites](http://www.windowsazure.com/documentation/articles/web-sites-monitor/)
 

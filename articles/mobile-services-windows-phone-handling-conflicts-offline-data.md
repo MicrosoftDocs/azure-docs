@@ -236,7 +236,6 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
 [Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-phone-handle-database-conflicts/#test-app
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/

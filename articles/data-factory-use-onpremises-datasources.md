@@ -529,7 +529,7 @@ Article | Description
 
 
 
-[azure-powershell-install]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[azure-powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png

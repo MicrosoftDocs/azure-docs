@@ -29,7 +29,7 @@ This tutorial assumes no prior experience with compute clusters or HPC Pack. It 
 
 <h2 id="BKMK_Prereq">Prerequisites</h2>
 
->[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).
+>[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).
 
 In addition, you need the following for this tutorial.
 
@@ -306,7 +306,7 @@ After you try out the cluster, you can use HPC Cluster Manager to stop the Azure
 * [HPC Pack 2012 R2 and HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Burst to Azure with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure Big Compute: HPC and Batch](http://azure.microsoft.com/en-us/solutions/big-compute/)
+* [Azure Big Compute: HPC and Batch](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png

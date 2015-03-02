@@ -34,7 +34,7 @@ The mobile service that you will create in this tutorial is a .NET backend mobil
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Professional 2013</a> (Update 3 or a later version). <br/>A free trial version is available. 
 
 ##Download the GetStartedWithData project
@@ -89,19 +89,11 @@ Now we can test both versions of the universal Windows app against the mobile se
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
  
-This concludes the **Get started with data** tutorial.
+This concludes the tutorial.
 
 ##Next steps
 
-This tutorial demonstrated the basics of enabling a universal Windows app project to work with data in Mobile Services. Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
-
-* [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
-
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
-Once you have completed the data series, try one of these other tutorials:
+This tutorial demonstrated the basics of enabling a universal Windows app project to work with data in Mobile Services. Next, consider reading up on one of these other topics:
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app.
@@ -109,9 +101,8 @@ Once you have completed the data series, try one of these other tutorials:
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
-* [Mobile Services .NET How-to Conceptual Reference]
+* [Mobile Services C# How-to Conceptual Reference](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
   <br/>Learn more about how to use Mobile Services with .NET.
-  
 
 
 <!-- Images. -->

@@ -32,7 +32,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
 
 ###Additional requirements
 
@@ -96,12 +96,12 @@ To be able to store app data in the new mobile service, you must first create a 
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
-	>[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
+	>[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 6. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
 
 
-	> [AZURE.IMPORTANT] If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the **Allow requests from host names** list. For more information, see [Cross-origin resource sharing](http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT] If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the **Allow requests from host names** list. For more information, see [Cross-origin resource sharing](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 You are now ready to use the new mobile service as data storage for the app.
 
@@ -271,5 +271,5 @@ This tutorial demonstrated the basics of enabling an HTML app to work with data 
 
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Cross-origin resource sharing]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+[Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 

@@ -156,6 +156,7 @@ In order to easily obtain all permission resources associated with a particular 
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
 > [AZURE.TIP] Resource tokens have a default valid timespan of 1 hour.  Token lifetime, however, may be explicitly specified, up to a maximum of 5 hours.
+
 ##<a name="NextSteps"></a>Next steps
 
 - To learn more about DocumentDB, click [here](http://azure.com/docdb).

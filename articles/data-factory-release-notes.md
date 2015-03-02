@@ -13,15 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/28/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
 
+## Notes for 2/27/2015 release of Data Factory
+
+### New improvements
+- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Preview Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [New Azure Data Factory Editor UI][adf-editor-video] video for a quick introduction of this tool.         
+
+### Changes
+
 ## Notes for 1/26/2015 release of Data Factory ##
 
-
-### New changes
+### Changes
 - Updated **Data Management Gateway** installation package has been posted to [Microsoft Download Center][adf-gateway-download]. Starting from this release, you can find the latest Data Management Gateway to use with Azure Data Factory at this download location. This installation package serves both Azure Data Factory and Power BI for Office 365 services. If you are using both the services, note that gateways for Data Factory and Power BI must be installed on different machines, and configured differently as per guidance from the Data Factory or Power BI documentation.
 - The **Copy Activity** now supports copying data between on-premises SQL Server database and an Azure SQL database.  See [Copy Activity][adf-copy-activity] for details and [Github][adf-github-samples] for JSON samples.
 - **SqlSink** supports a new property: **WriteBatchTimeout**. This property gives you the flexibility to configure how long to wait for the batch insert operation to complete before the operation times out. For a hybrid copy (copy operation that involves an on-premises data source and a cloud data source), you must have the gateway of version 1.4 or higher to use this property. 
@@ -65,7 +71,8 @@
 [adf-custom-activities]: ../data-factory-use-custom-activities
 [adf-copy-activity]: ../data-factory-copy-activity
 
-[on-demand-hdi-parameters]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
+[adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
+[on-demand-hdi-parameters]: http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
 [adf-gateway-download]: http://www.microsoft.com/download/details.aspx?id=39717
 [adf-github-samples]: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON
 [adf-msdn-linked-services]: https://msdn.microsoft.com/library/dn834986.aspx

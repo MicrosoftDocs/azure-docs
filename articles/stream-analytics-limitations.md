@@ -21,10 +21,6 @@
 This document describes the limitations and known issues of [Azure Stream Analytics][stream.analytics.documentation] during the Preview release.  In most cases these limits exist with an intent to get your early feedback or based on current capacity constraints. 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-##In this article
-+ [Limitations](#limitations) 
-+ [Release notes and known issues](#knownissues)
-+ [Next steps]
 
 ##<a name="limitations"></a> Limitations
 
@@ -149,7 +145,7 @@ Stream Analytics does not trim whitespace on column headers. Including whitespac
 
 
 [microsoft.support]: http://support.microsoft.com/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/

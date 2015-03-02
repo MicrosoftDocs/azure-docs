@@ -58,7 +58,7 @@ You can see which web hosting plan each website is associated with by looking at
 
 ### Next Steps ###
 
-To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png

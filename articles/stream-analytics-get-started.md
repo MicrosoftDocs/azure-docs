@@ -96,7 +96,7 @@ If you already have an Azure SQL Database to use for this tutorial, skip this se
 1.	From the Management portal, click **NEW**, **DATA SERVICES**, **SQL DATABASE**, **QUICK CREATE**.  Specify a database name on an existing or a new SQL Database server.
 2.	Select the newly created database
 3.	Click **DASHBOARD**, click **Show connection strings** on the right pane of the page, and then copy the **ADO.NET** connection string. You will use it later in the tutorial.  
-4.	Make sure the server-level firewall settings enable you to connect to the database.  You can do this by adding a new IP rule under the Server's Configure tab. For more details, including how to handle dynamic IP, see [http://msdn.microsoft.com/en-us/library/azure/ee621782.aspx](http://msdn.microsoft.com/en-us/library/azure/ee621782.aspx).
+4.	Make sure the server-level firewall settings enable you to connect to the database.  You can do this by adding a new IP rule under the Server's Configure tab. For more details, including how to handle dynamic IP, see [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ###Create output tables
 1.	Open Visual Studio or SQL Server Management Studio.
@@ -289,13 +289,13 @@ In this tutorial, you have learned how to use Stream Analytics to process the we
 [img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
 
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/en-us/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/en-us/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/en-us/services/sql-database/
+[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/en-us/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/en-us/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/en-us/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/

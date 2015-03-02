@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Restore an Azure SQL database using Point in Time Restore in Azure portal" 
+   pageTitle="Restore an Azure SQL database using Point in Time Restore in the Azure portal" 
    description="Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Management Portal, Azure portal" 
    services="sql-database" 
    documentationCenter="" 
@@ -16,9 +16,13 @@
    ms.date="02/24/2015"
    ms.author="elfish; v-romcal"/>
 
-# Restore an Azure SQL database using Point in Time Restore in Azure portal
+# Restore an Azure SQL database using Point in Time Restore in the Azure portal
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/" title="Point in Time Restore - PowerShell">Point in Time Restore - PowerShell</a><a href="/en-us/documentation/articles/sql-database-point-in-time-restore-tutorial-rest/" title="Point in Time Restore - REST API">Point in Time Restore - REST API</a></div>   
+> [AZURE.SELECTOR]
+- [Point in Time Restore - PowerShell](./documentation/articles/sql-database-point-in-time-restore-tutorial-powershell.md/)
+- [Point in Time Restore - REST API](./documentation/articles/sql-database-point-in-time-restore-tutorial-rest.md/) 
+
+## Overview
 
 This tutorial shows you how to restore an Azure SQL database using Point in Time Restore in the [Azure portal](http://manage.windowsazure.com/). Azure SQL Database has built-in backups to support self-service Point in Time Restore for Basic, Standard, and Premium service tiers.
 
@@ -40,7 +44,7 @@ Point in Time Restore creates a new database. The service automatically selects 
 
 	* Web and Business Editions will be retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-## How to: Restore an Azure SQL database using Point in Time Restore in Azure portal
+## How to: Restore an Azure SQL database using Point in Time Restore in the Azure portal
 
 <iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-SQL-Database-Using-Point-in-Time-Restore/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 

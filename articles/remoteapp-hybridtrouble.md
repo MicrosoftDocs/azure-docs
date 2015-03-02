@@ -42,7 +42,7 @@ If you see one of the above errors, please check the following things:
 If you see this error, please check the following things:
 
 - Ensure the on-premises side of the VPN connection is not blocking network traffic. You can check that by looking at the logs of your local VPN device or software.
-- Ensure that the RemoteApp template image you uploaded was properly syspreped. You can check the RemoteApp image requirements here: http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-custom-image/ 
+- Ensure that the RemoteApp template image you uploaded was properly syspreped. You can check the RemoteApp image requirements here: http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/ 
 - Please try to create a VM using the template image you uploaded and ensure that it boots up and runs fine either (a) on a local Hyper-V server (b) by creating an Azure IAAS VM in your Azure subscription. If the VM fails to get created or does not start, then this usually indicates that the template image was not prepared correctly and you would have to fix it.
 
 	DomainJoinFailed_InvalidUserNameOrPassword

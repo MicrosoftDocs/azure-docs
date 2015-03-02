@@ -13,24 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/25/2015" 
 	ms.author="mandia"/>
 
 
 
 # Create a BizTalk Service using Azure management portal
 
-Create an Azure BizTalk Service in the Azure Management Portal. Specifically: 
-
--  [Create a BizTalk Service](#BizTalk)
--  [Post-Provisioning Steps](#PostProv)
--  [Requirements Explained](#Requirements)
--  [Hybrid Connections - New!](#HC)
-
+Create an Azure BizTalk Service in the Azure Management Portal. 
 
 > [AZURE.TIP] To sign into the Azure Management Portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
-## <a name="BizTalk"></a>Create a BizTalk Service
+## Create a BizTalk Service
 Depending on the Edition you choose, not all BizTalk Service settings may be available.
 
 1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -132,7 +126,7 @@ When complete, the Azure BizTalk Service is created and ready for your applicati
 Depending on the state of the BizTalk Service, there are some operations that cannot be completed. For a list of these operations, go to [BizTalk Services State Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870).
 
 
-## <a name="PostProv"></a>Post-Provisioning Steps
+## Post-Provisioning Steps
 
 -  [Install the certificate on a local computer](#InstallCert)
 -  [Add a production-ready certificate](#AddCert)
@@ -179,7 +173,7 @@ The Access Control service identity is a set of credentials that allow applicati
 
 [Managing Your ACS Namespace](http://go.microsoft.com/fwlink/p/?LinkID=285670) lists some guidelines and recommendations.
 
-## <a name="Requirements"></a>Requirements Explained
+## Requirements Explained
 
 These Requirements do not apply to the Free Edition. 
 <table border="1">
@@ -263,7 +257,7 @@ A new or different certificate can be added after the BizTalk Service is created
 
 
 
-## <a name="HC"></a>Hybrid Connections
+## Hybrid Connections
 
 When you create an Azure BizTalk Service, the **Hybrid Connections** tab is available:
 

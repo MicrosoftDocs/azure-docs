@@ -73,7 +73,7 @@ At public preview, Data Factory will only be available in US West.  The compute 
 
 The Copy Activity supports copying data into the following regions: East US, East US 2, West US,  Central US, North Europe, West Europe, and South East Asia.
 
-Copying data into other regions is also supported, by using one of the five regions above for routing the data.  Copy operation is metered based on the region where data is routed through.
+Copying data into other regions is also supported, by using one of the regions above for routing the data.  Copy operation is metered based on the region where data is routed through.
 
 Region of copy destination | Region used for routing
 -------------------------- | -----------------------
@@ -128,6 +128,6 @@ In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 repres
 [azure-preview-portal]: http://portal.azure.com
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/en-us/pricing/details/hdinsight/
+[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx

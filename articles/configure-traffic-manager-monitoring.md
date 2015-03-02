@@ -1,20 +1,25 @@
+<properties 
+	pageTitle="Configure Traffic Manager monitoring" 
+	description="This article will step you through configuring monitoring for Traffic Manager." 
+	services="traffic-manager" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
+
 <tags 
-   pageTitle="Configure Traffic Manager monitoring"
-   description="How to configure Traffic Manager monitoring"
-   services="traffic-manager"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
-   ms.author="cherylmc" />
+	ms.service="traffic-manager" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/24/2015" 
+	ms.author="cherylmc"/>
 
 # Configure Traffic Manager Monitoring
 
 
-Azure Traffic Manager can monitor your endpoints, which include cloud services and websites, to ensure they are available. In order for monitoring to work correctly, you must set it up the same way for every endpoint that you specify in your profile settings. For more information about monitoring, see 
+Azure Traffic Manager can monitor your endpoints to ensure they are available. In order for monitoring to work correctly, you must set it up the same way for every endpoint that you specify in your profile settings. For more information about monitoring, see 
 [About Traffic Manager Monitoring](../about-traffic-manager-monitoring).
 
 ## Protocol and port
@@ -35,18 +40,18 @@ You may choose to monitor “/”, in which case Traffic Manager will try to acc
 ### To configure monitoring for a specific path and file name
 
 
-1-Create a file with the same name on each endpoint you plan to include in your profile.
+1. Create a file with the same name on each endpoint you plan to include in your profile.
 
 
-2-For each endpoint, use a web browser to test access to the file. The URL consists of the domain name of the specific endpoint (the cloud service or website), the path to the file, and the file name.
-
-
-
-3-In the Management Portal, under **Monitoring Settings**, in the **Relative Path and File Name** field, specify the path and file name.
+2. For each endpoint, use a web browser to test access to the file. The URL consists of the domain name of the specific endpoint (the cloud service or website), the path to the file, and the file name.
 
 
 
-4-When you are finished making your configuration changes, click **Save** at the bottom of the page.
+3. In the Management Portal, under **Monitoring Settings**, in the **Relative Path and File Name** field, specify the path and file name.
+
+
+
+4. When you are finished making your configuration changes, click **Save** at the bottom of the page.
 
 
 

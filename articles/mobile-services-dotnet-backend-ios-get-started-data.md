@@ -41,7 +41,7 @@ This tutorial requires the following:
 
 + [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] and iOS 5.0 or later versions.
 + Visual Studio 2013 (you can get [Visual Studio Express for Web](http://go.microsoft.com/p/?linkid=9832232) for free).
-+ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>.
++ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>.
 
 ##<a name="download-app"></a>Download the GetStartedWithData project
 

@@ -386,7 +386,7 @@ In this section you will create a new custom authorization attribute that can be
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
 [Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Graph REST API]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
-[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+[Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Accessing Azure Active Directory Graph Information]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/
 [ADAL for .NET]: https://msdn.microsoft.com/en-us/library/azure/jj573266.aspx

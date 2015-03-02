@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="remoteapp" 
-	ms.workload="tbd" 
+	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/17/2015" 
+	ms.date="2/27/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
@@ -38,7 +38,7 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 
 
 	[Contact us](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20enable%20Redirection%20request) to enable drive mapping or USB or serial port redirection. (We're working on adding this support to the portal, but it's not there yet.)
-- **How about authentication? Which methods are supported?** The cloud collection supports Microsoft accounts and Azure Active Directory accounts, which are Office 365 accounts as well. The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like DirSync) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You can also configure [Multi-Factor Authentication (MFA)](http://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+- **How about authentication? Which methods are supported?** The cloud collection supports Microsoft accounts and Azure Active Directory accounts, which are Office 365 accounts as well. The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like [Azure Active Directory Sync](http://blogs.technet.com/b/ad/archive/2014/09/16/azure-active-directory-sync-is-now-ga.aspx)) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You can also configure [Multi-Factor Authentication (MFA)](http://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 	**Note:** The Azure Active Directory users must be from the tenant that's associated with your subscription. (You can view and modify your subscription on the **Settings** tab in the portal. See [Change the Azure Active Directory tenant used by RemoteApp](http://msdn.microsoft.com/3d6c4fd1-c981-4c57-9402-59fe31b11883) for more information.)
 

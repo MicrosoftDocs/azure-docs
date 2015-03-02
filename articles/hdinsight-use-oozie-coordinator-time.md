@@ -21,14 +21,6 @@
 
 Learn how to define workflows and coordinators, and how to trigger the coordinator jobs based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before this article. 
 
-##In this article
-
-0. [What is Oozie](#whatisoozie)
-1. [Prerequisites](#prerequisites)
-2. [Define Oozie workflow file](#defineworkflow)
-2. [Deploy the Oozie project and prepare the tutorial](#deploy)
-3. [Run workflow](#run)
-4. [Next steps](#nextsteps)
 
 ##<a id="whatisoozie"></a>What is Oozie
 
@@ -734,11 +726,11 @@ In this tutorial, you have learned how to define an Oozie workflow, and Oozie co
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/en-us/downloads/
+[powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../install-and-configure-powershell/
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

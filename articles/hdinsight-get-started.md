@@ -97,7 +97,7 @@ For more information, see
 	
 ##<a name="provision"></a>Provision an HDInsight cluster
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision a HDInsight cluster version 3.1, which is based on Hadoop version 2.4. You can also create Hadoop clusters for other versions using the Azure portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision a HDInsight cluster version 3.1, which is based on Hadoop version 2.4. You can also create Hadoop clusters for other versions using the Azure portal, HDInsight PowerShell cmdlets, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) page.
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -269,9 +269,9 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-weblogs-sample]: ../hdinsight-hive-analyze-website-log/
 [hdinsight-sensor-data-sample]: ../hdinsight-hive-analyze-sensor-data/
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 
@@ -279,7 +279,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
 [apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
 [apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
