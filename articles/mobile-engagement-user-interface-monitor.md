@@ -19,6 +19,7 @@
 # Azure Mobile Engagement - User Interface
 
 <div class="dev-center-tutorial-selector sublanding">
+<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
 <a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
 <a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
@@ -30,20 +31,20 @@
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
 </div>
 
-## <a name="Monitor">Monitor</a>
+# Monitor
  
 The Monitor section of the UI provides real time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the "Analytics" section of the UI. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring such as: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
 **See also:** 
 
--  [Concepts - Glossary][Link 6]
+-  [Concepts - Glossary][Link 6], [Troubleshooting Guide - Analytics][Link 2]
 
-### Monitor - Sessions, Jobs, Events, Errors, and Crashes:
+## Monitor - Sessions, Jobs, Events, Errors, and Crashes:
 You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash.  Live monitoring is helpful to use during events such as a Push campaign to see if there is an uptick in action right after you send your Push notification. 
  
 ![Monitor1][14]  
 
-### Troubleshooting with Monitor - Events - Details:
+## Troubleshooting with Monitor - Events - Details:
 Generating an event in your application from your test device and finding it in Monitor - Events - Details is one of the easiest ways to find your Device ID for your test device and to confirm that Azure Mobile Engagement integration of Analytics, Monitoring, and Segments is working from your application. Once you have the Device ID of your test device, you can add it to your test devices in “My Account - Devices”. If you can't generate an event, make sure that Azure Mobile Engagement is correctly integrated in your Android/iOS/Web/Windows/Windows Phone app with the SDK.
 
 **See also:** 
@@ -52,7 +53,7 @@ Generating an event in your application from your test device and finding it in 
 
 ![Monitor2][15]  
 
-### Troubleshooting with Monitor - Crashes - Details:
+## Troubleshooting with Monitor - Crashes - Details:
 You can review crash information about your app from Monitor - Crashes - Details to help determine why your app is crashing. You should also look up known issues with each version of the SDK in the release notes for each version of the SDK for Android/iOS/Web/Windows/Windows Phone. 
 
 **See also:** 
@@ -61,70 +62,70 @@ You can review crash information about your app from Monitor - Crashes - Details
 
 ![Monitor3][16] 
 
-### Monitor - Alerts:
+## Monitor - Alerts:
 You can also specify conditions for Alerts that will be automatically sent to you via e-mail or instant message (any XMPP compliant services like Google's GTalk or Apple's iChat are supported). Alerts are based on a pre-defined detection threshold greater than > or less than < a specific number of Sessions, Jobs, Events, Errors, or Crashes per second, minute, or hour. Alerts can monitor all activities of a given type or just monitor a specific Job, Event, or Error activity. You can also specify a Minimum Detection Rate, which is the minimum amount of time that will separate two notifications for the same alert to make sure that when your alert is triggered, you will never receive more than 1 notification every X minutes.
  
 ![Monitor4][17]
 
 <!--Image references-->
-[1]: ./media/mobile-engagement-user-interface/navigation1.png
-[2]: ./media/mobile-engagement-user-interface/home1.png
-[3]: ./media/mobile-engagement-user-interface/home2.png
-[4]: ./media/mobile-engagement-user-interface/home3.png
-[5]: ./media/mobile-engagement-user-interface/home4.png
-[6]: ./media/mobile-engagement-user-interface/home5.png
-[7]: ./media/mobile-engagement-user-interface/myaccount1.png
-[8]: ./media/mobile-engagement-user-interface/myaccount2.png
-[9]: ./media/mobile-engagement-user-interface/myaccount3.png
-[10]: ./media/mobile-engagement-user-interface/analytics1.png
-[11]: ./media/mobile-engagement-user-interface/analytics2.png
-[12]: ./media/mobile-engagement-user-interface/analytics3.png
-[13]: ./media/mobile-engagement-user-interface/analytics4.png
-[14]: ./media/mobile-engagement-user-interface/monitor1.png
-[15]: ./media/mobile-engagement-user-interface/monitor2.png
-[16]: ./media/mobile-engagement-user-interface/monitor3.png
-[17]: ./media/mobile-engagement-user-interface/monitor4.png
-[18]: ./media/mobile-engagement-user-interface/reach1.png
-[19]: ./media/mobile-engagement-user-interface/reach2.png
-[20]: ./media/mobile-engagement-user-interface/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface/Reach-Content4.png
-[34]: ./media/mobile-engagement-user-interface/dashboard1.png
-[35]: ./media/mobile-engagement-user-interface/segments1.png
-[36]: ./media/mobile-engagement-user-interface/segments2.png
-[37]: ./media/mobile-engagement-user-interface/segments3.png
-[38]: ./media/mobile-engagement-user-interface/segments4.png
-[39]: ./media/mobile-engagement-user-interface/segments5.png
-[40]: ./media/mobile-engagement-user-interface/segments6.png
-[41]: ./media/mobile-engagement-user-interface/segments7.png
-[42]: ./media/mobile-engagement-user-interface/segments8.png
-[43]: ./media/mobile-engagement-user-interface/segments9.png
-[44]: ./media/mobile-engagement-user-interface/segments10.png
-[45]: ./media/mobile-engagement-user-interface/segments11.png
-[46]: ./media/mobile-engagement-user-interface/settings1.png
-[47]: ./media/mobile-engagement-user-interface/settings2.png
-[48]: ./media/mobile-engagement-user-interface/settings3.png
-[49]: ./media/mobile-engagement-user-interface/settings4.png
-[50]: ./media/mobile-engagement-user-interface/settings5.png
-[51]: ./media/mobile-engagement-user-interface/settings6.png
-[52]: ./media/mobile-engagement-user-interface/settings7.png
-[53]: ./media/mobile-engagement-user-interface/settings8.png
-[54]: ./media/mobile-engagement-user-interface/settings9.png
-[55]: ./media/mobile-engagement-user-interface/settings10.png
-[56]: ./media/mobile-engagement-user-interface/settings11.png
-[57]: ./media/mobile-engagement-user-interface/settings12.png
-[58]: ./media/mobile-engagement-user-interface/settings13.png
+[1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
+[2]: ./media/mobile-engagement-user-interface-home/home1.png
+[3]: ./media/mobile-engagement-user-interface-home/home2.png
+[4]: ./media/mobile-engagement-user-interface-home/home3.png
+[5]: ./media/mobile-engagement-user-interface-home/home4.png
+[6]: ./media/mobile-engagement-user-interface-home/home5.png
+[7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
+[8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
+[9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
+[10]: ./media/mobile-engagement-user-interface-analytics/analytics1.png
+[11]: ./media/mobile-engagement-user-interface-analytics/analytics2.png
+[12]: ./media/mobile-engagement-user-interface-analytics/analytics3.png
+[13]: ./media/mobile-engagement-user-interface-analytics/analytics4.png
+[14]: ./media/mobile-engagement-user-interface-monitor/monitor1.png
+[15]: ./media/mobile-engagement-user-interface-monitor/monitor2.png
+[16]: ./media/mobile-engagement-user-interface-monitor/monitor3.png
+[17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
+[18]: ./media/mobile-engagement-user-interface-reach/reach1.png
+[19]: ./media/mobile-engagement-user-interface-reach/reach2.png
+[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
+[35]: ./media/mobile-engagement-user-interface-segments/segments1.png
+[36]: ./media/mobile-engagement-user-interface-segments/segments2.png
+[37]: ./media/mobile-engagement-user-interface-segments/segments3.png
+[38]: ./media/mobile-engagement-user-interface-segments/segments4.png
+[39]: ./media/mobile-engagement-user-interface-segments/segments5.png
+[40]: ./media/mobile-engagement-user-interface-segments/segments6.png
+[41]: ./media/mobile-engagement-user-interface-segments/segments7.png
+[42]: ./media/mobile-engagement-user-interface-segments/segments8.png
+[43]: ./media/mobile-engagement-user-interface-segments/segments9.png
+[44]: ./media/mobile-engagement-user-interface-segments/segments10.png
+[45]: ./media/mobile-engagement-user-interface-segments/segments11.png
+[46]: ./media/mobile-engagement-user-interface-settings/settings1.png
+[47]: ./media/mobile-engagement-user-interface-settings/settings2.png
+[48]: ./media/mobile-engagement-user-interface-settings/settings3.png
+[49]: ./media/mobile-engagement-user-interface-settings/settings4.png
+[50]: ./media/mobile-engagement-user-interface-settings/settings5.png
+[51]: ./media/mobile-engagement-user-interface-settings/settings6.png
+[52]: ./media/mobile-engagement-user-interface-settings/settings7.png
+[53]: ./media/mobile-engagement-user-interface-settings/settings8.png
+[54]: ./media/mobile-engagement-user-interface-settings/settings9.png
+[55]: ./media/mobile-engagement-user-interface-settings/settings10.png
+[56]: ./media/mobile-engagement-user-interface-settings/settings11.png
+[57]: ./media/mobile-engagement-user-interface-settings/settings12.png
+[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
 [Link 1]: ../mobile-engagement-user-interface/
