@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to Use Azure Managed Cache Service" 
-	description="" 
+	description="Learn how to improve the performance of your Azure applications with Azure Managed Cache Service" 
 	services="cache" 
 	documentationCenter="" 
 	authors="steved0x" 

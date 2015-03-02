@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to create and configure advanced product settings in Azure API Management" 
-	description="Learn how to configure a product with quota and rate limit policies." 
+	pageTitle="Protect your API with rate limits using Azure API Management" 
+	description="Learn how to protect your API with quotas and throttling (rate-limiting) policies." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="2/27/2015" 
 	ms.author="sdanie"/>
 
-# How create and configure advanced product settings in Azure API Management
+# Protect your API with rate limits using Azure API Management
 
-In Azure API Management, products are highly configurable to meet the requirements of API publishers. This topic demonstrates how to configure some of the advanced product settings, including rate limit and quota policies.
+This guide shows you how easy it is to add protection for your backend API by configuring rate limit and quota policies with Azure API Management.
 
-In this tutorial you will create a Free Trial product that allows up to 10 calls per minute up to a maximum of 200 calls per week, publish it, and test the rate limit policy.
+In this tutorial you will create a 'Free Trial' API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API. You will then publish the API, and test the rate limit policy.
 
->[AZURE.NOTE] If you have a product configured and want to use it for this tutorial, you can jump ahead to [Configure call rate limit and quota policies][] and follow the tutorial from there using your product in place of the **Free Trial** product.
+>[AZURE.NOTE] If you already have a product configured and want to use it for this tutorial, you can jump ahead to [Configure call rate limit and quota policies][] and follow the tutorial from there using your product in place of the **Free Trial** product.
 
 ## <a name="create-product"> </a>Create a product
 
