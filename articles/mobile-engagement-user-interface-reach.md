@@ -19,6 +19,7 @@
 # Azure Mobile Engagement - User Interface
 
 <div class="dev-center-tutorial-selector sublanding">
+<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
 <a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
 <a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
@@ -30,13 +31,14 @@
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
 </div>
 
-## <a name="Reach">Reach</a>
+# <a name="Reach">Reach</a>
  
-The Reach section of the UI is the Push campaign management tool where you can create/edit/activate/finish/monitor and get statistics on Push notification campaigns and features that can also be accessed via the Reach API (and some elements of the low level Push API). Remember that whether you are using the APIs or the UI, you will need to integrated both Azure Mobile Engagement and Reach into your application for each platform with the SDK before you can use Reach campaigns. 
+The Reach section of the UI is the Push campaign management tool where you can create/edit/activate/finish/monitor and get statistics on Push notification campaigns and features that can also be accessed via the Reach API (and some elements of the low level Push API). Remember that whether you are using the APIs or the UI, you will need to integrated both Azure Mobile Engagement and Reach into your application for each platform with the SDK before you can use Reach campaigns.
 
 **See also:** 
 
--  [API Documentation - Reach API][Link 4], [API Documentation - Push API][Link 4]
+-  [API Documentation - Reach API][Link 4], [API Documentation - Push API][Link 4], [Troubleshooting Guide - Push/Reach][Link 2]
+-  <a href="#ReachCampaign" title="Reach Campaign">Reach Campaign</a>, <a href="#ReachCriterion" title="Reach Criterion">Reach Criterion</a>, <a href="#ReachContent" title="Reach Content">Reach Content</a>
  
 ## Four types of Push notifications:
 1.    Announcements - allow you to send advertising messages to users that redirect them to another location inside your app or to send them to a webpage or store outside of your app. 
@@ -48,7 +50,7 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 -  [Concepts - Glossary][Link 6]
 
-### Three categories of Real time statistics shown for each campaign: 
+## Three categories of Real time statistics shown for each campaign: 
 1.    Pushed - how many pushes were sent based on the criteria specified in the campaign. 
 2.    Replied - how many users reacted to the notification by either opening it from outside of the app or closing it in app. 
 3.    Actioned - how many users clicked on the link in the notification to be redirected to a new location in the app, to a store, or to a web browser. 
@@ -60,12 +62,12 @@ The Reach section of the UI is the Push campaign management tool where you can c
 -  [Concepts - Glossary][Link 6], [API Documentation - Reach API - Stats][Link 4]
 
 
-### Campaign Details:
+## Campaign Details:
 You can edit, clone, delete, or activate campaigns that have not been activated yet by hovering over their names or you can click to open them. You can clone campaigns that have already been activated by hovering over their names or you can click to open them. However, you can't change a campaign once it has been activated.
  
 ![Reach1][18]
 
-### Reach Feedback:
+## Reach Feedback:
 You can switch from the details to the statistics view of an open campaign that has already been activated and switch from the simple to advanced view of the statistics to view more detailed information (depending on your permissions). You can also use the reach feedback information from a previous campaign as targeting criteria in a new campaign. Reach Feedback statistics can also be gathered with “Stats” from the Reach API. You can also customize the audience of your Push campaigns based on previous campaigns.
 
 
@@ -90,7 +92,7 @@ You can use the Reach section of the UI to create a new Push campaign with a com
  
 ![Reach-Campaign1][20]
 
-### Languages:
+## Languages:
 You can use the Languages drop down menu to send a different version of your Push to devices set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
  
 ![Reach-Campaign2][21]
@@ -146,7 +148,7 @@ You can use the Languages drop down menu to send a different version of your Pus
 - Ukrainian (uk) 
 - Vietnamese (vi) 
  
-### Campaign:
+## Campaign:
 You can use the Campaign section to set the name and category of your campaign as well as if you plan to ignore the audience section of a Push campaign and send this campaign via the Reach API (and some elements with the low level Push API) instead. Categories can be used with a custom notification template to control in-app notifications based on predefined settings. You can get a list of your existing “Categories” via the Reach API.
 
 > Warning: If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
@@ -159,10 +161,10 @@ You can use the Campaign section to set the name and category of your campaign a
 - Category:    Announcements, Polls
 - Ignore Audience, push will be sent to users via the API:    All
  
-### Notification:
+## Notification:
 You can use the Notification section to set basic settings for your push including: The title of the Push, the message, an in app image or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes the Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App (Android SDK 2.1.0 or later intent categories required). You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device). There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
 
-### Delivery Types:
+## Delivery Types:
 -    Out of app only: the notification will be delivered when the user does not use the application.
 - The out of app only notification requires a certificate from Apple or Google (APNS or GCM certificate).
 - In-app only: The notification appears only when the application is running.
@@ -176,7 +178,7 @@ You can use the Notification section to set basic settings for your push includi
 
 - Notification:     Announcements, Polls
  
-### Content:
+## Content:
 You can use the Content section to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The Content setting of Push campaigns is specific to the type of campaign. 
 
 **See also:**
@@ -185,7 +187,7 @@ You can use the Content section to modify the content of your Announcements, Pol
  
 ![Reach-Campaign5][24]
 
-### Audience:
+## Audience:
 You can use the Audience section to define a standard list of items to limit your campaign or limits your campaign based on customized criteria. The standard set of options to Limit your Audience allows you to push to either new or old users or native push users only. You can also set a quota to limit the number of users who receive the push. You can manually Edit the expression for how your campaign is filtered to include one or more criterion to target users. You can manually type an audience expression. Such an expression must explicitly define the relation between criteria. A criterion is described by an identifier that must start with a capital letter and cannot contain spaces. The relation between the criteria can be described using 'and', 'or', 'not' operators as well as '(', ')'. Example: "Criterion1 or (Criterion1 and not Criterion2)".
 
 > Note: With a large audience included in campaigns, the server side targeting scan can be slow, especially if you attempt to start multiple campaigns at the same time.
@@ -201,7 +203,7 @@ Once your audience is defined, you can use the simulate button to find out how m
 
 ![Reach-Campaign6][25]
 
-### Edit expression
+## Edit expression
  
 ![Reach-Campaign7][26]
  
@@ -214,7 +216,7 @@ Once your audience is defined, you can use the simulate button to find out how m
 - Engage only active users:    All (Announcements, Polls, Data Pushes, Tiles)
 - Engage only users who can be reached using Native Push:     Announcements, Polls
  
-### Time Frame:
+## Time Frame:
 You can use the Time Frame section to set when the push will be sent or you can leave the time frame blank to start the campaign immediately. Remember that using the end-users' time zone may start the campaign a day earlier than you expect for your end-users in Asia and send small batches of pushes at a time until all time zones in the world match the time frame set for your campaign. Using the end users' time zone can also cause delays in campaigns since it has to request the time from the phone before starting the push.
 
 > Note: Campaigns without an end date can cache pushes locally and still display them after you manually complete campaigns. To avoid this behavior, specific an end time for campaigns.
@@ -229,7 +231,7 @@ You can use the Time Frame section to set when the push will be sent or you can 
 
 - Time frame:     Announcements, Polls, Tiles
  
-### Test:
+## Test:
 You can use the Test section to send this push to your own test device before saving the campaign. If you have configured any custom languages for this campaign, you can test the push in each language. You can setup a test device from “My Account”.
 > Note: No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
 
@@ -247,7 +249,7 @@ Targeting your audience by specific criteria with the "New Criteria" button is o
 
 - <a href="#ReachCampaign">UI Documentation - Reach - New Push Campaign</a>
 
-### The audience criteria can include:
+## The audience criteria can include:
 
 - **Technicals: ** You can target based on the same technical information you can see in the Analytics and Monitor sections. **See also:** [UI Documentation - Analytics][Link 15],  [UI Documentation - Monitor][Link 16]
 - **Location:** Applications that use "Real time location reporting" with Geo-Fencing can use Geo-Location as a criteria to target an audience from the GPS location. "Lazy Area Location Reporting" call also be used to target an audience from the cell phone location ("Real time location reporting" and "Lazy Area Location Reporting" must be activated from the SDK). **See also:** [SDK Documentation - iOS -  Integration][Link 5], [SDK Documentation - Android -  Integration][Link 5]
@@ -256,7 +258,7 @@ Targeting your audience by specific criteria with the "New Criteria" button is o
 - **User Profile:** You can target based on standard user information and you can target based on the custom app info that you have created. This includes users who are currently logged in and users that have answered specific questions you have asked them to set in the app itself instead of just how they have responded to previous campaigns. All of your App Info's defined for your app show up on this list.
 - Segments: You can also target based on segments that you have created based on specific user behavior containing multiple criteria. All of your segments defined for your app show up on this list. **See also:** [UI Documentation -  Segments][Link 18]
 - **App Info:** Custom App Info Tags can be created from “Settings” to track user behavior. **See also:** [UI Documentation -  Settings][Link 20]
-### Example: 
+## Example: 
 If you want to push an announcements only to the sub-set of your users that have performed an in-app purchase action.
 
 1. Go to your application settings page, select the "App info" menu and select "New app ino"
@@ -309,17 +311,17 @@ If you want to push an announcements only to the sub-set of your users that have
  
 You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
  
-### Content types
+## Content types
 - Announcements
 - Polls
 - Data pushes
 - Tiles (Windows Phone Only)
  
-### Content of Announcements
+## Content of Announcements
  
  ![Reach-Content1][30] 
 
-### Choose the type of your announcement:
+## Choose the type of your announcement:
 -    Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
 -    Text announcement: It is a notification that engages the user to have a look at a text view.
 -    Web announcement: It is a notification that engages the user to have a look at a web view.
@@ -336,7 +338,7 @@ If you want to create a full screen web view (without the default Action and Exi
 -    perform the announcement action: ReachContent.actionContent()
 -    exit from the announcement: ReachContent.exitContent()
  
-### Choose your Action:
+## Choose your Action:
 
 **About Action URLs:**
 
@@ -394,17 +396,17 @@ Each occurrence of the {deviceid} pattern is automatically replaced by the ident
     - [folder][data].[extension] 
     - Example:myfolderdata.txt
  
-### Build a Tracking URL:
+## Build a Tracking URL:
 -    See the “Settings” section of the <UI Documentation> for instruction on building a tracking URL that will allow users to download one of your other applications.
  
-### Define the texts of your announcement
+## Define the texts of your announcement
 Fill in the title, content, and button texts of your announcement. 
 You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on the feedback of whether this campaign was just pushed, replied, actioned, or exited.
 
 **See also:**
 - <a href="#ReachCriterion">UI Documentation - Reach - New Push Criterion</a>
 
-### Content of Polls
+## Content of Polls
  
 ![Reach-Content2][31] 
 Fill in the title, description, and button texts of your announcement. 
@@ -415,16 +417,16 @@ You can target an audience of a future campaign based on the reach feedback of h
 
 - <a href="#ReachCriterion">UI Documentation - Reach - New Push Criterion</a>
  
-### Content of Data Pushes
+## Content of Data Pushes
  
 ![Reach-Content3][32] 
 
-### Choose the type of your data
+## Choose the type of your data
 - Text
 - Binary data
 - Base64 data
 
-### Define the content of your data
+## Define the content of your data
 - If you selected to push text data, copy and paste the text into the "content" box.
 - If you selected to push either binary or base64 data, use the "upload your file" button to upload your file.
 - You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited.
@@ -433,11 +435,11 @@ You can target an audience of a future campaign based on the reach feedback of h
 
 - <a href="#ReachCriterion">UI Documentation - Reach - New Push Criterion</a>
 
-### Content of Tiles (Windows Phone only)
+## Content of Tiles (Windows Phone only)
 
 ![Reach-Content4][33]
 
-### Define the content of your tile
+## Define the content of your tile
 The tile payload is the text to be displayed in the tile of your app on Windows Phone devices.
 A tile push is the Microsoft Push Notification Service (MPNS) version of a native push for Windows Phone. The tile push type is the only push type that does not have a response and so the audience of future campaigns can't be built on the results of a tile push campaign. 
 
@@ -446,64 +448,64 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 - [API Documentation - Reach API - Native Push][Link 4]
 
 <!--Image references-->
-[1]: ./media/mobile-engagement-user-interface/navigation1.png
-[2]: ./media/mobile-engagement-user-interface/home1.png
-[3]: ./media/mobile-engagement-user-interface/home2.png
-[4]: ./media/mobile-engagement-user-interface/home3.png
-[5]: ./media/mobile-engagement-user-interface/home4.png
-[6]: ./media/mobile-engagement-user-interface/home5.png
-[7]: ./media/mobile-engagement-user-interface/myaccount1.png
-[8]: ./media/mobile-engagement-user-interface/myaccount2.png
-[9]: ./media/mobile-engagement-user-interface/myaccount3.png
-[10]: ./media/mobile-engagement-user-interface/analytics1.png
-[11]: ./media/mobile-engagement-user-interface/analytics2.png
-[12]: ./media/mobile-engagement-user-interface/analytics3.png
-[13]: ./media/mobile-engagement-user-interface/analytics4.png
-[14]: ./media/mobile-engagement-user-interface/monitor1.png
-[15]: ./media/mobile-engagement-user-interface/monitor2.png
-[16]: ./media/mobile-engagement-user-interface/monitor3.png
-[17]: ./media/mobile-engagement-user-interface/monitor4.png
-[18]: ./media/mobile-engagement-user-interface/reach1.png
-[19]: ./media/mobile-engagement-user-interface/reach2.png
-[20]: ./media/mobile-engagement-user-interface/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface/Reach-Content4.png
-[34]: ./media/mobile-engagement-user-interface/dashboard1.png
-[35]: ./media/mobile-engagement-user-interface/segments1.png
-[36]: ./media/mobile-engagement-user-interface/segments2.png
-[37]: ./media/mobile-engagement-user-interface/segments3.png
-[38]: ./media/mobile-engagement-user-interface/segments4.png
-[39]: ./media/mobile-engagement-user-interface/segments5.png
-[40]: ./media/mobile-engagement-user-interface/segments6.png
-[41]: ./media/mobile-engagement-user-interface/segments7.png
-[42]: ./media/mobile-engagement-user-interface/segments8.png
-[43]: ./media/mobile-engagement-user-interface/segments9.png
-[44]: ./media/mobile-engagement-user-interface/segments10.png
-[45]: ./media/mobile-engagement-user-interface/segments11.png
-[46]: ./media/mobile-engagement-user-interface/settings1.png
-[47]: ./media/mobile-engagement-user-interface/settings2.png
-[48]: ./media/mobile-engagement-user-interface/settings3.png
-[49]: ./media/mobile-engagement-user-interface/settings4.png
-[50]: ./media/mobile-engagement-user-interface/settings5.png
-[51]: ./media/mobile-engagement-user-interface/settings6.png
-[52]: ./media/mobile-engagement-user-interface/settings7.png
-[53]: ./media/mobile-engagement-user-interface/settings8.png
-[54]: ./media/mobile-engagement-user-interface/settings9.png
-[55]: ./media/mobile-engagement-user-interface/settings10.png
-[56]: ./media/mobile-engagement-user-interface/settings11.png
-[57]: ./media/mobile-engagement-user-interface/settings12.png
-[58]: ./media/mobile-engagement-user-interface/settings13.png
+[1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
+[2]: ./media/mobile-engagement-user-interface-home/home1.png
+[3]: ./media/mobile-engagement-user-interface-home/home2.png
+[4]: ./media/mobile-engagement-user-interface-home/home3.png
+[5]: ./media/mobile-engagement-user-interface-home/home4.png
+[6]: ./media/mobile-engagement-user-interface-home/home5.png
+[7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
+[8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
+[9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
+[10]: ./media/mobile-engagement-user-interface-analytics/analytics1.png
+[11]: ./media/mobile-engagement-user-interface-analytics/analytics2.png
+[12]: ./media/mobile-engagement-user-interface-analytics/analytics3.png
+[13]: ./media/mobile-engagement-user-interface-analytics/analytics4.png
+[14]: ./media/mobile-engagement-user-interface-monitor/monitor1.png
+[15]: ./media/mobile-engagement-user-interface-monitor/monitor2.png
+[16]: ./media/mobile-engagement-user-interface-monitor/monitor3.png
+[17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
+[18]: ./media/mobile-engagement-user-interface-reach/reach1.png
+[19]: ./media/mobile-engagement-user-interface-reach/reach2.png
+[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
+[35]: ./media/mobile-engagement-user-interface-segments/segments1.png
+[36]: ./media/mobile-engagement-user-interface-segments/segments2.png
+[37]: ./media/mobile-engagement-user-interface-segments/segments3.png
+[38]: ./media/mobile-engagement-user-interface-segments/segments4.png
+[39]: ./media/mobile-engagement-user-interface-segments/segments5.png
+[40]: ./media/mobile-engagement-user-interface-segments/segments6.png
+[41]: ./media/mobile-engagement-user-interface-segments/segments7.png
+[42]: ./media/mobile-engagement-user-interface-segments/segments8.png
+[43]: ./media/mobile-engagement-user-interface-segments/segments9.png
+[44]: ./media/mobile-engagement-user-interface-segments/segments10.png
+[45]: ./media/mobile-engagement-user-interface-segments/segments11.png
+[46]: ./media/mobile-engagement-user-interface-settings/settings1.png
+[47]: ./media/mobile-engagement-user-interface-settings/settings2.png
+[48]: ./media/mobile-engagement-user-interface-settings/settings3.png
+[49]: ./media/mobile-engagement-user-interface-settings/settings4.png
+[50]: ./media/mobile-engagement-user-interface-settings/settings5.png
+[51]: ./media/mobile-engagement-user-interface-settings/settings6.png
+[52]: ./media/mobile-engagement-user-interface-settings/settings7.png
+[53]: ./media/mobile-engagement-user-interface-settings/settings8.png
+[54]: ./media/mobile-engagement-user-interface-settings/settings9.png
+[55]: ./media/mobile-engagement-user-interface-settings/settings10.png
+[56]: ./media/mobile-engagement-user-interface-settings/settings11.png
+[57]: ./media/mobile-engagement-user-interface-settings/settings12.png
+[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
 [Link 1]: ../mobile-engagement-user-interface/
