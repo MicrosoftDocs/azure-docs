@@ -19,6 +19,7 @@
 # Azure Mobile Engagement - User Interface
 
 <div class="dev-center-tutorial-selector sublanding">
+<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
 <a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
 <a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
@@ -30,26 +31,26 @@
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
 </div>
 
-## <a name="Navigation">Navigation</a>
+# Navigation
  
 The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ contains the following navigation elements: a header, a footer, a sidebar, cookie crumb navigation, and an app specific ribbon.
  
 ![Navigation1][1] 
 
-### Header:
+## Header:
 - **Azure Mobile Engagement (Logo)** – The Home page of your Azure Mobile Engagement App
 - **Your Name** – My Account Profile
 - **Documentation** – [Azure Mobile Engagement Documentation][Link 10]
 - **Sign Out** – Sign Out of Azure Mobile Engagement
  
-### Footer:
+## Footer:
 - **Terms of Service** [http://azure.microsoft.com/support/legal/](http://azure.microsoft.com/support/legal/)
 - **Privacy & Cookies** [http://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx)
  
-### Cookie Crumb:
+## Cookie Crumb:
 - Navigate quickly to the previous pages that lead to your current location.
  
-### Ribbon:
+## Ribbon:
 - [Analytics][Link 15]
 - [Monitor][Link 16]
 - [Reach][Link 17]
@@ -59,64 +60,64 @@ The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ c
 - [Settings][Link 20]
 
 <!--Image references-->
-[1]: ./media/mobile-engagement-user-interface/navigation1.png
-[2]: ./media/mobile-engagement-user-interface/home1.png
-[3]: ./media/mobile-engagement-user-interface/home2.png
-[4]: ./media/mobile-engagement-user-interface/home3.png
-[5]: ./media/mobile-engagement-user-interface/home4.png
-[6]: ./media/mobile-engagement-user-interface/home5.png
-[7]: ./media/mobile-engagement-user-interface/myaccount1.png
-[8]: ./media/mobile-engagement-user-interface/myaccount2.png
-[9]: ./media/mobile-engagement-user-interface/myaccount3.png
-[10]: ./media/mobile-engagement-user-interface/analytics1.png
-[11]: ./media/mobile-engagement-user-interface/analytics2.png
-[12]: ./media/mobile-engagement-user-interface/analytics3.png
-[13]: ./media/mobile-engagement-user-interface/analytics4.png
-[14]: ./media/mobile-engagement-user-interface/monitor1.png
-[15]: ./media/mobile-engagement-user-interface/monitor2.png
-[16]: ./media/mobile-engagement-user-interface/monitor3.png
-[17]: ./media/mobile-engagement-user-interface/monitor4.png
-[18]: ./media/mobile-engagement-user-interface/reach1.png
-[19]: ./media/mobile-engagement-user-interface/reach2.png
-[20]: ./media/mobile-engagement-user-interface/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface/Reach-Content4.png
-[34]: ./media/mobile-engagement-user-interface/dashboard1.png
-[35]: ./media/mobile-engagement-user-interface/segments1.png
-[36]: ./media/mobile-engagement-user-interface/segments2.png
-[37]: ./media/mobile-engagement-user-interface/segments3.png
-[38]: ./media/mobile-engagement-user-interface/segments4.png
-[39]: ./media/mobile-engagement-user-interface/segments5.png
-[40]: ./media/mobile-engagement-user-interface/segments6.png
-[41]: ./media/mobile-engagement-user-interface/segments7.png
-[42]: ./media/mobile-engagement-user-interface/segments8.png
-[43]: ./media/mobile-engagement-user-interface/segments9.png
-[44]: ./media/mobile-engagement-user-interface/segments10.png
-[45]: ./media/mobile-engagement-user-interface/segments11.png
-[46]: ./media/mobile-engagement-user-interface/settings1.png
-[47]: ./media/mobile-engagement-user-interface/settings2.png
-[48]: ./media/mobile-engagement-user-interface/settings3.png
-[49]: ./media/mobile-engagement-user-interface/settings4.png
-[50]: ./media/mobile-engagement-user-interface/settings5.png
-[51]: ./media/mobile-engagement-user-interface/settings6.png
-[52]: ./media/mobile-engagement-user-interface/settings7.png
-[53]: ./media/mobile-engagement-user-interface/settings8.png
-[54]: ./media/mobile-engagement-user-interface/settings9.png
-[55]: ./media/mobile-engagement-user-interface/settings10.png
-[56]: ./media/mobile-engagement-user-interface/settings11.png
-[57]: ./media/mobile-engagement-user-interface/settings12.png
-[58]: ./media/mobile-engagement-user-interface/settings13.png
+[1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
+[2]: ./media/mobile-engagement-user-interface-home/home1.png
+[3]: ./media/mobile-engagement-user-interface-home/home2.png
+[4]: ./media/mobile-engagement-user-interface-home/home3.png
+[5]: ./media/mobile-engagement-user-interface-home/home4.png
+[6]: ./media/mobile-engagement-user-interface-home/home5.png
+[7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
+[8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
+[9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
+[10]: ./media/mobile-engagement-user-interface-analytics/analytics1.png
+[11]: ./media/mobile-engagement-user-interface-analytics/analytics2.png
+[12]: ./media/mobile-engagement-user-interface-analytics/analytics3.png
+[13]: ./media/mobile-engagement-user-interface-analytics/analytics4.png
+[14]: ./media/mobile-engagement-user-interface-monitor/monitor1.png
+[15]: ./media/mobile-engagement-user-interface-monitor/monitor2.png
+[16]: ./media/mobile-engagement-user-interface-monitor/monitor3.png
+[17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
+[18]: ./media/mobile-engagement-user-interface-reach/reach1.png
+[19]: ./media/mobile-engagement-user-interface-reach/reach2.png
+[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
+[35]: ./media/mobile-engagement-user-interface-segments/segments1.png
+[36]: ./media/mobile-engagement-user-interface-segments/segments2.png
+[37]: ./media/mobile-engagement-user-interface-segments/segments3.png
+[38]: ./media/mobile-engagement-user-interface-segments/segments4.png
+[39]: ./media/mobile-engagement-user-interface-segments/segments5.png
+[40]: ./media/mobile-engagement-user-interface-segments/segments6.png
+[41]: ./media/mobile-engagement-user-interface-segments/segments7.png
+[42]: ./media/mobile-engagement-user-interface-segments/segments8.png
+[43]: ./media/mobile-engagement-user-interface-segments/segments9.png
+[44]: ./media/mobile-engagement-user-interface-segments/segments10.png
+[45]: ./media/mobile-engagement-user-interface-segments/segments11.png
+[46]: ./media/mobile-engagement-user-interface-settings/settings1.png
+[47]: ./media/mobile-engagement-user-interface-settings/settings2.png
+[48]: ./media/mobile-engagement-user-interface-settings/settings3.png
+[49]: ./media/mobile-engagement-user-interface-settings/settings4.png
+[50]: ./media/mobile-engagement-user-interface-settings/settings5.png
+[51]: ./media/mobile-engagement-user-interface-settings/settings6.png
+[52]: ./media/mobile-engagement-user-interface-settings/settings7.png
+[53]: ./media/mobile-engagement-user-interface-settings/settings8.png
+[54]: ./media/mobile-engagement-user-interface-settings/settings9.png
+[55]: ./media/mobile-engagement-user-interface-settings/settings10.png
+[56]: ./media/mobile-engagement-user-interface-settings/settings11.png
+[57]: ./media/mobile-engagement-user-interface-settings/settings12.png
+[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
 [Link 1]: ../mobile-engagement-user-interface/
