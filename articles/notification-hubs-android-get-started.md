@@ -152,7 +152,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 8. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application/>` element.
 
-	> [AZURE.NOTE] eplace the placeholder with your package name.
+	> [AZURE.NOTE] Replace the placeholder with your package name.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
