@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev"/>
+	authors="nitinme"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,11 +13,47 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="bradsev"/>
+	ms.date="03/03/2015" 
+	ms.author="nitinme"/>
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 03/03/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.488.1375841	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.488.1375841	(HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight 	3.1.3.488.1375841	(HDP 2.1.10.0-2290 - unchanged)
+* HDInsight		3.2.3.488.1375841	(HDP-2.2.10.0-2340 - unchanged)
+* SDK			1.5.0				(unchanged)
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(e.g. Service, OSS component, SDK, PS, AUX)</p></th>
+<th>Cluster Type Impacted (e.g. Hadoop, HBase, Storm, All)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Reliability improvements</td>
+<td>We have made fixes that allows the service to scale better with the increased load with respect to cluster creations.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+
+
+</table>
+<br>
 
 ## Notes for 02/18/2015 release of HDInsight ##
 
