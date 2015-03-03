@@ -30,15 +30,7 @@ To complete this tutorial, you will need an Azure subscription. If you don't hav
 
 [AZURE.INCLUDE [automation-note-authentication](../includes/automation-note-authentication.md)]
 
-### High-level steps for this tutorial
-
-1. [Create Automation Account](#automationaccount)
-2. [Import Runbook from Runbook Gallery](#importrunbook)
-3. [Publish Runbook](#publishrunbook)
-4. [Start Runbook](#startrunbook)
-
-
-### <a name="automationaccount"></a>Create an Automation Account
+## <a name="automationaccount"></a>Create an Automation Account
 
 An Automation Account is a container for your Azure Automation resources: it provides a way to separate your environments or further organize your workflows. For more information, see [Automation Accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
 
@@ -52,7 +44,7 @@ An Automation Account is a container for your Azure Automation resources: it pro
 
 	![Add New Account](./media/automation/automation_02_addnewautoacct.png)
 
-### <a name="importrunbook"></a>Import Runbook from Runbook Gallery
+## <a name="importrunbook"></a>Import Runbook from Runbook Gallery
 
 The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks that you can import directly into an Azure Automation account, allowing you to leverage the work of other Azure Automation and PowerShell users. In this step, you will use the gallery to import the "Hello World" sample runbook.
 
