@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - My Account" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="User Interface Overview for the My Account section of Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -33,7 +33,7 @@
 
 # My Account
  
-The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via to the Device API.
+The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
 
 **See also:** 
 
@@ -51,14 +51,14 @@ You can view or change any of your account settings: Password, First Name, Last 
 ![MyAccount2][8]  
 
 ## Devices:
-You can view, add, or remove test Device ID's of the test devices that you can use to test your reach or push campaigns. Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.) are displayed when you "New Device". 
+You can view, add, or remove test Device ID's of the test devices that you can use to test your reach or push campaigns. Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.) are displayed when you click "New Device". 
  
 ![MyAccount3][9]  
  
-To use Push API or Device API you need to know your users' unique device identifier (the deviceid parameter). There is several ways to retrieve it:
+To use Push API or Device API you need to know your users' unique device identifier (the deviceid parameter). There are several ways to retrieve it:
  
 1. From your backend, you can use the "Get" feature of the Device API to get the full list of device identifiers.
-2. From your app, you can use the SDK to get it (on Android, call the getDeviceID() function of the Agent class, and on iOS, read the deviceid property of the Agent class)
+2. From your app, you can use the SDK to get it. (On Android, call the getDeviceID() function of the Agent class, and on iOS, read the deviceid property of the Agent class.)
 3. From a Reach announcement, if the action URL associated with the announcement contains the {deviceid} pattern, it will be automatically replaced by the identifier of the device triggering the action.
 http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata 
 will be replaced by:
@@ -70,9 +70,9 @@ Here is my device identifier: XXXXXXXXXXXXXXXX
 5.  Open your application on your device and perform an Event in your app which has been tagged.
 From "UI - your app - Monitor - Events - Details", find the Event you performed in the list.
 Click to this event in the Monitor.
-You should find out your Device ID in the list of the devices that have performed this event.
-Then you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform"
->(Be aware that when IDFA is disabled for iOS, then the Device ID may change over the time if you uninstall and re-install your app.)
+You should find your Device ID in the list of the devices that have performed this event.
+Then, you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform".
+>(Be aware that when IDFA is disabled for iOS, the Device ID may change over the time if you uninstall and reinstall your app.)
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
