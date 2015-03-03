@@ -1,6 +1,20 @@
-<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Role Based Access Control in Azure Preview Portal" description="Describes how role based access control works and how to set it up" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+<properties 
+	pageTitle="Role Based Access Control in Azure Preview Portal" 
+	description="Describes how role based access control works and how to set it up" 
+	services="" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+<tags 
+	ms.service="multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Ibiza" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/20/2015" 
+	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
@@ -9,21 +23,12 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Role-based access control in Azure Preview portal 
 
-<p> We’ve added support for role-based access control (RBAC) in the Azure Preview portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. 
+<p> We’ve added support for role-based access control (RBAC) in the Azure Preview portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. </p>
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-##Table of Contents##
 
-* [RBAC in Azure](#whatisrbac) 
-* [Co-existence of RBAC with subscription co-admins](#coexist)
-* [Authorization for management versus data operations](#authmgmt)
-* [How to add and remove access](#addremoveaccess)
-* [Known issues when using role-based access control](#knownissues)
-* [How to provide feedback](#feedback)
-* [Next steps](#next)
-
-<h2><a id="whatisrbac"></a>RBAC in Azure</h2>
+## RBAC in Azure
                                                                    
 Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using Azure Management portal or Azure Resource Manager API first need to authenticate with that Azure Active Directory.
 
@@ -33,27 +38,7 @@ Azure role-based access control allows you to grant appropriate access to Azure 
 
 ### Role
 
-A role is a collection of actions that can be performed on Azure resources. A user or a service is allowed to perform an action on an Azure resource if they have been assigned a role that contains that action.
-
-#### Built-in Roles
-
-At the first preview, Azure role-based access control comes with three built-in roles that can be assigned to users, groups, and services.
-
-+ **Owner**: has full control over Azure resources. Owner can perform all management operations on a resource including access management. 
-+ **Contributor**: can perform all management operations except access management. So, a contributor can’t grant access to others.
-+ **Reader**: can only view resources. Reader can’t view secrets associated with a resource. 
-
-You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available ones that can be performed on Azure resources.
-
-#### Actions and non-actions
-
-The **actions** property of the role definition specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of the role definition specifies the actions that must be excluded from the allowed actions. 
-
-**Built-In Role**  | Actions  | Not Actions	
-------------- | -------------  | ------------
-Owner (allow all actions)  | *  | 
-Contributor (allow all actions except writing or deleting role assignments)  | *  | Microsoft.Authorization/ * /Write, Microsoft.Authorization/ * /Delete
-Reader (allow all read actions)  | */Read  | 
+A role is a collection of actions that can be performed on Azure resources. A user or a service is allowed to perform an action on an Azure resource if they have been assigned a role that contains that action. For a list of built-in roles and **their** actions and **not actions** properties, see [Built-in roles](#builtinroles).
 
 ### Role Assignment
 
@@ -74,18 +59,18 @@ Access does not need to be granted to the entire subscription. Roles can also be
 
 ![][2]
 
-<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-admininistrators</h2>
+## Co-existence of RBAC with subscription co-administrators
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
 However, the new RBAC model is supported only by the Azure Preview portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure Preview portal does not make that user a co-administrator of the subscription in the full Azure portal.
 
 If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure Preview portal, you should add them to the subscription co-administrators using the full Azure Management portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
 
-<h2><a id="authmgmt"></a>Authorization for management versus data operations</h2>
+## Authorization for management versus data operations
 
 Role-based access control is supported only for management operations of the Azure resources in Azure Preview portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
-<h2><a id="addremoveaccess"></a>How to add and remove access</h2>
+## How to add and remove access
 
 Let’s take a look at an example of how a resource owner in an organization can manage access. In this scenario, you have multiple people working on a variety of test and production projects that are built using Azure resources. You want to follow best practices for granting access. Users should have access to all resources that they need, but no additional access. You want to re-use all the investments you have made in processes and tooling to use security groups that are mastered in an on-premises Active Directory. These sections cover how you set up access to these resources:
 
@@ -93,7 +78,7 @@ Let’s take a look at an example of how a resource owner in an organization can
 * [Remove access](#remove)
 * [Add or remove access for external user](#addremoveext)
 
-<h3><a id="add"></a>Add access</h2>
+<h3><a id="add"></a>Add access</h3>
 
 Here is a summary of the access requirements and how they are set up in Azure.
 
@@ -124,9 +109,9 @@ Role assignments can also be managed by using the Microsoft Azure module for Win
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/). 
+For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
 
-<h3><a id="remove"></a>Remove access</h2>
+<h3><a id="remove"></a>Remove access</h3>
 
 You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader > Brad Adams > Remove**.
 
@@ -136,7 +121,7 @@ Here is an example of how to remove Brad Adams by using the Remove-AzureRoleAssi
 
 	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
-<h3><a id="addremoveext"></a>Add or remove access for external user</h2>
+<h3><a id="addremoveext"></a>Add or remove access for external user</h3>
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
 To open the **Configure** tab in the full Azure portal, click **Active Directory**, and then click the name of the directory.
@@ -163,26 +148,843 @@ When you add an external user, a guest is created in the directory. Thereafter, 
 
 You can also remove a guest from any role, just as you would remove any user. Removing the guest from a role on a resource does not remove the guest from the directory. 
  
-<h2><a id="knownissues"></a>Known issues when using role-based access control</h2>
+## Known issues when using role-based access control
 
-If you encounter a problem when you use role based access control feature while it is in preview, see [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/) for any known issues that may be related to the problem.
+If you encounter a problem when you use role based access control feature while it is in preview, see [Troubleshooting role-based access control](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/) for any known issues that may be related to the problem.
 
 
-<h2><a id="feedback"></a>How to provide feedback</h2>
+## Built-in roles
+
+Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
+
+Click the corresponding link to see the **actions** and **not actions** properties of a role definition. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of a role definition specifies the actions that must be excluded from the allowed actions. 
+
+
+Role name  | Description  	
+------------- | -------------  
+[API Management Service Contributor](#APIMgmt) | Lets you manage API Management service, but not access to them.
+[Application Insights Component Contributor](#AppInsights) | Lets you manage Application Insights components, but not access to them.
+[BizTalk Contributor](#BizTalk) | Lets you manage BizTalk services, but not access to them.
+[ClearDB MySQL DB Contributor](#ClearDB) | Lets you manage ClearDB MySQL databases, but not access to them.
+[Contributor](#Contributor) | Contributors can manage everything except access.
+[Data Factory Contributor](#DataFactory) | Lets you manage data factories, but not access to them.
+[Document DB Account Contributor](#DocDBContrib) | Lets you manage DocumentDB accounts, but not access to them.
+[Intelligent Systems Account Contributor](#IntelliSysContrib) | Lets you manage Intelligent Systems accounts, but not access to them.
+[NewRelic APM Account Contributor](#NewRelicContrib) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
+[Owner](#Owner) | Owner can manage everything, including access.
+[Reader](#Reader) | Readers can view everything, but can't make changes.
+[Redis Cache Contributor](#Redis) | Lets you manage Redis caches, but not access to them.
+[SQL DB Contributor](#SQLDBContrib) | Lets you manage SQL databases, but not access to them. Also, you can’t manage their security-related policies or their parent SQL servers.
+[SQL Security Manager](#SQLSecMgr) | Lets you manage the security-related policies of SQL servers and databases, but not access to them.
+[SQL Server Contributor](#SQLSrvContrib) | Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.
+[Scheduler Job Collections Contributor](#SchedContrib) | Lets you manage Scheduler job collections, but not access to them.
+[Search Service Contributor](#SearchContrib) | Lets you manage Search services, but not access to them.
+[Storage Account Contributor](#StorageContrib) | Lets you manage storage accounts, but not access to them.
+[User Access Administrator](#UserAccessAdmin) | Lets you manage user access to Azure resources.
+[Virtual Machine Contributor](#VMContrib) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.
+[Virtual Network Contributor](#VNetContrib) | Lets you manage virtual networks, but not access to them.
+[Web Plan Contributor](#WebPlanContrib) | Lets you manage the web plans for websites, but not access to them.
+[Website Contributor](#WebsiteContrib) | Lets you manage websites (not web plans), but not access to them.
+
+
+<h3><a id="APIMgmt"></a>API Management Service Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.ApiManagement/Services/*</td>
+<td>Create and Manage API Management Services</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="AppInsights"></a>Application Insights Component Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Insights/components/*</td>
+<td>Create and Manage Insights Components</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/webtests/*</td>
+<td>Create and Manage Web Tests</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="BizTalk"></a>BizTalk Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.BizTalkServices/BizTalk/*</td>
+<td>Create and Manage BizTalk Services</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="ClearDB"></a>ClearDB MySQL DB Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>successbricks.cleardb/databases/*</td>
+<td>Create and Manage ClearDB MySQL Databases</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="Contributor"></a>Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>*</td>
+<td>Create and Manage Resources of All Types</td>
+</tr>
+<tr>
+<th colspan="2">Not Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/Write</td>
+<td>Can’t Create Roles and Role Assignments </td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/Delete</td>
+<td>Can’t Delete Roles and Role Assignments</td>
+</tr>
+</table>
+
+<h3><a id="DataFactory"></a>Data Factory Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<td>Microsoft.DataFactory/dataFactories/*</td>
+<td>Create and Manage Data Factories</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="DocDBContrib"></a>Document DB Account Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.DocumentDb/databaseAccounts/*</td>
+<td>Create and Manage DocumentDB Accounts</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="IntelliSysContrib"></a>Intelligent Systems Account Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.IntelligentSystems/accounts/*</td>
+<td>Create and Manage Intelligent Systems Accounts</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="NewRelicContrib"></a>NewRelic APM Account Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>NewRelic.APM/accounts/*</td>
+<td>Create and Manage NewRelic Application Performance Management Accounts</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="Owner"></a>Owner</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>*</td>
+<td>Create and Manage Resources of All Types</td>
+</tr>
+</table>
+
+<h3><a id="Reader"></a>Reader</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>*/read</td>
+<td>Read Resources of All Types. Can’t read secrets though.</td>
+</tr>
+</table>
+
+<h3><a id="Redis"></a>Redis Cache Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<td>Microsoft.Cache/redis/*</td>
+<td>Create and Manage Redis Caches</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="SQLDBContrib"></a>SQL DB Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/read</td>
+<td>Read SQL Servers</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/*</td>
+<td>Create and Manage SQL Databases</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+<tr>
+<th colspan="2">Not Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/auditingPolicies/*</td>
+<td>Can’t Manage SQL Database Auditing Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/connectionPolicies/*</td>
+<td>Can’t Manage SQL Database Connection Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/dataMaskingPolicies/*</td>
+<td>Can’t Manage SQL Database Data Masking Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/securityMetrics/*</td>
+<td>Can’t Manage SQL Database Security Metrics</td>
+</tr>
+</table>
+
+<h3><a id="SQLSecMgr"></a>SQL Security Manager</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/read</td>
+<td>Read SQL Servers</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/auditingPolicies/*</td>
+<td>Create and Manage SQL Server Auditing Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/read</td>
+<td>Read SQL Databases</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/auditingPolicies/*</td>
+<td>Create and Manage SQL Database Auditing Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/connectionPolicies/*</td>
+<td>Create and Manage SQL Database Connection Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/dataMaskingPolicies/*</td>
+<td>Create and Manage SQL Database Data Masking Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/securityMetrics/*</td>
+<td>Create and Manage SQL Database Security Metrics</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="SQLSrvContrib"></a>SQL Server Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.ApiManagement/Services/*</td>
+<td>Create and Manage API Management Services</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+<tr>
+<th colspan="2">Not Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/auditingPolicies/*</td>
+<td>Can’t Manage SQL Server Auditing Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/auditingPolicies/*</td>
+<td>Can’t Manage SQL Database Auditing Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/connectionPolicies/*</td>
+<td>Can’t Manage SQL Database Connection Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/dataMaskingPolicies/*</td>
+<td>Can’t Manage SQL Database Data Masking Policies</td>
+</tr>
+<tr>
+<td>Microsoft.Sql/servers/databases/securityMetrics/*</td>
+<td>Can’t Manage SQL Database Security Metrics</td>
+</tr>
+</table>
+
+<h3><a id="SchedContrib"></a>Scheduler Job Collections Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Scheduler/jobcollections/*</td>
+<td>Create and Manage Scheduler Job Collections</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="SearchContrib"></a>Search Service Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Search/searchServices/*</td>
+<td>Create and Manage Search Services</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="StorageContrib"></a>Storage Account Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.ClassicStorage/storageAccounts/*</td>
+<td>Create and Manage Storage Accounts</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="UserAccessAdmin"></a>User Access Administrator</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>*/read</td>
+<td>Read Resources of All Types</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*</td>
+<td>Create and Manage Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="VMContrib"></a>Virtual Machine Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.ClassicStorage/storageAccounts/read</td>
+<td>Read Storage Accounts</td>
+</tr>
+<tr>
+<td>Microsoft.ClassicStorage/storageAccounts/listKeys/action</td>
+<td>Retrieve Storage Account Keys</td>
+</tr>
+<tr>
+<td>Microsoft.ClassicNetwork/virtualNetworks/read</td>
+<td>Read Virtual Networks</td>
+</tr>
+<tr>
+<td>Microsoft.ClassicNetwork/virtualNetworks/join/action</td>
+<td>Join Virtual Networks</td>
+</tr>
+<tr>
+<td>Microsoft.ClassicNetwork/reservedIps/read</td>
+<td>Read Reserved IP Addresses</td>
+</tr>
+<tr>
+<td>Microsoft.ClassicNetwork/reservedIps/link/action</td>
+<td>Link to Reserved IP Addresses</td>
+</tr>
+<tr>
+<td>Microsoft.ClassicCompute/domainNames/*</td>
+<td>Create and Manage Cloud Services</td>
+</tr>
+<tr>
+<td>Microsoft.ClassicCompute/virtualMachines/*</td>
+<td>Create and Manage Virtual Machines</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="VNetContrib"></a>Virtual Network Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.ClassicNetwork/virtualNetworks/*</td>
+<td>Create and Manage Virtual Networks</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="WebPlanContrib"></a>Web Plan Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Web/serverFarms/*</td>
+<td>Create and Manage Web Plans</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+<h3><a id="WebsiteContrib"></a>Website Contributor</h3>
+
+<table style=width:100%">
+<tr>
+<th colspan="2">Actions</th>
+</tr>
+<tr>
+<td>Microsoft.Web/serverFarms/read</td>
+<td>Read Web Plans</td>
+</tr>
+<tr>
+<td>Microsoft.Web/serverFarms/join/action</td>
+<td>Join Web Plans</td>
+</tr>
+<tr>
+<td>Microsoft.Web/sites/*</td>
+<td>Create and Manage Web Sites</td>
+</tr>
+<tr>
+<td>Microsoft.Web/certificates/*</td>
+<td>Create and Manage Web Site Certificates</td>
+</tr>
+<tr>
+<td>Microsoft.Authorization/*/read</td>
+<td>Read Roles and Role Assignments</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
+<td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
+<td>Create and Manage Resource Group Deployments</td>
+</tr>
+<tr>
+<td>Microsoft.Insights/alertRules/*</td>
+<td>Create and Manage Alert Rules</td>
+</tr>
+<tr>
+<td>Microsoft.Support/*</td>
+<td>Create and Manage Support Tickets</td>
+</tr>
+</table>
+
+
+## How to provide feedback
 
 Please try Azure RBAC and send us [feedback](http://aka.ms/azurerbacfeedback). 
 
 
-<h2><a id="next"></a>Next steps</h2>
+## Next steps
 
 Here are some additional resources to help you use role-based access control: 
 
-+ [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/)
-+ [Managing role-based access control with XPLAT CLI](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/)
++ [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
++ [Managing role-based access control with XPLAT CLI](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
++ [Troubleshooting role-based access control](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx)
-+ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + For an introduction to self-service group management for security groups, see the [Active Directory Team Blog](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 

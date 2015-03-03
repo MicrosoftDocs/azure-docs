@@ -18,7 +18,7 @@
 	
 	The **JsonPropertyAttribute** is used to define the mapping between property names in the client type to column names in the underlying data table.
 
-	>[WACOM.NOTE] In a universal Windows app project, the TodoItem class is defined in the seperate code file in the shared DataModel folder.
+	>[AZURE.NOTE] In a universal Windows app project, the TodoItem class is defined in the seperate code file in the shared DataModel folder.
 
 3. In MainPage.xaml.cs, comment-out or delete the line that defines the existing items collection, then uncomment or add the following lines, replacing _&lt;yourClient&gt;_ with the `MobileServiceClient` field added to the App.xaml.cs file when you connected your project to the mobile service: 
 

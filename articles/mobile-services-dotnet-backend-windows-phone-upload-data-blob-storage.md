@@ -1,12 +1,27 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" services="mobile-services, storage" manager="dwrede" />
+<properties 
+	pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" 
+	description="Learn how to use Mobile Services to upload images to Azure Blob Storage." 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	writer="glenga" 
+	services="mobile-services,storage" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-This topic shows you how to use Azure Mobile Services to enable your app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
+This topic shows you how to use Azure Mobile Services to enable your Windows Phone 8 or Windows Phone 8.1 Silverlight app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
 
 You cannot securely distribute with the client app the credentials required to securely upload data to the Blob Storage service. Instead, you must store these credentials your mobile service and use them to generate a Shared Access Signature (SAS) that is used to upload a new image. The SAS, a credential with a short expiration&mdash;in this case 5 minutes, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. In this example, downloads from the Blob service are public.
 
@@ -27,7 +42,9 @@ This tutorial requires the following:
 + [Azure Storage account][How To Create a Storage Account]
 + Complete the tutorial [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)  
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
+>[AZURE.NOTE]This tutorial only support Windows Phone 8 and Windows Phone 8.1 Silverlight apps. It does not support Windows Phone Store 8.1 or universal Windows 8.1 apps.
+
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
 ##<a name="install-storage-client"></a>Install the Storage client for Windows Store apps
 
@@ -41,7 +58,7 @@ To be able to use an SAS to upload images from your app to Blob storage, you mus
 
   	This adds the client library for Azure storage services to the project.
 
-[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
  
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client

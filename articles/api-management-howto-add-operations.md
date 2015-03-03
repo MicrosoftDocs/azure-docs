@@ -1,19 +1,24 @@
-<properties pageTitle="How to add operations to an API in Azure API Management" metaKeywords="" description="Learn how to add operations to an API in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to add operations to an API in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="How to add operations to an API in Azure API Management" 
+	description="Learn how to add operations to an API in Azure API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/24/2015" 
+	ms.author="sdanie"/>
 
 # How to add operations to an API in Azure API Management
 
 Before an API in API Management can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
-
-## In this topic
-
--   [Add an operation][]
--   [Operation caching][]
--   [Request parameters][]
--   [Request body][]
--   [Responses][]
--   [Next steps][]
 
 ## <a name="add-operation"> </a>Add an operation
 

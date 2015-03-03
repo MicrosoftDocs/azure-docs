@@ -1,6 +1,20 @@
-<properties urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com" solutions="" manager="mongolab; partners@mongolab.com" editor="" />
+<properties 
+	pageTitle="Node.js website with MongoDB on MongoLab - Azure" 
+	description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." 
+	services="web-sites, virtual-machines" 
+	documentationCenter="nodejs" 
+	authors="chrischang12" 
+	manager="partners@mongolab.com" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="chris@mongolab.com" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/04/2014" 
+	ms.author="chris@mongolab.com"/>
 
 
 
@@ -26,7 +40,7 @@ Before continuing, ensure that you have the following installed:
 
 * [Git]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Quick start
 If you have some familiarity with the Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
@@ -60,7 +74,7 @@ Now, on to the full tutorial...
 
 <h2><a name="provision"></a>Provision the database</h2>
 
-[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
+[AZURE.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 <h2><a name="create"></a>Create the app</h2>
 
@@ -106,15 +120,15 @@ In this section you will set up your development environment and lay the code fo
  
 3. To create the scaffolding which will be used for this application, use the **express** command:
 
-    express
+    	express
 
     Note that this tutorial is using Express v4.x.x. If you already have the Express 3 app generator installed on your system, you should first uninstall it:
 
-    npm uninstall -g express
+    	npm uninstall -g express
 
     Now install the new generator for version 4.x.x:
 
-    npm install -g express-generator
+    	npm install -g express-generator
 
 	Once the **express** command runs, the output should appear similar to the following:
 
@@ -443,10 +457,10 @@ Creating a website in Azure is very easy. If this is your first Azure website, y
 	Replace 'myuniquesitename' with the unique site name for your website. If the website is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
 	
 	The `--git` parameter will create:
-	A. a local git repository in the **tasklist** folder, if none exists.
-	A. a [Git remote] named 'azure', which will be used to publish the application to Azure.
-	A. an [iisnode.yml] file, which contains settings used by Azure to host node applications.
-	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
+	* a local git repository in the **tasklist** folder, if none exists.
+	* a [Git remote] named 'azure', which will be used to publish the application to Azure.
+	* an [iisnode.yml] file, which contains settings used by Azure to host node applications.
+	* a .gitignore file to prevent the node-modules folder from being published to .git.  
 	  
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
 
@@ -496,11 +510,11 @@ Remember process.env.CUSTOMCONNSTR\_MONGOLAB\_URI in the code? We want to popula
 
 #### Get the MongoLab connection string
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 #### Add the connection string to the website's environment variables
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## Success!
 
@@ -510,7 +524,7 @@ Run `azure site browse` from your project directory to automatically open a brow
 
 <h2><a name="manage"></a>Manage the database</h2>
 
-[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
+[AZURE.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 Congratulations! You've just launched a Node.js application backed by a MongoLab-hosted MongoDB database! Now that you have a MongoLab database, you can contact [support@mongolab.com](mailto:support@mongolab.com) with any questions or concerns about your database, or for help with MongoDB or the node driver itself. Good luck out there!
 

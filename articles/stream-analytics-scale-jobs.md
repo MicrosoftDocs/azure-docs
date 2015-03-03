@@ -1,6 +1,20 @@
-<properties title="Scale Azure Stream Analytics jobs" pageTitle="Scale Stream Analytics jobs | Azure" description="Learn how to scale Stream Analytics jobs" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Scale Stream Analytics jobs | Azure" 
+	description="Learn how to scale Stream Analytics jobs" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 # Scale Azure Stream Analytics jobs 
 
@@ -11,12 +25,6 @@ An Azure Stream Analytics job definition includes Inputs, Query and Output. Inpu
 The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can set up to 12 streaming units for a Stream Analytics job using the Azure Management portal. Each Azure subscription can have only up to 12 streaming units for all Jobs in a specific region. For increasing streaming units for your subscription up to 100 units, contact [Microsoft Support][microsoft.support].
 
 The number of streaming units that a job can utilize depends on the partition configuration on the inputs, and the query defined for the job. The article will show you how to calculate and tune the query to increase throughput.
-
-##In this article
-+ [Calculate the maximum streaming units for a job](#calculate)
-+ [Configure Stream Analytics job partition](#configure)
-+ [Monitor Stream Analytics job performance](#monitor)
-+ [Next steps](#nextstep)
 
 
 ##<a name="calculate"></a>Calculate the maximum streaming units of a job
@@ -37,7 +45,7 @@ A query can have one or many steps. Each step is a sub-query defined using the W
 
 The previous query has 2 steps. 
 
-> [WACOM.NOTE] This sample query will be explained later in the article.
+> [AZURE.NOTE] This sample query will be explained later in the article.
 
 ### Partition a step
 
@@ -122,7 +130,7 @@ When a query is partitioned, the input events are processed and aggregated in se
 
 This query can be scaled to 24 streaming units. 
 
->[WACOM.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
+>[AZURE.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
 
 
 ##<a name="configure"></a>Configure Stream Analytics job partition
@@ -164,7 +172,7 @@ In this article, you have learned how to calculate streaming units and how to sc
 
 [microsoft.support]: http://support.microsoft.com
 [azure.management.portal]: http://manage.windowsazure.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
 [stream.analytics.limitations]: ../stream-analytics-limitations/

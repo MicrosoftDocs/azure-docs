@@ -1,6 +1,20 @@
-<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" 
+	description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="cephalin,riande"/>
 
 
 # Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Websites
@@ -11,9 +25,9 @@ Web application that is mobile-friendly and deploy it into Windows Azure. For th
 or the professional edition of Visual Studio if you already
 have that.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-### What You'll Build
+## What You'll Build
 
 For this tutorial, you'll add mobile features to the simple
 conference-listing application that's provided in the [starter project][StarterProject]. The following screenshot shows the ASP.NET sessions in the completed
@@ -26,7 +40,7 @@ You can use the Internet Explorer 11 F12 developer tools and the [Fiddler
 tool][Fiddler] to help debug your
 application. 
 
-### Skills You'll Learn
+## Skills You'll Learn
 
 Here's what you'll learn:
 
@@ -38,7 +52,7 @@ Here's what you'll learn:
 -   How to create responsive views (views that respond to different
     browsers across devices)
 
-<h2>Set up the development environment</h2>
+## Set up the development environment
 
 Set up your development environment by installing the Azure SDK for the .NET Framework. 
 
@@ -61,18 +75,7 @@ this topic:
 -   [Starter project download][StarterProject]
 -   [Completed project download][CompletedProject]
 
-<h2>Steps in this tutorial</h2>
-
-- [Deploy the starter project to a Windows Azure Website][]
-- [Bootstrap CSS Framework][]
-- [Override the Views, Layouts, and Partial Views][]
-- [Improve the Speakers List][]
-- [Improve the Tags List][]
-- [Improve the Dates List][]
-- [Improve the SessionsTable View][]
-- [Improve the SessionByCode View][]
-
-<h3><a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website</h3>
+##<a name="bkmk_DeployStarterProject"></a> Deploy the starter project to a Windows Azure Website
 
 1.	Download the conference-listing application [starter project][StarterProject].
 
@@ -132,7 +135,7 @@ image below shows the *AllTags* view in portrait mode (from choosing
 
 	![][AllTags]
 
->[WACOM.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
+>[AZURE.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
 
 The display is very readable on a mobile device. You can also already
 see some of the visual effects applied by the Bootstrap CSS framework.
@@ -146,7 +149,7 @@ the mobile browser. For example, the **Date** column is difficult to
 read. Later in the tutorial you'll change the *AllTags* view to make it
 mobile-friendly.
 
-<h2><a name="bkmk_bootstrap"></a>Bootstrap CSS Framework</h2>
+##<a name="bkmk_bootstrap"></a> Bootstrap CSS Framework
 
 New in the MVC 5 template is built-in Bootstrap support. You have
 already seen how it immediately improves the different views in your
@@ -193,7 +196,7 @@ For more information about Bootstrap, go to the
 In the next section you'll see how to provide mobile-browser specific
 views.
 
-<h2><a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views</h2>
+##<a name="bkmk_overrideviews"></a> Override the Views, Layouts, and Partial Views
 
 You can override any view (including layouts and partial views) for
 mobile browsers in general, for an individual mobile browser, or for any
@@ -237,7 +240,7 @@ In contrast, the desktop display has not changed (with titles from from *\_Layou
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-<h2><a name="bkmk_browserviews"></a>Create Browser-Specific Views</h2>
+##<a name="bkmk_browserviews"></a> Create Browser-Specific Views
 
 In addition to mobile-specific and desktop-specific views, you can
 create views for an individual browser. For example, you can create
@@ -260,7 +263,7 @@ condition you defined (that is, if the user agent contains the string
 "iPhone"), ASP.NET MVC will look for views whose name contains the
 "iPhone" suffix.
 
->[WACOM.NOTE] When adding mobile browser-specific display modes, such as for iPhone and Android, be sure to set the first argument to `0` (insert at the top of the list) to make sure that the browser-specific mode takes precedence over the mobile template (*.Mobile.cshtml). If the mobile template is at the top of the list instead, it will be selected over your intended display mode (the first match wins, and the mobile template matches all mobile browsers). 
+>[AZURE.NOTE] When adding mobile browser-specific display modes, such as for iPhone and Android, be sure to set the first argument to `0` (insert at the top of the list) to make sure that the browser-specific mode takes precedence over the mobile template (*.Mobile.cshtml). If the mobile template is at the top of the list instead, it will be selected over your intended display mode (the first match wins, and the mobile template matches all mobile browsers). 
 
 In the code, right-click `DefaultDisplayMode`, choose **Resolve**, and
 then choose `using System.Web.WebPages;`. This adds a reference to the
@@ -345,7 +348,7 @@ across desktop, phone, and tablet browsers to create a consistent look and
 feel. In the next section you'll see how to leverage Bootstrap to create
 mobile-friendly views.
 
-<h2><a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List</h2>
+##<a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List
 
 As you just saw, the *Speakers* view is readable, but the links are
 small and are difficult to tap on a mobile device. In this section,
@@ -469,7 +472,7 @@ according to your search string.
 
 ![][AllSpeakersFixedSearchBySC]
 
-<h2><a name="bkmk_improvetags"></a> Improve the Tags List</h2>
+##<a name="bkmk_improvetags"></a> Improve the Tags List
 
 Like the *Speakers* view, the *Tags* view is readable, but the links
 are small and difficult to tap on a mobile device. You can fix the *Tags* view the same way you fix the *Speakers* view, if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllTags.cshtml*:
@@ -487,9 +490,9 @@ And the refreshed mobile browser looks as follows:
 
 ![][AllTagsFixed]
 
->[WACOM.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
+>[AZURE.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
 
-<h2><a name="bkmk_improvedates"></a> Improve the Dates List</h2>
+##<a name="bkmk_improvedates"></a> Improve the Dates List
 
 You can improve the *Dates* view like you improved the *Speakers* and
 *Tags* views if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllDates.cshtml*:
@@ -546,7 +549,7 @@ Switch to the desktop browser. Again, note the consistent look.
 
 ![][AllDatesFixed2Desktop]
 
-<h2><a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View</h2>
+##<a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View
 
 In this section, you'll make the *SessionsTable* view more
 mobile-friendly. This change is more extensive the previous changes.
@@ -623,7 +626,7 @@ In the desktop browser, notice that the tags are now displayed. Also, you can se
 applied arranges the session items in two columns. If you enlarge the
 browser, you will see that the arrangement changes to three columns.
 
-<h2><a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View</h2>
+##<a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View
 
 Finally, you'll fix the *SessionByCode* view to make it mobile-friendly.
 
@@ -691,8 +694,7 @@ changes that you just made:
 
 ![][SessionByCodeFixed3-644]
 
-Wrap Up and Review
-------------------
+## Wrap Up and Review
 
 This tutorial has shown you how to use ASP.NET MVC 5 to develop
 mobile-friendly Web applications. These include:
@@ -706,13 +708,12 @@ mobile-friendly Web applications. These include:
     `RequireConsistentDisplayMode` property
 -   Create views that target specific browsers, such as the iPhone
     browser
--   Apply Boostrap styling in Razor code
+-   Apply Bootstrap styling in Razor code
 
-See Also
---------
+## See Also
 
--   [9 basic principles of responsive web design][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
--   [Bootstrap][BootstrapSite] site
+-   [9 basic principles of responsive web design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
+-   [Bootstrap][BootstrapSite]
 -   [Official Bootstrap Blog][]
 -   [Twitter Bootstrap Tutorial from Tutorial Republic][]
 -   [The Bootstrap Playground][]
@@ -734,7 +735,7 @@ See Also
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
-[EmulatorIE11]: http://msdn.microsoft.com/en-us/library/ie/dn255001.aspx
+[EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx
 [EmulatorChrome]: https://developers.google.com/chrome-developer-tools/docs/mobile-emulation
 [EmulatorOpera]: http://www.opera.com/developer/tools/mobile/
 [StarterProject]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409

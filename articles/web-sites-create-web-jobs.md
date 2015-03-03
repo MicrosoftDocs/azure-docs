@@ -1,24 +1,31 @@
-<properties urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
+<properties 
+	pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" 
+	description="Learn how to run background tasks in Microsoft Azure Websites." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	writer="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2014" 
+	ms.author="tdykstra"/>
 
-#Use WebJobs to run background tasks in Azure Websites
+# Use WebJobs to run background tasks in Azure Websites
+
+## Overview
 
 Azure Websites enables you to run programs or scripts in your website in three ways: on demand, continuously, or on a schedule. There is no additional cost to use Microsoft Azure WebJobs.
 
-This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Websites](http://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-deploy-webjobs).
+This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Websites](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk).
-
-## Table of Contents ##
-- [Acceptable File Types for Scripts](#acceptablefiles)
-- [Create an On Demand Task](#CreateOnDemand)
-- [Create a Continuously Running Task](#CreateContinuous)
-- [Create a Scheduled Task](#CreateScheduled)
-	- [Scheduled jobs and Azure Scheduler](#Scheduler)
-- [View the Job History](#ViewJobHistory)
-- [Notes](#WHPNotes)
-- [Next Steps](#NextSteps)
 
 ## <a name="acceptablefiles"></a>Acceptable File Types for Scripts or Programs
 
@@ -59,10 +66,9 @@ The following file types are accepted:
 	
 2. To start or stop a continuously running task, select the task in the list and click **Start** or **Stop** in the command bar.
 
-> [WACOM.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On-demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
+> [AZURE.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On-demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
 
-> [WACOM.NOTE]
-> For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your website. The Always On feature, available in Basic and Standard mode, prevents websites from being unloaded, even if they have been idle for some time. If your website is always loaded, your continuously running task may run more reliably. 
+> [AZURE.NOTE] For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your website. The Always On feature, available in Basic and Standard mode, prevents websites from being unloaded, even if they have been idle for some time. If your website is always loaded, your continuously running task may run more reliably. 
 
 ## <a name="CreateScheduled"></a>Create a Scheduled Task
 
@@ -130,7 +136,7 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 	
 	![Logs Link][WebJobLogs]
 		
-2. Clicking the link opens the web jobs details page for the task. This page shows you the name of the command run, the last times it ran, and its success or failure. Under **Recent job runs**, click a time to see further details.
+2. Clicking the link opens the details page for the task. This page shows you the name of the command run, the last times it ran, and its success or failure. Under **Recent job runs**, click a time to see further details.
 	
 	![WebJobDetails][WebJobDetails]
 	
@@ -142,11 +148,11 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 	
 	![Download log output][DownloadLogOutput]
 	
-5. The **WebJobs** link at the top of the page provides a convenient way to get to a list of web jobs on the history dashboard.
+5. The **WebJobs** link at the top of the page provides a convenient way to get to a list of WebJobs on the history dashboard.
 	
-	![Link to web jobs list][WebJobsLinkToDashboardList]
+	![Link to WebJobs list][WebJobsLinkToDashboardList]
 	
-	![List of jobs in history dashboard][WebJobsListInJobsDashboard]
+	![List of WebJobs in history dashboard][WebJobsListInJobsDashboard]
 	
 	Clicking one of these links takes you to the WebJob Details page for the job you selected.
 

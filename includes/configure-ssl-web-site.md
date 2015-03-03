@@ -1,30 +1,23 @@
 #Enable HTTPS for an Azure website
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
 
 You can secure the communication between the website and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to configure HTTPS for an Azure Website. 
 
-<a name="bkmk_azurewebsites"></a><h2>HTTPS for the \*.azurewebsites.net domain</h2>
+##<a name="bkmk_azurewebsites"></a>HTTPS for the \*.azurewebsites.net domain
 
 If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your website by Azure (for example, contoso.azurewebsites.net) then HTTPS is already enabled on your site with a certificate from Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site. However, \*.azurewebsites.net is a wildcard domain. Like [all wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), it is not as secure as using a custom domain with your own certificate. 
 
 The rest of this document provides details on enabling HTTPS for custom domains, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
-<a name="bkmk_domainname"></a><h2>Enable SSL for your custom domain</h2>
+##<a name="bkmk_domainname"></a>Enable SSL for your custom domain
 
 To enable HTTPS for a custom domain, such as **contoso.com**, you must first register a custom domain name with a domain name registrar. For more information on how to configure the domain name of an Azure Website, see [Configuring a custom domain name for an Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your website to respond to the custom name, you must request an SSL certificate for the domain. 
 
-> [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
+> [AZURE.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
 
-Once you have a valid custom domain, enabling HTTPS for your website consists of the following steps:
-
-1. [Get an SSL certificate](#bkmk_getcert)
-1. [Configure Standard mode](#bkmk_standardmode)
-1. [Configure SSL](#bkmk_configuressl)
-1. [Enforce HTTPS on your Azure website](#bkmk_enforce)
-
-<a name="bkmk_getcert"></a><h2>Get an SSL certificate</h2>
+##<a name="bkmk_getcert"></a>Get an SSL certificate
 
 Before requesting an SSL certificate you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as **contoso.com** or **www.contoso.com** a basic certificate is sufficient. If you need to secure multiple domain names, such as **contoso.com**, **www.contoso.com**, and **mail.contoso.com**, then you can get a [wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate), or a certificate with [Subject Alternate Name](http://en.wikipedia.org/wiki/SubjectAltName) (subjectAltName).
 
@@ -46,7 +39,7 @@ To get an SSL certificate for use with Azure Websites, you submit a Certificate 
 - [Get a SubjectAltName certificate using OpenSSL](#bkmk_subjectaltname)
 - [Generate self-signed certificates (for testing only)](#bkmk_selfsigned) 
 
-> [WACOM.NOTE] When following the steps, you will be prompted to enter a **Common Name**, such as `www.contoso.com`. For wildcard certificates, this value should be \*.domainname (for example, \*.contoso.com). If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.
+> [AZURE.NOTE] When following the steps, you will be prompted to enter a **Common Name**, such as `www.contoso.com`. For wildcard certificates, this value should be \*.domainname (for example, \*.contoso.com). If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.
 >
 > Elliptic Curve Cryptography (ECC) certificates are supported with Azure Websites; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.
 
@@ -176,14 +169,14 @@ You can now upload the exported PFX file to your Azure Website.
 
 	When prompted, enter a password to secure the .pfx file.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)</p>
-	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
-	<pre><code>
+	> [AZURE.NOTE] If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)
+	> 
+	> The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the **intermediate-cets.pem** file:  
+	>
+	>
+	`````
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
-	</code></pre>
-	</div>
+	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
 
@@ -203,15 +196,9 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 
 4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Azure for use with your Azure Website.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.</p>
-	</div>
+	> [AZURE.NOTE] During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>During the export process, be sure to select the option <strong>include all certs in the certification path</strong> and <strong>Export all extended properties</strong>. This will include any intermediate certificates in the exported certificate.</p>
-	</div>
+	> [AZURE.NOTE] During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
 
 
 ###<a name="bkmk_subjectaltname"></a>Get a SubjectAltName certificate using OpenSSL
@@ -301,14 +288,14 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 	When prompted, enter a password to secure the .pfx file.
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)</p>
-	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
-	<pre><code>
+	> [AZURE.NOTE] If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)  
+	> 
+	> The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the **intermediate-cets.pem** file:  
+	>
+	> 
+	`````
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
-	</code></pre>
-	</div>
+	`````
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
 
@@ -401,7 +388,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 Enabling HTTPS for a custom domain is only available for the **Standard** web hosting plan mode of Azure websites. Use the following steps to switch to **Standard** mode.
 
-> [WACOM.NOTE] Before switching a website from the free website mode to **Standard** mode, you should remove spending caps in place for your Website subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** mode pricing, see [Pricing Details][pricing].
+> [AZURE.NOTE] Before switching a website from the free website mode to **Standard** mode, you should remove spending caps in place for your Website subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** mode pricing, see [Pricing Details][pricing].
 
 1. In your browser, open the [Management Portal][portal].
 
@@ -419,7 +406,7 @@ Enabling HTTPS for a custom domain is only available for the **Standard** web ho
 
 5. Click **Save**. When prompted, click **Yes**.
 
-	> [WACOM.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/en-us/support/options/).
+	> [AZURE.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/support/options/).
 
 
 ##<a name="bkmk_configuressl"></a>Configure SSL
@@ -450,7 +437,7 @@ Before performing the steps in this section, you must have associated a custom d
 
 6. Click **Save** to save the changes and enable SSL.
 
-> [WACOM.NOTE] If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
+> [AZURE.NOTE] If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
 >
 > 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your website. You can find this IP address on the **Dashboard** page of your website, in the **quick glance** section. It will be listed as **Virtual IP Address**:
 >    
@@ -467,7 +454,7 @@ At this point, you should be able to visit your website using `HTTPS://` instead
 
 Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may compromise your website's security. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure Websites.** 
 
-> [WACOM.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 > 
 > For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.
 
@@ -494,7 +481,7 @@ URL Rewrite rules are defined in a **web.config** file stored in the root of you
 
 This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com.
 
-> [WACOM.NOTE] If your application is written in  **Node.js**, **PHP**, **Python Django**, or **Java**, it probably doesn't include a web.config file. However **Node.js**, **Python Django**, and **Java** all actually do use a web.config when hosted on Azure Websites - Azure creates the file automatically during deployment, so you never see it. If you include one as part of your application, it will override the one that Azure automatically generates.
+> [AZURE.NOTE] If your application is written in  **Node.js**, **PHP**, **Python Django**, or **Java**, it probably doesn't include a web.config file. However **Node.js**, **Python Django**, and **Java** all actually do use a web.config when hosted on Azure Websites - Azure creates the file automatically during deployment, so you never see it. If you include one as part of your application, it will override the one that Azure automatically generates.
 
 ###.NET
 
@@ -533,17 +520,17 @@ Once you deploy a web.config with a rewrite rule to force HTTPS, it should take 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation. 
 
 ## More Resources ##
-- [Microsoft Azure Trust Center](/en-us/support/trust-center/security/)
+- [Microsoft Azure Trust Center](/support/trust-center/security/)
 - [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Enable diagnostic logging](/en-us/documentation/articles/web-sites-enable-diagnostic-log/)
-- [Configuring Web Sites](/en-us/documentation/articles/web-sites-configure/)
+- [Enable diagnostic logging](../web-sites-enable-diagnostic-log/)
+- [Configuring Web Sites](../web-sites-configure/)
 - [Azure Management Portal](https://manage.windowsazure.com)
 
-[customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
-[iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
+[customdomain]: ../web-sites-custom-domain-name/
+[iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
-[installcertiis]: http://technet.microsoft.com/en-us/library/cc771816(WS.10).aspx
-[exportcertiis]: http://technet.microsoft.com/en-us/library/cc731386(WS.10).aspx
+[installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
+[exportcertiis]: http://technet.microsoft.com/library/cc731386(WS.10).aspx
 [openssl]: http://www.openssl.org/
 [portal]: https://manage.windowsazure.com/
 [tls]: http://en.wikipedia.org/wiki/Transport_Layer_Security
@@ -551,7 +538,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 [website]: ./media/configure-ssl-web-site/sslwebsite.png
 [scale]: ./media/configure-ssl-web-site/sslscale.png
 [standard]: ./media/configure-ssl-web-site/sslreserved.png
-[pricing]: https://www.windowsazure.com/en-us/pricing/details/
+[pricing]: /pricing/details/
 [configure]: ./media/configure-ssl-web-site/sslconfig.png
 [uploadcert]: ./media/configure-ssl-web-site/ssluploadcert.png
 [uploadcertdlg]: ./media/configure-ssl-web-site/ssluploaddlg.png

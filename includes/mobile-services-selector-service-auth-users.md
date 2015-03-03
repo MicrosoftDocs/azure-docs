@@ -7,6 +7,7 @@
 - [(Windows Store JavaScript | JavaScript)](/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/)
 - [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/)
 - [(Windows Phone | Javascript)](/en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/)
+- [(Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts/)
 - [(Android | JavaScript)](/en-us/documentation/articles/mobile-services-android-authorize-users-in-scripts/)
 - [(HTML | JavaScript)](/en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts/)
 - [(Xamarin iOS | JavaScript)](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/)

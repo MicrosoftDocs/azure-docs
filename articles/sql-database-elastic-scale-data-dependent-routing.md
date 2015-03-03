@@ -1,6 +1,20 @@
-<properties title="Data Dependent Routing" pageTitle="Data Dependent Routing" description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Data Dependent Routing" 
+	description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="stuartozer" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="stuartozer@microsoft.com"/>
 
 #Data-Dependent Routing
 
@@ -36,7 +50,7 @@ The only time that **ConnectionOptions.None** (do not validate) is acceptable oc
 
 This is an example of code that uses the Shard Map Manager to perform data-dependent routing based on the value of an integer key **CustomerID**, using a **ShardMap** object named **customerShardMap**.  
 
-###Example: Data Dependent Routing 
+##Example: Data Dependent Routing 
 
     int customerId = 12345; 
     int newPersonId = 4321; 
@@ -60,7 +74,7 @@ Notice that rather than using a constructor for a **SqlConnection**, followed by
 
 ##Integrating with Transient Fault Handling 
 
-A best practice in developing data access applications in the cloud is to ensure that transient faults in connecting to or querying the database are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at [Transient Fault Handling](http://msdn.microsoft.com/en-us/library/dn440719\(v=pandp.60\).aspx). 
+A best practice in developing data access applications in the cloud is to ensure that transient faults in connecting to or querying the database are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at [Transient Fault Handling](http://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx). 
  
 Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 

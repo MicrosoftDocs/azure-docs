@@ -1,20 +1,32 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Getting Started with Azure Site Recovery: Protection Between Two On-Premises VMWare sites with InMage" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery, VMWare, InMage" description="InMage in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to On-Premises VMWare Site Protection with InMage" editor="jimbe" manager="cfreeman" authors="raynew" />
+<properties 
+	pageTitle="Tutorial: Set up Protection Between On-Premises VMWare Sites" 
+	description="InMage in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
+
+# Tutorial: Set up Protection Between On-Premises VMWare Sites
 
 
-# Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMWare Site Protection
-
-
-<div class="dev-callout"> 
+<h2><a id="overview" name="overview" href="#overview"></a>Overview</h2>
 
 <p>InMage in Azure Site Recovery provides real-time replication between on-premises VMWare sites . InMage is included in subscriptions to the Azure Site Recovery service.</p>
 
 
-</div>
 
 
-<h2><a id="before"></a>Prerequisites</h2> 
+<h2><a id="before" name="before" href="#before"></a>Prerequisites</h2>
 <div class="dev-callout"> 
 
 <UL>
@@ -22,8 +34,8 @@
 </UL>
 
 
-
-<a name="vault"></a> <h2>Step 1: Create a vault and download InMage</h2>
+<h2><a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps</h2>
+<a name="vault"></a> <h3>Step 1: Create a vault and download InMage</h3>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -43,7 +55,7 @@
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
-<a name="upload"></a> <h2>Step 2: Configure the vault</h2>
+<a name="upload"></a> <h3>Step 2: Configure the vault</h3>
 
 
 1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
@@ -58,8 +70,7 @@
 4. Set up replication between two VMWare sites using the InMage documentation that's downloaded with the product.
 
 
-
-<h2><a id="next"></a>Next steps</h2>
+<h2><a id="next" name="next" href="#next"></a>Next steps</h2>
 <UL>
 
 <LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI> 

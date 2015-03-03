@@ -1,18 +1,32 @@
-<properties title="Data Dependent Routing" pageTitle="Shard Elasticity" description="Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Shard Elasticity" 
+	description="Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="torsteng" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="torsteng"/>
 
 # Shard Elasticity 
 
-**Shard elasticity** enables application developers to dynamically grow and shrink database resources according to need, enabling one to optimize the performance of their applications, and also to minimize costs. The combination of the Elastic Scale for Azure SQL Database along with the [Basic, Standard, and Premium service tiers](http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx) provides very compelling elasticity scenarios.  Elastic Scale enables **horizontal scaling** - a design pattern in which databases ("shards," in [Elastic Scale terms](sql-database-elastic-scale-glossary.md)) are added or removed from a **shard set** to grow or shrink capacity. Similarly, the SQL Database service tiers provide **vertical scaling** capabilities in that a single database's resources can scale up or down to appropriately match demand.  Together, the vertical scaling of a single shard and the horizontal scaling of many shards, affords application developers a very flexible environment that can scale to meet performance, capacity and cost-optimization needs.
+**Shard elasticity** enables application developers to dynamically grow and shrink database resources according to need, enabling one to optimize the performance of their applications, and also to minimize costs. The combination of the Elastic Scale for Azure SQL Database along with the [Basic, Standard, and Premium service tiers](http://msdn.microsoft.com/library/azure/dn741340.aspx) provides very compelling elasticity scenarios.  Elastic Scale enables **horizontal scaling** - a design pattern in which databases ("shards," in [Elastic Scale terms](sql-database-elastic-scale-glossary.md)) are added or removed from a **shard set** to grow or shrink capacity. Similarly, the SQL Database service tiers provide **vertical scaling** capabilities in that a single database's resources can scale up or down to appropriately match demand.  Together, the vertical scaling of a single shard and the horizontal scaling of many shards, affords application developers a very flexible environment that can scale to meet performance, capacity and cost-optimization needs.
 
-### Horizontal Scaling Example: Concert Spike
+## Horizontal Scaling Example: Concert Spike
 
 A canonical scenario for horizontal scaling is an application that processes transactions for concert tickets. Under normal customer volume, the application uses minimal database resources to handle purchase transactions.  However, when tickets go on sale for a popular concert, a single database cannot handle the large spike in customer demand. 
 
 To process the dramatic increase in transactions, the application scales horizontally. The application can now distribute the transaction load across many shards. When the additional resources are no longer needed, the database tier shrinks back for normal usage. Here horizontal scaling enables an application to scale-out to match customer demand and scale-in when the resources are no longer needed.   
 
-### Vertical Scaling Example: Telemetry
+## Vertical Scaling Example: Telemetry
 
 A canonical scenario for vertical scaling is an application that uses a **shard set** to store operational telemetry. In this scenario, it is better to co-locate all telemetry data for a single day on a single shard. In this application, data for the current day is ingested into a shard and a new shard is provisioned for subsequent days. The operational data can then be aged and queried as appropriate. 
 
@@ -32,7 +46,7 @@ Vertical and horizontal scaling is a function of three basic components:
 2. **Rule**
 3. **Action**   
 
-## <a name="telemetry"> </a>Telemetry
+## Telemetry
 
 **Data-driven elasticity** is at the heart of an elastic scale application. Depending on the performance requirements, use telemetry to make data-driven decisions on whether to scale vertically or horizontally.  
 
@@ -93,7 +107,7 @@ As data is ingested into a particular shard, it is useful to project forward a d
     WHERE 
         Size.[order] < 8 
 
-## <a name="rule"></a>Rule  
+## Rule  
 
 The rule is the decision engine that determines whether or not an action is taken. Some rules are very straightforward and some are much more complicated. As shown in the code snippet below, a capacity-focused rule can be configured so that when a shard reaches $SafetyMargin, e.g., 80%, of its maximum capacity, a new shard is provisioned.
 
@@ -103,7 +117,7 @@ The rule is the decision engine that determines whether or not an action is take
 
 Given the data sources above, a number of rules can be formulated in order to accomplish numerous shard elasticity scenarios. 
 
-## <a name="action"></a>Action  
+## Action  
 
 Based on the outcome of the rule, the action (or non-action) is the result. The two most common actions are:
 

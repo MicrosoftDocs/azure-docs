@@ -1,5 +1,5 @@
 
-1. In Eclipse, press F11 to deploy the changes to your Android device and run the app.
+1. In Android Studio, press **Run** => **Run app** to deploy the changes to your Android device and run the app.
 
 2. Log in with your identity provider and verify that authentication succeeds. 
 

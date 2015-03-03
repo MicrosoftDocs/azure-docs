@@ -1,11 +1,25 @@
-<properties title="Shard Map Management" pageTitle="Shard Map Management" description="How to use the ShardMapManager, Elastic Scale API for .NET" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, shardmapmanager" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Shard Map Management" 
+	description="How to use the ShardMapManager, Elastic Scale API for .NET" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Shard Map Management 
+# Shard Map Management 
 In a sharded database environment, a **shard map** maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is crucial to managing shards in the Elastic Scale preview.
 
-##Shard Maps and Shard Mappings 
+## Shard Maps and Shard Mappings 
 ### Supported .Net Types for Sharding Keys
 Elastic Scale support the following .Net Framework types as sharding keys:
 
@@ -46,7 +60,7 @@ Shard maps can be constructed using **lists of individual sharding key values**,
    </tr>
 </table> 
 
-###Range Shard Maps 
+### Range Shard Maps 
 In a **range shard map**, the key range is described by a pair **[Low Value, High Value)** where the *Low Value* is the minimum key in the range, and the *High Value* is the first value higher than the range. 
 
 For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example below.)
@@ -79,7 +93,7 @@ For example, **[0, 100)** includes all integers greater than or equal 0 and less
 
 Each of the tables shown above is a conceptual example of a **ShardMap** object.  Each row is a simplified example of an individual **PointMapping** (for the list shard map) or **RangeMapping** (for the range shard map) object.
 
-##Shard Map Manager 
+## Shard Map Manager 
 
 In the Elastic Scale APIs, the Shard Map Manager is a collection of shard maps. The data managed by a **ShardMapManager** .Net object is kept in three places: 
 
@@ -89,7 +103,7 @@ In the Elastic Scale APIs, the Shard Map Manager is a collection of shard maps. 
 
 3. **Application cache**: Each application instance accessing a **ShardMapManager** object maintains a local in-memory cache of its mappings. It stores routing information that has recently been retrieved. 
 
-### Constructing a ShardMapManager
+## Constructing a ShardMapManager
 A **ShardMapManager** object in the application is instantiated using a factory pattern. The **ShardMapManagerFactory.GetSqlShardMapManager** method takes credentials (including the server name and database name holding the GSM) in the form of a **ConnectionString** and returns an instance of a **ShardMapManager**.  
 
 The **ShardMapManager** should be instantiated only once per app domain, within the initialization code for an application. A **ShardMapManager** can contain any number of shard maps. While a single shard map may be sufficient for many applications, there are times when different sets of databases are used for different schema or for unique purposes, and in those cases multiple shard maps may be preferable. 
@@ -123,7 +137,7 @@ In this code, an application tries to open an existing **ShardMapManager**.  If 
     } 
  
 
-###Shard Map Administration Credentials
+### Shard Map Administration Credentials
 
 Typically, applications that administer and manipulate shard maps are different from those that use the shard maps to route connections. 
 
@@ -218,7 +232,7 @@ As an alternative you can use PowerShell scripts to achieve the same result.
 
 Once shard maps have been populated, data access applications can be created or adapted to work with the maps. Populating or manipulating the maps need not occur again until **map layout** needs to change.  
 
-##Data Dependent Routing 
+## Data Dependent Routing 
 
 Most use of the shard map manager will come from the applications that require database connections to perform the app-specific data operations. In a sharded application, those connections now must be associated with the correct target database. This is known as **Data Dependent Routing**.  For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for connections will later supply credentials necessary for connecting to the appropriate shard database.
 
@@ -226,7 +240,7 @@ Note that these applications (using **ShardMapManager** opened with read-only cr
 
 For more details, see [Data Dependent Routing](./sql-database-elastic-scale-data-dependent-routing.md). 
 
-##Modifying a Shard Map 
+## Modifying a Shard Map 
 
 A shard map can be changed in different ways. All of the following methods modify the metadata describing the shards and their mappings, but they do not physically modify data within the shards, nor do they create or delete the actual databases.  Some of the operations on the shard map described below may need to be coordinated with administrative actions that physically move data or that add and remove databases serving as shards.
 
@@ -252,7 +266,7 @@ These methods work together as the building blocks available for modifying the o
 
     Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including UpdateMapping and DeleteMapping. When a mapping is offline, a data-dependent request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
 
-##Adding a Shard 
+## Adding a Shard 
 
 Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
 

@@ -1,6 +1,20 @@
-<properties title="How to Scale Websites" pageTitle="How to Scale Websites" description="required" metaKeywords="scaling Azure websites" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties 
+	pageTitle="How to Scale Websites" 
+	description="Manually scale up or scale out your website, scale on a schedule, or autoscale your website based on usage." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/20/2015" 
+	ms.author="cephalin"/>
 
 # How to Scale Websites #
 
@@ -10,17 +24,9 @@ Scaling up on Azure Websites involves two related actions: changing your Web Hos
 
 Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all websites in your Web Hosting Plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about Web Hosting Plans, see [What is a Web Hosting Plan?](http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/) and [Azure Websites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Websites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
+For information about Web Hosting Plans, see [What is a Web Hosting Plan?](../web-sites-web-hosting-plan-overview/) and [Azure Websites Web Hosting Plans In-Depth Overview](../azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Websites Pricing Details](/pricing/details/websites/).  
 
-> [WACOM.NOTE] Before switching a website from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Azure Websites subscription. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
-
-In this article:
-
-- [Scaling to Shared or Basic Plan mode](#scalingsharedorbasic)
-- [Scaling to Standard Plan mode](#scalingstandard)
-- [Scaling a SQL Server Database connected to your site](#ScalingSQLServer)
-- [Developer Features](#devfeatures)
-- [Other Features](#OtherFeatures)
+> [AZURE.NOTE] Before switching a website from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Azure Websites subscription. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
@@ -55,7 +61,7 @@ In this article:
 	
 	![Save button][SaveButton]
  	
-	> [WACOM.NOTE] You can configure and save the **Web Hosting Plan**, **Instance Size**, and **Instance Count** settings separately if you wish.
+	> [AZURE.NOTE] You can configure and save the **Web Hosting Plan**, **Instance Size**, and **Instance Count** settings separately if you wish.
 	
 8. A confirmation message reminds you that sites in the same Web Hosting Plan as the current website will also change to the new mode. Choose **Yes** to complete the change. 
 	
@@ -68,7 +74,7 @@ In this article:
 ## Scaling to Standard Plan Mode
 <!-- ================================= -->
 
-> [WACOM.NOTE] Before switching a Web Hosting Plan to Standard mode, you should remove spending caps in place for your Microsoft Azure Websites subscription. Otherwise, you risk your site becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Before switching a Web Hosting Plan to Standard mode, you should remove spending caps in place for your Microsoft Azure Websites subscription. Otherwise, you risk your site becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 1. To scale to Standard, follow the same initial steps as when scaling to Shared or Basic, and then choose **Standard** for **Web Hosting Plan Mode**. 
 	
@@ -96,7 +102,7 @@ In this article:
 	
 6. Under **Recurring Schedules**, select **Differing scale between Day and Night** and/or **Differing Scale between Weekday and Weekend** to scale resources based on separate daytime and nighttime schedules and/or separate weekday and weekend schedules.
 	
-	> [WACOM.NOTE] For the purposes of this feature, the weekend starts at the end of day Friday (8:00 PM by default), and ends at the beginning of the day on Monday (8:00 AM by default). The weekend profile uses the same day start and end that you will define in the **Time** setting.
+	> [AZURE.NOTE] For the purposes of this feature, the weekend starts at the end of day Friday (8:00 PM by default), and ends at the beginning of the day on Monday (8:00 AM by default). The weekend profile uses the same day start and end that you will define in the **Time** setting.
 	
 7. Under **Time**, choose a start and end time for the day in half-hour increments, and a time zone. By default, the day starts at 8:00 AM and ends at 8:00 PM. Daylight Savings Time is respected for the time zone that you select. 
 	
@@ -128,17 +134,15 @@ In this article:
 	
 14. After you have finished making changes to the items in the **Edit Scale Settings for Schedule** list, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
 
-> [WACOM.NOTE] In the [Azure Preview Portal](https://portal.azure.com/), you can scale not only on CPU percentage, but also on the additional metrics of Memory Percentage, Disk Queue Length, HTTP Queue Length, Data In, and Data Out. You can also create one or more Scale up and Scale down rules that give you even more custom control over scaling. For more information, see [How to Scale a Website](http://azure.microsoft.com/en-us/documentation/articles/insights-how-to-scale/) in the Azure Preview Portal documentation.
+> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com/), you can scale not only on CPU percentage, but also on the additional metrics of Memory Percentage, Disk Queue Length, HTTP Queue Length, Data In, and Data Out. You can also create one or more Scale up and Scale down rules that give you even more custom control over scaling. For more information, see [How to Scale a Website](../insights-how-to-scale/) in the Azure Preview Portal documentation.
 
 <a name="ScalingSQLServer"></a>
-##Scaling a SQL Server Database connected to your site	
-If you have one or more SQL Server databases linked to your website (regardless of web hosting plan mode), they will be listed under a **Linked Resources** section at the bottom of the Scaling page.
+## Scaling a SQL Database connected to your site	
+If you have one or more SQL Databases linked to your website (regardless of web hosting plan mode), they will be listed in the **Linked Resources** page.
 
-1. To scale one of the databases, in the **Linked Resources** section, click the **Manage scale for this database** link next to the name of the database.
+1. To scale one of the databases, in the **Linked Resources** section, click the name of the database to manage it.
 	
-	![Linked database][LinkedResources]
-	
-2. The link takes you to the SQL Server tab of the Azure Management Portal, where you can configure the **Edition** and **Maximum Size** of the database:
+2. The link takes you to the SQL Databases tab of the Azure Management Portal, where you can scale the linked SQL Database in the **Scale** page.
 	
 	![Scale your SQL Server database][ScaleDatabase]
 	
@@ -165,47 +169,36 @@ Depending on the web hosting plan mode, the following developer-oriented feature
 
 **Web Endpoint Monitoring**
 
-- Web endpoint monitoring is available in the Basic and Standard web hosting plan modes. For more information about web endpoint monitoring, see [How to Monitor Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/).
+- Web endpoint monitoring is available in the Basic and Standard web hosting plan modes. For more information about web endpoint monitoring, see [How to Monitor Websites](../web-sites-monitor/).
 
-- For detailed information about all of the remaining features in the web hosting plans, including pricing and features of interest to all users (including developers), see [Websites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+- For detailed information about all of the remaining features in the web hosting plans, including pricing and features of interest to all users (including developers), see [Websites Pricing Details](/pricing/details/websites/).
 
 <a name="Next Steps"></a>	
 ## Next Steps
 
-- To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
-
+- To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 - For information on pricing, support, and SLA, visit the following links.
-	
-	[Data Transfers Pricing Details](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
-	
-	[Microsoft Azure Support Plans](http://www.windowsazure.com/en-us/support/plans/)
-	
-	[Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/)
-	
-	[SQL Database Pricing Details](http://www.windowsazure.com/en-us/pricing/details/sql-database/)
-	
-	[Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
-	
-	[Websites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
-	
-	[Websites Pricing Details - SSL Connections](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+	- [Data Transfers Pricing Details](/pricing/details/data-transfers/)
+	- [Microsoft Azure Support Plans](/support/plans/)
+	- [Service Level Agreements](/support/legal/sla/)
+	- [SQL Database Pricing Details](/pricing/details/sql-database/)
+	- [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
+	- [Websites Pricing Details](/pricing/details/websites/)
+	- [Websites Pricing Details - SSL Connections](/pricing/details/websites/#ssl-connections)
 
 - For information on Azure Websites best practices, including building a scalable and resilient architecture, see [Best Practices: Windows Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
-
 - Videos on scaling Azure Websites:
 	
-	[When to Scale Azure Websites - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-	
-	[Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
-
-	[How Azure Websites Scale - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+	- [When to Scale Azure Websites - with Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	- [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
+	- [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 
 
 <!-- LINKS -->
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://manage.windowsazure.com/
 
 <!-- IMAGES -->

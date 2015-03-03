@@ -11,4 +11,4 @@ The final optional step of this tutorial is to check in the SQL Database associa
 
     ![query SQL Database for stored items](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	Note that the table includes Id, __createdAt, __updatedAt, and __version columns. These columns support offline data sync and are implemented in the [EntityData](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobile.service.entitydata.aspx) base class. For more information, see [Get started with offline data sync].
+	Note that the table includes Id, __createdAt, __updatedAt, and __version columns. These columns support offline data sync and are implemented in the [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx) base class. For more information, see [Get started with offline data sync].

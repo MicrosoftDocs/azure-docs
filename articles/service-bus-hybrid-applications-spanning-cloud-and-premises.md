@@ -1,17 +1,31 @@
-<properties pageTitle="Enable Hybrid Applications Spanning Cloud and Premises" metaKeywords="Service Bus, Cloud, Hybrid" description="Learn how to build hybrid applications that span across the cloud and on premises." services="service-bus" documentationCenter=".NET" title="Enable Hybrid Applications Spanning Cloud and Premises" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties 
+	pageTitle="Enable Hybrid Applications Spanning Cloud and Premises" 
+	description="Learn how to build hybrid applications that span across the cloud and on premises." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # Enable Hybrid Applications Spanning Cloud and Premises
 
 Hybrid cloud/on-premises applications are a reality of modern IT environments. Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.
 
-[Build a .NET on-premises/cloud hybrid application using Service Bus Relay](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-hybrid-app-using-service-bus-relay/)
+[Build a .NET on-premises/cloud hybrid application using Service Bus Relay](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-hybrid-app-using-service-bus-relay/)
 
 ## Explore
 
-- [Service Bus Relay](http://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-how-to-use-relay/)
-- [Relayed and Brokered Messaging](http://msdn.microsoft.com/en-us/library/azure/hh367519.aspx)
+- [Service Bus Relay](http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-relay/)
+- [Relayed and Brokered Messaging](http://msdn.microsoft.com/library/azure/hh367519.aspx)
 
 ## Build
 
@@ -23,9 +37,9 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. S
 ## Popular
 - [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/windowsazure/Hh667438.aspx)
 - [Service Bus REST API Reference](http://msdn.microsoft.com/library/windowsazure/hh780717.aspx)
-- [Sign up for a free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [Sign up for a free Azure trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Related services
-- [BizTalk Services](http://azure.microsoft.com/en-us/services/biztalk-services/)
-- [Mobile Services](http://azure.microsoft.com/en-us/services/mobile-services/)
-- [Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/) 
+- [BizTalk Services](http://azure.microsoft.com/services/biztalk-services/)
+- [Mobile Services](http://azure.microsoft.com/services/mobile-services/)
+- [Cloud Services](http://azure.microsoft.com/services/cloud-services/) 

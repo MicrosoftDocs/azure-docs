@@ -1,13 +1,27 @@
-<properties urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties
+	pageTitle="How to use the service management API (Python) - feature guide"
+	description="Learn how to programmatically perform common service management tasks from Python."
+	services="cloud-services"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="02/19/2015"
+	ms.author="huvalo"/>
 
 
 
 
 # How to use Service Management from Python
 
-This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python][download-SDK-Python] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services, virtual machines and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
+This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python][download-SDK-Python] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services, virtual machines and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management.
 
 ## Table of Contents
 
@@ -35,7 +49,7 @@ This guide will show you how to programmatically perform common service manageme
 ## <a name="WhatIs"> </a>What is Service Management
 The Service Management API provides programmatic access to much of the service management functionality available through the [management portal][management-portal]. The Azure SDK for Python allows you to manage your cloud services, storage accounts, and affinity groups.
 
-To use the Service Management API, you will need to [create an Azure account](http://www.windowsazure.com/en-us/pricing/free-trial/). 
+To use the Service Management API, you will need to [create an Azure account](http://www.windowsazure.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concepts
 The Azure SDK for Python wraps the [Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
@@ -43,7 +57,7 @@ The Azure SDK for Python wraps the [Azure Service Management API][svc-mgmt-rest-
 ## <a name="Connect"> </a>How to: Connect to service management
 To connect to the Service Management endpoint, you need your Azure subscription ID and a valid management certificate. You can obtain your subscription ID through the [management portal][management-portal].
 
-> [WACOM.NOTE] Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  This requires Python 2.7.4 or later.
+> [AZURE.NOTE] Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  This requires Python 2.7.4 or later.
 
 ### Management certificates on Windows (MakeCert)
 
@@ -51,7 +65,7 @@ You can create a self-signed management certificate on your machine using `makec
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-The command will create the `.cer` file, and install it in the **Personal** certificate store. For more details, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+The command will create the `.cer` file, and install it in the **Personal** certificate store. For more details, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
 
 After you have created the certificate, you will need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [management portal][management-portal].
 
@@ -65,7 +79,7 @@ After you have obtained your subscription ID, created a certificate, and uploade
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
-In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services. 
+In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services.
 
 ### Management certificates on Windows/Mac/Linux (OpenSSL)
 You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute this:
@@ -76,7 +90,7 @@ To create the `.cer` certificate, execute this:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-For more information about Azure certificates, see [Managing Certificates in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+For more information about Azure certificates, see [Managing Certificates in Azure](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 After you have created these files, you will need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
 
@@ -87,10 +101,10 @@ After you have obtained your subscription ID, created a certificate, and uploade
 
 	subscription_id = '<your_subscription_id>'
 	certificate_path = '<path_to_.pem_certificate>'
-	
+
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
-In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services. 
+In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services.
 
 ## <a name="ListAvailableLocations"> </a>How to: List available locations
 
@@ -107,18 +121,18 @@ To list the locations that are available for hosting services, use the **list\_l
 
 When you create a cloud service, storage service, or affinity group, you will need to provide a valid location. The **list\_locations** method will always return an up-to-date list of the currently available locations. As of this writing, the available locations are:
 
-- West Europe 
-- Southeast Asia 
-- East Asia 
-- North Central US 
-- North Europe 
-- South Central US 
-- West US 
+- West Europe
+- Southeast Asia
+- East Asia
+- North Central US
+- North Europe
+- South Central US
+- West US
 - East US
 
 ## <a name="CreateCloudService"> </a>How to: Create a cloud service
 
-When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a *hosted service* in earlier Azure releases). The **create\_hosted\_service** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description and a location. You can specify an affinity group instead of a location for your service. 
+When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a *hosted service* in earlier Azure releases). The **create\_hosted\_service** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description and a location. You can specify an affinity group instead of a location for your service.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -152,7 +166,7 @@ If you want to get information about a particular hosted service, you can do so 
 	print('Management URL: ' + hosted_service.url)
 	print('Affinity group: ' + hosted_service.hosted_service_properties.affinity_group)
 	print('Location: ' + hosted_service.hosted_service_properties.location)
-			
+
 After you have created a cloud service, you can deploy your code to the service with the **create\_deployment** method.
 
 ## <a name="DeleteCloudService"> </a>How to: Delete a cloud service
@@ -347,7 +361,7 @@ You can list affinity groups and inspect their properties by calling the **list\
 		print('')
 
 ## <a name="DeleteAffinityGroup"> </a>How to: Delete an affinity group
-	
+
 You can delete an affinity group by passing the group name to the **delete\_affinity\_group** method. Note that before you can delete an affinity group, the affinity group must be disassociated from any services (or services that use the affinity group must be deleted).
 
 	from azure import *
@@ -516,19 +530,19 @@ Now that you've learned the basics of service management, follow these links to 
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
 [management-portal]: https://manage.windowsazure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
 [download-SDK-Python]: https://www.windowsazure.com/en-us/develop/python/common-tasks/install-python/
 [cloud service]:http://windowsazure.com/en-us/documentation/articles/cloud-services-what-is
-[service package]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[service package]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
-[cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
-[Deploying an Azure Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
+[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
+[Deploying an Azure Service]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
 [storage service]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
 [azure-blobs]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/blob-service/
 [azure-tables]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
 [azure-queues]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/queue-service/
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-[Cloud Services]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-[Virtual Machines]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx
+[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+[Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx

@@ -1,6 +1,20 @@
-<properties urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="What is a cloud service - Azure service management" 
+	description="An introduction to the cloud service in Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/23/2014" 
+	ms.author="adegeo"/>
 
 
 
@@ -52,7 +66,7 @@ Each cloud service has two environments to which you can deploy your service pac
 
 - **Azure Service Level Agreement (SLA):** The Azure Compute SLA guarantees that, when you deploy two or more role instances for every role, access to your cloud service will be maintained at least 99.95 percent of the time. Also, detection and corrective action will be initiated 99.9 percent of the time when a role instance's process is not running. For more information, see [Service Level Agreements] [SLA].
 
-[HTMonitorCloudServices]:http://azure.microsoft.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/
-[SLA]: http://azure.microsoft.com/en-us/support/legal/sla/
-[CloudServicesDiagnostics]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-diagnostics/
-[Comparison]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+[HTMonitorCloudServices]:http://azure.microsoft.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/
+[SLA]: http://azure.microsoft.com/support/legal/sla/
+[CloudServicesDiagnostics]: http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/
+[Comparison]: http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/

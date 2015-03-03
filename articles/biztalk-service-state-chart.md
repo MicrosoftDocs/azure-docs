@@ -1,6 +1,20 @@
-<properties urlDisplayName="BizTalk Services: Service state chart" pageTitle="BizTalk Services: Service state chart | Azure" metaKeywords="" description="" metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Service state chart" authors="mandia" solutions="integration" manager="dwrede" editor="cgronlun" />
+<properties 
+	pageTitle="Tasks allowed in different states or statuses in BizTalk Services | Azure" 
+	description="The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -13,12 +27,12 @@ For example, you provision a new BizTalk service in the Azure Management Portal.
 
 To provision a BizTalk Service, refer to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280).
 
-The following tables list the Operations that can be performed when the BizTalk Service is in a specific state. A check mark means the operation can be performed while in that state. A blank entry means the operation cannot be performed while in that state.
+The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state. A check mark means the operation is allowed while in that state. A blank entry means the operation cannot be performed while in that state.
 
-#### Start, Stop, Restart, Suspend, Resume, and Delete Operations
+## Start, Stop, Restart, Suspend, Resume, and Delete Operations
 <table border="1">
 <tr>
-        <th colspan="15">Operation</th>
+        <th colspan="15">Operation or Action</th>
 </tr>
 
 <tr>
@@ -148,10 +162,10 @@ RestoreFailed<br/></b></td>
 </table>
 <br/>
 
-####Scale, Update Configuration, and Backup Operations
+## Scale, Update Configuration, and Backup Operations
 <table border="1">
 <tr>
-        <th colspan="15">Operation</th>
+        <th colspan="15">Operation or Action</th>
 </tr>
 
 <tr>

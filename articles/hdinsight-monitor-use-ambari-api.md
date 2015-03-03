@@ -1,18 +1,25 @@
-<properties urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari's intuitive operator tools and APIs hide the complexity of Hadoop." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
+<properties 
+	pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Azure" 
+	description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari's intuitive operator tools and APIs hide the complexity of Hadoop." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	editor="cgronlun" 
+	manager="paulettm"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # Monitor Hadoop clusters in HDInsight using the Ambari API
  
 Learn how to monitor HDInsight clusters versions 3.1 and 2.1 using Ambari APIs.
 
-##In this article
-
-- [What is Ambari?](#whatisambari)
-- [Prerequisites](#prerequisites)
-- [Jump start](#jumpstart)
-- [Ambari monitoring APIs](#monitor)
-- [Next steps](#nextsteps)
 
 
 ## <a id="whatisambari"></a> What is Ambari?
@@ -31,7 +38,7 @@ Before you begin this tutorial, you must have the following:
 
 	[Curl][curl] is optional. It can be installed from [here][curl-download].
 
-	>[WACOM.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
+	>[AZURE.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
 
 - **An Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
@@ -42,7 +49,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Cluster password</td><td>$clusterPassword</td><td></td><td>Cluster user password.</td></tr>
 	</table>
 
-	> [WACOM.NOTE] Fill the values into the tables.  It will be helpful for going through this tutorial.
+	> [AZURE.NOTE] Fill the values into the tables.  It will be helpful for going through this tutorial.
 
 
 
@@ -161,7 +168,7 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [Powershell-install]: ../install-configure-powershell/
-[Powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx 
+[Powershell-script]: http://technet.microsoft.com/library/ee176949.aspx 
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/

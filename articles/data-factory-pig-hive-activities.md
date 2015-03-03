@@ -1,6 +1,20 @@
-<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Use Pig and Hive with Azure Data Factory" description="Learn how to process data by running Pig and Hive scripts on an Azure HDInsight cluster from an Azure data factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties 
+	pageTitle="Use Pig and Hive with Azure Data Factory" 
+	description="Learn how to process data by running Pig and Hive scripts on an Azure HDInsight cluster from an Azure data factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. 
@@ -10,21 +24,9 @@ A pipeline in an Azure data factory processes data in linked storage services by
  
 See [Invoke MapReduce Programs from Data Factory][data-factory-map-reduce] for details about running MapReduce programs on an HDInsight cluster from an Azure data factory pipeline by using MapReduce transformations of the HDInsight Activity. This article describes using Pig/Hive transformation of the HDInsight Activity.
 
-## In This Article
-
-Section | Description
-------- | -----------
-[Pig JSON example](#PigJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Pig transformation. 
-[Hive JSON example](#HiveJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Hive transformation. 
-[Using Pig and Hive scripts that are stored in Azure Blob storage](#ScriptInBlob) | Describes how to refer to Pig/Hive scripts stored in an Azure blob storage from an HDInsight Activity using Pig/Hive transformation.
-[Parameterized Pig and Hive Queries](#ParameterizeQueries) | Describes how to specify specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties** property in JSON.
-[Walkthrough: Use Hive with Azure Data Factory](#Waltkthrough) | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
-
-
-
-When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
 ## <a name="PigJSON"></a> Pig JSON example
+When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
     {
 		"name": "Pig Activity",
@@ -53,7 +55,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 - You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
 
 
-## <a name="HiveJSON"></a> ## Hive JSON example
+## <a name="HiveJSON"></a> Hive JSON example
 
 
     {
@@ -82,10 +84,10 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 - You can specify Hive script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
 - You specify parameters for the Hive script by using the **extendedProperties**. More details are provided later in this article. 
 
-> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
+> [AZURE.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
 
-## <a name="ScriptInBlob"></a>Using Pig and Hive scripts that are stored in Azure Blob storage
+## <a name="ScriptInBlob"></a>Using Pig and Hive scripts in HDInsight Activity
 You can store Pig/Hive scripts in an Azure blob storage associated with the HDInsight cluster and refer to them from Pig/Hive activities by using the following properties in the JSON: 
 
 * **scriptPath** – Path to the Pig or Hive script file
@@ -131,7 +133,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 
   
 
-> [WACOM.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
+> [AZURE.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
 ## <a name="ParameterizeQueries"></a>Parameterized Pig and Hive Queries
 The Data Factory Pig and Hive activities enable you to specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties**. The extendedProperties section consists of the name of the parameter, and value of the parameter.
@@ -177,7 +179,10 @@ See the following example for specifying parameters for a Hive script using **ex
 ## <a name="Walkthrough"></a>Walkthrough: Use Hive with Azure Data Factory
 ### Pre-requisites
 1. Complete the tutorial from [Get started with Azure Data Factory][adfgetstarted] article.
-2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax. 
+2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax.
+
+	> [AZURE.NOTE] The emp.txt file is only a dummy file for this walkthrough. The actual input data comes from the **hivesampletable** that already exists on the HDInsight cluster. The pipeline does not use the emp.txt file at all.    
+	
 2. Create **hivequery.hql** file in a subfolder named **Hive** under **C:\ADFGetStarted** with the following content.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
@@ -281,7 +286,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": "4",
-        		"jobsContainer": "adfjobs",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}
@@ -375,9 +379,9 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     	
 3. Schedule the pipeline.
     	
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-27 –EndDateTime 2014-09-30 –Name ADFTutorialHivePipeline 
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-27Z –EndDateTime 2014-09-30Z –Name ADFTutorialHivePipeline 
 
-	> [WACOM.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. 
+	> [AZURE.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. 
 	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
   	
 	The output table is scheduled to be produced every day, so there will be three slices produced. 

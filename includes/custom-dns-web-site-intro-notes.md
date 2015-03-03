@@ -1,4 +1,4 @@
-> [WACOM.NOTE] **This article is for Azure Websites**; for Cloud Services, see <a href="/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+> [AZURE.NOTE] **This article is for Azure Websites**; for Cloud Services, see <a href="/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
 >
 > **For instructions on using Traffic Manager to load balance traffic to websites**, use the selector at the top of this article to select the Traffic Manager specific steps.
 >

@@ -1,24 +1,31 @@
-<properties title="Get started with Azure Search" pageTitle="Get started with Azure Search" description="Get started with Azure Search" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+<properties 
+	pageTitle="Get started with Azure Search" 
+	description="Get started with Azure Search" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Get started with Azure Search
 
-[WACOM.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
 Microsoft Azure Search (Public Preview) is new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a REST API. To read more about why you would use Azure Search, see [Azure Search Scenarios and Capabilities](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
 
 As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 
-<!--Table of contents -->
-
-+ [Start with the free service](#sub-1)
-+ [Upgrade to standard search](#sub-2)
-+ [Test service operations](#sub-3)
-+ [Explore Search service dashboard](#sub-4)
-+ [Try it out](#next-steps)
-
-<h2 id="sub-1">Start with the free service</h2>
+<a id="sub-1"></a>
+## Start with the free service
 
 Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
@@ -32,21 +39,17 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
   	![][7]
 
-4. From the Gallery, click **Data, storage, cache, + backup**.
+4. From the Gallery, click **Data + analytics**.
  
   	![][8]
 
-5. Click **See All** to expand the list of all data-related services. 
-
-  	![][9]
-
-6. From Data services, click **Search**.
+5. From Data services, click **Search**.
  
   	![][10]
 
 7. At the bottom of the Search page, click **CREATE**.
 
-8. Type a lower-case service name to use in the service URL, avoiding dashes, spaces, and staying within the 15 character string limit.
+8. Type a lower-case service name to use in the service URL, avoiding spaces, and staying within the 15 character string limit.
  
   	![][11]
 
@@ -64,7 +67,7 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
 In a few minutes, the service is created. You can return to the configuration settings to get the URL or api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here's how to quickly find these values:
 
-14. Go to **Browse** | **Everything** | **Data, storage, cache, + backup** | **See All** | **Search Services**, Click your search service to open the service dashboard. 
+14. Go to **Home** to open the dashboard. Click the Search service to open the service dashboard. 
 
   	![][13]
 
@@ -80,8 +83,8 @@ In a few minutes, the service is created. You can return to the configuration se
 
 Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
 
-
-<h2 id="sub-2">Upgrade to standard search</h2>
+<a id="sub-2"></a>
+## Upgrade to standard search
 
 Standard search gets you dedicated resources in an Azure data center that can be used only by you. Search workloads require both storage and service replicas. When you sign up for standard search, you can optimize service configuration to use more of whichever resource is the most important to your scenario.
 
@@ -99,9 +102,7 @@ Setting up dedicated resources can take a while (15 minutes or longer).
 
 3. Click **Everything** at the top of the page.
 
-4. From the Gallery, click **Data, storage, cache, + backup**.
-
-5. Click **See All** to expand the list of all data-related services.
+4. From the Gallery, click **Data + analytics**.
 
 6. From Data services, click **Search**.
 
@@ -121,18 +122,20 @@ Standard search starts with one replica and partition each, but can be easily re
 
 2.	Use the sliders to add replicas, partitions, or both. 
 
-Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information.
+Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
+
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
 
  ![][15]
 
-  
-<h2 id="sub-3">Test service operations</h2>
+<a id="sub-3"></a>
+## Test service operations
 
 Confirming that your service is operational and accessible from a client application is the final step in configuring Search. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
 
 The following procedure works for both shared and standard search. In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
 
-<h3>Create an index</h3>
+### Create an index
 
 1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you'll formulate a request that looks like this: 
 
@@ -181,7 +184,7 @@ In a few seconds, you should see an HTTP 201 response in the session list, indic
 
 If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 
-<h3>Load documents</h3>
+### Load documents
 
 On the Composer tab, your request to post documents will look like the following. The body of the request contains the search data for 4 hotels.
 
@@ -267,7 +270,7 @@ On the Composer tab, your request to post documents will look like the following
 
 In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
 
-<h3>Query the index</h3>
+### Query the index
 
 Now that an index and documents are loaded, you can issue queries against them.  On the Composer tab, a GET command that queries your service will look similar to the following:
 
@@ -292,7 +295,7 @@ The response code should be 200, and the response output should look similar to 
  
    ![][19]
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
+The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
 
 **Before spaces are replaced:**
 
@@ -302,7 +305,7 @@ The following example query is from the [Search Index operation (Azure Search AP
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
 
-<h3>Query the system</h3>
+### Query the system
 
 You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
 
@@ -329,25 +332,28 @@ You can also query the system to get document counts and storage consumption. On
 
  	![][21]
 
-<h2 id="sub-4">Explore Search service dashboard</h2>
+<a id="sub-4"></a>
+## Explore Search service dashboard
 
 If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
 1.	Sign in to [Azure Preview portal](https://portal.azure.com) using your existing subscription. 
-2.	Click **Browse** | **Everything**.
+2.	Click **Home** and then click the tile for your Search service.
 
  	![][22]
 
-3.	Choose **Search services** from the list. You should see a list of all the Search services created under your subscriptions.
+4.	Clicking the tile opens the service dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. The service dashboard includes tiles for viewing Properties, Keys, and a Quick Start with links to information and instructions. Scroll down to view usage.
 
-4.	Click a service to open its dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. The service dashboard includes tiles for viewing Properties, Keys, and a Quick Start with links to information and instructions. Scroll down to view usage.
-
-5.	Click **PROPERTIES**. Notice that the Properties page opens to the right. The service URL is at the top of the page. To get api-keys used to authenticate to the service, click **KEYS**.
+5.	Click **PROPERTIES**. Notice that the Properties page opens to the right. The service URL is at the top of the page. You will need this URL in to connect to your Azure Search service.
 
  	![][23]
+	
+7.	Click **KEYS** to view the api-keys. You will need an Admin key to authenticate to the service. You can use either the primary or secondary. Optionally, you can create query keys for read-only access to the service.
+
 
 <!--Next steps and links -->
-<h2 id="next-steps">Try it out</h2>
+<a id="next-steps"></a>
+## Try it out
 
 Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
@@ -357,9 +363,9 @@ Ready for the next step? The following links take you to additional material tha
 
 - [Manage your search solution in Microsoft Azure](../search-manage/) 
 
-- [Azure Search Technical Overview](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
+- [Azure Search Technical Overview](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
+- [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -377,12 +383,12 @@ Ready for the next step? The following links take you to additional material tha
 <!--Image references-->
 [6]: ./media/search-get-started/AzureSearch_Configure1_1_New.PNG
 [7]: ./media/search-get-started/AzureSearch_Configure1_2_Everything.PNG
-[8]: ./media/search-get-started/Azuresearch_Configure1_3_Gallery.PNG
+[8]: ./media/search-get-started/Azuresearch_Configure1_3a_Gallery.PNG
 [9]: ./media/search-get-started/AzureSearch_Configure1_4_GallerySeeAll.PNG
-[10]: ./media/search-get-started/AzureSearch_Configure1_5_DataServicesList.PNG
+[10]: ./media/search-get-started/AzureSearch_Configure1_5_SearchTile.PNG
 [11]: ./media/search-get-started/AzureSearch_Configure1_6_URL.PNG
-[12]: ./media/search-get-started/AzureSearch_Configure1_7_Free.PNG
-[13]: ./media/search-get-started/AzureSearch_Configure1_8_SearchServiceList.PNG
+[12]: ./media/search-get-started/AzureSearch_Configure1_7a_Free.PNG
+[13]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
 [14]: ./media/search-get-started/AzureSearch_Configure1_9_Standard.PNG
 [15]: ./media/search-get-started/AzureSearch_Configure1_10_ScaleUp.PNG
 [16]: ./media/search-get-started/AzureSearch_Configure1_11_PUTIndex.PNG
@@ -391,7 +397,7 @@ Ready for the next step? The following links take you to additional material tha
 [19]: ./media/search-get-started/AzureSearch_Configure1_14_GETQueryResponse.PNG
 [20]: ./media/search-get-started/AzureSearch_Configure1_15_Stats.PNG
 [21]: ./media/search-get-started/AzureSearch_Configure1_16_StatsResponse.PNG
-[22]: ./media/search-get-started/AzureSearch_Configure1_17_BrowseEverything.PNG
+[22]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
 [23]: ./media/search-get-started/AzureSearch_Configure1_18_Explore.PNG
 
 

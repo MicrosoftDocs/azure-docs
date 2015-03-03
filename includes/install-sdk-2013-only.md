@@ -4,6 +4,6 @@ To start, set up your development environment by installing the [Azure SDK for V
 
 If you don't have Visual Studio installed, Visual Studio Express for Web will be installed along with the SDK.
 
->[WACOM.NOTE] Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
+>[AZURE.NOTE] Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
 
 [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322

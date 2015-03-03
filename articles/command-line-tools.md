@@ -1,6 +1,20 @@
-<properties urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="rasquill" solutions="" manager="timlt" editor="tysonn" />
+<properties
+	pageTitle="Azure Command-Line Tools for Mac and Linux"
+	description="Learn about using the command-line tool for Mac and Linux in Azure."
+	services="web-sites, virtual-machines, mobile-services, cloud-services"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor="tysonn"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="rasquill" />
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="2/20/2014" 
+	ms.author="rasquill"/>
 
 #Azure command-line tool for Mac and Linux
 
@@ -61,10 +75,8 @@ This command imports a publishsettings file or certificate so that it can be use
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-<div class="dev-callout"><b>Note</b>
-   <p>The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.</p>
+> [AZURE.NOTE] The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.
 <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
-</div>
 
 **account clear [options]**
 
@@ -99,7 +111,7 @@ Set the current subscription
 This command lists your Azure affinity groups.
 
 Affinity groups can be set when a group of virtual machines spans multiple physical machines. The affinity group specifies that the physical machines should be as close to each other as possible, to reduce network latency.
- 
+
 	~$ azure account affinity-group list
 	+ Fetching affinity groups
 	data:   Name                                  Label   Location
@@ -184,8 +196,8 @@ This command deletes the specified environment from the account
 
 ##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Azure virtual machines
 The following diagram shows how Azure virtual machines are hosted in the production deployment environment of an Azure cloud service.
- 
-![Azure Technical Diagram](./media/command-line-tools/architecturediagram.jpg)	
+
+![Azure Technical Diagram](./media/command-line-tools/architecturediagram.jpg)
 
 **create-new** creates the drive in blob storage (that is, e:\ in the diagram); **attach** attaches an already created but unattached disk to a virtual machine.
 
@@ -206,8 +218,8 @@ Windows virtual machines can enable RDP later by adding port 3389 as an endpoint
 The following optional parameters are supported for this command:
 
 **-c, --connect** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
-**-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
-**-u, --blob-url** Specify the blob storage URL from which to create the virtual machine system disk. <br />
+**-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br />
+**-u, --blob-url** Specify the target blob storage URL at which to create the virtual machine system disk. <br />
 **-z, --vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
 **-r** Adds RDP connectivity to a Windows virtual machine. <br />
 **-e, --ssh** Adds SSH connectivity to a Windows virtual machine. <br />
@@ -222,9 +234,9 @@ The following optional parameters are supported for this command:
 
 In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image provided by the platform. For more information about operating system images, see vm image list.
 
-	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "Western US" -r
+	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
-	Enter VM 'my-vm-name' password: ************                                     
+	Enter VM 'my-vm-name' password: ************
 	info:   vm create command OK
 
 **vm create-from &lt;dns-name> &lt;role-file>**
@@ -236,11 +248,11 @@ This command creates a new Azure virtual machine from a JSON role file.
 
 **vm list [options]**
 
-This command lists Azure virtual machines. The -json option specifies that the results are returned in raw JSON format. 
+This command lists Azure virtual machines. The -json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm list
 	info:   Executing command vm list
-	data:   DNS Name                          VM Name      Status                  
+	data:   DNS Name                          VM Name      Status
 	data:   --------------------------------  -----------  ---------
 	data:   my-vm-name.cloudapp-preview.net        my-vm        ReadyRole
 	info:   vm list command OK
@@ -251,18 +263,18 @@ This command lists all available Azure account locations.
 
 	~$ azure vm location list
 	info:   Executing command vm location list
-	data:   Name                   Display Name                                    
+	data:   Name                   Display Name
 	data:   ---------------------  ------------
-	data:   Azure Preview  West US     
+	data:   Azure Preview  West US
 	info:   account location list command OK
 
 **vm show [options] &lt;name>**
 
-This command shows details about an Azure virtual machine. The --json option specifies that the results are returned in raw JSON format. 
+This command shows details about an Azure virtual machine. The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm show my-vm
 	info:   Executing command vm show
-	data:   {                                                                      
+	data:   {
 	data:       InstanceSize: 'Small',
 	data:       InstanceStatus: 'ReadyRole',
 	data:       DataDisks: [],
@@ -283,14 +295,14 @@ This command shows details about an Azure virtual machine. The --json option spe
 	data:       },
 	data:       Image: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011',
 	data:       OSVersion: 'WA-GUEST-OS-1.18_201203-01'
-	data:   } 
+	data:   }
 	info:   vm show command OK
 
 **vm delete [options] &lt;name>**
 
 This command deletes an Azure virtual machine. By default, this command does not delete the Azure blob from which the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
 
-	~$ azure vm delete my-vm 
+	~$ azure vm delete my-vm
 	info:   Executing command vm delete
 	info:   vm delete command OK
 
@@ -324,7 +336,7 @@ info:   vm shutdown command OK
 
 This command captures an Azure virtual machine image.
 
-A virtual machine image cannot be captured while the virtual machine state unless the virtual machine state is **Stopped**.
+A virtual machine image can only be captured if the virtual machine state is **Stopped**. Shutdown the virtual machine before continuing.
 
 	~$ azure.cmd vm capture my-vm mycaptureimagename --delete
 	info:   Executing command vm capture
@@ -346,7 +358,7 @@ This command exports an Azure virtual machine image to a file
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
 ![azurenetworkdiagram](./media/command-line-tools/networkdiagram.jpg)
- 
+
 External requests to virtual machines go through a load balancer. Because of this, requests cannot be specified against a particular virtual machine on deployments with multiple virtual machines. For deployments with multiple virtual machines, port mapping must be configured between the virtual machines (vm-port) and the load balancer (lb-port).
 
 **vm endpoint create &lt;vm-name> &lt;lb-port> [vm-port]**
@@ -379,10 +391,10 @@ This command deletes a virtual machine endpoint.
 
 **vm endpoint list &lt;vm-name>**
 
-This command lists all virtual machine endpoints. The -json option specifies that the results are returned in raw JSON format. 
+This command lists all virtual machine endpoints. The -json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm endpoint list my-linux-vm
-	data:   Name  External Port  Local Port                                        
+	data:   Name  External Port  Local Port
 	data:   ----  -------------  ----------
 	data:   ssh   22             22
 
@@ -393,7 +405,7 @@ This command updates a vm endpoint to new values using these options.
     -n, --endpoint-name <name>          the new endpoint name
     -lo, --lb-port <port>                the new load balancer port
     -t, --vm-port <port>                the new local port
-    -o, --endpoint-protocol <protocol>  the new transport layer protocol for port (tcp or udp) 
+    -o, --endpoint-protocol <protocol>  the new transport layer protocol for port (tcp or udp)
 
 **vm endpoint show [options] &lt;vm-name>**
 
@@ -428,7 +440,7 @@ Virtual machine images are captures of already configured virtual machines that 
 **vm image list [options]**
 
 This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are usually prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
-The -json option specifies that the results are returned in raw JSON format. 
+The -json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
@@ -443,7 +455,7 @@ The -json option specifies that the results are returned in raw JSON format.
 	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
 	data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
-	info:   vm image list command OK   
+	info:   vm image list command OK
 
 **vm image show [options] &lt;name>**
 
@@ -452,7 +464,7 @@ This command shows the details of a virtual machine image.
 	~$ azure vm image show MSFT__Windows-Server-2008-R2-SP1.11-29-2011
 	+ Fetching VM image
 	info:   Executing command vm image show
-	data:   {                                                                      
+	data:   {
 	data:       Label: 'Windows Server 2008 R2 SP1, Nov 2011',
 	data:       Name: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011',
 	data:       Description: 'Microsoft Windows Server 2008 R2 SP1',
@@ -462,7 +474,7 @@ This command shows the details of a virtual machine image.
 	data:       Eula: 'http://www.microsoft.com',
 	data:       LogicalSizeInGB: '30'
 	data:   }
-	info:   vm image show command OK 
+	info:   vm image show command OK
 
 **vm image delete [options] &lt;name>**
 
@@ -470,7 +482,7 @@ This command deletes a virtual machine image.
 
 	~$ azure vm image delete my-vm-image
 	info:   Executing command vm image delete
-	info:   VM image deleted: my-vm-image                                         
+	info:   VM image deleted: my-vm-image
 	info:   vm image delete command OK
 
 **vm image create &lt;name> [source-path]**
@@ -490,15 +502,13 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 
 ##<a name="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Azure virtual machine data disks
 
-Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Azure technical diagram shown earlier. 
+Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Azure technical diagram shown earlier.
 
 The commands for attaching data disks (azure vm disk attach and azure vm disk attach-new) assign a Logical Unit Number (LUN) to the attached data disk, as required by the SCSI protocol. The first data disk attached to a virtual machine is assigned LUN 0, the next is assigned LUN 1, and so on.
 
-When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach. 
+When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach.
 
-<div class="dev-callout"><b>Note</b>
-   <p>Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.</p>
-</div>
+> [AZURE>NOTE] Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
 
 **vm disk show [options] &lt;name>**
 
@@ -527,11 +537,11 @@ This command lists Azure disks, or disks attached to a specified virtual machine
 	data:   ---  --------  --------------------------------
 	data:   1    30        mycentos-cb39b8223b01f95c.vhd
 	data:   2    10        mycentos-e3f0d717950bb78d.vhd
-	info:   vm disk list command OK                                               
+	info:   vm disk list command OK
 
 Executing this command without a virtual machine name parameter returns all disks.
 
-	~$ azure vm disk list 
+	~$ azure vm disk list
 	data:   Name                                        OS
 	data:   ------------------------------------------  -------
 	data:   mycentos-mycentos-0-20120524070008          Linux
@@ -545,20 +555,20 @@ This command deletes an Azure disk from a personal repository. The disk must be 
 
 	~$ azure vm disk delete mycentos-mycentos-2-20120525055052
 	info:   Executing command vm disk delete
-	info:   Disk deleted: mycentos-mycentos-2-20120525055052                  
+	info:   Disk deleted: mycentos-mycentos-2-20120525055052
 	info:   vm disk delete command OK
 
 **vm disk create &lt;name> [source-path]**
 
 This command uploads and registers an Azure disk. --blob-url, --location, or --affinity-group must be specified. If you use this command with [source-path], the .vhd file specified is uploaded and a new image is created. You can then attach this image to a virtual machine by using vm disk attach.
 
-Some systems impose per-process file descriptor limits. If this limit is exceeded, the tool displays a file descriptor limit error. You can run the command again using the -p &lt;number> parameter to reduce the maximum number of parallel uploads. The default maximum number of parallel uploads is 96. 
+Some systems impose per-process file descriptor limits. If this limit is exceeded, the tool displays a file descriptor limit error. You can run the command again using the -p &lt;number> parameter to reduce the maximum number of parallel uploads. The default maximum number of parallel uploads is 96.
 
-	~$ azure vm disk create my-data-disk ~/test.vhd --location "Western US"
+	~$ azure vm disk create my-data-disk ~/test.vhd --location "West US"
 	info:   Executing command vm disk create
-	info:   VHD size : 10 MB                                                       
+	info:   VHD size : 10 MB
 	info:   Uploading 10240.5 KB
-	Requested:100.0% Completed:100.0% Running:  81 Time:   11s Speed:   952 KB/s 
+	Requested:100.0% Completed:100.0% Running:  81 Time:   11s Speed:   952 KB/s
 	info:   http://account.blob.core.azure.com/disks/test.vhd is uploaded successfully
 	info:   vm disk create command OK
 
@@ -567,7 +577,7 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 This command allows you to upload a vm disk
 
 	~$ azure vm disk upload "http://sourcestorage.blob.core.windows.net/vhds/sample.vhd" "http://destinationstorage.blob.core.windows.net/vhds/sample.vhd" "DESTINATIONSTORAGEACCOUNTKEY"
-	info:   Executing command vm disk upload                                                      
+	info:   Executing command vm disk upload
 	info:   Uploading 12351.5 KB
 	info:   vm disk upload command OK
 
@@ -640,7 +650,7 @@ This command lists Azure cloud services.
 
 	~$ azure service list
 	info:   Executing command service list
-	data:   Name         Status                                                    
+	data:   Name         Status
 	data:   -----------  -------
 	data:   service1     Created
 	data:   service2     Created
@@ -651,7 +661,7 @@ This command lists Azure cloud services.
 This command deletes an Azure cloud service.
 
 	~$ azure service delete myservice
-	info:   Executing command service delete myservice 
+	info:   Executing command service delete myservice
 	info:   cloud-service delete command OK
 
 To force the deletion, use the `-q` parameter.
@@ -659,7 +669,7 @@ To force the deletion, use the `-q` parameter.
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Azure certificates
 
-Azure service certificates are SSL certificates connected to your Azure account. For more information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx).
+Azure service certificates are SSL certificates connected to your Azure account. For more information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/library/azure/gg981929.aspx).
 
 **service cert list [options]**
 
@@ -667,11 +677,11 @@ This command lists Azure certificates.
 
 	~$ azure service cert list
 	info:   Executing command service cert list
-	+ Fetching cloud services                                                      
-	+ Fetching certificates                                                        
+	+ Fetching cloud services
+	+ Fetching certificates
 	data:   Service   Thumbprint                                Algorithm
 	data:   --------  ----------------------------------------  ---------
-	data:   myservice  262DBF95B5E61375FA27F1E74AC7D9EAE842916C  sha1     
+	data:   myservice  262DBF95B5E61375FA27F1E74AC7D9EAE842916C  sha1
 	info:   service cert list command OK
 
 **service cert create &lt;dns-prefix> &lt;file> [password]**
@@ -680,8 +690,8 @@ This command uploads a certificate. Leave the password prompt blank for certific
 
 	~$ azure service cert create nghinazz ~/publishSet.pfx
 	info:   Executing command service cert create
-	Cert password: 
-	+ Creating certificate                                                         
+	Cert password:
+	+ Creating certificate
 	info:   service cert create command OK
 
 **service cert delete [options] &lt;thumbprint>**
@@ -690,7 +700,7 @@ This command deletes a certificate.
 
 	~$ azure service cert delete 262DBF95B5E61375FA27F1E74AC7D9EAE842916C
 	info:   Executing command service cert delete
-	+ Deleting certificate                                                         
+	+ Deleting certificate
 	info:   nghinazz : cert deleted
 	info:   service cert delete command OK
 
@@ -705,10 +715,10 @@ This command lists your websites.
 
 	~$ azure site list
 	info:   Executing command site list
-	data:   Name            State    Host names                                        
+	data:   Name            State    Host names
 	data:   --------------  -------  --------------------------------------------------
-	data:   mongosite       Running  mongosite.antdf0.antares.windows.net     
-	data:   myphpsite       Running  myphpsite.antdf0.antares.windows.net     
+	data:   mongosite       Running  mongosite.antdf0.antares.windows.net
+	data:   myphpsite       Running  myphpsite.antdf0.antares.windows.net
 	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
 	info:   site list command OK
 
@@ -735,7 +745,7 @@ This command will generate a custom deployment script
 
 **site create [options] [name]**
 
-This command creates a new website and local directory. 
+This command creates a new website and local directory.
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -746,9 +756,7 @@ This command creates a new website and local directory.
 	info:   Repository initialized
 	info:   site create command OK
 
-<div class="dev-callout"><b>Note</b>
-   <p>The site name must be unique. You cannot create a site with the same DNS name as an existing site.</p>
-</div>
+> [AZURE.NOTE] The site name must be unique. You cannot create a site with the same DNS name as an existing site.
 
 **site browse [options] [name]**
 
@@ -800,7 +808,7 @@ This command deletes a website.
 	info:   site delete command OK
 
  **site swap [options] [name]**
- 
+
 This command swaps two website slots.
 
 This command supports the following additional option:
@@ -1163,7 +1171,7 @@ This command lists geographic locations supported by Mobile Services.
 	~$ azure mobile locations
 	info:    Executing command mobile locations
 	info:    East US (default)
-	info:    West US		
+	info:    West US
 	info:    North Europe
 
 **mobile create [options] [servicename] [sqlAdminUsername] [sqlAdminPassword]**
@@ -1183,7 +1191,7 @@ This command supports the following additional options:
 
 + **-r `<sqlServer>`**  or **--sqlServer `<sqlServer>`**:  Use an existing SQL Database server, specified as `<sqlServer>`.
 + **-d `<sqlDb>`** or **--sqlDb `<sqlDb>`**: Use existing SQL database, specified as `<sqlDb>`.
-+ **-l `<location>`** or **--location `<location>`**: Create the service in a specific location, specified as `<location>`. Run azure mobile locations to get available locations.	
++ **-l `<location>`** or **--location `<location>`**: Create the service in a specific location, specified as `<location>`. Run azure mobile locations to get available locations.
 + **--sqlLocation `<location>`**: Create the SQL server in a specific `<location>`; defaults to the location of the mobile service.
 
 **mobile delete [options] [servicename]**
@@ -1245,7 +1253,7 @@ This command displays details about a mobile service.
 	data:    webspace WESTUSWEBSPACE
 	data:    region West US
 	data:    tables TodoItem
-	info:    mobile show command OK	
+	info:    mobile show command OK
 
 **mobile restart [options] [servicename]**
 
@@ -1278,9 +1286,7 @@ This command supports the following additional options:
 + **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
 + **-p `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
 
-<div class="dev-callout"><b>Note</b>
-   <p>The <b>--query</b> parameter takes precedence over <b>--type</b>, <b>--skip</b>, and <b>--top</b>.</p>
-</div>
+> [AZURE.NOTE] The **--query** parameter takes precedence over **--type**, **--skip**, and **--top**.
 
 **mobile recover [options] [unhealthyservicename] [healthyservicename]**
 
@@ -1301,9 +1307,7 @@ This command regenerates the mobile service application key.
 
 Key types are `master` and `application`.
 
-<div class="dev-callout"><b>Note</b>
-   <p>When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value. </p>
-</div> 
+> [AZURE.NOTE] When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value.
 
 **mobile key set [options] [servicename] [type] [value]**
 
@@ -1467,7 +1471,7 @@ This commands removes all rows of data from the table.
 
 ###<a name="Mobile_Scripts"></a>Commands to manage scripts
 
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/work-with-server-scripts/).
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](http://www.windowsazure.com/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [options] [servicename]**
 
@@ -1526,7 +1530,7 @@ This command removes the existing insert script from the TodoItem table.
 
 ###<a name="Mobile_Jobs"></a>Commands to manage scheduled jobs
 
-Commands in this section are used to manage scheduled jobs that belong to a mobile service. For more information, see [Schedule jobs](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx).
+Commands in this section are used to manage scheduled jobs that belong to a mobile service. For more information, see [Schedule jobs](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [options] [servicename]**
 
@@ -1545,7 +1549,7 @@ This command lists scheduled jobs.
 
 This command creates a new job named `getUpdates` that is scheduled to run hourly.
 
-	~$azure mobile job create -i 1 -u hour todolist getUpdates 
+	~$azure mobile job create -i 1 -u hour todolist getUpdates
 	info:    Executing command mobile job create
 	info:    Job was created in disabled state. You can enable the job using the 'azure mobile job update' command.
 	info:    You can manipulate the scheduled job script using the 'azure mobile script' command.
@@ -1554,34 +1558,32 @@ This command creates a new job named `getUpdates` that is scheduled to run hourl
 This command supports the following additional options:
 
 + **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
-+ **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values: 
++ **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values:
 	+ **minute** (default)
 	+ **hour**
 	+ **day**
-	+ **month** 
+	+ **month**
 	+ **none** (on-demand jobs)
 + **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
 
-<div class="dev-callout"><b>Note</b>
-   <p>New jobs are created in a disabled state because a script must still be uploaded. Use the <strong>mobile script upload</strong> command to upload a script and the <strong>mobile job update</strong> command to enable the job.</p>
-</div> 
+> [AZURE.NOTE] New jobs are created in a disabled state because a script must still be uploaded. Use the **mobile script upload** command to upload a script and the **mobile job update** command to enable the job.
 
 **mobile job update [options] [servicename] [jobname]**
 
 The following command enables the disabled `getUpdates` job.
 
-	~$azure mobile job update -a enabled todolist getUpdates 
+	~$azure mobile job update -a enabled todolist getUpdates
 	info:    Executing command mobile job update
 	info:    mobile job update command OK
 
 This command supports the following additional options:
 
 + **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
-+ **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values: 
++ **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values:
 	+ **minute** (default)
 	+ **hour**
 	+ **day**
-	+ **month** 
+	+ **month**
 	+ **none** (on-demand jobs)
 + **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
 + **-a `<status>`** or **--status `<status>`**: The job status, which can be either `enabled` or `disabled`.
@@ -1594,13 +1596,11 @@ This command removes the getUpdates scheduled job from the TodoList server.
 	info:    Executing command mobile job delete
 	info:    mobile job delete command OK
 
-<div class="dev-callout"><b>Note</b>
-   <p>Deleting a job also deletes the uploaded script.</p>
-</div> 
+> [AZURE.NOTE] Deleting a job also deletes the uploaded script.
 
 ###<a name="Mobile_Scale"></a>Commands to scale a mobile service
 
-Commands in this section are used to scale a mobile service. For more information, see [Scaling a mobile service](http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx).
+Commands in this section are used to scale a mobile service. For more information, see [Scaling a mobile service](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [options] [servicename]**
 
@@ -1627,9 +1627,7 @@ This command supports the following additional options:
 + **-c `<mode>`** or **--computeMode `<mode>`**: The compute mode must be either `Free` or `Reserved`.
 + **-i `<count>`** or **--numberOfInstances `<count>`**: The number of instances used when running in reserved mode.
 
-<div class="dev-callout"><b>Note</b>
-   <p>When you set compute mode to `Reserved`, all of your mobile services in the same region run in premium mode.</p>
-</div>  
+> [AZURE.NOTE] When you set compute mode to `Reserved`, all of your mobile services in the same region run in premium mode.
 
 
 ###Commands to enable preview features for your Mobile Service
@@ -1756,7 +1754,7 @@ This command displays config settings.
 
 	~$ azure config list
 	info:   Displaying config settings
-	data:   Setting                Value                               
+	data:   Setting                Value
 	data:   ---------------------  ------------------------------------
 	data:   subscription           32-digit-subscription-key
 	data:   defaultStorageAccount  name
@@ -1791,7 +1789,7 @@ Creates a new Service Bus namespace.
 	data:    CreatedAt: 2013-11-14T16:23:29.32Z
 	data:    AcsManagementEndpoint: https://mysbnamespacea-test-sb.accesscontrol.windows.net/
 	data:    ServiceBusEndpoint: https://mysbnamespacea-test.servicebus.windows.net/
-	
+
 	data:    ConnectionString: Endpoint=sb://mysbnamespacea-test.servicebus.windows.
 	net/;SharedSecretIssuer=owner;SharedSecretValue=fBu8nQ9svPIesFfMFVhCFD+/sY0rRbif
 	WMoRpYy0Ynk=
@@ -1857,7 +1855,7 @@ Display details about a specific namespace.
 	data:    CreatedAt: 2013-11-14T16:23:29.32Z
 	data:    AcsManagementEndpoint: https://mysbnamespacea-test-sb.accesscontrol.windows.net/
 	data:    ServiceBusEndpoint: https://mysbnamespacea-test.servicebus.windows.net/
-	
+
 	data:    ConnectionString: Endpoint=sb://mysbnamespacea-test.servicebus.windows.
 	net/;SharedSecretIssuer=owner;SharedSecretValue=fBu8nQ9svPIesFfMFVhCFD+/sY0rRbif
 	WMoRpYy0Ynk=
@@ -2115,7 +2113,7 @@ Get the list of servers.
 
 **sql server delete &lt;name>**
 
-Deletes a server 
+Deletes a server
 
 	~$ azure sql server delete i1qwc540ts
 	info:    Executing command sql server delete

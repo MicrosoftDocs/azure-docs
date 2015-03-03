@@ -1,6 +1,20 @@
-<properties title="Split and Merge Service Tutorial" pageTitle="Azure SQL Split and Merge Service Tutorial" description="Splitting and Merging with Elastic Scale" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Azure SQL Split and Merge Service Tutorial" 
+	description="Splitting and Merging with Elastic Scale" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="torsteng" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="torsteng@microsoft.com"/>
 
 #Elastic Scale Split and Merge Service Tutorial
 
@@ -55,7 +69,7 @@ For the purposes of  a simple test deployment suitable to complete this tutorial
 
 ### Creating a Self-signed Certificate 
 
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/en-us/library/ms229859.aspx) window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) window:
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -102,7 +116,7 @@ Paste the certificate thumbprint copied above into the thumbprint/value attribut
 
 Please note that for production deployments separate certificates should be used for the CA, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-configure-security.md).
 
-### Deploying your Split-Merge Service
+## Deploying your Split-Merge Service
 1. Go to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier. 
 3. Click **Dashboard**. 
@@ -131,7 +145,7 @@ If your worker role fails to come online, but your web role succeeds, it is most
 * Ensure that the server name does not begin with **https://**.
 * Ensure that your Azure SQL DB server allows Windows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Windows Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
 
-* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Windows Azure** icon to connect to your Azure subscription. Then navigate to Windows Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) 
+* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Windows Azure** icon to connect to your Azure subscription. Then navigate to Windows Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) 
 
     ![][5]
 

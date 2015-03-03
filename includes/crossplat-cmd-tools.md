@@ -74,17 +74,11 @@ To see a list of options for `account` commands, use the `-help` option:
 
 After importing your publish settings, you should delete the `.publishsettings` file for security reasons.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>When you import publish settings, credentials for accessing your Azure subscription are stored inside your <code>user</code> folder. Your <code>user</code> folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your <code>user</code> folder. You can do so in the following ways:</p>
-
-<ul>
-<li>On Windows, modify the folder properties or use BitLocker.</li>
-<li>On Mac, turn on FileVault for the folder.</li>
-<li>On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.</li>
-</ul>
-
-</div>
+> [AZURE.NOTE] When you import publish settings, credentials for accessing your Azure subscription are stored inside your `user` folder. Your `user` folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your `user` folder. You can do so in the following ways:    
+> 
+> - On Windows, modify the folder properties or use BitLocker.
+> - On Mac, turn on FileVault for the folder.
+> - On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.
 
 You are now ready to being creating and managing Azure Websites and Azure Virtual Machines.  
 

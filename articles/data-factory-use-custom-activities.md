@@ -1,50 +1,70 @@
-<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Use custom activities in an Azure Data Factory pipeline" description="Learn how to create custom activities and use them in an Azure Data Factory pipeline." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties 
+	pageTitle="Use custom activities in an Azure Data Factory pipeline" 
+	description="Learn how to create custom activities and use them in an Azure Data Factory pipeline." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
 Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and process data. You can also create a custom activity with your own transformation/processing logic and use the activity in a pipeline. The custom activity runs as a map-only job on an HDInsight cluster, so you will need to link an HDInsight cluster for the custom activity in your pipeline.
  
 This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity.
 
+## Prerequisites
+2.	Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the [walkthrough](#SupportedSourcesAndSinks) in this article.
+3.	Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package. 
+
+> [AZURE.NOTE] In the 12/11/2014 release of Azure Data Factory, a breaking change was introduced. The **ICustomActivity** interface was renamed to **IDotNetActivity**. The **type** of custom activity in the JSON definition has changed from **CustomActivity** to **DotNetActivity**. The **CustomActivity** and **CustomActivityProperties** classes were renamed to **DotNetActivity** and **DotNetActivityProperties** with the same set of properties.
+
+
 ## Creating a custom activity
 
 To create a custom activity:
  
 1.	Create a **Class Library** project in Visual Studio 2013.
-2.	Download [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions for installing are in the walkthrough.
 3. Add the following using statements at the top of the source file in the class library.
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.DataFactories.Runtime; 
 
-4. Update the class to implement the **ICustomActivity** interface.
+4. Update the class to implement the **IDotNetActivity** interface.
 	<ol type='a'>
 		<li>
-			Derive the class from <b>ICustomActivity</b>.
+			Derive the class from <b>IDotNetActivity</b>.
 			<br/>
 			Example: <br/>
-			public class <b>MyCustomActivity : ICustomActivity</b>
+			public class <b>MyDotNetActivity : IDotNetActivity</b>
 		</li>
 
 		<li>
-			Implement the <b>Execute</b> method of <b>ICustomActivity</b> interface
+			Implement the <b>Execute</b> method of <b>IDotNetActivity</b> interface
 		</li>
 
 	</ol>
 5. Compile the project.
 
 
-## Use the custom activity in a pipeline
+## Using the custom activity in a pipeline
 To use the custom activity in a pipeline:
 
 1.	**Zip up** all the binary files from the **bin\debug** or **bin\release** output folders for the project. 
 2.	**Upload the zip** file as a blob to your **Azure blob storage**. 
 3.	Update the **pipeline JSON** file to refer to the zip file, custom activity DLL, the activity class, and the blob that contains the zip file in the pipeline JSON. In the JSON file:
 	<ol type ="a">
-		<li><b>Activity type</b> should be set to <b>CustomActivity</b>.</li>
+		<li><b>Activity type</b> should be set to <b>DotNetActivity</b>.</li>
 		<li><b>AssemblyName</b> is the name of the output DLL from the Visual Studio project.</li>
-		<li><b>EntryPoint</b> specifies the <b>namespace</b> and <b>name</b> of the <b>class</b> that implements the <b>ICustomActivity</b> interface.</li>
+		<li><b>EntryPoint</b> specifies the <b>namespace</b> and <b>name</b> of the <b>class</b> that implements the <b>IDotNetActivity</b> interface.</li>
 		<li><b>PackageLinkedService</b> is the linked service that refers to the blob that contains the zip file. </li>
 		<li><b>PackageFile</b> specifies the location and name of the zip file that was uploaded to the Azure blob storage.</li>
 		<li><b>LinkedServiceName</b> is the name of the linked service that links an HDInsight cluster (on-demand or your own) to a data factory. The custom activity runs as a map-only job the specified HDInsight cluster.</li>
@@ -54,22 +74,22 @@ To use the custom activity in a pipeline:
 
 	**Partial JSON example**
 
-		"Name": "MyCustomActivity",
-    	"Type": "CustomActivity",
+		"Name": "MyDotNetActivity",
+    	"Type": "DotNetActivity",
     	"Inputs": [{"Name": "EmpTableFromBlob"}],
     	"Outputs": [{"Name": "OutputTableForCustom"}],
 		"LinkedServiceName": "myhdinsightcluster",
     	"Transformation":
     	{
-	    	"AssemblyName": "MyCustomActivity.dll",
-    	    "EntryPoint": "MyCustomActivityNS.MyCustomActivity",
+	    	"AssemblyName": "MyDotNetActivity.dll",
+    	    "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
     	    "PackageLinkedService": "MyBlobStore",
-    	    "PackageFile": "customactivitycontainer/MyCustomActivity.zip",
+    	    "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
 
-## To update custom activity
+## Updating a custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage. 
 
-## Walkthrough
+## <a name="walkthrough" /> Walkthrough
 This Walkthrough provides you with step-by-step instructions for creating a custom activity and using the activity in an Azure Data Factory pipeline. This walkthrough extends the tutorial from the [Get started with Azure Data Factory][adfgetstarted]. If you want to see the custom activity working, you need to go through the Get started tutorial first and then do this walkthrough. 
 
 **Prerequisites:**
@@ -78,10 +98,11 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 - Tutorial from [Get started with Azure Data Factory][adfgetstarted]. You must complete the tutorial from this article before continuing further with this walkthrough.
 - Visual Studio 2012 or 2013
 - Download and install [Windows Azure .NET SDK][azure-developer-center]
-- Download [NuGet packages for Azure Data Factory][nuget-package].
+- Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the walkthrough.
+- Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package.
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
 
-### Step 1: Create a custom activity
+## Step 1: Create a custom activity
 
 1.	Create a .NET Class Library project.
 	<ol type="a">
@@ -89,18 +110,18 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 		<li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li> 
 		<li>Expand <b>Templates</b>, and select <b>Visual C#</b>. In this walkthrough, you use C#, but you can use any .NET language to develop the custom activity.</li> 
 		<li>Select <b>Class Library</b> from the list of project types on the right.</li>
-		<li>Enter <b>MyCustomActivity</b> for the <b>Name</b>.</li> 
+		<li>Enter <b>MyDotNetActivity</b> for the <b>Name</b>.</li> 
 		<li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
 		<li>Click <b>OK</b> to create the project.</li>
 	</ol>
 2.  Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
-3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Microsoft.Azure.Management.DataFactories</b> you downloaded earlier. Replace the folder with the location that contains the downloaded Data Factory NuGet package.
+3.	In the <b>Package Manager Console</b>, execute the following command to import <b>Microsoft.Azure.Management.DataFactories</b>. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories -Source d:\packages –Pre
+		Install-Package Microsoft.Azure.Management.DataFactories –Pre
 
-3.	In the <b>Package Manager Console</b>, execute the following command to import the <b>Microsoft.DataFactories.Runtime</b>. Replace the folder with the location that contains the downloaded Data Factory NuGet package.
+3.	In the <b>Package Manager Console</b>, execute the following command to import  <b>Microsoft.DataFactories.Runtime</b>. Replace the folder with the location that contains the downloaded Data Factory NuGet package.
 
-		Install-Package Microsoft.DataFactories.Runtime -Source d:\packages –Pre
+		Install-Package Microsoft.DataFactories.Runtime –Pre
 
 4. Import the Windows Azure Storage NuGet package in to the project.
 
@@ -110,6 +131,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 		using System.IO;
 		using System.Globalization;
+		using System.Diagnostics;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.DataFactories.Runtime; 
@@ -117,15 +139,15 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
   
-6. Change the name of the **namespace** to **MyCustomActivityNS**.
+6. Change the name of the **namespace** to **MyDotNetActivityNS**.
 
-		namespace MyCustomActivityNS
+		namespace MyDotNetActivityNS
 
-7. Change the name of the class to **MyCustomActivity** and derive it from the **ICustomActivity** interface as shown below.
+7. Change the name of the class to **MyDotNetActivity** and derive it from the **IDotNetActivity** interface as shown below.
 
-		public class MyCustomActivity : ICustomActivity
+		public class MyDotNetActivity : IDotNetActivity
 
-8. Implement (Add) the **Execute** method of the **ICustomActivity** interface to the **MyCustomActivity** class and copy the following sample code to the method. 
+8. Implement (Add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class and copy the following sample code to the method. 
 
 	The **inputTables** and **outputTables** parameters represent input and output tables for the activity as the names suggest. You can see messages you log using the **logger** object in the log file that you can download from the Azure portal or using cmdlets. The **extendedProperties** dictionary contains list of extended properties you specify in the JSON file for the activity and their values. 
 
@@ -272,15 +294,13 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
-12. Create a zip file **MyCustomActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder.
-	![zip output binaries][image-data-factory-zip-output-binaries]
-13. Upload **MyCustomActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
-    ![upload zip to blob][image-data-factory-upload-zip-to-blob]
+12. Create a zip file **MyDotNetActivity.zip** that contain all the binaries in the <project folder>\bin\Debug folder.
+13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **MyBlobStore** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **blobcustomactivitycontainer** if it does not already exist. 
 
 ### Create a linked service for  HDInsight cluster that will be used to run the custom activity
 The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
 
-> [WACOM.NOTE] If you have extended the [Get started with Azure Data Factory][adfgetstarted] tutorial with the walkthrough from [Use Pig and Hive with Azure Data Factory][hivewalkthrough], you can skip creation of this linked service and use the linked service you already have in the ADFTutorialDataFactory. 
+> [AZURE.NOTE] If you have extended the [Get started with Azure Data Factory][adfgetstarted] tutorial with the walkthrough from [Use Pig and Hive with Azure Data Factory][hivewalkthrough], you can skip creation of this linked service and use the linked service you already have in the ADFTutorialDataFactory. 
 
 #### To use an on-demand HDInsight cluster
 
@@ -293,7 +313,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
     		{
         		"type": "HDInsightOnDemandLinkedService",
 				"clusterSize": 4,
-        		"jobsContainer": "adfjobs",
         		"timeToLive": "00:05:00",
         		"linkedServiceName": "MyBlobStore"
     		}
@@ -338,10 +357,10 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 
 
 
-### Step 2: Use the custom activity in a pipeline
+## Step 2: Use the custom activity in a pipeline
 Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetstarted] to create another pipeline to test this custom activity.
 
-#### Create a linked service for the HDInsight cluster to be used for running custom activity
+### Create a linked service for the HDInsight cluster to be used for running custom activity
 
 
 1.	Create a JSON for the pipeline as shown in the following example and save it as **ADFTutorialPipelineCustom.json** in **C:\ADFGetStarted\Custom** folder. Change the name of **LinkedServiceName** to the name of the HDInsight cluster (**HDInsightOnDemandCluster** or **MyHDInsightCluster**)
@@ -355,17 +374,17 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
         		"activities":
         		[
 					{
-                		"Name": "MyCustomActivity",
-                     	"Type": "CustomActivity",
+                		"Name": "MyDotNetActivity",
+                     	"Type": "DotNetActivity",
                      	"Inputs": [{"Name": "EmpTableFromBlob"}],
                      	"Outputs": [{"Name": "OutputTableForCustom"}],
 						"LinkedServiceName": "MyHDInsightCluster",
                      	"Transformation":
                      	{
-                        	"AssemblyName": "MyCustomActivity.dll",
-                            "EntryPoint": "MyCustomActivityNS.MyCustomActivity",
+                        	"AssemblyName": "MyDotNetActivity.dll",
+                            "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
                             "PackageLinkedService": "MyBlobStore",
-                            "PackageFile": "customactivitycontainer/MyCustomActivity.zip",
+                            "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
                             "ExtendedProperties":
 							{
 								"SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
@@ -386,13 +405,13 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
 
 	Note the following: 
 
-	- There is one activity in the activities section and it is of type: **CustomActivity**.
+	- There is one activity in the activities section and it is of type: **DotNetActivity**.
 	- Use the same input table **EmpTableFromBlob** that you used in the Get started tutorial.
 	- Use a new output table **OutputTableForCustom** that you will create in the next step.
 	- **AssemblyName** is set to the name of the DLL: **MyActivities.dll**.
-	- **EntryPoint** is set to **MyCustomActivityNS.MyCustomActivity**.
+	- **EntryPoint** is set to **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** is set to **MyBlobStore** that was created as part of the tutorial from [Get started with Azure Data Factory][adfgetstarted]. This blob store contains the custom activity zip file.
-	- **PackageFile** is set to **customactivitycontainer/MyCustomActivity.zip**.
+	- **PackageFile** is set to **customactivitycontainer/MyDotNetActivity.zip**.
      
 
 4. Create a JSON file for the output table (**OutputTableForCustom** referred by the pipeline JSON) and save it as C:\ADFGetStarted\Custom\OutputTableForCustom.json.
@@ -436,9 +455,9 @@ Let’s extend the tutorial from [Get started with Azure Data Factory][adfgetsta
 
 7. Execute the following PowerShell command to **set active period** on the pipeline you created.
 
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipelineCustom
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29Z –EndDateTime 2014-09-30Z –Name ADFTutorialPipelineCustom
 
-	> [WACOM.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime are UTC times and must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **EndDateTime** is optional, but we will use it in this tutorial. 
+	> [AZURE.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **EndDateTime** is optional, but we will use it in this tutorial. 
 	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
 
 
@@ -479,6 +498,7 @@ Article | Description
 [use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
 [troubleshoot]: ../data-factory-troubleshoot
 [data-factory-introduction]: ../data-factory-introduction
+[azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
@@ -488,16 +508,12 @@ Article | Description
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/en-us/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: ../data-factory-get-started
 [hivewalkthrough]: ../data-factory-pig-hive-activities
-
-[image-data-factory-zip-output-binaries]: ./media/data-factory-use-custom-activities/ZipOuputBinaries.png
-
-[image-data-factory-upload-zip-to-blob]: ./media/data-factory-use-custom-activities/UploadZipToBlob.png
 
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 

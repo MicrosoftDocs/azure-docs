@@ -1,13 +1,27 @@
-<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Step 1: Create a Machine Learning workspace | Azure" description="Step 1: Create a new Azure Machine Learning Studio workspace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties 
+	pageTitle="Step 1: Create a Machine Learning workspace | Azure" 
+	description="Solution walkthrough step 1: Create a new Azure Machine Learning Studio workspace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
 [develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
-1.	**Create an ML workspace**
+1.	**Create a Machine Learning workspace**
 2.	[Upload existing data][upload-data]
 3.	[Create a new experiment][create-new]
 4.	[Train and evaluate the models][train-models]
@@ -25,7 +39,7 @@ This is the first step of the walkthrough, [Developing a Predictive Solution wit
 
 # Step 1: Create an Azure Machine Learning workspace
 
-To use ML Studio, you need to have an ML workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
+To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
 ##To create a workspace  
 
@@ -34,14 +48,19 @@ To use ML Studio, you need to have an ML workspace. This workspace contains the 
 ![Create workspace][1]
 
 3.	Click **CREATE AN ML WORKSPACE**.
-4.	In the **QUICK CREATE** page enter your workspace information and then click **CREATE AN ML WORKSPACE**.
+4.	On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
 
-	>**NOTE** - The **WORKSPACE OWNER** is your Microsoft account (e.g., name@outlook.com) or organization account.
+	> [AZURE.NOTE] The **WORKSPACE OWNER** is your Microsoft account (e.g., name@outlook.com) or organizational account.
 
-After your ML workspace is created, you will see it listed on the **machine learning** page.  
+After your Machine Learning workspace is created, you will see it listed on the **machine learning** page.  
 
->**Tip** - You can share the experiments you're working on by inviting others to your workspace. You can do this in ML Studio on the **SETTINGS** page. You just need the Microsoft account or organization account for each user.
+> [AZURE.TIP] You can share the experiments you're working on by inviting others to your workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
 
+<!-- Uncomment this when this article has more content
+For more information, see [Manage an Azure Machine Learning workspace][manageworkspace]
+
+[manageworkspace]: ../machine-learning-manage-workspace/
+-->
 ----------
 
 **Next: [Upload existing data][upload-data]**

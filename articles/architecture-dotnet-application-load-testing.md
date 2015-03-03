@@ -1,6 +1,20 @@
-<properties urlDisplayName="Load Testing Pattern" pageTitle="Load Testing Application Pattern - Azure Architecture Patterns" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+<properties 
+	pageTitle="Load Testing Application Pattern - Azure Architecture Patterns" 
+	description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 # Load Testing in Azure
 
@@ -9,8 +23,8 @@ The cloud-based load testing service can load test your web applications. Use Vi
 <!--links-->
 
 [Azure and Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[Running Load Tests In Mixed Environments]: http://msdn.microsoft.com/en-us/library/windowsazure/hh966776.aspx
-[Using Visual Studio Load Tests in Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674491.aspx
+[Running Load Tests In Mixed Environments]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Using Visual Studio Load Tests in Azure Roles]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 

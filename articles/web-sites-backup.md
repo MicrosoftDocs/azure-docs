@@ -1,35 +1,37 @@
-<properties urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Azure Websites Backups" 
+	description="Learn how to create backups of your Azure websites." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/19/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="cephalin"/>
 
-#Azure Websites Backups
+# Azure Websites Backups
 
 The Azure Websites Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your website to a previous state, or create a new website based on one of your original site's backups. 
 
 
-For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
-
-##In this article
-
-- [Automatic and Easy Backup (Video)](#video)
-- [What Gets Backed Up](#whatsbackedup)
-- [Requirements and Restrictions](#requirements)
-- [To Create a Manual Backup](#manualbackup)
-- [To Configure Automated Backups](#automatedbackups)
-- [How Backups Are Stored](#aboutbackups)
-- [Notes](#notes)
-- [Next Steps](#nextsteps)
-	- [More about storage accounts](#moreaboutstorage)
+For information on restoring an Azure website from backup, see [Restore an Azure web site](../web-sites-restore/).
 
 <a name="video"></a>
-##Automatic and Easy Backup (Video)
+## Automatic and Easy Backup (Video)
 
 In this video, Eduardo Laureano and Scott Hanselman introduce Azure websites backups. (Duration: 11:43)  
 
 > [AZURE.VIDEO azure-websites-automatic-and-easy-backup]
 
 <a name="whatsbackedup"></a>
-##What Gets Backed Up 
+## What Gets Backed Up 
 Azure Websites backs up the following information:
 
 * Website configuration
@@ -38,12 +40,12 @@ Azure Websites backs up the following information:
 
 This information is backed up to the Azure storage account that you specify. 
 
-> [WACOM.NOTE] Each backup is a complete offline copy of your website, not an incremental update.
+> [AZURE.NOTE] Each backup is a complete offline copy of your website, not an incremental update.
 
 <a name="requirements"></a>
-##Requirements and Restrictions
+## Requirements and Restrictions
 
-* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
+* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale Web Sites](../web-sites-scale/). 
 
 * The Backup and Restore feature requires an Azure storage account that must belong to the same subscription as the website that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
@@ -62,7 +64,7 @@ This information is backed up to the Azure storage account that you specify.
 	
 	![Choose databases to include][IncludedDatabases]
 
-	> [WACOM.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
+	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
 	
 4. In the command bar, click **Backup Now**.
 	
@@ -99,13 +101,13 @@ You can make a manual backup at any time. During Preview, no more than 2 manual 
 	
 	![Choose start time][StartTime]
 	
-	> [WACOM.NOTE] Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
+	> [AZURE.NOTE] Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
 	
 5. In the **Included Databases** section, select the databases that are connected to your website (SQL Server or MySQL) that you want to back up. For a database to appear in the list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
 	
 	![Choose databases to include][IncludedDatabases]
 	
-	> [WACOM.NOTE] If you choose to include one or more databases in the backup and have specified a Frequency of less than 7 days, you will be warned that frequent backups can increase your database costs.
+	> [AZURE.NOTE] If you choose to include one or more databases in the backup and have specified a Frequency of less than 7 days, you will be warned that frequent backups can increase your database costs.
 	
 6. In the command bar, click the **Save** button to save your configuration changes (or choose **Discard** if you decide not to save them).
 	
@@ -120,11 +122,11 @@ The .zip and .xml backup file names consist of your website name followed by an 
 
 The XML file that is stored with the zip file indicates the database file name under *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
-The database backup file itself is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, you can follow the steps in the article [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/en-us/library/hh710052.aspx).
+The database backup file itself is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, you can follow the steps in the article [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
-For information on restoring an Azure website (including databases) by using the Azure management portal, see [Restore a Microsoft Azure web site]( http://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure website (including databases) by using the Azure management portal, see [Restore a Microsoft Azure web site](../web-sites-restore/).
 
-> [WACOM.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
+> [AZURE.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
 <a name="notes"></a>
 ## Notes
@@ -136,19 +138,19 @@ For information on restoring an Azure website (including databases) by using the
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring an Azure website from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure website from backup, see [Restore an Azure web site](../web-sites-restore/).
 
-To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 
 
 <a name="moreaboutstorage"></a>
 ### More about storage accounts
 
-[What is a Storage Account?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account/)
+[What is a Storage Account?](../storage-whatis-account/)
 
-[How to: Create a storage account](http://www.windowsazure.com/en-us/documentation/articles/storage-create-storage-account/)
+[How to: Create a storage account](../storage-create-storage-account/)
 
-[How To Monitor a Storage Account](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
+[How To Monitor a Storage Account](../storage-monitor-storage-account/)
 
 [Understanding Winidows Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

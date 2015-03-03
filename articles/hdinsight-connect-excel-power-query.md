@@ -1,6 +1,20 @@
-<properties urlDisplayName="HDInsight and Excel" pageTitle="Connect Excel to Hadoop with Power Query | Azure" metaKeywords="hdinsight, excel, data explorer, hive excel, hdinsight excel, power query" description="Learn how to take advantage of business intelligence components and use Excel to access data stored in Azure HDInsight using Power Query." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with Power Query" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="Connect Excel to Hadoop with Power Query | Azure" 
+	description="Learn how to take advantage of business intelligence components and use Excel to access data stored in Azure HDInsight using Power Query." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="bradsev"/>
 
 
 
@@ -14,7 +28,7 @@ One key feature of Microsoft's big data solution is the integration of  Microsof
 Before you begin this article, you must have the following:
 
 - A HDInsight cluster. To configure one, see [Get started with Azure HDInsight][hdinsight-get-started].
-- A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2.
+- A computer that is running Windows 7, Windows Server 2008 R2, or above.
 - Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 ## In this article

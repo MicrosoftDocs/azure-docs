@@ -1,6 +1,20 @@
-<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="Describes the first steps you can take to get started with Azure Mobile Services in a Cordova project" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea123" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="patshea"/>
 
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-mobile-services-cordova-getting-started/)
@@ -14,7 +28,7 @@ For a JavaScript backend mobile service, create a table called TodoItem.  To cre
 
 If instead you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure. To publish it, open the context menu for the mobile service project in Solution Explorer, and choose **Publish Web**. Accept the defaults, and choose the **Publish** button.
   
->[WACOM.NOTE]**Please apply this [workaround](http://go.microsoft.com/fwlink/?LinkId=518765) to work with Azure Mobile Services in Cordova projects.**
+>[AZURE.NOTE]**In Cordova projects that are built using Visual Studio 2015 Preview, use this [workaround](http://go.microsoft.com/fwlink/?LinkId=518765) to work with Azure Mobile Services. The workaround is not required for projects using later versions of Visual Studio 2015.**
 
 #####Get reference to a table
 
@@ -22,7 +36,7 @@ The following code gets a reference to a table that contains data for a TodoItem
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-For these examples to work, permissions on the table must be set to **Anybody with an Application Key**. Later, you can set up authentication. See [Get started with authentication](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-get-started-users/).
+For these examples to work, permissions on the table must be set to **Anybody with an Application Key**. Later, you can set up authentication. See [Get started with authentication](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
 
 #####Add entry 
 

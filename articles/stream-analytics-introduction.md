@@ -1,20 +1,32 @@
-<properties title="Introduction to Azure Stream Analytics" pageTitle="Introduction to Stream Analytics | Azure" description="Understand Azure Stream Analytics" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Introduction to Stream Analytics | Azure" 
+	description="Understand Azure Stream Analytics" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 
 # Introduction to Azure Stream Analytics
 
 Azure Stream Analytics is a fully managed service providing low latency, highly available, scalable complex event processing over streaming data in the cloud.
 
-# In this article
 
-+ [Motivation & overview](#motivation) 
-+ [Key capabilities](#capabilities)
-+ [Business motivations with choosing Azure Stream Analytics](#decision)
-+ [Scenarios & use cases](#scenarios)
-+ [Next steps](#neststeps)
+##<a name="video"></a>Introduction to Azure Stream Analytics (Video)
 
+In this video, Santosh Balasubramanian and Scott Hanselman introduce Azure Stream Analytics. (Duration: 11:22)  
+
+> [AZURE.VIDEO introduction-to-azure-stream-analytics-with-santosh-balasubramanian]
 
 ##<a name="motivation"></a>Motivation & overview
 

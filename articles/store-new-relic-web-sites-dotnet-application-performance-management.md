@@ -1,6 +1,20 @@
-<properties urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Azure" metaKeywords="new relic Azure, performance azure" description="Learn how to use New Relic's performance monitoring on Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Azure Websites" authors="new relic" solutions="" manager="carolz" editor="" />
+<properties 
+	pageTitle="New Relic App Performance Management on Azure" 
+	description="Learn how to use New Relic's performance monitoring on Azure." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="stepsic"/>
 
 
 
@@ -30,12 +44,9 @@ New Relic special pricing through the Azure Store
 New Relic Standard is free to Azure users.
 New Relic Pro is offered in multiple packages based on which website mode you are using, and the instance size if you are using reserved mode.
 
-For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
+For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/gallery/store/new-relic/new-relic/).
 
-<div class="dev-callout"> 
-<strong>Note:</strong>
-<p>Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.</p>
-</div>
+> [AZURE.NOTE] Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 
 Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
 
@@ -157,10 +168,7 @@ The New Relic package added to your application in the previous step is configur
 	</tbody>
 	</table><br/>
 
-	<div class="dev-callout"> 
-	<strong>Note</strong> 
-	<p>It may take up to 30 seconds for the new <strong>App Settings</strong> to take effect. To force the settings to take effect immediately, restart the website.</p> 
-	</div>
+	> [AZURE.NOTE] It may take up to 30 seconds for the new <strong>App Settings</strong> to take effect. To force the settings to take effect immediately, restart the website.
 
 
 4. Using Visual Studio or WebMatrix, publish your application.
@@ -245,8 +253,8 @@ browsers to load your webpages, where they come from, and what browsers they use
  * [Finding Help](https://newrelic.com/docs/site/finding-help): Resources available through New Relic's online Help Center
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://www.windowsazure.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://www.windowsazure.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

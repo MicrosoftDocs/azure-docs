@@ -4,7 +4,7 @@ We need to be able to detect an expired token, and refresh it. To do this we use
 
 In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache. Additionally, this ServiceFilter will block other outbound requests during authentication so that those requests can use the refreshed token.
 
-1. In Eclipse, open the ToDoActivity.java file and add the following import statements:
+1. Open the ToDoActivity.java file and add the following import statements:
  
         import java.util.concurrent.atomic.AtomicBoolean;
 		import java.util.concurrent.ExecutionException;
@@ -186,8 +186,6 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 	                                    public void run() {
 	                                        // Force a token refresh during authentication.
 	                                        authenticate(true);
-				// ToDoActivity.mMainActivity.authenticate(true);
-	
 	                                    }
 	                                });
 	                            }
