@@ -369,5 +369,5 @@ For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.o
 [Add a scoring profile to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN<br/>
 
 <!--Image references-->
-[1]: ./media/search-api-scoring-profiles-2015-02-28/scoring_interpolations.png
+[1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
