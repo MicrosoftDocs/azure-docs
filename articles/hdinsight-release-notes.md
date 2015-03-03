@@ -27,7 +27,7 @@ The full version numbers for HDInsight clusters deployed with this release:
 * HDInsight 	3.0.6.488.1375841	(HDP 2.0.9.0-2097 -  unchanged)
 * HDInsight 	3.1.3.488.1375841	(HDP 2.1.10.0-2290 - unchanged)
 * HDInsight		3.2.3.488.1375841	(HDP-2.2.10.0-2340 - unchanged)
-* SDK			1.5.0
+* SDK			1.5.0				(unchanged)
 
 This release contains the following update.
 
