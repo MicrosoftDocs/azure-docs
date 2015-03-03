@@ -69,7 +69,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.WindowsAzure; 
+		using Microsoft.Azure; 
 6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output tables, and a pipeline. You will also this object to monitor slices of a table at runtime.    
 
         // create data pipeline management client
