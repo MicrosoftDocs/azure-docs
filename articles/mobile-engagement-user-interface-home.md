@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Home" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="User Interface Overview for the Home section of Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -33,7 +33,7 @@
 
 # Home
  
-The Home section of the UI contains the list of all of your applications in My Applications as well as the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account, but you need to grant others users need permission in order for them to have to access your custom applications in My Projects.
+The Home section of the UI contains the list of all of your applications in My Applications, as well as the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account, but you need to grant other users permission in order for them to have access to your custom applications in My Projects.
 
 **See also:** 
 
@@ -43,12 +43,12 @@ The Home section of the UI contains the list of all of your applications in My A
  
 ![Home1][2]
 
-This quick overview of your applications and allows you to select which application you would like to open to view the detailed ribbon options. You can click the name of your application to return to the most recently visited ribbon location in your application, or click the gear icon to go directly to the "Settings" page of your application. You can search, filter, or sort the information displayed on the applications tables. You can also drag and drop the column headers to change the order. 
+This quick overview of your applications allows you to select which application you would like to open to view the detailed ribbon options. You can click the name of your application to return to the most recently visited ribbon location in your application, or click the gear icon to go directly to the "Settings" page of your application. You can search, filter, or sort the information displayed on the applications tables. You can also drag and drop the column headers to change the order. 
  
 The overview of your applications includes:
 
 - Total users (Total number of users)
-- New users Trend (Evolution of new users over the last two weeks)
+- New users trend (Evolution of new users over the last two weeks)
 - Active users (Number of active users over the last 30 days)
 - Active users trend (Evolution of active users over the last two weeks)
  
@@ -63,14 +63,14 @@ You can also see a chart comparing your applications.
  
 ![Home5][6]
 
-You can use projects to group your applications and give permissions to your applications. The New projects button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. You can also deleting this project, which will not destroy the applications it references. Nevertheless, you will lose access to all applications you do not own and that are not accessible from another project. So, be careful! 
+You can use projects to group your applications and give permissions to your applications. The New projects button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created, you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. You can also delete this project, which will not destroy the applications it references. Nevertheless, you will lose access to all applications you do not own and that are not accessible from another project. So, be careful! 
 You can also invite a user to your project based on their e-mail address. Users need to have already created an account in Azure Mobile Engagement before you can grant them permissions. 
 
 **Roles include:** 
 
 - Viewer: A Viewer is a User who can only view the applications associated to a Project. A Viewer can access analytics and monitor data and look at Reach results. A Viewer cannot change any information, nor manage Applications or Users. A Viewer cannot create or change Reach campaign status.
-- Developer: A Developer is a User who can do everything a Viewer can do as well as manage Applications. A Developer can enable and disable applications, change applications' information (like package and signature) and create Reach campaigns. A Developer cannot manage Users. 
-- Administrator: An Administrator is a User who can do everything a Developer can do as well as manage Users. An Administrator can invite users to join a project, can change user roles and can change project's information. Application level permissions can also be set in “settings”.
+- Developer: A Developer is a User who can do everything a Viewer can do, as well as manage Applications. A Developer can enable and disable applications, change applications' information (like package and signature), and create Reach campaigns. A Developer cannot manage Users. 
+- Administrator: An Administrator is a User who can do everything a Developer can do, as well as manage Users. An Administrator can invite users to join a project, can change user roles, and can change project's information. Application level permissions can also be set in “settings”.
  
 **See also:** 
 
