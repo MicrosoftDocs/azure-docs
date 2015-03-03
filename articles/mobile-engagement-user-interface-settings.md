@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Settings" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="User Interface Overview for the Settings section of Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -33,7 +33,7 @@
 
 # Settings
  
-The Settings menu options available for an application vary depending on the platform of application and the permissions you have been granted for the application. Settings include: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions. Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API. The “Glossary” in “Concepts” includes the definitions of terms and abbreviations such as: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
+The Settings menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application. Settings include the following: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions. Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API. The “Glossary” in “Concepts” includes the definitions of terms and abbreviations, such as the following: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
 
 **See also:** 
 
