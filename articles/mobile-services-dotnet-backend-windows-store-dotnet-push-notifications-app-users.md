@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/22/2015" 
 	ms.author="glenga"/>
 
 # Send push notifications to authenticated users

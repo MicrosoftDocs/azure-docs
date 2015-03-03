@@ -20,12 +20,12 @@
 
 ##<a id="vod_quickstart"></a>Video on Demand 
 
-[Getting started with .NET](../media-services-dotnet-get-started)
-
-[Getting started with REST](../media-services-rest-get-started)
+Choose to view the quickstart implemented with .NET or REST.
+ 
+[AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
 ##<a id="live_quickstart"></a>Live Streaming
  
-[Getting started with .NET](http://msdn.microsoft.com/en-us/library/azure/dn783465.aspx)
+[Getting started with .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 

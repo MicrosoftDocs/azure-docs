@@ -1,14 +1,18 @@
-<tags
-   pageTitle="Configure performance load balancing"
-   description="How to configure performance load balancing in Traffic Manager"
+<properties
+   pageTitle="Configure performance load balancing for Traffic Manager"
+   description="This article will help you configure Traffic Manager for performance load balancing."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Configure Performance Load Balancing

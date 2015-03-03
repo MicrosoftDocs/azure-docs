@@ -26,4 +26,4 @@ Monitoring tools and techniques that you might be accustomed to using on an on-p
 
 For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
 
-[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
+[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx

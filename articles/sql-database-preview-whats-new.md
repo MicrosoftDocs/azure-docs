@@ -13,25 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="02/26/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-Feb-17  11:50am
-DacFx import export update.
-Dynamic Data Masking, added Wednesday 2015/Feb/18.
-GA-per-Regions table updates.
-Clarify V11 db remains available during upgrade to V12.
+GeneMi , 2015-Feb-26  16:53pm
+Added fixed copy of Ranga's link in the first sentence (need one leading dot, not two).
 -->
 
-The latest Azure SQL Database Update V12 (preview) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
+The latest Azure SQL Database Update V12 ([preview in some regions](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
 
 This preview marks the first step in delivering the next generation of the Azure SQL Database service. It gives customers more compatibility, flexibility, and performance. Internal tests of the preview at the Premium service tier showed that some queries now complete in a fraction of the time they take on today's Premium Azure SQL Database. Even bigger improvements were seen in some scenarios that benefit from the in-memory columnstore technology.
 
-**[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 (Preview) to take advantage of the next generation of  SQL Database on Microsoft Azure. To take advantage of the preview, you first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information.**
+**[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 (Preview) to take advantage of the next generation of  SQL Database on Microsoft Azure. To take advantage of the preview, you first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information.**
 
 > [AZURE.NOTE]
 > Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
@@ -66,10 +63,13 @@ This section names and explains the new features in each category.
 | Feature | Description |
 | :--- | :--- |
 | . | ***December 2014:*** |
+| Users in contained databases | You can now create users in your contained database without having a corresponding login in the master database. This makes it much simpler to move your database to another server. The connection code in your client applications is the same whether you use contained database users or not.<br/><br/>Use of this feature might be required for customers who want to benefit from higher guaranteed service level agreements.<br/><br/>We generally encourage customers to consider using this feature. However, some customers might have specific scenarios that make the traditional *login+user* pair the better choice for you at this time.<br/><br/>For more information, see:<br/>- [Azure SQL Database Security Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ff394108.aspx)<br/>- [Managing Databases and Logins in Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx)<br/>- [Contained Databases](http://msdn.microsoft.com/library/azure/ff929071.aspx) |
 | Table partitioning | Previous limitations on [table partitioning](http://msdn.microsoft.com/library/ms190787.aspx) are eliminated. |
 | Larger transactions | With the V12 preview you are no longer limited to a maximum of 2 GB of data modifications in a single transaction. <br/><br/> One benefit is that rebuilding a large index is no longer limited by 2 GB transaction size limit. For general information, see [Azure SQL Database Resource Limits](http://msdn.microsoft.com/library/azure/dn338081.aspx). |
 | Online index build and rebuild | Before the V12 preview, Azure SQL Database generally supported the (ONLINE=ON) clause of the ALTER INDEX statement, but this was not supported for indexes on a BLOB type column. Now the V12 preview does support (ONLINE=ON) even for indexes on BLOB columns.<br/><br/> The ONLINE feature enables queries to benefit from an index even while the index is being rebuilt. |
 | CHECKPOINT support | With the V12 preview you can issue the T-SQL CHECKPOINT statement for your database. |
+| ALTER TABLE enhancement | Allows many alter column actions to be performed while the table remains available. For more information, see [ALTER TABLE (Transact-SQL)](http://msdn.microsoft.com/library/ms190273.aspx) |
+| TRUNCATE TABLE enhancement | Allows truncation of specific partitions. For more information, see [TRUNCATE TABLE (Transact-SQL)](http://msdn.microsoft.com/library/ms177570.aspx). |
 | More options on ALTER DATABASE | The V12 preview supports more of the options that are available on the ALTER DATABASE statement. <br/><br/> For more information, see [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) or [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 | More DBCC commands | Several more DBCC commands are now available in the V12 preview. For details see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 
@@ -133,18 +133,18 @@ The V12 version of Azure SQL Database was released only for preview and testing 
 
 | Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA |
 | :--- | :--- | :--- |
-| South Central US | General Availability (GA) | 2015-February-09, Monday |
-| Central US | General Availability (GA) | 2015-February-09, Monday |
-| North Central US | General Availability (GA) | 2015-February-09, Monday |
-| West US | General Availability (GA) | 2015-February-09, Monday |
-| East US | General Availability (GA) | 2015-February-09, Monday |
-| East US 2 | General Availability (GA) | 2015-February-09, Monday |
-| East Asia | Preview | First quarter 2015, estimated |
-| Southeast Asia | Preview | First quarter 2015, estimated |
-| Japan West | Preview | First quarter 2015, estimated |
-| Japan East | Preview | First quarter 2015, estimated |
-| North Europe | General Availability (GA) | 2015-January-29, Thursday |
-| West Europe | General Availability (GA) | 2015-January-29, Thursday |
+| South Central US | General Availability (GA) | February 9th, 2015 |
+| Central US | General Availability (GA) | February 9th, 2015 |
+| North Central US | General Availability (GA) | February 9th, 2015 |
+| West US | General Availability (GA) | February 9th, 2015 |
+| East US | General Availability (GA) | February 9th, 2015 |
+| East US 2 | General Availability (GA) | February 9th, 2015 |
+| East Asia | General Availability (GA) | February 24th, 2015 |
+| Southeast Asia | General Availability (GA) | February 24th, 2015 |
+| Japan West | General Availability (GA) | February 24th, 2015 |
+| Japan East | General Availability (GA) | February 24th, 2015 |
+| North Europe | General Availability (GA) | January 29th, 2015 |
+| West Europe | General Availability (GA) | January 29th, 2015 |
 | Brazil South | Not available | Third quarter 2015, estimated |
 | Australia East | Preview | Second quarter 2015, estimated |
 | Australia Southeast | Preview | Second quarter 2015, estimated |
@@ -207,6 +207,7 @@ However, to use the tools, you must first install their latest updates to ensure
 
 
 [2. V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
+[preview in some regions]:#V12AzureSqlDbPreviewGaTable
 
 
 <!-- EndOfFile -->

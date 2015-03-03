@@ -1,14 +1,18 @@
-<tags 
-   pageTitle="Traffic Manager"
-   description="Traffic Manager overview"
+<properties
+   pageTitle="Traffic Manager Overview"
+   description="This article contains the Traffic Manager technical overview."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Traffic Manager Overview

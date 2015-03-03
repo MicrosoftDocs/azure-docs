@@ -50,7 +50,7 @@ This enables you to work with Azure Websites:
 * [Publish web projects to Azure Websites](../web-sites-dotnet-get-started/).
 * [Publish console application projects to Azure WebJobs](../websites-dotnet-deploy-webjobs/).
 * [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
-* [Create PowerShell deployment scripts while creating new Websites](http://msdn.microsoft.com/en-us/library/dn642480.aspx).
+* [Create PowerShell deployment scripts while creating new Websites](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Manage and troubleshoot Azure Websites in Server Explorer](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Run in debug mode remotely for Websites and WebJobs](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
 
@@ -61,28 +61,28 @@ This enables you to work with Azure Websites:
 This enables you to work with Azure Cloud Services and Virtual Machines:
 
 * [Create, open, and publish cloud service projects](../cloud-services-dotnet-get-started/).
-* [Create deployment packages for cloud service projects](http://msdn.microsoft.com/en-us/library/ff683672.aspx).
+* [Create deployment packages for cloud service projects](http://msdn.microsoft.com/library/ff683672.aspx).
 * [Create Azure Virtual Machines while creating new web projects](../virtual-machines-dotnet-create-visual-studio-powershell/).
-* [Create PowerShell scripts while creating new virtual machines](http://msdn.microsoft.com/en-us/library/dn642480.aspx).
-* [View and manage cloud service project settings in Visual Studio Project Properties windows](http://msdn.microsoft.com/en-us/library/ee405486.aspx).
-* View and manage [cloud services](http://msdn.microsoft.com/en-us/library/ff683675.aspx), [virtual machines](http://msdn.microsoft.com/en-us/library/jj131259.aspx), and [Service Bus](http://msdn.microsoft.com/en-us/library/jj149828.aspx) in Server Explorer. 
-* [Run in debug mode remotely for cloud services and virtual machines](http://msdn.microsoft.com/en-us/library/ff683670.aspx).
+* [Create PowerShell scripts while creating new virtual machines](http://msdn.microsoft.com/library/dn642480.aspx).
+* [View and manage cloud service project settings in Visual Studio Project Properties windows](http://msdn.microsoft.com/library/ee405486.aspx).
+* View and manage [cloud services](http://msdn.microsoft.com/library/ff683675.aspx), [virtual machines](http://msdn.microsoft.com/library/jj131259.aspx), and [Service Bus](http://msdn.microsoft.com/library/jj149828.aspx) in Server Explorer. 
+* [Run in debug mode remotely for cloud services and virtual machines](http://msdn.microsoft.com/library/ff683670.aspx).
 
 ###<a id="auth"></a>Microsoft Azure Authoring Tools
 
 This includes the following:
 
-* The [CSPack command-line tool](http://msdn.microsoft.com/en-us/library/gg432988.aspx) for creating deployment packages.
-* the [CSEncrypt command-line tool](http://msdn.microsoft.com/en-us/library/hh404001.aspx) for encrypting passwords that are used to access cloud service role instances through a remote desktop connection.
+* The [CSPack command-line tool](http://msdn.microsoft.com/library/gg432988.aspx) for creating deployment packages.
+* the [CSEncrypt command-line tool](http://msdn.microsoft.com/library/hh404001.aspx) for encrypting passwords that are used to access cloud service role instances through a remote desktop connection.
 * Runtime binaries that cloud service projects require for communicating with their runtime environment and for diagnostics. These binaries are not available in NuGet packages.
 
 ###<a id="emulator"></a>Microsoft Azure Emulator
 
-The [Azure Emulator](http://msdn.microsoft.com/en-us/library/dn339018.aspx) simulates the cloud service environment so that you can test cloud service projects locally on your computer before you deploy them to Azure.
+The [Azure Emulator](http://msdn.microsoft.com/library/dn339018.aspx) simulates the cloud service environment so that you can test cloud service projects locally on your computer before you deploy them to Azure.
 
 ###<a id="stgemulator"></a>Microsoft Azure Storage Emulator
 
-The [Azure Storage Emulator](http://msdn.microsoft.com/en-us/library/hh403989.aspx) uses a SQL Server instance and the local file system to simulate Azure Storage (queues, tables, blobs), so that you can test locally. 
+The [Azure Storage Emulator](http://msdn.microsoft.com/library/hh403989.aspx) uses a SQL Server instance and the local file system to simulate Azure Storage (queues, tables, blobs), so that you can test locally. 
 
 ###<a id="stgtools"></a>Microsoft Azure Storage Tools
 
@@ -93,7 +93,7 @@ This installs [AzCopy](http://aka.ms/AzCopy), a command line tool you can use to
 This includes the following:
 
 * NuGet packages for Azure Storage, Service Bus, and Caching that are stored on your computer so that Visual Studio can create new cloud service projects while offline.
-* A Visual Studio plug-in that enables [In-Role Cache](http://msdn.microsoft.com/en-us/library/dn386103.aspx) projects to run locally in Visual Studio. 
+* A Visual Studio plug-in that enables [In-Role Cache](http://msdn.microsoft.com/library/dn386103.aspx) projects to run locally in Visual Studio. 
 
 ###<a id="hdinsight"></a>HDInsight Tools for Visual Studio
 
@@ -153,7 +153,7 @@ See [Microsoft Azure Cloud Services Support Lifecycle Policy](http://support.mic
 
 ###<a id="guestos"></a>Which guest OS versions is the Azure SDK for .NET compatible with?
 
-See [Azure Guest OS Releases and SDK Compatibility Matrix](http://msdn.microsoft.com/en-us/library/ee924680.aspx).
+See [Azure Guest OS Releases and SDK Compatibility Matrix](http://msdn.microsoft.com/library/ee924680.aspx).
 
 ##<a id="versions"></a>Versions
 

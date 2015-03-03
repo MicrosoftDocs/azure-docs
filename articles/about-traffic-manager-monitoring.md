@@ -1,14 +1,18 @@
-<tags 
+<properties
    pageTitle="About Traffic Manager monitoring"
-   description="Monitoring Traffic Manager traffic balancing"
+   description="This article will help you set up monitoring for your Traffic Manager endpoints."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # About Traffic Manager Monitoring

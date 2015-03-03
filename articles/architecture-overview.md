@@ -39,12 +39,12 @@ If you've used the symbols, be sure to fill out the short 5 question [survey](ht
 ![Azure Symbol/Icon set][azure_symbols]
 
 ##Design patterns
-Microsoft Patterns and Practices has published the book [Cloud Design Patterns](http://msdn.microsoft.com/en-us/library/dn568099.aspx) which is available both on MSDN and in PDF download. There is also a large format poster available which lists all the patterns. 
+Microsoft Patterns and Practices has published the book [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx) which is available both on MSDN and in PDF download. There is also a large format poster available which lists all the patterns. 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
 ##Architecture Infographics
-Microsoft publishes several architecture related posters/infographics. They include [Building Real-World Cloud Applications](http://azure.microsoft.com/en-us/documentation/infographics/building-real-world-cloud-apps/) and [Scaling with Cloud Services](http://azure.microsoft.com/en-us/documentation/infographics/cloud-services/) . 
+Microsoft publishes several architecture related posters/infographics. They include [Building Real-World Cloud Applications](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) and [Scaling with Cloud Services](http://azure.microsoft.com/documentation/infographics/cloud-services/) . 
 
 
 ![Azure Architecture Infographics][AzureInfographic]

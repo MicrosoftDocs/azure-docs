@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="02/27/2015" 
 	ms.author="selcint"/>
 
 # Using Azure PowerShell with Azure Storage 
@@ -64,6 +64,7 @@ The first section in this guide provides a quick glance at Azure Storage and Pow
 	 	- [How to de-queue at the next message][]
  - [How to manage Azure file shares and files][]
  - [How to set and query storage analytics][]
+ - [How to manage Shared Access Signature (SAS) and Stored Access Policy][]
  - [How to use Azure Storage for U.S. government and Azure China][]
  - [Next Steps][]
  
@@ -646,6 +647,51 @@ To learn how to enable and retrieve Storage Logging data using PowerShell, see
 [How to enable Storage Logging using PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) and [Finding your Storage Logging log data](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata).
 For detailed information on using Storage Metrics and Storage Logging to troubleshoot storage issues, see [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](http://azure.microsoft.com/documentation/articles/storage-monitoring-diagnosing-troubleshooting/).
 
+## <a name="sas"></a>How to manage Shared Access Signature (SAS) and Stored Access Policy
+Shared access signatures are an important part of the security model for any application using Azure Storage. They are useful for providing limited permissions to your storage account to clients that should not have the account key. By default, only the owner of the storage account may access blobs, tables, and queues within that account. If your service or application needs to make these resources available to other clients without sharing your access key, you have three options:
+
+- Set a container's permissions to permit anonymous read access to the container and its blobs. This is not allowed for tables or queues.
+- Use a shared access signature that grants restricted access rights to containers, blobs, queues, and tables for a specific time interval.
+- Use a stored access policy to obtain an additional level of control over shared access signatures for a container or its blobs, for a queue, or for a table. The stored access policy allows you to change the start time, expiry time, or permissions for a signature, or to revoke it after it has been issued.
+
+A shared access signature can be in one of two forms:
+
+- **Ad hoc SAS**: When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI. This type of SAS may be created on a container, blob, table, or queue and it is non-revokable.
+- **SAS with stored access policy**: A stored access policy is defined on a resource container a blob container, table, or queue - and you can use it to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy. This type of SAS is revokable.
+
+For more information, see [Shared Access Signatures](./storage-dotnet-shared-access-signature-part-1.md/), [Part 1: Understanding the SAS Model](./storage-dotnet-shared-access-signature-part-1.md/), and [Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/azure/ee393343.aspx).
+
+In the next sections, you will learn how to create a shared access signature token and stored access policy for Azure tables. Azure PowerShell provides similar cmdlets for containers, blobs, and queues as well. To run the scripts in this section, download the [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) or later.
+
+### <a name="sub1"></a>How to create a policy based Shared Access Signature token
+Use the New-AzureStorageTableStoredAccessPolicy cmdlet to create a new stored access policy. Then, call the [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) cmdlet to create a new policy-based shared access signature token for an Azure Storage table.
+
+    $policy = "policy1"
+    New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
+    New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
+
+### <a name="sub2"></a>How to create an ad hoc (non-revokable) Shared Access Signature token
+Use the [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) cmdlet to create a new ad hoc (non-revokable) Shared Access Signature token for an Azure Storage table:
+
+    New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
+
+### <a name="sub3"></a>How to create a stored access policy
+Use the New-AzureStorageTableStoredAccessPolicy cmdlet to create a new stored access policy for an Azure Storage table:
+
+    $policy = "policy1"
+    New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
+
+### <a name="sub4"></a>How to update a stored access policy
+Use the Set-AzureStorageTableStoredAccessPolicy cmdlet to update an existing stored access policy for an Azure Storage table:
+
+    Set-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Permission "rd" -NoExpiryTime -NoStartTime -Context $Ctx
+
+### <a name="sub5"></a>How to delete a stored access policy
+Use the Remove-AzureStorageTableStoredAccessPolicy cmdlet to delete a stored access policy on an Azure Storage table:
+
+    Remove-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Context $Ctx
+
+
 ## <a name="gov"></a>How to use Azure Storage for U.S. government and Azure China
 An Azure environment is an independent deployment of Microsoft Azure, such as [Azure Government for U.S. government](http://azure.microsoft.com/features/gov/), [AzureCloud for global Azure](https://manage.windowsazure.com), and [AzureChinaCloud for Azure operated by 21Vianet in China](http://www.windowsazure.cn/). You can deploy new Azure environments for U.S government and Azure China. 
 
@@ -726,5 +772,6 @@ In this guide, you've learned how to manage Azure Storage with Azure PowerShell.
 [How to de-queue at the next message]: #dequeuemsg
 [How to manage Azure file shares and files]: #files
 [How to set and query storage analytics]: #stganalytics
+[How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next

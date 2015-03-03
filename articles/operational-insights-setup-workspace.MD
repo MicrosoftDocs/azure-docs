@@ -26,3 +26,13 @@ To learn out more on how to create a workspace using Azure, watch the following 
 
 > [AZURE.VIDEO creating-a-workspace-for-azure-customers-opinsights]
 
+
+## How many workspaces do I need?
+A workspace is seen as an Azure resource within the Azure Management Portal.
+You can either create a new workspace or link to an existing Preview workspace you might have opened earlier for use with System Center Operations Manager, but you haven't yet associated with an Azure subscription (necessary for billing).
+A workspace represents the level at which data is collected, aggregated, analyzed, and presented in OpInsights Portal. 
+You might choose to have multiple workspaces to segregate data from different environments and systems; each Operations Manager management group (and all its agents) or individual VMs/agents can each be connected with only one workspace.
+
+Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple OpInsights workspaces.
+By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace.  The administrator can then invite additional Microsoft accounts or pick users from his Azure Active Directory.
+

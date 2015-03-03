@@ -12,7 +12,7 @@
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="02/18/2015" 
 	ms.author="selcint"/>
 
@@ -42,14 +42,11 @@ Now, let’s create a simple Azure Storage application using one of the Azure Qu
 1. Press the **Start** button or the Windows key, type Visual Studio 2013 or VS Express 2013 for Web. Click the program to start.
 2. From the **File** menu, click **New Project**.
 3. In the **New Project** dialog box, click **Installed** > **Templates** > **Visual C#** > **Cloud** > **Quick Starts** > **Data Services**.
-	- 3.a.  Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues. See the following screenshot as an example:
+	- 3.a.  Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues. 
+	- 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.	
+	- 3.c. Depending on the template you choose, name the application, such as **DataBlobStorage**, **DataTableStorage**, or **DataStorageQueue**. Click **OK**. This should create a new Visual Studio solution. See the following screenshot as an example:
 	
 	![Azure QuickStarts][Image1]
-
-
-	- 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.
-	
-	- 3.c. Depending on the template you choose, name the application, such as **DataBlobStorage**, **DataTableStorage**, or **DataStorageQueue**. Click **OK**. This should create a new Visual Studio solution. 
 
 We encourage you to review the source code to learn how to program against Azure Storage before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double click the Program.cs file. 
 
@@ -98,7 +95,7 @@ Now, run the sample application:
 5.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
 
-## <a name="next"></a>Next Steps
+## Next Steps
 In this tutorial, you've learned how to program against Azure Blob Storage, Azure Table Storage, and Azure Storage Queues. 
 
 If you want to learn more about them, follow these links:
@@ -114,4 +111,3 @@ If you want to learn more about them, follow these links:
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
-[Next Steps]: #next

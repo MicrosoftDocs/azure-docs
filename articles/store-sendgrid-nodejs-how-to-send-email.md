@@ -239,7 +239,7 @@ these links to learn more.
 -   SendGrid special offer for Azure customers:
     [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
-  [Next Steps]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps
+  [Next Steps]: http://www.windowsazure.com/develop/nodejs/how-to-guides/blob-storage/#next-steps
   [What is the SendGrid Email Service?]: #whatis
   [Create a SendGrid Account]: #createaccount
   [Reference the SendGrid Node.js Module]: #reference

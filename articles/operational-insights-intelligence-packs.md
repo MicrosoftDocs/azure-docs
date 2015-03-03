@@ -18,11 +18,11 @@
 
 # Intelligence Packs
 
-Intelligence Packs are a collection of **logic**, **visualization** and **data acquisition rules** that address key customer challenges today. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and helps you be proactive with activities such as capacity planning, patch status reporting and security auditing.
+Intelligence Packs are a collection of **logic**, **visualization** and **data acquisition rules** that address key customer challenges today. Intelligence Packs are powered by Operational Insights Search to bring you metrics pivoted around a particular problem area. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing. 
 
 This guide walks you through the various Intelligence Packs available and what they are used for.
 
->[AZURE.INFO] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](../operational-insights-add-intelligence-pack.md)
+>[AZURE.NOTE] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](../operational-insights-add-intelligence-pack.md)
 
 ## SQL Assessment
 
@@ -31,6 +31,9 @@ SQL Assessment Intelligence Pack assesses the risk and health of your SQL Server
 - **quickly** understand the **risk and health** of your environments
 - easily take **action** to decrease risk and improve health
 - **prioritize** your work and become more **productive**
+
+SQL Assessment requires .NET 4 to run on each agent. It supports the Standard, Developer and Enterprise editions of SQL Server, all currently supported versions.
+[Read more on MSDN](https://msdn.microsoft.com/library/azure/dn873958.aspx)
 
 
 ## Configuration Assessment
@@ -48,9 +51,16 @@ Configuration data is gathered from monitored servers and then sent to the Opera
 - **Change History:** Shows a list of configuration changes made to your monitored servers
 
 > [AZURE.IMPORTANT] Configuration Assessment can only be enabled for computers managed by **Operations Manager**.  For additional information, see [Connect Operations Manager](../operational-insights-connect-scom.md)
-## Malware Assessment
 
+
+## Malware Assessment
 If insufficient protection is found, servers with active threats and servers with insufficient protection are shown in the **Malware**  page. By using the information on the **Malware** page, you can develop a plan to apply protection to the servers that need it.
+
+> [AZURE.IMPORTANT] Malware Assessment currently only supports Windows Defender and System Center Endpoint Protection (SCEP) real-time clients. If none of these clients is found, it uses data from the Malicious Software Removal Tool and mark the server as not having real-time protection. You can read more [here](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6519202-support-other-antivirus-products-in-malware-assess). We are also tracking [an issue with Windows 7 and Windows Server 2008 R2 machines](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6519211-windows-server-2008-r2-sp1-servers-are-shown-as-n)
+
+
+
+
 
 ## Alert Management
 
@@ -72,7 +82,7 @@ You can use the Capacity Management intelligence pack in Microsoft Azure Operati
 
 For example, a projection might identify when additional processor cores or additional memory will be needed for an individual server. In this example, the projection might indicate that in 30 days the server will need additional memory. This can help you plan for a memory upgrade during the server’s next maintenance window, which might occur once every two weeks.
 
->[AZURE.IMPORTANT] To view capacity management data, you must enable Operations Manager connectivity with Virtual Machine Manager (VMM). For additional information about connecting the systems, see [How to connect VMM with Operations Manager](https://technet.microsoft.com/library/hh882396.aspx).
+>[AZURE.IMPORTANT] Capacity management can only be enabled when Operational Insights is used in conjunction with **System Center Operations Manager**, and you must also enable the Operations Manager connector with Virtual Machine Manager (VMM). For additional information about connecting the systems, see [How to connect VMM with Operations Manager](https://technet.microsoft.com/library/hh882396.aspx).
 
 For more information on using the Capacity Management Intelligence Pack, see:
 

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Azure Machine Learning Gallery | Azure" 
-    description="Description of the Azure Machine Learning Gallery site for community published Machine Learning experiment." 
+    pageTitle="Use sample experiments to create new experiments | Azure" 
+    description="Create new Azure Machine Learning experiments from sample experiments and experiments shared by the community." 
     services="machine-learning" 
     documentationCenter="" 
     authors="chhavib,olgali" 
@@ -25,7 +25,7 @@ When you want to create an experiment, look for examples in Machine Learning tea
 ![](./media/machine-learning-sample-experiments/image1.png) 
 4. Click an experiment to learn more about it. To run and/or modify the experiment, click **Open in Studio**.
 ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](http://azure.microsoft.com/en-us/pricing/details/machine-learning/)
+5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](http://azure.microsoft.com/pricing/details/machine-learning/)
 ![](./media/machine-learning-sample-experiments/image3.png)  
 
 ## Use as template in Studio
