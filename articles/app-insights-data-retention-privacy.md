@@ -89,19 +89,20 @@ There are several ways in which data might be sent to the portal. It might then 
 
 #### Am I responsible for notifying my users that the application is collecting telemetry data and possibly Personally Identifiable Information (PII)?
 
-Generally yes; although this could vary by platform and geographic location. It is always the best practice to inform the user what information your application is collecting and how you are using the information.
+Yes. It is your responsibility to inform your customers appropriately about any telemetry data your application collects and how the data is used.
 
 ## User control
 
-#### Some of my users are concerned that my app is collecting telemetry data, and they want the option to turn off Application Insights. Is there a global setting on the device?
+#### Some of my users are concerned that my app is collecting telemetry data, and they want the option to turn off Application Insights. Is there a global switch?
 
-Currently we don’t offer a global setting. However, the SDKs for some types of app offer an API to turn Application Insights data collection off for that app. Most of the SDKs are also open on GitHub, so this functionality can be added when needed by application developers.
+Data collection is always under the control of the developer. As a convenience, some of the SDKs include an API that you can use to turn off Application Insights data collection for the app.
+
 
 ## Unintended data
 
-#### My application might unintentionally collect sensitive information. Can Application Insights scrub this data so that it isn’t retained?
+#### My application unintentionally collected some sensitive information. Can Application Insights scrub this data so that it isn’t retained?
 
-Your application should be updated so that it no longer sends this unintended data to Application Insights. 
+No, we don't delete or filter your data. Your application should not send sensitive data to Application Insights. 
 
 
 ## What telemetry is sent when I use Application Insights? 
