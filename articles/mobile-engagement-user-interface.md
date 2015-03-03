@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="User Interface Overview for the User Interface of Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -25,21 +25,18 @@
 <a href="#Analytics" title="Analytics">Analytics</a>
 <a href="#Monitor" title="Monitor">Monitor</a>
 <a href="#Reach" title="Reach">Reach</a>
-<a href="#ReachCampaign" title="Reach Campaign">Reach Campaign</a>
-<a href="#ReachCriterion" title="Reach Criterion">Reach Criterion</a>
-<a href="#ReachContent" title="Reach Content">Reach Content</a>
-<a href="#Dashboard" title="Dashboard">Dashboard</a>
 <a href="#Segments" title="Segments">Segments</a>
+<a href="#Dashboard" title="Dashboard">Dashboard</a>
 <a href="#Settings" title="Settings">Settings</a>
 </div>
 
 ## Introduction
  
-Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app: standard users can use the [User Interface][Link 1] and developer users can used the HTTP REST based [APIs][Link 4]. If you have difficulty please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
+Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app: standard users can use the [User Interface][Link 1], and developer users can use the HTTP REST based [APIs][Link 4]. For a walkthrough of common activities, please see the [How To Guides][Link 3]. If you have any difficulty, please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
 
 ## <a name="Navigation">Navigation</a>
  
-The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ contains the following navigation elements: a header, a footer, a sidebar, cookie crumb navigation, and an app specific ribbon.
+The UI Frontend Portal at https://YourApp.portal.mobileengagementwindows.net/ contains the following navigation elements: a header, a footer, a sidebar, cookie crumb navigation, and an app-specific ribbon.
  
 ![Navigation1][1] 
 
@@ -71,13 +68,13 @@ The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ c
 
 ## <a name="Home">Home</a>
  
-The Home section of the UI contains the list of all of your applications in My Applications as well as access to the Demo Application for each platform for testing and the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account and can access the Demo Applications in Favorite Applications, but you need to grant others users need permission in order for them to have to access your custom applications in My Projects.
+The Home section of the UI contains the list of all of your applications in My Applications, as well as the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account, but you need to grant others users permission in order for them to have access to your custom applications in My Projects.
  
 ### My applications:
  
 ![Home1][2]
 
-This quick overview of your applications and allows you to select which application you would like to open to view the detailed ribbon options. You can click the name of your application to return to the most recently visited ribbon location in your application, or click the gear icon to go directly to the "Settings" page of your application. You can search, filter, or sort the information displayed on the applications tables. You can also drag and drop the column headers to change the order. 
+This provides a quick overview of your applications and allows you to select which application you would like to open to view the detailed ribbon options. You can click the name of your application to return to the most recently visited ribbon location in your application, or click the gear icon to go directly to the "Settings" page of your application. You can search, filter, or sort the information displayed on the applications tables. You can also drag and drop the column headers to change the order. 
  
 The overview of your applications includes:
 
@@ -85,43 +82,26 @@ The overview of your applications includes:
 - New users Trend (Evolution of new users over the last two weeks)
 - Active users (Number of active users over the last 30 days)
 - Active users trend (Evolution of active users over the last two weeks)
-- Plan (Plan of the application and % of the data plan used)
  
 You can also see a chart comparing your applications.
 
 - Show comparison chart (Can be used to show the application data in chart form)
 - Check boxes (add/remove this application to/from the comparison chart)
  
-![Home2][3] 
+![Home2][3]
 
-The "new application" button allows you to add a new Windows, Windows Phone, iOS, Web, or Android App and will prompt you for the following information before you can create your app:
-
-1. Choose a name for your application 
-2. Android Only: Enter the package name of your application as defined in your AndroidManifest.xml file. Please double-check your package name. This is vital to your application for interacting with Azure Mobile Engagement.
-3. Select the first day of the week
-
-> Note: New applications are placeholders for applications you create with the SDK and don't actually have to exist yet before you can create them.
- 
-![Home3][4]
-
-### Favorite applications:
- 
-![Home4][5]
-
-The same usage information is available for a subset of your applications that you have added to a favorite applications list. The "manage applications" button allows you to select all the applications you want to see in the current project from a list of all the applications that you have permission to access.
- 
 ### My projects:
  
-![Home5][6] 
+![Home5][6]
 
-You can use projects to group your applications and give permissions to your applications. The New projects button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. You can also deleting this project, which will not destroy the applications it references. Nevertheless, you will lose access to all applications you do not own and that are not accessible from another project. So, be careful! 
+You can use projects to group your applications and give permissions to your applications. The New projects button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created, you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. You can also delete this project, which will not destroy the applications it references. Nevertheless, you will lose access to all applications you do not own and that are not accessible from another project. So, be careful! 
 You can also invite a user to your project based on their e-mail address. Users need to have already created an account in Azure Mobile Engagement before you can grant them permissions. 
 
 **Roles include:** 
 
 - Viewer: A Viewer is a User who can only view the applications associated to a Project. A Viewer can access analytics and monitor data and look at Reach results. A Viewer cannot change any information, nor manage Applications or Users. A Viewer cannot create or change Reach campaign status.
-- Developer: A Developer is a User who can do everything a Viewer can do as well as manage Applications. A Developer can enable and disable applications, change applications' information (like package and signature) and create Reach campaigns. A Developer cannot manage Users. 
-- Administrator: An Administrator is a User who can do everything a Developer can do as well as manage Users. An Administrator can invite users to join a project, can change user roles and can change project's information. Application level permissions can also be set in “settings”.
+- Developer: A Developer is a User who can do everything a Viewer can do as well as manage Applications. A Developer can enable and disable applications, change applications' information (like package and signature), and create Reach campaigns. A Developer cannot manage Users. 
+- Administrator: An Administrator is a User who can do everything a Developer can do, as well as manage Users. An Administrator can invite users to join a project, can change user roles, and can change project's information. Application level permissions can also be set in “settings”.
  
 **See also:** 
 
@@ -129,7 +109,7 @@ You can also invite a user to your project based on their e-mail address. Users 
 
 ## <a name="MyAccount">My Account</a>
  
-The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via to the Device API.
+The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
  
 ![MyAccount1][7]  
 
@@ -143,14 +123,14 @@ You can view or change any of your account settings: Password, First Name, Last 
 ![MyAccount2][8]  
 
 ### Devices:
-You can view, add, or remove test Device ID's of the test devices that you can use to test your reach or push campaigns. Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.) are displayed when you "New Device". 
+You can view, add, or remove test Device ID's of the test devices that you can use to test your reach or push campaigns. Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.) are displayed when you click "New Device". 
  
 ![MyAccount3][9]  
  
-To use Push API or Device API you need to know your users' unique device identifier (the deviceid parameter). There is several ways to retrieve it:
+To use Push API or Device API, you need to know your users' unique device identifier (the deviceid parameter). There is several ways to retrieve it:
  
 1. From your backend, you can use the "Get" feature of the Device API to get the full list of device identifiers.
-2. From your app, you can use the SDK to get it (on Android, call the getDeviceID() function of the Agent class, and on iOS, read the deviceid property of the Agent class)
+2. From your app, you can use the SDK to get it. (On Android, call the getDeviceID() function of the Agent class, and on iOS, read the deviceid property of the Agent class.)
 3. From a Reach announcement, if the action URL associated with the announcement contains the {deviceid} pattern, it will be automatically replaced by the identifier of the device triggering the action.
 http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata 
 will be replaced by:
@@ -163,19 +143,19 @@ Here is my device identifier: XXXXXXXXXXXXXXXX
 From "UI - your app - Monitor - Events - Details", find the Event you performed in the list.
 Click to this event in the Monitor.
 You should find out your Device ID in the list of the devices that have performed this event.
-Then you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform"
->(Be aware that when IDFA is disabled for iOS, then the Device ID may change over the time if you uninstall and re-install your app.)
+Then, you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform".
+>(Be aware that when IDFA is disabled for iOS, the Device ID may change over the time if you uninstall and reinstall your app.)
 
 ## <a name="Analytics">Analytics</a>
  
-The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours which is displayed on different dashboards composed of line/bar/pie charts, grids and maps and the data can also be downloaded as csv files. Most of this same information is available in real time in the Monitor section of the UI and can also be accessed from the Analytics API. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring such as: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
+The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours. This information is displayed on different dashboards, composed of line/bar/pie charts, grids, and maps. The data can also be downloaded as .csv files. Most of this same information is available in real time in the Monitor section of the UI, and it can also be accessed from the Analytics API. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring, such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
 **See also:** 
 
 -  [Concepts - Glossary][Link 6]
 
 ### Standard and Custom Analytics:
-Azure Mobile Engagement provides a set of basic, standard analytic information about your applications than can be graphed as soon as you integrate your App with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information you want about your end-users' behavior by creating a tag plan of custom "app info tags", created from “Settings” so that Azure Mobile Engagement can collect this additional data for you.
+Azure Mobile Engagement provides a set of basic, standard analytic information about your applications that can be graphed as soon as you integrate your App with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information you want about your end-users' behavior by creating a tag plan of custom "app info tags", created from “Settings” so that Azure Mobile Engagement can collect this additional data for you.
 
 **See also:** 
 -  [UI Documentation - Settings][Link 1]
@@ -192,20 +172,20 @@ Azure Mobile Engagement provides a set of basic, standard analytic information a
 
 ### Analytics:
 - Dashboard: Shows general information about your new and actives users and their trends.
-- Users: Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval. A user is considered as retained if he has performed at least one session during the last 7 days. Active Users are users that made at least one session during a given period. You can sort by, monthly, weekly, daily, or hourly time periods. All of the charts look similar but allow you to filter by different features, such as the version of your application and then to sort by a period of time. The standard information gathered by integrating the SDK includes: Active users, new user, number of sessions, length of each session, technical information about the country, locals, location, language carrier, devices, firmware, network (WIFI), versions of the App and SDK, used by customers. This information can be viewed in real time from the monitor section. 
+- Users: Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval. A user is considered as retained if he has performed at least one session during the last 7 days. Active Users are users that made at least one session during a given period. You can sort by, monthly, weekly, daily, or hourly time periods. All of the charts look similar but they allow you to filter by different features, such as the version of your application, and then to sort by a period of time. The standard information gathered by integrating the SDK includes the following: Active users, new user, number of sessions, length of each session, technical information about the country, locals, location, language carrier, devices, firmware, network (WIFI), versions of the App and SDK, used by customers. This information can be viewed in real time from the monitor section. 
 - Tracking by source displays the number of new users who have downloaded the application as a result of a given promotion campaign. Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval.
 - Tracking by store displays the number of new users who have downloaded the application from a given store. Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval.
 
 > Note: The time period is based on the date from the users' device settings, so a user whose phone has the date incorrectly set could show up in the wrong time period.
 
-- Retention:   A user is considered as retained on a given time interval if he has performed his first session during this time interval. You can change the time intervals during which retained users (and new users) are counted to hours, days, weeks or months. The user retention analytics is built on top of cohorts. A cohort is the set of all the new users detected for a given period (i.e. the set of users performing their first session during this period). We use cohorts of 1-day, 2-day, 4-day, 7-day or 1-month. Given a cohort, every 1-day, 2-day, 4-day, 7-day or 1-month, Azure Mobile Engagement computes the set of all users who belong to the cohort and are still active (i.e. the set of users who performed at least one session during the period). This set of users is called a cohort version. (Azure Mobile Engagement can show you how many of your users are still using your app, but only the platform specific store can tell you how many of your users uninstalled your app e.g. GooglePlay, iTunes, Windows Store, etc.). 
-- Sessions: A session is one use of the application by a user. Sessions are generated from the sequence of activities performed by users (an activity is usually associated to the usage of one screen of the application, but this can vary depending on the way the SDK has been integrated in the application). A user can only perform one activity at a time: a session starts as soon as the user starts his first activity and stops when he finishes his last activity. If a user stays more than a few seconds without performing any activity, then his sequence of activities is split into two distinct sessions.
+- Retention:   A user is considered as retained on a given time interval if he has performed his first session during this time interval. You can change the time intervals during which retained users (and new users) are counted to hours, days, weeks or months. The user retention analytics is built on top of cohorts. A cohort is the set of all the new users detected for a given period (i.e. the set of users performing their first session during this period). We use cohorts of 1-day, 2-day, 4-day, 7-day or 1-month. Given a cohort, every 1-day, 2-day, 4-day, 7-day or 1-month, Azure Mobile Engagement computes the set of all users who belong to the cohort and are still active (i.e., the set of users who performed at least one session during the period). This set of users is called a cohort version. (Azure Mobile Engagement can show you how many of your users are still using your app, but only the platform specific store can tell you how many of your users uninstalled your app, for example, GooglePlay, iTunes, Windows Store, etc.) 
+- Sessions: A session is one use of the application by a user. Sessions are generated from the sequence of activities performed by users (an activity is usually associated to the usage of one screen of the application, but this can vary depending on the way the SDK has been integrated in the application). A user can only perform one activity at a time: a session starts as soon as the user starts his first activity and stops when he finishes his last activity. If a user stays more than a few seconds without performing any activity, this sequence of activities is split into two distinct sessions.
 - Activities: are the names of each screen in your application and the length of time users spend on each screen. Activities are a custom analytic option that will correspond to the "app info" tags you have setup for your own app:
 - User Path:  shows how your users navigate through your application's activities (screens). You can move the slider to adjust the level of details. Blue nodes represent your application's activities. Their size is proportional to the time users spent in it. White nodes represent session start and stop. Red nodes represent crashes. Links represent transitions between your application's activities (or between activities and crashes). Click on a node or a link to display a tooltip with more information about your data: the time spent in a particular screen, the count of transitions, and the percentage of transitions from the source activity to the destination activity (A ---60% ---> B means that users being on activity A goes to activity B 60% of the time). You can reorganize the graph as you want to clarify it, its position is saved every time you make a change. You can show or hide the crashes to lighten the graph.
 - Events: are specific actions taken by a user in the application. The distribution of events is show as the count of events per user per session.  An event represents an instant action, for example a click on a button or the reception of a notification (the meaning of events depends on how the SDK has been integrated in the application). An event can occur during a session or a job or can be stand alone.
-- Jobs: are similar to events except they focus on the length of the action. For example, Jobs could tell you technical information about how long it takes content to load or a call to web service. It could also show how long it takes a user to fill out a form, create an account, or make a purchase. A job represents the duration of a task, for example the duration of a download task or the time a banner is displayed on the screen (the meaning of jobs depends on how the SDK has been integrated in the application). Jobs are usually associated with background tasks that are performed outside of the scope of a session (i.e. without any user activity).
+- Jobs: are similar to events except they focus on the length of the action. For example, Jobs could tell you technical information about how long it takes content to load or a call to web service. It could also show how long it takes a user to fill out a form, create an account, or make a purchase. A job represents the duration of a task, for example the duration of a download task or the time a banner is displayed on the screen (the meaning of jobs depends on how the SDK has been integrated in the application). Jobs are usually associated with background tasks that are performed outside of the scope of a session (i.e., without any user activity).
 - Technicals: are technical information about the devices of the users of your app that you can track such as the Locale, Carrier, Network, Device, Firmware, and Screen size of the users' devices, and the Version of your App and the SDK version used in your app.
-- Errors: are information about technical errors inside the application that do not cause the application to crash. An error represents an instant issue, for example a network failure or a bad manipulation (the meaning of events depends on how the SDK has been integrated in the application). An error can occur during a session or a job or can be stand alone.
+- Errors: are information about technical errors inside the application that do not cause the application to crash. An error represents an instant issue, for example a network failure or a bad manipulation (the meaning of events depends on how the SDK has been integrated in the application). An error can occur during a session or a job or can be standalone.
 - Crashes: are information about errors that cause your application to crash. A crash is an unexpected condition where the application stops performing its expected functions and must be stopped. A crash is usually due to a bug in the application.
  
 ![Analytics2][11] 
@@ -214,7 +194,7 @@ Azure Mobile Engagement provides a set of basic, standard analytic information a
  
 ![Analytics3][12] 
 
-The retention overview is broken down in the middle into several cards, each showing the overview for a certain retention period. The 2-day retention period is seen in the example. The other cards show the 4-days and 7 days retention periods. 
+The retention overview is broken down in the middle into several cards, each showing the overview for a certain retention period. The 2-day retention period is seen in the example. The other cards show the 4-day and 7 day retention periods. 
 
 ### Understanding the Retention Overview cards
  
@@ -228,22 +208,22 @@ Each card is composed of 3 main parts:
 
 **Here is detailed information about each element:**
 
-1.    Cohort and period: This headline gives the type of cohort. Here "2 days period" means that we will look at the behavior of users over 2 days, Users that arrived over a period of 2 days, did they connect in the following blocks of 2 days. The example above considers the activity of users between the 21st and 22nd of November.
+1.    Cohort and period: This headline gives the type of cohort. Here "2 day period" means that we will look at the behavior of users over 2 days. Users that arrived over a period of 2 days - did they connect in the following blocks of 2 days? The example above considers the activity of users between the 21st and 22nd of November.
 2.    This gives the retention rate over the 21 and 22 of November for the users arriving in 19 and 20 of November. Here we had 1 active user between the 21st and 22nd, over the 3 that were new users between the 19th and 20th.
 3.    This visual indicator gives the same information as above represented graphically (the third of the circle is from the 33% number). The color gives an additional information: green indicates this number is growing from the previous calculation. Yellow means stable and red means decreasing.
 4.    This indicates the values used for the calculation.
-5.    This is a Sparkline of the history of the retention values. It allows seeing the values in the past to have a broad view of how it evolved.
+5.    This is a Sparkline of the history of the retention values. It allows you to see the values in the past to have a broad view of how it evolved.
 
 ## <a name="Monitor">Monitor</a>
  
-The Monitor section of the UI provides real time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the "Analytics" section of the UI. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring such as: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
+The Monitor section of the UI provides real-time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the "Analytics" section of the UI. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring, such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
 **See also:** 
 
 -  [Concepts - Glossary][Link 6]
 
 ### Monitor - Sessions, Jobs, Events, Errors, and Crashes:
-You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash.  Live monitoring is helpful to use during events such as a Push campaign to see if there is an uptick in action right after you send your Push notification. 
+You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash. Live monitoring is helpful to use during events, such as a Push campaign, to see if there is an uptick in action right after you send your Push notification. 
  
 ![Monitor1][14]  
 
@@ -266,7 +246,7 @@ You can review crash information about your app from Monitor - Crashes - Details
 ![Monitor3][16] 
 
 ### Monitor - Alerts:
-You can also specify conditions for Alerts that will be automatically sent to you via e-mail or instant message (any XMPP compliant services like Google's GTalk or Apple's iChat are supported). Alerts are based on a pre-defined detection threshold greater than > or less than < a specific number of Sessions, Jobs, Events, Errors, or Crashes per second, minute, or hour. Alerts can monitor all activities of a given type or just monitor a specific Job, Event, or Error activity. You can also specify a Minimum Detection Rate, which is the minimum amount of time that will separate two notifications for the same alert to make sure that when your alert is triggered, you will never receive more than 1 notification every X minutes.
+You can also specify conditions for Alerts that will be automatically sent to you via e-mail or instant message (any XMPP compliant services like Google's GTalk or Apple's iChat are supported). Alerts are based on a pre-defined detection threshold greater than (>) or less than (<) a specific number of Sessions, Jobs, Events, Errors, or Crashes per second, minute, or hour. Alerts can monitor all activities of a given type or just monitor a specific Job, Event, or Error activity. You can also specify a Minimum Detection Rate, which is the minimum amount of time that will separate two notifications for the same alert to make sure that when your alert is triggered, you will never receive more than 1 notification every X minutes.
  
 ![Monitor4][17]
 
@@ -331,7 +311,7 @@ You can use the Reach section of the UI to create a new Push campaign with a com
 ![Reach-Campaign1][20]
 
 ### Languages:
-You can use the Languages drop down menu to send a different version of your Push to devices set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
+You can use the Languages drop-down menu to send a different version of your Push to devices set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
  
 ![Reach-Campaign2][21]
 
@@ -400,14 +380,14 @@ You can use the Campaign section to set the name and category of your campaign a
 - Ignore Audience, push will be sent to users via the API:    All
  
 ### Notification:
-You can use the Notification section to set basic settings for your push including: The title of the Push, the message, an in app image or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes the Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App (Android SDK 2.1.0 or later intent categories required). You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device). There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
+You can use the Notification section to set basic settings for your push, including the following: The title of the Push, the message, an in-app image or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes. The Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App. (Android SDK 2.1.0 or later intent categories are required.) You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push. (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device.) There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
 
 ### Delivery Types:
 -    Out of app only: the notification will be delivered when the user does not use the application.
 - The out of app only notification requires a certificate from Apple or Google (APNS or GCM certificate).
 - In-app only: The notification appears only when the application is running.
 - The notification uses the Capptain delivery system to reach the user. You can fully customize the visual layout/display of your push.
-- Anytime: This option ensures you to send a notification either the application is running or not.
+- Anytime: This option ensures that you send a notification whether the application is running or not.
 
  
 ![Reach-Campaign4][23]
@@ -433,7 +413,7 @@ You can use the Audience section to define a standard list of items to limit you
 - If possible, only start one campaign at a time.
 - At the most, only start four campaigns at a time.
 - Push only to your active users (checkbox "Engage only users who can be reached using Native Push" and "Engage only active users") so that only your users who still have the app installed and use it will need to be scanned.
-Once your audience is defined, you can use the simulate button to find out how many users will receive this Push. This will compute the number of known users potentially targeted by this audience (this is an estimate based on a random sample of users). Be aware that users who have uninstalled the application are also part of this audience, but cannot be reached.
+Once your audience is defined, you can use the simulate button to find out how many users will receive this Push. This will compute the number of known users potentially targeted by this audience (this is an estimate based on a random sample of users). Be aware that users who have uninstalled the application are also part of this audience, but they cannot be reached.
 
 **See also:**
 
@@ -471,7 +451,7 @@ You can use the Time Frame section to set when the push will be sent or you can 
  
 ### Test:
 You can use the Test section to send this push to your own test device before saving the campaign. If you have configured any custom languages for this campaign, you can test the push in each language. You can setup a test device from “My Account”.
-> Note: No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
+> Note: No server-side data is logged when you use the button to "test" pushes; data is only logged for real push campaigns.
 
 **See also:**
 
@@ -481,7 +461,7 @@ You can use the Test section to send this push to your own test device before sa
 
 ## <a name="ReachCriterion">Reach - New Push Criterion (for targeting Audience)</a>
 
-Targeting your audience by specific criteria with the "New Criteria" button is one of the most powerful concepts in Azure Mobile Engagement that helps you send relevant push notifications that the customers will respond to instead of Spamming everyone. You can limit your audience based on standard criteria and simulate pushes to determine how many people will receive the notification.
+Targeting your audience by specific criteria with the "New Criteria" button is one of the most powerful concepts in Azure Mobile Engagement, and it helps you send relevant push notifications that customers will respond to instead of spamming everyone. You can limit your audience based on standard criteria and simulate pushes to determine how many people will receive the notification.
 
 **See also:**
 
@@ -505,7 +485,7 @@ If you want to push an announcements only to the sub-set of your users that have
 4. If you don't want to do this from your application, you can do it from your backend by using the device API)
 5. Then, you just need to create your announcement, with a criterion limiting your audience to users having "inAppPurchase" set to "true")
  
-> Note: Targeting based on criteria other than app info tags requires Azure Mobile Engagement to gather information from your users' devices before the push is sent and so can cause a delay. Complex push configuration options (like updating badges) can also delay pushes. Using a "one shot" campaign from the Push API is the absolute fastest push method in Azure Mobile Engagement. Using only app info tags as push criteria for a Reach campaign (either from the Reach API or the UI) is the next fastest method since app info tags are stored on the server side. Using other targeting criteria for a push campaign is the most flexible but slowest push method since Azure Mobile Engagement has to query the devices in order to send the campaign.
+> Note: Targeting based on criteria other than app info tags requires Azure Mobile Engagement to gather information from your users' devices before the push is sent and so can cause a delay. Complex push configuration options (like updating badges) can also delay pushes. Using a "one shot" campaign from the Push API is the absolute fastest push method in Azure Mobile Engagement. Using only app info tags as push criteria for a Reach campaign (either from the Reach API or the UI) is the next fastest method since app info tags are stored on the server side. Using other targeting criteria for a push campaign is the most flexible but slowest push method, because Azure Mobile Engagement has to query the devices in order to send the campaign.
  
 ![Reach-Criterion1][29] 
 
@@ -711,7 +691,7 @@ The Segments section of the UI allows you to work on segmenting your users based
 You can create a segment based on up to 10 criteria on a specific period up to 60 days in the past from the analytics section. 
 For example, you can create a segment based on the people who have viewed certain pages or searched for specific content within your app within the last 10 days. This information is available in the analytics section, so you can use it to create a segment, and then setup a push notification to target this subset of users to get them to come back to the application. 
  
-> Note: Once a segment has been calculated it cannot be edited, it can only be cloned (copied) or destroyed (deleted). A segment can be cloned within the same application (with the same AppID) and can also be cloned into other applications (with a different AppID). 
+> Note: Once a segment has been calculated it cannot be edited, it can only be cloned (copied) or destroyed (deleted). A segment can be cloned within the same application (with the same AppID), and it can also be cloned into other applications (with a different AppID). 
  
  ![segments1][35] 
 
@@ -745,7 +725,7 @@ Then, go to the home page of the interface, select the application you want and 
 
 **Example: Create simple segment based on "Session" information.**
 
-To create a segment of all the end-users that have used your app at least 50 times in the last week. From there, find only the end-users that have spent at least 30 seconds in your app per session. This will show all the end-users who have a positive experience in your app. Then, the segment created could be used to push a notification to these end-users to ask them to rate your app in the store.
+Create a segment of all the end users that have used your app at least 50 times in the last week. From there, find only the end users that have spent at least 30 seconds in your app per session. This will show all the end users who have a positive experience in your app. Then, the segment created could be used to push a notification to these end users to ask them to rate your app in the store.
  
  ![segments5][39]
 
@@ -786,11 +766,11 @@ Name your criterion in order to retrieve it in the complete funnel and click on 
 
 When you have finished setting up your criterion, it will appear in the segment funnel.
 Because a segment is based on analytics data, segment are computed once per day.
-In this example, 47,7% of the total end-users matched the criterion. They should be the users who have had a good experience and will be likely to provide a higher rating if we push them a notification asking them to rate the app the in store.
+In this example, 47.7% of the total end-users matched the criterion. They should be the users who have had a good experience and will be likely to provide a higher rating if we push them a notification asking them to rate the app in the store.
 
 ## <a name="Settings">Settings</a>
  
-The Settings menu options available for an application vary depending on the platform of application and the permissions you have been granted for the application. Settings include: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions. Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API. The “Glossary” in “Concepts” includes the definitions of terms and abbreviations such as: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
+The Settings menu options available for an application vary, depending on the platform of application and the permissions you have been granted for the application. Settings include the following: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions. Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API. The “Glossary” in “Concepts” includes the definitions of terms and abbreviations such as: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
 
 **See also:** 
 
@@ -869,7 +849,7 @@ Shows the current push speed of your application and allows you to define the pu
   ![settings7][52]
 
 ### Tracking:
-The tracking feature allows you to track the origins of the installations of your iOS and Android applications. It lets you know where your users downloaded your application (i.e. from which application store) and which source brought them here (i.e. ad campaign, blog, web site, e-mail, SMS, etc.). The Tracking feature of Azure Mobile Engagement must be integrated into your application from the SDK as a separate step. 
+The tracking feature allows you to track the origins of the installations of your iOS and Android applications. It lets you know where your users downloaded your application (i.e., from which application store) and which source brought them here (i.e, ad campaign, blog, web site, e-mail, SMS, etc.). The Tracking feature of Azure Mobile Engagement must be integrated into your application from the SDK as a separate step. 
 
 **See also:**
 
@@ -900,7 +880,8 @@ Allows you to build tracking URLs to use as target URLs in your sources (ad camp
  
 Creating a New tracking URL requires you to specify a store and the source of either none, customer, or add server. 
 
--    A source of None creates a default tracking URL.
+-    A source of None creates a de
+-    fault tracking URL.
 -    A source of Custom allows you to specify a URL on an external server to download your application.
 -    A source of Ad server creates a default tracking URL in a default named Ad server.
  
@@ -942,7 +923,7 @@ Push Quotas allow you to define the maximum number of times a device can be push
 ![settings12][57]
  
 ### Permissions:
-Allows you to search and view the Email, Name, Organization, and Permission level of users of your application. The permissions concept is an addition to project role. It allows you to associate one set of permissions to a specific user who has access to your application (premium plan apps allow more users than other plans).
+Allows you to search and view the Email, Name, Organization, and Permission level of users of your application. The permissions concept is an addition to project role. It allows you to associate one set of permissions to a specific user who has access to your application.
 
 **The permissions levels current available are:**
 
@@ -1024,3 +1005,30 @@ Allows you to search and view the Email, Name, Organization, and Permission leve
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 12]: ../mobile-engagement-user-interface-navigation/
+[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 14]: ../mobile-engagement-user-interface-my-account/
+[Link 15]: ../mobile-engagement-user-interface-analytics/
+[Link 16]: ../mobile-engagement-user-interface-monitor/
+[Link 17]: ../mobile-engagement-user-interface-reach/
+[Link 18]: ../mobile-engagement-user-interface-segments/
+[Link 19]: ../mobile-engagement-user-interface-dashboard/
+[Link 20]: ../mobile-engagement-user-interface-settings/
+[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
+[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
+[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
+[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
+[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
+[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
+[Link 27]: ../mobile-engagement-how-tos-first-push/
+[Link 28]: ../mobile-engagement-how-tos-test-campaign/
+[Link 29]: ../mobile-engagement-how-tos-personalize-push/
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
+[Link 32]: ../mobile-engagement-how-tos-text-view/
+[Link 33]: ../mobile-engagement-how-tos-web-view/
