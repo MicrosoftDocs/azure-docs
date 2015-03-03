@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2015" 
+	ms.date="03/03/2015" 
 	ms.author="nitinme"/> 
 
 # Customize HDInsight clusters using Script Action
@@ -25,16 +25,6 @@ HDInsight clusters can be customized in a variety of other ways as well such as 
 
 
 > [AZURE.NOTE] Using Script Action to customize a cluster is supported only on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
-
-
-
-## In this article
-
-- [How is the script used while cluster creation?](#lifecycle)
-- [How to write a script for cluster customization?](#writescript)
-- [How to use Script action to customize cluster?](#howto)
-- [Cluster customization examples](#example)
-- [Support for open source software used on HDInsight cluster](#support)
 
 
 ## <a name="lifecycle"></a>How is the script used while cluster creation?
