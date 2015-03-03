@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Application Insights in a Java web project" 
-	description="Monitor performance and usage of your Java website with Application Insights" 
+	pageTitle="Get started with Application Insights with Java in Eclipse" 
+	description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
 	services="application-insights" 
 	authors="alancameronwills" 
 	manager="kamrani"/>
@@ -14,20 +14,33 @@
 	ms.date="2015-03-02" 
 	ms.author="awills"/>
  
-# Get started with Application Insights in a Java web project
+# Get started with Application Insights with Java in Eclipse
 
-By adding Application Insights to your project, you can detect and diagnose performance issues and exceptions.
+The Application Insights SDK sends telemetry from your app so that you can analyze usage and performance.
 
-In addition, you can set up web tests to monitor your application's availability, and insert code into your web pages to understand usage patterns.
+The Application Insights Toolkit for Eclipse makes it quick and easy to add the SDK to your Java web applications. It provides a simpler alternative to manually configuring the SDK.
+
+## Prerequisites
 
 You'll need:
 
 * Oracle JRE 1.6 or later
 * A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
+* [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/), Indigo or later.
+* Windows 7 or later, or Windows Server 2008 or later
+
+## Install the Application Insights toolkit
+
+You only have to do this one time per machine.
+
+1. In Eclipse, click Help, Install New Software.
+    ![](./media/app-insights-java-eclipse/0-plugin.png)
+2. The SDK is in http://dl.msopentech.com/eclipse, under Azure Toolkit. 
+3. Uncheck **Contact all update sites...**
+    ![](./media/app-insights-java-eclipse/1-plugin.png)
 
 ## Add Application Insights to your Java project
 
-(There will soon be plug-ins for Eclipse and IntelliJ to automate these steps, but for now you'll have to do them manually.)
 
 ### Get an Application Insights instrumentation key
 
@@ -42,75 +55,13 @@ You'll need:
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
-### Add the Application Insights SDK for Java to your project
+## Add the SDK to your project
 
-*Choose the appropriate way for your project.*
+1. Invoke the toolkit on your project.
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/4-addai.png)
+2. Paste the instrumentation key that you got from the Azure portal.
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/5-config.png)
 
-#### If you hava a Dynamic Web project in Eclipse
-
-Use the [Eclipse plug-in][eclipse] to add Application Insights to the project.
-
-#### If you're using Maven...
-
-If your project is already set up to use Maven for build, merge the following snippet of code to your pom.xml file.
-
-Then refresh the project dependencies, to get the binaries downloaded.
-
-    <repositories>
-       <repository>
-          <id>central</id>
-          <name>Central</name>
-          <url>http://repo1.maven.org/maven2</url>
-       </repository>
-    </repositories>
-
-    <dependencies>
-       <dependency>
-         <groupId>com.microsoft.azure</groupId>
-         <artifactId>applicationinsights-core</artifactId>
-         <version>[0.9,)</version>
-      </dependency>
-    </dependencies>
-
-#### If you're using Gradle...
-
-If your project is already set up to use Gradle for build, merge the following snippet of code to your build.gradle file.
-
-Then refresh the project dependencies, to get the binaries downloaded.
-
-    repositories {
-      mavenCentral()
-    }
-
-    dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-core', version: '0.9.+'
-    }
-
-#### Otherwise ...
-
-Manually add the SDK:
-
-1. Download the [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
-2. Extract the following binaries from the zip file, and add them to your project:
- * applicationinsights-core
- * commons-codec
- * commons-io
- * commons-lang
- * commons-logging
- * guava
- * httpclient
- * httpcore
- * jsr305
-
-### Add an Application Insights configuration file to your project
-Add ApplicationInsights.xml to the resources folder in your project. Copy into it the following XML: 
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-    </ApplicationInsights>
-
-Substitute the instrumentation key that you got from the Azure portal.
 
 The key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 
@@ -191,16 +142,15 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 
 #### Detect and diagnose issues
 
+* [Add web client telemetry][usage] to get performance telemetry from the web client.
 * [Set up web tests][availability] to make sure your application stays live and responsive.
-* [Track HTTP requests in a Java app][javareqs]
-* [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
 * [Search events and logs][diagnostic] to help diagnose problems.
 * [Capture Log4J or Logback traces][javalogs]
 
 #### Track usage
 
 * [Add web client telemetry][usage] to monitor page views and basic user metrics.
-* [Track custom events and metrics][track] to learn about how your application is used.
+* [Track custom events and metrics][track] to learn about how your application is used, both at the client and the server.
 
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
