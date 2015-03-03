@@ -100,8 +100,8 @@ You can drill down to specific exceptions (from the last seven days) and get sta
 
   * Use your site, to generate some data.
   * Wait a few minutes to let the data arrive, then click Refresh.
-  * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in "Configuration notifications" section
-  * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com 
+  * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section.
+  * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com. 
   * If on the server you see a message about "insufficient permissions":
    * In IIS Manager, select your application pool, open Advanced Settings, and under Process Model note the Identity.
    * In Computer management control panel, add this identity to the Performance Monitor Users group.
@@ -116,9 +116,9 @@ OS support for Application Insights Status Monitor on Server:
 - Windows Server 2012
 - Windows server 2012 R2
 
-with latest SP and .NET framework 4.0 and 4.5
+with latest SP and .NET Framework 4.0 and 4.5
 
-On the client side Windows 7, 8 and 8.1, again with .NET framework 4.0 and 4.5
+On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)
