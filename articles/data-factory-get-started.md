@@ -83,6 +83,8 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
+	> [AZURE.NOTE] See [Data Factory Editor][data-factory-editor] topic for an overview of the editor. 
+	 
 5. In the **Editor**, click **New data store** button on the toolbar and click **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage in the right pane. 
 
 	![Editor New data store button][image-editor-newdatastore-button]
@@ -424,6 +426,7 @@ Article | Description
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
+[data-factory-editor]: ../data-factory-editor
 [monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
 [adf-tutorial]: ../data-factory-tutorial
