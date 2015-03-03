@@ -429,15 +429,15 @@ Now let’s turn our attention to building the user interface so a user can actu
 		html
 		  head
 		    title= title
-		    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+		    link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
 		    link(rel='stylesheet', href='/stylesheets/style.css')
 		  body
 		    nav.navbar.navbar-inverse.navbar-fixed-top
 		      div.navbar-header
 		        a.navbar-brand(href='#') My Tasks
 		    block content
-		    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
-		    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+		    script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+		    script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
 
 
 
