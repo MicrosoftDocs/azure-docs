@@ -58,7 +58,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
 	+ [Capacity metrics show an unexpected increase in storage capacity usage]
 	+ [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 	+ [Your issue arises from using the storage emulator for development or test]
-	+ [You are encountering problems installing the Windows Azure SDK for .NET]
+	+ [You are encountering problems installing the Azure SDK for .NET]
 	+ [You have a different issue with a storage service]
 + [Appendices]
 	+ [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
@@ -134,7 +134,7 @@ Storage Metrics only stores capacity metrics for the blob service because blobs 
 
 > [AZURE.NOTE] You should monitor these values for an early warning that you are approaching the capacity limits of your storage account. In the Azure portal, on the **Monitor** page for your storage account, you can add alert rules to notify you if aggregate storage use exceeds or falls below thresholds that you specify.
 
-For help estimating the size of various storage objects such as blobs, see the blog post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">Understanding Windows Azure Storage Billing – Bandwidth, Transactions, and Capacity</a>.
+For help estimating the size of various storage objects such as blobs, see the blog post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity</a>.
 
 ### <a name="monitoring-availability"></a>Monitoring availability
 
@@ -181,7 +181,7 @@ The following sections outline the steps you should follow to diagnose and troub
 
 ### <a name="service-health-issues"></a>Service health issues
 
-Service health issues are typically outside of your control. The Azure Portal provides information about any ongoing issues with Azure services including storage services. If you opted for Read-Access Geo-Redundant Storage when you created your storage account, then in the event of your data being unavailable in the primary location, your application could switch temporarily to the read-only copy in the secondary location. To do this, your application must be able to switch between using the primary and secondary storage locations, and be able to work in a reduced functionality mode with read-only data. The Azure Storage Client libraries allow you to define a retry policy that can read from secondary storage in case a read from primary storage fails. Your application also needs to be aware that the data in the secondary location is eventually consistent. For more information, see the blog post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage</a>.
+Service health issues are typically outside of your control. The Azure Portal provides information about any ongoing issues with Azure services including storage services. If you opted for Read-Access Geo-Redundant Storage when you created your storage account, then in the event of your data being unavailable in the primary location, your application could switch temporarily to the read-only copy in the secondary location. To do this, your application must be able to switch between using the primary and secondary storage locations, and be able to work in a reduced functionality mode with read-only data. The Azure Storage Client libraries allow you to define a retry policy that can read from secondary storage in case a read from primary storage fails. Your application also needs to be aware that the data in the secondary location is eventually consistent. For more information, see the blog post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure Storage Redundancy Options and Read Access Geo Redundant Storage</a>.
 
 ### <a name="performance-issues"></a>Performance issues
 
@@ -345,7 +345,7 @@ Is your client application receiving an HTTP 4XX (such as 404) response from a s
 
 ----------
 
-[You are encountering problems installing the Windows Azure SDK for .NET]
+[You are encountering problems installing the Azure SDK for .NET]
 
 ----------
 
@@ -893,7 +893,7 @@ If you are using a JavaScript client and the storage service is returning HTTP 4
 
 These errors occur because the web browser implements the <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">same-origin policy</a> security restriction that prevents a web page from calling an API in a different domain from the domain the page comes from. 
 
-To work around the JavaScript issue, you can configure Cross Origin Resource Sharing (CORS) for the storage service the client is accessing. For more information, see <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Cross-Origin Resource Sharing (CORS) Support for the Windows Azure Storage Services</a> on MSDN.
+To work around the JavaScript issue, you can configure Cross Origin Resource Sharing (CORS) for the storage service the client is accessing. For more information, see <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Cross-Origin Resource Sharing (CORS) Support for Azure Storage Services</a> on MSDN.
 
 The following code sample shows how to configure your blob service to allow JavaScript running in the Contoso domain to access a blob in your blob storage service:
 
@@ -1030,7 +1030,7 @@ You are prompted for administrator credentials when you run the storage emulator
 
 For more information, see <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">Initialize the Storage Emulator by Using the Command-Line Tool</a> on MSDN (you can also initialize the storage emulator in Visual Studio, which will also require administrative privileges).
 
-### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>You are encountering problems installing the Windows Azure SDK for .NET
+### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>You are encountering problems installing the Azure SDK for .NET
 
 When you try to install the SDK, it fails trying to install the storage emulator on your local machine. The installation log contains one of the following messages:
 
@@ -1213,7 +1213,7 @@ At the time of writing Application Insights is in preview. You can find more inf
 [Feature "X" is not working in the storage emulator]: #feature-X-is-not-working
 [Error "The value for one of the HTTP headers is not in the correct format" when using the storage emulator]: #error-HTTP-header-not-correct-format
 [Running the storage emulator requires administrative privileges]: #storage-emulator-requires-administrative-privileges
-[You are encountering problems installing the Windows Azure SDK for .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
+[You are encountering problems installing the Azure SDK for .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
 [You have a different issue with a storage service]: #you-have-a-different-issue-with-a-storage-service
 
 [Appendices]: #appendices
