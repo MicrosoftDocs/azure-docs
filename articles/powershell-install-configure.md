@@ -26,16 +26,6 @@ The module is distributed as a downloadable file and the source code is managed 
 
 This guide provides basic information about installing and setting up Azure PowerShell to manage the Azure platform.
 
-## Table of contents
-  
- * [Prerequisites for using Azure PowerShell](#Prereq)
- * [How to: Install Azure PowerShell](#Install)  
- * [How to: Connect to your subscription](#Connect)
- * [How to use the cmdlets: An example](#Ex)
- * [Getting Help](#Help)
- * [Additional Resources](#Resources)  
-
-
 ### <a id="Prereq"></a>Prerequisites for using Azure PowerShell
 
 Azure is a subscription-based platform. This means that a subscription is required to use the platform. In most cases, it also means that the cmdlets require subscription information to perform the tasks with your subscription. (Some of the storage-related cmdlets can be used without this information.) You provide this by configuring your computer to connect to your subscription. Instructions are provided in this article, under "How to: Connect to your subscription."
