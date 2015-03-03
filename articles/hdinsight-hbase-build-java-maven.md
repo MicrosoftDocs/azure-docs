@@ -482,7 +482,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/documentation/articles/install-configure-powershell/"
+		        throw "Azure PowerShell not found! For help, see http://www.windowsazure.com/documentation/articles/install-configure-powershell/"
 		    }
 		
 		    # Is there an active Azure subscription?
