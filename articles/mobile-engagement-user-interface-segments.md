@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Segments" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="User Interface Overview for the Segments section of Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -33,16 +33,16 @@
 
 # Segments
  
-The Segments section of the UI allows you to work on segmenting your users based on the different behavior and analytics that you can get from the application and can also access through the Segments API. Segments are first computed 24 hours after they are created and are recomputed every 24 hours based on the latest analytics information. Once a segment is calculated, it displays a "Day to day history" chart each day.
+The Segments section of the UI allows you to work on segmenting your users based on the different behavior and analytics that you can get from the application and can also access through the Segments API. Segments are first computed 24 hours after they are created, and they are recomputed every 24 hours based on the latest analytics information. Once a segment is calculated, it displays a "Day to day history" chart each day.
 
 **See also:**
 
 - [API Documentation - Segments API][Link 4], [Troubleshooting Guide - Analytics][Link 2]
 
 You can create a segment based on up to 10 criteria on a specific period up to 60 days in the past from the analytics section. 
-For example, you can create a segment based on the people who have viewed certain pages or searched for specific content within your app within the last 10 days. This information is available in the analytics section, so you can use it to create a segment, and then setup a push notification to target this subset of users to get them to come back to the application. 
+For example, you can create a segment based on the people who have viewed certain pages or searched for specific content within your app within the last 10 days. This information is available in the analytics section. So, you can use it to create a segment, and then set up a push notification to target this subset of users to get them to come back to the application. 
  
-> Note: Once a segment has been calculated it cannot be edited, it can only be cloned (copied) or destroyed (deleted). A segment can be cloned within the same application (with the same AppID) and can also be cloned into other applications (with a different AppID). 
+> Note: Once a segment has been calculated, it cannot be edited; it can only be cloned (copied) or destroyed (deleted). A segment can be cloned within the same application (with the same AppID), and it can also be cloned into other applications (with a different AppID). 
  
  ![segments1][35] 
 
@@ -59,7 +59,7 @@ A common use-case is that you want to send a push a notification to encourage yo
 **Examples segments you can create based on the major Azure Mobile Engagement elements:**
 
 - Event: create a segment that targets one specific event of the application that happened more than twice a week. 
-- Session: create a segment of users that have used the application more than 5 time last week.
+- Session: create a segment of users that have used the application more than 5 times last week.
 - Activity: create a segment of users that have used one page or content more or less than 10 time last month.
 - Job: create a segment of users that have completed a job more than twice a day.
 - Crash: create a segment of all the users that have had a crash more than 10 times last week. (You could push this segment with an apology or even a coupon!)
@@ -76,7 +76,7 @@ Then, go to the home page of the interface, select the application you want and 
 
 **Example: Create simple segment based on "Session" information.**
 
-To create a segment of all the end-users that have used your app at least 50 times in the last week. From there, find only the end-users that have spent at least 30 seconds in your app per session. This will show all the end-users who have a positive experience in your app. Then, the segment created could be used to push a notification to these end-users to ask them to rate your app in the store.
+Create a segment of all the end-users that have used your app at least 50 times in the last week. From there, find only the end-users that have spent at least 30 seconds in your app per session. This will show all the end-users who have a positive experience in your app. Then, the segment created could be used to push a notification to these end-users to ask them to rate your app in the store.
  
  ![segments5][39]
 
@@ -107,17 +107,17 @@ For the Session segmentation, you can choose the length per session as a criteri
 1. Select the Operator from the list.
 2. Provide the Length per session.
 3. Click Next.
-In this example, it says that over all the session that have been segmented on the occurrence section, select only the users that have spent more than 30 seconds per session.
+In this example, it says that over all the sessions that have been segmented on the occurrence section, select only the users that have spent more than 30 seconds per session.
  
  ![segments10][44]
 
-Name your criterion in order to retrieve it in the complete funnel and click on the "Finish" button.
+Name your criterion in order to retrieve it in the complete funnel, and click Finish.
  
  ![segments11][45]
 
 When you have finished setting up your criterion, it will appear in the segment funnel.
-Because a segment is based on analytics data, segment are computed once per day.
-In this example, 47,7% of the total end-users matched the criterion. They should be the users who have had a good experience and will be likely to provide a higher rating if we push them a notification asking them to rate the app the in store.
+Because a segment is based on analytics data, segments are computed once per day.
+In this example, 47,7% of the total end-users matched the criterion. They should be the users who have had a good experience and will be likely to provide a higher rating if you push them a notification asking them to rate the app in the store.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
