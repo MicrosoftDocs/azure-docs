@@ -68,7 +68,7 @@ Visual Studio provides access to a subset of the site management functions and c
 
 	In this tutorial you'll be using the logging and tracing drop-downs.	You'll also use remote debugging but you'll use a different method to enable it.
    
-	For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
+	For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Sites: How Application Strings and Connection Strings Work](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 	If you want to perform a site management task that can't be done in this window, you can click **Full Website Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
@@ -622,7 +622,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/windowsazure/ff683677.aspx).
+	This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/ff683677.aspx).
 
 7. To look at the details for a single row, double-click one of the rows.
 
@@ -701,7 +701,7 @@ For more information about troubleshooting Azure Websites (WAWS), see the follow
 
 * [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 * [Investigating Memory Leaks in Azure Web Sites with Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blog post about Visual Studio features for analyzing managed memory issues.
-* [Windows Azure Websites online tools you should know about](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
+* [Azure Websites online tools you should know about](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
 
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
@@ -751,8 +751,6 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
 
 * [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   How to use the command line to do what this tutorial shows how to do in Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is a tool for debugging ASP.NET applications. 
-* [Using Azure Web Site Logging and Diagnostics - with David Ebbo](http://www.windowsazure.com/documentation/videos/azure-web-site-logging-and-diagnostics/) and [Streaming Logs from Azure Web Sites - with David Ebbo](http://www.windowsazure.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-  Videos by Scott Hanselman and David Ebbo.
 
 For error logging, an alternative to writing your own tracing code is to use an open-source logging framework such as [ELMAH](http://nuget.org/packages/elmah/). For more information, see [Scott Hanselman's blog posts about ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
@@ -775,7 +773,7 @@ The Microsoft TechNet website includes a [Using Failed Request Tracing](http://w
 
 ### Debugging Cloud Services
 
-If you want to debug an Azure Cloud Service rather than a Website, see [Debugging Cloud Services](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
+If you want to debug an Azure Cloud Service rather than a Website, see [Debugging Cloud Services](http://msdn.microsoft.com/library/ee405479.aspx).
 
 
 
