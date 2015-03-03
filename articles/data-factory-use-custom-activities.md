@@ -97,7 +97,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 - Tutorial from [Get started with Azure Data Factory][adfgetstarted]. You must complete the tutorial from this article before continuing further with this walkthrough.
 - Visual Studio 2012 or 2013
-- Download and install [Windows Azure .NET SDK][azure-developer-center]
+- Download and install [Azure .NET SDK][azure-developer-center]
 - Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the walkthrough.
 - Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package.
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
@@ -123,7 +123,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 		Install-Package Microsoft.DataFactories.Runtime –Pre
 
-4. Import the Windows Azure Storage NuGet package in to the project.
+4. Import the Azure Storage NuGet package in to the project.
 
 		Install-Package WindowsAzure.Storage
 
