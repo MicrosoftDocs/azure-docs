@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create Web and Worker Roles" 
-	description="" 
+	description="A guide to creating PHP Web and Worker roles in an Azure Cloud Service, and configuring the PHP runtime." 
 	services="" 
 	documentationCenter="php" 
 	authors="tfitzmac" 

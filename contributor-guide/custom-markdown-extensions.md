@@ -6,7 +6,7 @@
 
 For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
 
-Azure.microsoft.com does not support [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) or [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block. 
+Azure.microsoft.com supports [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) and [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). However, ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block. 
 
 ## Custom markdown extensions used in our technical articles
 

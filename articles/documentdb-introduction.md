@@ -20,7 +20,7 @@
 
 This article provides an introduction to Microsoft Azure DocumentDB, a NoSQL document database service for developers, IT Pros, and business decision makers. 
 
-We recommend getting started by watching the following video, where Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB. (Duration: 10:02)  
+We recommend getting started by watching the following video, where Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB. 
 
 > [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 

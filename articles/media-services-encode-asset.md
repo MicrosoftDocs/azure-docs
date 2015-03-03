@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Encode an Asset using Azure Media Encoder" 
+	pageTitle="How to Encode an Asset with Azure Media Services" 
 	description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,202 +16,46 @@
 	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
-
-#How to encode an asset using Azure Media Encoder
-
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+#Encoding with Azure Media Services
 
 ##Overview
-In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
-Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see Task Presets for Azure Media Services. If you used a third party encoder, you should [validate your files](https://msdn.microsoft.com/en-us/library/azure/dn750842.aspx).
+In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. People watch videos on a variety of devices from TVs with set-top boxes, desktop PCs to tablets and smartphones. Each of these devices have different bandwidth and compression requirements. Encoding is the process of compressing video and audio using Compressor/Decompressors or codecs. Transcoding is the process of taking a video that has been encoded and re-encode it into a different encoding format. Since most cameras encode video to some degree, most encoding work done on Azure Media Services is technically transcoding.
+The quality of encoded\transcoded content is determined by the amount of data that is lost when the content is compressed and decompressed. Many factors affect the loss of data in the compression process, but in general, the more complex the original data and the higher the compression ratio, the more detail is lost in the compression process.
 
-It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](https://msdn.microsoft.com/en-us/library/azure/jj889436.aspx).
+Videos can be encoded to single bitrate or multiple bitrate files. The bitrate of a video is the number of bits recorded per second, usually measured in kilobits/sec or megabits/sec.  When encoding to single bitrate, a single video file is produced at a specified bitrate. When encoding to multiple bitrate, multiple files are created at different bitrates. The number and types of files created depends on the technology used.
+Adaptive bitrate technologies allow the video player to determine network conditions and select from among several bitrates. When network conditions degrade, the client can select a lower bitrate allowing the player to continue to play the video at a lower video quality. As network conditions improve the client can switch to a higher bitrate with improved video quality. Media Services supports two adaptive bitrate technologies HTTP Live Streaming and Smooth Streaming. HTTP Live Streaming (HLS) is an adaptive bitrate technology created by Apple. Smooth Streaming is an adaptive bitrate technology created by Microsoft.
 
+By default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information about scaling encoding units, see the following **Portal** and **.NET** topics.
 
-##Create a job with a single encoding task 
-
-When encoding with Azure Media Encoder, you can use task configuration presets specified [here](https://msdn.microsoft.com/en-us/library/azure/dn619389.aspx).
-
-###Use Media Services SDK for .NET  
-
-The following **EncodeToAdaptiveBitrateMP4Set** method creates an encoding job and adds a single encoding task to the job. The task uses "Azure Media Encoder" to encode to "H264 Adaptive Bitrate MP4 Set 720p". 
-
-    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-    {
-        var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-
-        IJob job = _context.Jobs.Create(String.Format("Encoding {0} into to {1}",
-                                inputAsset.Name,
-                                encodingPreset));
-
-        var mediaProcessors = GetLatestMediaProcessorByName("Azure Media Encoder");
-
-        ITask encodeTask = job.Tasks.AddNew("Encoding", mediaProcessors, encodingPreset, TaskOptions.None);
-        
-        encodeTask.InputAssets.Add(inputAsset);
-
-        // Specify the storage-encrypted output asset.
-        encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), 
-            AssetCreationOptions.StorageEncrypted);
+[AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
 
 
-        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-        job.Submit();
-        job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-        return job.OutputMediaAssets[0];
-    }
-
-    private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-    {
-        Console.WriteLine("Job state changed event:");
-        Console.WriteLine("  Previous state: " + e.PreviousState);
-        Console.WriteLine("  Current state: " + e.CurrentState);
-        switch (e.CurrentState)
-        {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
-        }
-    }
-
-    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-           ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-        if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-        return processor;
-    }
-
-###Use Media Services SDK for .NET Extensions
-
-    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-    {
-        // 1. Prepare a job with a single task to transcode the specified mezzanine asset
-        //    into a multi-bitrate asset.
-        IJob job = _context.Jobs.CreateWithSingleTask(
-            MediaProcessorNames.AzureMediaEncoder,
-            MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
-            asset,
-            "Adaptive Bitrate MP4",
-            AssetCreationOptions.None);
-
-        Console.WriteLine("Submitting transcoding job...");
-
-        // 2. Submit the job and wait until it is completed.
-        job.Submit();
-        job = job.StartExecutionProgressTask(
-            j =>
-            {
-                Console.WriteLine("Job state: {0}", j.State);
-                Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
-            },
-            CancellationToken.None).Result;
-
-        Console.WriteLine("Transcoding job finished.");
-
-        IAsset outputAsset = job.OutputMediaAssets[0];
-
-        return outputAsset;
-    } 
-
-##Create a job with chained tasks 
-
-In many application scenarios, developers want to create a series of processing tasks. In Media Services, you can create a series of chained tasks. Each task performs different processing steps and can use different media processors. The chained tasks can hand off an asset from one task to another, performing a linear sequence of tasks on the asset. However, the tasks performed in a job are not required to be in a sequence. When you create a chained task, the chained **ITask** objects are created in a single **IJob** object.
-
->[AZURE.NOTE] There is currently a limit of 30 tasks per job. If you need to chain more than 30 tasks, create more than one job to contain the tasks.
-
-The following **CreateChainedTaskEncodingJob** method creates a job that contains two chained tasks. As a result, the method returns a job that contains two output assets.
-
-	
-    public static IJob CreateChainedTaskEncodingJob(IAsset asset)
-    {
-        // Declare a new job.
-        IJob job = _context.Jobs.Create("My task-chained encoding job");
-
-        // Set up the first task to encode the input file.
-
-        // Get a media processor reference
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-
-        // Create a task with the encoding details, using a string preset.
-        ITask task = job.Tasks.AddNew("My encoding task",
-            processor,
-           "H264 Adaptive Bitrate MP4 Set 720p",
-            TaskOptions.ProtectedConfiguration);
-
-        // Specify the input asset to be encoded.
-        task.InputAssets.Add(asset);
-
-        // Specify the storage-encrypted output asset.
-        task.OutputAssets.AddNew("My storage-encrypted output asset",
-            AssetCreationOptions.StorageEncrypted);
-
-        // Set up the second task to decrypt the encoded output file from 
-        // the first task.
-
-        // Get another media processor instance
-        IMediaProcessor decryptProcessor = GetLatestMediaProcessorByName("Storage Decryption");
-
-        // Declare the decryption task. 
-        ITask decryptTask = job.Tasks.AddNew("My decryption task",
-            decryptProcessor,
-            string.Empty,
-            TaskOptions.None);
-
-        // Specify the input asset to be decrypted. This is the output 
-        // asset from the first task. 
-        decryptTask.InputAssets.Add(task.OutputAssets[0]);
-
-        // Specify an output asset to contain the results of the job. 
-        // This should have AssetCreationOptions.None. 
-        decryptTask.OutputAssets.AddNew("My decrypted output asset",
-            AssetCreationOptions.None);
-
-        // Use the following event handler to check job progress. 
-        job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-
-        // Launch the job.
-        job.Submit();
-
-        // Check job execution and wait for job to finish. 
-        Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-        progressJobTask.Wait();
-
-        //return job that contains two output assets.
-        return job;
-    }
+Once a video has been encoded\transcoded it can be placed into different file containers. The process of placing encoded media into a container is called packaging. The following blog explains the difference between encoding and packaging: [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
 
 
-##Next Steps
-Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](../media-services-check-job-progress/) topic.
+##Encoding and packaging with Azure Media Encoder
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+The **Azure Media Encoder** is configured using one of the encoder preset strings described [here](https://msdn.microsoft.com/en-us/library/azure/dn619392.aspx).
+
+For information about codecs and formats supported by the **Azure Media Encoder**, see [this](../media-services-azure-media-encoder-formats) topic. 
+This section contains topics that describe the encoding and packaging with Media Services.
+
+It is recommended to encode your asset into a set of adaptive MP4 or adaptive smooth streaming files. You can then use [Dynamic Packaging](https://msdn.microsoft.com/en-us/library/azure/jj889436.aspx) to stream your media in one of the following formats: HLS, Smooth Streaming, MPEG-DASH, or HDS. 
+
+Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
+
+Encode with **Dolby Digital Plus**
+
+For more information, see: [Encode with Dolby Digital Plus](../media-services-encode-with-dolby-digital-plus). 
+
+
+##Related topics
+
+[Controlling Media Service Encoder Output Filenames ](https://msdn.microsoft.com/en-us/library/azure/dn303341.aspx)– Describes the file naming convention used by the Azure Media Encoder and how to modify the output filenames.
+[Encoder Guides](https://msdn.microsoft.com/en-us/library/azure/dn535856.aspx)- A collection of topics that help you determine the best encoding for your intended audience.
+[Encoding your media with Dolby Digital Plus](https://msdn.microsoft.com/en-us/library/azure/dn296426.aspx) – Describes how to encode audio tracks using Dolby Digital Plus encoding
+[Dynamic Packaging](https://msdn.microsoft.com/en-us/library/azure/jj889436.aspx) – Describes how to encode to a single format and dynamically serve Smooth Streaming, Apple HLS, or MPEG-DASH
+[Quotas and Limitations](../media-services-quotas-and-limitations) – Describes quotas used and limitations of the Media Services Encoder

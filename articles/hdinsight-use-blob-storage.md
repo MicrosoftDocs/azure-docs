@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Query big data from Hadoop-compatible Blob storage | Azure" 
 	description="HDInsight uses Hadoop-compatible Blob storage as the big data store for HDFS. Learn how to query from Blob storage, and store results of your analysis." 
-	services="storage, hdinsight" 
+	services="hdinsight,storage" 
 	documentationCenter="" 
 	authors="mumian" 
 	manager="paulettm" 
-	editor="mollybos"/>
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="hdinsight" 

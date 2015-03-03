@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
+	ms.date="02/27/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,17 +22,11 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal" class="current">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal">Azure Preview Portal</a></div>
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM). It uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with pre-installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create an Azure virtual machine (VM). This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with pre-installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
 
-> [AZURE.NOTE] You don't need any experience with Azure VMs to finish this tutorial, but you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/). 
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
-This tutorial shows you:
-
-- [How to create the virtual machine](#createvirtualmachine)
-- [How to log on to the virtual machine after you create it](#logon)
-- [How to attach a data disk to the new virtual machine](#attachdisk)
-
-If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkID=271224).
+To learn more about Azure VMs, see [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx).
 
 
 ##<a id="createvirtualmachine"> </a>How to create the virtual machine##
@@ -51,7 +45,7 @@ This section shows you how to log on to the virtual machine so you can manage it
 
 ## <a id="attachdisk"> </a>How to attach a data disk to the new virtual machine ##
 
-This section shows you how to attach an empty data disk to the virtual machine. See the [Attach a Data Disk Tutorial](http://www.windowsazure.com/documentation/articles/storage-windows-attach-disk/) for more information, including how to attach existing disks.
+This section shows you how to attach an empty data disk to the virtual machine. See the [Attach a Data Disk Tutorial](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/) for more information, including how to attach existing disks.
 
 1. Sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 
@@ -112,11 +106,11 @@ This section shows you how to attach an empty data disk to the virtual machine. 
 
 To learn more about configuring Windows virtual machines on Azure, see:
 
-[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
 
-[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://www.windowsazure.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[Manage the Availability of Virtual Machines](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/)
+[Manage the Availability of Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/manage-availability-virtual-machines/)
 
 [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
