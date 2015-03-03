@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/03/2015" 
 	ms.author="josephd"/>
 
 #Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
@@ -26,7 +26,7 @@ For the companion topic to configure Linux-based virtual machines, see [Use Azur
 
 ##Step 1: Install Azure PowerShell
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an administrator-level Azure PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
 
 ##Step 2: Set your subscription and storage account
 
@@ -94,21 +94,18 @@ For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virt
 
 Optionally, for a standalone Windows computer, specify the local administrator account and password.
 
-	$localadminusername="<local administrator account name>"
-	$localadminpassword="<local administrator account password>"
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
+	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"	
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadmincred.UserName -Password $localadmincred.Password
 
-Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the account credentials of a domain account.
+Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the name and password of a domain account.
 
-	$localadminusername="<local administrator account name>"
-	$localadminpassword="<local administrator account password>"
+	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
+	$domainacctcred=Get-Credential -Message "Specify the name and password of a domain account"
 	$domaindns="<FQDN of the domain that the machine is joining>"
 	$domacctdomain="<domain of the account that has permission to add the machine to the domain>"
-	$domacctname="<domain account name that has permission to add the machine to the domain>"
-	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain $domacctdomain -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain $domaindns
 
-Note that this requires you to specify the account name and password of an Active Directory domain account. If you are saving the resulting command set as a file, ensure that you store it in a secure location to protect the domain account name and password.
+You will need to type the account name password for the local administrator account and a domain account when these commands run.
 
 For additional pre-configuration options for Windows-based virtual machines, see the syntax for the **Windows** and **WindowsDomain** parameter sets in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -199,9 +196,8 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$localadminusername="DCLocalAdmin"
-	$localadminpassword="DCeq7294*"
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
+	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"	
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadmincred.UserName -Password $localadmincred.Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
 
@@ -236,13 +232,12 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$localadminusername="LOBLocalAdmin"
-	$localadminpassword="LOBmx7137*"
-	$domacctdomain="CORP"
-	$domacctname="admin7"
-	$domacctpassword="frank0987&"
+
+	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
+	$domainacctcred=Get-Credential -Message "Specify the name and password of a domain account"
 	$domaindns="corp.contoso.com"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $ localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
+	$domacctdomain="CORP"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain $domacctdomain -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain $domaindns
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
 

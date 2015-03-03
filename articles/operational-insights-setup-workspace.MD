@@ -1,11 +1,11 @@
 <properties 
-    pageTitle="Operational Insights set Up your workspace" 
-    description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." 
+    pageTitle="Operational Insights - Set Up Your Workspace" 
+    description="Learn about how to set up your workspace in Microsoft Azure Operational Insights." 
     services="operational-insights" 
     documentationCenter="" 
     authors="bandersmsft" 
     manager="jwhit" 
-    editor=""/>
+    editor="banders"/>
 
 <tags 
     ms.service="operational-insights" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
+    ms.date="02/24/2015" 
     ms.author="leylakazemi"/>
 
 # Set up your workspace 
@@ -30,9 +30,9 @@ To learn out more on how to create a workspace using Azure, watch the following 
 ## How many workspaces do I need?
 A workspace is seen as an Azure resource within the Azure Management Portal.
 You can either create a new workspace or link to an existing Preview workspace you might have opened earlier for use with System Center Operations Manager, but you haven't yet associated with an Azure subscription (necessary for billing).
-A workspace represents the level at which data is collected, aggregated, analyzed, and presented in OpInsights Portal. 
+A workspace represents the level at which data is collected, aggregated, analyzed, and presented in the Operational Insights portal. 
 You might choose to have multiple workspaces to segregate data from different environments and systems; each Operations Manager management group (and all its agents) or individual VMs/agents can each be connected with only one workspace.
 
-Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple OpInsights workspaces.
+Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple Operational Insights workspaces.
 By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace.  The administrator can then invite additional Microsoft accounts or pick users from his Azure Active Directory.
 

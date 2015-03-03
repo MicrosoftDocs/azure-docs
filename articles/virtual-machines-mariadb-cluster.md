@@ -22,15 +22,6 @@
 
 <p>We're creating a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/), a robust, scalable, and reliable drop-in replacement for MySQL, to work in a highly available environment on Azure Virtual Machines.</p>
 
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-+ [Architecture overview] 
-+ [Creating the template]
-+ [Creating the cluster]
-+ [Load balancing the cluster]
-+ [Validating the cluster]
-
-
 ## Architecture overview
 
 This topic performs the following steps:

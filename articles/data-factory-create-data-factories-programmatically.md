@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/03/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -25,7 +25,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 ## Prerequisites
 
 - Visual Studio 2012 or 2013
-- Download and install [Windows Azure .NET SDK][azure-developer-center]
+- Download and install [Azure .NET SDK][azure-developer-center]
 - Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.
 
 ## Walkthrough
@@ -69,7 +69,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.WindowsAzure; 
+		using Microsoft.Azure; 
 6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output tables, and a pipeline. You will also this object to monitor slices of a table at runtime.    
 
         // create data pipeline management client
