@@ -17,7 +17,7 @@ ms.author="heidist" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](./search-api-2015-02-28-preview). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/en-us/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here. We provide this article to give you the full documentation set for `2015-02-28-Preview`, even though this API happens to be unchanged.
+> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](./search-api-2015-02-28-preview). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://go.microsoft.com/fwlink/p/?LinkID=528173) and the `2015-02-28-Preview` version described here. We provide this article to give you the full documentation set for `2015-02-28-Preview`, even though this API happens to be unchanged.
 
 ## Overview ##
 
