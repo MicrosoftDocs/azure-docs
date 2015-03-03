@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" 
-	description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." 
+	description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
