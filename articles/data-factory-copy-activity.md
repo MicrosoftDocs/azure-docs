@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="03/02/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -44,6 +44,7 @@ The Copy Activity supports the following data movement scenarios:
 - Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
 - Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
 - Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
+- Copy data from an On-premises file system to Azure Blob
  
 
 <table border="1">	
@@ -98,6 +99,15 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td>X</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>On-premises File System</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
@@ -348,6 +358,14 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
  
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
+## See Also
+- [Copy Activity topic on MSDN Library][msdn-copy-activity]
+- [Linked Services topic on MSDN Library][msdn-linkedservices]
+- [Tables topic on MSDN Library][msdn-tables-topic]
+
+[msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
+[msdn-tables-topic]: https://msdn.microsoft.com/library/dn835002.aspx
 [msdn-supported-sources-sinks]: https://msdn.microsoft.com/library/dn894007.aspx
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 [table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
