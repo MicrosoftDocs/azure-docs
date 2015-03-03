@@ -27,7 +27,7 @@ The following sections describe the Microsoft Azure StorSimple components, and e
 
 ## Azure StorSimple device
 
-The Microsoft Azure StorSimple device is an on-premises hybrid storage device that provides primary storage and iSCSI access to data stored elsewhere. It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple system.
+The Microsoft Azure StorSimple device is an on-premises hybrid storage array that provides primary storage and iSCSI access to data stored elsewhere. It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple solution.
 
 The StorSimple device includes solid state drives (SSDs) and hard disk drives (HDDs), as well as support for clustering and automatic failover. It contains a shared processor, shared storage, and two mirrored controllers. Each controller provides the following:
 
@@ -46,7 +46,7 @@ For more information, see [StorSimple Devices](https://msdn.microsoft.com/librar
 
 You can use Azure StorSimple to create a virtual device that replicates the architecture and capabilities of the actual hybrid storage device. 
 
-The StorSimple virtual device runs on a single node in an Azure virtual machine. (A virtual device can only be created on an Azure virtual machine. You cannot create one on a StorSimple device or an on-premises server.) A StorSimple virtual device differs from a physical StorSimple device as follows: 
+The StorSimple virtual device (also known as the StorSimple Virtual Appliance) runs on a single node in an Azure virtual machine. (A virtual device can only be created on an Azure virtual machine. You cannot create one on a StorSimple device or an on-premises server.) A StorSimple virtual device differs from a physical StorSimple device as follows: 
 
 - The virtual device has only one interface, whereas the physical device has six network interfaces. 
 - You register the virtual device during device configuration, rather than as a separate task.
@@ -86,7 +86,7 @@ Thin provisioning is a virtualization technology in which available storage appe
 
 Azure StorSimple uses deduplication and data compression to further reduce storage requirements.
 
-Deduplication compresses data by eliminating redundancy in the stored data set. As information changes, Azure StorSimple ignores the unchanged data and captures only the changes. In addition, Azure StorSimple reduces the amount of stored data by identifying and removing unnecessary information. 
+Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set. As information changes, Azure StorSimple ignores the unchanged data and captures only the changes. In addition, Azure StorSimple reduces the amount of stored data by identifying and removing unnecessary information. 
 
 ##Windows PowerShell for StorSimple
 
