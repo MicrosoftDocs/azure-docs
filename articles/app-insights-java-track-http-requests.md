@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Track HTTP requests in a Java web application" 
-	description="Application Insights lets you measure performance of your Java web application" 
+	description="Application Insights lets you measure performance of your web Java web application" 
 	services="application-insights" 
 	authors="alancameronwills" 
 	manager="kamrani"/>
