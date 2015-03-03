@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Performance Levels in DocumentDB" 
-	description="Learn about performance levels in DocumentDB" 
+	pageTitle="Performance levels in DocumentDB | Azure" 
+	description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
 	manager="jhubbard" 
@@ -13,17 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/04/2015" 
 	ms.author="johnmac"/>
 
-<!--The next line renders the page title on the page. Update as appropriate using sentence casing.-->
 # Performance levels in DocumentDB #
 
 This article provides an overview of performance levels in [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). 
 
 > [AZURE.IMPORTANT] Performance levels will be available with the general availability of Azure DocumentDB. This release is scheduled for April 2015.
-
-<!--Update the following list of questions to those that are applicable for your topic.-->
 
 After reading this article, you'll be able to answer the following questions:  
 
@@ -91,7 +88,6 @@ DocumentDB collections allow you to partition your data based on both the query 
 
 It is recommended that your application makes use of a small number of collections and that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
-<!--All articles should have a Next steps section. Minimally, just point to other related content on ACOM.-->
 ##<a name="NextSteps"></a>Next steps
 
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
