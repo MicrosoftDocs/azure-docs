@@ -30,13 +30,13 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. S
 ## Build
 
 - [How to use Service Bus Relay (video and code sample)](http://appfabricdemos.codeplex.com/releases/view/67597)
-- [How to integrate a Windows Azure Web Site with a LOB app via Service Bus Relay](http://code.msdn.microsoft.com/windowsazure/How-to-integrate-a-Windows-f1fedff8) 
+- [How to integrate an Azure Web Site with a LOB app via Service Bus Relay](http://code.msdn.microsoft.com/windowsazure/How-to-integrate-a-Windows-f1fedff8) 
 - [Geo-replication with Service Bus Relayed Messages](http://code.msdn.microsoft.com/windowsazure/Geo-replication-with-16dbfecd)
 - [How to integrate a Mobile Service with a REST Service Bus Relay Service](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
  
 ## Popular
-- [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/windowsazure/Hh667438.aspx)
-- [Service Bus REST API Reference](http://msdn.microsoft.com/library/windowsazure/hh780717.aspx)
+- [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/Hh667438.aspx)
+- [Service Bus REST API Reference](http://msdn.microsoft.com/library/hh780717.aspx)
 - [Sign up for a free Azure trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Related services
