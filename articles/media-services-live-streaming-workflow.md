@@ -28,6 +28,9 @@ Note that you can integrate Media Services with your existing tools and processe
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![Live workflow][live-overview]
 
+
+For more information, see [Media Services Overview](../media-services-overview).
+
 ##Creating a Media Services account
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).

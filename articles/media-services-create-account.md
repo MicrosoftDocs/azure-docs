@@ -26,12 +26,6 @@ The Azure Management Portal provides a way to quickly create an Azure Media Serv
 
 This topic explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account. 
 
-##Table of Contents
-
--  [Concepts][]
--  [How to: Create a Media Services account using Quick Create][]
-
-
 <h2><a id="concepts"></a>Concepts</h2>
 Accessing Media Services requires two associated accounts:
 
