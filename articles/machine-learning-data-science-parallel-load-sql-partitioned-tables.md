@@ -1,6 +1,22 @@
-<properties title="Parallel Bulk Data Import Using SQL Partition Tables" pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Azure" description="Parallel Bulk Data Import Using SQL Partition Tables" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Azure" 
+	description="Parallel Bulk Data Import Using SQL Partition Tables" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/19/2015" ms.author="msolhab" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="msolhab" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables
 
@@ -166,4 +182,4 @@ or,
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).

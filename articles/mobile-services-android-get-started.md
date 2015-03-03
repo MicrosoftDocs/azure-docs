@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with Azure Mobile Services for Android apps" 
 	description="Follow this tutorial to get started using Azure Mobile Services for Android development." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -34,7 +34,7 @@ Completing this tutorial requires the [Android Developer Tools][Android Studio],
 
 The downloaded quickstart project contains the Azure Mobile Services SDK for Android.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 <!-- -->
 

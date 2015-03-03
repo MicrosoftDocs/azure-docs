@@ -7,7 +7,7 @@
    <th align="left" valign="middle">Standard</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/services/web-sites/">Websites</a><sup>1</sup> per <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/">Web Hosting Plan</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/web-sites/">Websites</a><sup>1</sup> per <a href="http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/">Web Hosting Plan</a></p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
@@ -28,7 +28,7 @@
    <td valign="middle"><p>Dedicated</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-scale/">Scale-Out</a> (max instances)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-scale/">Scale-Out</a> (max instances)</p></td>
    <td valign="middle"><p>1 shared</p></td>
    <td valign="middle"><p>1 shared</p></td>
    <td valign="middle"><p>3 dedicated</p></td>
@@ -75,25 +75,25 @@
    <td valign="middle"><p>350</p></td>
    <td valign="middle"><p>Unlimited</p></td>
 </tr><tr>
-   <td valign="middle"><p>Concurrent <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/">debugger connections</a> per application</p></td>
+   <td valign="middle"><p>Concurrent <a href="http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/">debugger connections</a> per application</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>5</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">azurewebsites.net subdomain with FTP/S and SSL</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">azurewebsites.net subdomain with FTP/S and SSL</a></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/">Custom domain</a> support</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/">Custom domain</a> support</p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p>Custom domain <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">SSL support</a><sup>9</sup></p></td>
+   <td valign="middle"><p>Custom domain <a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">SSL support</a><sup>9</sup></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
@@ -105,46 +105,46 @@
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/">Always On</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure/">Always On</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/">Backups</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-backup/">Backups</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-scale/">Auto Scale</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-scale/">Auto Scale</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/">WebJobs</a><sup>10</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/">WebJobs</a><sup>10</sup></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/services/scheduler/">Azure Scheduler</a> support</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/scheduler/">Azure Scheduler</a> support</p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-monitor/">Endpoint monitoring</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-monitor/">Endpoint monitoring</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/">Staging Slots (Preview)</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/">Staging Slots (Preview)</a></p></td>
    <td valign="middle"><p>0</p></td>
    <td valign="middle"><p>0</p></td>
    <td valign="middle"><p>1</p></td>
@@ -170,7 +170,7 @@
 
 <sup>2</sup>Basic and Standard sites run on dedicated machines. The actual number of sites that you can host on these machines depends on the activity of the sites, the size of the machine instances, and the corresponding resource utilization.
 
-<sup>3</sup>With the exception of the Free tier, the limits on Web Hosting Plans are per resource group. For more information on creating and managing resource groups, see [Using Resource groups to manage your Azure resources][useresourcegroups]. Note that at the Standard tier, additional Web Hosting Plans are available at request.
+<sup>3</sup>With the exception of the Free tier, the limits on Web Hosting Plans are per resource group. For more information on creating and managing resource groups, see [Using Resource groups to manage your Azure resources][useresourcegroups].
 
 <sup>4</sup>Dedicated instances can be Small, Medium, or Large. See the [Azure Web Sites Pricing Page][websitespricing] for more details. Additional instances are available by opening a support request.
 
@@ -186,6 +186,6 @@
 
 <sup>10</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your Web Sites instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs.
 
-  [useresourcegroups]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websitespricing]: http://azure.microsoft.com/en-us/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/en-us/pricing/details/web-sites/#ssl-connections
+  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
+  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
+  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections

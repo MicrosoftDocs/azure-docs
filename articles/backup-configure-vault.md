@@ -66,8 +66,8 @@ Vault credentials replace certificates as the way to register your Azure service
 
 3. On the Quick Start page, select the type of agent you want to download. You can choose **Download Azure Backup Agent**, **Windows Server and System Center Data Protection Manager**, or **Windows Server Essentials**.  For more information see:
 
-	* [Install Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/en-us/library/hh831761.aspx#BKMK_installagent)
-	* [Install Azure Backup Agent for Windows Server 2012 Essentials](http://technet.microsoft.com/en-us/library/jj884318.aspx)
+	* [Install Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Install Azure Backup Agent for Windows Server 2012 Essentials](http://technet.microsoft.com/library/jj884318.aspx)
 
 Once the agent is installed you can use the appropriate local management interface (such as the Microsoft Management Console snap-in, System Center Data Protection Manager Console, or Windows Server Essentials Dashboard) to configure the backup policy for the server.
 	

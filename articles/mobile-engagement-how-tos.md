@@ -18,11 +18,21 @@
 
 # Azure Mobile Engagement - How To Guides
 
+<div class="dev-center-tutorial-selector sublanding">
+<a href="#First" title="First Push">First Push</a>
+<a href="#Test" title="Test Campaign">Test Campaign</a>
+<a href="#Personalize" title="Personalize Push">Personalize Push</a>
+<a href="#Differentiate" title="Differentiate Push">Differentiate Push</a>
+<a href="#Schedule" title="Schedule Campaign">Schedule Campaign</a>
+<a href="#TextView" title="Text View">Text View</a>
+<a href="#WebView" title="Web View">Web View</a>
+</div>
+
 ## Introduction
 
-The following How To Guides for the Azure Mobile Engagement [User Interface][Link 1] assume that you are familiar with the basic [Concepts][Link 6] of Azure Mobile Engagement and will only work after you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application. If you have difficulty with any of these Walkthroughs please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
+The following How To Guides for the Azure Mobile Engagement User Interface assume that you are familiar with the basic [Concepts][Link 6] of Azure Mobile Engagement and will only work after you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application. These Walkthroughs focus on how standard users can use the [User Interface][Link 1] rather than how developer users can used the HTTP REST based [APIs][Link 4]. If you have difficulty with any of these [Walkthroughs][Link 3] please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
 
-## Do Your First Push Notification Campaign
+## <a name="#First">Do Your First Push Notification Campaign</a>
 -    Confirm that your Reach is integrated into your app with the SDK. 
 -    Select your application
  
@@ -57,7 +67,7 @@ The following How To Guides for the Azure Mobile Engagement [User Interface][Lin
  
 ![First7][7]
 
-## Test Your Push Notification Campaign
+## <a name="#Test">Test Your Push Notification Campaign</a>
  
 ![Test1][8]
 
@@ -73,7 +83,7 @@ The following How To Guides for the Azure Mobile Engagement [User Interface][Lin
 
 -    Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.
  
-## Send Personalized Pushes
+## <a name="#Personalize">Send Personalized Pushes</a>
 -    This example creates a push where a custom rebate code is entered into the push notification.
  
 ![Personalize1][11]
@@ -103,7 +113,7 @@ As you see above the push notification content includes the marker ${rebate_code
 -    The body of the message.
  
  
-## Differentiate Your Push Notification (in or out of app)
+## <a name="#Differentiate">Differentiate Your Push Notification (in or out of app)</a>
 
 -    Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.
  
@@ -136,7 +146,7 @@ You can fully customize the notification and decide in which activity (screen) t
 You can choose an "Anytime" delivery mode, ensures you to reach your end-user whether the application is running or not.
 When you select "Anytime" , you must have already provided the certificates from the platform that your application is building upon (APNS or GCM). 
  
-## Schedule a Push Campaign
+## <a name="#Schedule">Schedule a Push Campaign</a>
  
 ### Plan to Start a campaign
  
@@ -163,7 +173,7 @@ This means that the campaign will start as soon as you activate it in the reach 
  
 > Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
 
-## Enhance a Push Notification with a Text View
+## <a name="#TextView">Enhance a Push Notification with a Text View</a>
 
 ### What is a Text View?
  
@@ -208,7 +218,7 @@ A text view allows you to present more content to your end-user. This is also th
 -    The user receives the notification and click on it.
 -    The text view appears as a pop-up allowing the user to interact with it.
 
-## Enhance a Push Notification with a Web View
+## <a name="#WebView">Enhance a Push Notification with a Web View</a>
 
 ### What is a Web View?
  
@@ -297,3 +307,30 @@ Select the "Web announcement" content.
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 12]: ../mobile-engagement-user-interface-navigation/
+[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 14]: ../mobile-engagement-user-interface-my-account/
+[Link 15]: ../mobile-engagement-user-interface-analytics/
+[Link 16]: ../mobile-engagement-user-interface-monitor/
+[Link 17]: ../mobile-engagement-user-interface-reach/
+[Link 18]: ../mobile-engagement-user-interface-segments/
+[Link 19]: ../mobile-engagement-user-interface-dashboard/
+[Link 20]: ../mobile-engagement-user-interface-settings/
+[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
+[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
+[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
+[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
+[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
+[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
+[Link 27]: ../mobile-engagement-how-tos-first-push/
+[Link 28]: ../mobile-engagement-how-tos-test-campaign/
+[Link 29]: ../mobile-engagement-how-tos-personalize-push/
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
+[Link 32]: ../mobile-engagement-how-tos-text-view/
+[Link 33]: ../mobile-engagement-how-tos-web-view/

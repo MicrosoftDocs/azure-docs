@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Call a custom API from a Windows Store client - Mobile Services" 
-	description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." 
+	description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Call a custom API from the client
@@ -32,8 +32,6 @@ You will add this functionality to the app that you created when you completed e
 3. [Test the app] 
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. 
-
-## <a name="define-custom-api"></a>Define the custom API
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 

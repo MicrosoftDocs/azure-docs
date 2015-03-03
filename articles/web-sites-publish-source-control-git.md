@@ -4,7 +4,7 @@
 	description="Learn how to use Git to publish an Azure website, and then enable continuous deployment from GitHub and CodePlex." 
 	services="" 
 	documentationCenter="php" 
-	authors="blackmist" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryf"/>
+	ms.date="2/20/2015" 
+	ms.author="cephalin"/>
 
 [AZURE.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]

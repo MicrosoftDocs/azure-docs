@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="2/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference

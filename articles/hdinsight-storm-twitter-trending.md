@@ -134,3 +134,9 @@ You may also be interested in the following Storm topics:
 * [Develop Java topologies for Storm on HDInsight using Maven](../hdinsight-storm-develop-java-topology/)
 
 * [Develop C# topologies for Storm on HDInsight using Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+
+For more Storm examples for HDinsight:
+
+* [Storm on HDInsight examples](https://github.com/hdinsight/hdinsight-storm-examples)
+
+* [Analyze EventHub sensor data with Storm on HDInsight](../hdinsight-storm-sensor-data-analysis/)

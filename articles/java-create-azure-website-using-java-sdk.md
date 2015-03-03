@@ -42,7 +42,7 @@ If you do not already have an Active Directory (AD) on your Azure subscription, 
 
 3. In **Name**, enter a directory name.
 
-4. In **Domain**, enter a domain name. This is a basic domain name that is included by default with your directory; it has the form `<domain_name>.onmicrosoft.com`. You can name it based on the directory name or another domain name that you own. Later, you can add another domain name that your organization already uses. For more information on AD, see [What is an Azure AD directory?](http://technet.microsoft.com/en-us/library/jj573650.aspx).
+4. In **Domain**, enter a domain name. This is a basic domain name that is included by default with your directory; it has the form `<domain_name>.onmicrosoft.com`. You can name it based on the directory name or another domain name that you own. Later, you can add another domain name that your organization already uses. For more information on AD, see [What is an Azure AD directory?](http://technet.microsoft.com/library/jj573650.aspx).
 
 
 ## Create a Management Certificate for Azure
@@ -375,21 +375,21 @@ Export the web project files as a web archive (WAR) file so that you can deploy 
 
     `<project-path>/JSPHello/src/JSPHello.war`
 
-For more information on deploying WAR files, see [Adding an application to your Java website on Azure](http://azure.microsoft.com/en-us/documentation/articles/web-sites-java-add-app/).
+For more information on deploying WAR files, see [Adding an application to your Java website on Azure](http://azure.microsoft.com/documentation/articles/web-sites-java-add-app/).
 
 
 ## Deploying the Hello World Application Using FTP
 
 Select a third-party FTP client to publish the application. This procedure describes two options: the Kudu console built into Azure; and FileZilla, a popular tool with a convenient, graphical UI.
 
-> **Note:** The Azure Plugin for Eclipse with Java 2.4 supports deployment to storage accounts and cloud services, but does not currently support deployment to websites. You can deploy to storage accounts and cloud services using an Azure Deployment Project as described in [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/azure/hh690944.aspx). However, the Deploy to Azure tool provided by the plugin does not currently support websites. Use other methods such as FTP or GitHub to transfer files to your website.
+> **Note:** The Azure Plugin for Eclipse with Java 2.4 supports deployment to storage accounts and cloud services, but does not currently support deployment to websites. You can deploy to storage accounts and cloud services using an Azure Deployment Project as described in [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx). However, the Deploy to Azure tool provided by the plugin does not currently support websites. Use other methods such as FTP or GitHub to transfer files to your website.
 
 > **Note:** We do not recommend using FTP from the Windows command prompt (the command-line FTP.EXE utility that ships with Windows). FTP clients that use active FTP, such as FTP.EXE, often fail to work over firewalls. Active FTP specifies an internal LAN-based address, to which an FTP server will likely fail to connect.
 
 For more information on deployment to an Azure website using FTP, see the following topics:
 
-- [Manage websites through the Azure Management Portal: FTP Credentials](http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage/#ftp-credentials)
-- [How to deploy using an FTP utility](http://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/#ftp)
+- [Manage websites through the Azure Management Portal: FTP Credentials](http://azure.microsoft.com/documentation/articles/web-sites-manage/#ftp-credentials)
+- [How to deploy using an FTP utility](http://azure.microsoft.com/documentation/articles/web-sites-deploy/#ftp)
 
 
 ### Set up deployment credentials

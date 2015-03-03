@@ -90,3 +90,4 @@ You get your account key [here]( https://datamarket.azure.com/account/keys).
 	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata","KeyPhrases":[
 	    "wonderful hotel","unique decor","friendly staff"]
 	}
+ 

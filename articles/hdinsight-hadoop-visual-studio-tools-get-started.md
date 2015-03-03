@@ -24,13 +24,6 @@ Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clust
 
 >The most recent release has introduced some new features, such as Hive editor Intellisense support, Hive script local validation, and accessing Yarn logs.
 
-##In this article
-+ [Installation] 
-+ [Connect to your Azure subscription]
-+ [Navigate the linked resources]
-+ [Run Hive queries]
-+ [Next steps]
-
 
 ##Prerequisites
 

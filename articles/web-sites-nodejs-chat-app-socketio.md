@@ -3,7 +3,7 @@
 	description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="2/20/2015" 
 	ms.author="larryfr"/>
 
 
@@ -21,9 +21,9 @@
 
 #Build a Node.js Chat Application with Socket.IO on an Azure Website
 
-Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling,) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure Website. For more information on Socket.IO, see [http://socket.io/][socketio].
+Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling,) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure Website, and show you how to [scale](#scale-out) the application using [Azure Redis Cache](http://azure.microsoft.com/documentation/services/cache). For more information on Socket.IO, see [http://socket.io/][socketio].
 
-> [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
+> [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
 
 
 ## <a id="Download"></a>Download the Chat Example
@@ -32,7 +32,7 @@ For this project, we will use the chat example from the [Socket.IO
 GitHub repository]. Perform the following steps to download the example
 and add it to the project you previously created.
 
-1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.0.6 was used for this document)
+1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.3.4 was used for this document)
 
 
 3.  Extract the archive and copy the **examples\\chat**
@@ -88,15 +88,15 @@ install required modules::
     relative path, Socket.IO was not referenced in the package.json
     file, so we must install it by issuing the following command:
 
-        npm install socket.io@1.0.6 -save
+        npm install socket.io@1.3.4 -save
 
-	> [AZURE.NOTE] While newer versions of Socket.IO may work with the steps in this article, it was tested with version 1.0.6.
+	> [AZURE.NOTE] While newer versions of Socket.IO may work with the steps in this article, it was tested with version 1.3.4.
 
 ## <a id="Publish"></a>Create an Azure Website
 
 Follow these steps to create an Azure Website, enable Git publishing, and then enable WebSocket support for the website.
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
 
 1. From the command-line, change directories to the **\\node\chat** directory and use the following command to create a new Azure Website and enable a Git repository for the website and the local directory. This will also create a Git remote named 'azure'.
 
@@ -155,7 +155,7 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 
 1. From a command-line, change to the __\\node\\chat__ directory and use the following command.
 
-		npm install socket.io-redis@0.1.3 redis@0.11.0 --save
+		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
 	> [AZURE.NOTE] The versions specified in this command are the versions used when testing this article.
 
@@ -167,12 +167,11 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 		var redis = require('socket.io-redis');
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
-
 	Replace __redishostname__ and __rediskey__ with the host name and key for your Redis cache.
 
 	This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
 
-	> [AZURE.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
+	> [AZURE.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
 	> 
 	> While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6380.
 

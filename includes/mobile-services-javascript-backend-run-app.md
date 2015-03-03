@@ -15,8 +15,6 @@ The final stage of this tutorial is to build and run your new app.
  
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
-   	![](./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png)
-
    	This lets you browse the data inserted by the app into the table.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)

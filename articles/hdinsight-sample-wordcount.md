@@ -29,7 +29,7 @@ This tutorial shows you how to run a MapReduce word count example on an Hadoop c
 
 **Prerequisites**:	
 
-- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Get Started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](../hdinsight-provision-clusters/)
 

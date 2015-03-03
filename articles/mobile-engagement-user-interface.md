@@ -18,14 +18,26 @@
 
 # Azure Mobile Engagement - User Interface
 
+<div class="dev-center-tutorial-selector sublanding">
+<a href="#Navigation" title="Navigation">Navigation</a>
+<a href="#Home" title="Home">Home</a>
+<a href="#MyAccount" title="My Account">My Account</a>
+<a href="#Analytics" title="Analytics">Analytics</a>
+<a href="#Monitor" title="Monitor">Monitor</a>
+<a href="#Reach" title="Reach">Reach</a>
+<a href="#ReachCampaign" title="Reach Campaign">Reach Campaign</a>
+<a href="#ReachCriterion" title="Reach Criterion">Reach Criterion</a>
+<a href="#ReachContent" title="Reach Content">Reach Content</a>
+<a href="#Dashboard" title="Dashboard">Dashboard</a>
+<a href="#Segments" title="Segments">Segments</a>
+<a href="#Settings" title="Settings">Settings</a>
+</div>
+
 ## Introduction
  
-Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app.
+Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app: standard users can use the [User Interface][Link 1] and developer users can used the HTTP REST based [APIs][Link 4]. If you have difficulty please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
 
-- Standard users can use the [User Interface][Link 1].
-- Developer users can used the HTTP REST based [APIs][Link 4].
-
-## Navigation
+## <a name="Navigation">Navigation</a>
  
 The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ contains the following navigation elements: a header, a footer, a sidebar, cookie crumb navigation, and an app specific ribbon.
  
@@ -57,7 +69,7 @@ The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ c
 
 - [UI Documentation – Ribbon Items][Link 1] 
 
-## Analytics
+## <a name="Home">Home</a>
  
 The Home section of the UI contains the list of all of your applications in My Applications as well as access to the Demo Application for each platform for testing and the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account and can access the Demo Applications in Favorite Applications, but you need to grant others users need permission in order for them to have to access your custom applications in My Projects.
  
@@ -115,7 +127,7 @@ You can also invite a user to your project based on their e-mail address. Users 
 
 -  [UI Documentation - Settings][Link 1]
 
-## My Account
+## <a name="MyAccount">My Account</a>
  
 The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via to the Device API.
  
@@ -154,7 +166,7 @@ You should find out your Device ID in the list of the devices that have performe
 Then you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform"
 >(Be aware that when IDFA is disabled for iOS, then the Device ID may change over the time if you uninstall and re-install your app.)
 
-## Analytics
+## <a name="Analytics">Analytics</a>
  
 The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours which is displayed on different dashboards composed of line/bar/pie charts, grids and maps and the data can also be downloaded as csv files. Most of this same information is available in real time in the Monitor section of the UI and can also be accessed from the Analytics API. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring such as: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
@@ -222,7 +234,7 @@ Each card is composed of 3 main parts:
 4.    This indicates the values used for the calculation.
 5.    This is a Sparkline of the history of the retention values. It allows seeing the values in the past to have a broad view of how it evolved.
 
-## Monitor
+## <a name="Monitor">Monitor</a>
  
 The Monitor section of the UI provides real time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the "Analytics" section of the UI. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring such as: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
@@ -258,7 +270,7 @@ You can also specify conditions for Alerts that will be automatically sent to yo
  
 ![Monitor4][17]
 
-## Reach
+## <a name="Reach">Reach</a>
  
 The Reach section of the UI is the Push campaign management tool where you can create/edit/activate/finish/monitor and get statistics on Push notification campaigns and features that can also be accessed via the Reach API (and some elements of the low level Push API). Remember that whether you are using the APIs or the UI, you will need to integrated both Azure Mobile Engagement and Reach into your application for each platform with the SDK before you can use Reach campaigns. 
 
@@ -266,7 +278,7 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 -  [API Documentation - Reach API][Link 4], [API Documentation - Push API][Link 4]
  
-## Four types of Push notifications:
+### Four types of Push notifications:
 1.    Announcements - allow you to send advertising messages to users that redirect them to another location inside your app or to send them to a webpage or store outside of your app. 
 2.    Polls - allow you to gather information from end-users by asking them questions.
 3.    Data Pushes - allow you to send a binary or base64 data file. The information contained in a data push is sent to your application to modify your users' current experience in your app. Your application needs to be able to process the data in a data push.
@@ -302,7 +314,7 @@ You can switch from the details to the statistics view of an open campaign that 
 -  [UI Documentation - Reach - New Push Campaign]( http://go.microsoft.com/fwlink/?LinkID=525552), [API Documentation - Reach API - Stats][Link 4]
 ![Reach2][19]
 
-## Reach - New Push Campaign:
+## <a name="ReachCampaign">Reach - New Push Campaign:</a>
  
 You can use the Reach section of the UI to create a new Push campaign with a complex formula by providing all the information you need to send a push notification. The options of a Push campaign vary slightly depending on the four campaign types: Announcements, Polls, Data Pushes, and Tiles (Windows Phone only).
 
@@ -467,7 +479,7 @@ You can use the Test section to send this push to your own test device before sa
  
 ![Reach-Campaign9][28]
 
-## Reach - New Push Criterion (for targeting Audience)
+## <a name="ReachCriterion">Reach - New Push Criterion (for targeting Audience)</a>
 
 Targeting your audience by specific criteria with the "New Criteria" button is one of the most powerful concepts in Azure Mobile Engagement that helps you send relevant push notifications that the customers will respond to instead of Spamming everyone. You can limit your audience based on standard criteria and simulate pushes to determine how many people will receive the notification.
 
@@ -533,7 +545,7 @@ If you want to push an announcements only to the sub-set of your users that have
 - **Segment**    
 - Name of Segments (from dropdown list), Exclusion (target users that are not a part of this segment).
 
-## Reach - Push Content (for each campaign type)
+## <a name="ReachContent">Reach - Push Content (for each campaign type)</a>
  
 You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
  
@@ -632,7 +644,7 @@ You can target an audience of a future campaign based on the reach feedback of h
 **See also:**
 - [UI Documentation - Reach - New Push Criterion][Link 1]
 
-## Content of Polls
+### Content of Polls
  
 ![Reach-Content2][31] 
 Fill in the title, description, and button texts of your announcement. 
@@ -643,7 +655,7 @@ You can target an audience of a future campaign based on the reach feedback of h
 
 - [UI Documentation - Reach - New Push Criterion][Link 1]
  
-## Content of Data Pushes
+### Content of Data Pushes
  
 ![Reach-Content3][32] 
 
@@ -661,7 +673,7 @@ You can target an audience of a future campaign based on the reach feedback of h
 
 - [UI Documentation - Reach - New Push Criterion][Link 1]
 
-## Content of Tiles (Windows Phone only)
+### Content of Tiles (Windows Phone only)
 
 ![Reach-Content4][33]
 
@@ -673,7 +685,7 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 
 - [API Documentation - Reach API - Native Push][Link 4]
 
-## Dashboard
+## <a name="Dashboard">Dashboard</a>
 
 The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
  
@@ -688,7 +700,7 @@ The Dashboard section of the UI allows customers to create customized charts to 
  
  ![dashboard1][34]
 
-## Segments
+## <a name="Segments">Segments</a>
  
 The Segments section of the UI allows you to work on segmenting your users based on the different behavior and analytics that you can get from the application and can also access through the Segments API. Segments are first computed 24 hours after they are created and are recomputed every 24 hours based on the latest analytics information. Once a segment is calculated, it displays a "Day to day history" chart each day.
 
@@ -776,7 +788,7 @@ When you have finished setting up your criterion, it will appear in the segment 
 Because a segment is based on analytics data, segment are computed once per day.
 In this example, 47,7% of the total end-users matched the criterion. They should be the users who have had a good experience and will be likely to provide a higher rating if we push them a notification asking them to rate the app the in store.
 
-## Settings
+## <a name="Settings">Settings</a>
  
 The Settings menu options available for an application vary depending on the platform of application and the permissions you have been granted for the application. Settings include: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions. Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API. The “Glossary” in “Concepts” includes the definitions of terms and abbreviations such as: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
 

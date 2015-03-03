@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/25/2015" 
 	ms.author="wpickett"/>
 
 
@@ -107,5 +107,5 @@ deployment by swapping VIPs with the deployment in staging.
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
   [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
   [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
-  [Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
+  [How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx

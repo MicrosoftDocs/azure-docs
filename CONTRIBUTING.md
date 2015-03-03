@@ -12,7 +12,7 @@ Thank you for your interest in Azure documentation!
 
 ## Ways to contribute
 
-You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/documentation/) in a few different ways:
+You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
 
 * Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 * Submit Disqus comments at the bottom of articles.
@@ -23,7 +23,7 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/doc
 
 ###Minor corrections
 
-Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/en-us/support/legal/website-terms-of-use/). 
+Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/). 
 
 
 ###Larger submissions
@@ -43,7 +43,7 @@ The content in the azure-content repository follows the organization of document
 
 ### \articles 
 
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/en-us/documentation/articles/{article-name-without-md}/*. 
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*. 
 
 * **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md). 
 
@@ -171,7 +171,7 @@ The [markdown template](/markdown templates/markdown-template-for-new-articles.m
 
 All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevant basics will be covered here.
 
-If you are looking for a good editor, try [Markdown Pad][]. Below is a list of the most common markdown syntax.
+If you are looking for a good editor, try [Atom Editor][]. Below is a list of the most common markdown syntax.
 
 * 	**Line breaks vs. paragraphs:** In Markdown there is no HTML `<br />` element. Instead, a new paragraph is designated by an empty line between two blocks of text.
 *	**Italics:** The HTML `<i>some text</i>` is written `*some text*`
@@ -224,5 +224,5 @@ Article metadata enables certain functionalities on the azure.microsoft.com web 
 [GitHub Help]: http://help.github.com/
 [Set Up Git]: http://help.github.com/win-set-up-git/
 [Markdown Home]: http://daringfireball.net/projects/markdown/
-[Markdown Pad]: http://markdownpad.com/
+[Atom Editor]: https://atom.io/
 [Azure/Azure-Content issues]: https://github.com/Azure/azure-content/issues

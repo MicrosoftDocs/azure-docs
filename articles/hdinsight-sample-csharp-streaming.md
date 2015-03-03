@@ -38,7 +38,7 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 
 **Prerequisites**:	
 
-- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](../hdinsight-provision-clusters/)
 
@@ -186,9 +186,9 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
 [hadoop-streaming]: http://wiki.apache.org/hadoop/HadoopStreaming
-[streamreader]: http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/en-us/library/system.console.writeline
-[stdin-stdout-stderr]: http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx
+[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[stdin-stdout-stderr]: http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 

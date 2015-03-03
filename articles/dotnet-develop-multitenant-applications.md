@@ -92,7 +92,7 @@ Azure provides a number of ways provision new tenants for the application. For m
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/en-us/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh689716
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 

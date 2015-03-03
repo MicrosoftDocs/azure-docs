@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
+	ms.date="02/27/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,17 +22,11 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal" class="current">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal">Azure Preview Portal</a></div>
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM). It uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with pre-installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create an Azure virtual machine (VM). This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with pre-installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
 
-> [AZURE.NOTE] You don't need any experience with Azure VMs to finish this tutorial, but you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
-This tutorial shows you:
-
-- [How to create the virtual machine](#createvirtualmachine)
-- [How to log on to the virtual machine after you create it](#logon)
-- [How to attach a data disk to the new virtual machine](#attachdisk)
-
-If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkID=271224).
+To learn more about Azure VMs, see [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx).
 
 
 ##<a id="createvirtualmachine"> </a>How to create the virtual machine##
@@ -51,7 +45,7 @@ This section shows you how to log on to the virtual machine so you can manage it
 
 ## <a id="attachdisk"> </a>How to attach a data disk to the new virtual machine ##
 
-This section shows you how to attach an empty data disk to the virtual machine. See the [Attach a Data Disk Tutorial](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/) for more information, including how to attach existing disks.
+This section shows you how to attach an empty data disk to the virtual machine. See the [Attach a Data Disk Tutorial](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/) for more information, including how to attach existing disks.
 
 1. Sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 
@@ -74,7 +68,7 @@ This section shows you how to attach an empty data disk to the virtual machine. 
 
 	![Specify the size of the empty disk](./media/virtual-machines-windows-tutorial/emptydisksize.png)	
 	
-	>[AZURE.NOTE] The .vhd files are stored as page blobs in Azure storage. Outside of Azure, virtual hard disks can use either a VHD or a VHDX format. They can also be fixed, dynamically expanding, or differencing. Azure supports VHD format, fixed disks. For more details, see [About VHDs in Azure](http://msdn.microsoft.com/en-us/library/azure/dn790344.aspx)  
+	>[AZURE.NOTE] The .vhd files are stored as page blobs in Azure storage. Outside of Azure, virtual hard disks can use either a VHD or a VHDX format. They can also be fixed, dynamically expanding, or differencing. Azure supports VHD format, fixed disks. For more details, see [About VHDs in Azure](http://msdn.microsoft.com/library/azure/dn790344.aspx)  
 
 6. Return to the dashboard to verify that the empty data disk was successfully attached to the virtual machine. It should appear in the **Disks** list after the OS Disk.
 
@@ -112,25 +106,25 @@ This section shows you how to attach an empty data disk to the virtual machine. 
 
 To learn more about configuring Windows virtual machines on Azure, see:
 
-[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
 
-[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/)
+[Manage the Availability of Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/manage-availability-virtual-machines/)
 
 [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-[VIDEO: Getting Started with VHDs - What's Really Happening](http://azure.microsoft.com/en-us/documentation/videos/getting-started-with-azure-virtual-machines)
+[VIDEO: Getting Started with VHDs - What's Really Happening](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-virtual-machines)
 
-[VIDEO: FAQ with Mark Russinovich - Does Windows Azure run Windows?](http://azure.microsoft.com/en-us/documentation/videos/mark-russinovich-windows-on-azure)
+[VIDEO: FAQ with Mark Russinovich - Does Windows Azure run Windows?](http://azure.microsoft.com/documentation/videos/mark-russinovich-windows-on-azure)
 
-[VIDEO: Adding a new virtual machine to a Web Farm by making reusable images](http://azure.microsoft.com/en-us/documentation/videos/adding-virtual-machines-web-farm)
+[VIDEO: Adding a new virtual machine to a Web Farm by making reusable images](http://azure.microsoft.com/documentation/videos/adding-virtual-machines-web-farm)
 
-[VIDEO: Adding Virtual Hard Drives, Storage Accounts, and Scaling Virtual Machines](http://azure.microsoft.com/en-us/documentation/videos/adding-drives-scaling-virtual-machines)
+[VIDEO: Adding Virtual Hard Drives, Storage Accounts, and Scaling Virtual Machines](http://azure.microsoft.com/documentation/videos/adding-drives-scaling-virtual-machines)
 
-[VIDEO: Scott Guthrie starts with Virtual Machines](http://azure.microsoft.com/en-us/documentation/videos/virtual-machines-scottgu)
+[VIDEO: Scott Guthrie starts with Virtual Machines](http://azure.microsoft.com/documentation/videos/virtual-machines-scottgu)
 
-[VIDEO: Storage and Disk Basics with Azure Virtual Machines](http://azure.microsoft.com/en-us/documentation/videos/storage-and-disks-virtual-machines)
+[VIDEO: Storage and Disk Basics with Azure Virtual Machines](http://azure.microsoft.com/documentation/videos/storage-and-disks-virtual-machines)
 
 
 

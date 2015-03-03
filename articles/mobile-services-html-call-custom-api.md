@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Call a custom API from an HTML client - Mobile Services" 
-	description="Learn how to define a custom API and then call it from an HTML app that uses Windows Azure Mobile Services." 
+	description="Learn how to define a custom API and then call it from an HTML app that uses Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Call a custom API from an HTML application

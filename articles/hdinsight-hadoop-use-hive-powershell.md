@@ -31,7 +31,7 @@ To complete the steps in this article, you will need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)
 
-* <a href="http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ##<a id="powershell"></a>Run Hive queries using PowerShell
@@ -117,7 +117,7 @@ The following steps demonstrate how to use these cmdlets to run a job on your HD
 	>
 	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
-	> For more information about Here-Strings, see <a href="http://technet.microsoft.com/en-us/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+	> For more information about Here-Strings, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ##<a id="troubleshooting"></a>Troubleshooting
 

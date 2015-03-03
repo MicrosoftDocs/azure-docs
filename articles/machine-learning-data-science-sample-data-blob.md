@@ -1,7 +1,20 @@
+<properties 
+	pageTitle="Sample data in Azure Blob Storage| Azure" 
+	description="Sample data in Azure Blob Storage" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="sunliangms,fashah,msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<properties title="Sample data in SQL Server on Azure" pageTitle="Sample data in SQL Server on Azure| Azure" description="Sample data in SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liang,msolhab,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
-
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/27/2015" ms.author="liang,msolhab,fashah,garye" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="sunliangms,fashah,msolhab,garye" /> 
 
 #<a name="heading"></a>Sample Data in Azure Blob Storage
 

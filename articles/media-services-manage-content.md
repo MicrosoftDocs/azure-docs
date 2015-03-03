@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/24/2015" 
 	ms.author="juliako"/>
-
-
-
 
 
 # How to Manage Content in Media Services #
@@ -26,7 +23,7 @@ This article is part of the [Media Services Video on Demand workflow](../media-s
 
 This topic shows how to use Azure Management Portal to manage media content in your Media Services account.
 
-Currently you can perform the following content operations directly from the portal:
+This topic shows how to perform the following content operations directly from the portal:
 
 - View content information like published state, published URL, size, datetime of last update, and whether or not the asset is encrypted.
 - Upload new content
@@ -35,8 +32,6 @@ Currently you can perform the following content operations directly from the por
 - Play content
 - Encrypt
 - Publish/Unpublish content
-
-
 
 ##<a id="upload"></a>How to: Upload content 
 
@@ -61,7 +56,7 @@ If the file size value does not get updated after the uploading process stops, p
 
 ##<a id="index"></a>How to: Index content
 
-Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783455.aspx).
+Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](../media-services-index-content/).
 
 To following steps demonstrate how to use the Management Portal to index your content.
 

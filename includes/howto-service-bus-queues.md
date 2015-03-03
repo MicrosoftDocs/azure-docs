@@ -94,7 +94,7 @@ namespace. You can obtain these credentials from either the Management Portal, o
 
 ###To obtain management credentials from Server Explorer
 
-To obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+To obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
 
 Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
 
