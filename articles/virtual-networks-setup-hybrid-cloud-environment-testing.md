@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="03/03/2015" 
 	ms.author="josephd"/>
 
 #Set up a hybrid cloud environment for testing
@@ -217,12 +217,11 @@ This is your current configuration.
 
 First, create an Azure Virtual Machine for DC2 with these commands at the Azure PowerShell command prompt on your local computer.
 
-	$ServiceName="<Your cloud service name from Phase 3>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$ServiceName="<Your cloud service name from Phase 3>"	
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"	
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadmincred.UserName -Password $localadmincred.Password	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
