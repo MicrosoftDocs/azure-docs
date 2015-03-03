@@ -206,13 +206,13 @@ You can delete an Azure Data Factory entity (linked service, table, or pipeline)
 [msdn-linkedservices-reference]: https://msdn.microsoft.com/library/dn834986.aspx       
 [msdn-pipelines-reference]: https://msdn.microsoft.com/library/dn834988.aspx  
 
-[author-and-deploy-tile]: ../media/data-factory-editor/author-and-deploy-tile.png
-[data=factory-editor]: ../media/data-factory-editor/data-factory-editor.png
-[new-data-store-menu]: ../media/data-factory-editor/new-data-store-menu.png
-[new-compute-menu]: ../media/data-factory-editor/new-compute-menu.png
-[deploy-button]: ../media/data-factory-editor/deploy-button.png
-[deploy-success-message]: ../media/data-factory-editor/deploy-success-message.png
-[storagelinkedservice-in-treview]: ../media/data-factory-editor/storagelinkedservice-in-treeview.png
-[delete-datafactory-entity]: ../media/data-factory-editor/delete-datafactory-entity.png
-[clone-datafactory-entity]: ../media/data-factory-editor/clone-datafactory-entity.png
-[add-activity-options]: ../media/data-factory-editor/add-activity-options.png
+[author-and-deploy-tile]: ./media/data-factory-editor/author-and-deploy-tile.png
+[data=factory-editor]: ./media/data-factory-editor/data-factory-editor.png
+[new-data-store-menu]: ./media/data-factory-editor/new-data-store-menu.png
+[new-compute-menu]: ./media/data-factory-editor/new-compute-menu.png
+[deploy-button]: ./media/data-factory-editor/deploy-button.png
+[deploy-success-message]: ./media/data-factory-editor/deploy-success-message.png
+[storagelinkedservice-in-treview]: ./media/data-factory-editor/storagelinkedservice-in-treeview.png
+[delete-datafactory-entity]: ./media/data-factory-editor/delete-datafactory-entity.png
+[clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
+[add-activity-options]: ./media/data-factory-editor/add-activity-options.png

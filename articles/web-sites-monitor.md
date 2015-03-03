@@ -193,7 +193,7 @@ You may also view a lie stream of log events by using the following command:
 
 This will display log information to the command prompt, PowerShell, bash or terminal session that the command is ran from.
 
-> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](http://www.windowsazure.com/develop/nodejs/how-to-guides/command-line-tools/) for installation and configuration information.
+> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-command-line-tools/) for installation and configuration information.
 
 ### Reading log files ###
 

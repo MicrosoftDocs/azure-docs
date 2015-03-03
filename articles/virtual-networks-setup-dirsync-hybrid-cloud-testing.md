@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/03/2015" 
 	ms.author="josephd"/>
 
 #Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing
@@ -78,13 +78,12 @@ This is your current configuration.
 
 First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
-	$User1Password="<The password for the CORP\User1 account>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
+	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
+	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
@@ -128,7 +127,7 @@ Next, enable Directory Synchronization for your Office 365 FastTrack trial.
 4.	When prompted with **Do you want to activate Active Directory synchronization?**, click **Activate**. After you do this, **Active Directory synchronization is activated** appears in step 3.
 5.	Leave the **Set up and manage Active Directory synchronization** page open on CLIENT1.
 
-Next, log on to DC1 with the CORP\User1 account and open an administrator-level Windows PowerShell command prompt. Run these commands to create a new organizational unit called contoso_users and add two new user accounts for Marci Kaufman and Lynda Meyer.
+Next, log on to DC1 with the CORP\User1 account and open an administrator-level Windows PowerShell command prompt. Run these commands one at a time to create a new organizational unit called contoso_users and add two new user accounts for Marci Kaufman and Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"

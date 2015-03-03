@@ -10,7 +10,7 @@
 	editor="cgronlun" />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 

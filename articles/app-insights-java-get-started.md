@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-29" 
+	ms.date="2015-03-02" 
 	ms.author="awills"/>
  
 # Get started with Application Insights in a Java web project
@@ -45,6 +45,10 @@ You'll need:
 ### Add the Application Insights SDK for Java to your project
 
 *Choose the appropriate way for your project.*
+
+#### If you hava a Dynamic Web project in Eclipse
+
+Use the [Eclipse plug-in][eclipse] to add Application Insights to the project.
 
 #### If you're using Maven...
 
@@ -88,6 +92,7 @@ Manually add the SDK:
 
 1. Download the [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
 2. Extract the following binaries from the zip file, and add them to your project:
+ * applicationinsights-core
  * commons-codec
  * commons-io
  * commons-lang
@@ -187,6 +192,7 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 #### Detect and diagnose issues
 
 * [Set up web tests][availability] to make sure your application stays live and responsive.
+* [Track HTTP requests in a Java app][javareqs]
 * [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
 * [Search events and logs][diagnostic] to help diagnose problems.
 * [Capture Log4J or Logback traces][javalogs]

@@ -366,7 +366,7 @@ You may want to take a look at [another way to cluster MySQL on Linux] and ways 
 
 <!--Link references-->
 [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
-[Azure CLI command reference]: http://azure.microsoft.com/documentation/articles/command-line-tools/
+[Azure CLI command reference]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [performance tuning strategy]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [optimize and test MySQL performance on Azure Linux VMs]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/

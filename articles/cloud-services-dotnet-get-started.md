@@ -319,7 +319,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)	
 
-2. In the **Sign in** step of the **Publish Windows Azure Application** wizard, click **Next**.
+2. In the **Sign in** step of the **Publish Azure Application** wizard, click **Next**.
 
 	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)	
 
@@ -327,7 +327,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)	
 
-	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/windowsazure/hh535756.aspx).
+	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
 
 2. In the **Summary** step, click **Publish**.
 
@@ -366,7 +366,7 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 1. In Visual Studio, choose **New Project** from the **File** menu.
 
-2. In the left pane of the **New Project** dialog, expand **Visual C#** and choose **Cloud** templates, and then choose the **Windows Azure Cloud Service** template.
+2. In the left pane of the **New Project** dialog, expand **Visual C#** and choose **Cloud** templates, and then choose the **Azure Cloud Service** template.
 
 3. Name the project and solution ContosoAdsCloudService, and then click **OK**.
 
@@ -800,9 +800,9 @@ Here are some cloud service sample applications that demonstrate more real-world
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Similar in concept to Contoso Ads but implements more features and more real-world coding practices.
 * [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduces Azure Storage Tables as well as blobs and queues, and comes with a [step-by-step tutorial series](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
-* [Cloud Service Fundamentals in Windows Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). A comprehensive sample demonstrating a wide range of best practices, produced by the Microsoft Patterns and Practices group.
+* [Cloud Service Fundamentals in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). A comprehensive sample demonstrating a wide range of best practices, produced by the Microsoft Patterns and Practices group.
 
-For general information about developing for the cloud, see [Building Real-World Cloud Apps with Windows Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
+For general information about developing for the cloud, see [Building Real-World Cloud Apps with Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
 For a video introduction to Azure Storage best practices and patterns, see [Microsoft Azure Storage – What's New, Best Practices and Patterns](http://channel9.msdn.com/Events/Build/2014/3-628).
 

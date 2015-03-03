@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2014" 
+	ms.date="02/24/2015" 
 	ms.author="banders"/>
 
 <h1>Operational Insights Feature Guide</h1>
@@ -65,14 +65,14 @@ Use the following information set up an account to use with Microsoft Azure Oper
 
 <h3>Get an Organizational or a Microsoft account</h3>
 
-If you want to create an Organizational account, sign up at <a href="http://go.microsoft.com/fwlink/?LinkId=396866" target="_blank">Microsoft Account For Organizations</a>. Then, you need to grant access to your Organizational account for Operational Insights in <a href="http://aka.ms/Mr1dtz" target="_blank">Windows Azure Active Directory</a>.
+If you want to create an Organizational account, sign up at [Microsoft Account For Organizations](http://go.microsoft.com/fwlink/?LinkId=396866) . Then, you need to grant access to your Organizational account for Operational Insights in [Windows Azure Active Directory](http://aka.ms/Mr1dtz).
 
 
-If you want to get a Microsoft Account (previously called a “Windows Live ID”), sign up at <a href="http://go.microsoft.com/fwlink/?LinkId=396868" target="_blank">Sign Up – Microsoft Account</a>. Access is automatically granted to Operational Insights with a Microsoft account.
+If you want to get a Microsoft Account (previously called a “Windows Live ID”), sign up at [Sign Up – Microsoft Account](http://go.microsoft.com/fwlink/?LinkId=396868). Access is automatically granted to Operational Insights with a Microsoft account.
 
 
 <h3>Sign in to Operational Insights</h3>
 
-1. Go to <a href="preview.opinsights.azure.com" target="_blank">Microsoft Azure Operational Insights</a>  and choose Sign in at the top of the page.
+1. Go to [Microsoft Azure Operational Insights](preview.opinsights.azure.com) and choose Sign in at the top of the page.
 2. Select **Microsoft account** or **Organizational account** and then **sign in** with your credentials.
 3. Create an Operational Insights account to associate with your sign-in information.

@@ -471,7 +471,7 @@ Article | Description
 [adfintroduction]: ../data-factory-introduction
 [useonpremisesdatasources]: ../data-factory-use-onpremises-datasources
 [usepigandhive]: ../data-factory-pig-hive-activities
-[tutorial-onpremises]: ./data-factory-tutorial-extend-onpremises
+[tutorial-onpremises]: ../data-factory-tutorial-extend-onpremises
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

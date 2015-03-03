@@ -566,7 +566,7 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[Azure command-line tool for Mac and Linux]: /en-us/documentation/articles/virtual-machines-command-line-tools/
 [Azure Developer Center]: /en-us/develop/nodejs/
 [Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/

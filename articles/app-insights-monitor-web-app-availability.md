@@ -12,7 +12,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="2015-02-20" 
-	ms.author="annagalaeva"/>
+	ms.author="awills"/>
  
 # Monitor any web site's availability and responsiveness
 
