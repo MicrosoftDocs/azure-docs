@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm=""
    ms.workload="operational-insights" 
-   ms.date="02/20/2015"
+   ms.date="03/03/2015"
    ms.author="leylak"/>
 
 # How to use Log Management 
@@ -71,7 +71,7 @@ The only IIS log format supported at the moment is W3C. Don't worry - it's the m
 
 
 ## Collect IIS logs and/or Windows Events from Windows Azure Diagnostics
-This is configurable from the Azure Management Portal, not the OpInsights portal, under your workspace, go to **Storage** tab and you can enable log collection from that storage account.
+This is configurable from the Azure Management Portal, not the Operational Insights portal, under your workspace, go to the **Storage** tab and you can enable log collection from that storage account.
 
 
 ## Work with log files
