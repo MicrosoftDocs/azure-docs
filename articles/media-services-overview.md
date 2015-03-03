@@ -22,13 +22,21 @@ Microsoft Azure Media Services is an extensible cloud-based platform that enable
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
 
-To build Media Services solutions, you can use the [Media Services REST API](https://msdn.microsoft.com/en-us/library/azure/hh973617.aspx) or one of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php). You can also use tools: [Azure Management Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
+To build Media Services solutions, you can use:
+
+- [Media Services REST API](https://msdn.microsoft.com/en-us/library/azure/hh973617.aspx)
+- One of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- Existing tools: [Azure Management Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 **Service Level Agreement (SLA)**: Media Services guarantees 99.9% availability of REST API transactions for Media Services Encoding. On-Demand Streaming will successfully service requests with a 99.9% availability guarantee for existing media content when at least one Streaming Reserved Unit is purchased. Availability is calculated over a monthly billing cycle. For more information, download the [SLA document](https://www.microsoft.com/en-us/download/details.aspx?id=39302).
 
 The following poster depicts Azure Media Services workflows, from media creation through consumption. You can download the poster from here: [Azure Media Services poster](http://www.microsoft.com/en-us/download/details.aspx?id=38195).
 
 ![Overview][overview]
+
+##Concepts
+
+For more information, see [Concepts](../media-services-concepts).
 
 ##Choosing Your Media Experience
 
@@ -52,7 +60,7 @@ Progressive download requires that a customer is connected to the internet and a
 
 ####Streaming
 
-Streaming technologies also require an internet connection, but they download a small piece of the video at a time and discard it once it has been displayed. This requires very little storage on the viewing device. The throughput of a network connection can vary, but customers still expect to be able to view videos regardless of network bandwidth. Adaptive bitrate technologies allow video player applications to determine network conditions and select from among several bitrates. When network communication degrades, the client can select a lower bitrate allowing the player to continue to play the video at a lower video quality. As network conditions improve the client can switch to a higher bitrate with improved video quality. Azure Media Services supports two adaptive bitrate technologies. HTTP Live Streaming (HLS) is an adaptive bitrate technology created by Apple. Smooth Streaming is an adaptive bitrate technology created by Microsoft.
+Streaming technologies also require an internet connection, but they download a small piece of the video at a time and discard it once it has been displayed. This requires very little storage on the viewing device. The throughput of a network connection can vary, but customers still expect to be able to view videos regardless of network bandwidth. Adaptive bitrate technologies allow video player applications to determine network conditions and select from among several bitrates. When network communication degrades, the client can select a lower bitrate allowing the player to continue to play the video at a lower video quality. As network conditions improve the client can switch to a higher bitrate with improved video quality. Azure Media Services supports the following adaptive bitrate technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS.
 
 ###On what Devices
 

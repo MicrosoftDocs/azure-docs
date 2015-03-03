@@ -22,7 +22,7 @@ This article is part of the [Media Services Video on Demand workflow](../media-s
 
 When you run jobs, you often require a way to track job progress. You can check the progress by [defining a StateChanged event handler](#statechange_event_handler) or [using Azure Queue storage to monitor Media Services job notifications](#check_progress_with_queues). Both methods are described in this topic. 
 
-##<a id="statechange_event_handler"></a>Defining StateChanged event handler
+##<a id="statechange_event_handler"></a>Define StateChanged event handler to monitor job progress
 
 The following code example defines the StateChanged event handler. This event handler tracks job progress and provides updated status, depending on the state. The code also defines the LogJobStop method. This helper method logs error details.
 
@@ -103,7 +103,7 @@ The following code example defines the StateChanged event handler. This event ha
 
 
 
-##<a id="check_progress_with_queues"></a>Using Azure Queue storage to monitor Media Services job notifications
+##<a id="check_progress_with_queues"></a>Use Azure Queue storage to monitor Media Services job notifications
 
 Microsoft Azure Media Services has the ability to deliver notification messages to the [Azure Queue storage](../storage-dotnet-how-to-use-queues/#what-is) when processing media jobs. This topic shows how to get these notification messages from Queue storage.
 
@@ -111,7 +111,7 @@ Messages delivered to Queue storage can be accessed from anywhere in the world. 
 
 One common scenario for listening to Media Services notifications is if you are developing a content management system that needs to perform some additional task after an encoding job completes (for example, trigger the next step in a workflow, or publish content). 
 
-##Considerations
+###Considerations
 
 Consider the following when developing Media Services applications that use Azure storage queue.
 
@@ -120,7 +120,7 @@ Consider the following when developing Media Services applications that use Azur
 - You can have any number of queues. For more information, see [Queue Service REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx).
 - Azure Storage Queues has some limitations and specifics that are described in the following article: [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 
-##Code Example
+###Code Example
 
 The code example in this section does the following:
 
