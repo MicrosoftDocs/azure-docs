@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Reach" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="User Interface Overview for the Reach section of Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -33,7 +33,7 @@
 
 # <a name="Reach">Reach</a>
  
-The Reach section of the UI is the Push campaign management tool where you can create/edit/activate/finish/monitor and get statistics on Push notification campaigns and features that can also be accessed via the Reach API (and some elements of the low level Push API). Remember that whether you are using the APIs or the UI, you will need to integrated both Azure Mobile Engagement and Reach into your application for each platform with the SDK before you can use Reach campaigns.
+The Reach section of the UI is the Push campaign management tool where you can create/edit/activate/finish/monitor and get statistics on Push notification campaigns and features that can also be accessed via the Reach API (and some elements of the low level Push API). Remember that whether you are using the APIs or the UI, you will need to integrate both Azure Mobile Engagement and Reach into your application for each platform with the SDK before you can use Reach campaigns.
 
 **See also:** 
 
@@ -42,9 +42,9 @@ The Reach section of the UI is the Push campaign management tool where you can c
  
 ## Four types of Push notifications:
 1.    Announcements - allow you to send advertising messages to users that redirect them to another location inside your app or to send them to a webpage or store outside of your app. 
-2.    Polls - allow you to gather information from end-users by asking them questions.
+2.    Polls - allow you to gather information from end users by asking them questions.
 3.    Data Pushes - allow you to send a binary or base64 data file. The information contained in a data push is sent to your application to modify your users' current experience in your app. Your application needs to be able to process the data in a data push.
-4.    Tiles (Windows Phone only) - allow you to use the Microsoft Push Notification Service (MPNS) to send Native Windows Push containing XML Data (Supported since SDK version 0.9.0. The final payload for tiles cannot exceed 32 kilobytes.)
+4.    Tiles (Windows Phone only) - allow you to use the Microsoft Push Notification Service (MPNS) to send Native Windows Push containing XML Data. (Supported since SDK version 0.9.0. The final payload for tiles cannot exceed 32 kilobytes.)
 
 **See also:** 
 
@@ -52,7 +52,7 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 ## Three categories of Real time statistics shown for each campaign: 
 1.    Pushed - how many pushes were sent based on the criteria specified in the campaign. 
-2.    Replied - how many users reacted to the notification by either opening it from outside of the app or closing it in app. 
+2.    Replied - how many users reacted to the notification by either opening it from outside of app or closing it in the app. 
 3.    Actioned - how many users clicked on the link in the notification to be redirected to a new location in the app, to a store, or to a web browser. 
 
 > Note: More verbose campaign statistics are available from the via Reach API Stats
@@ -93,7 +93,7 @@ You can use the Reach section of the UI to create a new Push campaign with a com
 ![Reach-Campaign1][20]
 
 ## Languages:
-You can use the Languages drop down menu to send a different version of your Push to devices set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
+You can use the Languages drop-down menu to send a different version of your Push to devices that are set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
  
 ![Reach-Campaign2][21]
 
@@ -162,14 +162,14 @@ You can use the Campaign section to set the name and category of your campaign a
 - Ignore Audience, push will be sent to users via the API:    All
  
 ## Notification:
-You can use the Notification section to set basic settings for your push including: The title of the Push, the message, an in app image or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes the Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App (Android SDK 2.1.0 or later intent categories required). You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device). There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
+You can use the Notification section to set basic settings for your push including: The title of the Push, the message, an in-app image, or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices, and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes. The Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App (Android SDK 2.1.0 or later intent categories required). You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push. (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device.) There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
 
 ## Delivery Types:
 -    Out of app only: the notification will be delivered when the user does not use the application.
 - The out of app only notification requires a certificate from Apple or Google (APNS or GCM certificate).
 - In-app only: The notification appears only when the application is running.
 - The notification uses the Capptain delivery system to reach the user. You can fully customize the visual layout/display of your push.
-- Anytime: This option ensures you to send a notification either the application is running or not.
+- Anytime: This option ensures that you send a notification either the application is running or not.
 
  
 ![Reach-Campaign4][23]
