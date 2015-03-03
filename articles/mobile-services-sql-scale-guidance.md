@@ -221,7 +221,7 @@ The following steps walk you through obtaining the connection information for th
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
 4. Select the **SQL Database** name in the **Database Settings** section. This will navigate to the Azure SQL Database tab in the portal.
-5. Select **Set up Windows Azure firewall rules for this IP address**.
+5. Select **Set up Azure firewall rules for this IP address**.
 6. Make a note of the server address in the **Connect to your database** section, for example: *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
