@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/02/2015"
+   ms.date="03/03/2015"
    ms.author="larryfr"/>
 
 #Process events from Azure Event Hub with Storm on HDInsight (C#)
@@ -38,7 +38,7 @@ In this document, you will learn how to use the HDInsight Tools for Visual Studi
 
 ##Completed project
 
-You can download a complete version of the project created in this article at [TBD]; however, you will still need to provide configuration settings by following the steps in this document.
+You can download a complete version of the project created in this article at [https://github.com/Blackmist/hdinsight-storm-examples/tree/csharpeventhub/CSharpEventHub](https://github.com/Blackmist/hdinsight-storm-examples/tree/csharpeventhub/CSharpEventHub); however, you will still need to provide configuration settings by following the steps in this document.
 
 ##Event Hub spout and bolt
 
