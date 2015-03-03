@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Call a custom API from a Windows Phone app - Mobile Services" 
-	description="Learn how to define a custom API and then call it from a Windows Phone app that use Windows Azure Mobile Services." 
+	description="Learn how to define a custom API and then call it from a Windows Phone app that use Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
