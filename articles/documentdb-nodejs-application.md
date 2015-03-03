@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Build a Node.js web application using DocumentDB | Azure" 
-	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js application hosted on Azure." 
+	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites" 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="ryancrawcour" 
