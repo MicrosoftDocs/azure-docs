@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="What's new in the Latest SQL Database Update V12 (preview)" 
-	description="Lists and describes the latest enhancements to Azure SQL Database, the preview of version V12, that are available from Microsoft starting in December 2014 with more arriving in early 2015." 
+	description="Describes the latest enhancements to Azure SQL Database that were added in December 2014 or later." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="03/02/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-Feb-26  16:53pm
-Added fixed copy of Ranga's link in the first sentence (need one leading dot, not two).
+GeneMi , 2015-March-02  Monday  20:23pm
+Updated the DacFx and similar links at the very end of this topic; and the same links in sql-database-preview-plan-prepare-upgrade.md due to bacpac master db object permissions problem.
 -->
 
 The latest Azure SQL Database Update V12 ([preview in some regions](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
@@ -190,20 +190,27 @@ Be aware of the following cautions regarding upgrade and post-upgrade to Azure S
 - Test databases, database copies, or new databases, are good candidates for upgrading to the V12 preview. Production databases that your business depends on should wait until after the preview period.
 - The 50% cost discount for Azure SQL Database V12 is in effect in all geographic regions until it expires on Tuesday 2015-March-31. The discount applies to regions, for both preview and GA status.
 
+
 #### 4.3 Export and import *after* upgrade to V12 preview
+
 
 You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
 
+
 - SQL Server Management Studio (SSMS)
 - Visual Studio 2013
-- Data-Tier Application Framework (DacFX)
+- Data-Tier Application Framework (DacFx)
+
 
 However, to use the tools, you must first install their latest updates to ensure they support the new V12 features:
 
-- [Cumulative Update 5 for SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3011055)
-- [Preview of SQL Server Database Tooling in Visual Studio 2013](http://www.microsoft.com/en-us/download/details.aspx?id=45319)
-- [Data-Tier Application Framework (DacFX) Preview for the latest Azure SQL Database Update V12](http://www.microsoft.com/en-us/download/details.aspx?id=45320)
 
+- [Cumulative Update 6 for SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3031047)
+- [February 2015 Update for SQL Server Database Tooling in Visual Studio 2013](https://msdn.microsoft.com/data/hh297027)
+- [February 2015 Data-Tier Application Framework (DacFx) for Azure SQL Database V12](http://www.microsoft.com/download/details.aspx?id=45886)
+
+
+> [AZURE.NOTE] The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
 
 
 [2. V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
