@@ -39,7 +39,7 @@ The storage emulator supports only a single fixed account and a well-known authe
  
 
 ## Start and Initialize the Storage Emulator
-To start the Azure storage emulator, Select the Start button or press the Windows key. Begin typing Windows Azure Storage Emulator, and select Windows Azure Storage Emulator from the list of applications. 
+To start the Azure storage emulator, Select the Start button or press the Windows key. Begin typing Azure Storage Emulator, and select Azure Storage Emulator from the list of applications. 
 
 Alternatively, if the Azure compute emulator is already running, you can start the storage emulator by right-clicking the system tray icon and selecting Start Storage Emulator For more information about running the compute emulator, see [Run an Azure Application in the Compute Emulator](https://msdn.microsoft.com/library/azure/hh403990.aspx).
 
@@ -104,7 +104,7 @@ This tool is installed by default to the C:\Program Files(x86)\Microsoft SDKs\Az
 
 > [AZURE.NOTE] You must have administrative privileges to run the `init` command described below.
 
-1. Click the **Start** button or press the **Windows** key. Begin typing `Windows Azure Storage Emulator` and select it when it appears. A command prompt window will pop up.
+1. Click the **Start** button or press the **Windows** key. Begin typing `Azure Storage Emulator` and select it when it appears. A command prompt window will pop up.
 
 
 2. In the command prompt window, type the following command where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\v11.0` as the SQL Server instance.

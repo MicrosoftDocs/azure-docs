@@ -106,7 +106,7 @@ If your application is approaching the scalability targets for a single storage 
 ####Useful Resources
 The following links provide additional detail on scalability targets:
 -	You can view the current scalability targets on the page [Azure Storage Scalability and Performance Targets on MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx).
--	You can learn more about storage redundancy options in the blog post [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)– see the next section for more details.
+-	You can learn more about storage redundancy options in the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)– see the next section for more details.
 -	For current information about pricing for Azure services, see [Azure pricing at-a-glance](http://azure.microsoft.com/pricing/overview/).  
 
 ###Networking
@@ -268,7 +268,7 @@ This section lists several quick configuration settings that you can use to make
 ####<a name="subheading25"></a>Use JSON
 Beginning with storage service version 2013-08-15, the table service supports using JSON instead of the XML-based AtomPub format for transferring table data. This can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.   
 
-For more information, see the post [Windows Azure Tables: Introducing JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx) on MSDN. 
+For more information, see the post [Microsoft Azure Tables: Introducing JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx) on MSDN. 
 
 ####<a name="subheading26"></a>Nagle Off
 Nagle’s algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). For Azure Storage, Nagle’s algorithm has a negative impact on the performance of requests to the table and queue services, and you should disable it if possible.  
