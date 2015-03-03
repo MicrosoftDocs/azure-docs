@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Microsoft Azure Storage Performance and Scalability Checklist" 
-	description="Required" 
+	description="A checklist of proven practices for use with Azure Storage in developing performant applications." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -11,15 +11,15 @@
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="2/26/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
 
 ## Overview
-Since the release of the Microsoft Azure Storage services, Microsoft has developed a number of proven practices for using these services in a performant manner, and this article serves to consolidate the most important of them into a “checklist” style list. The intention of this article is to help application developers verify they are using proven practices with Azure Storage and to help them identify other proven practices they should consider adopting. This article does not attempt to cover every possible performance and scalability optimization — it excludes those that are small in their impact or not broadly applicable.  To the extent that the application’s behavior can be predicted during design, it’s useful to keep these in mind early on to avoid designs that will run into performance problems.  
+Since the release of the Microsoft Azure Storage services, Microsoft has developed a number of proven practices for using these services in a performant manner, and this article serves to consolidate the most important of them into a checklist-style list. The intention of this article is to help application developers verify they are using proven practices with Azure Storage and to help them identify other proven practices they should consider adopting. This article does not attempt to cover every possible performance and scalability optimization — it excludes those that are small in their impact or not broadly applicable. To the extent that the application’s behavior can be predicted during design, it’s useful to keep these in mind early on to avoid designs that will run into performance problems.  
 
 Every application developer using Azure Storage should take the time to read this article, and check that his or her application follows each of the proven practices listed below.  
 
