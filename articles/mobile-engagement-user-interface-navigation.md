@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Navigation" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="User Interface Overview for the Navigation section of Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -33,7 +33,7 @@
 
 # Navigation
  
-The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ contains the following navigation elements: a header, a footer, a sidebar, cookie crumb navigation, and an app specific ribbon.
+The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ contains the following navigation elements: a header, a footer, a sidebar, cookie crumb navigation, and an app-specific ribbon.
  
 ![Navigation1][1] 
 
