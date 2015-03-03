@@ -287,14 +287,17 @@ In this section, you will create a topology that reads data from Event Hub using
 3. Enter the following settings. Use the information for the Event Hub and Storage Account you created earlier in the **Value** column.
 
 	<table>
-	<tr><th>Name</th><th>Type</th><th>Scope</th></tr>
-	<tr><th>EventHubPolicyName</th><th>string</th><th>Application</th></tr>
-	<tr><th>EventHubPolicyKey</th><th>string</th><th>Application</th></tr>
-	<tr><th>EventHubNamespace</th><th>string</th><th>Application</th></tr>
-	<tr><th>EventHubName</th><th>string</th><th>Application</th></tr>
-	<tr><th>EventHubPartitionCount</th><th>int</th><th>Application</th></tr>
-	<tr><th>StorageConnection</th><th>(Connection String)</th><th>Application</th></tr>
+	<tr><th style="text-align:left">Name</th><th style="text-align:left">Type</th><th style="text-align:left">Scope</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
+	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
+	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
+	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">Application</th></tr>
+	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(Connection String)</th><th style="text-align:left">Application</th></tr>
+	<tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
 	</table>
+
+	For **TableName**, enter the name of the table that you wish events to be stored in.
 
 	These values will be used by the topology to communicate with Event Hub and Table Storage.
 
@@ -442,7 +445,7 @@ When writing data to Table Storage, you must create a class that describes the d
 
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(Properties.Settings.Default.StorageConnection);
         CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-        table = tableClient.GetTableReference("events");
+        table = tableClient.GetTableReference(Properties.Settings.Default.TableName);
         table.CreateIfNotExists();
 
 	This will connect to the **events** table using the connection string configured previously. If it does not exist, it will be created.
