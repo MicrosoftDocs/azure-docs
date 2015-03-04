@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Active Directory Code Samples" 
-   description="Article description that will be displayed on landing pages and in some search results" 
+   description="An index of Azure Active Directory code samples, organized by scenario." 
    services="active-directory" 
    documentationCenter="dev-center-name" 
    authors="msmbaldwin" 
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="azure"
-   ms.devlang="may be required"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity" 
-   ms.date="02/04/2015"
+   ms.date="02/20/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Code Samples 
