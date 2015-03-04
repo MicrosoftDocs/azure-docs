@@ -20,7 +20,7 @@
 # Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-March-03 Tuesday 15:43pm
+GeneMi , 2015-March-03 Tuesday 15:44pm
 New C.1 section added about portals, per email from Sanjay.Nag 2015-March-03 08:49am.
 
 C.3.1 bacpac fix section is now C.4.1, of course.
@@ -114,7 +114,7 @@ After the upgrade completes you can configure your database to again use geo-rep
 This section describes the limitations that are associated with the upgrade to Azure SQL Database V12.
 
 
-## C.1 Preview portal for V12
+### C.1 Preview portal for V12
 
 
 Only the first of the following two Azure management portals supports V12 databases:

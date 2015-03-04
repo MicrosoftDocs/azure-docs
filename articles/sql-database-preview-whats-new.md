@@ -20,7 +20,7 @@
 # What's new in the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-March-03 Tuesday 15:43pm
+GeneMi , 2015-March-03 Tuesday 15:44pm
 New 4.1 section added about portals, per email from Sanjay.Nag 2015-March-03 08:49am.
 
 4.1 section was changed to now be 4.2, of course.
@@ -169,7 +169,7 @@ You can learn how to try the V12 preview at [Plan and Prepare to Upgrade to the 
 Be aware of the following cautions regarding upgrade and post-upgrade to Azure SQL Database Update V12 (preview).
 
 
-## 4.1 Preview portal for V12
+### 4.1 Preview portal for V12
 
 
 Only the first of the following two Azure management portals supports V12 databases:
@@ -198,7 +198,7 @@ In the older Azure management portal, on the database page, you can click **Open
 For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
 
 
-#### 4.2 Cautions *during* upgrade to V12 preview
+### 4.2 Cautions *during* upgrade to V12 preview
 
 
 > [AZURE.NOTE]
@@ -215,7 +215,7 @@ For another alternative, you can use SQL Server Management Studio (SSMS) 2014 wi
 - The Web and Business service pricing tier is not supported on V12 preview. Nor will it be supported at V12 GA, nor will it be supported in any future version.
 
 
-#### 4.3 Cautions *after* upgrade to V12 preview
+### 4.3 Cautions *after* upgrade to V12 preview
 
 
 - Any database that is upgraded in-place to the V12 preview cannot be reverted back to the earlier version.
@@ -223,7 +223,7 @@ For another alternative, you can use SQL Server Management Studio (SSMS) 2014 wi
 - The 50% cost discount for Azure SQL Database V12 is in effect in all geographic regions until it expires on Tuesday 2015-March-31. The discount applies to regions, for both preview and GA status.
 
 
-#### 4.4 Export and import *after* upgrade to V12 preview
+### 4.4 Export and import *after* upgrade to V12 preview
 
 
 You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
