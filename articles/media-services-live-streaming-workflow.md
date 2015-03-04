@@ -28,6 +28,9 @@ Note that you can integrate Media Services with your existing tools and processe
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![Live workflow][live-overview]
 
+
+For more information, see [Media Services Overview](../media-services-overview).
+
 ##Creating a Media Services account
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
@@ -50,11 +53,11 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 
 ##Working with Live Transcoders
 
-For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/en-us/library/azure/dn783464.aspx).
+For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 ##Managing Channels, Programs, Assets
 
-For more information, see [Live Streaming](https://msdn.microsoft.com/en-us/library/azure/dn783466.aspx).
+For more information, see [Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 
 ##Configure content protection and content key authorization policy 
 

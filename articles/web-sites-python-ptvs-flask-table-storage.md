@@ -192,7 +192,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 
 
 <!--Link references-->
-[Python Developer Center]: /en-us/develop/python/
+[Python Developer Center]: /develop/python/
 [Azure Cloud Services]: ../cloud-services-python-ptvs/
 [documentation]: ../storage-python-how-to-use-table-storage/
 [How to Use the Table Storage Service from Python]: ../storage-python-how-to-use-table-storage/

@@ -140,7 +140,7 @@ The ability to immediately purge content is currently not supported on Azure Man
   [Create Storage Account]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
   [Azure Management Portal]: https://manage.windowsazure.com/
-  [billing plan]: /en-us/pricing/calculator/?scenario=full
+  [billing plan]: /pricing/calculator/?scenario=full
   [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/library/windowsazure/ee795179.aspx
   [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx

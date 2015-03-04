@@ -62,7 +62,7 @@ The **open** restriction means the system will deliver the key to anyone who mak
 
 To choose the token restricted policy, press the **TOKEN** button.
 
-The **token** restricted policy must be accompanied by a token issued by a **Secure Token Service** (STS). Media Services supports tokens in the **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/en-us/library/gg185950.aspx#BKMK_2)) format and **JSON Web Token** (JWT) format. For information, see [JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+The **token** restricted policy must be accompanied by a token issued by a **Secure Token Service** (STS). Media Services supports tokens in the **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format and **JSON Web Token** (JWT) format. For information, see [JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Media Services does not provide **Secure Token Services**. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key. For more information, see [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
 
@@ -84,7 +84,7 @@ When protecting your content with **PlayReady**, one of the things you need to s
 	  </LicenseTemplates>
 	</PlayReadyLicenseResponseTemplate>
 
-You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](https://msdn.microsoft.com/en-us/library/azure/dn783459.aspx).
+You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ##Next Steps
 Now that you have configured content key's authorization policy, go to the [How to: Use the Azure Management Portal to enable encryption](../media-services-manage-content#encrypt/) topic.

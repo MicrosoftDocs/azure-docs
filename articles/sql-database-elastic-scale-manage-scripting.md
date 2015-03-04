@@ -30,7 +30,7 @@ In addition to this document, here are other resources:
 * [Get started with Azure Automation](http://azure.microsoft.com/documentation/articles/automation-create-runbook-from-samples/)
 * [Step-by-Step: Getting Started with NEW Microsoft Azure Automation preview feature](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
 * [Microsoft Azure Automation](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx) 
-* Ask Azure Automation specific questions on the [Automation forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
+* Ask Azure Automation specific questions on the [Automation forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
 
 
 ## Prerequisites

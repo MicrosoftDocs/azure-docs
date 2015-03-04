@@ -206,7 +206,7 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 * The following are other examples that can be used with Storm on HDInsight.
 
-	* [Analyzing sensor data with Storm on HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis)
+	* [Analyzing sensor data with Storm on HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis)
 
 	* [Trending hashtags on Twitter with Storm on HDInsight](../hdinsight-storm-twitter-trending/)
 
@@ -214,7 +214,7 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 	* [Develop Java topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
 
-	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](/en-us/documentation/articles/hdinsight-storm-develop-csharp-visual-studio-topology/)
+	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](/documentation/articles/hdinsight-storm-develop-csharp-visual-studio-topology/)
 
 
 [apachestorm]: https://storm.incubator.apache.org

@@ -115,6 +115,6 @@ The following table describes the behavior of Traffic Manager monitoring for chi
 
 [About Traffic Manager Balancing Methods](../about-traffic-manager-balancing-methods)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)

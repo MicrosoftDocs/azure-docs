@@ -18,7 +18,7 @@
 # Register the current user for push notifications by using ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 ##Overview
@@ -108,7 +108,7 @@ This topic shows you how to request push notification registration with Azure No
 
 	This sets the device token for the request.
 
-	> [AZURE.NOTE] At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") tutorial, you must comment-out or remove that call.
+	> [AZURE.NOTE] At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") tutorial, you must comment-out or remove that call.
 
 10.	In the PushToUserAppDelegate.m file, add the following handler method:
 
@@ -230,7 +230,7 @@ Now that the client app has been updated, return to the [Notify users with Notif
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Get Started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios
+[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios

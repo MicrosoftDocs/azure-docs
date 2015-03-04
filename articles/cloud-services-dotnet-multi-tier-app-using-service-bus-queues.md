@@ -197,7 +197,7 @@ To manage a namespace and obtain connection information using Visual Studio
 instead of the Management Portal, follow the procedure described in the section
 titled **To connect to Azure from Visual Studio** on the page [Getting Started
 with the Azure Tools for Visual
-Studio](http://msdn.microsoft.com/en-us/library/ff687127.aspx). When you sign in
+Studio](http://msdn.microsoft.com/library/ff687127.aspx). When you sign in
 to Azure in **Server Explorer**, the **Service Bus** node under the **Microsoft
 Azure** tree is automatically populated with any namespaces you've already
 created in your subscription. Right-click any namespace, and then click **Properties** to see the
@@ -712,7 +712,7 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
   [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/ee732537.aspx  
-  [sbwacom]: /en-us/documentation/services/service-bus/  
-  [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
-  [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [sbwacom]: /documentation/services/service-bus/  
+  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/  
+  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/

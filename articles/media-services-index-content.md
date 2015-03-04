@@ -48,7 +48,7 @@ You can specify more details for your indexing tasks by using a task configurati
 
 You can also process multiple media files at once by using a manifest file.
 
-For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ##Index an asset
 
@@ -66,7 +66,7 @@ Note that if no configuration file is specified, the media file will be indexed 
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -180,7 +180,7 @@ If not all input media files are indexed successfully, the indexing job will fai
 
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -198,7 +198,7 @@ A manifest file with the .lst extension is created and uploading into the asset.
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -307,7 +307,7 @@ The same outputs (as succeeded jobs) are generated. You can refer to the output 
 
 ##Index files from Internet
 
-For publicly available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+For publicly available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 Note that HTTP and HTTPS URL protocols are supported.
 
@@ -327,7 +327,7 @@ The following method and configuration creates a job to index a media file on th
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
 	    // Read configuration.
@@ -379,7 +379,7 @@ For descriptions of output files, see [Output files](#output_files).
 
 Indexer supports basic authentication with username and password when downloading internet files via http or https.
 
-You can specify the **username** and **password** in the task configuration as described in [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+You can specify the **username** and **password** in the task configuration as described in [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Error codes
 

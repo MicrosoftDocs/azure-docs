@@ -139,9 +139,9 @@ resources provide in-depth information about WIF:
 -   [Windows Identity Foundation 4.5 Samples](http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication) on MSDN Code Gallery.
 -   [Windows Identity Foundation 4.5 tools for Visual Studio 11 Beta](http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e) on
     MSDN Code Gallery.
--   [Windows Identity Foundation runtime (.Net 3.5/4.0)](http://www.microsoft.com/en-us/download/details.aspx?id=17331) on MSDN.
+-   [Windows Identity Foundation runtime (.Net 3.5/4.0)](http://www.microsoft.com/download/details.aspx?id=17331) on MSDN.
 -   [Windows Identity Foundation 3.5/4.0 samples and Visual Studio
-    2008/2010 templates](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=4451) on MSDN.
+    2008/2010 templates](http://www.microsoft.com/download/details.aspx?displaylang=en&id=4451) on MSDN.
 
 **Azure AD Access Control (previously known as ACS)**. 
 Azure AD Access Control is a cloud service that provides Security Token
@@ -155,7 +155,7 @@ information about Azure AD Access Control:
 -   [Scenarios and Solutions Using ACS](http://msdn.microsoft.com/library/gg185920.aspx)
 -   [ACS How To's](http://msdn.microsoft.com/library/windowsazure/gg185939.aspx)
 -   [A Guide to Claims-Based Identity and Access Control](http://msdn.microsoft.com/library/ff423674.aspx)
--   [Identity Developer Training Kit](http://www.microsoft.com/en-us/download/details.aspx?id=14347)
+-   [Identity Developer Training Kit](http://www.microsoft.com/download/details.aspx?id=14347)
 -   [MSDN-hosted Identity Developer Training Course](http://msdn.microsoft.com/IdentityTrainingCourse)
 
 **Active Directory Federation Services (AD FS).**Active Directory

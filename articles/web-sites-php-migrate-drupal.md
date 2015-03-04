@@ -23,7 +23,7 @@
 
 Because Azure Websites supports both PHP and MySQL, it is relatively straightforward to migrate a Drupal site to Azure Websites. And, because Drupal and PHP run on any platform, the process should work for moving Drupal to Azure Websites regardless of your current platform. With this said, Drupal installations can vary widely, so there could be some unique migration steps not covered in the following material. Note that the Drush tool is not used, because it is not supported on Azure Websites.
 
-If you are moving a large and complex Drupal application, another option is to consider using Azure Cloud Services. For more information about the differences between Websites and Cloud Services, see <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Azure Websites, Cloud Services, and VMs: When to use which?</a>. For help on moving Drupal to Cloud Services, see <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Migrating a Drupal Site from LAMP to Windows Azure</a>.
+If you are moving a large and complex Drupal application, another option is to consider using Azure Cloud Services. For more information about the differences between Websites and Cloud Services, see <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Azure Websites, Cloud Services, and VMs: When to use which?</a>. For help on moving Drupal to Cloud Services, see <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Migrating a Drupal Site from LAMP to Azure</a>.
  
 ## Create an Azure Website and MySQL database
 

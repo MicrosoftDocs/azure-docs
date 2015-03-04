@@ -533,16 +533,16 @@ Now that you've learned the basics of service management, follow these links to 
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[download-SDK-Python]: https://www.windowsazure.com/en-us/develop/python/common-tasks/install-python/
-[cloud service]:http://windowsazure.com/en-us/documentation/articles/cloud-services-what-is
+[download-SDK-Python]: https://www.windowsazure.com/develop/python/common-tasks/install-python/
+[cloud service]:http://windowsazure.com/documentation/articles/cloud-services-what-is
 [service package]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
+[Azure PowerShell cmdlets]: https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/
 [cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
 [Deploying an Azure Service]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
-[storage service]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
-[azure-blobs]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/blob-service/
-[azure-tables]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
-[azure-queues]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/queue-service/
+[storage service]: https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/
+[azure-blobs]: https://www.windowsazure.com/develop/python/how-to-guides/blob-service/
+[azure-tables]: https://www.windowsazure.com/develop/python/how-to-guides/table-service/
+[azure-queues]: https://www.windowsazure.com/develop/python/how-to-guides/queue-service/
 [Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx

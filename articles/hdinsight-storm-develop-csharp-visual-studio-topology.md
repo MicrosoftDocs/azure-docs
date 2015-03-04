@@ -26,11 +26,11 @@ You will also learn how to create hybrid topologies that use both C# and Java co
 
 * One of the following versions of Visual Studio
 
-	* Visual Studio 2012 with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	* Visual Studio 2012 with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
 
-	* Visual Studio 2013 with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	* Visual Studio 2013 with <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/en-us/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 * Azure SDK 2.5.1 or newer
 
@@ -533,7 +533,9 @@ To view errors that have occurred in a running topology, use the following steps
 
 ##Next steps
 
-Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, discover more information about getting started creating C# applications by visiting [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
+
+To discover more information about creating C# topologies, visit [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
 For more ways to work with HDInsight, or more Storm on HDinsight samples, see the following.
 

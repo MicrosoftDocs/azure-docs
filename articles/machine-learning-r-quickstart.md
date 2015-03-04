@@ -162,7 +162,7 @@ If you do not have R installed on your desktop machine, I recommend you do so no
 
 If you are new to RStudio, you should download and install the desktop version. You can find the RStudio downloads for Windows, Mac OS, and Linux/UNIX at http://www.rstudio.com/products/RStudio/. Follow the directions provided to install RStudio on your desktop machine.  
 
-A tutorial introduction to RStudio is available at https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio.
+A tutorial introduction to RStudio is available at https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 I provide some additional information on using RStudio in [Appendix A][appendixa].  
 
@@ -1114,19 +1114,19 @@ RStudio is quite well documented, so in this appendix I will provide some links 
 
 1.	Creating projects
 
-	You can organize and manage your R code into projects by using RStudio. The documentation that uses projects can be found at https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects.
+	You can organize and manage your R code into projects by using RStudio. The documentation that uses projects can be found at https://support.rstudio.com/hc/articles/200526207-Using-Projects.
 
 	I recommend that you follow these directions and create a project for the R code examples in this document.  
 
 2.	Editing and executing R code
 
-	RStudio provides an integrated environment for editing and executing R code. Documentation can be found at https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code.
+	RStudio provides an integrated environment for editing and executing R code. Documentation can be found at https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 
 3.	Debugging
 
-	RStudio includes powerful debugging capabilities. Documentation for these features is at https://support.rstudio.com/hc/en-us/articles/200713843-Debugging-with-RStudio.
+	RStudio includes powerful debugging capabilities. Documentation for these features is at https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
 
-	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/en-us/articles/200534337-Breakpoint-Troubleshooting.
+	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ##<a id="appendixb"></a>APPENDIX B - Further reading
 
