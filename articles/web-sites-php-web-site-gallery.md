@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="WordPress Website from Gallery - Azure tutorial" 
-	description="A tutorial that teaches you how to create a new Azure website for a WordPress blog, and then deploy it through the Management Portal." 
+	description="A tutorial that teaches you how to create a new Azure web app for a WordPress blog, and then deploy it through the Management Portal." 
 	services="app-service-web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
