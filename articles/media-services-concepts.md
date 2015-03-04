@@ -97,15 +97,10 @@ Transcoding is the process of taking a video that has been encoded and re-encode
 
 Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback. There are audio codecs that compress and decompress audio and video codecs that compress and decompress video. Codecs can use lossless or lossy compression. Lossless codecs preserve all of the information when compression occurs. When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage. Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet. The two main codecs used by the Azure Media Encoder to encode are H.264 and VC-1. Other codecs may be available in our partner ecosystem of encoders. 
 
-File formats are containers that hold the compressed video as well as information about what codecs were used to compress the video. Azure Media Encoder supports the formats and codecs described in the following topic: [Formats Supported by the Media Services Encoder](../media-services-azure-media-encoder-formats).
+###Media Services Encoders
 
-It is important to understand the difference between codecs and file formats. Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
+For information about supported encoders, see [Encoders](../media-services-encode-asset).
 
-###Packaging 
-
-Once a video has been encoded\transcoded it can be placed into different file containers. The process of placing encoded media into a container is called packaging. The following blog explains the difference between encoding and packaging: [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
-
-When working with Media Services it is recommended to use [Dynamic Packaging](#dynamic_packaging). 
 
 ##Live Streaming
 
