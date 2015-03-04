@@ -543,6 +543,8 @@ For more ways to work with HDInsight, or more Storm on HDinsight samples, see th
 
 * [Deploy and monitor topologies with Apache Storm on HDInsight](../hdinsight-storm-deploy-monitor-topology/)
 
+* [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
+
 * [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
 
 * [Trending hashtags for Twitter with Apache Storm on HDInsight](../hdinsight-storm-twitter-trending/)
