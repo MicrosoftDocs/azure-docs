@@ -25,16 +25,6 @@ This guide demonstrates how to use Twilio to make a call from a web page hosted 
 
 ![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
-
-
-<h2>Table of Contents</h2>
-- [Prerequisites](#twilio-prereqs)
-- [How to: Create a web form for making a call](#howtocreateform)
-- [How to: Create the code to make the call](#howtocreatecode)
-- [Next steps](#nextsteps)
-- [See also](#seealso)
-
-
 <h2><a name="twilio-prereqs"></a>Prerequisites</h2>
 
 You will need to do the following to use the code in this topic:

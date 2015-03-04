@@ -21,16 +21,6 @@
 
 This guide demonstrates how to build apps that communicate with Twilio and node.js on Azure.
 
-## Table of Contents
-
-* [What is Twilio?](#whatis)
-* [Sign Up For Twilio (Microsoft Discount)](#signup)
-* [Create and Deploy a node.js Azure Website](#azuresite)
-* [Configure the Twilio Module](#twiliomodule)
-* [Make an Outbound Call](#makecall)
-* [Send an SMS Message](#sendmessage)
-* [Next Steps](#nextsteps)
-
 <a id="whatis"/>
 ## What is Twilio?
 
