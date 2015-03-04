@@ -3,7 +3,7 @@
 	description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,24 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/7/2015" 
-	ms.author="bradsev"/>
+	ms.date="3/4/2015" 
+	ms.author="jgao"/>
 
 
 
-# Set up HBase clusters and query them using Hive on Hadoop in HDInsight
+# Get started with Apache HBase in HDInsight
 
 Learn how to create and query HBase tables using Hive on Hadoop in HDInsight. 
-
-##In this article
-
-* [What is HBase?](#hbaseintro)
-* [Prerequisites](#prerequisites)
-* [Provision HBase clusters using Azure Management portal](#create-hbase-cluster)
-* [Mange HBase tables using HBase shell](#create-sample-table)
-* [Use HiveQL to query HBase tables](#hive-query)
-* [Use the Microsoft HBase REST client library to manage HBase tabels](#hbase-powershell)
-* [See also](#seealso)
 
 ##<a name="hbaseintro"></a>What is HBase?
 
