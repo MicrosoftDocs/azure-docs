@@ -53,11 +53,11 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 
 ##Working with Live Transcoders
 
-For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/en-us/library/azure/dn783464.aspx).
+For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 ##Managing Channels, Programs, Assets
 
-For more information, see [Live Streaming](https://msdn.microsoft.com/en-us/library/azure/dn783466.aspx).
+For more information, see [Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 
 ##Configure content protection and content key authorization policy 
 

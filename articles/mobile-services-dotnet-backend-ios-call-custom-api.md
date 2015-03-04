@@ -54,9 +54,9 @@ This tutorial uses the app from the [Mobile Services Quick Start], so you must c
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Mobile Services Quick Start]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
-[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started/
+[Mobile Services Quick Start]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started/
+[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
+[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
+[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
+[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control

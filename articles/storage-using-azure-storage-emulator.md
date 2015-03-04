@@ -47,6 +47,7 @@ When the storage emulator starts, a command line will appear. You can use this c
 
 When the command line window is closed, the storage emulator continues to run. To bring up the command line again, follow the steps above as if starting the storage emulator.
 
+
 The first time you run the storage emulator, the local storage environment is initialized for you. You can use the storage emulator command-line tool to point to a different database instance or to reinitialize the existing database. The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service. This step requires administrative privileges. For details, see [Storage Emulator Command-Line Tool Reference](https://msdn.microsoft.com/library/azure/gg433005.aspx).
 
 ## About Storage Service URIs
@@ -132,10 +133,6 @@ Starting in version 3.0, when you launch the Storage Emulator you will see a com
 ### Options
 
 To view the list of options, type `/help` at the command prompt.
-
-
-
-
 
 ## Next Steps
 - [Storage Emulator Command-Line Tool Reference](https://msdn.microsoft.com/library/azure/gg433005.aspx)

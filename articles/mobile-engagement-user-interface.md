@@ -48,7 +48,7 @@ The UI Frontend Portal at https://YourApp.portal.mobileengagementwindows.net/ co
  
 ### Footer:
 - **Terms of Service** [http://azure.microsoft.com/support/legal/](http://azure.microsoft.com/support/legal/)
-- **Privacy & Cookies** [http://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx)
+- **Privacy & Cookies** [http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)
  
 ### Cookie Crumb:
 - Navigate quickly to the previous pages that lead to your current location.
@@ -1006,10 +1006,10 @@ Allows you to search and view the Email, Name, Organization, and Permission leve
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: ../mobile-engagement-user-interface-navigation/
 [Link 13]: ../mobile-engagement-user-interface-home/
 [Link 14]: ../mobile-engagement-user-interface-my-account/

@@ -19,8 +19,8 @@
 #Azure Notification Hubs Notify Users
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
 ##Overview
@@ -39,7 +39,7 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 
 
 
-> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) of this tutorial.
+> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) of this tutorial.
 
 
 ## Create and Configure the Notification Hub
@@ -274,5 +274,5 @@ To run the application, do the following:
 
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Secure Push]: /en-us/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/
+[Get started with Notification Hubs]: /documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Secure Push]: /documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/

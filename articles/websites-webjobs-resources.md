@@ -129,6 +129,6 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [StackOverflow for WebJobs](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [StackOverflow for the WebJobs SDK](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Azure and ASP.NET forum](http://forums.asp.net/1247.aspx)
-* [Azure Websites forum](http://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)
+* [Azure Websites forum](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure Websites User Voice site](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). Use the hashtag #AzureWebJobs.

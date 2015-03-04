@@ -57,7 +57,7 @@ Note that Azure Websites already provides round-robin load balancing functionali
 
 [About Traffic Manager Load Balancing Methods](../about-traffic-manager-load-balancing-methods)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Traffic Manager Overview](../traffic-manager-overview)
 

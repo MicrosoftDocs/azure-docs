@@ -53,16 +53,16 @@ Use the following procedures to configure verbose or minimal monitoring in the M
 
 ###Before you begin###
 
-- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](/manage/services/storage/how-to-create-a-storage-account/).
 
 
-- Enable Azure Diagnostics for your cloud service roles. <br /><br />For more information, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](/en-us/documentation/articles/cloud-services-dotnet-diagnostics/).
+- Enable Azure Diagnostics for your cloud service roles. <br /><br />For more information, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](/documentation/articles/cloud-services-dotnet-diagnostics/).
 
 In the Management Portal, you can add or modify the diagnostics connection strings that Azure Diagnostics uses to access the storage accounts that store verbose monitoring data, and you can set the level of monitoring to verbose or minimal. Because verbose monitoring stores data in a storage account, you must configure the diagnostics connection strings before you set the monitoring level to verbose.
 
 ###To configure diagnostics connections strings for verbose monitoring###
 
-1. Copy a storage access key for the storage account that that you'll use to storage the verbose monitoring data. In the [Azure Management Portal](https://manage.windowsazure.com/), you can use **Manage Keys** on the **Storage Accounts** page. For more information, see [How to Manage Cloud Services](/en-us/documentation/articles/cloud-services-how-to-manage/), or see help for the **Storage Accounts** page. 
+1. Copy a storage access key for the storage account that that you'll use to storage the verbose monitoring data. In the [Azure Management Portal](https://manage.windowsazure.com/), you can use **Manage Keys** on the **Storage Accounts** page. For more information, see [How to Manage Cloud Services](/documentation/articles/cloud-services-how-to-manage/), or see help for the **Storage Accounts** page. 
 
 2. Open **Cloud Services**. Then, to open the dashboard, click the name of the cloud service you want to configure.
 

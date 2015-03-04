@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="03/03/2015" 
 	ms.author="mandia"/>
 
 
 # BizTalk Services: Editions Chart
 
 Azure BizTalk Services offers several editions to choose. Use this topic to determine which edition is right for your scenario and business needs.
+
 
 ## Describing the Editions
 
@@ -42,6 +43,7 @@ Includes all the Basic capabilities with increases in Hybrid Connections, EAI br
 **PREMIUM** 
 
 Includes all the Standard capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also includes archiving, high availability, and the option to scale with a Service Level Agreement (SLA).
+
 
 ## Editions Chart
 The following table lists the differences:
@@ -202,7 +204,9 @@ Includes Non-repudiation of Receipt (NRR) and downloading tracked messages</td>
 **Note**
 <br/>For resiliency against hardware failures, High Availability implies having multiple VMs within a single BizTalk Unit.
 
+
 ## FAQs
+
 #### What is a BizTalk Unit?
 A "unit" is the atomic level of an Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. For example, a Basic Unit has more compute than Developer, Standard has more compute than Basic, and so on. When you scale a BizTalk Service, you scale in terms of Units.
 

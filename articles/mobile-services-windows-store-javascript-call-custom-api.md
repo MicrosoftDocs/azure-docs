@@ -58,10 +58,10 @@ Now that you have created a custom API and called it from your Windows Store app
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started/
+[Get started with data]: /documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+[Get started with authentication]: /documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /documentation/articles/mobile-services-windows-store-javascript-get-started-push/
 
-[Define a custom API that supports periodic notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
-[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+[Define a custom API that supports periodic notifications]: /documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
+[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control

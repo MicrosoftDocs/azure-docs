@@ -20,7 +20,7 @@ This topic describes quotas and limitations associated with Microsoft Azure Medi
  
 - The maximum number of jobs in your account should not exceed 50,000.
  
-- You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request. For more information, see [Job record limit for Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) and [Managing Assets](https://msdn.microsoft.com/en-us/library/azure/dn642436.aspx). 
+- You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request. For more information, see [Job record limit for Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) and [Managing Assets](https://msdn.microsoft.com/library/azure/dn642436.aspx). 
  
 - When making a request to list Job entities, a maximum of 1,000 will be returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx).  
 
