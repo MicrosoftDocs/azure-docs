@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Build a Node.js web application using DocumentDB | Azure" 
-	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites" 
+	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="ryancrawcour" 
@@ -86,17 +86,13 @@ The **package.json** file is one of the files created in the root of the
 project. This file contains a list of additional modules that are
 required for your Node.js application. Later, when you deploy this
 application to an Azure Websites, this file is used to determine
-which modules need to be installed on Azure to support your application.
+which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
 
-![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image13.png)
-
-We still need to install two more packages for this tutorial.
-
-1. Back in the terminal, install the `async` module via npm.
+1. Back in the terminal, install the **async** module via npm.
 
 		npm install async --save
 
-1. And install the `documentdb` module via npm. This is the module where all the DocumentDB magic happens
+1. And install the **documentdb** module via npm. This is the module where all the DocumentDB magic happens
 
 		npm install documentdb --save
 
@@ -379,8 +375,6 @@ That takes care of all the initial setup and configuration, now let’s get down
 		module.exports = config;
 
 3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Azure Preview portal](http://portal.azure.com):
- - Change the value of HOST to the URI value retrieved from the Keys blade.
- - Change the value of AUTH_KEY to the PRIMARY KEY value retrieved from the Keys blade. 
 
 4. Save and close the **config.js** file.
  
