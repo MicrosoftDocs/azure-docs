@@ -13,17 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/03/2015" 
 	ms.author="mandia"/>
 
 
 
 # Hybrid Connections Overview
-This topic introduces Hybrid Connections, lists the supported configurations, and lists the required TCP Ports. Specifically:
+This topic introduces Hybrid Connections, lists the supported configurations, and lists the required TCP Ports. 
 
-- [What is a Hybrid Connection](#HCOverview)
-- [Supported Configurations](#KnownIssues)
-- [Security and Ports](#HCSecurity)
 
 ## <a name="HCOverview"></a>What is a Hybrid Connection
 
@@ -119,7 +116,7 @@ The following TCP ports are used by Hybrid Connections:
 
 ## See Also
 
-- [REST API for Managing BizTalk Services on Windows Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
+- [REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
 - [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 - [Create a BizTalk Service using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
