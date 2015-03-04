@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="03/03/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-March-02  Monday  20:23pm
-Updated the DacFx and similar links at the very end of this topic; and the same links in sql-database-preview-plan-prepare-upgrade.md due to bacpac master db object permissions problem.
+GeneMi , 2015-March-03 Tuesday 15:44pm
+New 4.1 section added about portals, per email from Sanjay.Nag 2015-March-03 08:49am.
+
+4.1 section was changed to now be 4.2, of course.
 -->
 
 The latest Azure SQL Database Update V12 ([preview in some regions](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
@@ -166,7 +168,37 @@ You can learn how to try the V12 preview at [Plan and Prepare to Upgrade to the 
 
 Be aware of the following cautions regarding upgrade and post-upgrade to Azure SQL Database Update V12 (preview).
 
-#### 4.1 Cautions *during* upgrade to V12 preview
+
+### 4.1 Preview portal for V12
+
+
+Only the first of the following two Azure management portals supports V12 databases:
+
+
+- [http://portal.azure.com/](http://portal.azure.com/)
+ - This newer portal is at preview status and is not yet at General Availability (GA).<br/><br/>
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)
+ - This older portal will not be updated to support V12.
+
+
+We encourage customers to connect to their Azure SQL databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
+
+
+- To run a T-SQL statement.
+- To design a schema.
+- To develop a database, either online or offline.
+
+
+You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
+
+
+In the older Azure management portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
+
+
+For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
+
+
+### 4.2 Cautions *during* upgrade to V12 preview
 
 
 > [AZURE.NOTE]
@@ -183,7 +215,7 @@ Be aware of the following cautions regarding upgrade and post-upgrade to Azure S
 - The Web and Business service pricing tier is not supported on V12 preview. Nor will it be supported at V12 GA, nor will it be supported in any future version.
 
 
-#### 4.2 Cautions *after* upgrade to V12 preview
+### 4.3 Cautions *after* upgrade to V12 preview
 
 
 - Any database that is upgraded in-place to the V12 preview cannot be reverted back to the earlier version.
@@ -191,7 +223,7 @@ Be aware of the following cautions regarding upgrade and post-upgrade to Azure S
 - The 50% cost discount for Azure SQL Database V12 is in effect in all geographic regions until it expires on Tuesday 2015-March-31. The discount applies to regions, for both preview and GA status.
 
 
-#### 4.3 Export and import *after* upgrade to V12 preview
+### 4.4 Export and import *after* upgrade to V12 preview
 
 
 You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
