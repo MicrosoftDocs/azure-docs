@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 
-#SharePoint Server Farm Configuration Details#
+#SharePoint Server Farm Configuration Details
 
 SharePoint Server Farm is a feature of the Microsoft Azure Preview Portal that automatically creates a pre-configured SharePoint Server 2013 farm for you. There are two farm configurations:
 
@@ -28,7 +28,7 @@ The following sections provide configuration details for each farm.
 
 For additional information, see [SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Basic SharePoint farm##
+##Basic SharePoint farm
 
 The basic SharePoint farm consists of three virtual machines in this configuration:
 
@@ -71,7 +71,7 @@ Here are the configuration details:
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
 
-##High-availability SharePoint farm##
+##High-availability SharePoint farm
 
 The high-availability SharePoint farm consists of nine virtual machines in this configuration:
 
@@ -119,7 +119,7 @@ Here are the configuration details:
 	-	SharePoint farm account password: Specified during the initial configuration.		
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
-##Additional Resources##
+##Additional Resources
 
 [SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/)
 
