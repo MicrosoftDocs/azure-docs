@@ -225,7 +225,7 @@ The following steps walk you through obtaining the connection information for th
 6. Make a note of the server address in the **Connect to your database** section, for example: *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
-1. Navigate to [SQL Server Editions - Express](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx)
+1. Navigate to [SQL Server Editions - Express](http://www.microsoft.com/server-cloud/products/sql-server-editions/sql-server-express.aspx)
 2. Find the **SQL Server Management Studio** section and select the **Download** button underneath.
 3. Complete the setup steps until you can successfully run the application:
 

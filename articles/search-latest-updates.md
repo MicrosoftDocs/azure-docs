@@ -18,11 +18,11 @@
 
 #Latest updates to Azure Search Preview#
 
-This page announces new features recently added to Azure Search. Older posts will be retired after 6 months to keep the page length manageable, but you can always refer to the feature list in [Azure Search Overview](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx) to see what the service provides.
+This page announces new features recently added to Azure Search. Older posts will be retired after 6 months to keep the page length manageable, but you can always refer to the feature list in [Azure Search Overview](https://msdn.microsoft.com/library/azure/dn798933.aspx) to see what the service provides.
 
 Azure Search has been in public preview since August 2014, with a corresponding API version of `2014-07-31-Preview`. This version has remained largely unchanged throughout the preview.
 
-However, over the last several months, we've continued to add new features via  a follow-up API version (`2014-10-20-Preview`). [Versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) the API allows us to isolate changes that could potentially break existing applications. By branching the API, you can control the API rollout in your solution. It's up to you to determine when and if you use the newest features.
+However, over the last several months, we've continued to add new features via  a follow-up API version (`2014-10-20-Preview`). [Versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) the API allows us to isolate changes that could potentially break existing applications. By branching the API, you can control the API rollout in your solution. It's up to you to determine when and if you use the newest features.
 
 The following features are all part of the [2014-10-20-Preview API](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/).
 
@@ -33,8 +33,8 @@ The following features are all part of the [2014-10-20-Preview API](http://azure
 
 ##Notes for December 2, 2014##
 
-+ Edm.Int64 data type for index fields. See [Supported data types](https://msdn.microsoft.com/en-us/library/azure/dn798938.aspx) for the full list.
++ Edm.Int64 data type for index fields. See [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for the full list.
 
 ##Notes for October 27, 2014##
 
-+ Language support via the `analyzer` property added support for multiple languages. See [Language Support](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx) for more information.
++ Language support via the `analyzer` property added support for multiple languages. See [Language Support](https://msdn.microsoft.com/library/azure/dn879793.aspx) for more information.

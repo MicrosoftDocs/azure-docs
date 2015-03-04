@@ -240,11 +240,11 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 To replicate the entire SQL Server database in your SQL Server VM, you should copy a database from one location/server to another, assuming that the database can be taken temporarily offline. You do this in the SQL Server Management Studio Object Explorer GUI, or using the equivalent Transact-SQL commands.
 
-1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/en-us/library/ms191491.aspx).
+1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/library/ms191491.aspx).
 2. In Windows Explorer or Windows Command Prompt window, copy the detached database file or files and log file or files to the target location on the SQL Server VM in Azure.
-3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/en-us/library/ms190209.aspx). 
+3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/library/ms190209.aspx). 
 
-[Move a Database Using Detach and Attach (Transact-SQL)](https://technet.microsoft.com/en-us/library/ms187858.aspx)
+[Move a Database Using Detach and Attach (Transact-SQL)](https://technet.microsoft.com/library/ms187858.aspx)
 
 Sample Scenarios Summary
 ------------------------

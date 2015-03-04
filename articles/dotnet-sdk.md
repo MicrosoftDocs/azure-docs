@@ -20,7 +20,7 @@
 
 ## Overview
 
-The Azure SDK for .NET is a set of Visual Studio tools, command-line tools, runtime binaries, and client libraries that help you develop, test, and deploy apps that run in Azure. This article details what you get when you install the SDK. You can download the SDK from the [Azure Downloads page](/en-us/downloads/). 
+The Azure SDK for .NET is a set of Visual Studio tools, command-line tools, runtime binaries, and client libraries that help you develop, test, and deploy apps that run in Azure. This article details what you get when you install the SDK. You can download the SDK from the [Azure Downloads page](/downloads/). 
 
 The Azure SDK for .NET also comprises [client libraries for consuming Azure services](http://go.microsoft.com/fwlink/?LinkId=510472). These libraries are installed separately using NuGet.
 
@@ -41,7 +41,7 @@ The Azure SDK for .NET installs the following products:
 
 ###<a id="vwd"></a>Visual Studio Express for Web
 
-If you don't have Visual Studio on your computer, the SDK will install [Visual Studio Express for Web](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx). 
+If you don't have Visual Studio on your computer, the SDK will install [Visual Studio Express for Web](http://www.visualstudio.com/products/visual-studio-express-vs.aspx). 
  
 ###<a id="wte"></a>Microsoft ASP.NET and Web Tools for Visual Studio
 
@@ -101,7 +101,7 @@ HDInsight tools in Server Explorer enable you to navigate Hive databases and lin
 
 ###<a id="arm"></a>Azure Resource Manager Tools for Visual Studio
 
-The Azure Resource Manager tools enable you to create an application using the Azure Marketplace templates in a new project type called a Cloud Deployment Project. You can create and edit the Azure Resource Manager deployment template (to declaratively describe an Azure Website and SQL database, for example) and parameter files in the Cloud Deployment Project. The parameter file makes it easy to use the same template to spin up multiple instances of the resources in development, testing, and production environments. Use the tools to create resource groups and deploy templates to simplify creation of resources. For more information, see [Cloud Deployment Projects](https://msdn.microsoft.com/en-us/library/azure/dn872471.aspx) and [Azure Resource Manager 2.5 for Visual Studio](http://azure.microsoft.com/blog/2014/11/26/azure-resource-manager-2-5-for-visual-studio/).
+The Azure Resource Manager tools enable you to create an application using the Azure Marketplace templates in a new project type called a Cloud Deployment Project. You can create and edit the Azure Resource Manager deployment template (to declaratively describe an Azure Website and SQL database, for example) and parameter files in the Cloud Deployment Project. The parameter file makes it easy to use the same template to spin up multiple instances of the resources in development, testing, and production environments. Use the tools to create resource groups and deploy templates to simplify creation of resources. For more information, see [Cloud Deployment Projects](https://msdn.microsoft.com/library/azure/dn872471.aspx) and [Azure Resource Manager 2.5 for Visual Studio](http://azure.microsoft.com/blog/2014/11/26/azure-resource-manager-2-5-for-visual-studio/).
 
 ##<a id="notincluded"></a>What's not included when you install the Azure SDK for .NET
 
@@ -135,7 +135,7 @@ There are a few things that you might want for Azure development that aren't inc
 
 It's a good practice to install the SDK if you want to develop for Azure using the latest tools. If you'd rather not install the SDK, you can do so if the following conditions are true:
 
-* You've installed the latest [Visual Studio Update](http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs#DownloadFamilies_5).
+* You've installed the latest [Visual Studio Update](http://www.visualstudio.com/downloads/download-visual-studio-vs#DownloadFamilies_5).
 * You're developing only for Azure Websites or Mobile Services, not for Cloud services or Virtual Machines.
 * Your application doesn't use Storage, or it uses Storage but you don't need the Storage Emulator or the AzCopy tool.
 
@@ -145,7 +145,7 @@ The SDK installs client libraries only so you can create cloud service projects 
 
 ###<a id="olderversions"></a>Where can I find older versions of the Azure SDK for .NET?
 
-For older versions see the [Azure SDK for .NET](/en-us/downloads/archive-net-downloads/) downloads page. 
+For older versions see the [Azure SDK for .NET](/downloads/archive-net-downloads/) downloads page. 
 
 ###<a id="lifecycle"></a>What's the lifecycle policy for versions of the Azure SDK for .NET?
 
@@ -157,12 +157,12 @@ See [Azure Guest OS Releases and SDK Compatibility Matrix](http://msdn.microsoft
 
 ##<a id="versions"></a>Versions
 
-To see which version is current or to download older versions, see the [Azure SDK for .NET Version History](/en-us/downloads/archive-net-downloads/) page. 
+To see which version is current or to download older versions, see the [Azure SDK for .NET Version History](/downloads/archive-net-downloads/) page. 
 
 ##<a id="resources"></a>Resources
 
-To download the current Azure SDK for .NET or a client library, see the [Azure Downloads page](/en-us/downloads/).
+To download the current Azure SDK for .NET or a client library, see the [Azure Downloads page](/downloads/).
 
 For the Azure SDK for .NET source code, including client libraries, see [GitHub.com/Azure](https://github.com/azure/).
 
-For Azure client library reference documentation, see [Azure .NET Reference](/en-us/documentation/api/). 
+For Azure client library reference documentation, see [Azure .NET Reference](/documentation/api/). 

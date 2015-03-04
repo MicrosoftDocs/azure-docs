@@ -53,7 +53,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 
 [StorSimple release notes](https://msdn.microsoft.com/library/azure/dn772367.aspx)
 
-[Terminology](https://msdn.microsoft.com/en-us/library/azure/dn757725.aspx)
+[Terminology](https://msdn.microsoft.com/library/azure/dn757725.aspx)
 
 
 

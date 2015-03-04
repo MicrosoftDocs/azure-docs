@@ -38,10 +38,6 @@ In this article, you will learn:
 
 * Visual Studio 2010 or 2013
 
-##Table of Contents
-
-* [SCP and Storm](#scpandstorm)
-
 ##<a id="scpandstorm"></a>SCP and Storm
 
 Apache Storm is a distributed computation system that runs on Hadoop clusters, and allows you to perform real-time data processing. While Storm runs in the Java Virtual Machine (JVM), it was designed so that solutions (known as **topologies**,) can be implemented in a variety of programming languages. You can even create a topology that is a mix of components written in multiple languages.

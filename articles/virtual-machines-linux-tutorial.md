@@ -18,7 +18,7 @@
 
 #Create a Virtual Machine Running Linux 
 
-Creating an Azure Virtual Machine (VM) that runs Linux is easy to do. This topic shows you how to use the Azure portal to create one quickly without installing anything, but you can also create VMs from any platform by using the [Azure Cross-Platform Command-Line Interface (xplat-cli)](http://www.windowsazure.com/documentation/articles/xplat-cli/), [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/), or the [Server Explorer in Visual Studio](https://msdn.microsoft.com/en-us/library/azure/dn569263.aspx).
+Creating an Azure Virtual Machine (VM) that runs Linux is easy to do. This topic shows you how to use the Azure portal to create one quickly without installing anything, but you can also create VMs from any platform by using the [Azure Cross-Platform Command-Line Interface (xplat-cli)](http://www.windowsazure.com/documentation/articles/xplat-cli/), [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/), or the [Server Explorer in Visual Studio](https://msdn.microsoft.com/library/azure/dn569263.aspx).
 
 You can also create Linux VMs using [your own images as templates](../virtual-machines-linux-create-upload-vhd/). 
 
@@ -44,7 +44,7 @@ A virtual machine in Azure is a server in the cloud that you can control and man
 The following options are available for using images to create a virtual machine:
 
 - Create a virtual machine by using an image that is provided in the Image Gallery of the Azure Management Portal.
-- Create and upload a .vhd file that contains an image to Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](/en-us/manage/linux/common-tasks/upload-a-vhd/).
+- Create and upload a .vhd file that contains an image to Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](/manage/linux/common-tasks/upload-a-vhd/).
 
 Each virtual machine resides in a cloud service, either by itself, or grouped with other virtual machines. You can place virtual machines in the same cloud service to enable the virtual machines to communicate with each other, to load-balance network traffic among virtual machines, and to maintain high availability of the machines. For more information about cloud services and virtual machines, see the "Execution Models" section in [Introducing Azure](http://go.microsoft.com/fwlink/p/?LinkId=311926).
 

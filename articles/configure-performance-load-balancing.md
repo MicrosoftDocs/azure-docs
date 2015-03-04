@@ -36,7 +36,7 @@ In order to load balance cloud services and websites (endpoints) that are locate
 
 [Traffic Manager Overview](../traffic-manager)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

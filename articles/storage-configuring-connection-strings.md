@@ -27,7 +27,7 @@ A connection string contains the parameters that are necessary to access your st
 
 - Connect to a storage account in Azure by using explicit endpoints for the storage services.
 
-If your application is a cloud service running in Azure, the most convenient place to store your connection string is in the [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/en-us/library/ee758710.aspx). If your application is running in another environment (for example, on the desktop), then you will probably want to store your connection string in an app.config file or another configuration file. You can use the Azure CloudConfigurationManager class to access your connection string at runtime regardless of where it is running.
+If your application is a cloud service running in Azure, the most convenient place to store your connection string is in the [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/ee758710.aspx). If your application is running in another environment (for example, on the desktop), then you will probably want to store your connection string in an app.config file or another configuration file. You can use the Azure CloudConfigurationManager class to access your connection string at runtime regardless of where it is running.
 
 ##Connecting to the storage emulator
 
@@ -79,7 +79,7 @@ When you explicitly specify service endpoints, you have two options for specifyi
 You can specify endpoints for blob, table, and queue in a connection string. You must specify at least one endpoint, but you do not need to specify all three. For example, if you're creating a connection string for use with a custom blob endpoint, specifying the queue and table endpoints is optional. Note that if you choose to omit the queue and table endpoints from the connection string, then you will not be able to access the Queue and Table services from your code by using that connection string.
 
 ###Specifying endpoints with a shared access signature 
-You can create a connection string with explicit endpoints to access storage resources via a shared access signature. In this case, you can specify the shared access signature for as part of the connection string, rather than the account name and key credentials. The shared access signature token encapsulates information about the resource to be accessed, the period of time for which it is available, and the permissions being granted. For more information about shared access signatures, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/en-us/library/ee395415.aspx).
+You can create a connection string with explicit endpoints to access storage resources via a shared access signature. In this case, you can specify the shared access signature for as part of the connection string, rather than the account name and key credentials. The shared access signature token encapsulates information about the resource to be accessed, the period of time for which it is available, and the permissions being granted. For more information about shared access signatures, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
 
 To create a connection string that includes a shared access signature, specify the string in the following format:
 

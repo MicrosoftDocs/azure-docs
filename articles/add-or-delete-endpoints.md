@@ -50,7 +50,7 @@ Note that Azure Websites already provides failover and round-robin load balancin
 
 4-At the bottom of the page, click **Delete**. 
 
-[AZURE.NOTE]**You cannot delete external locations or Traffic Manager profiles as endpoints using the Management Portal. You must use Windows PowerShell. For more information, see [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/en-us/library/dn690251.aspx)).**
+[AZURE.NOTE]**You cannot delete external locations or Traffic Manager profiles as endpoints using the Management Portal. You must use Windows PowerShell. For more information, see [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx)).**
 
 ## See Also
 
@@ -58,6 +58,6 @@ Note that Azure Websites already provides failover and round-robin load balancin
 
 [About Traffic Manager Monitoring](../about-traffic-manager-monitoring)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)

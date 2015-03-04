@@ -76,7 +76,7 @@ Once you publish your web service from Machine Learning Studio, you can send dat
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 
-For more information about accessing a Machine Learning web service, see [How to consume a published machine learning web services](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/machine-learning-consume-web-services/).
+For more information about accessing a Machine Learning web service, see [How to consume a published machine learning web services](https://acom-sandbox.azurewebsites.net/documentation/articles/machine-learning-consume-web-services/).
 
 
 ##Manage the web service in the Azure Management Portal

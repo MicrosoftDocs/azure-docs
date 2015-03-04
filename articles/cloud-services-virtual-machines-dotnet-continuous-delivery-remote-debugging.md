@@ -28,7 +28,7 @@ In this topic:
 <h2> <a name="cloudservice"></a>Enabling remote debugging for cloud services</h2>
 
 1. On the build agent, set up the initial environment for Azure as outlined in [Command-Line Build for Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Because the remote debug runtime (msvsmon.exe) is required for the package, install the [Remote Tools for Visual Studio 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40781) (or the [Remote Tools for Visual Studio 2012 Update 4](http://www.microsoft.com/en-us/download/details.aspx?id=38184) if you’re using Visual Studio 2012). As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
+2. Because the remote debug runtime (msvsmon.exe) is required for the package, install the [Remote Tools for Visual Studio 2013](http://www.microsoft.com/download/details.aspx?id=40781) (or the [Remote Tools for Visual Studio 2012 Update 4](http://www.microsoft.com/download/details.aspx?id=38184) if you’re using Visual Studio 2012). As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
 3. Create a certificate as outlined in [Create a Service Certificate for Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
 4. Use the following options in the MSBuild command line to build and package with remote debug enabled. (Update the paths for your system and project files.)
 

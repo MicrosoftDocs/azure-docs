@@ -36,7 +36,7 @@ The following types of authenticated requests are logged:
 
 - Requests to analytics data
 
-Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/en-us/library/hh343260.aspx) and [Storage Analytics Log Format](https://msdn.microsoft.com/en-us/library/hh343259.aspx) topics.
+Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx) topics.
 
 ##Logging anonymous requests
 The following types of anonymous requests are logged:
@@ -49,12 +49,12 @@ The following types of anonymous requests are logged:
 
 - Failed GET requests with error code 304 (Not Modified)
 
-All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/en-us/library/hh343260.aspx) and [Storage Analytics Log Format](](https://msdn.microsoft.com/en-us/library/hh343259.aspx)) topics.
+All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) and [Storage Analytics Log Format](](https://msdn.microsoft.com/library/hh343259.aspx)) topics.
 
 ##How logs are stored
 All logs are stored in block blobs in a container named $logs, which is automatically created when Storage Analytics is enabled for a storage account. The $logs container is located in the blob namespace of the storage account, for example: `http://<accountname>.blob.core.windows.net/$logs`. This container cannot be deleted once Storage Analytics has been enabled, though its contents can be deleted.
 
->[Azure.NOTE] The $logs container is not displayed when a container listing operation is performed, such as the [ListContainers](https://msdn.microsoft.com/en-us/library/ee758348.aspx) method. It must be accessed directly. For example, you can use the [ListBlobs](https://msdn.microsoft.com/en-us/library/ee772878.aspx) method to access the blobs in the `$logs` container.
+>[Azure.NOTE] The $logs container is not displayed when a container listing operation is performed, such as the [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx) method. It must be accessed directly. For example, you can use the [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) method to access the blobs in the `$logs` container.
 As requests are logged, Storage Analytics will upload intermediate results as blocks. Periodically, Storage Analytics will commit these blocks and make them available as a blob.
 
 Duplicate records may exist for logs created in the same hour. You can determine if a record is a duplicate by checking the **RequestId** and **Operation** number.
@@ -112,8 +112,8 @@ All data in the `$logs` container can be accessed by using the Blob service APIs
 
 ##Next steps
 
-[Storage Analytics Log Format](https://msdn.microsoft.com/en-us/library/hh343259.aspx) 
+[Storage Analytics Log Format](https://msdn.microsoft.com/library/hh343259.aspx) 
 
-[Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/en-us/library/hh343260.aspx) 
+[Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) 
 
-[About Storage Analytics Metrics](https://msdn.microsoft.com/en-us/library/hh343258.aspx) 
+[About Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx) 

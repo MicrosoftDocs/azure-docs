@@ -28,7 +28,7 @@ You might also be interested in these related topics:
 
 - You can optionally [configure a site-to-site VPN using the Management Portal Wizard](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](http://www.windowsazure.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
--  For step-by-step guidance to create a test lab environment on Azure that includes AD DS, see [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684).
+-  For step-by-step guidance to create a test lab environment on Azure that includes AD DS, see [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684).
 
 
 
@@ -176,5 +176,5 @@ For more information about using Windows PowerShell, see [Getting Started with A
 
 -  [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](http://technet.microsoft.com/library/hh831734.aspx)
 
--  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684)
+-  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684)
 
