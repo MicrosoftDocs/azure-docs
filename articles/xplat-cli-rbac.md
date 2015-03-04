@@ -18,7 +18,7 @@
 
 # Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
 Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for active directory users, groups or service principals by assigning some roles to them at a particular scope.
 

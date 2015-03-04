@@ -29,7 +29,7 @@ Dolby Digital Plus is supported by the Azure Media Encoder. To get a reference t
 
 ###<a id="configure_preset"></a>Configure Azure Media Encoder settings
 
-When configuring the encoding settings for use with Azure Media Encoder, there were a number of pre-defined presets represented by easy to remember strings. The Dolby Digital Plus encoder provides a rich array of controls, see [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/en-us/library/azure/dn296500.aspx) for more information. Therefore there are no pre-built string presets that use this codec. You must specify your desired encoder settings in an XML file and submit this data with your Task as shown in the following code example:
+When configuring the encoding settings for use with Azure Media Encoder, there were a number of pre-defined presets represented by easy to remember strings. The Dolby Digital Plus encoder provides a rich array of controls, see [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) for more information. Therefore there are no pre-built string presets that use this codec. You must specify your desired encoder settings in an XML file and submit this data with your Task as shown in the following code example:
 	
 	string configuration = File.ReadAllText(pathToXMLConfigFile));
 
@@ -38,7 +38,7 @@ When configuring the encoding settings for use with Azure Media Encoder, there w
         configuration,
         _clearConfig);
 
-This topic describes several example XML presets that configure the encoder settings. The element used to configure Dolby Digital Plus encoding is [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/en-us/library/azure/dn296500.aspx) which appears as a child node of the <AudioProfile> element in an Azure Media Encoder XML preset. This XML element contains a number of attributes that control various elements of the encoding.
+This topic describes several example XML presets that configure the encoder settings. The element used to configure Dolby Digital Plus encoding is [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) which appears as a child node of the <AudioProfile> element in an Azure Media Encoder XML preset. This XML element contains a number of attributes that control various elements of the encoding.
 
 ##Encoding to Dolby Digital Plus 5.1 Multichannel
 

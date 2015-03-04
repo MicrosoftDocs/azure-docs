@@ -159,14 +159,14 @@ See [Get started with Notification Hubs](http://azure.microsoft.com/documentatio
 Example:
 
     > [AZURE.SELECTOR]
-    - [Windows Universal](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
-    - [Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/)
-    - [iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/)
-    - [Android](/en-us/documentation/articles/notification-hubs-android-get-started/)
-    - [Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/)
-    - [Baidu](/en-us/documentation/articles/notification-hubs-baidu-get-started/)
-    - [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/)
-    - [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/)
+    - [Windows Universal](/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
+    - [Windows Phone](/documentation/articles/notification-hubs-windows-phone-get-started/)
+    - [iOS](/documentation/articles/notification-hubs-ios-get-started/)
+    - [Android](/documentation/articles/notification-hubs-android-get-started/)
+    - [Kindle](/documentation/articles/notification-hubs-kindle-get-started/)
+    - [Baidu](/documentation/articles/notification-hubs-baidu-get-started/)
+    - [Xamarin.iOS](/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/)
+    - [Xamarin.Android](/documentation/articles/partner-xamarin-notification-hubs-android-get-started/)
 
 ### Rendering
 

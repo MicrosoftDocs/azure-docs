@@ -20,7 +20,7 @@
 
 Linux-based HDInsight clusters provide the option of securing SSH access using either a password or an SSH key. This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients.
 
-> [AZURE.NOTE] The steps in this article assume you are using a Linux, Unix, or OS X client. While these steps may be performed on a Windows client if you have installed a package that provides `ssh` and `ssh-keygen` (such as Git for Windows,) we recommend that Windows clients follow the steps in [Use SSH with Linux-based HDInsight (Hadoop) from Windows](/en-us/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
+> [AZURE.NOTE] The steps in this article assume you are using a Linux, Unix, or OS X client. While these steps may be performed on a Windows client if you have installed a package that provides `ssh` and `ssh-keygen` (such as Git for Windows,) we recommend that Windows clients follow the steps in [Use SSH with Linux-based HDInsight (Hadoop) from Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
 
 ##Prerequisites
 
@@ -72,7 +72,7 @@ When creating a Linux-based HDInsight cluster, you must provide the **public key
 
 * **Azure Cross-Platform Command-Line Interface (xplat-cli)** - uses command-line commands to create the cluster
 
-Each of these methods will require either a **password** or a **public key**. For complete information on creating an Linux-based HDInsight cluster see <a href="/en-us/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provision Linux-based HDInsight clusters</a>.
+Each of these methods will require either a **password** or a **public key**. For complete information on creating an Linux-based HDInsight cluster see <a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provision Linux-based HDInsight clusters</a>.
 
 ###Azure Management Portal
 

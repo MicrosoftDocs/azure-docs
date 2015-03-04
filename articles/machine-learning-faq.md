@@ -107,7 +107,7 @@ Since the data is being transmitted to the browser and may be large, the data si
 ###Algorithms
 **What existing algorithms are supported in Machine Learning Studio?**
 
-Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the [complete list of machine learning algorithms](https://msdn.microsoft.com/en-us/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc).
+Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the [complete list of machine learning algorithms](https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc).
 
 **Do you automatically suggest the right Machine Learning algorithm to use for my data?** 
 
@@ -251,6 +251,6 @@ You can also find training at [Microsoft Virtual Academy](http://www.microsoftvi
 
  To get technical support for Azure Machine Learning,  go to [Azure Support](/support/options/) select **Machine Learning**.
 
-Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning). 
+Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning). 
 
 

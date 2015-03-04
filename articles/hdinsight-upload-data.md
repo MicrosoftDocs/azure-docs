@@ -311,7 +311,7 @@ Now that you understand how to get data into HDInsight, use the following articl
 [azure-management-portal]: https://manage.windowsazure.com
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
-[azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
+[azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: ../storage-create-storage-account/
 [azure-azcopy-download]: http://aka.ms/WaCopy
 [azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx

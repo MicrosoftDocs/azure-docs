@@ -29,7 +29,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">15:32</span></div>
 </div>
 
-> [AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services](/en-us/develop/mobile/tutorials/get-started-android-EC).
+> [AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services](/develop/mobile/tutorials/get-started-android-EC).
 > 
 > If you would like to see the source code of the completed app, go [here](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
 
@@ -140,12 +140,12 @@ Once you have completed the data series, try these other Android tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-android
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-android
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

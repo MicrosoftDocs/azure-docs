@@ -126,7 +126,7 @@ In addition, a subscription can contain up to 10 data sets (models).
 
 **Where can I get technical support for Recommendations?**
 
-Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MachineLearning) site.
+Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) site.
 
 **Where can I find the terms of use?**
 

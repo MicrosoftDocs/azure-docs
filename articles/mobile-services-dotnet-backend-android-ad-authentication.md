@@ -19,10 +19,10 @@
 # Authenticate your app with Active Directory
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" >Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-ad-authentication" title="Android" class="current">Android</a>
+<a href="/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Windows Store C#" >Windows Store C#</a>
+<a href="/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS">iOS</a>
+<a href="/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/documentation/articles/mobile-services-dotnet-backend-android-ad-authentication" title="Android" class="current">Android</a>
 </div>
 
 Learn how to authenticate your app and access resources using Active Directory with Chris Risner's tutorial [Accessing Resources Secured by Azure Active Directory with iOS and Android].

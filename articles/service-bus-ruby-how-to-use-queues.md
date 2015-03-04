@@ -91,7 +91,7 @@ In order to perform management operations, such as creating a queue on the new n
 
 ## Create a Ruby application
 
-Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure your application to use Service Bus
 
@@ -180,4 +180,4 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
 -   Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/en-us/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
+For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)

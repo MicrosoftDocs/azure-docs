@@ -59,13 +59,13 @@ Figure 2
 
 1. **Deploy your Azure cloud services, Azure websites, or other endpoints to your production environment.** When you create a Traffic Manager profile, it must be associated with a subscription. You then add endpoints for cloud services and Standard tier websites in production that are part of the same subscription. If an endpoint is in staging and is not in an Azure production environment or is not in the same subscription, it can be added as an external endpoint. For more information about cloud services, see [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For more information about websites, see [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 1. **Decide a name for your Traffic Manager domain.** Consider a name for your domain with a unique prefix. The latter part of the domain, trafficmanager.net, is fixed. For more information, see [Best practices](#bkmk_TrafficManagerBestPracticesProfile).
-1. **Decide the monitoring configuration that you want to use.** Traffic Manager monitors endpoints to ensure that they are online, regardless of the load balancing method. After you configure monitoring settings, Traffic Manager will not direct traffic to endpoints that are offline according to the monitoring system unless it detects that all endpoints are offline or it cannot detect the status of any of the endpoints contained in the profile. For more information about monitoring, see [About Traffic Manager Monitoring](https://msdn.microsoft.com/en-us/library/azure/dn339013.aspx).
-1. **Decide the load balancing method that you want to use.** Three different load balancing methods are available. Take time to understand which method best fits your requirements. If you need to change the method later, you can do so at any time. Also note that each method requires slightly different configuration steps. For information about load balancing methods, see [About Traffic Manager Load Balancing Methods](https://msdn.microsoft.com/en-us/library/azure/dn339010.aspx).
+1. **Decide the monitoring configuration that you want to use.** Traffic Manager monitors endpoints to ensure that they are online, regardless of the load balancing method. After you configure monitoring settings, Traffic Manager will not direct traffic to endpoints that are offline according to the monitoring system unless it detects that all endpoints are offline or it cannot detect the status of any of the endpoints contained in the profile. For more information about monitoring, see [About Traffic Manager Monitoring](https://msdn.microsoft.com/library/azure/dn339013.aspx).
+1. **Decide the load balancing method that you want to use.** Three different load balancing methods are available. Take time to understand which method best fits your requirements. If you need to change the method later, you can do so at any time. Also note that each method requires slightly different configuration steps. For information about load balancing methods, see [About Traffic Manager Load Balancing Methods](https://msdn.microsoft.com/library/azure/dn339010.aspx).
 1. **Create your profile and configure settings.** You can use REST APIs, Windows PowerShell, or the Management Portal to create your Traffic Manager profile and configure settings. For more information, see [How to configure Traffic Manager settings](#Configure). The following steps assume you will use Quick Create in the Management Portal.
-	- 	**Create your Traffic Manager profile -** To create a profile by using Quick Create in the Management Portal, see [Create a Traffic Manager Profile Using Quick Create](https://msdn.microsoft.com/en-us/library/azure/dn339012.aspx).
-	- 	**Configure load balancing method settings –** While in Quick Create, you must select the load balancing method for your profile. This setting can be changed at any time after completing the Quick Create steps. For configuration steps, see the topic that corresponds to your load balancing method: [Configure Performance Load Balancing](https://msdn.microsoft.com/en-us/library/azure/hh744835.aspx)
+	- 	**Create your Traffic Manager profile -** To create a profile by using Quick Create in the Management Portal, see [Create a Traffic Manager Profile Using Quick Create](https://msdn.microsoft.com/library/azure/dn339012.aspx).
+	- 	**Configure load balancing method settings –** While in Quick Create, you must select the load balancing method for your profile. This setting can be changed at any time after completing the Quick Create steps. For configuration steps, see the topic that corresponds to your load balancing method: [Configure Performance Load Balancing](https://msdn.microsoft.com/library/azure/hh744835.aspx)
 	
-	[AZURE.NOTE]**The Round Robin method of load balancing now supports weighted distribution of network traffic. However, at this time you must use either REST APIs or Windows PowerShell to configure the weight. For more information and an example configuration, see [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](https://msdn.microsoft.com/en-us/library/azure/hh744829.aspx) in the Azure blog.**
+	[AZURE.NOTE]**The Round Robin method of load balancing now supports weighted distribution of network traffic. However, at this time you must use either REST APIs or Windows PowerShell to configure the weight. For more information and an example configuration, see [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](https://msdn.microsoft.com/library/azure/hh744829.aspx) in the Azure blog.**
 	- 	**Configure endpoints –** Endpoints are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know the endpoints.
 	- 	**Configure monitoring settings –** Monitoring settings are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know what to monitor. For steps to configure monitoring, see [Configure Traffic Manager Monitoring](../configure-traffic-manager-monitoring).
 1. **Test your Traffic Manager profile.** Test that your profile and domain are working as expected. For information about how to do this, see [Testing Traffic Manager Settings](../testing-traffic-manager-settings).
@@ -94,7 +94,7 @@ For more information about Windows PowerShell cmdlets for Traffic Manager, see [
 
 In the Management Portal, you can create your Traffic Manager profile by using Quick Create. Quick Create allows you to create a basic profile. After creating your profile, you can then configure additional settings or edit the settings that you previously configured. For more information about creating your Traffic Manager profile by using Quick Create, see Create a Traffic Manager Profile Using Quick Create.
 
-[Create a Traffic Manager Profile Using Quick Create](https://msdn.microsoft.com/en-us/library/azure/dn339012.aspx)
+[Create a Traffic Manager Profile Using Quick Create](https://msdn.microsoft.com/library/azure/dn339012.aspx)
 
 You can configure the following settings in the Management Portal:
 
@@ -121,7 +121,7 @@ You can create and configure your Traffic Manager profile by using REST APIs. Fo
 
 -**DNS Options –** Within each definition are DNS options. This is where the DNS TTL is configured.
 
--**Monitors –** Within each definition are monitor settings. This is where the protocol, port, and relative path and file name are configured. Monitor settings are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Monitoring](https://msdn.microsoft.com/en-us/library/azure/dn339013.aspx).
+-**Monitors –** Within each definition are monitor settings. This is where the protocol, port, and relative path and file name are configured. Monitor settings are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Monitoring](https://msdn.microsoft.com/library/azure/dn339013.aspx).
 
 -**Policy –** Within each definition are policy settings. The policy is where load balancing methods and endpoints are specified. The policy itself is not visible in the Management Portal, although some of the settings for the policy are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods).
 
@@ -194,7 +194,7 @@ If you want the figures in this topic as PowerPoint sides for your own presentat
 
 ## See Also
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

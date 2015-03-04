@@ -448,7 +448,7 @@ To test smooth streaming, use [http://amsplayer.azurewebsites.net/](http://amspl
 
 To test MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/javascript/).
 
-To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/en-us/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
 
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).

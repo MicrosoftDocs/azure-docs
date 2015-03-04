@@ -216,7 +216,7 @@ Thanks to the great folks at WhatToPedia for allowing us to share their story!
 
 We hope you found this case study useful. If you go on to use Azure Search, I recommend a few resources to speed you along:
 
-- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch)
+- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
 - [Documentation page on Azure.com](http://azure.microsoft.com/documentation/services/search/)
 - [Azure Search documentation on MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)

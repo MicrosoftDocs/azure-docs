@@ -20,7 +20,7 @@
 
 This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
 
-When you run jobs, you often require a way to track job progress. You can find out the Job status by using the Job's State property. For more information on the State property, see [Job Entity Properties](https://msdn.microsoft.com/en-us/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
+When you run jobs, you often require a way to track job progress. You can find out the Job status by using the Job's State property. For more information on the State property, see [Job Entity Properties](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
 
 
 Request:

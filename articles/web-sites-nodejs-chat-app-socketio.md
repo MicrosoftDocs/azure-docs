@@ -298,8 +298,8 @@ In this tutorial you learned how to create a chat application hosted in an Azure
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
 [Socket.IO GitHub repository]: https://github.com/Automattic/socket.io
 [release]: https://github.com/Automattic/socket.io/releases
-[cloudservice]: /en-us/develop/nodejs/tutorials/app-using-socketio/
+[cloudservice]: /develop/nodejs/tutorials/app-using-socketio/
 
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
-[pricing]: /en-us/pricing/details/web-sites/
+[pricing]: /pricing/details/web-sites/

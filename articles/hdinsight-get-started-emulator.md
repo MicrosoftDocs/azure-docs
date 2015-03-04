@@ -469,7 +469,7 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 - [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-deploy-streaming]
 - [HDInsight emulator release notes][hdinsight-emulator-release-notes]
-- [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
+- [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
 

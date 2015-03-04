@@ -466,7 +466,7 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 

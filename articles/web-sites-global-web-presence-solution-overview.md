@@ -89,13 +89,13 @@ Make your .COM site attractive with rich media, such as:
 
 ## More Resources
 
-- [Azure Websites Documentation](/en-us/documentation/services/websites/)
+- [Azure Websites Documentation](/documentation/services/websites/)
 - [Learning map for Azure Websites](../websites-learning-map/)
 - [Azure Web Blog](/blog/topics/web/)
 
 
 
-[Azure Websites]:/en-us/services/websites/
+[Azure Websites]:/services/websites/
 
 [Orchard]:../web-sites-dotnet-orchard-cms-gallery/
 [Umbraco]:../web-sites-gallery-umbraco/
