@@ -96,7 +96,7 @@ to use. You can create the queue if it doesn't exist.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // Create the queue if it doesn't already exist
-    queue.CreateIfNotExists();
+    queue.CreateIfNotExist();
 
 ## How to: Insert a message into a queue
 
@@ -117,7 +117,7 @@ doesn't exist) and inserts the message 'Hello, World':
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // Create the queue if it doesn't already exist.
-    queue.CreateIfNotExists();
+    queue.CreateIfNotExist();
 
     // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
