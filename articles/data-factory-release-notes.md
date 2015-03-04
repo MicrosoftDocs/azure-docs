@@ -21,7 +21,7 @@
 ## Notes for 2/27/2015 release of Data Factory
 
 ### New improvements
-- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Preview Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [New Azure Data Factory Editor UI][adf-editor-video] video for a quick introduction of this tool.         
+- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Preview Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [Azure Data Factory Editor - A Light Weight Web Editor][adf-editor-blog] blog post for a quick overview and a video on Data Factory Editor. For detailed overview of the editor, see the [Data Factory Editor][adf-editor] article.          
 
 ### Changes
 
@@ -70,8 +70,10 @@
 [adf-azure-ml]: ../data-factory-create-predictive-pipelines
 [adf-custom-activities]: ../data-factory-use-custom-activities
 [adf-copy-activity]: ../data-factory-copy-activity
+[adf-editor]: ../data-factory-editor
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
+[adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
 [on-demand-hdi-parameters]: http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
 [adf-gateway-download]: http://www.microsoft.com/download/details.aspx?id=39717
 [adf-github-samples]: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON
