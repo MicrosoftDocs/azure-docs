@@ -1,6 +1,10 @@
 # Steps to follow when you retire or change the name of an ACOM technical article
 
-So you’ve decided to retire a technical article from azure.microsoft.com! That’s great – and there are several steps you need to follow before you actually remove the article from the repository. Deleting the article or changing it’s name should be the last thing you do.
+This guidance is for SMEs who are listed as the author of an article that needs to be retired from the technical documentation section of azure.microsoft.com. The steps also apply if a file is renamed.
+
+If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the Disqus comment stream for the article to let the author know something is wrong with the article.
+
+SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing it’s name should be the last thing that happens!
 
 ## Step 1: Remove all crosslinks to the article from the technical content repository
 
@@ -28,13 +32,11 @@ So you’ve decided to retire a technical article from azure.microsoft.com! That
 
 You'll have to work with the person who maintains and updates the documentation landing page for your service for this part. Contact your content team partner if you don't know who that person is. The person who maintains and updates the doc landing page will need to do two things:
 
-1. In Visual Studio, scan the **entire** ACOM web solution for cross references to the file to retire. Remove the cross references, or replace them with an updated cross reference. You'll need to remove the HTML links as well as the related resource strings for the HTML links.
+1. In Visual Studio, scan the **entire** ACOM web solution for cross references to the file to retire. Remove the cross references, or replace them with an updated cross reference. You'll need to remove the HTML links as well as the related resource strings for the HTML links. More info - see the [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Create%20or%20edit%20a%20service%20landing%20page.aspx)
 
-2. If a replacement article exists, create a redirect.
+2. If a replacement article exists, create a redirect. More info - see the [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Remove%20published%20pages%20and%20request%20redirects.aspx).
 
-3. Check the changes in.
-
-More details are available on the internal wiki.
+3. Check the changes into the repository.
 
 ## Step 3: Update the FWLink tool
 
