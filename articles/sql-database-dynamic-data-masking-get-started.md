@@ -144,7 +144,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 ## Set up dynamic data masking for your database using REST API
 
-See [Operations for Azure SQL Databases](https://msdn.microsoft.com/en-us/library/dn505719.aspx).
+See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
 
 [Image1]: ./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png
 [Image2]: ./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png

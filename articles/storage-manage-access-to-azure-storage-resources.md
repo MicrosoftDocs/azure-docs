@@ -93,7 +93,7 @@ The shared access signature URI query parameters incorporate all of the informat
 
 Additionally, the shared access signature URI can reference a stored access policy that provides an additional level of control over a set of signatures, including the ability to modify or revoke access to the resource if necessary. 
 
-For information on the URI format of a shared access signature, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/en-us/library/ee395415.aspx).
+For information on the URI format of a shared access signature, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
 
 ###Secure use of Shared Access Signatures
 A shared access signature grants access to the resource specified by the URI's granted permissions. You should always use HTTPS to construct a shared access signature URI. Using HTTP with shared access signatures can make your storage account vulnerable to malicious use.
@@ -154,7 +154,7 @@ The following code example creates an access policy on a container and then gene
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
 ###Using a Shared Access Signature
-A client who receives a shared access signature can use it from their code to construct an object of type [StorageCredentials](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.auth.storagecredentials.aspx). Those credentials can then be used to construct a [CloudStorageAccount](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.cloudstorageaccount.aspx) or a [CloudBlobClient](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx) object for working with the resource, as shown in this example:
+A client who receives a shared access signature can use it from their code to construct an object of type [StorageCredentials](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.auth.storagecredentials.aspx). Those credentials can then be used to construct a [CloudStorageAccount](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.cloudstorageaccount.aspx) or a [CloudBlobClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx) object for working with the resource, as shown in this example:
 
     Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
     

@@ -619,7 +619,7 @@ And the following example shows how to create a user defined function (UDF) and 
 	}
 ##Next steps
 
-Explore the [Azure DocumentDB SDKs](https://msdn.microsoft.com/en-us/library/azure/dn781482.aspx) to create additional stored procedures, triggers, and UDFs.
+Explore the [Azure DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) to create additional stored procedures, triggers, and UDFs.
 
 
 ##References

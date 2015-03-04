@@ -108,7 +108,7 @@ HDInsight can run HiveQL jobs using a variety of methods. Use the following tabl
 <a href="../hdinsight-hadoop-use-hive-curl/" target="_blank">Curl</a> | &nbsp; | ✔ | Linux or Windows | Linux, Unix, Mac OS X, or Windows
 <a href="../hdinsight-hadoop-use-hive-query-console/" target="_blank">Query console</a> | &nbsp; | ✔ | Windows | Browser-based
 <a href="../hdinsight-hadoop-use-hive-visual-studio/" target="_blank">HDInsight tools for Visual Studio</a> | &nbsp; | ✔ | Linux or Windows | Windows
-<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
+<a href="/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
 <a href="../hdinsight-hadoop-use-hive-powershell/" target="_blank">PowerShell</a> | &nbsp; | ✔ | Linux or Windows | Windows
 <a href="../hdinsight-hadoop-use-hive-remote-desktop/" target="_blank">Remote Desktop</a> | ✔ | ✔ | Windows | Windows
 
@@ -124,7 +124,7 @@ Now that you have learned how to use Hive with HDInsight, use the links below to
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

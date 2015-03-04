@@ -463,14 +463,14 @@ To learn how to use the Azure SDK for Ruby to access Azure services from your Ru
 
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
-[vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
+[vm-instructions]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 
 [rails-guides]: http://guides.rubyonrails.org/
-[blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
-[tables]: /en-us/develop/ruby/how-to-guides/table-service/
-[cdn-howto]: /en-us/develop/ruby/app-services/
-[ruby-vm]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+[blobs]: /develop/ruby/how-to-guides/blob-storage/
+[tables]: /develop/ruby/how-to-guides/table-service/
+[cdn-howto]: /develop/ruby/app-services/
+[ruby-vm]: /develop/ruby/tutorials/web-app-with-linux-vm/
  
 [blog-rails]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilslocal.png
 [blog-rails-cloud]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilscloud.png 

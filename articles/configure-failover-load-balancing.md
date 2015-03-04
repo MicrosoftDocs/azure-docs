@@ -42,7 +42,7 @@ Note that Azure Websites already provides failover load balancing functionality 
 
 9-Test the changes in your configuration. See [Testing Traffic Manager Settings](../testing-traffic-manager-settings) for more information.
 
-10-Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](https://msdn.microsoft.com/en-us/library/azure/hh744837.aspx).
+10-Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](https://msdn.microsoft.com/library/azure/hh744837.aspx).
 
 ## See Also
 
@@ -50,7 +50,7 @@ Note that Azure Websites already provides failover load balancing functionality 
 
 [Traffic Manager](../traffic-manager)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

@@ -105,7 +105,7 @@ Alternatively, developers can leverage Azure Stream Analytics, a fully managed s
 
 See:
 
-* [Event Hubs service information](/en-us/services/event-hubs/)
+* [Event Hubs service information](/services/event-hubs/)
 * [Event Hubs Overview][overview]
 * [Introduction to Azure Stream Analytics][stream]
 
@@ -113,9 +113,9 @@ See:
 
 Hybrid Connections provides an easy and convenient way to connect Azure Websites and Azure Mobile Services to on-premises resources. Developers can build web site to move data from on-premises to Azure. See [Hybrid Connections Overview][hybrid] for details.
 
-With [Virtual Network](/en-us/services/virtual-network/), you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute](/en-us/services/expressroute/) direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
+With [Virtual Network](/services/virtual-network/), you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute](/services/expressroute/) direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
 
-[Azure Marketplace](/en-us/marketplace/?source=datamarket) offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
+[Azure Marketplace](/marketplace/?source=datamarket) offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
 
 ## Choose the right data transfer option
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Giraph on HDInsight Hadoop clusters
@@ -21,15 +21,6 @@
 You can install Giraph on any type of cluster in Hadoop on HDInsight using **Script Action** cluster customization. Script action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
 
 In this topic, you will learn how to install Giraph using Script Action. Once you have installed Giraph, you'll also learn how to use Giraph for most typical applications, which is to process large scale graphs.
-
-
-## In this article
-
-- [What is Giraph?](#whatis)
-- [How do I install Giraph?](#install)
-- [How do I use Giraph in HDInsight?](#usegiraph)
-- [Install Giraph on HDInsight Hadoop clusters using PowerShell](#usingPS)
-- [Install Giraph on HDInsight Hadoop clusters using the .NET SDK](#usingSDK) 
 
 
 ## <a name="whatis"></a>What is Giraph?

@@ -1,5 +1,3 @@
-
-
 # Steps to follow when you retire or change the name of an ACOM technical article
 
 This guidance is for SMEs who are listed as the author of an article that needs to be retired from the technical documentation section of azure.microsoft.com. The steps also apply if a file is renamed.

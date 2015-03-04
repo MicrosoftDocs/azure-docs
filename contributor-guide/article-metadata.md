@@ -156,13 +156,13 @@ The tags section uses this syntax:
 
  - **article**: A conceptual topic, tutorial, feature guide, or other non-reference article
 
- - **campaign-page**: Azure.com only.  A page that is specifically designed as a landing page for external campaigns, and is not included as part of the primary site IA.  Should not be used for documentation articles or regular doc landing pages.  Examples: azure.microsoft.com/en-us/develop/net/aspnet/; azure.microsoft.com/en-us/develop/mobile/ios/
+ - **campaign-page**: Azure.com only.  A page that is specifically designed as a landing page for external campaigns, and is not included as part of the primary site IA.  Should not be used for documentation articles or regular doc landing pages.  Examples: azure.microsoft.com/develop/net/aspnet/; azure.microsoft.com/develop/mobile/ios/
 
  - **dev-center-home-page**: Azure.com only.  A dev center home page, e.g. /develop/net/
 
  - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations
 
- - **home-page**: Top level documentation home page. We only have two: azure.microsoft.com/en-us/documentation/ and msdn.microsoft.com/en-us/library/azure/
+ - **home-page**: Top level documentation home page. We only have two: azure.microsoft.com/documentation/ and msdn.microsoft.com/library/azure/
 
  - **index-page**: Second-level landing pages for programming languages, services, or features. These are spread across Azure.com and the library, and are used as entry points for more specific, scoped information. Examples: http://azure.microsoft.com/develop/mobile/resources-wp8/, http://msdn.microsoft.com/library/azure/jj673460.aspx, http://msdn.microsoft.com/library/azure/hh689864.aspx
 

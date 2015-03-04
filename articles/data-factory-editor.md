@@ -201,10 +201,14 @@ You can delete an Azure Data Factory entity (linked service, table, or pipeline)
 
 ![Delete data factory entity][delete-datafactory-entity] 
 
+## See Also
+See the [Get started with Azure Data Factory][data-factory-get-started] topic for step-by-step instructions to create an Azure data factory by using the Data Factory Editor. 
 
 [msdn-tables-reference]: https://msdn.microsoft.com/library/dn835002.aspx
 [msdn-linkedservices-reference]: https://msdn.microsoft.com/library/dn834986.aspx       
 [msdn-pipelines-reference]: https://msdn.microsoft.com/library/dn834988.aspx  
+
+[data-factory-get-started]: ../data-factory-get-started
 
 [author-and-deploy-tile]: ./media/data-factory-editor/author-and-deploy-tile.png
 [data=factory-editor]: ./media/data-factory-editor/data-factory-editor.png
