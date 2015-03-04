@@ -543,12 +543,12 @@ In this section, you will create a ASP.NET MVC Web application to read the real-
 	- Location: **C:\Tutorials** 
 4. Click **OK**.
 5. In **Select a template**, click **MVC**. 
-6. In **Windows Azure**, click **Manage Subscriptions**.
-7. From **Manage Windows Azure Subscriptions**, click **Sign in**.
+6. In **Microsoft Azure**, click **Manage Subscriptions**.
+7. From **Manage Microsoft Azure Subscriptions**, click **Sign in**.
 8. Enter your Azure credential. Your Azure subscription information will be shown on the Accounts tab.
-9. Click **Close** to close the Manage Windows Azure Subscriptions window.
+9. Click **Close** to close the Manage Microsoft Azure Subscriptions window.
 10. From **New ASP.NET Project - TweetSentimentWeb**, Click **OK**.
-11. From **Configure Windows Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. 
+11. From **Configure Microsoft Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. 
 12. Click **OK**.
 
 **To install Nuget packages:**
