@@ -137,5 +137,5 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 -  [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](https://technet.microsoft.com/library/hh831734.aspx)
 
--  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684)
+-  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684)
 
