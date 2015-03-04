@@ -47,7 +47,7 @@ In this example, we'll walk through creating a regression model that uses sample
 
 There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources. For this example, we will use the included sample dataset, **Automobile price data (Raw)**, which represents automobile price data.
 
-1. Start a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, and then select **EXPERIMENT**. Rename the experiment from **Untitled** to something meaningful, for example, **Automobile price prediction**.
+1. Start a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful, for example, **Automobile price prediction**.
 
 2. To the left of the experiment canvas is a palette of datasets and modules. Type **automobile** in the search box at the top of this palette to find the dataset labeled **Automobile price data (Raw)**. 
 
