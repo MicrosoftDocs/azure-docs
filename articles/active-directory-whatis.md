@@ -25,6 +25,8 @@ Azure AD can be used as a standalone cloud directory or to extend on-premises id
 
 In addition, you can set rules and policies that control who has access and under what conditions. For example, you can require Multi-Factor Authentication (MFA), and manage access based on the device or location. [Learn more about Azure MFA](http://azure.microsoft.com/services/multi-factor-authentication/).
 
+All of these rules and policies, including MFA, can be enforced for access to cloud applications or to legacy on-premises applications using the built-in Application Proxy - without the need to rewrite them or expose them directly on the internet. [Learn more about Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx).
+
 Finally, Azure AD provides information about what is going on in your organization at your fingertips. With advanced reporting and analytics, you get unique information about your users’ access. For example, using application discovery, you can find out which applications are actively used in your organization. [Learn more about Azure AD cloud app discovery](https://appdiscovery.azure.com/).
 
 Because it is such a comprehensive service, Azure AD provides different benefits to different people within an organization:
