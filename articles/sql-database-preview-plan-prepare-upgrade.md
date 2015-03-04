@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)" 
-	description="Describes the preparations and limitations involved in upgrading to the Azure SQL Database update to V12." 
+	description="Describes the preparations and limitations involved in upgrading to the Azure SQL Database update for V12." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="03/03/2015" 
 	ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)
 
 <!--
-GeneMi , 2015-March-02 Monday 18:31pm
-C.3.1 bacpac fix is now finalized.  Added note to C.3.1, and updated links in C.3.  C.3.1 remains for a transitional couple more weeks.  PMs = Sonia Parchani; Tester = Raul Garcia; Devs = Kevin Cunnane, Steven Green.
+GeneMi , 2015-March-03 Tuesday 15:43pm
+New C.1 section added about portals, per email from Sanjay.Nag 2015-March-03 08:49am.
+
+C.3.1 bacpac fix section is now C.4.1, of course.
 -->
 
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 preview.
@@ -108,9 +110,40 @@ After the upgrade completes you can configure your database to again use geo-rep
 
 ##<a id="limitations"></a>C. Limitations during and after upgrade to V12
 
+
 This section describes the limitations that are associated with the upgrade to Azure SQL Database V12.
 
-### C.1 Limitation *during* upgrade to V12
+
+## C.1 Preview portal for V12
+
+
+Only the first of the following two Azure management portals supports V12 databases:
+
+
+- [http://portal.azure.com/](http://portal.azure.com/)
+ - This newer portal is at preview status and is not yet at General Availability (GA).<br/><br/>
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)
+ - This older portal will not be updated to support V12.
+
+
+We encourage customers to connect to their Azure SQL databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
+
+
+- To run a T-SQL statement.
+- To design a schema.
+- To develop a database, either online or offline.
+
+
+You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
+
+
+In the older Azure management portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
+
+
+For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
+
+
+### C.2 Limitation *during* upgrade to V12
 
 The following table describes the limitations that are in effect during the upgrade process.
 
@@ -124,7 +157,7 @@ The following table describes the limitations that are in effect during the upgr
 | Alert rules | Alert rules cannot be added to a V12 database. |
 
 
-### C.2 Limitation *after* upgrade to V12
+### C.3 Limitation *after* upgrade to V12
 
 The following table describes the limitations that are in place after the upgrade process.
 
@@ -137,7 +170,7 @@ The following table describes the limitations that are in place after the upgrad
 | 50% discount not reflected in the pricing tier cards in the Azure portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force.<br/><br/> The 50% discount remains in effect in all geographic regions until 2015-March-31, when it expires for all regions. The discount is effect even in regions that have been announced at general availability (GA) status.<br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the general availability (GA) rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
 
 
-### C.3 Export and import *after* upgrade to V12
+### C.4 Export and import *after* upgrade to V12
 
 
 You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
@@ -159,7 +192,7 @@ However, to use the tools, you must first install their latest updates to ensure
 > [AZURE.NOTE] The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
 
 
-#### C.3.1 Import has temporary issue with bacpac files
+#### C.4.1 Import has temporary issue with bacpac files
 
 
  (As of Wednesday, February 18, 2015)
@@ -185,14 +218,14 @@ If necessary, you can follow these steps to contact Microsoft Support:
 
 > [AZURE.NOTE] (Monday, March 2, 2015)
 > 
-> The issue described in this section C.3.1 has been resolved. No special knowledge or action is necessary for customers to proceed as they like.
+> The issue described in this section C.4.1 has been resolved. No special knowledge or action is necessary for customers to proceed as they like.
 > 
 > Automated import/export works normally regardless of how old your bacpac file is.
 > 
-> Customers who process their bacpac files by using DacFx should download the updated tools. The download links are available in section C.3.
+> Customers who process their bacpac files by using DacFx should download the updated tools. The download links are available in section C.4.
 
 
-### C.4 Restore to V12 of a deleted V11 database
+### C.5 Restore to V12 of a deleted V11 database
 
 The following scenario explains that a deleted V11 Azure SQL database can be restored onto a V12 Azure SQL Database server.
 
