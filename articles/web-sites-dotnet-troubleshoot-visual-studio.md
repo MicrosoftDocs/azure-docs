@@ -72,7 +72,7 @@ Visual Studio provides access to a subset of the site management functions and c
 
 	If you want to perform a site management task that can't be done in this window, you can click **Full Web App Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Apps](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
-<h2><a name="remoteview"></a>Access web appfiles in Server Explorer</h2>
+<h2><a name="remoteview"></a>Access web app files in Server Explorer</h2>
 
 You typically deploy a site with the `customErrors` flag in the Web.config file set to `On` or `RemoteOnly`, which means you don't get a helpful error message when something goes wrong. For many errors all you get is a page like one of the following ones.
 
