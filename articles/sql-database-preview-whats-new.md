@@ -189,7 +189,7 @@ We encourage customers to connect to their Azure SQL databases with Visual Studi
 - To develop a database, either online or offline.
 
 
-You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
+You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
 
 
 In the older Azure management portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.

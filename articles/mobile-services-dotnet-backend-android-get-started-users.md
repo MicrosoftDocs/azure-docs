@@ -72,12 +72,12 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Next Steps]:#next-steps
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Authorize users with scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Authorize users with scripts]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Register your Windows Store app package for Microsoft authentication]: /en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication

@@ -188,11 +188,11 @@ This code was provided to show you basic functionality using Twilio in an ASP.NE
 
 
 
-[howto_twilio_voice_sms_dotnet]: /en-us/develop/net/how-to-guides/twilio/
+[howto_twilio_voice_sms_dotnet]: /develop/net/how-to-guides/twilio/
 
-[howto_blob_storage_dotnet]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
+[howto_blob_storage_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/
 
-[howto_sql_azure_dotnet]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/
+[howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
 [twilio_docs_security]: http://www.twilio.com/docs/security

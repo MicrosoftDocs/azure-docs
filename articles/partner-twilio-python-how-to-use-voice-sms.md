@@ -261,7 +261,7 @@ Now that you have learned the basics of the Twilio service, follow these links t
 [twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 
-[howto_phonecall_php]: http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call
+[howto_phonecall_php]: http://windowsazure.com/documentation/articles/partner-twilio-php-make-phone-call
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

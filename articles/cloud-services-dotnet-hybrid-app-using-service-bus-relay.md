@@ -778,6 +778,6 @@ To learn more about Service Bus, see the following resources:
   [45]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-  [sbwacom]: /en-us/documentation/services/service-bus/  
-  [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [sbwacom]: /documentation/services/service-bus/  
+  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/

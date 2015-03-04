@@ -93,7 +93,7 @@ Xbox supports Xbox LIVE applications that can consume Smooth Streaming content. 
 ####Embedded or dedicated devices
 Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline. Microsoft provides the following porting kits that can be licensed, and enables partners to port Smooth Streaming playback for the platform.
 
--	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/en-us/mediaplatform/sspk.aspx)
+-	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/mediaplatform/sspk.aspx)
 -	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
 
 ####Windows Phone

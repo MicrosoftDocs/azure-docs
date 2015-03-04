@@ -18,14 +18,14 @@
 # Create a Traffic Manager Profile Using Quick Create
 
 You can quickly create a Traffic Manager profile by using **Quick Create** in the Management Portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover load balancing method, or monitoring settings. After creating your profile, you can configure these settings in the Management Portal. See 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx) for a list of configuration procedures.
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) for a list of configuration procedures.
 
 
 ## To create a new Traffic Manager profile:
 
 1-**Deploy your cloud services and websites to your production environment.** For more information about cloud services, see 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For information about cloud services, see 
-[Best practices](https://msdn.microsoft.com/en-us/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). For more information about websites, see 
+[Best practices](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). For more information about websites, see 
 [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 
 2-**Log into the Management Portal.** To create a new Traffic Manager profile, click **New** on the lower left of the portal, click **Network Services**, click **Traffic Manager**, then click **Quick Create** to begin configuring your profile.
@@ -39,7 +39,7 @@ You can quickly create a Traffic Manager profile by using **Quick Create** in th
 
 6-**Click “Create” to create your new profile**. When the profile configuration has completed, you can locate your profile in the Traffic Manager pane in the Management Portal.
 
-7-**Configure endpoints, monitoring, and additional settings in the Management Portal.** Because you can only configure basic settings by using Quick Create, it is necessary to configure additional settings, such as the list of endpoints and the endpoint failover order, in order to complete your desired configuration. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+7-**Configure endpoints, monitoring, and additional settings in the Management Portal.** Because you can only configure basic settings by using Quick Create, it is necessary to configure additional settings, such as the list of endpoints and the endpoint failover order, in order to complete your desired configuration. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
  for a list of procedures to help you complete the configuration.
 
 ## See Also

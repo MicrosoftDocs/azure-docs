@@ -71,7 +71,7 @@ Before you begin this tutorial, you must have the following:
 
 		* When using SQL Server in an **Azure Virtual Machine**, any Virtual Network configuration may be used as long as the Virtual Machine hosting SQL Server is a member of the same Virtual Network as HDInsight.
 
-	* To **provision an HDInsight cluster onto a Virtual Network**, see [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/)
+	* To **provision an HDInsight cluster onto a Virtual Network**, see [Provision Hadoop clusters in HDInsight using custom options](/documentation/articles/hdinsight-provision-clusters/)
 
 	> [AZURE.NOTE] The SQL Server must also allow SQL Authentication. You must use a SQL login for the steps in this article.
 
@@ -352,7 +352,7 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 > [AZURE.NOTE] Other than connection string information, the steps in this section should work for either Azure SQL Database or SQL Server. These steps were tested against the following configuration:
 > 
 > * **Azure Virtual Network point-to-site configuration** - A virtual network connecting the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](http://msdn.microsoft.com/library/azure/dn133792.aspx) for more information.
-> * **Azure HDInsight 3.1** - See [Provision Hadoop clusters in HDInsight using custom options](/en-us/documentation/articles/hdinsight-provision-clusters/) for information on creating a cluster on a Virtual Network
+> * **Azure HDInsight 3.1** - See [Provision Hadoop clusters in HDInsight using custom options](/documentation/articles/hdinsight-provision-clusters/) for information on creating a cluster on a Virtual Network
 > * **SQL Server 2014** - Configured to allow SQL Authentication and running the VPN client configuration package to connect securely to the Virtual Network
 
 **To export the log4j log file**

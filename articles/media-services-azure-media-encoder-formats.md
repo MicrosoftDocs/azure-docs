@@ -116,7 +116,7 @@ H.264 (High, Main, and Baseline Profiles)</td><td>Windows Media Audio Standard, 
 AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
 </table>
 
-For additional supported codecs and filters in Media Services, see [Windows DirectShow Filters](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375464.aspx).
+For additional supported codecs and filters in Media Services, see [Windows DirectShow Filters](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
 ##<a id="uncompressed"></a>Supported Uncompressed Video Formats 
 

@@ -33,17 +33,17 @@ By default each Media Services account can have one active encoding task at a ti
 
 [Formats Supported by the Media Services Encoder](../media-services-azure-media-encoder-formats)  – Discusses the file and stream formats supported by Media Services
 
-The **Azure Media Encoder** is configured using one of the encoder preset strings described [here](https://msdn.microsoft.com/en-us/library/azure/dn619392.aspx).
+The **Azure Media Encoder** is configured using one of the encoder preset strings described [here](https://msdn.microsoft.com/library/azure/dn619392.aspx).
 
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-[Dynamic Packaging](https://msdn.microsoft.com/en-us/library/azure/jj889436.aspx) – Describes how to encode to a single format and dynamically serve Smooth Streaming, Apple HLS, or MPEG-DASH
+[Dynamic Packaging](https://msdn.microsoft.com/library/azure/jj889436.aspx) – Describes how to encode to a single format and dynamically serve Smooth Streaming, Apple HLS, or MPEG-DASH
 
-[Controlling Media Service Encoder Output Filenames ](https://msdn.microsoft.com/en-us/library/azure/dn303341.aspx)– Describes the file naming convention used by the Azure Media Encoder and how to modify the output file names.
+[Controlling Media Service Encoder Output Filenames ](https://msdn.microsoft.com/library/azure/dn303341.aspx)– Describes the file naming convention used by the Azure Media Encoder and how to modify the output file names.
 
-[Encoder Guides](https://msdn.microsoft.com/en-us/library/azure/dn535856.aspx) - A collection of topics that help you determine the best encoding for your intended audience
+[Encoder Guides](https://msdn.microsoft.com/library/azure/dn535856.aspx) - A collection of topics that help you determine the best encoding for your intended audience
 
 [Encoding your media with Dolby Digital Plus](../media-services-encode-with-dolby-digital-plus) – Describes how to encode audio tracks using Dolby Digital Plus encoding
 

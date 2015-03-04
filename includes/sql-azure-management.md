@@ -293,7 +293,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [Step 4: Create and manage logins]: #Step4
   [Step 5: Monitor SQL Database using Dynamic Management Views]:
     #Step5
-  [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/download/details.aspx?id=42299
+  [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/download/details.aspx?id=42299
   [Cumulative update package 5 for SQL Server 2014]: http://support2.microsoft.com/kb/3011055
   [SSMS Installer - Select installation type]: /media/installer_installation_type.png
   [SSMS Installer - Select features]: /media/installer_feature_selection.png
@@ -303,14 +303,14 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png
   [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE (SQL Database)]: https://msdn.microsoft.com/en-us/library/dn268335.aspx
-  [ALTER DATABASE (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms174269.aspx
-  [DROP DATABASE (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms178613.aspx
+  [CREATE DATABASE (SQL Database)]: https://msdn.microsoft.com/library/dn268335.aspx
+  [ALTER DATABASE (SQL Database)]: https://msdn.microsoft.com/library/ms174269.aspx
+  [DROP DATABASE (SQL Database)]: https://msdn.microsoft.com/library/ms178613.aspx
   [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms189751.aspx
-  [CREATE USER (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms173463.aspx
+  [CREATE LOGIN (SQL Database)]: https://msdn.microsoft.com/library/ms189751.aspx
+  [CREATE USER (SQL Database)]: https://msdn.microsoft.com/library/ms173463.aspx
   [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
-  [ALTER LOGIN (SQL Database)]: https://msdn.microsoft.com/en-us/library/ms189828.aspx
+  [ALTER LOGIN (SQL Database)]: https://msdn.microsoft.com/library/ms189828.aspx
   [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
   [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database/
  

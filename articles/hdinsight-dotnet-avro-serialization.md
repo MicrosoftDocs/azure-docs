@@ -52,7 +52,7 @@ When the data schema is known to both the writer and reader of the stream, the d
 
 
 ##<a name="prerequisites"></a> Microsoft Avro Library prerequisites
-- <a href="http://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework v4.0</a>
+- <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework v4.0</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (v6.0.4 or later) 
 
 Note that the Newtonsoft.Json.dll dependency is downloaded automatically with the installation of the Microsoft Avro Library, the procedure for which is provided in the following section.

@@ -213,7 +213,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 
 **To download Microsoft Power Query for Excel**
 
-- Download Microsoft Power Query for Microsoft Excel from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379) and install it.
+- Download Microsoft Power Query for Microsoft Excel from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=39379) and install it.
 
 **To import HDInsight data**
 

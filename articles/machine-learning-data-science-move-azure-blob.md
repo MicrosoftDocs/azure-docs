@@ -26,7 +26,7 @@ The [Cloud data science sample scenarios](http://azure.microsoft.com/documentati
 
 
 
-> [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/) and  [Azure Blob Service](https://msdn.microsoft.com/en-us/library/azure/dd179376.aspx). 
+> [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
 
 Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/). This document assumes that you have an Azure storage account and the corresponding storage key(s).
 

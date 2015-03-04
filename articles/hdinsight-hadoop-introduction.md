@@ -148,7 +148,7 @@ For more information on MapReduce, see <a target="_blank" href="http://wiki.apac
 
 As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of benefits, among them:
 
-* Automatic provisioning of Hadoop clusters. HDInsight clusters are much easier to create than manually configuring Hadoop clusters. For details, see [Provision Hadoop clusters in HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/)
+* Automatic provisioning of Hadoop clusters. HDInsight clusters are much easier to create than manually configuring Hadoop clusters. For details, see [Provision Hadoop clusters in HDInsight](/documentation/articles/hdinsight-provision-clusters/)
 
 * State-of-the-art Hadoop components. For details, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning]
 
@@ -188,7 +188,7 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 * [Run the HDInsight samples](../hdinsight-run-samples/): A tutorial on how the run the samples that ship with HDInsight.
 	
-* [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
+* [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
 
 
 ### Apache Hadoop			
@@ -217,9 +217,9 @@ These BI tools can help in your big data analysis:
 
 * [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-ODBC-driver/): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver.
 
-* [Microsoft Business Intelligence (BI)](http://www.microsoft.com/en-us/server-cloud/solutions/business-intelligence/default.aspx): Learn about Power BI for Office 365, download the SQL Server trial, and set up SharePoint Server 2013 and SQL Server BI.
+* [Microsoft Business Intelligence (BI)](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Learn about Power BI for Office 365, download the SQL Server trial, and set up SharePoint Server 2013 and SQL Server BI.
 
-* <a target="_blank" href="http://www.microsoft.com/en-us/server-cloud/solutions/business-intelligence/analysis.aspx">Learn more about SQL Server Analysis Services</a>.
+* <a target="_blank" href="http://www.microsoft.com/server-cloud/solutions/business-intelligence/analysis.aspx">Learn more about SQL Server Analysis Services</a>.
 
 * <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>
 
