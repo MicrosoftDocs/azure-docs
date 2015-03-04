@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="03/03/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -49,7 +49,7 @@ The Copy Activity supports the following data movement scenarios:
 
 <table border="1">	
 	<tr>
-		<th><i>Sink/Source<i></th>
+		<th><i>Source/Sink<i></th>
 		<th>Azure Blob</th>
 		<th>Azure Table</th>
 		<th>Azure SQL Database</th>
