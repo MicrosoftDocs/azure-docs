@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="03/03/2015" 
 	ms.author="garye"/>
 
 #Publish an Azure Machine Learning web service
@@ -63,7 +63,7 @@ To test the web service, click the **Test** link in the **DASHBOARD** tab. A dia
 
 ![test](./media/machine-learning-publish-web-service/figure-3.png)
 
-On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Windows Azure Management Portal where you manage your web services.
+On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Azure Management Portal where you manage your web services.
 You can also enable logging to diagnose any failures that you're seeing when hitting your web service. For more information, click [here](./machine-learning-web-services-logging.md).
 
 ![configure](./media/machine-learning-publish-web-service/figure-4.png)
