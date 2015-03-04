@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Using Twilio for Voice, VoIP, and SMS Messaging in Azure" 
-	description="" 
+	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Node.js." 
 	services="" 
 	documentationCenter="nodejs" 
 	authors="devinrader" 
