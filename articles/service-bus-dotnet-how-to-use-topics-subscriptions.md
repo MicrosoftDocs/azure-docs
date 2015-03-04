@@ -78,7 +78,7 @@ projects and enables you to dynamically change configuration settings
 from the Azure management portal without redeploying your
 application.  For example, add a Setting to your service definition (`*.csdef`) file, as shown below:
 
-    <ServiceDefinition name="WindowsAzure1">
+    <ServiceDefinition name="Azure1">
     ...
         <WebRole name="MyRole" vmsize="Small">
             <ConfigurationSettings>
@@ -90,7 +90,7 @@ application.  For example, add a Setting to your service definition (`*.csdef`) 
 
 You then specify values in the service configuration (`*.cscfg`) file:
 
-    <ServiceConfiguration serviceName="WindowsAzure1">
+    <ServiceConfiguration serviceName="Azure1">
     ...
         <Role name="MyRole">
             <ConfigurationSettings>

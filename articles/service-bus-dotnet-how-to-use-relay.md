@@ -362,6 +362,6 @@ follow these links to learn more.
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Azure Management Portal]: http://manage.windowsazure.com
   [Shared Access Signature Authentication with Service Bus]: http://msdn.microsoft.com/library/dn170477.aspx
-  [Building a Service for Service Bus]: http://msdn.microsoft.com/library/windowsazure/ee173564.aspx
-  [Building a Service Bus Client Application]: http://msdn.microsoft.com/library/windowsazure/ee173543.aspx
+  [Building a Service for Service Bus]: http://msdn.microsoft.com/library/ee173564.aspx
+  [Building a Service Bus Client Application]: http://msdn.microsoft.com/library/ee173543.aspx
   [Azure Samples]: http://code.msdn.microsoft.com/windowsazure
