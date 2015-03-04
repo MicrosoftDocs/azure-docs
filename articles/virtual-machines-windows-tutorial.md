@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="03/04/2015" 
 	ms.author="kathydav"/>
 
 
@@ -24,10 +24,10 @@
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM). This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with pre-installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
 
+
+You can also create Windows VMs using [your own images as templates](../virtual-machines-create-upload-vhd-windows-server/). To learn more about Azure VMs, see [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
-
-To learn more about Azure VMs, see [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx).
-
 
 ##<a id="createvirtualmachine"> </a>How to create the virtual machine##
 
