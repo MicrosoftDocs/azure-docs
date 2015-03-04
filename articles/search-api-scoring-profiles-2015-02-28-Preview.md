@@ -13,7 +13,8 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/12/2015" 
+	ms.date="03/05/2015" 
+	ms.author="heidist"/> 
       
 #Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)#
 
@@ -158,7 +159,7 @@ Provide a name. Scoring profiles are optional, but if you add one, the name is r
 The body of the scoring profile is constructed from weighted fields and functions.
 
 <font>
-<table style="font-size:12">
+<table>
 <thead>
 <tr><td><b>Element</b></td><td><b>Description</b></td></tr></thead>
 <tbody 
@@ -256,7 +257,7 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
 **Note**
 A scoring function can only be applied to fields that are filterable. 
 
-<table style="font-size:12">
+<table>
 <thead>
 <tr>
 <td>Attribute</td>
@@ -342,7 +343,7 @@ Interpolations allow you to define the slope for which the score boosting increa
 
 The following table provides several examples. 
 
-<table style="font-size:12">
+<table>
 <thead>
 <tr>
 <td><b>Duration</b></td> <td><b>boostingDuration</b></td>
