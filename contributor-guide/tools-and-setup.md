@@ -172,6 +172,7 @@ Cache your credential so you don't have to type your user name and token every t
         cd c:\users\alias\downloads
         git-credential-winstore.exe -i "C:\Program Files (x86)\Git\cmd\git.exe"​
 
+
 ## Configure your user name and email locally
 
 To ensure you are listed correctly as a contributor, you need to configure your user name and email locally in Git.
@@ -231,4 +232,5 @@ To ensure you are listed correctly as a contributor, you need to configure your 
 [Fork the repository and copy it to your computer]: #fork-the-repository-and-copy-it-to-your-computer
 [Install git-credential-winstore]: #install-git-credential-winstore
 [Sign up for Disqus]: #sign-up-for-disqus
+[Configure your user name and email locally]: #configure-your-user-name-and-email-locally
 [Next steps]: #next-steps
