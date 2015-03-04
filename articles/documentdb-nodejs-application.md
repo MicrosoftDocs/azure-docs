@@ -134,7 +134,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		
 		    client.queryDatabases(querySpec).toArray(function(err, results) {
 		      if (err) {
-		        callbackk(err);
+		        callback(err);
 		      }
 		
 		      if (!err && results.length === 0) {
