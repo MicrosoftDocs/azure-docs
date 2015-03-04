@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Managed Cache Service

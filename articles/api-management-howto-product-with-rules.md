@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/27/2015" 
+	ms.date="02/27/2015" 
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
