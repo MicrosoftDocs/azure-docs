@@ -49,11 +49,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 - For an overview of Azure Data Factory, see [Introduction to Azure Data Factory][adf-introduction].
 - For a quick tutorial, see [Get started with Azure Data Factory][adfgetstarted].
 - For comprehensive documentation, see [Azure Data Factory documentation][adf-documentation-landingpage].
- 
-### Q: What are the supported data sources and activities?
 
-- **Supported data sources:** Azure Storage (Blob and Tables), SQL Server, Azure SQL Database, File System. 
-- **Supported activities:**: Copy Activity (on-premises to cloud, and cloud to on-premises), HDInsight Activity (Pig, Hive, and MapReduce transformations), Azure Machine Learning Batch Scoring Activity, Stored Procedure activity, and custom C# activities.
   
 ### Q: How do customers access Data Factory?
 
@@ -70,6 +66,15 @@ At public preview, Data Factory will only be available in US West.  The compute 
 - Number of pipelines within a data factory: 100
 - Number of activities within a pipeline: 10
 - Number of datasets with in a data factory: 100
+
+## Activities - FAQ
+### Q: What are the supported data sources and activities?
+
+- **Supported data sources:** Azure Storage (Blob and Tables), SQL Server, Azure SQL Database, File System. 
+- **Supported activities:**: Copy Activity (on-premises to cloud, and cloud to on-premises), HDInsight Activity (Pig, Hive, and MapReduce transformations), Azure Machine Learning Batch Scoring Activity, Stored Procedure activity, and custom C# activities.
+
+### When does an activity run?
+The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running.
 
 ## Copy Activity - FAQ
 ### Q: What regions are supported by the Copy Activity ?
@@ -131,6 +136,10 @@ If you are using an on-demand cluster that is created by the Data Factory servic
 
 In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.
 
+## Stored Procedure Activity - FAQ
+### What data sources does the Stored Procedure Activity support?
+The Stored Procedure Activity supports only Azure SQL Database at this time. 
+
 ## Slices - FAQ
 
 ### How can I rerun a slice?
@@ -150,6 +159,12 @@ See [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] for de
 4. Click the activity run from the **Activity Runs** list on the **DATA SLICE** blade. 
 5. Click **Properties** tile on the **ACTIVITY RUN DETAILS** blade. 
 6. You should see the **DURATION** field with a value. This is the time taken to process the slice.   
+
+### How to stop a running slice?
+If you need to stop the pipeline from executing, you can use [Suspend-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn834939.aspx) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
+
+If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline. 
+
 
 ## See Also
 [Introduction to Azure Data Factory][adf-introduction]
