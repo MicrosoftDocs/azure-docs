@@ -69,8 +69,3 @@ function insert(item, user, request) {
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-
-[23]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
-[24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
-[25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
-[26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png

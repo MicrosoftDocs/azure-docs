@@ -75,3 +75,7 @@ Download the [GetStartedWithData iOS app]. In Xcode, open the project and examin
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
+
+
+[Quick Start]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started/
+[GetStartedWithData iOS app]: http://go.microsoft.com/fwlink/p/?LinkId=268622
