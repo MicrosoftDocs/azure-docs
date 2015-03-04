@@ -10,7 +10,7 @@ SME authors need to follow several steps to gracefully retire content so users o
 
 1. Ensure you are working in an up-to-date local branch – run `git pull upstream master` (or the appropriate variation on this command.
 
-2.	Scan the azure-content-pr/articles folder for any articles that link to the article you want to retire, and either remove the crosslinks or replace them with an appropriate new crosslinks. You can use a search and replace utility to find the crosslinks if you have one installed. If you don't, you can use Windows PowerShell for free! Here's how to use PowerShell to find the crosslinks:
+2.	Scan the azure-content-pr/articles folder and the azure-content-pr/includes folder for any articles and includes that link to the article you want to retire, and either remove the crosslinks or replace them with an appropriate new crosslinks. You can use a search and replace utility to find the crosslinks if you have one installed. If you don't, you can use Windows PowerShell for free! Here's how to use PowerShell to find the crosslinks:
 
  a. Start Windows PowerShell.
 
@@ -42,9 +42,12 @@ You'll have to work with the person who maintains and updates the documentation 
 
 Check the FWLink tool for any FWLinks that might point to the article. Point any FWLinks at replacement content; if you are not on the alias that owns the link, join it. If the owners won't update the link, file a ticket with MSCOM to have the link changed.
 
-## Last step: Retire the article
+## Step 4: Retire the article
 
-After you've completed the three prior steps and those changes are live, then you can delete the article from the repository. Doing this last prevents firedrills and a broken experience on the website!
+After you've completed the three prior steps and those changes are live, then you can delete the article from the repository. 
+## Step 5: Remove links from MSDN
+
+Review the content QA tool for broken links to the retired or renamed topic and remove/fix the links in all MSDN topics affected.
 
 ### Contributors' guide links
 
