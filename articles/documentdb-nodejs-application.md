@@ -43,6 +43,7 @@ that you have the following:
 
 - An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
 - [Node.js][] version v0.10.29 or higher.
+- [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 - [Git][].
 
 ## <a name="_Toc395637761"></a>Step 1: Create a DocumentDB database account
@@ -59,24 +60,20 @@ Now let's create a basic Hello World Node.js project using the [Express](http://
 
 1. Open your favorite terminal.
 
-2. Install the [express generator](expressjs.com/starter/generator.html) via npm if you don't already have it.
-
-		npm intall express-generator -g
-
-3. Use the express generator to generate a new application called **todo**.
+2. Use the express generator to generate a new application called **todo**.
 
 		express todo
 
-4. Open your new **todo** directory and install dependencies.
+3. Open your new **todo** directory and install dependencies.
 
 		cd todo
 		npm install
 
-5. Run your new application.
+4. Run your new application.
 
 		npm start
 
-6. You can you view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
+5. You can you view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
 
 	![Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
 
@@ -92,14 +89,11 @@ which modules need to be installed on Azure to support your application. We stil
 
 		npm install async --save
 
-1. And install the **documentdb** module via npm. This is the module where all the DocumentDB magic happens
+1. Install the **documentdb** module via npm. This is the module where all the DocumentDB magic happens.
 
 		npm install documentdb --save
 
-3. A quick check of the **package.json** file of the application should
-show the additional modules, This file will tell Azure later which
-packages it need to be download and installed when running your
-application. It should resemble the example below.
+3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
 
 	![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
 
@@ -552,5 +546,5 @@ The source code for the complete reference application can be downloaded [here][
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
   [here]: https://github.com/Azure/azure-documentdb-node/tree/master/core_sdk/tutorial/todo
-  [Azure CLI]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
+  [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [Azure Management Portal]: http://portal.azure.com
