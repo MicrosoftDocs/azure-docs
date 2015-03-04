@@ -90,7 +90,7 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 		{
 		  "name": "todolist",
 		  "version": "1.0.0",
-		  "description": "todolist - hosted on Windows Azure Mobile Services",
+		  "description": "todolist - hosted on Azure Mobile Services",
 		  "main": "server.js",
 		  "engines": {
 		    "node": ">= 0.8.19"
