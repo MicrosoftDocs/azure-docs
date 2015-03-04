@@ -130,7 +130,7 @@ these links to learn more about SendGrid.
 [4]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
 [Azure Management Portal]: https://manage.windowsazure.com/

@@ -279,8 +279,8 @@ To publish changes to application, follow these steps:
 3. Browse to **http://[site name].azurewebsites.net/index.php** to see your changes.
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-[install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
+[install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
 [running-app]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png

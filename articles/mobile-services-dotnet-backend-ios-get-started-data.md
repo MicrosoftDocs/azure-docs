@@ -145,12 +145,12 @@ Once you have completed the data series, try these other iOS tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
-[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

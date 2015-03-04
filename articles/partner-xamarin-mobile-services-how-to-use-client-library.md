@@ -470,30 +470,30 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Caching the authentication token]: #caching
 
 <!-- URLs. -->
-[Get started with Mobile Services iOS]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with Mobile Services Android]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
+[Get started with Mobile Services iOS]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with Mobile Services Android]: /develop/mobile/tutorials/get-started-xamarin-android
 [Xamarin download]: http://xamarin.com/download/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Xamarin.iOS quickstart tutorial]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios/
-[Xamarin.Android quickstart tutorial]: /en-us/develop/mobile/tutorials/get-started-xamarin-android/
-[Xamarin.iOS data tutorial]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
-[Xamarin.Android data tutorial]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android/
-[Xamarin.iOS authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
-[Xamarin.Android authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/
+[Xamarin.iOS quickstart tutorial]: /develop/mobile/tutorials/get-started-xamarin-ios/
+[Xamarin.Android quickstart tutorial]: /develop/mobile/tutorials/get-started-xamarin-android/
+[Xamarin.iOS data tutorial]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios/
+[Xamarin.Android data tutorial]: /develop/mobile/tutorials/get-started-with-data-xamarin-android/
+[Xamarin.iOS authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios/
+[Xamarin.Android authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Xamarin.Auth component]: https://components.xamarin.com/view/xamarin.auth
 
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Get started with data iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with data Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Get started with authentication iOS]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with authentication Android]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Validate and modify data with scripts ios]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
-[Validate and modify data with scripts android]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-[Refine queries with paging iOS]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
-[Refine queries with paging Android]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-[Authorize users with scripts iOS]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-[Authorize users with scripts Android]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[Get started with data iOS]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with data Android]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with authentication iOS]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with authentication Android]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Validate and modify data with scripts ios]: /develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
+[Validate and modify data with scripts android]: /develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+[Refine queries with paging iOS]: /develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+[Refine queries with paging Android]: /develop/mobile/tutorials/add-paging-to-data-xamarin-android
+[Authorize users with scripts iOS]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Authorize users with scripts Android]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx

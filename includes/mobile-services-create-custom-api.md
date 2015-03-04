@@ -35,4 +35,4 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[mssql object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+[mssql object]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx

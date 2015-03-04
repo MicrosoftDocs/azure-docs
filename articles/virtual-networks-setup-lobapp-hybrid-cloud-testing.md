@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 #Set up a web-based LOB application in a hybrid cloud for testing
@@ -42,7 +42,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the LOB server (LOB1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##Phase 1: Set up the hybrid cloud environment
 
@@ -185,3 +185,5 @@ This environment is now ready for you to deploy your web-based application on LO
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+
+[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)

@@ -18,7 +18,7 @@
 
 # Managing Role-Based Access Control with Windows PowerShell #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/en-us/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
 Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to use Windows PowerShell to manage RBAC. It 
 
 Before you can use Windows PowerShell to manage RBAC, you must have the following:
 
-- Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855).
+- Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 - Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/).
 

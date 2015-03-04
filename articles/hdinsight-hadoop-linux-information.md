@@ -120,7 +120,7 @@ Other than through the Hadoop command from the cluster, there are a variety of w
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx" target="_blank">Storage REST API</a>
+* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">Storage REST API</a>
 
 
 ##Next steps

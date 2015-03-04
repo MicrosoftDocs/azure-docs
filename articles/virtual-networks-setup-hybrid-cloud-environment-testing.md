@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 #Set up a hybrid cloud environment for testing
@@ -42,7 +42,7 @@ There are five major phases to setting up this hybrid cloud test environment:
 4.	Create the site-to-site VPN connection.
 5.	Configure DC2. 
 
-If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
@@ -291,6 +291,8 @@ Your hybrid cloud environment is now ready for testing.
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+
+[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
 ##Minimizing the ongoing costs of this environment
 

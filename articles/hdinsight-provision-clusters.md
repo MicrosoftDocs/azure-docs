@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/23/2015"
+   ms.date="03/03/2015"
    ms.author="nitinme"/>
 
 #Provision Hadoop clusters in HDInsight using custom options
@@ -35,15 +35,6 @@ This article provides instructions on the different ways to provision a cluster.
 Before you begin this article, you must have the following:
 
 - An Azure subscription. Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-
-##In this article
-
-* [Configuration options](#configuration)
-* [Using Azure Management Portal](#portal)
-* [Using Azure PowerShell](#powershell)
-* [Using Cross-platform Command Line](#cli)
-* [Using HDInsight .NET SDK](#sdk)
-* [Next steps](#nextsteps)
 
 ##<a id="configuration"></a>Configuration options
 
@@ -766,4 +757,4 @@ In this article, you have learned several ways to provision an HDInsight cluster
 
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
-  [89e2276a]: /en-us/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"

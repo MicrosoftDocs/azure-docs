@@ -422,7 +422,7 @@ Azure DocumentDB and published it to Azure Websites.
 
   [Click here to access Flask tutorials]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [here]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [2]: https://www.python.org/downloads/windows/

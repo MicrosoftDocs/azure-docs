@@ -336,14 +336,7 @@ links to learn more.
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ./media/service-bus-dotnet-how-to-use-queues/sb-queues-08.png
   [Azure Management Portal]: http://manage.windowsazure.com
-
-
-
-
-
-
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/hh367516.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/hh367512.aspx

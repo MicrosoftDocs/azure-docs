@@ -49,6 +49,6 @@ You can disable an existing Traffic Manager profile so that it will not refer us
 
 [Traffic Manager](../traffic-manager)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 

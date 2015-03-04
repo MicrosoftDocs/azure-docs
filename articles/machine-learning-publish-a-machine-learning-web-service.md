@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="03/03/2015" 
 	ms.author="garye"/>
 
 #Publish an Azure Machine Learning web service
@@ -63,7 +63,7 @@ To test the web service, click the **Test** link in the **DASHBOARD** tab. A dia
 
 ![test](./media/machine-learning-publish-web-service/figure-3.png)
 
-On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Windows Azure Management Portal where you manage your web services.
+On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Azure Management Portal where you manage your web services.
 You can also enable logging to diagnose any failures that you're seeing when hitting your web service. For more information, click [here](./machine-learning-web-services-logging.md).
 
 ![configure](./media/machine-learning-publish-web-service/figure-4.png)
@@ -76,7 +76,7 @@ Once you publish your web service from Machine Learning Studio, you can send dat
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 
-For more information about accessing a Machine Learning web service, see [How to consume a published machine learning web services](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/machine-learning-consume-web-services/).
+For more information about accessing a Machine Learning web service, see [How to consume a published machine learning web services](https://acom-sandbox.azurewebsites.net/documentation/articles/machine-learning-consume-web-services/).
 
 
 ##Manage the web service in the Azure Management Portal

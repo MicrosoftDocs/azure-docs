@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Solr on HDInsight Hadoop clusters
@@ -23,15 +23,6 @@ You can install Solr on any type of cluster in Hadoop on HDInsight using **Scrip
 In this topic, you will learn how to install Solr using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop. Once you have installed Solr on HDInsight cluster, you'll also learn how to search data using Solr.
 
 > [AZURE.NOTE] The sample script used in this topic creates a Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries accordingly.
-
-
-## In this article
-
-- [What is Solr?](#whatis)
-- [How do I install Solr?](#install)
-- [How do I use Solr in HDInsight?](#usesolr)
-- [Install Solr on HDInsight Hadoop clusters using PowerShell](#usingPS)
-- [Install Solr on HDInsight Hadoop clusters using the .NET SDK](#usingSDK) 
 
 
 ## <a name="whatis"></a>What is Solr?

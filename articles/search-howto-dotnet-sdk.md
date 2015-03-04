@@ -28,9 +28,9 @@ The SDK consists of client libraries that define objects like indexes, indexers,
 
 The current version is 0.9x. This first version is a preview of the SDK. If you would like to provide feedback for the generally available version, please visit our [feedback page](http://feedback.azure.com/forums/263029-azure-search).
 
-To obtain the SDK, you can download just the [NuGet package](http://go.microsoft.com/fwlink/p/?LinkId=528087) if you already have the Azure .NET SDK. Otherwise, consider installing the latest version of the larger [Azure .NET SDK](http://azure.microsoft.com/en-us/downloads/) to get client libraries and resources for a wide range of services.
+To obtain the SDK, you can download just the [NuGet package](http://go.microsoft.com/fwlink/p/?LinkId=528087) if you already have the Azure .NET SDK. Otherwise, consider installing the latest version of the larger [Azure .NET SDK](http://azure.microsoft.com/downloads/) to get client libraries and resources for a wide range of services.
 
-The .NET libraries are at the functional level of `api-version=2015-02-28`, documented on [MSDN](). New features that are *not* part of this version, such as support for Microsoft's natural language processors or the **MorelLikeThis** search parameters, are in [preview]() and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) or [Latest updates to Azure Search](./search-latest-updates/) for status updates on either feature.
+The .NET libraries are at the functional level of `api-version=2015-02-28`, documented on [MSDN](). New features that are *not* part of this version, such as support for Microsoft's natural language processors or the **MorelLikeThis** search parameters, are in [preview]() and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) or [Latest updates to Azure Search](./search-latest-updates/) for status updates on either feature.
 
 ##Requirements ##
 
@@ -38,7 +38,7 @@ The .NET libraries are at the functional level of `api-version=2015-02-28`, docu
 
 2. Download the Azure Search .NET SDK from either one of the following links:
 
-	- Download the latest version of the larger [Azure .NET SDK](http://azure.microsoft.com/en-us/downloads/)
+	- Download the latest version of the larger [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 	- Download just the [NuGet package](http://go.microsoft.com/fwlink/p/?LinkId=528087)
 
 3. Download a Visual Studio solution, named *AzureSearchDotNetSDKSample* (written in C#) to walk through the steps in this article. You can get the solution on [Codeplex](http://go.microsoft.com/fwlink/p/?LinkId=528106). The sample application is a console application that creates an index called *stores*, loads documents based on the Adventure Works dataset, searches on the term *bike*, and filters on the term *Italian*.
@@ -213,10 +213,10 @@ This step completes the tutorial, but don't stop here. **Next steps** provides a
 ##Next steps##
 
 
-- Deepen your knowledge through [videos and other samples and tutorials]](https://msdn.microsoft.com/en-us/library/azure/dn818681.aspx).
-- Read about features and capabilities in this version of the Azure Search SDK: [Azure Search Overview](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx)
-- Review [naming conventions](https://msdn.microsoft.com/en-us/library/azure/dn857353.aspx) to learn the rules for naming various objects.
-- Review [supported data types](https://msdn.microsoft.com/en-us/library/azure/dn798938.aspx) in Azure Search.
+- Deepen your knowledge through [videos and other samples and tutorials]](https://msdn.microsoft.com/library/azure/dn818681.aspx).
+- Read about features and capabilities in this version of the Azure Search SDK: [Azure Search Overview](https://msdn.microsoft.com/library/azure/dn798933.aspx)
+- Review [naming conventions](https://msdn.microsoft.com/library/azure/dn857353.aspx) to learn the rules for naming various objects.
+- Review [supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) in Azure Search.
 - If you are using an Azure Search indexer, review the data type map for indexers as well. See [Mapping data types for indexers](http://go.microsoft.com/fwlink/p/?LinkId=528105) for details.
 
 

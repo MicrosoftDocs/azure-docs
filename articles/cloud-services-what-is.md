@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="03/02/2015" 
 	ms.author="adegeo"/>
 
 
 
 
-#What is a cloud service?
+# What is a cloud service?
 When you create an application and run it in Azure, the code and configuration together are called an Azure cloud service (known as a *hosted service* in earlier Azure releases).
 
 By creating a cloud service, you can deploy a multi-tier web application in Azure, defining multiple roles to distribute processing and allow flexible scaling of your application. A cloud service consists of one or more web roles and/or worker roles, each with its own application files and configuration. Azure Websites and Virtual Machines also enable web applications on Azure.  The main advantage of cloud services is the ability to support more complex multi-tier architectures. For a  detailed comparison, see [Azure Web Sites, Cloud Services and Virtual Machines comparison][Comparison].
@@ -29,14 +29,14 @@ For a cloud service, Azure maintains the infrastructure for you, performing rout
 Each cloud service has two environments to which you can deploy your service package and configuration. You can deploy a cloud service to the staging environment to test it before you promote it to production. Promoting a staged cloud service to production is a simple matter of swapping the virtual IP addresses (VIPs) that are associated with the two environments. 
 
 
-## Concepts ##
+## Concepts
 
 
 - **cloud service role:** A cloud service role is comprised of application files and a configuration. A cloud service can have two types of role:
  
->- **web role:**A web role provides a dedicated Internet Information Services (IIS) web-server used for hosting front-end web applications.
+> **web role:**<br/>A web role provides a dedicated Internet Information Services (IIS) web-server used for hosting front-end web applications.
 
->- **worker role:** Applications hosted within worker roles can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
+> **worker role:**<br/>Applications hosted within worker roles can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
 - **role instance:** A role instance is a virtual machine on which the application code and role configuration run. A role can have multiple instances, defined in the service configuration file.
 
@@ -44,11 +44,11 @@ Each cloud service has two environments to which you can deploy your service pac
 
 - **cloud service components:** Three components are required in order to deploy an application as a cloud service in Azure:
 
->- **service definition file:** The cloud service definition file (.csdef) defines the service model, including the number of roles.
+> **service definition file:**<br/>The cloud service definition file (.csdef) defines the service model, including the number of roles.
 
->- **service configuration file:** The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
+> **service configuration file:**<br/>The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
 
->- **service package:** The service package (.cspkg) contains the application code and the service definition file.
+> **service package:**<br/>The service package (.cspkg) contains the application code and the service definition file.
 
 - **cloud service deployment:** A cloud service deployment is an instance of a cloud service deployed to the Azure staging or production environment. You can maintain deployments in both staging and production.
 

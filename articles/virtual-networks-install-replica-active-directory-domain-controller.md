@@ -26,7 +26,7 @@ You might also be interested in these related topics:
 
 - You can optionally install a new Active Directory forest on an Azure virtual network. For those steps, see [Install a new Active Directory forest on an Azure virtual network](http://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/).
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
--  For step-by-step guidance to create a test lab environment on Azure that includes AD DS, see [Test Lab Guide: Base Configuration in Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684).
+-  For step-by-step guidance to create a test lab environment on Azure that includes AD DS, see [Test Lab Guide: Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684).
 
 ## Scenario Diagram
 

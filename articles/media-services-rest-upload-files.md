@@ -23,7 +23,7 @@
 
 This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
 
-In Media Services, you upload your digital files into an asset. The [Asset](https://msdn.microsoft.com/en-us/library/azure/hh974277.aspx) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
+In Media Services, you upload your digital files into an asset. The [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
 
 >[AZURE.NOTE]Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.

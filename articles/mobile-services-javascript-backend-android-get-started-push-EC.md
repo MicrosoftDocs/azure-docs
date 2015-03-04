@@ -214,23 +214,23 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-android-get-started-users
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: /documentation/articles/mobile-services-android-get-started/
+[Get started with data]: /documentation/articles/mobile-services-android-get-started-data/
+[Get started with authentication]: /documentation/articles/mobile-services-android-get-started-users
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How to use the Android client library for Mobile Services]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+[How to use the Android client library for Mobile Services]: /documentation/articles/mobile-services-android-how-to-use-client-library
 
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
+[Send push notifications to authenticated users]: /documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-android-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-android-send-localized-breaking-news/
+[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
+[Send broadcast notifications to subscribers]: /documentation/articles/notification-hubs-android-send-breaking-news/
+[Send template-based notifications to subscribers]: /documentation/articles/notification-hubs-android-send-localized-breaking-news/

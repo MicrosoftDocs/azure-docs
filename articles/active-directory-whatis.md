@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="02/20/2015" 
+	ms.date="03/03/2015" 
 	ms.author="justinha"/>
 
 
@@ -24,6 +24,8 @@ Azure Active Directory is a service that lets you easily achieve all your Identi
 Azure AD can be used as a standalone cloud directory or to extend on-premises identity and access management solutions you have into the cloud. In this case you can continue benefiting from your existing investments and on-premises capabilities while leveraging Azure AD to gain identity and access management in the cloud. [Learn more](http://msdn.microsoft.com/library/jj573653).
 
 In addition, you can set rules and policies that control who has access and under what conditions. For example, you can require Multi-Factor Authentication (MFA), and manage access based on the device or location. [Learn more about Azure MFA](http://azure.microsoft.com/services/multi-factor-authentication/).
+
+All of these rules and policies, including MFA, can be enforced for access to cloud applications or to legacy on-premises applications using the built-in Application Proxy - without the need to rewrite them or expose them directly on the internet. [Learn more about Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx).
 
 Finally, Azure AD provides information about what is going on in your organization at your fingertips. With advanced reporting and analytics, you get unique information about your users’ access. For example, using application discovery, you can find out which applications are actively used in your organization. [Learn more about Azure AD cloud app discovery](https://appdiscovery.azure.com/).
 
@@ -40,6 +42,6 @@ Azure AD has a number of functional levels, spanning from a cloud directory with
 
 **Additional Resources**
 
-* [Sign up for Azure as an organization](/en-us/manage/services/identity/organizational-account/)
-* [Azure Identity](/en-us/manage/windows/fundamentals/identity/)
+* [Sign up for Azure as an organization](/manage/services/identity/organizational-account/)
+* [Azure Identity](/manage/windows/fundamentals/identity/)
 * [Azure AD Library on MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)

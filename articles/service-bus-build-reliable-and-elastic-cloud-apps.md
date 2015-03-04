@@ -20,7 +20,7 @@
  
 Dynamic demand is a reality for today's applications.  From seasonal and variable demand to unexpected social media trends modern applications must deal gracefully with spikes in load that can be both uncertain or expected. The Platform as a Service (PaaS) nature of Azure Service Bus enables you to create applications that scale easily and that can recover from spikes or momentary outages of components.  
  
-[Build a .NET multi-tier application using Service Bus Queues](/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
+[Build a .NET multi-tier application using Service Bus Queues](/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
  
 ## Explore
 - [Mcrosoft Azure Service Bus Fundamentals](http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/)
@@ -31,8 +31,13 @@ Dynamic demand is a reality for today's applications.  From seasonal and variabl
 ## Build
 - [How to use Service Bus Queues](http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-queues/) 
 - [Deadlettering in Service Bus Brokered Messaging (October 21 2011 blog post)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
+<<<<<<< HEAD
 - [Best Practices for Insulating Service Bus Applications Against Service Bus   Outages and Disasters](http://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/jj554355.aspx)
 - [Brokered Messaging: Request Response](http://code.msdn.microsoft.com/Brokered-Messaging-Request-2b4ff5d8) 
+=======
+- [Best Practices for Insulating Service Bus Applications Against Service Bus   Outages and Disasters](http://sandboxmsdnstage.redmond.corp.microsoft.com/library/azure/jj554355.aspx)
+- [Brokered Messaging: Request Response](http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8) 
+>>>>>>> da6e34de1014b7446117fe10dc6b47636ff44f21
 - [Multi-Tier application with Azure Service Bus](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
  
 ## Popular
