@@ -1231,7 +1231,7 @@ Status Code: 200 OK is returned for a successful response.
     
 **Examples:**
 
-You can find additional examples on the [OData Expression Syntax for Azure Search](https://msdn.microsoft.com/en-us/library/azure/dn798921.aspx) page.
+You can find additional examples on the [OData Expression Syntax for Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx) page.
 
 1)	Search the Index sorted descending by date. 
 

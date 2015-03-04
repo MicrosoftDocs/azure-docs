@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="operational-insights" 
-	ms.workload="appservices" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="03/03/2015" 
 	ms.author="banders"/>
 
 <h1>Operational Insights Feature Guide</h1>
@@ -65,7 +65,7 @@ Use the following information set up an account to use with Microsoft Azure Oper
 
 <h3>Get an Organizational or a Microsoft account</h3>
 
-If you want to create an Organizational account, sign up at [Microsoft Account For Organizations](http://go.microsoft.com/fwlink/?LinkId=396866) . Then, you need to grant access to your Organizational account for Operational Insights in [Windows Azure Active Directory](http://aka.ms/Mr1dtz).
+If you want to create an Organizational account, sign up at [Microsoft Account For Organizations](http://go.microsoft.com/fwlink/?LinkId=396866) . Then, you need to grant access to your Organizational account for Operational Insights in [Azure Active Directory](https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=4&ct=1425411692&rver=6.1.6206.0&wp=MCMBI&wreply=https:%2F%2Faccount.activedirectory.windowsazure.com%2Flanding.aspx%3Ftarget%3D%252fConsent.aspx%253fClientID%253d35bc6258-015f-4045-8940-7bc75c02d8a6%2526RequestedPermissions%253dDirectoryReaders%2526ConsentReturnURL%253dhttps%25253a%25252f%25252flogin.opinsights.azure.com%25252fOrgId%25252fSignIn.aspx%25253fFromConsent%25253d1%252526returnUrl%25253dhttps%2525253a%2525252f%2525252fpreview.opinsights.azure.com%2525252fWorkspace&lc=1033&id=500633).
 
 
 If you want to get a Microsoft Account (previously called a “Windows Live ID”), sign up at [Sign Up – Microsoft Account](http://go.microsoft.com/fwlink/?LinkId=396868). Access is automatically granted to Operational Insights with a Microsoft account.

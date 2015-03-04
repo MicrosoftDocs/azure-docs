@@ -72,7 +72,7 @@ For information about the Media Services REST API version history, see [Azure Me
 
 ### General Media Services Updates
 
-Media Services REST API is now version 2.9. Starting with this version, you can enable the Azure CDN integration with streaming endpoints. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/dn783468.aspx).
+Media Services REST API is now version 2.9. Starting with this version, you can enable the Azure CDN integration with streaming endpoints. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
 ##<a id="january_changes_15"></a>January 2015 Release
 
@@ -453,7 +453,7 @@ The following functionality was new in the November release of the SDK.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+[Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API Reference]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
 [Media Services Pricing Details]: http://azure.microsoft.com/pricing/details/media-services/
 [Input Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx

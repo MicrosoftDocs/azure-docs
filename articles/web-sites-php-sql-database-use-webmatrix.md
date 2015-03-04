@@ -199,7 +199,7 @@ You've seen how to create and deploy a website from WebMatrix to Azure. To learn
 
 
 
-[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [running-app]: ./media/web-sites-php-sql-database-use-webmatrix/tasklist_app_windows.png
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [NewWebSite1]: ./media/web-sites-php-sql-database-use-webmatrix/NewWebSite1.jpg

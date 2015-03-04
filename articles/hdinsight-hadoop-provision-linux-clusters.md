@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/19/2015"
+   ms.date="03/03/2015"
    ms.author="nitinme"/>
 
 
@@ -39,12 +39,6 @@ Before you begin this article, you must have the following:
 - SSH keys. If you want to remote into a Linux cluster using SSH with a key instead of a password. Using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys refer to the following articles
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](../hdinsight-hadoop-linux-use-ssh-unix).
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](../hdinsight-hadoop-linux-use-ssh-windows).
-
-## In this article
-
-* [Configuration options](#configuration)
-* [Options for provisioning HDInsight Linux clusters](#options)
-* [Next steps](#nextsteps)
 
 ## <a id="configuration"></a>Configuration options
 
@@ -584,4 +578,4 @@ In this article, you have learned several ways to provision an HDInsight Hadoop 
 
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
-  [89e2276a]: /en-us/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"

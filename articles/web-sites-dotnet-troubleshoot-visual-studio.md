@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to use Visual Studio tools that help debug an application while it runs in an Azure Website, by running in [debug mode](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools that help debug an application while it runs in an Azure Website, by running in [debug mode](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
 
 You'll learn:
 
@@ -70,7 +70,7 @@ Visual Studio provides access to a subset of the site management functions and c
    
 	For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Sites: How Application Strings and Connection Strings Work](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
-	If you want to perform a site management task that can't be done in this window, you can click **Full Website Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	If you want to perform a site management task that can't be done in this window, you can click **Full Website Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Sites](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 <h2><a name="remoteview"></a>Access website files in Server Explorer</h2>
 
@@ -139,7 +139,7 @@ This section shows how to debug remotely using the project you create in [Gettin
             return View();
         }
 
-2. [Set a breakpoint](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
+2. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
 
 1. In **Solution Explorer**, right-click the project, and click **Publish**.
 
@@ -205,7 +205,7 @@ This section shows how to debug remotely using the project and website you creat
 
 1. In the ContosoAdsWebJob project, open *Functions.cs*.
 
-2. [Set a breakpoint](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) on the first statement in the `GnerateThumbnail` method.
+2. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the first statement in the `GnerateThumbnail` method.
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -263,7 +263,7 @@ If your function [wrote logs](../websites-dotnet-webjobs-sdk-storage-queues-how-
 
 * Avoid long stops at breakpoints when remote debugging. Azure treats a process that is stopped for longer than a few minutes as an unresponsive process, and shuts it down.
 
-* While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Azure Pricing](/en-us/pricing/calculator/).
+* While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Azure Pricing](/pricing/calculator/).
 
 * Make sure that the `debug` attribute of the `compilation` element in the *Web.config* file is set to true. It is set to true by default when you publish a debug build configuration.
 
@@ -484,7 +484,7 @@ Web server logs record all HTTP activity on the site. In order to see them in th
 	![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **site diagnostics** section in [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig). 
+By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **site diagnostics** section in [How to Configure Web Sites](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig). 
 
 If you use the management portal to enable web server logging to an Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored. 
 
@@ -529,7 +529,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 	![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
 	* Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
-	* Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
+	* Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
 	* Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
 
 	(The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
@@ -699,7 +699,7 @@ You've seen how Visual Studio makes it easy to view logs created by an Azure Web
 
 For more information about troubleshooting Azure Websites (WAWS), see the following resources:
 
-* [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
+* [How to Monitor Web Sites](/manage/services/web-sites/how-to-monitor-websites/)
 * [Investigating Memory Leaks in Azure Web Sites with Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blog post about Visual Studio features for analyzing managed memory issues.
 * [Azure Websites online tools you should know about](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
 
@@ -760,7 +760,7 @@ Also, note that you don't have to use ASP.NET or System.Diagnostics tracing if y
 
 For more information about analyzing web server logs, see the following resources:
 
-* [LogParser](http://www.microsoft.com/en-us/download/details.aspx?id=24659)<br/>
+* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   A tool for viewing data in web server logs (*.log* files).
 * [Troubleshooting IIS Performance Issues or Application Errors using LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   An introduction to the Log Parser tool that you can use to analyze web server logs.

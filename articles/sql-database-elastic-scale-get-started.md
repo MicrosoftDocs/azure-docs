@@ -36,7 +36,7 @@ The sample creates a simple sharded application and explores key capabilities of
 To run the sample app, you must use Visual Studio, and you must have access to an Azure SQL Database running on Azure. If you do not already have a subscription to Azure, sign up for a [trial subscription](http://azure.microsoft.com/pricing/free-trial/).
 ####Visual Studio and Nuget
 
-1. Visual Studio 2012 or higher with C# is required. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx).
+1. Visual Studio 2012 or higher with C# is required. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 or higher. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
 ####Create an Azure SQL database
 
@@ -99,7 +99,7 @@ For more information about the Elastic Scale feature, see:
     -    [Shard Elasticity on Script Center](http://go.microsoft.com/?linkid=9862617)
 -    Blog: [Elastic Scale Announcement](http://go.microsoft.com/?linkid=9862608)
 -    Channel 9: [Elastic Scale Overview Video](http://go.microsoft.com/?linkid=9862609)
--    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted)
+-    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 
 
 <!--Anchors-->

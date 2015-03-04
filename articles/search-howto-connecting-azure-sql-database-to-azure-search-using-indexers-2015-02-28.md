@@ -62,6 +62,7 @@ First, create the data source:
 	    "container" : { "name" : "name of the table or view that you want to index" }
 	}
 
+
 You can get the connection string from Azure management portal; use the `ADO.NET connection string` option.
 
 Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. See the following table for the mapping between SQL and Azure search data types.
@@ -144,7 +145,7 @@ An indexer created in this way doesn’t have a schedule. It automatically runs 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
  
-You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/en-us/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
+You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request: 
 
@@ -223,7 +224,7 @@ If you’re using a schedule and your table contains a non-trivial number of row
 
 ### SQL Integrated Change Tracking Policy ###
 
-If your SQL database supports [change tracking](https://msdn.microsoft.com/en-us/library/bb933875.aspx), we recommend using **SQL Integrated Change Tracking Policy**. This policy enables the most efficient change tracking, and it also allows Azure Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
+If your SQL database supports [change tracking](https://msdn.microsoft.com/library/bb933875.aspx), we recommend using **SQL Integrated Change Tracking Policy**. This policy enables the most efficient change tracking, and it also allows Azure Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
 
 Integrated change tracking is supported starting with the following SQL Server database versions:
  
@@ -232,7 +233,7 @@ Integrated change tracking is supported starting with the following SQL Server d
 
 When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows.
 
-This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/en-us/library/bb964713.aspx) for instructions. 
+This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/library/bb964713.aspx) for instructions. 
 
 To use this policy, create or update your data source like this:
  

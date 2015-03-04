@@ -57,6 +57,6 @@ You may choose to monitor “/”, in which case Traffic Manager will try to acc
 
 ## See Also
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Traffic Manager Overview](../traffic-manager-overview)

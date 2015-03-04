@@ -41,7 +41,7 @@ Note that the reserved units are the same for Encoding and Indexing tasks.
 
 ##<a id="storage"></a>Scale Storage
 
-For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/en-us/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/en-us/library/azure/dn767951.aspx).
+For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
 
 

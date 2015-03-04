@@ -134,11 +134,11 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 

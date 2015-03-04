@@ -68,7 +68,7 @@ From this article and the articles on each of the samples, you learned how to ru
 
 [hdinsight-errors]: ../hdinsight-debug-jobs/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-introduction]: ../hdinsight-hadoop-introduction/

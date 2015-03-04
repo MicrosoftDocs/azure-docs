@@ -24,12 +24,12 @@ This document attempts to list in one place all the topics written by Microsoft 
 ## General Notes
 The sections are broken down on the right of this page. (Links may occur in more than one section, as topics can be about more than one concept, distro, or technology.) In addition, there are several topics that describe various Linux options, image repositories, case studies, and how-to topics to upload your own custom images: 
 
-- [Azure Marketplace](http://azure.microsoft.com/en-us/marketplace/virtual-machines/)
+- [Azure Marketplace](http://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 - [Events and Demonstrations: Microsoft Openness CEE](http://www.opennessatcee.com/)
-- [How to: Uploading your own Distro Image](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/) (and also instructions using an [Azure-Endorsed Distribution](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-endorsed-distributions/))
-- [Notes: General Linux Requirements to Run in Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-generic/)
-- [Notes: General Introduction for Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-introduction/)
+- [How to: Uploading your own Distro Image](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd/) (and also instructions using an [Azure-Endorsed Distribution](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-endorsed-distributions/))
+- [Notes: General Linux Requirements to Run in Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-generic/)
+- [Notes: General Introduction for Linux on Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-introduction/)
 
 <!--
 - [Distros](#distros) &mdash; Topics to do with a specific distro.
@@ -46,7 +46,7 @@ The sections are broken down on the right of this page. (Links may occur in more
 
 There are tons of Linux distributions, usually broken down by the package management systems: Some are dpgk-based, like Debian and Ubuntu, and others are rpm-based, like CentOS, SUSE, and RedHat. Some companies provide distro images as formal partners of Microsoft and are endorsed. Others are provided by the community. The distros in this section have formal articles about them, even if they were only used in examples of other technologies.
 
-### [Ubuntu](http://azure.microsoft.com/en-us/marketplace/partners/Canonical/)
+### [Ubuntu](http://azure.microsoft.com/marketplace/partners/Canonical/)
 
 Ubuntu is a very popular and Azure-endorsed Linux distribution based on dkpg and apt-get package management.
 
@@ -128,9 +128,9 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 17. [The Basics: Injecting Custom Data into a VM to use with Cloud-init](http://azure.microsoft.com/documentation/articles/virtual-machines-how-to-inject-custom-data/)
 18. [Blogging the Basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blogging the Basics: Automate Provisioning Linux on Azure with xplat, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Create a multi-VM deployment using the Azure x-plat cli](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-multi-vm-deployment-xplat-cli/)
-20. [The Basics: The Azure Docker VM Extension](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/)
-23. [Azure Service Management REST API](https://msdn.microsoft.com/en-us/library/azure/ee460799.aspx) reference
+19. [Create a multi-VM deployment using the Azure x-plat cli](http://azure.microsoft.com/documentation/articles/virtual-machines-create-multi-vm-deployment-xplat-cli/)
+20. [The Basics: The Azure Docker VM Extension](http://azure.microsoft.com/documentation/articles/virtual-machines-docker-vm-extension/)
+23. [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) reference
 24. [GlusterFS on Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ## Community Images and Repositories
@@ -179,7 +179,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 Look for this section to fill up quickly. If you have suggestions, send us a PR or leave them in comments, below.
 
-1. [Create a multi-VM deployment using the Azure x-plat cli](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-multi-vm-deployment-xplat-cli/)
+1. [Create a multi-VM deployment using the Azure x-plat cli](http://azure.microsoft.com/documentation/articles/virtual-machines-create-multi-vm-deployment-xplat-cli/)
 2. [Patrick Chanezon's Azure Linux Github repository](https://github.com/chanezon/azure-linux)
 3. [Video: How to Move On-Premises USB data on Linux to Azure using **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Video: Accessing Linux-based GUI on Azure in the Browser with fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)

@@ -22,7 +22,7 @@
 
 This topic shows you how to use Azure Mobile Services to leverage data in an HTML app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
 
->[AZURE.NOTE]This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an HTML app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-html">Get started with Mobile Services</a>.
+>[AZURE.NOTE]This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an HTML app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/develop/mobile/tutorials/get-started-html">Get started with Mobile Services</a>.
 
 This tutorial walks you through these basic steps:
 
@@ -235,7 +235,7 @@ This concludes the **Get started with data** tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling an HTML app to work with data in Mobile Services. Next, learn how to authenticate users of your app try one of these other tutorials by completing [Get started with authentication]. If you are working with a Cordova or PhoneGap app project, learn more about push notifications in [Push Notifications to Cordova Apps with Microsoft Azure](https://msdn.microsoft.com/en-us/magazine/dn879353.aspx).
+This tutorial demonstrated the basics of enabling an HTML app to work with data in Mobile Services. Next, learn how to authenticate users of your app try one of these other tutorials by completing [Get started with authentication]. If you are working with a Cordova or PhoneGap app project, learn more about push notifications in [Push Notifications to Cordova Apps with Microsoft Azure](https://msdn.microsoft.com/magazine/dn879353.aspx).
 
 <!-- Anchors. -->
 [Download the HTML app project]: #download-app
@@ -260,16 +260,16 @@ This tutorial demonstrated the basics of enabling an HTML app to work with data 
 [11]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-html
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-html
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [GetStartedWithData app]:  http://go.microsoft.com/fwlink/?LinkID=286345
 
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-html-js-client
 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 

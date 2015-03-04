@@ -40,7 +40,7 @@ Pig Latin also supports User Defined Functions (UDF), which allows you to invoke
 
 For more information on Pig Latin, see <a href="http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html" target="_blank">Pig Latin Reference Manual 1</a> and <a href="http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html" target="_blank">Pig Latin Reference Manual 2</a>.
 
-For an example of using a UTF with Pig, see <a href="/en-us/documentation/articles/hdinsight-python/" target="_blank">Using Python with Pig and Hive</a>.
+For an example of using a UTF with Pig, see <a href="/documentation/articles/hdinsight-python/" target="_blank">Using Python with Pig and Hive</a>.
 
 ##<a id="data"></a>About the sample data
 
@@ -50,7 +50,7 @@ This example uses a *log4j* sample file, which is stored at **/example/data/samp
 
 In the example above, the log level is ERROR.
 
-> [AZURE.NOTE] You can also generate your own log4j files using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging utility and then upload that to the blob container. See <a href="/en-us/documentation/articles/hdinsight-upload-data/" target="_blank">Upload Data to HDInsight</a> for instructions. For more information on how Azure Blob storage is used with HDInsight, see <a href="/en-us/documentation/articles/hdinsight-use-blob-storage" target="_blank">Use Azure Blob Storage with HDInsight</a>.
+> [AZURE.NOTE] You can also generate your own log4j files using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging utility and then upload that to the blob container. See <a href="/documentation/articles/hdinsight-upload-data/" target="_blank">Upload Data to HDInsight</a> for instructions. For more information on how Azure Blob storage is used with HDInsight, see <a href="/documentation/articles/hdinsight-use-blob-storage" target="_blank">Use Azure Blob Storage with HDInsight</a>.
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in blob storage using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
@@ -83,11 +83,11 @@ HDInsight can run Pig Latin jobs using a variety of methods. Use the following t
 
 |**Use this** if you want... | an **interactive** shell | **batch** processing | with this **Cluster OS** | from this **client OS**|
 ----------------------------------- | :------------------------: | :----------------:| ------------| --------|
-<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-ssh/" target="_blank">SSH</a> | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, or Windows
-<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-curl/" target="_blank">Curl</a> | &nbsp; | ✔ | Linux or Windows | Linux, Unix, Mac OS X, or Windows
-<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
-<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-powershell/" target="_blank">PowerShell</a> | &nbsp; | ✔ | Linux or Windows | Windows
-<a href="/en-us/documentation/articles/hdinsight-hadoop-use-pig-remote-desktop/" target="_blank">Remote Desktop</a> | ✔ | ✔ | Windows | Windows
+<a href="/documentation/articles/hdinsight-hadoop-use-pig-ssh/" target="_blank">SSH</a> | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, or Windows
+<a href="/documentation/articles/hdinsight-hadoop-use-pig-curl/" target="_blank">Curl</a> | &nbsp; | ✔ | Linux or Windows | Linux, Unix, Mac OS X, or Windows
+<a href="/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
+<a href="/documentation/articles/hdinsight-hadoop-use-pig-powershell/" target="_blank">PowerShell</a> | &nbsp; | ✔ | Linux or Windows | Windows
+<a href="/documentation/articles/hdinsight-hadoop-use-pig-remote-desktop/" target="_blank">Remote Desktop</a> | ✔ | ✔ | Windows | Windows
 
 ##<a id="nextsteps"></a>Next steps
 
@@ -103,9 +103,9 @@ Now that you have learned how to use Pig with HDInsight, use the links below to 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
 
-[hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
-[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
-[hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
+[hdinsight-storage]: /documentation/articles/hdinsight-use-blob-storage/
+[hdinsight-upload-data]: /documentation/articles/hdinsight-upload-data/
+[hdinsight-get-started]: /documentation/articles/hdinsight-get-started/
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 
 [hdinsight-use-hive]: ../hdinsight-use-hive/

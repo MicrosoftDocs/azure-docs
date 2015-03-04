@@ -209,7 +209,7 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
 [hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/

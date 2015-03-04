@@ -18,7 +18,7 @@
 
 # The Pi estimator Hadoop sample in HDInsight
  
-This topic shows how to run an Hadoop MapReduce program that estimates the value of the mathematical constant Pi using Azure PowerShell to run the program in HDInsight. It also provides the Java code used in the MapReduce program used to estimate the value of Pi.
+This topic shows how to run an Hadoop MapReduce program in HDInsight that estimates the value of the mathematical constant Pi using Azure PowerShell. It also provides the Java code used in the MapReduce program used to estimate the value of Pi for inspection.
 
 The program uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, Pi/4. The value of Pi can be estimated from the value of 4R where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -55,7 +55,7 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 **To submit the MapReduce job**
 
-1. Open Azure PowerShell. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open Azure PowerShell. For instructions on how to use the Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 2. Set the two variables in the following commands, and then run them:
 	
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
@@ -433,7 +433,7 @@ In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use
 
 Here is the complete script used to run this sample on a default HDInsight 3.1 cluster or on a 3.0 cluster. 
 
-	### Provide the Windows Azure subscription name and the HDInsight cluster name. 
+	### Provide the Azure subscription name and the HDInsight cluster name. 
 	$subscriptionName = "<SubscriptionName>" 
 	$clusterName = "<ClusterName>"  
 
@@ -466,7 +466,7 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 

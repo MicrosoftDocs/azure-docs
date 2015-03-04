@@ -18,7 +18,7 @@
 # Use Notification Hubs to send localized breaking news
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
+    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
 </div>
 
 This topic shows you how to use the **template** feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
@@ -215,21 +215,21 @@ For more information on using templates, see [Notify users with Notification Hub
 
 
 <!-- URLs. -->
-[Mobile Service]: /en-us/develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs: ASP.NET]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-[Notify users with Notification Hubs: Mobile Services]: /en-us/manage/services/notification-hubs/notify-users
-[Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-dotnet 
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet 
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

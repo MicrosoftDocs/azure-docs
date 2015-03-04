@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm=""
    ms.workload="operational-insights" 
-   ms.date="02/20/2015"
+   ms.date="03/03/2015"
    ms.author="leylak"/>
 
 # How to use Log Management 
 
 ## Overview
 
-Before you can use Log Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. Since this pack must be configured and does not collect anything by default, it is enabled by default in every new workspace. If you have removed it, you can add it again from the Intelligence Packs Gallery, see [Use the Gallery to add or remove intelligence packs](https://msdn.microsoft.com/en-us/library/azure/dn873980.aspx). 
+Before you can use Log Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. Since this pack must be configured and does not collect anything by default, it is enabled by default in every new workspace. If you have removed it, you can add it again from the Intelligence Packs Gallery, see [Use the Gallery to add or remove intelligence packs](https://msdn.microsoft.com/library/azure/dn873980.aspx). 
 
 You can add new logs to collect events and choose which event levels or severity that you want to collect for the logs.
 After Log Management is configured, it will then push your collection policy down and start collecting events.
@@ -37,7 +37,7 @@ The page details the following categories:
 
 ## IIS Log File Format
 
-The only IIS log format supported at the moment is W3C. Don't worry - it's the most common format, and the default format in IIS 7 and IIS 8. So, if you log in NCSA or IIS native format, Operational Insights won't pick those logs up at all. Even in W3C format, you’ll see that not all fields are logged by default. You can read more about the format at [Select W3C Fields to Log (IIS 7)](https://technet.microsoft.com/en-us/library/cc754702(v=WS.10).aspx). 
+The only IIS log format supported at the moment is W3C. Don't worry - it's the most common format, and the default format in IIS 7 and IIS 8. So, if you log in NCSA or IIS native format, Operational Insights won't pick those logs up at all. Even in W3C format, you’ll see that not all fields are logged by default. You can read more about the format at [Select W3C Fields to Log (IIS 7)](https://technet.microsoft.com/library/cc754702(v=WS.10).aspx). 
 
 
 > [AZURE.TIP] For the best search experience, we recommend selecting all logging fields for each website using **Logging** in IIS. We also recommend changing the **Log File Rollover** schedule for new logs to **Hourly** - so smaller files will be uploaded to the cloud, saving bandwidth.
@@ -71,7 +71,7 @@ The only IIS log format supported at the moment is W3C. Don't worry - it's the m
 
 
 ## Collect IIS logs and/or Windows Events from Windows Azure Diagnostics
-This is configurable from the Azure Management Portal, not the OpInsights portal, under your workspace, go to **Storage** tab and you can enable log collection from that storage account.
+This is configurable from the Azure Management Portal, not the Operational Insights portal, under your workspace, go to the **Storage** tab and you can enable log collection from that storage account.
 
 
 ## Work with log files
