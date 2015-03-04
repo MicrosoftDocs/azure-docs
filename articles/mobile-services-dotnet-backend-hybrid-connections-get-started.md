@@ -170,9 +170,9 @@ Changes generated in your app have been pushed by your mobile service to your on
 
 ##See Also##
  
-+ [Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
++ [Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 + [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 <!-- IMAGES -->
  

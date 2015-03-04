@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="02/23/2015" 
 	ms.author="mwasson"/>
 
 #<a name="howtomanage"></a> Manage websites through the Azure Management Portal
@@ -83,7 +83,7 @@ A **Quick Glance** section which includes the following summary information and 
 The **Monitor** management page provides a chart that displays usage information for the website. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics HTTP Successes, HTTP Redirects, HTTP 401 errors, HTTP 403 errors, HTTP 404 errors and HTTP 406 errors. For more information about these metrics, see [How to Monitor Web Sites][Monitor].
 
 ##WebJobs##
-The WebJobs management page lets you create on demand, scheduled, or continuously running tasks for your website. For more information, see [How to Use the WebJobs feature in Microsoft Azure Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-create-web-jobs/).
+The WebJobs management page lets you create on demand, scheduled, or continuously running tasks for your website. For more information, see [How to Use the WebJobs feature in Microsoft Azure Web Sites](http://www.windowsazure.com/documentation/articles/web-sites-create-web-jobs/).
 
 ##Configure##
 The **Configure** management page is used to set application specific settings.
@@ -102,7 +102,7 @@ For more information about configuring scale options for a website, see [How to 
 The **Linked Resources** management page provides a list of Microsoft Azure resources that your website is using, including SQL databases, MySQL databases, and Azure storage accounts. Click the name of the resource to manage it.
 
 ##Backups##
-The **Backups** management page lets you create automated or manual backups of your website, restore your website to a previous state, or create a new website based on one of your backups. For more information, see [Microsoft Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/) and [Restore a Microsoft Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+The **Backups** management page lets you create automated or manual backups of your website, restore your website to a previous state, or create a new website based on one of your backups. For more information, see [Microsoft Azure Web Sites Backups](http://www.windowsazure.com/documentation/articles/web-sites-backup/) and [Restore a Microsoft Azure web site](http://www.windowsazure.com/documentation/articles/web-sites-restore/).
 
 ##Management Page Icons##
 Icons are displayed at the bottom of each of the website's Management pages. Several of these icons appear on multiple pages, and a few icons are displayed only on specific pages.  The following icons are displayed at the bottom of the **Dashboard** management page:
@@ -210,11 +210,11 @@ To reset the password, click **Reset your publish profile credentials**. To get 
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
-[Configure]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites
+[Configure]: http://www.windowsazure.com/manage/services/web-sites/how-to-configure-websites
 
-[Monitor]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/
+[Monitor]: http://www.windowsazure.com/manage/services/web-sites/how-to-monitor-websites/
 
-[Scale]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites
+[Scale]: http://www.windowsazure.com/manage/services/web-sites/how-to-scale-websites
 
 
 <!-- Anchors. -->

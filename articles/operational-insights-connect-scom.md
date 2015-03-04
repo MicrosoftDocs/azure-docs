@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="connect-scom" 
-   description="Connect to Operational Insights through Operations Manager" 
+   pageTitle="Connect to Operational Insights from System Center Operations Manager" 
+   description="Learn about how to connect to Operational Insights through Operations Manager." 
    services="operational-insights" 
    documentationCenter="" 
    authors="lauracr" 
    manager="jwhit" 
-   editor=""/>
+   editor="bandersmsft"/>
 
 <tags
    ms.service="operational-insights"

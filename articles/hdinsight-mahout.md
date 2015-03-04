@@ -3,7 +3,7 @@
 	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/23/2015" 
 	ms.author="larryfr"/>
 
 #Generate movie recommendations using Apache Mahout with HDInsight (Hadoop)
@@ -33,13 +33,6 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 * How to run Mahout jobs from the Hadoop command line
 
 * How to install Mahout on HDInsight 2.0 and 3.0 clusters
-
-##In this article
-
-* [Generate recommendations using PowerShell](#recommendations)
-* [Classify data using the Hadoop command line](#classify)
-* [Troubleshooting](#troubleshooting)
-
 
 ##<a name="recommendations"></a>Generate recommendations using PowerShell
 
@@ -408,11 +401,11 @@ To run jobs that use these classes, connect to the HDInsight cluster and run the
 
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
-[aps]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/
-[upload]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-upload-data/
+[getstarted]: http://azure.microsoft.com/documentation/articles/hdinsight-get-started/
+[upload]: http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
 [management]: https://manage.windowsazure.com/

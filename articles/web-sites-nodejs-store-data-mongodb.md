@@ -3,7 +3,7 @@
 	description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." 
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
+	authors="wpickett" 
 	writer="" 
 	manager="wpickett" 
 	editor=""/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 # Create a Node.js Application on Azure with MongoDB in a Virtual Machine
@@ -566,7 +566,7 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[Azure command-line tool for Mac and Linux]: /en-us/documentation/articles/virtual-machines-command-line-tools/
 [Azure Developer Center]: /en-us/develop/nodejs/
 [Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
@@ -590,5 +590,5 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [vmname]: ./media/web-sites-nodejs-store-data-mongodb/vmname.png
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
-[sshazure]: http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/
+[sshazure]: http://www.windowsazure.com/documentation/articles/linux-use-ssh-key/
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/ 

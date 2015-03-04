@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Active Directory Code Samples" 
-   description="Article description that will be displayed on landing pages and in some search results" 
+   description="An index of Azure Active Directory code samples, organized by scenario." 
    services="active-directory" 
    documentationCenter="dev-center-name" 
    authors="msmbaldwin" 
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="azure"
-   ms.devlang="may be required"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity" 
-   ms.date="02/04/2015"
+   ms.date="02/20/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Code Samples 
@@ -77,7 +77,7 @@ These code samples show how use [OAuth 2.0 in Azure AD](https://msdn.microsoft.c
 
 | Language/Platform | Sample | Description
 | ----------------- | ------ | -----------
-| C#/.NET | [WebApp-WebAPI-OpenIDConnect-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OpenIDConnect-DotNet] | Call a web API with the signed-in user's permissions.
+| C#/.NET | [WebApp-WebAPI-OpenIDConnect-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OpenIDConnect-DotNet) | Call a web API with the signed-in user's permissions.
 |  C#/.NET | [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) | Call a web API with the application's permissions.
 | C#/.NET | [WebApp-WebAPI-OAuth2-UserIdentity-Dotnet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-UserIdentity-Dotnet) | Add authorization with [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx) to an existing web application so it can call a web API.
 | JavaScript | [WebAPI-Nodejs](http://github.com/AzureADSamples/WebAPI-Nodejs) | Set up a REST API service that's integrated with Azure AD for API protection. Includes a Node.js server with a Web API.
@@ -146,7 +146,7 @@ PHP | [PHP Sample App for Azure AD Graph API](http://code.msdn.microsoft.com/PHP
 
 [Azure AD Graph API Helper Library](http://code.msdn.microsoft.com/Windows-Azure-AD-Graph-API-a8c72e18) 
 
-[Developing Modern Applications using OAuth and Active Directory Federation Services](http://msdn.microsoft.com/en-us/library/dn633593.aspx)
+[Developing Modern Applications using OAuth and Active Directory Federation Services](http://msdn.microsoft.com/library/dn633593.aspx)
 
 
 

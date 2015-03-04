@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2014" 
+	ms.date="02/23/2015" 
 	ms.author="selcint"/>
 
 # Understanding Azure SQL Database and SQL Server in Azure VMs
@@ -237,15 +237,15 @@ Thank you all for bringing this article to life!
    <td valign="middle">Links to the library documentation.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/azure/jj879332.aspx">Azure SQL Database and SQL Server -- Performance and Scalability Compared and Contrasted</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Azure SQL Database and SQL Server -- Performance and Scalability Compared and Contrasted</p></td>
    <td valign="middle">This article explains performance differences and troubleshooting techniques when using Azure SQL Database and SQL Server running on-premises or in a VM. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/dn574746.aspx">Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines</p></td>
    <td valign="middle">This article discusses the most common application patterns that apply to SQL Server in Azure VMs and also hybrid scenarios including Azure SQL Database. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/en-us/library/hh680934(v=PandP.50).aspx">Microsoft Enterprise Library Transient Fault Handling Application Block</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/hh680934(v=PandP.50).aspx">Microsoft Enterprise Library Transient Fault Handling Application Block</p></td>
    <td valign="middle">This library lets developers make their applications running on Azure SQL Database more resilient by adding robust transient fault handling logic. Transient faults are errors that occur because of some temporary condition such as network connectivity issues or service unavailability. Since Azure SQL Database is a multitenant service, it is important to handle such errors to minimize any application downtime. </td>   
 </tr>
 </table>

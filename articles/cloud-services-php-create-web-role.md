@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create Web and Worker Roles" 
-	description="" 
+	description="A guide to creating PHP Web and Worker roles in an Azure Cloud Service, and configuring the PHP runtime." 
 	services="" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -173,7 +173,7 @@ To configure a worker role to use a PHP runtime that you provide, follow the ste
 
 ##<a name="Emulators"></a>How to: Run your application in the Compute and Storage Emulators
 
-The Azure Compute and Storage Emulators provide a local environment in which you can test your Azure application before deploying it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Differences Between the Compute Emulator and Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432960.aspx) and [Differences Between the Storage Emulator and Azure Storage Services](http://msdn.microsoft.com/en-us/library/windowsazure/gg433135.aspx).
+The Azure Compute and Storage Emulators provide a local environment in which you can test your Azure application before deploying it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Differences Between the Compute Emulator and Azure](http://msdn.microsoft.com/library/windowsazure/gg432960.aspx) and [Differences Between the Storage Emulator and Azure Storage Services](http://msdn.microsoft.com/library/windowsazure/gg433135.aspx).
 
 Note that you must have PHP installed locally to use the Compute Emulator. The Compute Emulator will use your local PHP installation to run your application.
 
@@ -204,10 +204,10 @@ To publish your application, you need to first import your publish settings  wit
 [Azure SDK for PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
 [What is a Cloud Service?]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
-[service definition (.csdef)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx
+[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
 [How to: Import publish settings]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings

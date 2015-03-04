@@ -296,15 +296,15 @@ In this tutorial you've seen how to create a simple web application and deploy i
 	For information about how to use SSL and your own domain (for example www.contoso.com instead of contoso.azurewebsites.net), see the following resources:
 
 	* [Configuring a custom domain name for an Azure Website](/en-us/documentation/articles/web-sites-custom-domain-name/). 
-	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * How to avoid wake-up wait time after idle time-outs 
 
-	By default, websites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Websites](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/).
+	By default, websites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Websites](http://azure.microsoft.com/documentation/articles/web-sites-configure/).
 
 * How to add real-time features such as chat
 
-	If your website will include real-time features (such as a chat service, a game, a stock ticker, and so forth), you can get the best performance by using [ASP.NET SignalR](http://www.asp.net/signalr) with the [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) transport method. For more information, see [Using SignalR with Windows Azure Websites](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites). 
+	If your website will include real-time features (such as a chat service, a game, a stock ticker, and so forth), you can get the best performance by using [ASP.NET SignalR](http://www.asp.net/signalr) with the [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) transport method. For more information, see [Using SignalR with Azure Websites](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites). 
 
 * How to choose between Azure Websites, Cloud Services, and VMs for web applications
 

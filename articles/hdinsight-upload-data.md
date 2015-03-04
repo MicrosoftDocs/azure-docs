@@ -32,20 +32,12 @@ Azure Blob storage can either be accessed through [AzCopy][azure-azcopy], [Azure
 * [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx)
 * [Azure Explorer PRO](http://www.cloudberrylab.com/microsoft-azure-explorer-pro.aspx)
 
-**Prerequisites**
+##Prerequisites
 
 Note the following requirements before you begin this article:
 
 * An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
 
-##In this article
-
-* [Upload data to Blob storage using AzCopy](#azcopy)
-* [Upload data to Blob storage using Azure PowerShell](#powershell)
-* [Upload data to Blob storage using Azure Cross-Platform Command-Line Interface (xplat-cli)](#xplatcli)
-* [Upload data to Blob storage using Azure Storage Explorer](#storageexplorer)
-* [Upload data to Blob storage using Hadoop command line](#commandline)
-* [Import data from Azure SQL Database to Blob storage using Sqoop](#sqoop)
 
 ##<a id="azcopy"></a>Upload data to Blob storage using AzCopy##
 
@@ -317,7 +309,7 @@ Now that you understand how to get data into HDInsight, use the following articl
 
 
 [azure-management-portal]: https://manage.windowsazure.com
-[azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: ../storage-create-storage-account/

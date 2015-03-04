@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Retrain Machine Learning models programmatically | Azure" 
-   description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning." 
-   services="machine-learning" 
-   documentationCenter="" 
-   authors="raymondl" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+	pageTitle="Retrain Machine Learning models programmatically | Azure" 
+	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="raymondlag" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
 <tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="big-data" 
-   ms.date="02/20/2015"
-   ms.author="raymondl"/>
+	ms.service="machine-learning"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm=""
+	ms.workload="big-data" 
+	ms.date="02/20/2015"
+	ms.author="raymondl,garye"/>
 
 
 
@@ -54,7 +54,7 @@ Diagram 1: Retraining process overview
 
 	After experiment run is completed, clicking on “Publish Web Service” will publish the Scoring Experiment as a Web Service and create a default endpoint. The trained model in this webservice is updatable, as shown below. The details for this endpoint will then show up on the screen.  
 3. *Publish the Training Experiment as a Web Service* 	
-	To re-create the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the "Train Model" module, to be able to produce new trained models.
+	To re-train the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the "Train Model" module, to be able to produce new trained models.
 Click on the Experiments icon in the left pane, then click on the experiment called Census Model to go back to the training experiment.  
 
 	We then add one Web Service Input and two Web Service Output modules to the workflow. The Web Service output for Train Model will give us the new trained model. The output attached to Evaluate Model will return that module’s Evaluate Model output.   

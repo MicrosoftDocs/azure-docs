@@ -73,7 +73,7 @@ The following table shows which operations may be called by anonymous users when
 ##Create and Use a Shared Access Signature
 A shared access signature is a URI that grants restricted access rights to containers, blobs, queues, and tables for a specific time interval. By providing a client with a shared access signature, you can enable them to access resources in your storage account without sharing your account key with them.
 
->[AZURE.NOTE]For an in-depth conceptual overview and tutorial on shared access signatures, see [Shared Access Signatures](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+>[AZURE.NOTE]For an in-depth conceptual overview and tutorial on shared access signatures, see [Shared Access Signatures](http://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
 
 Supported operations using shared access signatures include:
 
@@ -113,7 +113,7 @@ The following code example creates an access policy on a container and then gene
     
     // As an alternative, you can retrieve storage account information from an app.config file. 
     // This is one way to store and retrieve a connection string if you are 
-    // writing an application that will run locally, rather than in Windows Azure.
+    // writing an application that will run locally, rather than in Microsoft Azure.
     
     // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
     

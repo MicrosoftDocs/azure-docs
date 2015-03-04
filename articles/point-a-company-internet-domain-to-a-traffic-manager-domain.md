@@ -1,19 +1,22 @@
-<tags 
-   pageTitle="Point a company internet domain to a Traffic Manager domain"
-   description="How to point a company internet domain to a Traffic Manager domain"
+<properties
+   pageTitle="Point a company Internet Domain to a Traffic Manager Domain"
+   description="This article will help you point your company domain name to a Traffic Manager domain name."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # Point a Company Internet Domain to a Traffic Manager Domain
 
-![Windows Azure Traffic Manager](./media/point-a-company-internet-domain-to-a-traffic-manager-domain/IC715646.png)
 
 To point your company domain name to a Traffic Manager domain name, modify the DNS resource record on your Internet DNS server to use the CNAME record type, which maps your company domain name to the domain name of your Traffic Manager profile. You can see the Traffic Manager domain name in the **General** section on the Configuration page of the Traffic Manager profile.
 

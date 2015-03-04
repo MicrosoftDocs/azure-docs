@@ -26,12 +26,6 @@ The resource available for processing Stream Analytics jobs is measured by a str
 
 The number of streaming units that a job can utilize depends on the partition configuration on the inputs, and the query defined for the job. The article will show you how to calculate and tune the query to increase throughput.
 
-##In this article
-+ [Calculate the maximum streaming units for a job](#calculate)
-+ [Configure Stream Analytics job partition](#configure)
-+ [Monitor Stream Analytics job performance](#monitor)
-+ [Next steps](#nextstep)
-
 
 ##<a name="calculate"></a>Calculate the maximum streaming units of a job
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.
@@ -178,7 +172,7 @@ In this article, you have learned how to calculate streaming units and how to sc
 
 [microsoft.support]: http://support.microsoft.com
 [azure.management.portal]: http://manage.windowsazure.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/en-us/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
