@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Working with Azure Search indexer for DocumentDB | Azure" 
+    pageTitle="Connecting DocumentDB with Azure Search using indexers | Azure" 
     description="This article shows you how to use to Azure Search indexer with DocumentDB as a data source."
     services="documentdb" 
     documentationCenter="" 
@@ -16,7 +16,7 @@
     ms.date="03/02/2015" 
     ms.author="andrl"/>
 
-#Working with Azure Search indexer for DocumentDB
+#Connecting DocumentDB with Azure Search using indexers
 
 If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
 
