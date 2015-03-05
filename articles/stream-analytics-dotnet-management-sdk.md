@@ -26,7 +26,7 @@ Azure Stream Analytics is a fully managed service providing low latency, highly 
 This article demonstrates how to use the Azure Stream Analytics Management .NET SDK.
 
 
-##<a name="inputs"></a>Prerequisites
+## Prerequisites
 Before you begin this article, you must have the following:
 
 - Visual Studio 2012 or 2013.
@@ -48,7 +48,7 @@ Before you begin this article, you must have the following:
 4.	This article assumes you have already set up an input source and output target to use. See [Get Started Using Azure Stream Analytics](http://azure.microsoft.com/documentation/articles/stream-analytics-get-started/) to set up a sample input and/or output to be used by this article.
 
 
-##<a name="setupproject"></a>Setup a project
+## Setup a project
 
 1. Create a Visual Studio C# .Net console application.
 2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Active Directory client that will be used for authentication.
@@ -123,7 +123,7 @@ Before you begin this article, you must have the following:
 		}  
 
 
-##<a name="createclient"></a>Create a Stream Analytics management client
+## Create a Stream Analytics management client
 
 A *StreamAnalyticsManagementClient* object allows you to manage the job, and the job components such as inputs, outputs, and transformation. 
 
@@ -148,7 +148,7 @@ The resourceGroupName variable's value should be the same as the name of the res
 
 The remaining sections of this article assume that this code is at the beginning of the Main method.
 
-##<a name="createjob"></a>Create a Stream Analytics Job
+## Create a Stream Analytics Job
 
 The following code creates a Stream Analytics job under the resource group that you have defined. You will add inputs, output, and transformation to the job later.
 
@@ -173,7 +173,7 @@ The following code creates a Stream Analytics job under the resource group that 
 	JobCreateOrUpdateResponse jobCreateResponse = client.StreamingJobs.CreateOrUpdate(resourceGroupName, jobCreateParameters);
 
 
-##<a name="createinput"></a>Create a Stream Analytics Input Source
+## Create a Stream Analytics Input Source
 
 The following code creates a Stream Analytics input source with the Blob input source type and CSV serialization. To create an Event Hub input source, use *EventHubStreamInputDataSource* instead of *BlobStreamInputDataSource*. Similarly, you can customize the serialization type of the input source.
 
@@ -219,7 +219,7 @@ The following code creates a Stream Analytics input source with the Blob input s
 Input sources are tied to a specific job. To use the same input source for different jobs, you must call the method again specifying a different job name.
 
 
-##<a name="testinput"></a>Test a Stream Analytics Input Source
+## Test a Stream Analytics Input Source
 
 The *TestConnection* method tests whether the Stream Analytics job is able to connect to the input source as well as other aspects specific to the input source type. For example, in the blob input source you created in an earlier step, the method will check that the Storage account name and key pair can be used to connect to the storage account as well as check that the container specified exists.
 
@@ -227,7 +227,7 @@ The *TestConnection* method tests whether the Stream Analytics job is able to co
 	DataSourceTestConnectionResponse inputTestResponse = 
 		client.Inputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsInputName);
 
-##<a name="createoutput"></a>Create a Stream Analytics output target
+## Create a Stream Analytics output target
 
 Creating an output target is very similar to creating a Stream Analytics input source. Like input sources, output targets are tied to a specific job. To use the same output target for different jobs, you must call the method again specifying a different job name.
 
@@ -259,7 +259,7 @@ The following code creates a SQL output target. You can customize the output tar
 	OutputCreateOrUpdateResponse outputCreateResponse = 
 		client.Outputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobOutputCreateParameters);
 
-##<a name="testoutput"></a>Test a Stream Analytics output target
+## Test a Stream Analytics output target
 
 Stream Analytics output target also has the TestConnection method for testing connections.
 
@@ -267,7 +267,7 @@ Stream Analytics output target also has the TestConnection method for testing co
 	DataSourceTestConnectionResponse outputTestResponse = 
 		client.Outputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsOutputName);
 
-##<a name="createtransform"></a>Create a Stream Analytics Transformation
+## Create a Stream Analytics Transformation
 
 The following code creates a Stream Analytics transformation with the query “select * from Input” and specifies to allocate one streaming unit for the Stream Analytics job. For more information on adjusting streaming unit, see [Scale Azure Stream Analytics jobs](http://azure.microsoft.com/documentation/articles/stream-analytics-scale-jobs/).
 
@@ -290,7 +290,7 @@ The following code creates a Stream Analytics transformation with the query “s
 
 Like inputs and outputs, transformations are also tied to the specific Stream Analytics job it was created under.
 
-##<a name="startjob"></a>Start a Stream Analytics Job
+## Start a Stream Analytics Job
 After creating a Stream Analytics job and its input(s), output(s), and transformation, you can start the job by calling the Start method. 
 
 The following sample code starts a Stream Analytics job with a custom output start time set to December 12, 2012 12:12:12 UTC.
@@ -306,20 +306,20 @@ The following sample code starts a Stream Analytics job with a custom output sta
 
 
 
-##<a name="stopjob"></a>Stop a Stream Analytics Job
+## Stop a Stream Analytics Job
 You can stop a running Stream Analytics job by calling the Stop method.
 
 	// Stop a Stream Analytics job
 	LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
-##<a name="deletejob"></a>Delete a Stream Analytics Job
+## Delete a Stream Analytics Job
 The delete method will delete the job as well as the underlying sub-resources, including input(s), output(s), and  transformation of the job.
 
 	// Delete a Stream Analytics job
 	LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 
-##<a name="nextsteps"></a>Next steps
+## Next steps
 
 - [Introduction to Azure Stream Analytics][stream.analytics.introduction]
 - [Get started using Azure Stream Analytics][stream.analytics.get.started]
