@@ -213,7 +213,7 @@ Familiar business intelligence (BI) tools - such as Excel, PowerPivot, SQL Serve
 
 These BI tools can help in your big-data analysis:
  
-* [Connect Excel to Hadoop with Power Query](../hdinsight-connect-excel-power-query/) - Learn how to connect Excel to the Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
+* [Connect Excel to Hadoop with Power Query](../hdinsight-connect-excel-power-query/) - Learn how to connect Excel to the Azure Storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
 
 * [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-ODBC-driver/) - Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver.
 
