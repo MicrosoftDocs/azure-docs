@@ -2,6 +2,7 @@
 	pageTitle="Get started with Application Insights in a Java web project" 
 	description="Monitor performance and usage of your Java website with Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
