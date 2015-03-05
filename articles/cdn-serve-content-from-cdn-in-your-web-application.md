@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
+	ms.date="03/04/2014" 
 	ms.author="cephalin"/>
 
 # Serve Content from Azure CDN in Your Web Application #
@@ -97,12 +97,12 @@ Let's get to it. Follow the steps below to start using the Azure CDN:
 
 	>[AZURE.NOTE] While enabling the query string is not necessary for this part of the tutorial, you want to do this as early as possible for convenience sake since any change here is going to take time to propagate to the rest of the nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later). You will find out how to take advantage of this in [Serve fresh content immediately through query strings](#query).
 
-6. In Visual Studio 2013, in Server Explorer, click the **Connect to Windows Azure** button.
+6. In Visual Studio 2013, in Server Explorer, click the **Connect to Microsoft Azure** button.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG)
 
 7.  Follow the prompt to sign into your Azure account. 
-8.  Once you sign in, expand the **Windows Azure > Storage > your storage account**. Right-click **Blob** and select **Create Blob Container**.
+8.  Once you sign in, expand the **Microsoft Azure > Storage > your storage account**. Right-click **Blob** and select **Create Blob Container**.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-6.PNG)
 
@@ -159,7 +159,7 @@ If you want to easily upload all of the static content in your ASP.NET Web appli
 
 	>[AZURE.NOTE] Once you import your publish settings file, it will be the default Azure account used for all Azure PowerShell sessions. This means that the above steps only need to be done once.
 	
-1. Download the script from the [download page]((http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Save it into your ASP.NET application's project folder.
+1. Download the script from the [download page](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Save it into your ASP.NET application's project folder.
 2. Right-click the downloaded script and click **Properties**.
 3. Click **Unblock**.
 4. Open a PowerShell window and run the following:

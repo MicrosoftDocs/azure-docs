@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Authenticate and Authorize Line-of-Business Apps in Azure Websites" 
 	description="Learn the different authentication and authorization options for line-of-business applications that are deployed to Azure Websites" 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="web-apps" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
@@ -16,9 +16,9 @@
 	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
-# Authenticate and Authorize Users in Line-of-Business Applications in Azure Websites #
+# Authenticate and Authorize Users in Line-of-Business Applications in Azure web apps #
 
-[Azure Websites](http://azure.microsoft.com/en-us/services/websites/) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
+[Azure web apps](http://azure.microsoft.com/en-us/services/websites/) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
 
 ## Zero-friction authentication and authorization ##
 

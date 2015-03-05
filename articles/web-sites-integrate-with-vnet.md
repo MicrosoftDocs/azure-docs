@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Integrate Azure Website with Azure VNet" 
 	description="Shows you how to connect an Azure Website to a new or existing Azure virtual network" 
-	services="web-sites, virtual-network" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="web-apps" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -16,8 +16,8 @@
 	ms.date="02/11/2015" 
 	ms.author="cephalin"/>
 
-# Integrate your Azure Website with an Azure Virtual Network #
-This document describes the virtual network integration preview feature and shows how to set it up with your Azure Website.  If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.  
+# Integrate your Azure web app with an Azure Virtual Network #
+This document describes the virtual network integration preview feature and shows how to set it up with your Azure web app.  If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.  
 
 This integration gives your website access to resources in your virtual network but does not grant access to your website from the virtual network.  Some standard scenarios are where your website needs access to a database or a web services that are running in virtual machines in your VNET or even in your own data center.  It does not allow you to mount a drive.  It also currently does not support enabling integration with authentication systems in your vnet.  The feature is in Preview though and will continue to be improved before reaching GA.
 

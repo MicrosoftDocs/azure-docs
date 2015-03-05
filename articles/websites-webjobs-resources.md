@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure WebJobs Recommended Resources" 
 	description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." 
-	services="web-sites, storage" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -17,6 +17,8 @@
 	ms.author="tdykstra"/>
 
 #Azure WebJobs Recommended Resources
+
+>[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
 ## Overview
 

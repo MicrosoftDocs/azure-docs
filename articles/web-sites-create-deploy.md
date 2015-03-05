@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to create websites - Azure service management" 
 	description="Learn how to create a website using the Azure Management Portal." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="web-apps" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -16,13 +16,15 @@
 	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
-#How to Create a Website
+#How to Create a web app
 
-This topic shows how to create a website from the gallery or by using the management portal.
+>[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
-For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Web Sites](/en-us/documentation/services/web-sites/).
+This topic shows how to create a web app from the gallery or by using the management portal.
 
-##<a name="createawebsiteportal"></a>How to: Create a Website Using the Management Portal
+For information about how to deploy your content to an Azure web app that you have created, see the **Deploy** section in [Azure Web Sites](/en-us/documentation/services/web-sites/).
+
+##<a name="createawebsiteportal"></a>How to: Create a web app Using the Management Portal
 
 Follow these steps to create a website in Azure.
 	
