@@ -61,9 +61,9 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]
 * [Use Pig with Hadoop on HDInsight][hdinsight-use-pig]
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
-* [Submit Hadoop Jobs in HDInsight][hdinsight-submit-hadoop-jobs-programmatically]
+* [Submit Hadoop Jobs in HDInsight][hdinsight-submit-jobs]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
-* [Debug Hadoop in HDInsight: Error messages][hdinsight--debug-jobs]
+* [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
 
 
 [hdinsight-errors]: ../hdinsight-debug-jobs/
