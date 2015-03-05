@@ -35,7 +35,7 @@ You need an Azure account to complete this tutorial:
 * You can [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
 
 > [AZURE.NOTE]
-> If you want to get started with Azure Web apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter app in Azure Web Apps.
+> If you want to get started with Azure web apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived starter Azure web app.
 
 The following illustration shows the completed application:
 
@@ -43,7 +43,7 @@ The following illustration shows the completed application:
 
 ##<a name="video"></a>Sign up for Microsoft Azure (Video)
 
-In this video, Scott Hanselman presents how easy it is to sign-up for a free trial of Microsoft Azure. (Duration: 1:58)
+In this video, Scott Hanselman shows how easy it is to sign-up for a free trial of Microsoft Azure. (Duration: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -51,9 +51,13 @@ In this video, Scott Hanselman presents how easy it is to sign-up for a free tri
 
 ## Create an ASP.NET web application
 
-Your first step is to create a web application project. Visual Studio will automatically create the Azure Web app that you'll deploy your project to later. The following diagram illustrates what's happening in these two steps.
+Your first step is to create a web application project. Visual Studio will automatically create the Azure Web app that you'll deploy your project to later. 
+
+<!-- todo: reinstate the digram after changing website to web app in captions
+The following diagram illustrates what's happening in these two steps.
 
 ![Diagram showing project creation and deployment steps](./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png)
+-->
 
 1. Open Visual Studio 2013 or Visual Studio 2013 Express for Web.
 
@@ -86,16 +90,10 @@ Your first step is to create a web application project. Visual Studio will autom
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
 	The default settings specify that Visual Studio will create an Azure Web app for your web project. In the next section of the tutorial you'll deploy the web project to the newly created web app.
-
-	(The check box caption might be **Host in the cloud** or **Create remote resources**. In either case the effect is the same.)
 	
-5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Click **Sign In**.
-
-	![Sign in to Azure](./media/web-sites-dotnet-get-started-vs2013/signin.png)
-
-6. In the **Sign in to Azure** dialog box, enter the ID and password of the account that you use to manage your Azure subscription.
+5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Sign in with the ID and password of the account that you use to manage your Azure subscription.
 	
-	When you're signed in, the **Configure Azure web app settings** dialog box asks you what resources you want to create.
+	When you're signed in, the **Configure Microsoft Azure web app settings** dialog box asks you what resources you want to create.
 
 	![Signed in to Azure](./media/web-sites-dotnet-get-started-vs2013/configuresitesettings.png)
 
@@ -234,37 +232,29 @@ In this section of the tutorial, you change the **h1** heading of the home page,
 
 The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web app you just created. In this section of the tutorial you look at some of what you can do in the portal.
 
-1. In your browser, go to [http://manage.windowsazure.com](), and sign in with your Azure credentials.
+1. In your browser, go to [http://portal.azure.com](), and sign in with your Azure credentials.
 
-	The portal displays a list of your Azure services.
+2. Click **Browse > Web Apps**, then click the name of your web app.
 
-2. Click the name of your web app.
+	The **Web App** blade for your web app displays an overview of usage statistics and links for a commonly used web app management functions.
 
-	![Portal home page with new web app called out](./media/web-sites-dotnet-get-started-vs2013/portalhome.png)
+	![Web app blade](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
+
+	At this point your web app hasn't had much traffic and may not show anything in the graph. If you browse to your application, refresh the page a few times, and then refresh the portal page, you'll see some statistics show up.
+
+3. Click **All settings** to see more options for configuring your web app.
+
+	You see a list of types of settings.
+
+	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)-->
   
-3. Click the **Dashboard** tab.
+4. Click **Application settings** to see an example of the kinds of settings you can configure in the portal.
 
-	The **Dashboard** tab displays an overview of usage statistics and link for a number of commonly used web app management functions. Under **Quick Glance** you'll also find a link to your application's home page.
+	For example, you can control the .NET version used for the web app, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/), set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/), and more. 
 
-	![Portal web app dashboard tab](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)
+	![Portal web app configure tab](./media/web-sites-dotnet-get-started-vs2013/portalconfigure2.png)
   
-	At this point your web app hasn't had much traffic and may not show anything in the graph. If you browse to your application, refresh the page a few times, and then refresh the portal **Dashboard** page, you'll see some statistics show up. You can click the **Monitor** tab for more details.
-
-4. Click the **Configure** tab.
-
-	The [Configure](/en-us/documentation/articles/web-sites-configure//) tab enables you to control the .NET version used for the web app, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) and [diagnostic logging](/en-us/documentation/articles/web-sites-enable-diagnostic-log/), set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/), and more. 
-
-	![Portal web app configure tab](./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png)
-  
-5. Click the **Scale** tab.
-
-	For the paid tiers of the App Service Web App service, the [Scale](/en-us/documentation/articles/web-sites-scale/) tab enables you to control the size and number of machines that service your web application in order to handle variations in traffic.
-
-	You can scale manually or configure criteria or schedules for automatic scaling.
-
-	![Portal website scale tab](./media/web-sites-dotnet-get-started-vs2013/portalscale.png)
-
-These are just a few of the management portal's features. You can also create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
+These are just a few of the management portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
 
 ## Next steps
 
