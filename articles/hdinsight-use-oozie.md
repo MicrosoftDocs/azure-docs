@@ -520,7 +520,7 @@ the Invoke-RestMethod PowerShell cmdlet to invoke Oozie web services. The Oozie 
 **To check the job error log**
 
 To troubleshoot a workflow, the Oozie log file can be found at 
-*C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* or *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* from the cluster headnode. For information on RDP, see [Administering HDInsight clusters using Management portal][hdinsight-admin-portal].
+*C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* or *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* from the cluster headnode. For information on RDP, see [Manage Hadoop clusters in HDInsight using Azure PowerShell][hdinsight-admin-portal].
 
 **To re-run the tutorial**
 
@@ -570,8 +570,8 @@ In this tutorial, you have learned how to define an Oozie workflow, and how to r
 - [Use Sqoop with HDInsight][hdinsight-use-sqoop]
 - [Use Hive with HDInsight][hdinsight-use-hive]
 - [Use Pig with HDInsight][hdinsight-use-pig]
-- [Develop C# Hadoop streaming jobs for HDInsight][hdinsight-develop-streaming-jobs]
-- [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
+- [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming-jobs]
+- [Develop Java MapReduce programs for Hadoop in HDInsight][hdinsight-develop-mapreduce]
 
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -612,7 +612,7 @@ In this tutorial, you have learned how to define an Oozie workflow, and how to r
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../install-and-configure-powershell/
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
