@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to cache operation results in Azure API Management" 
+	pageTitle="Add Caching to improve performance in Azure API Management" 
 	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." 
 	services="api-management" 
 	documentationCenter="" 
@@ -13,26 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="02/27/2015" 
 	ms.author="sdanie"/>
 
-# How to cache operation results in Azure API Management
+# Add Caching to improve performance in Azure API Management
 
 Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
 
-In this tutorial you will review the caching settings and policies for one of the sample Echo Api operations, and call the operation in the developer portal to see the caching in operation.
+This guide shows you how to add response caching for your API and configure policies for the sample Echo Api operations. You can then call the operation from the developer portal to verify caching in action.
+
+
+## Prerequisites
+
+Before following the steps in this this guide you must have an API Management service instance with an API and a Product configured. If you have not yet created an API Management service instance, please see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 ## <a name="configure-caching"> </a>Configure an operation for caching
 
 In this step, you will review the caching settings of the **GET Resource (cached)** operation of the sample Echo Api.
 
->Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
+>[AZURE.NOTE] Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
 
 To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
 
 ![API Management console][api-management-management-console]
-
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 Click **APIs** from the **API Management** menu on the left, and click **Echo API**.
 
@@ -55,6 +58,8 @@ Each operation response is keyed based on the values in the **Vary by query stri
 Using the caching configuration in this example, the first request to the **GET Resource (cached)** operation will return a response from the back-end service. This response will be cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will have the cached response returned, until the cache duration interval has expired.
 
 ## <a name="caching-policies"> </a>Review the caching policies
+
+In this step, you will review the caching settings for the **GET Resource (cached)** operation of the sample Echo Api.
 
 When caching settings are configured for an operation on the **Caching** tab, caching policies are added for the operation. These policies can be viewed and edited in the policy editor.
 
@@ -145,8 +150,10 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 [Publish a product]: ../api-management-howto-add-products/#publish-product
 [Get started with Azure API Management]: ../api-management-get-started
 [Get started with advanced API configuration]: ../api-management-get-started-advanced
-[API Management policy reference]: ../api-management-policy-reference
-[Caching policies]: ../api-management-policy-reference/#caching-policies
+
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+
 [Create an API Management service instance]: ../api-management-get-started/#create-service-instance
 
 [Configure an operation for caching]: #configure-caching

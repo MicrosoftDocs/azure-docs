@@ -28,7 +28,7 @@ Microsoft is now publishing a set of high level architecture blueprints showing 
 
 ##Azure Symbol/Icon set
 
-[Download the Azure Symbol/Icon set](http://www.microsoft.com/en-us/download/details.aspx?id=41937) to create technical materials that describe (or use) Azure—things like architecture diagrams, training materials, presentations, datasheets, infographics, and whitepapers. You can download the symbols in PPT, Visio, or PNG formats. We’d like to know what you think, so there are instructions for providing feedback in the download.
+[Download the Azure Symbol/Icon set](http://www.microsoft.com/download/details.aspx?id=41937) to create technical materials that describe (or use) Azure—things like architecture diagrams, training materials, presentations, datasheets, infographics, and whitepapers. You can download the symbols in PPT, Visio, or PNG formats. We’d like to know what you think, so there are instructions for providing feedback in the download.
 
 The 2D diagrams in the [Microsoft Architecture Blueprints](http://msdn.microsoft.com/dn630664) use these symbols. 
 

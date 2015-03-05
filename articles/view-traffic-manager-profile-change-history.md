@@ -37,7 +37,7 @@ You can view the change history for your Traffic Manager profile in the Manageme
 
 [About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

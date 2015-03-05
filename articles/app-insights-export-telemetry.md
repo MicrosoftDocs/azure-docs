@@ -2,6 +2,7 @@
 	pageTitle="Export telemetry from Application Insights" 
 	description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-04" 
+	ms.date="03/05/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -75,6 +76,13 @@ We start writing a new blob in each hour (if events are received). So you should
 
 ![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)
 
+Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values show a time of 10ms to send a request from the browser, 30ms to receive it, and 1.8s to process the page in the browser:
+
+	"sendRequest": {"value": 10000.0},
+	"receiveRequest": {"value": 30000.0},
+	"clientProcess": {"value": 17970000.0}
+
+
 
 ## How to process it?
 
@@ -126,7 +134,9 @@ The continuous export will restart.
 
 * *I tried to set up an export, but was denied access*
 
-    If the account is owned by your organization, are you a member of the contributors or owners groups?
+    If the account is owned by your organization, you have to be a member of the owners or contributors groups.
+
+    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *Can I export straight to my own on-premises store?* 
 
@@ -136,9 +146,9 @@ The continuous export will restart.
 
     No. We’ll keep pushing data in until you delete the export. We’ll stop if we hit the outer limits for blob storage, but that’s pretty huge. It’s up to you to control how much storage you use.  
 
-* *I regenerated the key to my storage, and now the export doesn't work.*
+* *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 
-    Edit the export and open the export destination blade. Leave the same storage selected as before, and click OK to confirm. Export will restart.
+    Edit the export and open the export destination blade. Leave the same storage selected as before, and click OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.
 
 * *Can I pause the export?*
 

@@ -120,7 +120,6 @@ which is a representation of the following table:
    </table>
    
 
-
 [1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg
 
  

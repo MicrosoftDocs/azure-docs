@@ -242,13 +242,13 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 
 
 <!-- URLs. -->
-[Add Authentication to your app]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
-[How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Add Authentication to your app]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[How to Register with the Azure Active Directory]: /documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Custom API Tutorial]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
-[Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
-[Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Custom API Tutorial]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Store Server Scripts]: /documentation/articles/mobile-services-store-scripts-source-control/
+[Register to use an Azure Active Directory Login]: /documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Windows Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
-[Role based access control with the AAD in Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+[Role based access control with the AAD in Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/

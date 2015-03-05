@@ -181,7 +181,7 @@ In the following Java example, fieldsGrouping is used to route tuples originatin
 
 Batching can be accomplished several ways. With a basic Storm Java topology, you might use simple counter to batch X number of tuples before emitting them, or use an internal timing mechanism known as a tick tuple to emit a batch every X seconds.
 
-For an example of using tick tuples, see [Analyzing sensor data with Storm and HBase on HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis.md)
+For an example of using tick tuples, see [Analyzing sensor data with Storm and HBase on HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis.md)
 
 If you are using Trident, it is based on processing batches of tuples.
 
@@ -203,11 +203,11 @@ For an example of this, see the [RollingTopWords](https://github.com/nathanmarz/
 
 * [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology)
 
-* [Analyzing sensor data with Storm and HBase on HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [Analyzing sensor data with Storm and HBase on HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis)
 
 * [Analyzing Twitter trending topics with Apache Storm on HDInsight](../hdinsight-storm-twitter-trending)
 
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
-[gettingstarted]: /en-us/documentation/articles/hdinsight-storm-getting-started
+[gettingstarted]: /documentation/articles/hdinsight-storm-getting-started

@@ -1075,7 +1075,7 @@ This sections shows how to perform the following tasks necessary to "publish" yo
 
 ###Creating the AccessPolicy with read permission
 
-Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://msdn.microsoft.com/en-us/library/azure/hh974297.aspx#accesspolicy_properties).
+Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
 
 The following example shows how to specify the AccessPolicy for read permissions for a given Asset.
 
@@ -1274,7 +1274,7 @@ To test smooth streaming, use [http://amsplayer.azurewebsites.net/](http://amspl
 
 To test MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/javascript/).
 
-To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/en-us/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
 
 
 

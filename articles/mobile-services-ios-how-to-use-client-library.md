@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/27/2015"
+	ms.date="03/02/2015"
 	ms.author="krisragh"/>
 
 
@@ -108,10 +108,10 @@ To perform a complex query (including sorting and paging), create an `MSQuery` o
 
 ## <a name="sorting"></a>How to: Sort Data with MSQuery
 
-To sort results, let's look at an example. To first ascendingly by field `duration` and then descendingly by field `completion`, invoke `MSQuery` like so:
+To sort results, let's look at an example. To first ascendingly by field `text` and then descendingly by field `completion`, invoke `MSQuery` like so:
 
 ```
-	[query orderByAscending:@"duration"];
+	[query orderByAscending:@"text"];
 	[query orderByDescending:@"complete"];
 	[query readWithCompletion:^(NSArray *tableItems, NSInteger totalCount, NSError *error) {
 			if(error) {
@@ -124,38 +124,47 @@ To sort results, let's look at an example. To first ascendingly by field `durati
 	}];
 ```
 
-## <a name="paging"></a>How: Return Data in Pages with MSQuery
+## <a name="paging"></a>How to: Return Data in Pages with MSQuery
 
 Mobile Services limits the amount of records that are returned in a single response. To control the number of records displayed to your users you must implement a paging system.  Paging is performed by using the following three properties of the **MSQuery** object:
 
+```
 +	`BOOL includeTotalCount`
 +	`NSInteger fetchLimit`
 +	`NSInteger fetchOffset`
-
-
-In the following example, a simple function requests 20 records from the server and then appends them to the local collection of previously loaded records:
-
-```
-	- (bool) loadResults() {
-		MSQuery *query = [table query];
-
-		query.includeTotalCount = YES;
-		query.fetchLimit = 20;
-		query.fetchOffset = self.loadedItems.count;
-
-		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
-			if(!error) {
-				// Add the items to our local copy
-				[self.loadedItems addObjectsFromArray:items];
-
-				// Set a flag to keep track if there are any additional records we need to load
-				self.moreResults = (self.loadedItems.count < totalCount);
-			}
-		}];
-	}
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>How to: Limit Fields and Expand Query String Paramters with MSQuery
+In the following example, a simple function requests 5 records from the server and then appends them to the local collection of previously loaded records:
+
+```
+// Create and initialize these properties
+@property (nonatomic, strong)   NSMutableArray *loadedItems; // Init via [[NSMutableArray alloc] init]
+@property (nonatomic)   				BOOL moreResults;
+```
+
+```
+-(void)loadResults
+{
+    MSQuery *query = [self.table query];
+
+    query.includeTotalCount = YES;
+    query.fetchLimit = 5;
+    query.fetchOffset = self.loadedItems.count;
+
+    [query readWithCompletion:^(NSArray *tableItems, NSInteger totalCount, NSError *error) {
+        if(!error) {
+            // Add the items to our local copy
+            [self.loadedItems addObjectsFromArray:tableItems];
+
+            // Set a flag to keep track if there are any additional records we need to load
+            self.moreResults = (self.loadedItems.count <= totalCount);
+        }
+    }];
+}
+
+```
+
+## <a name="selecting"></a><a name="parameters"></a>How to: Limit Fields and Expand Query String Parameters with MSQuery
 
 To limit fields to be returned in a query, specify the names of the fields in the **selectFields** property. This returns only the text and completed fields:
 
@@ -172,90 +181,73 @@ To include additional query string parameters in the server request (for example
 	};
 ```
 
-<h2><a name="inserting"></a>How to: Insert Data</h2>
+##<a name="inserting"></a>How to: Insert Data
 
-To insert a new table row, create a new `NSDictionary` and invoke `table insert`. Mobile Services automatically generates new columns based on the `NSDictionary` if [Dynamic Schema] is not disabled. Also, if `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use email addresses, usernames, or your own custom values as the ID. Providing your own `id` may ease joins and business-oriented database logic.
+To insert a new table row, create a new `NSDictionary` and invoke `table insert`. Mobile Services automatically generates new columns based on the `NSDictionary` if [Dynamic Schema] is not disabled.
+
+If `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use email addresses, usernames, or your own custom values as ID. Providing your own ID may ease joins and business-oriented database logic.
 
 ```
 	NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
-	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
+	[self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
 		// The result contains the new item that was inserted,
 		// depending on your server scripts it may have additional or modified
 		// data compared to what was passed to the server.
+		if(error) {
+				NSLog(@"ERROR %@", error);
+		} else {
+						NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+		}
 	}];
 ```
 
-<h2><a name="modifying"></a>How to: Modify Data</h2>
+##<a name="modifying"></a>How to: Modify Data
 
-Update an existing object by modifying an item returned from a previous query and then calling the **update** function.
+To update an existing row, modify an item and call `update`:
 
-	NSMutableDictionary *item = [self.results.item objectAtIndex:0];
-	[item setObject:@YES forKey:@"complete"];
-	[table update:item completion:^(NSDictionary *item, NSError *error) {
-		//handle errors or any additional logic as needed
+```
+	NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
+	[newItem setValue:@"Updated text" forKey:@"text"];
+	[self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
-When making updates, you only need to supply the field being updated, along with the row ID, as in the following example:
+Alternatively, supply the row ID and the updated field:
 
-	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @YES} completion:^(NSDictionary *item, NSError *error) {
-		//handle errors or any additional logic as needed
+```
+	[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
+At minimum, the `id` attribute must be set when making updates.
 
-To delete an item from the table, simply pass the item to the delete method, as follows:
+##<a name="deleting"></a>How to: Delete Data
 
-	[table delete:item completion:^(id itemId, NSError *error) {
-		//handle errors or any additional logic as needed
+To delete an item, invoke `delete` with the item:
+
+```
+	[self.table delete:item completion:^(id itemId, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
-You can also just delete a record using its id directly, as in the following example:
+Alternatively, delete by providing a row ID:
 
-	[table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
-		//handle errors or any additional logic as needed
+```
+	[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
+		// Handle error or perform additional logic as needed
 	}];
+```
 
-Note that, at minimum, the `id` attribute must be set when making updates and deletes.
+At minimum, the `id` attribute must be set when making deletes.
 
-<h2><a name="errors"></a>How to: Handle errors</h2>
+##<a name="errors"></a>How to: Handle Errors
 
-When a call is made to the mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is returned a non-null value. In your code, you should check this parameter and handle the error as needed.
+When you call a mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is non-nil. In your code, you should check this parameter and handle the error as needed.
 
-When an error has occurred, you can get more information by including the MSError.h file in the code:
-
-    #import <WindowsAzureMobileServices/MSError.h>
-
-This file defines the following constants you can use to access additional data from `[error userInfo]`:
-
-+ **MSErrorResponseKey**: the HTTP response data associated with the error
-* **MSErrorRequestKey**: the HTTP request data associated with the error
-
-In addition, a constant is defined for each error code. An explanation of these codes can be found in the MSError.h file.
-
-For an example of performing validation and handling any, see [Validate and modify data in Mobile Services by using server scripts]. In this topic, server-side validation is implemented by using server scripts. When invalid data is submitted, and error response is returned and this response is handled by the client.
-
-<!--
-<h2><a name="#unit-testing"></a>How to: Design unit tests</h2>
-
-_(Optional) This section shows how to write unit test when using the client library (info from Yavor)._
-
-<h2><a name="#customizing"></a>How to: Customize the client</h2>
-
-_(Optional) This section shows how to send customize client behaviors._
-
-###<a name="custom-headers"></a>How to: Customize request headers
-
-_(Optional) This section shows how to send custom request headers._
-
-For more information see, New topic about processing headers in the server-side.
-
-###<a name="custom-serialization"></a>How to: Customize serialization
-
-_(Optional) This section shows how to use attributes to customize how data types are serialized._
-
-For more information see, New topic about processing headers in the server-side.
-
-## <a name="next-steps"></a>Next steps
--->
+The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) defines the constants `MSErrorResponseKey`, `MSErrorRequestKey`, and `MSErrorServerItemKey` to get more data related to the error. In addition, the file defines constants for each error code. For an example on how to use these constants, see [Conflict-Handler] for its usage of `MSErrorServerItemKey` and `MSErrorPreconditionFailed`.
 
 <!-- Anchors. -->
 
@@ -286,21 +278,22 @@ For more information see, New topic about processing headers in the server-side.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Add Mobile Services to Existing App]: /en-us/develop/mobile/tutorials/get-started-data
-[Mobile Services Quick Start]: /en-us/develop/mobile/tutorials/get-started-ios
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
-[Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Mobile Services Quick Start]: /develop/mobile/tutorials/get-started-ios
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
 
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
-[Use scripts to authorize users]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Dynamic Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables
+[CLI to manage Mobile Services tables]: /documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables
+[Conflict-Handler]: /documentation/articles/mobile-services-ios-handling-conflicts-offline-data/#add-conflict-handling

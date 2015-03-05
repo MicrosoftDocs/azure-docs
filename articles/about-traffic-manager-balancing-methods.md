@@ -144,6 +144,6 @@ If you want the figures in this topic as PowerPoint sides for your own presentat
 
 [About Traffic Manager Monitoring](../about-traffic-manager-monitoring)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)

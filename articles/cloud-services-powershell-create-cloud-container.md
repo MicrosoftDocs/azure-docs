@@ -38,7 +38,7 @@ Get-help New-AzureService
 
 4. Next steps:
 
-   - To manage the Cloud Service deployment, please refer to [Get-AzureService](https://msdn.microsoft.com/en-us/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/en-us/library/azure/dn495120.aspx), and [Set-AzureService](https://msdn.microsoft.com/en-us/library/azure/dn495242.aspx) commands. Also please refer to [How to Configure Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-how-to-configure/)
+   - To manage the Cloud Service deployment, please refer to [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), and [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) commands. Also please refer to [How to Configure Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-how-to-configure/)
 
     - To publish your Cloud Service project to Azure, please refer to **PublishCloudService.ps1** code sample from [Continuous Delivery for Cloud Service in Azure](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/)
 

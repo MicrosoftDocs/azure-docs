@@ -28,6 +28,8 @@ Note that you can integrate Media Services with your existing tools and processe
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![VoD workflow][vod-overview]
 
+For more information, see [Media Services Overview](../media-services-overview).
+
 ##Creating a Media Services account
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
@@ -80,14 +82,7 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 ###Encoding 
 
-Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
- 
-[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
-
-Encode with **Dolby Digital Plus**
-
-For more information, see: [Encode with Dolby Digital Plus](../media-services-encode-with-dolby-digital-plus). 
-
+See [Encoding with Azure Media Services](../media-services-encode-asset).
 
 ##Configure content key authorization policy 
 

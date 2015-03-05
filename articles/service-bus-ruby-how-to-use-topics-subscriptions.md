@@ -86,7 +86,7 @@ In order to perform management operations, such as creating a queue on the new n
 
 ## Create a Ruby Application
 
-Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure Your Application to Use Service Bus
 

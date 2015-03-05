@@ -201,18 +201,22 @@ You can delete an Azure Data Factory entity (linked service, table, or pipeline)
 
 ![Delete data factory entity][delete-datafactory-entity] 
 
+## See Also
+See the [Get started with Azure Data Factory][data-factory-get-started] topic for step-by-step instructions to create an Azure data factory by using the Data Factory Editor. 
 
 [msdn-tables-reference]: https://msdn.microsoft.com/library/dn835002.aspx
 [msdn-linkedservices-reference]: https://msdn.microsoft.com/library/dn834986.aspx       
 [msdn-pipelines-reference]: https://msdn.microsoft.com/library/dn834988.aspx  
 
-[author-and-deploy-tile]: ../media/data-factory-editor/author-and-deploy-tile.png
-[data=factory-editor]: ../media/data-factory-editor/data-factory-editor.png
-[new-data-store-menu]: ../media/data-factory-editor/new-data-store-menu.png
-[new-compute-menu]: ../media/data-factory-editor/new-compute-menu.png
-[deploy-button]: ../media/data-factory-editor/deploy-button.png
-[deploy-success-message]: ../media/data-factory-editor/deploy-success-message.png
-[storagelinkedservice-in-treview]: ../media/data-factory-editor/storagelinkedservice-in-treeview.png
-[delete-datafactory-entity]: ../media/data-factory-editor/delete-datafactory-entity.png
-[clone-datafactory-entity]: ../media/data-factory-editor/clone-datafactory-entity.png
-[add-activity-options]: ../media/data-factory-editor/add-activity-options.png
+[data-factory-get-started]: ../data-factory-get-started
+
+[author-and-deploy-tile]: ./media/data-factory-editor/author-and-deploy-tile.png
+[data=factory-editor]: ./media/data-factory-editor/data-factory-editor.png
+[new-data-store-menu]: ./media/data-factory-editor/new-data-store-menu.png
+[new-compute-menu]: ./media/data-factory-editor/new-compute-menu.png
+[deploy-button]: ./media/data-factory-editor/deploy-button.png
+[deploy-success-message]: ./media/data-factory-editor/deploy-success-message.png
+[storagelinkedservice-in-treview]: ./media/data-factory-editor/storagelinkedservice-in-treeview.png
+[delete-datafactory-entity]: ./media/data-factory-editor/delete-datafactory-entity.png
+[clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
+[add-activity-options]: ./media/data-factory-editor/add-activity-options.png
