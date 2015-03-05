@@ -11,8 +11,8 @@
    ms.service="azure-search"
    ms.devlang="dotnet"
    ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="" 
+   ms.tgt_pltfrm="na"
+   ms.workload="search" 
    ms.date="03/04/2015"
    ms.author="brjohnst"/>
 
