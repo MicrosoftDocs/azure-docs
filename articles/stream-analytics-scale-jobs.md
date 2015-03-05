@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="2/10/2015" 
+	ms.date="03/05/2015" 
 	ms.author="jgao"/>
 
 # Scale Azure Stream Analytics jobs 
