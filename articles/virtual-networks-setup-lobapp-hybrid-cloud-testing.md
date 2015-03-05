@@ -59,13 +59,14 @@ From the Azure Management Portal, start the DC2 computer if needed.
 Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	Set-AzureStorageAccount –StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
@@ -134,12 +135,13 @@ This is your current configuration.
 
 First, create an Azure Virtual Machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name LOB1 -InstanceSize Medium -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
