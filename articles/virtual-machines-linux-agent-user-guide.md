@@ -62,7 +62,7 @@ The information flow from the platform to the agent occurs via two channels:
 You can get the Latest Linux Agent directly from:
 
 - [The different Distribution providers endorsing Linux on Azure](http://support.microsoft.com/kb/2805216)
-- or from the [Github Open Source Repository for the Azure Linux Agent](https://github.com/Azure/WALinuxAgent)
+- or from the [GitHub Open Source Repository for the Azure Linux Agent](https://github.com/Azure/WALinuxAgent)
 
 
 ## Requirements

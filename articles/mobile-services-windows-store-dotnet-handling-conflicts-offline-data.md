@@ -47,7 +47,7 @@ This tutorial requires Visual Studio 2013 running on Windows 8.1.
 
 This tutorial is a walkthrough of how the [Todo Offline Mobile Services sample] handles sync conflicts between the local offline store and the Mobile Service database in Azure.
 
-1. Download the zip file for the [Mobile Services Samples Github Repository] and extract it to a working directory. 
+1. Download the zip file for the [Mobile Services Samples GitHub Repository] and extract it to a working directory. 
 
 2. If you haven't already installed SQLite for Windows 8.1 and Windows Phone 8.1 as mentioned in the [Get started with offline data] tutorial, install both runtimes.
 
@@ -162,5 +162,5 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Handling Database Conflicts]: /documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
-[Mobile Services Samples Github Repository]: http://go.microsoft.com/fwlink/?LinkId=512865
+[Mobile Services Samples GitHub Repository]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo Offline Mobile Services sample]: http://go.microsoft.com/fwlink/?LinkId=512866
