@@ -18,7 +18,17 @@
 
 #Connecting Azure SQL Database to Azure Search Using Indexers#
 
-Azure Search service makes it easy to provide a great search experience, but before you can search, you need to index the data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) feature in Azure Search service can automate the indexing process. This means you have less code to write and less infrastructure to maintain.
+<tags 
+ms.service="search" 
+ms.devlang="rest-api" 
+ms.workload="search" ms.topic="article"  
+ms.tgt_pltfrm="na" 
+ms.date="03/05/2015" 
+ms.author="eugenesh" />
+
+# Connecting Azure SQL Database to Azure Search Using Indexers #
+
+Azure Search service makes it easy to provide a great search experience, but before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) feature in Azure Search service can automate the indexing process. This means you have less code to write and less infrastructure to maintain.
 
 Currently, indexers only work with Azure SQL Database, SQL Server on Azure VMs, and Azure DocumentDB. In this article, we’ll focus on indexers that work with Azure SQL Database. If you would like to see support for additional data sources, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
 
@@ -59,11 +69,75 @@ First, create the data source:
 	{ 
 	    "name" : "myazuresqldatasource",
 	    "type" : "azuresql",
-	    "credentials" : { "connectionString" : "connection string" },
-	    "container" : { "name" : "table or view name" }
+	    "credentials" : { "connectionString" : "Server=tcp:....database.windows.net,1433;Database=...;User ID=...;Password=...;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
+	    "container" : { "name" : "name of the table or view that you want to index" }
 	}
 
-Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. For details, see [Mapping data types in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105).
+
+You can get the connection string from Azure management portal; use the `ADO.NET connection string` option.
+
+Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. See the following table for the mapping between SQL and Azure search data types.
+
+**Mapping between SQL Data Types and Azure Search Data Types**
+<table style="font-size:12">
+<tr>
+<td>SQL data type</td>	
+<td>Allowed target index field types</td>
+<td>Notes</td>
+</tr>
+<tr>
+<td>bit</td>
+<td>Edm.Boolean, Edm.String</td>
+<td></td>
+</tr>
+<tr>
+<td>int, smallint, tinyint</td>
+<td>Edm.Int32, Edm.Int64, Edm.String</td>
+<td></td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>Edm.Int64, Edm.String</td>
+<td></td>
+</tr>
+<tr>
+<td>real, float</td>
+<td>Edm.Double, Edm.String</td>
+<td></td>
+</tr>
+<tr>
+<td>smallmoney, money<br>decimal<br>numeric
+</td>
+<td>Edm.String</td>
+<td>Azure Search does not support converting decimal types into Edm.Double because this would lose precision
+</td>
+</tr>
+<tr>
+<td>char, nchar, varchar, nvarchar</td>
+<td>Edm.String</td>
+<td></td>
+</tr>
+<tr>
+<td>smalldatetime, datetime, datetime2, date, datetimeoffset</td>
+<td>Edm.DateTimeOffset, Edm.String</td>
+<td></td>
+</tr>
+<tr>
+<td>uniqueidentifer</td>
+<td>Edm.String</td>
+<td></td>
+</tr>
+<tr>
+<td>rowversion</td>
+<td>N/A</td>
+<td>Row-version columns cannot be stored in the search index, but they can be used for change tracking</td>
+</tr>
+<tr>
+<td>time, timespan<br>binary, varbinary, image<br>xml<br>geometry<br> geography<br>CLR types</td>
+<td>N/A</td>
+<td>Not supported</td>
+</tr>
+</table>
 
 Finally, create the indexer by giving it a name and referencing the data source and target index:
 
@@ -89,16 +163,44 @@ To monitor the indexer status and execution history (number of items indexed, fa
 	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
 	api-key: admin-key
 
-If there are no errors, the response should look similar to the following: 
+The response should look similar to the following: 
 
-TODO
+	{
+		"@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+		"status":"running",
+		"lastResult": {
+			"status":"success",
+			"errorMessage":null,
+			"startTime":"2015-02-21T00:23:24.957Z",
+			"endTime":"2015-02-21T00:36:47.752Z",
+			"errors":[],
+			"itemsProcessed":1599501,
+			"itemsFailed":0,
+			"initialTrackingState":null,
+			"finalTrackingState":null },
+		"executionHistory":
+		[
+			{
+				"status":"success",
+				"errorMessage":null,
+				"startTime":"2015-02-21T00:23:24.957Z",
+				"endTime":"2015-02-21T00:36:47.752Z",
+				"errors":[],
+				"itemsProcessed":1599501,
+				"itemsFailed":0,
+				"initialTrackingState":null,
+				"finalTrackingState":null 
+			},
+			... earlier history items 
+		]
+	}
 
 Execution history contains up to 50 of the most recent completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response). 
 Additional information about the response can be found in [Get Indexer Status](http://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## Run Indexers on a Schedule ##
 
-You can also arrange the indexer to run periodically on a schedule. To do this, just add the **schedule** property when creating the indexer: 
+You can also arrange the indexer to run periodically on a schedule. To do this, just add the **schedule** property when creating or updating the indexer: 
 
 	{ 
 	    "name" : "myindexer",
@@ -107,9 +209,11 @@ You can also arrange the indexer to run periodically on a schedule. To do this, 
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-The **interval** can range from 5 minutes (`PT5M`) to 1 day (`P1D`). The optional **startTime** indicates when the scheduled executions should commence; if it is omitted, the current time will be used. This time can be in the past – in which case the first execution will be scheduled as if the indexer has been running continuously since the startTime.  
+The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P[nD][T[nH][nM]]`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
 
-The interval refers to the time between the start of two consecutive indexer executions. Only one indexer execution can run at a time. If an indexer is already executing when the next one is supposed to start, the execution is skipped and resumes at the next interval, assuming no other indexer job is running.
+The optional **startTime** indicates when the scheduled executions should commence; if it is omitted, the current UTC time will be used. This time can be in the past – in which case the first execution will be scheduled as if the indexer has been running continuously since the startTime.  
+
+Only one indexer execution can run at a time. If an indexer is already executing when the next one is supposed to start, the execution is skipped and resumes at the next interval, assuming no other indexer job is running.
 
 Let’s consider an example to make this more concrete. Suppose we the following hourly schedule configured: 
 
