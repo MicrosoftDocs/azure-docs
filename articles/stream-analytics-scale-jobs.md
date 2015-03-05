@@ -27,7 +27,7 @@ The resource available for processing Stream Analytics jobs is measured by a str
 The number of streaming units that a job can utilize depends on the partition configuration on the inputs, and the query defined for the job. The article will show you how to calculate and tune the query to increase throughput.
 
 
-##<a name="calculate"></a>Calculate the maximum streaming units of a job
+## Calculate the maximum streaming units of a job
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.
 
 ### Steps of a query
@@ -103,7 +103,7 @@ All non-partitioned steps together can scale up to 6 streaming units for a Strea
 <td>24 (18 for partitioned step + 6 for non partitioned step)</td></tr>
 </table>
 
-###Example of scale
+### Example of scale
 The following query calculates the number of cars going through a toll station with three tollbooths within a 3-minute window. This query can be scaled up to 6 streaming units.
 
 	SELECT COUNT(*) AS Count, TollBoothId
@@ -133,7 +133,7 @@ This query can be scaled to 24 streaming units.
 >[AZURE.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
 
 
-##<a name="configure"></a>Configure Stream Analytics job partition
+## Configure Stream Analytics job partition
 
 **To adjust streaming unit for a job**
 
@@ -145,7 +145,7 @@ This query can be scaled to 24 streaming units.
 ![Azure Stream Analytics configure job scale][img.stream.analytics.configure.scale]
 
 
-##<a name="monitor"></a>Monitor job performance
+## Monitor job performance
 
 Using the management portal, you can track the throughput of a job in Events/second:
 
@@ -153,7 +153,7 @@ Using the management portal, you can track the throughput of a job in Events/sec
  
 Calculate the expected throughput of the workload in Events/second. In case the throughput is lesser than expected, tune the input partition, tune the query, and add additional streaming units to your job.
 
-##<a name="nextstep"></a> Next steps
+## Next steps
 In this article, you have learned how to calculate streaming units and how to scale a Stream Analytics job. To read more about Stream Analytics, see:
 
 - [Introduction to Azure Stream Analytics][stream.analytics.introduction]
