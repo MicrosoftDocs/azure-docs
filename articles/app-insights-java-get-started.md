@@ -2,6 +2,7 @@
 	pageTitle="Get started with Application Insights in a Java web project" 
 	description="Monitor performance and usage of your Java website with Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-03-02" 
+	ms.date="03/04/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights in a Java web project
@@ -25,11 +26,8 @@ You'll need:
 * Oracle JRE 1.6 or later
 * A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
 
-## Add Application Insights to your Java project
 
-(There will soon be plug-ins for Eclipse and IntelliJ to automate these steps, but for now you'll have to do them manually.)
-
-### Get an Application Insights instrumentation key
+## Get an Application Insights instrumentation key
 
 1. Log into the [Microsoft Azure Portal](https://portal.azure.com)
 2. Create a new Application Insights resource
@@ -42,13 +40,10 @@ You'll need:
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
-### Add the Application Insights SDK for Java to your project
+## Add the Application Insights SDK for Java to your project
 
 *Choose the appropriate way for your project.*
 
-#### If you hava a Dynamic Web project in Eclipse
-
-Use the [Eclipse plug-in][eclipse] to add Application Insights to the project.
 
 #### If you're using Maven...
 
@@ -192,7 +187,6 @@ Click through any chart to see more detailed metrics. [Learn more about metrics.
 #### Detect and diagnose issues
 
 * [Set up web tests][availability] to make sure your application stays live and responsive.
-* [Track HTTP requests in a Java app][javareqs]
 * [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
 * [Search events and logs][diagnostic] to help diagnose problems.
 * [Capture Log4J or Logback traces][javalogs]
