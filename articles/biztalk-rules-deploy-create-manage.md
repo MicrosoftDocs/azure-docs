@@ -222,7 +222,7 @@ The Rules API App can also be invoked using a rich set of APIs available. This w
 One of the main advantages of using Business Rules is that changes to business logic can be pushed out to production a lot faster. Any change made to vocabulary and policies is immediately applied in production. User simply needs to browse to the respective vocabulary definition or policy and make the change to have it come into effect.
 
 <!--Image references-->
-[1]: ./media/biztalk-rules-deploy-create-manage/InsuranceScenario.png	
+[1]: ./media/biztalk-rules-deploy-create-manage/InsuranceScenario.PNG	
 [2]: ./media/biztalk-rules-deploy-create-manage/InsuranceBusinessLogic.png
 [3]: ./media/biztalk-rules-deploy-create-manage/RulesDocImg3.png
 [4]: ./media/biztalk-rules-deploy-create-manage/RulesDocImg4.png
