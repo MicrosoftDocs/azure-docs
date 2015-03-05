@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/12/2015" 
-	ms.author="cephalin,riande"/>
+	ms.author="cephalin:riande"/>
 
 
 # Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Websites
