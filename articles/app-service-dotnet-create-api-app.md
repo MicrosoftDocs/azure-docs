@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/19/2015" 
+	ms.date="02/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Create an Azure API App
@@ -33,15 +33,15 @@ This is the first tutorial in a series of four:
 
 3. Select the **ASP.NET Web Application** Template,  name the project *ContactsList*, and then click **OK**.
 
-	![](./media/app-service-dotnet-create-api-app/01-filenew.png)
+	![](./media/app-service-dotnet-create-api-app/01-filenew-v2.png)
 
-2. Select the **Web API** project template, click **Change Authentication** and then select **No Authentication**, clear the **Host in the Cloud** checkbox, and then click **OK**.
+2. Select the **Azure API App** project template and then click **OK**.
 
-	![](./media/app-service-dotnet-create-api-app/02-empty-plug-webapi.png)
+	![](./media/app-service-dotnet-create-api-app/02-api-app-template.png)
 
 3. Right-click the **Models** folder in the Web API project, and then in the context menu click **Add > Class**. 
 
-	![](./media/app-service-dotnet-create-api-app/03-add-new-class.png) 
+	![](./media/app-service-dotnet-create-api-app/03-add-new-class-v2.png) 
 
 4. Name the new file *Contact.cs*, and then click **Add**.
 
@@ -57,19 +57,19 @@ This is the first tutorial in a series of four:
 			}
 		}
 
-	![](./media/app-service-dotnet-create-api-app/04-contacts-model.png)
+	![](./media/app-service-dotnet-create-api-app/04-contacts-model-v2.png)
 
 5. Right-click the **Controllers** folder, and then in the context menu click **Add > Controller**. 
 
-	![](./media/app-service-dotnet-create-api-app/05-new-controller.png)
+	![](./media/app-service-dotnet-create-api-app/05-new-controller-v2.png)
 
 6. In the **Add Scaffold** dialog, select the **Web API 2 Controller - Empty** option, and then click **Add**. 
 
-	![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog.png)
+	![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog-v2.png)
 
 7. Name the controller **ContactsController**, and then click **Add**. 
 
-	![](./media/app-service-dotnet-create-api-app/07-new-controller-name.png)
+	![](./media/app-service-dotnet-create-api-app/07-new-controller-name-v2.png)
 
 8. Replace the code in the new controller file with the code below. 
 
@@ -98,21 +98,7 @@ This is the first tutorial in a series of four:
 		    }
 		}
 
-	![](./media/app-service-dotnet-create-api-app/08-contacts-controller-with-get.png)
-
-8. Open *ValuesController.cs* in the *Controllers* folder, delete the `Get(int id)` method, and save the file.
-
-9. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Add - Azure API Apps SDK**. 
-
-	![](./media/app-service-dotnet-create-api-app/09-add-aas-sdk.png)
-
-8. In the **Choose API Definition Metadata Endpoint** dialog box, click **Automatic Metadata Generation**. 
-
-	![](./media/app-service-dotnet-create-api-app/10-enable-automatic-metadata.png)
-
-	Visual Studio adds to the project an **apiapp.json** file and a Metadata folder, artifacts that are used by the Azure API Apps deployment process. Visual Studio also adds the Azure API Apps Runtime SDK NuGet package. 
-
-	![](./media/app-service-dotnet-create-api-app/11-project-after-sdk-added.png)
+	![](./media/app-service-dotnet-create-api-app/08-contacts-controller-with-get-v2.png)
 
 ## Next Steps
 

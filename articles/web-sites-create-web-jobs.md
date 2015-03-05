@@ -14,16 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2014" 
+	ms.date="03/05/2015" 
 	ms.author="tdykstra"/>
 
-#Use WebJobs to run background tasks in Azure Web Apps
-
->[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+#Use WebJobs to run background tasks in Azure web apps
 
 ## Overview
 
-Azure web apps enables you to run programs or scripts in your web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use Microsoft Azure WebJobs.
+You can run programs or scripts in WebJobs in your Azure web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
 This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Web Apps](http://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-deploy-webjobs).
 
@@ -163,8 +161,8 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 	
 - As of March 2014, web apps in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web app's portal is not open in Azure. Requests to the actual site will not reset this.
 - Code for a continuous job needs to be written to run in an endless loop.
-- Continuous jobs run continuously only when the site is up.
-- Basic and Standard modes offer the Always On feature which, when enabled, prevents sites from becoming idle.
+- Continuous jobs run continuously only when the web app is up.
+- Basic and Standard modes offer the Always On feature which, when enabled, prevents web apps from becoming idle.
 
 ## <a name="NextSteps"></a>Next Steps
  

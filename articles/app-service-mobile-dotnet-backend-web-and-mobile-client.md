@@ -2,6 +2,7 @@
 	pageTitle="Build an app with a mobile and web client"
 	description="Build a multi-channel app with both a website and mobile client"
 	services="app-service-mobile"
+	documentationCenter=".net" 
 	authors="lindydonna"
 	manager="dwrede"
 	editor=""/>
@@ -12,16 +13,16 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="2/24/2015"
+	ms.date="03/05/2015"
 	ms.author="donnam"/>
 
 # Build an app with a mobile and web client
 
-This topic shows you how to create an app with both a mobile and web client. You will create a Mobile App and a Web App and use the same underlying database for both.
+This topic shows you how to create an app with both a mobile and web client. You will create a mobile app and a web app and use the same underlying database for both.
 
 First you will create both a new mobile app backend and a simple *To do list* app that stores app data in the new mobile app backend. The mobile app that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile app backend.
 
-Then, you will create a Web App, using the same database as your mobile app. At the end of the tutorial, you will have a web client and a mobile client that work with the same data.
+Then, you will create a web app, using the same database as your mobile app. At the end of the tutorial, you will have a web client and a mobile client that work with the same data.
 
 To complete this tutorial, you need the following:
 
@@ -54,11 +55,11 @@ In this section you will create a mobile client that is connected to your mobile
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Create a TodoList website
+## Create a TodoList web app
 
-In this section, you will create a new Web App using a sample application. You will modify the sample to use the same database schema name and the same connection string as the mobile app.
+In this section, you will create a new web app using a sample application. You will modify the sample to use the same database schema name and the same connection string as the mobile app.
 
-1. In the Azure Portal, create a new Web App, using the same Resource Group as your mobile app.
+1. In the Azure Portal, create a new web app, using the same Resource Group as your mobile app.
 
 2. Download the sample project [MultiChannelToDo] and open in Visual Studio. 
 
@@ -74,11 +75,11 @@ In this section, you will create a new Web App using a sample application. You w
 	
 	- Under **Connection Strings** click **Show Connection Strings**. Copy the value for the setting **MS_TableConnectionString**. This is the connection string used by your mobile app to connect to the SQL Database.
 
-5. In Visual Studio, right click the Web App and select publish. Select Azure Websites as the publish target, and select the Web App you created above. Click **Next** until you get to the **Settings** section of the Publish Web wizard.
+5. In Visual Studio, right click the web app and select publish. Select Azure web apps as the publish target, and select the web app you created above. Click **Next** until you get to the **Settings** section of the Publish Web wizard.
 
 6. In the **Databases** section, paste the mobile app connection string as the value for **MultiChannelToDoContext**. Select just the checkbox **Use this connection string at runtime**.
 
-7. Once your Web App has been successfully published, you will see a confirmation page.
+7. Once your web app has been successfully published, you will see a confirmation page.
 
 
 ## Test the mobile app against the hosted mobile app backend 
@@ -91,7 +92,7 @@ If you created a Windows client, follow the steps below.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-app-preview](../includes/app-service-mobile-windows-universal-test-app-preview.md)]
 
-## Test the website against the hosted web app backed
+## Test the web app against the backend
 
 Open a web browser and connect to your web app backend. You can change todo items and you will see the same items reflected in the mobile app.
 
