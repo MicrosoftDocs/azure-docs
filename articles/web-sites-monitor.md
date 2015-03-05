@@ -20,11 +20,10 @@
 
 #<a name="howtomonitor"></a>How to monitor web apps
 
-[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
-
 Azure web apps provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
+
 1. In the [Azure Management Portal](http://manage.windowsazure.com/), from the web app's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 
 2. To view additional metrics for the web app, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box. 

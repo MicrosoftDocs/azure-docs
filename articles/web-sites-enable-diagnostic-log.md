@@ -3,7 +3,7 @@
 	description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." 
 	services="app-service-web" 
 	documentationCenter=".net" 
-	authors="blackmist" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,55 +13,51 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="03/05/2015" 
+	ms.author="cephalin"/>
 
 #Enable diagnostic logging for Azure web apps
 
+## Overview
+
 Azure provides built-in diagnostics to assist with debugging an application hosted in an Azure web app. In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-> [AZURE.NOTE] This article uses the Azure Management Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+> [AZURE.NOTE] This article uses the Azure Management Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
 
-##Table of Contents##
+## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
 
-- [What is: Web app diagnostics?](#whatisdiag)
-- [How to: Enable diagnostics](#enablediag)
-- [How to: Download logs](#download)
-- [How to: Stream logs](#streamlogs)
-- [How to: Understand diagnostics logs](#understandlogs)
-- [Next Steps](#nextsteps)
+Azure web apps provide diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
 
-<a name="whatisdiag"></a><h2>What is web app diagnostics?</h2>
+### Web server diagnostics
 
-Azure web apps provide diagnostic functionality for logging information from both the web server as well as the web application. These are logically separated into **site diagnostics** and **application diagnostics**.
+You can enable or disable the following kinds of logs:
 
-###Site diagnostics
+- **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
+- **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
+- **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
-Site diagnostics allow to you enable or disable the following:
+### Application diagnostics
 
-- **Detailed Error Logging** - Logs detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
-- **Failed Request Tracing** - Logs detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
-- **Web Server Logging** - Logs all HTTP transactions on a web app using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This report is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address
-
-###Application diagnostics
-
-Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
+Application diagnostics allow you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 Application diagnostics allows you to troubleshoot your running application by emitting information when certain pieces of code are used. This is most useful when you are trying to determine why a specific path is being taken by the code, usually when the path results in an error or other undesirable behavior.
 
-For information on working with Application Diagnostics using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+For information on working with Application Diagnostics using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
 
 > [AZURE.NOTE] Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
 
 Azure web apps also log deployment information when you publish content to a web app. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
-<a name="enablediag"></a><h2>How to: Enable diagnostics</h2>
+## <a name="enablediag"></a>How to enable diagnostics
 
-Diagnostics can be enabled by visiting the **Configure** page of your Azure web app in the [Azure Management Portal](https://portal.azure.com). On the **Configure** page, use the **application diagnostics** and **site diagnostics** sections to enable logging.
+To enable diagnostics in the [Azure Management Portal](https://portal.azure.com), go to the blade for your web app and click **All settings > Diagnostics logs**.
 
-When enabling **application diagnostics** you must also select the **logging level** and whether to enable logging to the **file system**, **table storage**, or **blob storage**. While all three storage locations provide the same basic information for logged events, **table storage** and **blob storage** log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
+<!-- todo:cleanup dogfood addresses in screenshot -->
+![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
+
+When enabling **Application Logging** you must also select the **Logging Level** and whether to enable logging to the **file system**, **table storage**, or **blob storage**. While all three storage locations provide the same basic information for logged events, **table storage** and **blob storage** log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
 
 When enabling **site diagnostics**, you must select **storage** or **file system** for **web server logging**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs will be written to. All other logs for **site diagnostics** are written to the file system only.
 
