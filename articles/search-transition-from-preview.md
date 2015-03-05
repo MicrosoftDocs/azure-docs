@@ -22,12 +22,12 @@ The following guidance is for customers who built custom applications on the pre
 
 As a preview customer, you might have used either one of these older preview versions:
 
-- [2014-07-31-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-07-31-preview/)
-- [2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/)
+- [2014-07-31-Preview](../search-api-2014-07-31-preview/)
+- [2014-10-20-Preview](../search-api-2014-10-20-preview/)
 
 Now that Azure Search is generally available, we encourage transitioning to newer releases: 2015-02-28 is the official API version of the generally available release of Azure Search. This version is documented on [MSDN](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx ).
 
-We’re also rolling out the next preview version, [2015-02-28-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2015-02-28-preview/), introducing features that are still in development. We ask for your feedback on either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch ) or on our [feedback page](http://feedback.azure.com/forums/263029-azure-search ).
+We’re also rolling out the next preview version, [2015-02-28-Preview](../search-api-2015-02-28-preview/), introducing features that are still in development. We ask for your feedback on either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch ) or on our [feedback page](http://feedback.azure.com/forums/263029-azure-search ).
 
 ###Checklist for migration###
 
@@ -35,7 +35,7 @@ We’re also rolling out the next preview version, [2015-02-28-Preview](http://a
 - Bump the API version to `2015-02-28` for the locked version. This version is under SLA. If you run into issues, you can resolve them more quickly.
 - Build, Deploy, Test. You should have 100% parity in terms of search behaviors, with the exception of breaking changes.
 - Roll out to production.
-- Evaluate new features for future feature adoption. Bump again to 2015-02-28-Preview if you want to test drive the Microsoft natural language processors or morelikethis.
+- Evaluate new features for future feature adoption. Bump again to 2015-02-28-Preview if you want to test drive the Microsoft natural language processors or `morelikethis`.
 
 ##Breaking changes in api-version=2015*##
 
@@ -62,7 +62,7 @@ Custom applications that implemented suggestions should do the following:
 
 The code example from the [Adventure Works sample on codeplex](https://azuresearchadventureworksdemo.codeplex.com/) has the original `Suggestions` implementation. You might want to use this sample to practice code migration on sample code. 
 
-In the following section, we’ll show a [before](#before) and [after](#after) implementation of suggestions.  You can replace the **CreateCatalogIndex()** method with the version in the [after](#after) section, then build and deploy the solution to try the new functionality.
+In the following section, we’ll show a [before](#before) and [after](#after) implementation of suggestions. You can replace the **CreateCatalogIndex()** method with the version in the [after](#after) section, then build and deploy the solution to try the new functionality.
 
 <a name="before"></a>
 ###Before###
@@ -135,7 +135,7 @@ A migrated schema definition omits the `Suggestions` property and adds a `Sugges
 After you’ve ported your solution and verified it runs as expected, you can use these links to read about new features.
 
 - [Azure Search is generally available (blog post)](http://go.microsoft.com/fwlink/p/?LinkId=528211 )
-- [What’s new in the latest update to Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-latest-updates/ )
+- [What’s new in the latest update to Azure Search](../search-latest-updates/ )
 - [Azure Search Overview]( https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx)
 
 ##Get help##
