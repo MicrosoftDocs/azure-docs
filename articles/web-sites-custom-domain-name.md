@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/17/2014" 
-	ms.author="larryfr, jroth, mwasson"/>
+	ms.author="larryfr;jroth;mwasson;tarcher"/>
 
 #Configuring a custom domain name for an Azure Web App
 
