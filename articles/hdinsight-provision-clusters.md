@@ -26,7 +26,7 @@ Have you ever wondered why we mention clusters every time we talk about Hadoop o
 
 ![HDInsight Cluster][img-hdi-cluster]
 
-An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight][hadoop-hdinsight-intro]. The data to be churned is stored in Azure Blob storage, also called *Azure Storage - Blob* (or WASB) in the context of HDInsight. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
+An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight][hadoop-hdinsight-intro]. The data to be churned is stored in Azure Blob storage. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
 This article provides instructions on the different ways to provision a cluster. If you are looking for a quick-start approach to provisioning a cluster, see [Get Started with Azure HDInsight][hdinsight-get-started].
 
@@ -44,7 +44,7 @@ HDInsight provides the option of configuring Linux clusters on Azure. Configure 
 
 ###Additional storage
 
-During configuration, you must specify an Azure Blob Storage account and a default container. This is used as the default storage location by the cluster. Optionally, you can specify an additional Azure Storage account that will also be associated with the cluster.   
+During configuration, you must specify an Azure Blob storage account and a default container. This is used as the default storage location by the cluster. Optionally, you can specify an additional Azure Storage account that will also be associated with the cluster.   
 
 >[WACOM.NOTE] Don't share one Blob storage container for multiple clusters. This is not supported. 
 
