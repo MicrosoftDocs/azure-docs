@@ -78,14 +78,11 @@ If the IP address changes, a CNAME entry is still valid, whereas an A record mus
 Skip this step if you are creating a CNAME record. To create an A record, you need the virtual IP address of your web app. To get the IP address:
 
 1.	In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
-2.	In the **Web Apps** tab, click the name of your site and select **Dashboard**.
-3.	Select **Manage Domains** from the bottom of the page. (If this option is disabled, make sure you are using Shared, Basic, or Standard mode. For more information, see [How to scale web apps](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).) 
-
-	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
-
-4.	The IP address is listed toward the bottom of the dialog.
-
-	![](media/web-sites-custom-domain-name/ipaddress.png)
+2.	Click the **Browse** option on the left side of the page.
+3.	Click the **Web Apps** blade.
+4.	Click the name of your web app.
+5.	In the **Essentials** page, click **All settings**.
+6.	Click **Custom domains and SSL**. The IP address is located towards the bottom of the page (just above the **SSL Bindings** section).
 
 ## Create the DNS records
 
@@ -131,7 +128,7 @@ If you create an A record, Azure web apps also requires a special CNAME record, 
 - *If the A record maps the root domain or a wildcard domain:* Create a CNAME record that maps from **awverify.&lt;yourdomain&gt;** to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.  For example, if the A record is for **contoso.com**, create a CNAME record for **awverify.contoso.com**.
 - *If the A record maps a specific subdomain:* Create a CNAME record that maps from **awverify.&lt;subdomain&gt;** to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**. For example, if the A record is for **blogs.contoso.com**, create a CNAME record for **awverify.blogs.contoso.com**.
 
-Visitors to your site will not see the awverify subdomain; it’s only for Azure to verify your domain.
+Visitors to your web app will not see the awverify subdomain; it’s only for Azure to verify your domain.
 
 ## Enable the domain name on your web app
 
