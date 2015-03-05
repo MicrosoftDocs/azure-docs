@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="2/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="jgao"/>
 
 
@@ -43,7 +43,7 @@ Each Stream Analytics job definition must contain at least one data stream input
 
 ### Reference data
 
-Stream Analytics also supports a second type of input source: reference data.  This is auxiliary data used for performing correlation and lookups and the data here is usually static or infrequently changing.  In the preview release, Blob Storage is the only supported input source for Reference Data.
+Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups and the data here is usually static or infrequently changing. In the preview release, Azure Blob storage is the only supported reference data input source. Reference data source is limited to 100 MB in size.
 
 ### Serialization
 To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for Streaming Data and CSV for Reference Data.

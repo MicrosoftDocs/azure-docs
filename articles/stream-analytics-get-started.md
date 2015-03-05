@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="2/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="jgao" />
 
 
@@ -33,9 +33,11 @@ The sample application will create an Event Hub in a preexisting Service Bus nam
 
 1.	Sign in to the [Azure Management portal][azure.management.portal].
 2.	Click **SERVICE BUS** in the left pane to open the Service Bus page. 
-2.	Click **CREATE** on the bottom of page, and follow the instructions to create a namespace. Use **MESSAGING** as the type. It takes a few moments to get the namespace created.
-3.	Click the newly created namespace, and then click **CONNECTION INFORMATION** on the bottom of the page.
-4.	Copy the connection string. You will use it later in the tutorial.
+3.	Click **CREATE** on the bottom of page, and follow the instructions to create a namespace. Use **MESSAGING** as the type. It takes a few moments to get the namespace created.
+4. Click the newly created namespace, and then click **CREATE CONSUMER GROUP** on the bottom of the page and give it a name.
+6. Click **CONNECTION INFORMATION** on the bottom of the page.
+7. Copy the connection string. You will use it later in the tutorial.
+
 
 ###Create an Azure Storage account
 
@@ -162,8 +164,9 @@ After you have created the Azure Service Bus Event Hub, the Azure SQL database a
 		
 	- **EVENT HUB NAME**: Select the name of the Azure Event Hub you created. For this tutorial use **devicereadings**.
 	- **EVENT HUB POLICY NAME**: Select the Event Hub policy created earlier in this tutorial.
+ 	- **EVENT HUB CONSUMER GROUP**: Type in the event hub consumer group created earlier in this tutorial.
  
-	![][img.stream.analytics.config.input]
+	<!--![][img.stream.analytics.config.input]-->
 
 6.	Click the right button.
 7.	Specify the following values:

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="2/10/2015" 
+	ms.date="03/05/2015" 
 	ms.author="jgao"/>
 
 
@@ -223,8 +223,10 @@ Asynchronously deploys and starts a Stream Analytics job in Microsoft Azure.
 
 **Example 1**
 
-	Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US –Name StreamingJob 
-This command starts the job StreamingJob.  
+	Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
+
+This command starts the job “StreamingJob” with a custom output start time set to December 12, 2012 12:12:12 UTC.
+
 
 ###<a name="Stop-AzureStreamAnalyticsJob"></a>Stop-AzureStreamAnalyticsJob
 Asynchronously stops a Stream Analytics job from running in Microsoft Azure and de-allocates resources that were that were being used. The job definition and meta-data will remain available within your subscription through both the Azure Portal and Management APIs, such that the job can be edited and restarted. You will not be charged for a job in the Stopped state.
@@ -265,15 +267,6 @@ This tests the connection status of the output Output in StreamingJob.
 
 [msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-
-
-[stream-analytics-introduction]: ../
-[stream-analytics-get-started]
-[stream-analytics-limitations]
-[stream-analytics-developer-guide]
-[stream-analytics-query-language-reference]
-[stream-analytics-rest-api-reference]
- 
 
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/
