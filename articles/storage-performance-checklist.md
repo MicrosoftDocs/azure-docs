@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/19/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
