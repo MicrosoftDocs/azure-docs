@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 #Set up a web-based LOB application in a hybrid cloud for testing
@@ -42,7 +42,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the LOB server (LOB1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##Phase 1: Set up the hybrid cloud environment
 
@@ -59,13 +59,14 @@ From the Azure Management Portal, start the DC2 computer if needed.
 Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	Set-AzureStorageAccount –StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
@@ -134,12 +135,13 @@ This is your current configuration.
 
 First, create an Azure Virtual Machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name LOB1 -InstanceSize Medium -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
@@ -185,3 +187,5 @@ This environment is now ready for you to deploy your web-based application on LO
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+
+[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)

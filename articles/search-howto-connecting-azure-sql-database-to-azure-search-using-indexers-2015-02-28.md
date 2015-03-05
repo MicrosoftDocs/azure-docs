@@ -1,11 +1,22 @@
 <properties 
-pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers" 
-description="Connecting Azure SQL Database to Azure Search Using Indexers" 
-services="search" 
-documentationCenter="" 
-authors="chaosrealm" 
-manager="pablocas" 
-editor="" />
+	pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers" 
+	description="Learn how to pull data from Azure SQL Database to an Azure Search index using indexers." 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="pablocas" 
+	editor=""/>
+
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="03/05/2015" 
+	ms.author="eugenesh"/>
+
+#Connecting Azure SQL Database to Azure Search Using Indexers#
 
 <tags 
 ms.service="search" 

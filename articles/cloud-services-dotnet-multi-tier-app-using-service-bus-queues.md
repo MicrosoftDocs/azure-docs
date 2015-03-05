@@ -217,7 +217,7 @@ Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
 
 	![][21]
 
-2. In Server Explorer, expand **Windows Azure**, then right-click **Service Bus**, and then click **Add New Connection**.
+2. In Server Explorer, expand **Microsoft Azure**, then right-click **Service Bus**, and then click **Add New Connection**.
 
 3. In the **Add Connection** dialog, type the name of the service namespace, the issuer name, and the issuer key, or paste in the connection string for the namespace. The permissions associated with the issuer key determine the operations you can perform in this namespace. Then click **OK** to connect.
 

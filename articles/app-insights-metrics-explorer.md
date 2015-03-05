@@ -2,6 +2,7 @@
 	pageTitle="Exploring Metrics in Application Insights" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-05" 
+	ms.date="05/03/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -86,7 +87,7 @@ If you coded [custom metrics][track] into your app (calls to TrackMetric and Tra
 
 ## Segment your data
 
-Select a chart or grid, switch on segmenting and pick a property to segment by:
+Select a chart or grid, switch on grouping and pick a property to group by:
 
 ![](./media/app-insights-metrics-explorer/15-segment.png)
 
@@ -132,7 +133,7 @@ Set the resource before the other properties. Don't choose the webtest resources
 
 Be careful to note the units in which you're asked to enter the threshold value.
 
-*I don't see the Add Alert button.* - Are you using a group account? Do you have read-only access to this application resource? Take a look at the Roles tile near the bottom of the Overview blade. 
+*I don't see the Add Alert button.* - Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Roles tile near the bottom of the Overview blade. 
 
 #### See your alerts
 

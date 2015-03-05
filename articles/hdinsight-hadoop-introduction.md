@@ -3,7 +3,7 @@
    description="An introduction to the Hadoop components on HDInsight. Learn how HDInsight uses Hadoop clusters in the cloud to manage, analyze, and report on big data." 
    services="hdinsight" 
    documentationCenter="" 
-   authors="cgronlun" 
+   authors="cjgronlund" 
    manager="paulettm" 
    editor="cgronlun"/>
 

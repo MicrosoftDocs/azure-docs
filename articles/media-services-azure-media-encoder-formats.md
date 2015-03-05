@@ -11,7 +11,7 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/27/2015" 
 	ms.author="juliako"/>
@@ -29,7 +29,7 @@ This document contains a list of the most common import and export file formats 
 
 [Media Encoder Import Formats ](#import_formats)
 
-[Media Encoder Export Formats](#import_formats)
+[Media Encoder Export Formats](#export_formats)
 
 
 ##<a id="import_formats"></a>Media Encoder Import Formats 

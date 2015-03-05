@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple" 
-   ms.date="2/21/2015"
+   ms.date="02/21/2015"
    ms.author="riande"/>
 
 # Manage Azure Redis Cache with Azure PowerShell

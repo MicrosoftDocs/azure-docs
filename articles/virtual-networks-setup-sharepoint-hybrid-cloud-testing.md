@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 
@@ -41,7 +41,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the SharePoint server (SP1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##Phase 1: Set up the hybrid cloud environment
 
@@ -69,10 +69,11 @@ Next, create an Azure Virtual Machine for SQL1 with these commands at the Azure 
 	Set-AzureStorageAccount –StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
@@ -147,10 +148,11 @@ First, create an Azure Virtual Machine for SP1 with these commands at the Azure 
 
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
@@ -200,3 +202,5 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+
+[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)

@@ -189,7 +189,7 @@ To manage Azure Storage using Azure PowerShell, you need to authenticate your cl
 
     `Add-AzureAccount`
 
-2.	In the “Sign in to Windows Azure” window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
+2.	In the “Sign in to Microsoft Azure” window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 
 3.	Next, run the following command to view the Azure accounts in your local PowerShell environment, and verify that your account is listed:
  
@@ -639,7 +639,7 @@ To learn how to manage Azure File storage using Azure PowerShell, see [Use Power
 
 ## <a name="stganalytics"></a>How to set and query storage analytics
 [Azure Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) enables you to collect metrics (Storage Metrics) from your Azure storage accounts and log data (Storage Logging) about requests sent to your storage account. You can use Storage Metrics to monitor the health of a storage account, and Storage Logging to diagnose and troubleshoot issues with your storage account.
-By default, Storage Metrics is not enabled for your storage services. You can enable monitoring using either the Windows Azure Management Portal, Windows PowerShell, or programmatically through a storage API. Storage Logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
+By default, Storage Metrics is not enabled for your storage services. You can enable monitoring using either the Azure Management Portal, Windows PowerShell, or programmatically through a storage API. Storage Logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
 
 To learn how to enable and view Storage Metrics data using PowerShell, see [How to enable Storage Metrics using PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
