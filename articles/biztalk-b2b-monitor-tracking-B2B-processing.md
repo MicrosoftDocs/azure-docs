@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk B2B - B2B Tracking" 
    description="This topic covers tracking of B2B processing" 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 

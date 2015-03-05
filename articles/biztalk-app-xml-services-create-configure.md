@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk XML Services - Validate, Encode, Transform" 
    description="This topic covers the features of BizTalk XML services and details the Validate, Encode and Transform features." 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="dwrede" 

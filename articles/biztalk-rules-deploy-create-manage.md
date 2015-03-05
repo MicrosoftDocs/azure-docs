@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk Rules - Overview, Creation and Management" 
    description="This topic covers the features of BizTalk Rules and provides instructions on its usage" 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="anuragdalmia" 
    manager="dwrede" 
