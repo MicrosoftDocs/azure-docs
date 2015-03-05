@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="2/20/2015"
+    ms.date="3/5/2015"
     ms.author="vmaker"/>
 
 #Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
