@@ -1,8 +1,8 @@
-The gallery makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the gallery do not require installation of any software other than the browser used to connect to the Azure Management Portal. 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the Azure Management Portal. 
 
 In this tutorial, you'll learn:
 
-- How to create a new web app through the gallery.
+- How to create a new web app through the Azure Marketplace.
 
 - How to deploy the web app through the Azure Portal.
  
