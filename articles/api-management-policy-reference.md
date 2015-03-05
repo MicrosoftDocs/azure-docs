@@ -20,7 +20,7 @@
 
 This section provides an index for the policies in the [API Management policy reference][]. For information on adding and configuring policies, see [Policies in API Management][].
 
-## Policy reference
+## Policy reference index
 
 -	[Access restriction policies][]
 	-	[Check HTTP header][] - Enforces existence and/or value of a HTTP Header.
