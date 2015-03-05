@@ -20,7 +20,7 @@
 
 #<a name="howtomonitor"></a>How to Monitor Web apps
 
-[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+>[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
 Websites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a website as described below.
 

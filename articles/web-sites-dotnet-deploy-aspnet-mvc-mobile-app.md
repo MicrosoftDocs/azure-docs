@@ -20,7 +20,7 @@
 # Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Websites
 
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
-Web application that is mobile-friendly and deploy it into Windows Azure. For this tutorial, you need 
+Web application that is mobile-friendly and deploy it into Microsoft Azure. For this tutorial, you need 
 [Visual Studio Express 2013 for Web][Visual Studio Express 2013]
 or the professional edition of Visual Studio if you already
 have that.
@@ -44,7 +44,7 @@ application. 
 
 Here's what you'll learn:
 
--	How to use Visual Studio 2013 to publish your Web application directly to a Windows Azure Website.
+-	How to use Visual Studio 2013 to publish your Web application directly to an Azure Website.
 -   How the ASP.NET MVC 5 templates use the CSS Bootstrap framework to
     improve display on mobile devices
 -   How to create mobile-specific views to target specific mobile

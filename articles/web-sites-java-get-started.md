@@ -18,7 +18,7 @@
 
 # Get started with Azure web apps and Java
 
-[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+>[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
 
 This tutorial shows how to create a web app on Microsoft Azure using Java, using either the Azure application gallery, or the Azure website configuration UI. 
 

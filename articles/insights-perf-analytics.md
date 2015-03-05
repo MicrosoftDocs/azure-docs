@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to use end user analytics" 
-	description="End user analytics for Microsoft Azure websites." 
+	description="End user analytics for Azure web apps." 
 	services="application-insights" 
 	authors="alancameronwills" 
 	manager="kamrani"/>
@@ -14,9 +14,9 @@
 	ms.date="2015-01-09" 
 	ms.author="awills"/>
 
-# Performance analytics for Microsoft Azure websites
+# Performance analytics for Microsoft Azure App Service Web App
 
-After enabling the Azure WebSite extension (detailed steps below) you’ll be able to see statistics and details on your code's application dependencies.  These application dependencies are automatically discovered. 
+After enabling the Azure App Service extension (detailed steps below) you’ll be able to see statistics and details on your code's application dependencies.  These application dependencies are automatically discovered. 
 
 Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
@@ -39,15 +39,15 @@ Or if you're creating a new project, just make sure to check the Application Ins
 
 When you're asked to login, use the credentials for your Azure account.
 
-#### 2. Enable Application Insights in your Azure website
+#### 2. Enable Application Insights in your Azure web app
 
 Enable the Application Insights Extension on the Azure web site blade (not the Application Insight blade):
 
-![In your Azure website blade, click Extensions. In the Extensions blade, click Add, then Choose Extension, then Application Insights](./media/insights-perf-analytics/05-extend.png)
+![In your Azure web app blade, click Extensions. In the Extensions blade, click Add, then Choose Extension, then Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 *Can I automate this step?*
 
-Yes, there's a REST API for Azure websites. In PowerShell:
+Yes, there's a REST API for Azure web apps. In PowerShell:
 
     $extension = "https://<sitename>.scm.azurewebsites.net/api/siteextensions/Microsoft.ApplicationInsights.AzureWebSites"
     Invoke-RestMethod -Uri $extension -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method PUT -Verbose
@@ -56,7 +56,7 @@ Yes, there's a REST API for Azure websites. In PowerShell:
 
 ## Explore the data
 
-Use your website for a while to generate some data.
+Use your web app for a while to generate some data.
 
 Then refresh your Application Insights blade and scroll down to the performance lens.
 

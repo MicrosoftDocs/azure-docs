@@ -22,10 +22,6 @@ This topic contains links to resources for managing an Azure website. Management
 
 Over the lifetime of a site, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.
 
-- [Before you deploy your site to production]
-- [While your website is running]
-- [When you update your website]
-
 Many website management tasks can be performed in the Azure portal. For more information, see [Manage websites through the Azure Management Portal](http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage/).
 
 ## Before you deploy your site to production
