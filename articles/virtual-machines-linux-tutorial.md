@@ -16,11 +16,11 @@
 	ms.date="03/04/2015" 
 	ms.author="kathydav"/>
 
-#Create a Virtual Machine Running Linux 
+# Create a Virtual Machine Running Linux 
 
 Creating an Azure virtual machine (VM) that runs Linux is easy to do. This tutorial shows you how to use the Azure portal to create one quickly without installing any tools. You also can create VMs by using one of these tools:
 
-- [Azure Cross-Platform Command-Line Interface (xplat-cli)](../command-line-tools/)
+- [Azure Cross-Platform Command-Line Interface (xplat-cli)](../virtual-machines-command-line-tools/)
 - [Azure PowerShell](../powershell-install-configure/)
 - [Server Explorer in Visual Studio](https://msdn.microsoft.com/library/azure/dn569263.aspx)
 
@@ -39,11 +39,11 @@ This tutorial uses the **From Gallery** method to create a virtual machine becau
 
 > [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](./virtual-machines-linux-use-ssh-key/).
 
-##Next Steps 
+## Next Steps 
 
-To learn more about Linux on Azure, see the following articles:
+To learn more about Linux on Azure, see:
 
-- [Introduction to Linux on Azure](http://www.windowsazure.com/documentation/articles/introduction-linux/)
+- [Linux and Open-Source Computing on Azure](../virtual-machines-linux-opensource/)
 
 - [How to use the Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/documentation/articles/xplat-cli/)
 
@@ -51,9 +51,3 @@ To learn more about Linux on Azure, see the following articles:
 
 - [The Docker Virtual Machine Extension for Linux on Azure](../virtual-machines-docker-vm-extension/)
 
-
-[Next Steps]: #next
-[About virtual machines in Azure]: #virtualmachine
-[How to create the virtual machine]: #custommachine
-[How to log on to the virtual machine after you create it]: #logon
-[How to attach a data disk to the new virtual machine]: #attachdisk
