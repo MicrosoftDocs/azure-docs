@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
+	ms.date="03/04/2014" 
 	ms.author="cephalin"/>
 
 # Serve Content from Azure CDN in Your Web Application #
@@ -159,7 +159,7 @@ If you want to easily upload all of the static content in your ASP.NET Web appli
 
 	>[AZURE.NOTE] Once you import your publish settings file, it will be the default Azure account used for all Azure PowerShell sessions. This means that the above steps only need to be done once.
 	
-1. Download the script from the [download page]((http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Save it into your ASP.NET application's project folder.
+1. Download the script from the [download page](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Save it into your ASP.NET application's project folder.
 2. Right-click the downloaded script and click **Properties**.
 3. Click **Unblock**.
 4. Open a PowerShell window and run the following:

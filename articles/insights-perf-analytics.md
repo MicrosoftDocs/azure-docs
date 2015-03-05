@@ -2,6 +2,7 @@
 	pageTitle="How to use end user analytics" 
 	description="End user analytics for Azure web apps." 
 	services="application-insights" 
+	documentationCenter="" 
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="01/09/2015" 
 	ms.author="awills"/>
 
 # Performance analytics for Microsoft Azure App Service Web App

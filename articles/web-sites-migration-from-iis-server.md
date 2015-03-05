@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migrate your IIS Websites to Azure App Service using the Migration Assistant" 
 	description="Shows how to use Web App Migration Assistant to quickly migrate existing IIS websites to Azure App Service web apps" 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -9,7 +9,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
