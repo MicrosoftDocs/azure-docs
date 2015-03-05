@@ -77,7 +77,7 @@ As noted, customized scoring is implemented through scoring profiles defined in 
 
 This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
 
-[Try this example](http://azure.microsoft.com/documentation/articles/search-get-started-scoring-profiles/).
+[Try this example](../search-get-started-scoring-profiles/).
 
     {
       "name": "musicstoreindex",
