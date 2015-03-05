@@ -1,5 +1,5 @@
 1.	Sign in to the [Azure Preview portal](https://portal.azure.com/).
-2.	Click **New**, and then click **DocumentDB**.  
+2.	In the Jumpbar, click **New**, then select **Data + storage,** and then click **DocumentDB**. 
 
 	![Screen shot of the Azure Preview portal, highlighting the New button and DocumentDB in the New blade][1]   
 
