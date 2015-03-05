@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="03/23/2015" 
 	ms.author="larryf"/>
 
 [AZURE.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]

@@ -121,7 +121,7 @@ Here, you will publish the application to an Azure Website. There are already in
 
 6. Once the application is created, click **Configure**.
 7. Under **Keys**, create a new key by selecting **1 year** in the dropdown.
-8. Under **Permissions to other applications**, for the **Windows Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
+8. Under **Permissions to other applications**, for the **Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
 
 	> [AZURE.NOTE] The exact permissions you need here depends on the desired functionality of your application. Some permissions require the **Global Administrator** role to set, but the permissions required by this tutorial only requires the **User** role.
 
