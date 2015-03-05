@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk Rules - Overview, Creation and Management" 
    description="This topic covers the features of BizTalk Rules and provides instructions on its usage" 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="anuragdalmia" 
    manager="dwrede" 
@@ -95,12 +95,12 @@ You can effectively perform a test run of your policy before it is used in a pro
 ## Sample Scenario - Insurance Claims
 Let’s take a sample scenario and walk through it as we compose the Business Logic for the same.
 
-![Alt text](media\biztalk-rules-deploy-create-manage\InsuranceScenario.png)
+![Alt text][1]
 
 In a really simple Insurance Claims scenario, the Claimant submits his insurance claim (via any client like website, phone App, etc). This Claim Request gets sent to the business’s Claim Processing Unit and based on the result of the processing, the Claim can be either Approved, Rejected or sent along for further manual processing.
 The Claim Processing Unit in our scenario would be the one encompassing the Business logic for the system. Taking a closer look at this unit, we can see the following:
 
-![Alt text](media\biztalk-rules-deploy-create-manage\InsuranceBusinessLogic.png)
+![Alt text][2]
  
 Let us now use Business Rules to implement this business logic.
 
@@ -117,7 +117,7 @@ Business Admins are the ones who author a company’s business logic. They come 
 1.	Login to the Azure Portal and get to the home page. 
 2.	Click on New->Marketplace->API Apps->Biz Talk Rules->Create
  
-![Alt text](media\biztalk-rules-deploy-create-manage\RulesDocImg3.png)
+![Alt text][3]
 
 3.	In the new blade that opens, enter the following information:  
 	1. Name – give a name for your Rules API App
@@ -131,7 +131,7 @@ Business Admins are the ones who author a company’s business logic. They come 
 After creating a BizTalk Rules API App, the next step would be to create vocabularies. The expectation is that the developer is the more common persona to be doing this exercise. To do this follow the following steps:
 1.	Browse to the created API App by Browse->API Apps-><Your Rules API App>. This should get you to the Rules API App Dashboard similar to below:
  
-![Alt text](media\biztalk-rules-deploy-create-manage\RulesDocImg4.png)
+![Alt text][4]
 
 2.	Next Click on “Vocabulary definitions”. This would show you the Vocabulary Authoring Screen. Click on “Add” to begin adding new vocabulary definitions.
 There are 2 types of vocabulary definitions currently supported – Literal and XML.
@@ -221,5 +221,9 @@ The Rules API App can also be invoked using a rich set of APIs available. This w
 ## Editing Vocabulary and Policy
 One of the main advantages of using Business Rules is that changes to business logic can be pushed out to production a lot faster. Any change made to vocabulary and policies is immediately applied in production. User simply needs to browse to the respective vocabulary definition or policy and make the change to have it come into effect.
 
-	
+<!--Image references-->
+[1]: ./media/biztalk-rules-deploy-create-manage/InsuranceScenario.PNG	
+[2]: ./media/biztalk-rules-deploy-create-manage/InsuranceBusinessLogic.png
+[3]: ./media/biztalk-rules-deploy-create-manage/RulesDocImg3.png
+[4]: ./media/biztalk-rules-deploy-create-manage/RulesDocImg4.png
 

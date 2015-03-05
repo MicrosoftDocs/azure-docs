@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk B2B - Archive AS2 messages" 
    description="This topic covers archival of AS2 messages" 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 

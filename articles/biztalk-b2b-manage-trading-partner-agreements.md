@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk B2B - Trading Partner & Agreement Management" 
    description="This topic covers management of Trading Partners & Agreements" 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 

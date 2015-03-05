@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk B2B - Create B2B Business Process" 
    description="This topic covers creation of B2B Business Process" 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 

@@ -1,7 +1,7 @@
 <properties 
    pageTitle="BizTalk B2B - Creation of Trading Partner Agreements" 
    description="This topic covers creation of Trading Partner Agreements" 
-   services="biztalk-services" 
+   services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 
