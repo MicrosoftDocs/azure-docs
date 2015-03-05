@@ -32,7 +32,7 @@ This document contains a list of input and output file formats and codecs that a
 
 ##<a id="input_formats"></a>Media Encoder Premium Workflow Input Formats and Codecs
 
-The following section lists the codecs and file format that are supported for import.
+The following section lists the codecs and file formats that this media processor supports as input.
 
 ###Input Container/File Formats
 
@@ -54,7 +54,6 @@ The following section lists the codecs and file format that are supported for im
 - MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)
 - MPEG-1
 - Windows Media Video/VC-1
-- Canopus HQ/HQX
 
 ###Input Audio Codecs
 
@@ -69,6 +68,8 @@ The following section lists the codecs and file format that are supported for im
 - WAV/PCM
  
 ##<a id="output_format"></a>Media Encoder Premium Workflow Output Formats and Codecs
+
+The following section lists the codecs and file formats that are supported as output from this media processor.
 
 ###Output Container/File Formats
 

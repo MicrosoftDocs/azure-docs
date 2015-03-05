@@ -35,15 +35,15 @@ By default each Media Services account can have one active encoding task at a ti
 
 [Formats Supported by the Media Services Encoder](../media-services-azure-media-encoder-formats)  – Discusses the file and stream formats supported by **Azure Media Encoder**.
 
-**Azure Media Encoder** is configured using one of the encoder preset strings described [here](https://msdn.microsoft.com/library/azure/dn619392.aspx). You can also get the actual Azure Media Encoder preset files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD).
+**Azure Media Encoder** is configured using one of the encoder preset strings described [here](https://msdn.microsoft.com/en-us/library/azure/dn619392.aspx). You can also get the actual Azure Media Encoder preset files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-[Dynamic Packaging](https://msdn.microsoft.com/library/azure/jj889436.aspx) – Describes how to encode to adaptive bitrate MP4s and dynamically serve Smooth Streaming, Apple HLS, or MPEG-DASH.
+[Dynamic Packaging](https://msdn.microsoft.com/en-us/library/azure/jj889436.aspx) – Describes how to encode to adaptive bitrate MP4s and dynamically serve Smooth Streaming, Apple HLS, or MPEG-DASH.
 
-[Controlling Media Service Encoder Output Filenames](https://msdn.microsoft.com/library/azure/dn303341.aspx)– Describes the file naming convention used by Azure Media Encoder and how to modify the output file names.
+[Controlling Media Service Encoder Output Filenames](https://msdn.microsoft.com/en-us/library/azure/dn303341.aspx)– Describes the file naming convention used by Azure Media Encoder and how to modify the output file names.
 
 [Encoding your media with Dolby Digital Plus](../media-services-encode-with-dolby-digital-plus) – Describes how to encode audio tracks using Dolby Digital Plus encoding.
 
@@ -54,7 +54,9 @@ Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**,
 
 [Formats Supported by Media Encoder Premium Workflow](../media-services-premium-workflow-encoder-formats) – Discusses file formats and codecs supported by **Media Encoder Premium Workflow**.
 
-**Media Encoder Premium Workflow** is configured using complex workflows. Workflow files could be created using the [Workflow Designer](../media-services-workflow-designer) tool. You can also get the default worflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD).
+**Media Encoder Premium Workflow** is configured using complex workflows. Workflow files could be created using the [Workflow Designer](../media-services-workflow-designer) tool. 
+
+You can get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). The folder also contains the description of these files.
 
 Encode with **Media Encoder Premium Workflow** using **.NET**. For more information, see [Advanced encoding with Media Encoder Premium Workflow](../media-services-encode-with-premium-workflow).
  
@@ -115,10 +117,10 @@ This section compares the encoding capabilities of **Azure Media Encoder** and *
 <tr><td>Adobe® Flash® F4V</td><td>Yes</td><td>No</td></tr>
 <tr><td>MXF (OP1a, XDCAM and AS02)</td><td>Yes</td><td>No</td></tr>
 <tr><td>DPP (including AS11)</td><td>Yes</td><td>No</td></tr>
-<tr><td>GXF</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>GXF</td><td>Yes</td><td>No</td></tr>
 <tr><td>MPEG-4/MP4</td><td>Yes</td><td>Yes</td></tr>
 <tr><td>Windows Media/ASF</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>AVI (Uncompressed 8bit/10bit)</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>AVI (Uncompressed 8bit/10bit)</td><td>Yes</td><td>No</td></tr>
 <tr><td>Smooth Streaming File Format (PIFF 1.3)</td><td>Yes</td><td>Yes</td></tr>
 </table>
 
@@ -130,7 +132,7 @@ This section compares the encoding capabilities of **Azure Media Encoder** and *
 <tr><td>Avid DNxHD (in MXF)</td><td>Yes</td><td>No</td></tr>
 <tr><td>DVCPro/DVCProHD (in MXF)</td><td>Yes</td><td>No</td></tr>
 <tr><td>MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)</td><td>Yes</td><td>No</td></tr>
-<tr><td>MPEG-1</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>MPEG-1</td><td>Yes</td><td>No</td></tr>
 <tr><td>Windows Media Video/VC-1</td><td>Yes</td><td>Yes</td></tr>
 <tr><td>JPEG thumbnail creation</td><td>Yes</td><td>Yes</td></tr>
 </table>
@@ -149,6 +151,6 @@ This section compares the encoding capabilities of **Azure Media Encoder** and *
 </table>
 ##Related articles
 
-- [Introducing Premium Encoding in Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=528397)
-- [How to Use Premium Encoding in Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=528399)
+- [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/how-to-use-premium-encoding-in-azure-media-services)
 - [Quotas and Limitations](../media-services-quotas-and-limitations)
