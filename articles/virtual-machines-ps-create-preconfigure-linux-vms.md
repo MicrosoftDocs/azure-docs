@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines
@@ -79,10 +79,11 @@ For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virt
 
 Specify the initial Linux user name and password (required). Choose a strong password. To check its strength, see [Password Checker: Using Strong Passwords](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
-	$linuxacctcred=Get-Credential -Message "Specify the name and password of the Linux account"	
-	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $linuxacctcred.UserName -Password $linuxacctcred.Password
+	$username="<user account name>"
+	$pass="<user account password>"
+	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
-You will need to type the Linux account name and password when these commands run.
+If you are saving the resulting command set in a file, store it in a secure location to protect the account name and password.
 
 Optionally, specify a set of SSH key pairs that are already deployed in the subscription.
 
@@ -187,8 +188,9 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$linuxacctcred=Get-Credential -Message "Specify the name and password of the Linux account"	
-	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $linuxacctcred.UserName -Password $linuxacctcred.Password	
+	$username="Admin397A"
+	$pass="3A#q291{Y"
+	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
 
@@ -224,9 +226,9 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-
-	$linuxacctcred=Get-Credential -Message "Specify the name and password of the Linux account"	
-	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $linuxacctcred.UserName -Password $linuxacctcred.Password	
+	$username="Admin261Z"
+	$pass="9Z2:3Wqp1~"
+	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
 
