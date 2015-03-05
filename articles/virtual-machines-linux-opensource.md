@@ -44,11 +44,11 @@ The sections are broken down on the right of this page. (Links may occur in more
 
 ## Distros
 
-There are tons of Linux distributions, usually broken down by the package management systems: Some are dpgk-based, like Debian and Ubuntu, and others are rpm-based, like CentOS, SUSE, and RedHat. Some companies provide distro images as formal partners of Microsoft and are endorsed. Others are provided by the community. The distros in this section have formal articles about them, even if they were only used in examples of other technologies.
+There are tons of Linux distributions, usually broken down by the package management systems: Some are dpkg-based, like Debian and Ubuntu, and others are rpm-based, like CentOS, SUSE, and RedHat. Some companies provide distro images as formal partners of Microsoft and are endorsed. Others are provided by the community. The distros in this section have formal articles about them, even if they were only used in examples of other technologies.
 
 ### [Ubuntu](http://azure.microsoft.com/marketplace/partners/Canonical/)
 
-Ubuntu is a very popular and Azure-endorsed Linux distribution based on dkpg and apt-get package management.
+Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and apt-get package management.
 
 1. [How to: Upload your own Ubuntu Image](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-ubuntu/)
 2. [How to: Ubuntu LAMP Stack](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-install-lamp-stack/)
@@ -64,7 +64,7 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dkpg and
 
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
 
-Debian is an important distribution for the Linux and open-source world based on dpgk and apt-get package management. The MSOpenTech VM Depot has several images to use.
+Debian is an important distribution for the Linux and open-source world based on dpkg and apt-get package management. The MSOpenTech VM Depot has several images to use.
 
 ### CentOS
 
