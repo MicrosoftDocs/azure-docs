@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="2/24/2015"
+	ms.date="03/05/2015"
 	ms.author="donnam"/>
 
 # Build an app with a mobile and web client
@@ -54,7 +54,7 @@ In this section you will create a mobile client that is connected to your mobile
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Create a TodoList website
+## Create a TodoList web app
 
 In this section, you will create a new Web App using a sample application. You will modify the sample to use the same database schema name and the same connection string as the mobile app.
 
@@ -74,7 +74,7 @@ In this section, you will create a new Web App using a sample application. You w
 	
 	- Under **Connection Strings** click **Show Connection Strings**. Copy the value for the setting **MS_TableConnectionString**. This is the connection string used by your mobile app to connect to the SQL Database.
 
-5. In Visual Studio, right click the Web App and select publish. Select Azure Websites as the publish target, and select the Web App you created above. Click **Next** until you get to the **Settings** section of the Publish Web wizard.
+5. In Visual Studio, right click the Web App and select publish. Select Azure web apps as the publish target, and select the Web App you created above. Click **Next** until you get to the **Settings** section of the Publish Web wizard.
 
 6. In the **Databases** section, paste the mobile app connection string as the value for **MultiChannelToDoContext**. Select just the checkbox **Use this connection string at runtime**.
 
@@ -91,7 +91,7 @@ If you created a Windows client, follow the steps below.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-app-preview](../includes/app-service-mobile-windows-universal-test-app-preview.md)]
 
-## Test the website against the hosted web app backed
+## Test the web app against the backend
 
 Open a web browser and connect to your web app backend. You can change todo items and you will see the same items reflected in the mobile app.
 
