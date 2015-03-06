@@ -139,7 +139,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
 			  }
    
 
-4. **Recommended: Back up the indexed data from Solr to Azure Storage Blob (WASB) associated with the HDInsight cluster**. As a good practice, you should back up the indexed data from the Solr cluster nodes onto WASB. Perform the following steps to do so:
+4. **Recommended: Back up the indexed data from Solr to Azure Blob storage associated with the HDInsight cluster**. As a good practice, you should back up the indexed data from the Solr cluster nodes onto Azure Blob storage. Perform the following steps to do so:
 
 	1. From the RDP session, open Internet Explorer, and point to the following URL:
 
@@ -158,11 +158,11 @@ You must start with indexing Solr with some data files. You can then use Solr to
 
 	2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
 	
-	3. Zip the snapshot folder and upload it to WASB. From the Hadoop command line, navigate to the location of the snapshot folder by using the following command:
+	3. Zip the snapshot folder and upload it to Azure Blob storage. From the Hadoop command line, navigate to the location of the snapshot folder by using the following command:
 
 			  hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
 
-		This command copies the snapshot to /example/data/ under the container within the default storage account associated with the cluster.
+		This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
 
 ## <a name="usingPS"></a>Install Solr on HDInsight Hadoop clusters by using Azure PowerShell
 
@@ -175,10 +175,10 @@ Perform the following steps:
 		# PROVIDE VALUES FOR THESE VARIABLES
 		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
 		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
-		$storageAccountName = "<StorageAccountName>"	# Azure storage account that hosts the default container
-		$storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
+		$storageAccountName = "<StorageAccountName>"	# Azure Storage account that hosts the default container
+		$storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
 		$containerName = $clusterName
-		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
+		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the Storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
 		$version = "<HDInsightClusterVersion>"          # For example, "3.1"
 	
