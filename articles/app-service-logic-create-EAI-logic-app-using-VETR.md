@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="BizTalk XML Services - Validate, Encode, Transform" 
+   pageTitle="Create EAI Logic App using VETR" 
    description="This topic covers the features of BizTalk XML services and details the Validate, Encode and Transform features." 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="biztalk-services"
+   ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -16,7 +16,8 @@
    ms.date="03/05/2015"
    ms.author="rajram"/>
 
-##XML services
+##Create EAI Logic App using VETR
+
 ###Mediating data between two data sources
 Most Enterprise Application Integration (EAI) scenarios include mediating data between different sources. For example, most enterprises have a need to sync the data between their CRM system (e.g. salesforce) and ERP system (e.g. SAP).
 There is a common set of needs for these mediation scenarios. Some of them include
