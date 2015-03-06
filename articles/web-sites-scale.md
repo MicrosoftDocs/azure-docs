@@ -20,7 +20,7 @@
 
 For increased performance and throughput for your web apps on Microsoft Azure, you can use the Azure Management Portal to scale your App Service hosting plan from Free mode to Shared, Basic, or Standard mode. 
 
-Scaling up on Azure Web apps involves two related actions: changing your hosting plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
+Scaling up on Azure web apps involves two related actions: changing your hosting plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
 
 Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web apps in your hosting plan. They do not require your code to be changed or your applications to be redeployed.
 
@@ -54,7 +54,7 @@ For information about hosting plans, see [What is an App Service Hosting Plan?](
 ## Scaling to Standard hosting plan mode
 <!-- ================================= -->
 
-> [AZURE.NOTE] Before switching a hosting plan to **Standard** mode, you should remove spending caps in place for your Microsoft Azure App Service subscription. Otherwise, you risk your site becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Before switching a hosting plan to **Standard** mode, you should remove spending caps in place for your Microsoft Azure App Service subscription. Otherwise, you risk your web app becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 1. To scale to **Standard** mode, follow the same initial steps as when scaling to **Shared** or **Basic**, and then choose a **Standard** mode in **Choose your pricing tier**, then click **Select**. 
 	
