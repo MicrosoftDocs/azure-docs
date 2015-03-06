@@ -39,7 +39,7 @@ This tutorial builds upon the series from the Azure API App Tutorials:
 
 In the Portal, Select the API App. Click on the Settings button in the command bar. Under the Basic Settings Blade, change the Access Level to Public (anonymous).
 
-![](./media/web-app-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
+![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
 ## Create an ASP.NET MVC Application in Visual Studio
 
