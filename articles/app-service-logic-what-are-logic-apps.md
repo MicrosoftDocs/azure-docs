@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn about flow apps" 
+	pageTitle="What are Logic Apps?" 
 	description="Learn about flow apps" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -19,8 +19,11 @@
 	ms.author="stepsic"/>
 
 
+##What are Logic Apps?
 
-# Connectivity across SaaS and Enterprise
+###This documentation is coming soon.
+
+<!--
 
 Integrate a single application that uses any number of connector to public SaaS services or your own custom backed. There are already 40 + connectors published by Microsoft, from Facebook and Twitter to SQL to AS2 and EDIFACT. You don't need to know how the Facebook API works, because the connectors describe exactly what they need to be used, from what Authentication needs to be provided to the set of actions and parameters they support. 
 
@@ -43,3 +46,5 @@ You can get started in just minutes by connecting one or more services. We suppo
 #Extensibility and eco-system 
 
 The foundation of API apps for building the individual pieces means that both additional connectivity and functionality pieces for data processing can be developed by anyone and deployed to the platform for use in an end to end business process. These pieces could be developed by both third party developers and made available in a marketplace, or by enterprises to suit their own specific needs. There will be hundreds of third-party connectors and services to extend the platform.
+
+-->
