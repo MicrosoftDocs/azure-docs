@@ -10,7 +10,7 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="02/23/2015" 
@@ -20,7 +20,7 @@
 
 <!-- [AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)] -->
 
-This tutorial covers the offline sync feature of Mobile Apps for iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
+This tutorial covers the offline sync feature of Mobile Apps for iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
 
 Offline sync has several potential uses:
 
@@ -29,7 +29,7 @@ Offline sync has several potential uses:
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
-If this is your first experience with Mobile Apps, consider first completing the tutorial [Get Started with Mobile Apps].
+If this is your first experience with Mobile Apps, first complete the tutorial [Create an iOS App].
 
 ## <a name="get-app"></a>Get the sample offline ToDo app
 
@@ -44,7 +44,7 @@ Mobile App offline sync allows end users to interact with a local database when 
 
 This section walks through the offline sync-related code in the sample.
 
-1. In **QSTodoService.m**, notice the type of the member `syncTable` is `MSSyncTable`. Offline sync uses this sync table interface instead of `MSTable`. When a sync table is used, all operations go to the local store and are only synchronized with the remote service with explicit push and pull operations.
+1. In **QSTodoService.m**, notice the type of the member `syncTable` is `MSSyncTable`. Offline sync uses this sync table interface instead of `MSTable`. When a sync table is used, all operations go to the local store and are only synchronized with the remote backend with explicit push and pull operations.
 
     To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
 
@@ -60,7 +60,7 @@ This section walks through the offline sync-related code in the sample.
 
 <!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote service.
+4. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -115,7 +115,7 @@ When using the Core Data offline store, you need to define particular tables and
       * MS_TableConfig: For tracking the last updated time for the last sync operation for all pull operations
       * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, and **ms_version** are optional system properties. 
 
->[AZURE.NOTE] The Mobile App SDK reserves column names that being with "**`ms_`**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote service.
+>[AZURE.NOTE] The Mobile App SDK reserves column names that being with "**`ms_`**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote backend.
 
 - When using the offline sync feature, you must define the system tables as shown below.
 
@@ -193,7 +193,7 @@ In this section, you will modify the app so that it does not sync on app start, 
 
 ## <a name="test-app"></a>Test the app
 
-In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile service.
+In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile backend.
 
 1. Turn off Wi-Fi in the iOS simulator.
 
@@ -244,11 +244,7 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 
 <!-- URLs. -->
 
-[Get the sample app]: #get-app
-[Review the Core Data model]: #review-core-data
-[Review the Mobile Services sync code]: #review-sync
-[Change the sync behavior of the app]: #setup-sync
-[Test the app]: #test-app
+[Create an iOS App]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-get-started
 
 [core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
 [core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
