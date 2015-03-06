@@ -38,7 +38,7 @@ In this document, you will learn how to use the HDInsight Tools for Visual Studi
 
 ##Completed project
 
-You can download a complete version of the project created in this article at [https://github.com/Blackmist/hdinsight-storm-examples/tree/csharpeventhub/CSharpEventHub](https://github.com/Blackmist/hdinsight-storm-examples/tree/csharpeventhub/CSharpEventHub); however, you will still need to provide configuration settings by following the steps in this document.
+You can download a complete version of the project created in this article at [https://github.com/Blackmist/eventhub-storm-hybrid/blob/master/README.md](https://github.com/Blackmist/eventhub-storm-hybrid/blob/master/README.md); however, you will still need to provide configuration settings by following the steps in this document.
 
 > [AZURE.NOTE] When using the completed project, you must use the **NuGet Package Manager** to restore packages required by this solution.
 
