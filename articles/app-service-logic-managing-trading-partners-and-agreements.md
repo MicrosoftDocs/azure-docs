@@ -18,6 +18,9 @@
    
 # Managing Trading Partners and Agreements
 
+##This documentation is coming soon.
+
+<!--
 These API Apps surface the following management capabilities:  
 
 1. BizTalk Trading Partner Management
@@ -32,3 +35,4 @@ These API Apps surface the following management capabilities:
 3. BizTalk X12
 	1. State management of Batches (start and stop) in X12 Agreements via the 'Batching' part
 
+-->
