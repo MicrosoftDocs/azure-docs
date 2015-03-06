@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/19/2015" 
+	ms.date="02/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Create an Azure API App
