@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang=""
 	ms.topic="hero-article"
-	ms.date="2/20/2015"
+	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>Mobile Apps in Azure App Service
