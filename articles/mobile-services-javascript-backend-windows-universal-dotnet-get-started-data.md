@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="03/06/2015" 
 	ms.author="glenga"/>
 
 # Add Mobile Services to an existing app
@@ -69,11 +69,6 @@ At this point, both the Windows Store and Windows Phone Store apps are connected
 ##<a name="add-table"></a>Add a new table to the mobile service
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
-
-<<<<<<< HEAD
->[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
-=======
->>>>>>> 1dc830a16302e6b943a5d55ebacef659451b22d6
 
 #<a name="update-app"></a>Update the app to use the mobile service
 
