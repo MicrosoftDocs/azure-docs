@@ -12,9 +12,9 @@
 <tags
 	ms.service="app-service-logic"
 	ms.workload="web"
-	ms.tgt_pltfrm=""
-	ms.devlang=""
-	ms.topic=""
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="2/24/2015"
 	ms.author="stepsic"/>
 
