@@ -255,7 +255,7 @@ The changes in 3.0.0.1 and 3.0.0.2 include:
 
 * Fixed issues related to usage of LINQ queries with OrderBy statements.
 
-* Split test solutions in [Github] into Unit-based tests and Scenario-based tests.
+* Split test solutions in [GitHub] into Unit-based tests and Scenario-based tests.
 
 For more details about the changes, see: [Azure Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases].
 
@@ -272,7 +272,7 @@ The following changes were made in 3.0.0.3:
 
 >[AZURE.NOTE] 3.0.x.x releases are not backward compatible with 2.4.x.x releases.
 
-The latest version of the Media Services SDK is now 3.0.0.0. You can download the latest package from Nuget or get the bits from [Github].
+The latest version of the Media Services SDK is now 3.0.0.0. You can download the latest package from Nuget or get the bits from [GitHub].
 
 Starting with the Media Services SDK version 3.0.0.0, you can reuse the [Azure Active Directory Access Control Service (ACS)] tokens. For more information, see the “Reusing Access Control Service Tokens” section in the [Connecting to Media Services with the Media Services SDK for .NET] topic.
 
@@ -481,6 +481,6 @@ The following functionality was new in the November release of the SDK.
 [Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK Extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
-[Github]: https://github.com/Azure/azure-sdk-for-media-services
+[GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Managing Media Services Assets across Multiple Storage Accounts]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Handling Media Services Job Notifications]: http://msdn.microsoft.com/library/azure/dn261241.aspx
