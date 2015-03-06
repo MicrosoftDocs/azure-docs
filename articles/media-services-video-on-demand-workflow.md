@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="03/05/2015" 
 	ms.author="juliako"/>
 
 
@@ -82,7 +82,15 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 ###Encoding 
 
-See [Encoding with Azure Media Services](../media-services-encode-asset).
+An overview: [Encoding On-Demand Content with Azure Media Services](../media-services-encode-asset).
+
+Encode with **Media Encoder Premium Workflow** using **.NET**. 
+
+[Advanced encoding with Media Encoder Premium Workflow](../media-services-encode-with-premium-workflow).
+
+Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
 ##Configure content key authorization policy 
 
