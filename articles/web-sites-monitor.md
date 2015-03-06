@@ -49,19 +49,19 @@ Web apps can be configured to run in either **Shared** or **Standard** mode from
 To determine the extent that a web app is impacting resource usage quotas, follow these steps:
 
 1. Open the web app's **Dashboard** management page.
-2. Under the **usage overview** section the usage quotas for your respective hosting plan are displayed, which is a subset of the following:
+2. Under the **usage overview** section the usage quotas for your respective App Service plan are displayed, which is a subset of the following:
 	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
-	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to a hosting plan with a higher quota.
+	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
 	-	**Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.   
 
-	Some quotas can be applied per hosting plan, while others can be applied per site. For detailed information on usage quotas for each hosting plan, see [Web app limits](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Some quotas can be applied per App Service plan, while others can be applied per site. For detailed information on usage quotas for each App Service plan, see [Web app limits](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
 ##<a name="resourceusage"></a>How to: Avoid exceeding your quotas
 
 Quotas are not a matter of performance or cost, but it's the way Azure governs resource usage in a multitenant environment by preventing tenants from overusing shared resources. Since exceeding your quotas means downtime or reduced functionality for your web app, consider the following if you want to keep your site running when quotas are about to be reached:
 
-- Move your web app(s) to a higher-tier hosting plan to take advantage of a larger quota. For example, the only quota for **Basic** and **Standard** plans is File System Storage. 
+- Move your web app(s) to a higher-tier App Service plan to take advantage of a larger quota. For example, the only quota for **Basic** and **Standard** plans is File System Storage. 
 - As the number of instances of a web app is increased, so is the likelihood of exceeding shared resource quotas. If appropriate, consider scaling back additional instances of a web app when shared resource quotas are being exceeded.
 
 
