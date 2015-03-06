@@ -1,13 +1,11 @@
 <properties 
-	pageTitle="Create a flow app" 
-	description="Create a flow app" 
+	pageTitle="Create a Logic App" 
+	description="Create a Logic App" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service" 
 	documentationCenter=""/>
-
-
 
 <tags
 	ms.service="app-service"
@@ -18,7 +16,7 @@
 	ms.date="2/24/2015"
 	ms.author="stepsic"/>
 
-# Create a flow app
+##Create a Logic App
 You can get started with flow apps in just a few minutes. In this scenario, I’ll walk you through how you can get tweets that you’re interested in delivered right to your inbox.
 
 To use this scenario you will need:
