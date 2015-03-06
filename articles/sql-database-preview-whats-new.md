@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="What's new in Azure SQL Database" 
+	pageTitle="What's new in SQL Database V12" 
 	description="Describes the latest enhancements to Azure SQL Database that were added in December 2014 or later." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/05/2015" 
 	ms.author="genemi"/>
 
 
-# What's new in Azure SQL Database
+# What's new in SQL Database V12
 
 
 <!--
-GeneMi , 2015-March-04 Wednesday 09:22am
-Remove the word 'preview', is making customers wary for no good reason.
+GeneMi , 2015-March-05 Thursday 20:06pm
+Remove 'Azure' from topic title, append 'V12' (per J.G.).
 -->
 
 
@@ -33,7 +33,7 @@ Version V12 of Azure SQL Database was promoted to General Availability (GA) in J
 A couple of geographic regions are still at preview status and are not yet at GA. Find your region on the [GA-per-region table](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable). Until your region is at GA, V12 is best suited to test databases rather than production databases.
 
 
-**[Sign up](https://portal.azure.com) Azure SQL Database to take advantage of this new generation on Microsoft Azure. You first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information.**
+**[Sign up](https://portal.azure.com) for SQL Database to take advantage of this new generation on Microsoft Azure. You first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information.**
 
 
 Your path to planning and upgrading your V11 databases to V12 starts at [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
