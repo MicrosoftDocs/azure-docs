@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Get Started with the Azure WebJobs SDK" 
 	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
-	services="web-sites, storage" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2014" 
+	ms.date="03/05/2015" 
 	ms.author="tdykstra"/>
 
 # Get Started with the Azure WebJobs SDK
@@ -59,7 +59,7 @@ The tutorial shows how to do the following tasks:
 
 The sample application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a backend process. 
 
-The app stores ads in a SQL database, using Entity Framework Code First to create the tables and access the data. For each ad the database stores two URLs, one for the full-size image and one for the thumbnail.
+The app stores ads in a SQL database, using Entity Framework Code First to create the tables and access the data. For each ad, the database stores two URLs: one for the full-size image and one for the thumbnail.
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
@@ -69,7 +69,7 @@ When a user uploads an image, the frontend of the web app stores the image in an
 
 ### Alternative architecture
 
-WebJobs run in the context of a web app and are not scalable separately. For example, if you have one Standard web app instance, you only have 1 instance of your background process running, and it is using some of the server resources (CPU, memory, etc.) that otherwise would be available to serve web content. 
+WebJobs run in the context of a web app and are not scalable separately. For example, if you have one Standard web app instance, you have only one instance of your background process running, and it is using some of the server resources (CPU, memory, etc.) that otherwise would be available to serve web content. 
 
 If traffic varies by time of day or day of week, and if the backend processing you need to do can wait, you could schedule your WebJobs to run at low-traffic times. If the load is still too high for that solution, you can consider alternative environments for your backend program, such as the following:
 
@@ -80,7 +80,7 @@ This tutorial shows how to run the frontend in a web app and the backend as a We
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
-The tutorial instructions have been written using [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510328). The only difference for Visual Studio 2013 Update 3 is in the create-from-scratch section where you create the WebJob project: with Update 4 the WebJobs SDK packages are automatically included in the project; without Update 4 you have to install the packages manually.
+The tutorial instructions apply to Azure SDK for .NET 2.5.1 or later. In the create-from-scratch section where you create the WebJob project, the WebJobs SDK packages are automatically included in the project; with earlier versions of the SDK you have to install the packages manually.
 
 ## <a id="storage"></a>Create an Azure Storage account
 
@@ -92,13 +92,13 @@ In a real-world application, you typically create separate accounts for applicat
 
 2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure**.
 
-![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+	![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Sign in using your Azure credentials.
 
 5. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
 
-![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+	![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. In the **Create Storage Account** dialog, enter a name for the storage account. 
 
@@ -108,7 +108,7 @@ In a real-world application, you typically create separate accounts for applicat
 
 5. Set the **Region or Affinity Group** drop-down list to the region closest to you.
 
-	This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) datacenter should be as close as possible to the browsers accessing the web app in order to minimize latency.
+	This setting specifies which Azure datacenter will host your storage account. For this tutorial, your choice won't make a noticeable difference. However, for a production web app, you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) datacenter should be as close as possible to the browsers accessing the web app in order to minimize latency.
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
@@ -147,7 +147,7 @@ In a real-world application, you typically create separate accounts for applicat
 	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
 	&lt;/connectionStrings&gt;</pre>
 
-	The storage connection string is named AzureWebJobsStorage because that's the name the WebJobs SDK uses by default. The same name is used here so you only have to set one connection string value in the Azure environment.
+	The storage connection string is named AzureWebJobsStorage because that's the name the WebJobs SDK uses by default. The same name is used here so you have to set only one connection string value in the Azure environment.
  
 2. In **Server Explorer**, right-click your storage account under the **Storage** node, and then click **Properties**.
 
@@ -238,11 +238,9 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
 
-2. In the **Select existing web app** box, click **Sign In**.
- 
-	![Click Sign In](./media/websites-dotnet-webjobs-sdk-get-started/signin.png)	
+2. In the **Select existing web app** box, click **Sign In** and enter your credentials if you're not already signed in.
 
-5. After you're signed in, click New.
+5. After you're signed in, click **New**.
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
@@ -312,7 +310,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 9. Change the name of the DefaultConnection connection string to ContosoAdsContext.
 
-	Azure automatically created this connection string when you created the web app with an associated database, so it already has the right connection string value. You're just changing the name to what your code is looking for.
+	Azure automatically created this connection string when you created the web app with an associated database, so it already has the right connection string value. You're changing just the name to what your code is looking for.
 
 9. Add two new connection strings, named AzureWebJobsStorage and AzureWebJobsDashboard. Set type to Custom, and set the connection string value to the same value that you used earlier for the *Web.config* and *App.config* files. (Make sure you include the entire connection string, not just the access key, and don't include the quotation marks.)
 
@@ -595,7 +593,7 @@ The code gets access to the storage account by using the storage connection stri
 		var storageAccount = CloudStorageAccount.Parse
 		    (ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ToString());
 
-Then it gets a reference to the *images* blob container, creates the container if it doesn't already exist, and sets access permissions on the new container. By default new containers only allow clients with storage account credentials to access blobs. The web app needs the blobs to be public so that it can display images using URLs that point to the image blobs.
+Then it gets a reference to the *images* blob container, creates the container if it doesn't already exist, and sets access permissions on the new container. By default new containers allow only clients with storage account credentials to access blobs. The web app needs the blobs to be public so that it can display images using URLs that point to the image blobs.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");

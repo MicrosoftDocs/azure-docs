@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -20,7 +20,7 @@
 
 ## Overview
 
-Azure provides built-in diagnostics to assist with debugging an application hosted in an Azure web app. In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+Azure provides built-in diagnostics to assist with debugging a web app hosted in an Azure App Service. In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
 > [AZURE.NOTE] This article uses the Azure Management Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
 

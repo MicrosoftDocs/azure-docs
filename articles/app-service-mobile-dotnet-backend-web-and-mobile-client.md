@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Build an app with a mobile and web client"
 	description="Build a multi-channel app with both a website and mobile client"
-	services="app-service-mobile"
+	services="app-service-web"
 	documentationCenter=".net" 
 	authors="lindydonna"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
+	ms.service="app-service-web"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website" 
-	description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." 
+	pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to Azure App Service Web App" 
+	description="Learn how to develop an ASP.NET MVC 5 app with a SQL Database back-end deploy it to Azure." 
 	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
@@ -9,7 +9,7 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-apps" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -19,7 +19,7 @@
 
 
 
-# Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Web App
+# Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to Web App in Azure App Service
 
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Azure.
 
@@ -29,7 +29,7 @@ This tutorial assumes that you have no prior experience using Azure. On completi
 
 You'll learn:
 
-* How to create a secure ASP.NET MVC 5 project and publish it to an Azure web app.
+* How to create a secure ASP.NET MVC 5 project and publish it to Web App.
 * How to use [OAuth](http://oauth.net/ "http://oauth.net/") and the ASP.NET membership database to secure your application.
 * How to use a SQL database to store data in Azure.
 
@@ -37,7 +37,7 @@ You'll build a simple contact list web app that is built on ASP.NET MVC 5 and us
 
 ![login page][rxb]
 
->[AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. If you want to get started with Azure web apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter web app for free. No credit card required, no commitments.
+>[AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. If you want to get started with Web App before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter web app for free. No credit card required, no commitments.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
@@ -66,11 +66,11 @@ To use the new SSL certificate for localhost, you will need to install [Visual S
 1. The configuration wizard will suggest a unique name based on *ContactManager* (see the image below). Select a region near you. You can use [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") to find the lowest latency data center. 
 2. If you haven't created a database server before, select **Create new server**, enter a database user name and password.
 
-	![Configure Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
+	![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
 
 If you have a database server, use that to create a new database. Database servers are a precious resource, and you generally want to create multiple databases on the same server for testing and development rather than creating a database server per database. Make sure your web app and database are in the same region.
 
-![Configure Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
+![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
 
 ### Set the page header and footer
 
@@ -454,7 +454,7 @@ In this section you will temporarily modify the **ExternalLoginConfirmation** me
 	      }
 	</pre>
 
-Later in the tutorial you will deploy the application to Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. Anyone who finds your site's URL and has a Google ID can then register and update your database. To prevent other people from doing that, you can stop the site. You'll be able to verify who is in the *canEdit* role by examining the database.
+Later in the tutorial you will deploy the application to Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. Anyone who finds your web app's URL and has a Google ID can then register and update your database. To prevent other people from doing that, you can stop the site. You'll be able to verify who is in the *canEdit* role by examining the database.
 
 In the **Package Manager Console** hit the up arrow key to bring up the following command:
 

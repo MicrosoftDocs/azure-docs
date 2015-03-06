@@ -8,12 +8,12 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/23/2015" 
 	ms.author="cephalin"/>
 
 
@@ -36,7 +36,7 @@ Azure web apps provide monitoring functionality via the Monitor management page.
 
 6. To remove metrics from the **Monitor** page, select the metric that you want to remove and then click the **Delete Metric** icon at the bottom of the page.
 
-##<a name="howtoreceivealerts"></a>How to: Receive alerts from webapp metrics
+##<a name="howtoreceivealerts"></a>How to: Receive alerts from web app metrics
 In **Standard** web app mode, you can receive alerts based on your web app monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
 
 ##<a name="howtoviewusage"></a>How to: View usage quotas for a web app
@@ -49,19 +49,19 @@ Web apps can be configured to run in either **Shared** or **Standard** mode from
 To determine the extent that a web app is impacting resource usage quotas, follow these steps:
 
 1. Open the web app's **Dashboard** management page.
-2. Under the **usage overview** section the usage quotas for your respective Web hosting plan are displayed, which is a subset of the following:
+2. Under the **usage overview** section the usage quotas for your respective App Service plan are displayed, which is a subset of the following:
 	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
-	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to a hosting plan with a higher quota.
+	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
 	-	**Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.   
 
-	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Web app limits](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Some quotas can be applied per App Service plan, while others can be applied per site. For detailed information on usage quotas for each App Service plan, see [Web app limits](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
 ##<a name="resourceusage"></a>How to: Avoid exceeding your quotas
 
 Quotas are not a matter of performance or cost, but it's the way Azure governs resource usage in a multitenant environment by preventing tenants from overusing shared resources. Since exceeding your quotas means downtime or reduced functionality for your web app, consider the following if you want to keep your site running when quotas are about to be reached:
 
-- Move your web app(s) to a higher-tier Web hosting plan to take advantage of a larger quota. For example, the only quota for **Basic** and **Standard** plans is File System Storage. 
+- Move your web app(s) to a higher-tier App Service plan to take advantage of a larger quota. For example, the only quota for **Basic** and **Standard** plans is File System Storage. 
 - As the number of instances of a web app is increased, so is the likelihood of exceeding shared resource quotas. If appropriate, consider scaling back additional instances of a web app when shared resource quotas are being exceeded.
 
 
@@ -269,9 +269,9 @@ After you configure endpoint monitoring, you can drill down into the individual 
 
 For more on web app endpoint monitoring, see the following videos:
 
-- [Scott Guthrie introduces Azure Web Apps and sets up Endpoint Monitoring](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie introduces App Service Web App and sets up Endpoint Monitoring](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Keeping Azure Web Apps up plus Endpoint Monitoring - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Keeping Web App up plus Endpoint Monitoring - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 
