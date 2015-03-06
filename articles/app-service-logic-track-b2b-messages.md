@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Tracking B2B messages" 
+   pageTitle="Track B2B messages" 
    description="This topic covers tracking of B2B processing" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
