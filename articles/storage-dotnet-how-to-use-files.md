@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/05/2015" 
 	ms.author="tamram"/>
 
 # How to use Azure File storage
@@ -83,6 +83,8 @@ Azure File storage is currently in preview. To request access to the preview, na
 
 ## Use PowerShell to create a file share
 
+Next, we'll use Azure PowerShell to create a file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1. 
+
 ### Install the PowerShell cmdlets for Azure Storage
 
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
@@ -128,9 +130,9 @@ To see the file in the directory, you can list the directory's files. This comma
     # list files in the new directory
     Get-AzureStorageFile -Share $s -Path sampledir
 
-## Mount the share from an Azure virtual machine
+## Mount the share from an Azure virtual machine running Windows
 
-To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine, and remote into it to mount the share. 
+To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine running Windows, and remote into it to mount the share. 
 
 1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-windows-tutorial/).
 2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-log-on-windows-server/).
@@ -237,6 +239,12 @@ Next, add the following code to the `Main()` method, after the code shown above 
     }
 
 Run the console application to see the output.
+
+## Mount the share from an Azure virtual machine running Linux
+
+When you create an Azure virtual machine, you can specify an Ubuntu image from the disk images gallery to ensure support for SMB 2.1. However, any Linux distribution that supports SMB 2.1 can mount an Azure File share. 
+
+For a demonstration of how to mount an Azure File share on Linux, see [Shared storage on Linux via Azure Files Preview - Part 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) on Channel 9.
 
 ## Next steps
 
