@@ -84,7 +84,7 @@ One of the key features of the .NET backend is the ability to debug the service 
 
     ![Publish debug][PublishDebug]
 
-10. Once the service has published successfully, open **Server Explorer** and expand the **Windows Azure** and **Mobile Services** nodes. Sign in if necessary.
+10. Once the service has published successfully, open **Server Explorer** and expand the **Azure** and **Mobile Services** nodes. Sign in if necessary.
 11. Right click the mobile service you just published to and select **Attach Debugger**.
 
     ![Attach debugger][AttachDebugger]
