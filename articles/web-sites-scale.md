@@ -163,7 +163,7 @@ Depending on the web app's hosting plan mode, the following developer-oriented f
 	
 	[App Service Pricing Details - SSL Connections](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
 
-- For information on Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Windows Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- For information on Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web App](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Videos on scaling Azure Websites:
 	
