@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Plan and prepare to upgrade to Azure SQL Database V12" 
+	pageTitle="Plan and prepare to upgrade to SQL Database V12" 
 	description="Describes the preparations and limitations involved in upgrading to the Azure SQL Database V12." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -7,13 +7,14 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database" 
 	ms.workload="sql-database" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -21,8 +22,8 @@
 
 
 <!--
-GeneMi , 2015-March-04 Wednesday 11:00am
-Removing word 'preview' where plausible.
+GeneMi , 2015-March-05 Thursday 20:06pm
+Remove 'Azure' from title.
 -->
 
 
@@ -34,7 +35,7 @@ A new [Azure portal](http://portal.azure.com/) is available to support your upgr
 
 > [AZURE.NOTE]
 > Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.<br/><br/>
-> For version family V12, you can determine whether your geographic region is at preview status or at GA status by examining the regions table in [What's new in Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable).
+> For version family V12, you can determine whether your geographic region is at preview status or at GA status by examining the regions table in [What's new in SQL Database V12](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable).
 
 
 The following table lists and describes other Help topics for V12.
@@ -42,7 +43,7 @@ The following table lists and describes other Help topics for V12.
 
 | Title and link | Description of content |
 | :--- | :--- |
-| [What's new in Azure SQL Database V12](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server 2014. |
+| [What's new in SQL Database V12](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server 2014. |
 | [Walkthrough: sign up for the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-sign-up/) | Describes the steps you must perform if you want to upgrade your Azure SQL databases to the latest preview. |
 | [Create a database in the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-create/) | Describes how you can create a new Azure SQL database that includes the new features of the latest preview. It describes various options beyond just an empty database. |
 | [Upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-upgrade/) | Describes how you can upgrade your Azure SQL databases to the latest preview. It mentions that you should make a backup of your database first, because the upgrade is permanent and cannot be undone. |
@@ -56,7 +57,7 @@ The following subsections describe the learning and decision making you must add
 ### A.1 Version clarification
 
 
-This document concerns the upgrade of Microsoft Azure SQL Database from version V11 to V12. More formally the version numbers are close to the following two values, as reported by the T-SQL statement **SELECT @@version;** :
+This document concerns the upgrade of Microsoft Azure SQL Database from version V11 to V12. More formally the version numbers are close to the following two values, as reported by the Transact-SQL statement **SELECT @@version;** :
 
 
 - 11.0.9228.18 *(V11)*
