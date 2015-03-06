@@ -1,5 +1,5 @@
 <properties
-	pageTitle="I  use Mobile Services, how does App Service help?"
+	pageTitle="I use Mobile Services, how does App Service help?"
 	description="Learn what advantages does App Service bring to your existing Mobile Services projects."
 	services="app-service-mobile"
 	documentationCenter="ios"
