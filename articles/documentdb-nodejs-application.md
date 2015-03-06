@@ -32,7 +32,7 @@ DocumentDB.
 
 ![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Don't have time to complete the tutorial and just want to get the complete solution from Github? Not a problem, get it [here][].
+Don't have time to complete the tutorial and just want to get the complete solution from GitHub? Not a problem, get it [here][].
 
 ## <a name="_Toc395783176"></a>Prerequisites
 
