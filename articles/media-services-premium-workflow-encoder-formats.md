@@ -121,3 +121,7 @@ On output, the following options are available:
 1. DVB subtitle streams
 
 Note: not all of the above output formats are supported for delivery via streaming in Azure Media Services.
+
+##Known issues
+
+If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file.
