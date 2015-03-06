@@ -60,7 +60,7 @@ Web App supports applications created in a variety of programming languages. For
 
 Perform the following steps to enable a Git repository for your web app by using the Azure portal:
 
-1. Login to the [Azure portal].
+1. Log in to the [Azure portal].
 
 2. In your web app's blade, scroll down to the **Deployment** section and click **Set up continous deployment**. Click **Choose Source**, then click **Local Git Repository**, and then click **OK**.  
 
