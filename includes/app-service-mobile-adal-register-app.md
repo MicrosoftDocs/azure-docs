@@ -10,7 +10,7 @@
 
 5. In the Add Application Wizard, enter a **Name** for your application and click the  **Native Client Application** type. Then click to continue.
 
-6. In the **Redirect URI** box, enter the /login/done endpoint for your mobile service. This value should be similar to https://contoso.azurewebsites.net/login/done.
+6. In the **Redirect URI** box, enter the /login/done endpoint for your App Service gateway. This value should be similar to https://contoso.azurewebsites.net/login/done.
 
 7. Once the native application has been added, click the **Configure** tab. Copy the **Client ID**. You will need this later.
 

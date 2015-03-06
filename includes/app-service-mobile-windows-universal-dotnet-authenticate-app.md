@@ -47,10 +47,10 @@
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            // Login the user and then load data from the mobile service.
+            // Login the user and then load data from the mobile app.
             await AuthenticateAsync();
 
-            // Hide the login button and load items from the mobile service.
+            // Hide the login button and load items from the mobile app.
             this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             RefreshTodoItems();
         }
@@ -87,6 +87,6 @@
 
 8. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   	When you are successfully logged-in, the app should run without errors, and you should be able to query your Mobile App and make updates to data.
 
 9. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
