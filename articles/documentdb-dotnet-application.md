@@ -437,7 +437,7 @@ We already have a view for **Create**, and a button on the **Index** view that t
 			return View(item);   
 		}
 
-	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [Github][] has the full implementation in place.
+	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [GitHub][] has the full implementation in place.
 
 	**Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][].
 
@@ -472,22 +472,24 @@ There is one last thing for us to do, and that is to add the ability to edit **I
   	      return View(item);
  	   	}
 		
-	    public ActionResult Edit(string id)
-	    {
-   	     if (id == null)
-   	     {
-       	     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-      	  }
+		public ActionResult Edit(string id)
+		{
+		    if (string.IsNullOrEmpty(id))
+		    {
+		        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+		    }
+					 
+		    Item item = (Item)DocumentDBRepository<Item>.GetItem(d => d.Id == id);
+		 	
+		    if (item == null)
+		    {
+		        return HttpNotFound();
+		    }
+		 	
+		    return View(item);
+		}
+		
 	
-      	  Item item = (Item)DocumentDBRepository.GetItem(id);
-      	  if (item == null)
-      	  {
-      	      return HttpNotFound();
-     	   }
-	
-    	    return View(item);
-  	  	}
-
 	The first method handles the Http GET that happens when the user clicks on the **Edit** link from the **Index** view. This method fetches a [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) from DocumentDB and passes it to the **Edit** view.
 
 	The **Edit** view will then do an Http POST to the **IndexController**. 
@@ -576,7 +578,7 @@ In a few seconds, Visual Studio will finish publishing your web application and 
 
 ##<a name="_Toc395637775"></a>Next steps
 
-Congratulations! You just built your first ASP.NET MVC application using Azure DocumentDB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [Github][]. So if you're interested in adding that to your app, grab the code and add it to this app.
+Congratulations! You just built your first ASP.NET MVC application using Azure DocumentDB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][]. So if you're interested in adding that to your app, grab the code and add it to this app.
 
 To add additional functionality to your application, review the APIs available in the [Document DB .NET Library](http://msdn.microsoft.com/library/azure/dn783362.aspx) and feel free to contribute to the DocumentDB .NET Library on [GitHub][]. 
 
@@ -615,6 +617,6 @@ If you're looking to save time and just want to build the complete todo solution
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Github]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
+[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598

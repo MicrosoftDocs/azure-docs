@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2015" 
+	ms.date="03/03/2015" 
 	ms.author="nitinme"/> 
 
 # Customize HDInsight clusters using Script Action
@@ -25,16 +25,6 @@ HDInsight clusters can be customized in a variety of other ways as well such as 
 
 
 > [AZURE.NOTE] Using Script Action to customize a cluster is supported only on HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
-
-
-
-## In this article
-
-- [How is the script used while cluster creation?](#lifecycle)
-- [How to write a script for cluster customization?](#writescript)
-- [How to use Script action to customize cluster?](#howto)
-- [Cluster customization examples](#example)
-- [Support for open source software used on HDInsight cluster](#support)
 
 
 ## <a name="lifecycle"></a>How is the script used while cluster creation?
@@ -154,7 +144,7 @@ There are two types of Open Source components that are available in HDInsight se
 
 Built-in components are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 
-Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: <a href ="https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight" target="_blank">MSDN forum for HDInsight</a>, <a href="http://stackoverflow.com" target="_blank">http://stackoverflow.com</a>. Also Apache projects have project sites on <a href="http://apache.org" target="_blank">http://apache.org</a>, for example: <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a>, <a href="http://spark.apache.org/" target="_blank">Spark</a>.
+Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: <a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">MSDN forum for HDInsight</a>, <a href="http://stackoverflow.com" target="_blank">http://stackoverflow.com</a>. Also Apache projects have project sites on <a href="http://apache.org" target="_blank">http://apache.org</a>, for example: <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a>, <a href="http://spark.apache.org/" target="_blank">Spark</a>.
 
 HDInsight service provides several ways to use custom components. Regardless of how the component is used or installed on the cluster the same level of support applies. Below is a list of most common ways that custom components can be used on HDInsight clusters.
 

@@ -149,7 +149,7 @@ Provide a name. Scoring profiles are optional, but if you add one, the name is r
 The body of the scoring profile is constructed from weighted fields and functions.
 
 <font>
-<table style="font-size:12">
+<table>
 <thead>
 <tr><td><b>Element</b></td><td><b>Description</b></td></tr></thead>
 <tbody 

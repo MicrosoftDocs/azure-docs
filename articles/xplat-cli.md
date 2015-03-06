@@ -18,7 +18,7 @@
 
 # Install and Configure the Azure Cross-Platform Command-Line Interface
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
@@ -429,7 +429,7 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 * For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 
@@ -447,6 +447,6 @@ If you are writing a script that relies on the exit status, please verify that t
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/library/bb490890.aspx
-[xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[xplatarm]: /documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/

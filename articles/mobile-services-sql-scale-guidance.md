@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -221,11 +221,11 @@ The following steps walk you through obtaining the connection information for th
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
 4. Select the **SQL Database** name in the **Database Settings** section. This will navigate to the Azure SQL Database tab in the portal.
-5. Select **Set up Windows Azure firewall rules for this IP address**.
+5. Select **Set up Azure firewall rules for this IP address**.
 6. Make a note of the server address in the **Connect to your database** section, for example: *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
-1. Navigate to [SQL Server Editions - Express](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx)
+1. Navigate to [SQL Server Editions - Express](http://www.microsoft.com/server-cloud/products/sql-server-editions/sql-server-express.aspx)
 2. Find the **SQL Server Management Studio** section and select the **Download** button underneath.
 3. Complete the setup steps until you can successfully run the application:
 

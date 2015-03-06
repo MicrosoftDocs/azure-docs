@@ -132,14 +132,14 @@ It also provides the capability to export the telemetry programmatically (in Sta
 [Send SMS with Mobile Services]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
 [Chrome Apps tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
-[Backend Registration guidance]: https://msdn.microsoft.com/en-us/library/azure/dn743807.aspx 
-[Backend Registration guidance - 2]: https://msdn.microsoft.com/en-us/library/azure/dn530747.aspx
-[NH Security model]: https://msdn.microsoft.com/en-us/library/azure/dn495373.aspx.
+[Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx 
+[Backend Registration guidance - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
+[NH Security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx.
 [NH - Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [NH - troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[NH - Metrics]: https://msdn.microsoft.com/en-us/library/dn458822.aspx
+[NH - Metrics]: https://msdn.microsoft.com/library/dn458822.aspx
 [NH - Metrics sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-[Registrations Export/Import]: https://msdn.microsoft.com/en-us/library/dn790624.aspx
+[Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
  
 
 

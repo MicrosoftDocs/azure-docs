@@ -74,7 +74,7 @@ Finally, **pipelines** can be chained (as shown in the diagram) such that the ou
 
 You can author/create data factories using one of the following:
 
-- **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
+- **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
 - **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an example of using PowerShell cmdles to create ad deploy a data factory. 
 - **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
 - **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for comprehensive documentation of Data Factory REST API. 
@@ -134,7 +134,7 @@ An important characteristic of Hub is that a pipeline runs on a single hub. This
 ###Slice
 A slice is a logical time based partitioning of the data produced by one or more activity runs. A table in an Azure data factory is composed of slices over the time axis. The width of a slice is determined by the schedule – hourly/daily. When the schedule is “hourly”, a slice is produced hourly with the start time and end time of a pipeline and so on.  
 
-Slices provide the ability for IT Professionals to work with a subset of overall data for a specific time window (for example: the slice that is produced for the duration (hour): 1:00 PM to 2:00 PM). They can also view all the downstream data slices for a given time internal and rerun a slice in case of a failure.
+Slices provide the ability for IT Professionals to work with a subset of overall data for a specific time window (for example: the slice that is produced for the duration (hour): 1:00 PM to 2:00 PM). They can also view all the downstream data slices for a given time interval and rerun a slice in case of a failure.
 
 The run is a unit of processing for a slice. There could be one or more runs for a slice in case of retries or if you rerun your slice in case of failures. A slice is identified by its start time. 
 
@@ -159,6 +159,7 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 [azure-ml-adf]: ../data-factory-create-predictive-pipelines/
 [adf-common-scenarios]: ../data-factory-common-scenarios
 [create-factory-using-dotnet-sdk]: ../data-factory-create-data-factories-programmatically
+[data-factory-editor]: ../data-factory-editor
 
 
 [msdn-stored-procedure-activity]: https://msdn.microsoft.com/library/dn912649.aspx

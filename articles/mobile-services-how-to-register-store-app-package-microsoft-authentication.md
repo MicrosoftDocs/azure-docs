@@ -33,7 +33,7 @@ After you have registered your app package, remember to supply a value of <stron
 
 
 <!-- URLs. -->
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Authenticate your Windows Store app with Live Connect single sign-on]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Get started with users C#]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Get started with users JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Authenticate your Windows Store app with Live Connect single sign-on]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Get started with users C#]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with users JavaScript]: /develop/mobile/tutorials/get-started-with-users-js/

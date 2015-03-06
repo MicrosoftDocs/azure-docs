@@ -159,11 +159,11 @@ In this section you will reconnect the app to the mobile service. This simulates
 <!-- Images -->
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
-[Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
-[How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
-[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
+[Get started with data]: /documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
+[Get started with Mobile Services]: /documentation/articles/partner-xamarin-mobile-services-ios-get-started/
+[How to use the Xamarin Component client for Azure Mobile Services]: /documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio

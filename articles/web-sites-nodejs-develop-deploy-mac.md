@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Create a Node.js website on Mac - Azure tutorials" 
-	description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." 
+	description="Learn how to build and deploy a Node.js website in Azure." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 
@@ -163,11 +163,11 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 While the steps in this article use the Azure Portal to create a website, you can also use the [Azure Command-Line Tools for Mac and Linux] to perform the same operations.
 
-Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Azure Websites work with modules, see [Using Node.js Modules with Azure Applications](/en-us/documentation/articles/nodejs-use-node-modules-azure-apps/).
+Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Azure Websites work with modules, see [Using Node.js Modules with Azure Applications](/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
-To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](/en-us/documentation/articles/nodejs-specify-node-version-azure-apps/).
+To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure Web Sites](/en-us/documentation/articles/web-sites-nodejs-debug/) for information on diagnosing the problem.
+If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure Web Sites](/documentation/articles/web-sites-nodejs-debug/) for information on diagnosing the problem.
 
 
 ##Additional Resources
@@ -175,13 +175,13 @@ If you encounter problems with your application after it has been deployed to Az
 * [Azure PowerShell]
 * [Azure Command-Line Tools for Mac and Linux]
 
-[Azure PowerShell]: /en-us/documentation/articles/install-configure-powershell/
+[Azure PowerShell]: /documentation/articles/install-configure-powershell/
 
 [nodejs.org]: http://nodejs.org
 [Git]: http://git-scm.com
 
 [Azure Management Portal]: http://manage.windowsazure.com
-[Azure Command-Line Tools for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
+[Azure Command-Line Tools for Mac and Linux]: /documentation/articles/xplat-cli/
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png

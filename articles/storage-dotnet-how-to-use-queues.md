@@ -39,7 +39,7 @@ and use the Azure Storage Client for .NET. The scenarios covered include **inser
 ### Obtaining the assembly
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
 
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` directory.
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` directory.
 
 ### Namespace declarations
 Add the following code namespace declarations to the top of any C\# file
@@ -96,7 +96,7 @@ to use. You can create the queue if it doesn't exist.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // Create the queue if it doesn't already exist
-    queue.CreateIfNotExists();
+    queue.CreateIfNotExist();
 
 ## How to: Insert a message into a queue
 
@@ -117,7 +117,7 @@ doesn't exist) and inserts the message 'Hello, World':
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // Create the queue if it doesn't already exist.
-    queue.CreateIfNotExists();
+    queue.CreateIfNotExist();
 
     // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");

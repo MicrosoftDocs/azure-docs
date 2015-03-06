@@ -51,7 +51,7 @@ To use this scoring profile, your query is formulated to specify the profile on 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](https://msdn.microsoft.com/en-us/library/azure/dn798927.aspx).
+This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Click [Example](#bkmk_ex) to review a more detailed example of a scoring profile.
 
@@ -77,7 +77,7 @@ As noted, customized scoring is implemented through scoring profiles defined in 
 
 This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
 
-[Try this example](http://azure.microsoft.com/documentation/articles/search-get-started-scoring-profiles/).
+[Try this example](../search-get-started-scoring-profiles/).
 
     {
       "name": "musicstoreindex",

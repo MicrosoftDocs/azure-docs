@@ -10,7 +10,7 @@
 	editor="" />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -103,7 +103,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 - The fifth decimal place is worth up to 1.1 m: it distinguish trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 - The sixth decimal place is worth up to 0.11 m: you can use this for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
-The location information can can be featurized as follows, separating out region, location and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/en-us/library/ff701710.aspx` to get the region/district information.
+The location information can can be featurized as follows, separating out region, location and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information.
 
 	select 
 		<location_columnname>
@@ -122,7 +122,7 @@ The above location based features can be further used to generate additional cou
 **TIP**
 
 > 1. You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
-> 2. Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/en-us/library/ms162802.aspx)
+> 2. Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ####<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
