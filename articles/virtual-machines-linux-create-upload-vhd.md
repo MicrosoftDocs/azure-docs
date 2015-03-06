@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/05/2015" 
-	ms.author="kathydav, szarkos"/>
+	ms.author="kathydav"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
