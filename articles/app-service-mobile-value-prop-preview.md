@@ -11,7 +11,7 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang=""
+	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
