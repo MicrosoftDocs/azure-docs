@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure a custom domain name for an Azure web app" 
-	description="Learn how to use a custom domain name with Azure Web Apps" 
+	description="Learn how to use a custom domain name with Azure App Service Web App" 
 	services="app-service-web" 
 	documentationCenter="" 
 	authors="blackmist" 
@@ -16,7 +16,7 @@
 	ms.date="09/17/2014" 
 	ms.author="larryfr;jroth;mwasson;tarcher"/>
 
-#Configuring a custom domain name for an Azure Web App
+#Configuring a custom domain name for a web app in Azure App Service
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-custom-domain-name" title="Custom Domain" class="current">Custom Domain</a><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-custom-domain-name/" title="Websites" class="current">Web App</a> | <a href="/en-us/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web App using Traffic Manager">Web App using Traffic Manager</a></div>
@@ -29,7 +29,7 @@ When you create a web app, Azure assigns it to a subdomain of azurewebsites.net.
 
 <!--todo:![contoso.azurewebsites.net subdomain][subdomain]-->
 
-For a production web app, you probably want users to see a custom domain name. This article explains how to configure a custom domain with Azure Web Apps. (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
+For a production web app, you probably want users to see a custom domain name. This article explains how to configure a custom domain with App Service Web App. (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 

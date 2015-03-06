@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="03/05/2015" 
 	ms.author="robmcm"/>
 
 # Get started with Azure web apps and Java
@@ -22,7 +22,7 @@
 
 This tutorial shows how to create a web app on Microsoft Azure using Java, using either the Azure Marketplace, or the Azure web app configuration UI. 
 
-If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web site to Azure](../web-sites-java-custom-upload).
+If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web app to Azure](../web-sites-java-custom-upload).
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. 
 > 
@@ -65,12 +65,12 @@ This information shows how to use the Azure configuration UI to select a Java ap
 3. Click the **Web + Mobile** blade.
 4. Click **Azure Marketplace** at the bottom of the **Web + Mobile** blade.
 5. Click **Web**.
-6. Click **Website**.
+6. Click **Web App**.
 7. Click **Create**. 
 8. Specify the URL name.
 9. Select a region. For example, **West US**.
 10. Click **Create**.
-11. When the site has been created, click **All settings**.
+11. When the web app has been created, click **All settings**.
 12. Click **Application settings**.
 13. Click the desired Java version.
 14. The options for the web container are displayed, for example, Tomcat and Jetty. Select the desired **Web container**. 
@@ -82,4 +82,4 @@ Now that you've create the web app with an app container, see the **Next steps**
 
 # Next steps
 
-At this point, you have a Java application server running as your Java web app on Azure. To add in your own application or web page, see [Add an application or web page to your Java web site](../web-sites-java-add-app).
+At this point, you have a Java application server running as your Java web app on Azure. To add in your own application or web page, see [Add an application or web page to your Java web app](../web-sites-java-add-app).
