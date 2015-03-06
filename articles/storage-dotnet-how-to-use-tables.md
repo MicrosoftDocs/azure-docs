@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 
@@ -26,7 +26,7 @@ Azure Table Storage Service. The samples are written in C\# code
 and use the Azure Storage Client Library for .NET. The scenarios covered include **creating and
 deleting a table**, as well as **working with table entities**.
 
-> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [How to: Programmatically access Table storage][] below for more details on obtaining the Storage Client Library.
+> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [How to: Programmatically access Table storage] below for more details on obtaining the Storage Client Library.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
@@ -56,7 +56,7 @@ You can use the **CloudStorageAccount** type to represent
 your Storage Account information. If you are using an 
 Azure project template and/or have a reference to the
 Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
-can you use the **CloudConfigurationManager** type
+can use the **CloudConfigurationManager** type
 to retrieve your storage connection string and storage account
 information from the Azure service configuration:
 
