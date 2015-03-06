@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Why run your enterprise mobile apps on App Service?"
 	description="Learn what advantages does App Service bring to your enterprise mobile apps."
 	services="app-services"
@@ -59,19 +59,19 @@ Azure App Service makes it easy for you to build robust and responsive apps that
 *Azure App Service* comes with pre-built app templates for your mobile workforce scenarios that you can download and re-purpose for your use, saving time. 
 
 ##No ops
-Run your web apps in a high-availability environment with automatic patching. Web apps deployed with *Azure App Service* are isolated and are hosted in VMs dedicated to your applications – ensuring predictable performance and security isolation.
+Run your mobile apps in a high-availability environment with automatic patching. Mobile apps deployed with *Azure App Service* are isolated and are hosted in VMs dedicated to your applications – ensuring predictable performance and security isolation.
 
 ##Automatically scale
 *Azure App Service* enables you to quickly scale up or out to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling to scale your servers based on load or schedule.
 
 ##Friction-free Deploy
-Set up continuous integration and deployment workflows with Visual Studio Online, GitHub, TeamCity, Hudson or BitBucket – enabling you to automatically build, test and deploy your web app on each successful code check-in or integration tests.
+Set up continuous integration and deployment workflows with Visual Studio Online, GitHub, TeamCity, Hudson or BitBucket – enabling you to automatically build, test and deploy your mobile app on each successful code check-in or integration tests.
 
 ##Keep your assets safe
 Automatically back up your backend and database. Your code and data is secure from disaster and easily restored, allowing you to run your business with confidence.
 
 ##Be in the “know”
-React to issues in real-time with monitoring and alerts to automatically notify you and your team. Integrate advanced app analytics and monitoring functionality from New Relic and AppInsights to get even richer insight into how your Web app is performing.
+React to issues in real-time with monitoring and alerts to automatically notify you and your team. Integrate advanced app analytics and monitoring functionality from New Relic and AppInsights to get even richer insight into how your *Web app* is performing.
 
 ##Ready, Stage, Go!
 Create multiple private testing and staging environments for your web apps. Use them to perform testing before you deploy. Swap to production with no downtime. Web apps are pre-loaded, ensuring the best customer experience.
