@@ -10,7 +10,7 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="02/23/2015" 
@@ -193,7 +193,7 @@ In this section, you will modify the app so that it does not sync on app start, 
 
 ## <a name="test-app"></a>Test the app
 
-In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile app.
+In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile service.
 
 1. Turn off Wi-Fi in the iOS simulator.
 
