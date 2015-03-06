@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Configure SSL for a cloud service (Node.js) - Azure" 
-	description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." 
+	description="Set an HTTPS endpoint for a Node.js web role and upload an SSL certificate to secure your application." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/20/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 
