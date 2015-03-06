@@ -44,11 +44,11 @@ You are now ready to use Microsoft Account for authentication in your app.
 
 ## <a name="related-content"> </a>Related Content
 
-Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+[AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../includes/app-service-mobile-related-content-get-started-users.md)]
 
-Authenticate your app with Live Connect Single Sign-On: [Windows](windows-liveconnect)
+<!-- Authenticate your app with Live Connect Single Sign-On: [Windows](windows-liveconnect) -->
 
-<!-- Anchors. -->
+
 
 <!-- Images. -->
 
@@ -59,4 +59,3 @@ Authenticate your app with Live Connect Single Sign-On: [Windows](windows-liveco
 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure Management Portal]: https://portal.azure.com/
-[xamarin]: /en-us/documentation/articles/app-service-mobile--dotnet-backend-xamarin-ios-get-started-users-preview/

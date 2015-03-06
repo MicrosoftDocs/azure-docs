@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="BizTalk Rules - Overview, Creation and Management" 
+   pageTitle="Using BizTalk Rules" 
    description="This topic covers the features of BizTalk Rules and provides instructions on its usage" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="biztalk-services"
+   ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -16,7 +16,7 @@
    ms.date="02/27/2015"
    ms.author="andalmia"/>
 
-## Rules Overview
+## Using BizTalk Rules 
 
 Business rules (or business policies) define and control the structure, operation, and strategy of an organization. Business rules may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. Business rules are dynamic and subject to change over time, and can be found in all types of applications. Finance and insurance, e-business, transportation, telecommunications, Web-based services, and personalization are just a few of the many business domains that are governed by business rules. Each of these business domains shares the need to convey business strategies, policies, and regulations to information technology (IT) personnel for inclusion into software applications.
 

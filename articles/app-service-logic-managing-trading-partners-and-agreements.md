@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="BizTalk B2B - Trading Partner & Agreement Management" 
+   pageTitle="Managing Trading Partners and Agreements" 
    description="This topic covers management of Trading Partners & Agreements" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -8,14 +8,19 @@
    editor=""/>
 
 <tags
-   ms.service="biztalk-services"
+   ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
    ms.date="02/27/2015"
    ms.author="hariag"/>
+   
+# Managing Trading Partners and Agreements
 
+##This documentation is coming soon.
+
+<!--
 These API Apps surface the following management capabilities:  
 
 1. BizTalk Trading Partner Management
@@ -30,3 +35,4 @@ These API Apps surface the following management capabilities:
 3. BizTalk X12
 	1. State management of Batches (start and stop) in X12 Agreements via the 'Batching' part
 
+-->
