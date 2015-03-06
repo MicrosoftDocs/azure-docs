@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="BizTalk B2B - B2B Tracking" 
+   pageTitle="Tracking B2B messages" 
    description="This topic covers tracking of B2B processing" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -16,7 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
 
-# B2B Tracking Information #
+# Tracking B2B Messages #
 B2B communication involves message processing between trading partners. The relationships are defined as agreements between two trading partners. Once the communication is established then there needs to be a way to monitor if the communication is happening as expected. 
 As part of bringing B2B API Apps as part of Azure App Services we have enabled tracking data and the same is also surfaced via Azure Portal. 
 
