@@ -61,7 +61,7 @@ This tutorial requires the following:
 
 Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. To use these features in your app, you initialize a `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface. In this tutorial we use SQLite for the local store.
 
->[AZURE.NOTE] You can skip this section and just get the example project that already has offline support from the Github samples repository for Mobile Services. The sample project with offline support enabled is located here, [TodoList Offline Sample].
+>[AZURE.NOTE] You can skip this section and just get the example project that already has offline support from the GitHub samples repository for Mobile Services. The sample project with offline support enabled is located here, [TodoList Offline Sample].
 
 1. Install the SQLite runtime for Windows 8.1 and Windows Phone 8.1. 
 

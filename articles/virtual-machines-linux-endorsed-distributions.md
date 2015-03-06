@@ -51,7 +51,7 @@ SUSE Linux Enterprise Server on Azure is a proven platform that provides superio
 
 ## Supported Versions ##
 
-The following table shows the different distribution versions, Linux Integration Services (LIS) drivers and Azure Linux Agent versions that have been tested to work on Azure. LIS drivers are either built into the distribution's kernel by default, or are available [here](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Linux Agent versions are available from the distribution's package repository or on [Github](https://github.com/azure/walinuxagent).
+The following table shows the different distribution versions, Linux Integration Services (LIS) drivers and Azure Linux Agent versions that have been tested to work on Azure. LIS drivers are either built into the distribution's kernel by default, or are available [here](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Linux Agent versions are available from the distribution's package repository or on [GitHub](https://github.com/azure/walinuxagent).
 
 The table also includes a link to the [Linux kernel compatibility patch](http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409) required by some distribution/kernel versions to work optimally in Azure.
 
