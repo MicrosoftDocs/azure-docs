@@ -16,7 +16,7 @@
 	ms.date="02/19/2015" 
 	ms.author="mahender"/>
 
-# Add authentication to your mobile app (Xamarin.iOS)
+# Add authentication to your Xamarin.iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../includes/app-service-mobile-selector-get-started-users.md)]
 

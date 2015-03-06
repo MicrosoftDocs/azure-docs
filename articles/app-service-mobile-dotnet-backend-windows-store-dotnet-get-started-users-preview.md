@@ -16,7 +16,7 @@
 	ms.date="09/23/2014" 
 	ms.author="mahender"/>
 
-# Add authentication to your mobile app (Windows)
+# Add authentication to your Windows app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../includes/app-service-mobile-selector-get-started-users.md)]
 

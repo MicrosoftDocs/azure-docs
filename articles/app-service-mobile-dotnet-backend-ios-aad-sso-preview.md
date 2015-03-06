@@ -14,7 +14,7 @@ ms.topic="article"
 ms.date="02/20/2015" 
 ms.author="mahender" />
 
-# Authenticate users of your Mobile App with Active Directory Authentication Library Single Sign-On (iOS)
+# Add Azure Active Directory single sign-on to your iOS app
 
 [WACOM.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
 
