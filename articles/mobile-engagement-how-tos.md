@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
@@ -12,21 +12,11 @@
    ms.devlang="Java"
    ms.topic="article"
    ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
 # Azure Mobile Engagement - How To Guides
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="#First" title="First Push">First Push</a>
-<a href="#Test" title="Test Campaign">Test Campaign</a>
-<a href="#Personalize" title="Personalize Push">Personalize Push</a>
-<a href="#Differentiate" title="Differentiate Push">Differentiate Push</a>
-<a href="#Schedule" title="Schedule Campaign">Schedule Campaign</a>
-<a href="#TextView" title="Text View">Text View</a>
-<a href="#WebView" title="Web View">Web View</a>
-</div>
 
 ## Introduction
 

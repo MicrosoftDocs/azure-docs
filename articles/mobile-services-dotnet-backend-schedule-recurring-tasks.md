@@ -140,7 +140,7 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
 		            // Create a new context with the supplied schema name.
-		            context = new todolistContext(Services.Settings.Name);
+		            context = new todolistContext();
 		        }
 		
 		        public async override Task ExecuteAsync()

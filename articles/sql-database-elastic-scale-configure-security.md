@@ -1,57 +1,60 @@
 <properties 
+	title="Elastic Scale Security Configurations" 
 	pageTitle="Elastic Scale Security Configurations" 
 	description="Security for Split-Merge services using Elastic Scale for Azure SQL Database" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="stuartozer" 
-	authors="torsteng" 
-	editor=""/>
+	metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " 
+	services="sql-database" documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh@microsoft.com"/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="sql-database" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="torsteng@microsoft.com"/>
+	ms.devlang="na" ms.topic="article" ms.date="03/05/2015" 
+	ms.author="sidneyh" />
 
 # Elastic Scale Security Configurations  
 
 Microsoft Azure SQL Database Elastic Scale includes a self-hosted service. The distribution includes a service configuration file which contains security related settings that must be configured.
 
-## <a name="configuring-certificates"></a>Configuring Certificates
+1. [Configuring Certificates][] 
+2. [Allowed IP Addresses][]
+3. [Denial of Service Prevention][]
+4. [Other Security Considerations][]
+
+## <a name="configuring-certificates"></a>Configuring certificates
 
 Certificates are configured in two ways. 
 
 1. [To Configure the SSL Certificate][]
 2. [To Configure Client Certificates][] 
 
-## <a name="obtain-certificates"></a>To Obtain Certificates
+## <a name="obtain-certificates"></a>To obtain certificates
 
-Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
+Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/en-us/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
  
-## <a name="tools"></a>Tools to Generate Certificates
+## <a name="tools"></a>Tools to generate certificates
 
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](http://msdn.microsoft.com/en-us/library/bfsktky3.aspx)
+* [pvk2pfx.exe](http://msdn.microsoft.com/en-us/library/windows/hardware/ff550672.aspx)
 
-###To Run the Tools
+###To Run the tools
 
-* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/library/ms229859.aspx) 
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/en-us/library/ms229859.aspx) 
 
     If installed, go to:
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)
 
-##    <a name="to-configure-ssl-cert"></a>To Configure the SSL Certificate
+##    <a name="to-configure-ssl-cert"></a>To configure the SSL certificate
 A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-###Create a New Self-Signed Certificate
+###Create a new self-signed certificate
 
 1.    [Create a Self-Signed Certificate][]
 2.    [Create PFX file for Self-Signed SSL Certificate][]
@@ -59,12 +62,12 @@ A SSL certificate is required to encrypt the communication and authenticate the 
 4.    [Update SSL Certificate in Service Configuration File][]
 5.    [Import SSL Certification Authority][]
 
-#### To Use an Existing Certificate from the Certificate Store
+### To Use an existing certificate from the certificate store
 1. [Export SSL Certificate From Certificate Store][]
 2. [Upload SSL Certificate to Cloud Service][]
 3. [Update SSL Certificate in Service Configuration File][]
 
-#### To Use an Existing Certificate in a PFX File
+### To Use an existing certificate in a PFX file
 
 1. [Upload SSL Certificate to Cloud Service][]
 2. [Update SSL Certificate in Service Configuration File][]
@@ -96,7 +99,29 @@ Client certificates are required in order to authenticate requests to the servic
 ## <a name="allowed-ip-addresses"></a>Allowed IP Addresses
 
 Access to the service endpoints can be restricted to specific ranges of IP addresses.
- 
+
+## To Configure Encryption for the Store
+
+A certificate is required to encrypt the credentials that are stored in the metadata store. Choose the most applicable of the three scenarios below, and execute all its steps:
+
+### Use New Self-Signed Certificate
+
+1.	 [Create a Self-Signed Certificate][]
+2.	 [Create PFX file for Self-Signed Encryption Certificate][]
+3.	 [Upload Encryption Certificate to Cloud Service][]
+4.	 [Update Encryption Certificate in Service Configuration File][]
+
+### Use an Existing Certificate from the Certificate Store
+
+1.	 [Export Encryption Certificate From Certificate Store][]
+2.	 [Upload Encryption Certificate to Cloud Service][]
+3.	 [Update Encryption Certificate in Service Configuration File][]
+
+### Use an Existing Certificate in a PFX File
+
+1.	 [Upload Encryption Certificate to Cloud Service][]
+2.	 [Update Encryption Certificate in Service Configuration File][]
+
 ## The Default Configuration
 
 The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
@@ -314,7 +339,7 @@ For each generated client certificate, execute:
 
 Customizing:
 
-    •    MyID.pvk and MyID.cer with the filename for the client certificate
+    MyID.pvk and MyID.cer with the filename for the client certificate
 
 Enter password and then export certificate with these options:
 
@@ -330,7 +355,7 @@ Each individual for whom a client certificate has been issued should import the 
 * Import certificate into the Personal store with at least this option:
     * Include all extended properties checked
 
-## <a name=copy-client-cert"> </a> Copy Client Certificate Thumbprints
+## <a name="copy-client-cert"> </a> Copy Client Certificate Thumbprints
 Each individual for whom a client certificate has been issued must follow these steps in order to obtain the thumbprint of his/hers certificate which will be added to the service configuration file:
 * Run certmgr.exe
 * Select the Personal tab
@@ -354,10 +379,46 @@ The default setting does not check with the Certification Authority for client c
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
-## Common certificate operations
+## <a name="create-pfx-files-encryption"></a>Create PFX file for Self-signed Encryption Certificates
 
-•    Configure the SSL certificate
-•    Configure client certificates
+For an encryption certificate, execute:
+
+    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+
+Customizing:
+
+    MyID.pvk and MyID.cer with the filename for the encryption certificate
+
+Enter password and then export certificate with these options:
+*	Yes, export the private key
+*	Export all extended properties
+*	You will need the password when uploading the certificate to the cloud service.
+
+## <a name="export-encryption-from-store"></a>Export Encryption Certificate From Certificate Store
+
+*	Find certificate
+*	Click Actions -> All tasks -> Export…
+*	Export certificate into a .PFX file with these options: 
+  *	Yes, export the private key
+  *	Include all certificates in the certification path if possible 
+*	Export all extended properties
+
+## <a name="upload-encryption-cert"></a> Upload Encryption Certificate to Cloud Service
+
+Upload certificate with the existing or generated .PFX file with the encryption key pair:
+
+* Enter the password protecting the private key information
+
+## <a name="update-encryption-in-csft"></a>Update Encryption Certificate in Service Configuration File
+
+Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
+
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
+## Common Certificate Operations
+
+* Configure the SSL certificate
+* Configure client certificates
 
 ## Find certificate
 
@@ -428,7 +489,7 @@ The SSL settings described in this document encrypt communication between the se
 
     <Setting name="ElasticScaleMetadata" value="Server=…" />
 
-The data stored in this database is not encrypted. To avoid disclosing credentials or other sensitive information from service requests, protect this database and keep access to it secured at all times. Also, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database. 
+Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
@@ -458,3 +519,7 @@ The data stored in this database is not encrypted. To avoid disclosing credentia
 [To Configure the SSL Certificate]:#to-configure-ssl-cert
 [Other Security Considerations]:#other-security 
 [Upload Certificate]:#upload-certificate
+[Create PFX file for Self-Signed Encryption Certificate]:#create-pfx-files-encryption
+[Upload Encryption Certificate to Cloud Service]:#upload-encryption-cert 
+[Update Encryption Certificate in Service Configuration File]:#update-encryption-in-csft
+[Export Encryption Certificate From Certificate Store]:#export-encryption-from-store
