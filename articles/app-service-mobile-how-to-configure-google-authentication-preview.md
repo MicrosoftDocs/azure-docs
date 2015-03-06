@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to configure Google authentication for your App Services application"
 	description="Learn how to configure Google authentication for your App Services application." 
-    services="app-services" 
+    services="app-service-mobile" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
