@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Archiving AS2 Messages" 
+   pageTitle="Archive AS2 Messages" 
    description="This topic covers archival of AS2 messages" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
