@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/06/2015" 
 	ms.author="cabailey"/>
 
 # Get Started with Azure Key Vault #
@@ -32,7 +32,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](.
 
 To complete this tutorial, you must have the following:
 
-- A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../pricing/free-trial)).
+- A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../pricing/free-trial).
 - Azure PowerShell version 0.8.13 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure/).
 - Scripts that make common tasks for Azure Key Vault easier. Download these from the [Azure Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091). 
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
@@ -96,7 +96,7 @@ For example, if you use the  vault name of **ContosoKeyVault**, the resource gro
 
     New-AzureKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' 
 
-For the -Location parameter, use the command [Get-AzureLocation](https://msdn.microsoft.com/library//azure/dn654582.aspx) to identify how to specify an alternative location to the one in this example. If you need more information, type: `Get-Help Get-AzureLocation`
+For the -Location parameter, use the command [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn654582.aspx) to identify how to specify an alternative location to the one in this example. If you need more information, type: `Get-Help Get-AzureLocation`
 
 The output of this script shows properties of the key vault that you’ve just created. The two most important properties are:
 
