@@ -1,5 +1,6 @@
 <properties 
 	pageTitle="Transforming XML documents" 
+	description="Learn how to transform XML document from schema to another." 
 	authors="jtwist" 
 	manager="dwrede" 
 	editor="" 
