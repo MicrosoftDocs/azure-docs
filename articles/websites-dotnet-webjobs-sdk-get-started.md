@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Get Started with the Azure WebJobs SDK" 
 	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a website, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
-	services="web-sites, storage" 
+	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2014" 
+	ms.date="03/05/2015" 
 	ms.author="tdykstra"/>
 
 # Get Started with the Azure WebJobs SDK
