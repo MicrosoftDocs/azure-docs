@@ -1,6 +1,6 @@
 
 
-By default, all requests to App Services Mobile App resources are restricted to clients that present the application key, which does not strictly secure access to resources. To secure your resources, you need to restrict access to authenticated clients only.
+By default, all requests to App Service Mobile App resources are restricted to clients that present the application key, which does not strictly secure access to resources. To secure your resources, you need to restrict access to authenticated clients only.
 
 1. In Visual Studio, open the project that contains your Mobile App code. 
 
@@ -26,5 +26,5 @@ By default, all requests to App Services Mobile App resources are restricted to 
 	
 	This tells the local project to run as if it is being hosted in Azure, including honoring the AuthorizeLevel settings. Without this setting, all HTTP requests to *localhost* are permitted without authentication despite the AuthorizeLevel setting.  
 
-6. Republish your service project.
+6. Republish your mobile app project.
 

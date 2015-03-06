@@ -47,7 +47,8 @@ To complete the procedure in this topic, you must have a Google account that has
 You are now ready to use Google for authentication in your app.
 
 ## <a name="related-content"> </a>Related Content
-Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+
+[AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../includes/app-service-mobile-related-content-get-started-users.md)]
 
 
 <!-- Anchors. -->
@@ -60,7 +61,5 @@ Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
 <!-- URLs. -->
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://portal.azure.com/
-[xamarin]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview/

@@ -62,11 +62,11 @@
 
 6. Repeat the previous step for the Windows Phone Store app project, but this time add the **Button** in the **TitlePanel**, after the **TextBlock** element.
 
-5. Open the shared App.xaml.cs project file and add the following using statement, if it doesn't already exist:
+7. Open the shared App.xaml.cs project file and add the following using statement, if it doesn't already exist:
 
         using Microsoft.WindowsAzure.MobileServices;  
  
-6. In the App.xaml.cs project file, add the following code:
+8. In the App.xaml.cs project file, add the following code:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -85,8 +85,8 @@
 
 	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
 
-8. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
+9. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
 
    	When you are successfully logged-in, the app should run without errors, and you should be able to query your Mobile App and make updates to data.
 
-9. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
+10. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
