@@ -46,9 +46,9 @@ You are now ready to use Facebook for authentication in your app.
 
 ## <a name="related-content"> </a>Related Content
 
-Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
+[AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../includes/app-service-mobile-related-content-get-started-users.md)]
 
-<!-- Anchors. -->
+
 
 <!-- Images. -->
 

@@ -59,9 +59,8 @@ To complete the procedure in this topic, you must have a Facebook account that h
 You are now ready to use Facebook for authentication in your app.
 
 ## <a name="related-content"> </a>Related Content
-Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
 
-<!-- Anchors. -->
+[AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
 [0]: ./media/app-service-how-to-configure-facebook-authentication/app-service-facebook-dashboard.png
@@ -73,4 +72,3 @@ Add Authentication to your Mobile App: [Xamarin.iOS](xamarin)
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://portal.azure.com/
 [Azure Mobile Services]: http://azure.microsoft.com/en-us/services/mobile-services/
-[xamarin]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview/
