@@ -1,14 +1,14 @@
 <properties
-	pageTitle="I already use Mobile Services - how does App Service help me?"
+	pageTitle="I  use Mobile Services, how does App Service help?"
 	description="Learn what advantages does App Service bring to your existing Mobile Services projects."
-	services="app-services"
+	services="app-service-mobile"
 	documentationCenter="ios"
 	authors="kirillg"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
@@ -16,10 +16,10 @@
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
-# <a name="getting-started"> </a>Do I need to move my Mobile Service to App Service?
+# <a name="getting-started"> </a>I use Mobile Services, how does App Service help?
 
 ##Overview
-Your existing Mobile Service is safe and will remain to be supported. However there are number of advantages the *Azure App Service* platform provides for your mobile app that are not available today with Mobile Services:  
+Your existing Mobile Service is safe and will remain supported. However there are number of advantages the *Azure App Service* platform provides for your mobile app that are not available today with Mobile Services:  
 
 - Simpler, easier and more cost effective offering for apps that include both web and mobile clients
 - New host features including Web Jobs, custom CNames, better monitoring
