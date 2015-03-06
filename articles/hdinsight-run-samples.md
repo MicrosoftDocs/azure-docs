@@ -68,14 +68,13 @@ From this article and the articles in each of the samples, you learned how to ru
 
 [hdinsight-errors]: ../hdinsight-debug-jobs/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-introduction]: ../hdinsight-hadoop-introduction/
 
 
-
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 
