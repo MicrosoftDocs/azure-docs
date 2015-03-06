@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="3/6/2015" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 # How to use Azure File storage
