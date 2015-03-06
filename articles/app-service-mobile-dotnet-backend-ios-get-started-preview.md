@@ -10,7 +10,7 @@
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
 	ms.date="2/20/2015"
