@@ -16,7 +16,7 @@
 	ms.date="03/05/2015"
 	ms.author="donnam"/>
 
-# Build an app with a mobile and web client
+# Create an app with a mobile and web client
 
 This topic shows you how to create an app with both a mobile and web client. You will create a mobile app and a web app and use the same underlying database for both.
 

@@ -16,7 +16,7 @@
 	ms.date="2/20/2015"
 	ms.author="yuaxu"/>
 
-# <a name="getting-started"> </a>Get started with App Service Mobile Apps
+# <a name="getting-started"> </a>Create an iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../includes/app-service-mobile-selector-get-started-preview.md)]
 
