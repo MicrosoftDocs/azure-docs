@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="biztalk-services"
+   ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
