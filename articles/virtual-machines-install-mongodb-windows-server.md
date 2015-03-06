@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="3/6/2015" 
 	ms.author="kathydav"/>
 
 #Install MongoDB on a virtual machine running Windows Server
