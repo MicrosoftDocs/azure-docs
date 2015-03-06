@@ -165,6 +165,8 @@ experience by adding more UI hints and validation.
 
 You write code for an API App project as you would for any Web API project. 
 
+1. Create a *Models* folder in the project folder.
+
 3. Right-click the **Models** folder in the Web API project, and then in the context menu click **Add > Class**. 
 
 	![](./media/app-service-dotnet-create-api-app/03-add-new-class-v2.png) 
