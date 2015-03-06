@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Creating a Trading Partner Agreement" 
+   pageTitle="Create a Trading Partner Agreement" 
    description="This topic covers creation of Trading Partner Agreements" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 

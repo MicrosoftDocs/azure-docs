@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Managing Trading Partners and Agreements" 
+   pageTitle="Manage Trading Partners and Agreements" 
    description="This topic covers management of Trading Partners & Agreements" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 

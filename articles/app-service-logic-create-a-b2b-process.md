@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Creating a B2B Process" 
+   pageTitle="Create a B2B Process" 
    description="This topic covers creation of B2B Business Process" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 

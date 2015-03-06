@@ -1,14 +1,14 @@
-﻿<properties
-	pageTitle="Why run your enterprise mobile apps on App Service?"
+<properties
+	pageTitle="What are Mobile Apps"
 	description="Learn what advantages does App Service bring to your enterprise mobile apps."
-	services="app-services"
+	services="app-service-mobile"
 	documentationCenter=""
 	authors="kirillg"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
@@ -16,7 +16,7 @@
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
-# <a name="getting-started"> </a>Mobile Apps in Azure App Service
+# <a name="getting-started"> </a>What are Mobile Apps
 
 ##Overview
 *Mobile Apps* in *Azure App Service* offer highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile apps, including:
@@ -33,7 +33,7 @@
 - Built-in auto scale, load balancing, geo-scale, and performance monitoring.
 - Secure platform that is ISO, SOC2, and PIC compliant.
 
-## Build Enterprise Grade Mobile Apps
+## Build enterprise grade mobile apps
 *Azure App Service* makes it easy to quickly build, deploy and scale an enterprise-grade mobile app backend in seconds. Focus on your application code, and let Azure take care of the infrastructure to scale and securely run it for you.
 
 ##Build for your platform and in your language
@@ -64,7 +64,7 @@ Run your mobile apps in a high-availability environment with automatic patching.
 ##Automatically scale
 *Azure App Service* enables you to quickly scale up or out to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling to scale your servers based on load or schedule.
 
-##Friction-free Deploy
+##Friction-free deploy
 Set up continuous integration and deployment workflows with Visual Studio Online, GitHub, TeamCity, Hudson or BitBucket – enabling you to automatically build, test and deploy your mobile app on each successful code check-in or integration tests.
 
 ##Keep your assets safe
@@ -73,7 +73,7 @@ Automatically back up your backend and database. Your code and data is secure fr
 ##Be in the “know”
 React to issues in real-time with monitoring and alerts to automatically notify you and your team. Integrate advanced app analytics and monitoring functionality from New Relic and AppInsights to get even richer insight into how your *Web app* is performing.
 
-##Ready, Stage, Go!
+##Ready, stage, go!
 Create multiple private testing and staging environments for your web apps. Use them to perform testing before you deploy. Swap to production with no downtime. Web apps are pre-loaded, ensuring the best customer experience.
 
 For more information about the *Azure App Service* platform, see [Azure App Service](./app-service-value-prop-what-is/).
