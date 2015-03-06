@@ -93,12 +93,12 @@ The sample application we'll be exploring creates a new index named "stores", po
 
 We'll walk through this step by step. First we need to create a new `SearchServiceClient`. This object allows you to manage indexes. In order to construct one, you need to provide your Azure Search service name as well as an admin API key.
 
-        string searchServiceName = "Put your search service name here."; 
+        string searchServiceName = "myservice"; // Put your search service name here. 
         string apiKey = "Put your API admin key here."
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
-> [AZURE.NOTE]: If you provide an incorrect key (for example, a query key where an admin key was required), the `SearchServiceClient` will throw a `CloudException` with the error message "Forbidden" the first time you call an operation method on it, such as `Indexes.Create`. If this happens to you, double-check our API key.
+> [AZURE.NOTE] If you provide an incorrect key (for example, a query key where an admin key was required), the `SearchServiceClient` will throw a `CloudException` with the error message "Forbidden" the first time you call an operation method on it, such as `Indexes.Create`. If this happens to you, double-check our API key.
 
 The next few lines call methods to create an index named "stores", deleting it first if it already exists. We will walk through these methods a little later.
 
@@ -112,7 +112,7 @@ Next, the index needs to be populated. To do this, we will need a `SearchIndexCl
 
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("stores");
 
-> [AZURE.NOTE]: In a typical search application, index management and population is handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing another `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This is consistent with the principle of least privilege and will help to make your application more secure. You can find out more about admin keys and query keys [here](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx).
+> [AZURE.NOTE] In a typical search application, index management and population is handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing another `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This is consistent with the principle of least privilege and will help to make your application more secure. You can find out more about admin keys and query keys [here](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx).
 
 Now that we have a `SearchIndexClient`, we can populate the index. This is done by another method that we will walk through later.
 
