@@ -87,7 +87,7 @@ To complete the steps in this article, you will need the following:
 
 ##<a id="results"></a>View results
 
-Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasb:///example/pigcurl**. This address stores the output of the job in the **example/pigcurl** directory on the default storage container used by your HDInsight cluster.
+Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasb:///example/pigcurl**. This address stores the output of the job in the **example/pigcurl** directory on the default storage container used by your HDInsight cluster.
 
 You can list and download these files by using the <a href="../xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface (xplat-cli)</a>. For example, to list files in **example/pigcurl**, use the following command:
 

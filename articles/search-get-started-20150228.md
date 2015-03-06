@@ -24,7 +24,7 @@ You can download the sample from codeplex at [Azure Search Demo Using USGS Data]
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
-You can begin with [Get started with Azure Search](./search-get-started/) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
+You can begin with [Get started with Azure Search](../search-get-started/) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
 
 > [AZURE.TIP] We recommend updating NuGet packages before building any projects to avoid build errors. Right-click the solution and choose **Manage NuGet Packages**. Update all of the packages used in this solution.
 
@@ -70,7 +70,7 @@ You could also try any of these terms:
 
 ##Explore the code##
 
-To learn the basics of the .NET SDK, take a look at [How to use Azure Search in .NET](./search-howto-dotnet-sdk/) for an explanation of the most commonly used classes in the client library.
+To learn the basics of the .NET SDK, take a look at [How to use Azure Search in .NET](../search-howto-dotnet-sdk/) for an explanation of the most commonly used classes in the client library.
 
 The remainder of this section covers a few points about each project. Where appropriate, we'll point you towards some alternative approaches that use more advanced features.
 
@@ -86,7 +86,7 @@ The **DataIndexer** program includes a **SearchDocuments** method for searching 
 
 **SimpleSearchMVCApp Project**
 
-The MVC project uses a view and controller to route inputs and outputs to the presentation layer. **Index.cshtml** provides the HTML used for rendering the search results. Currently, this is just a simple table that organizes the data from the dataset. While useful for prototyping and testing, you can easily improve upon the presentation. For tips on how to batch results and put counts on a page, see [Page results and pagination in Azure Search](./search-pagination-page-layout/).
+The MVC project uses a view and controller to route inputs and outputs to the presentation layer. **Index.cshtml** provides the HTML used for rendering the search results. Currently, this is just a simple table that organizes the data from the dataset. While useful for prototyping and testing, you can easily improve upon the presentation. For tips on how to batch results and put counts on a page, see [Page results and pagination in Azure Search](../search-pagination-page-layout/).
 
 Connections to Azure Search, plus execution of a query request, are defined in the **FeatureSearch.cs** file.
 

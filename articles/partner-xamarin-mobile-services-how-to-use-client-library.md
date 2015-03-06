@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -21,28 +21,6 @@
 
 This guide shows you how to perform common scenarios using the Xamarin Component client for Azure Mobile Services, in Xamarin apps for iOS and Android. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial ([Xamarin.iOS][Xamarin.iOS quickstart tutorial]/[Xamarin.Android][Xamarin.Android quickstart tutorial]) and the "Getting Started with Data in .NET" tutorial ([Xamarin.iOS][Xamarin.iOS data tutorial]/[Xamarin.Android][Xamarin.Android data tutorial]). The quickstart tutorial requires [Xamarin][Xamarin download] the [Mobile Services SDK] and helps you configure your account and create your first mobile service.
 
-
-## Table of Contents
-
-- [What is Mobile Services]
-- [Concepts]
-- [How to: Create the Mobile Services client]
-- [How to: Create a table reference]
-- [How to: Query data from a mobile service]
-	- [Filter returned data]
-    - [Sort returned data]
-	- [Return data in pages]
-	- [Select specific columns]
-	- [Look up data by ID]
-- [How to: Insert data into a mobile service]
-- [How to: Modify data in a mobile service]
-- [How to: Delete data in a mobile service]
-- [How to: Authenticate users]
-- [How to: Handle errors]
-- [How to: Work with untyped data]
-- [How to: Design unit tests]
-- [Next steps]
-	
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a>Setup and Prerequisites</h2>

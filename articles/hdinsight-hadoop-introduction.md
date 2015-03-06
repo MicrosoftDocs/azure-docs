@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Introduction to Hadoop in HDInsight: Big data analysis in the cloud | Azure" 
+   pageTitle="Introduction to Hadoop in the cloud: Big data analysis | Azure" 
    description="An introduction to the Hadoop components on HDInsight. Learn how HDInsight uses Hadoop clusters in the cloud to manage, analyze, and report on big data." 
    services="hdinsight" 
    documentationCenter="" 
@@ -19,33 +19,25 @@
 
 # Introduction to Hadoop in HDInsight: Big-data processing and analysis in the cloud
 
-Get an introduction to the Hadoop ecosystem in Azure HDInsight - components, common terminology, and scenarios. Also, find out about tutorials and resources for using Hadoop in HDInsight.
+Get an introduction to the Hadoop ecosystem in Azure HDInsight - components, common terminology, and solutions. Also, find out about documentation, tutorials, and resources for using Hadoop in HDInsight.
+
+## What is Hadoop in HDInsight?
 
 Azure HDInsight deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data. The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system.
 
 
-### What is big data?
+## What is big data?
 Big data refers to data being collected in ever-escalating volumes, at increasingly high velocities, and for a widening variety of unstructured formats and variable semantic contexts. 
 
 Big data describes any large body of digital information, from the text in a Twitter feed, to the sensor information from industrial equipment, to information about customer browsing and purchases on an online catalog. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source). 
 
 For big data to provide actionable intelligence or insight, not only must the right questions be asked and data be relevant to the issues be collected, the data must be accessible, cleaned, analyzed, and then presented in a useful way. That's where Hadoop in HDInsight can help.
 
-## In this article
-
-This article provides an overview of Hadoop on HDInsight, including:
-
-* **[Overview of the Hadoop ecosystem on HDInsight](#overview)** - HDInsight is the Hadoop solution on Azure and provides implementations of Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
-
-* **[Advantages of Hadoop in the cloud](#advantage)** - Reasons you should consider the HDInsight cloud implementation of Hadoop.
-
-* **[HDInsight solutions for big-data analysis](#solutions)** - Some practical ways you can use HDInsight to answer questions for your organization, from analyzing Twitter sentiment to analyzing HVAC system effectiveness.
-
-* **[Resources for learning more about big-data analysis, Hadoop, and HDInsight](#resources)** - Links to additional information.
 
 ## <a name="overview"></a>Overview of the Hadoop ecosystem on HDInsight
 
-Apache Hadoop is the rapidly expanding technology stack that is the go-to solution for big-data analysis. HDInsight is the framework for the Microsoft Azure cloud implementation of Hadoop.
+Apache Hadoop is the rapidly expanding technology stack that is the go-to solution for big-data analysis. HDInsight is framework for the Microsoft Azure cloud implementation of Hadoop. It includes implementations of Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
+
 
 * Azure HDInsight deploys and provisions Hadoop clusters in the cloud, by using either **Linux** or **Windows** as the underlying OS.
 
@@ -213,7 +205,7 @@ Familiar business intelligence (BI) tools - such as Excel, PowerPivot, SQL Serve
 
 These BI tools can help in your big-data analysis:
  
-* [Connect Excel to Hadoop with Power Query](../hdinsight-connect-excel-power-query/) - Learn how to connect Excel to the Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
+* [Connect Excel to Hadoop with Power Query](../hdinsight-connect-excel-power-query/) - Learn how to connect Excel to the Azure Storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
 
 * [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-ODBC-driver/) - Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver.
 
