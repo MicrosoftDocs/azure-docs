@@ -20,7 +20,7 @@
 # Use Oozie with Hadoop in HDInsight
 
 ##Overview
-Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight. To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-use-oozie-coordinator-time].
+Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight. To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time].
 
 ##What is Oozie?
 
@@ -50,7 +50,7 @@ The workflow you will implement by following the instructions in this tutorial c
 	
 2.  A Sqoop action exports the HiveQL output to a table in an Azure SQL database. For more information about Sqoop, see [Use Hadoop Sqoop with HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE] For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-component-versioning].
+> [AZURE.NOTE] For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].
 
 > [AZURE.NOTE] This tutorial works on HDInsight versions 3.0 and 2.1. This tutorial has not been tested on HDInsight emulator.
 
@@ -59,7 +59,7 @@ The workflow you will implement by following the instructions in this tutorial c
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Azure PowerShell installed and configured. For instructions, see [How to install and configure Azure PowerShell][install-configure-powershell]. To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
+- **A workstation** with Azure PowerShell installed and configured. For instructions, see [How to install and configure Azure PowerShell][powershell-install-configure]. To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
 - **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Provision Hadoop clusters in HDInsight by using custom options][hdinsight-provision-clusters] or [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]. You will need the following data to go through the tutorial:
 
 	<table border = "1">
@@ -71,7 +71,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Azure blob container name</td><td>$containerName</td><td></td><td>For this example, use the name of the blob container used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.</td></tr>
 	</table>
 
-- **An Azure SQL database**. You must configure a firewall rule for the Azure SQL database to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Getting started with Microsoft Azure SQL database][sql-database-get-started]. This article provides a Windows PowerShell script for creating the Azure SQL database table that is needed for this tutorial. 
+- **An Azure SQL database**. You must configure a firewall rule for the Azure SQL database to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Getting started with Microsoft Azure SQL database][sqldatabase-get-started]. This article provides a Windows PowerShell script for creating the Azure SQL database table that is needed for this tutorial. 
 
 	<table border = "1">
 	<tr><th>SQL database property</th><th>Windows PowerShell variable name</th><th>Value</th><th>Description</th></tr>
@@ -81,7 +81,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>Azure SQL database to which Sqoop will export data. </td></tr>
 	</table>
 
-	> [AZURE.NOTE] By default, an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure portal. For instructions about creating a  SQL database and configuring firewall rules, see [How to Create and Configure an Azure SQL Database][sql-database-create-configure]. 
+	> [AZURE.NOTE] By default, an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure portal. For instructions about creating a  SQL database and configuring firewall rules, see [How to Create and Configure an Azure SQL Database][sqldatabase-create-configue]. 
 
 
 > [AZURE.NOTE] Filling in the values in the tables will be helpful for going through this tutorial.
@@ -220,7 +220,7 @@ You will run a Windows PowerShell script to perform the following:
 
 HDInsight uses blobs in Azure Storage for data storage. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
-When you provision an HDInsight cluster, an Azure Storage account and a specific blob container from that account is designated as the default file system, like in HDFS. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or a different Azure subscriptions during the provisioning process. For instructions about adding additional storage accounts, see [Provision Hadoop clusters in HDInsight][hdinsight-provision-clusters]. 
+When you provision an HDInsight cluster, an Azure Storage account and a specific blob container from that account is designated as the default file system, like in HDFS. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or a different Azure subscriptions during the provisioning process. For instructions about adding additional storage accounts, see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. 
 To simply the Windows PowerShell script used in this tutorial, all of the files are stored in the default file storage container, which is located at */tutorials/useoozie*. By default, this container has the same name as the HDInsight cluster name. The syntax is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
