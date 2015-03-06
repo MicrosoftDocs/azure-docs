@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="BizTalk B2B - Trading Partner & Agreement Management" 
+   pageTitle="Managing Trading Partners and Agreements" 
    description="This topic covers management of Trading Partners & Agreements" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -15,6 +15,8 @@
    ms.workload="integration" 
    ms.date="02/27/2015"
    ms.author="hariag"/>
+   
+# Managing Trading Partners and Agreements
 
 These API Apps surface the following management capabilities:  
 
