@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="BizTalk B2B - Archive AS2 messages" 
+   pageTitle="Archiving AS2 Messages" 
    description="This topic covers archival of AS2 messages" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -15,6 +15,8 @@
    ms.workload="integration" 
    ms.date="02/27/2015"
    ms.author="hariag"/>
+   
+#Archiving AS2 messages
 
 The 'AS2 Connector' API App exposes archiving functionality. 
 Archiving simply stores the message at that point to the Azure Blob Storage provided as part of the AS2 Connector instance settings. 
