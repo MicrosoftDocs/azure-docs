@@ -420,7 +420,7 @@ For information about how to create application logs in WebJobs, see [How to wor
 
 	![Error trace in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
-	Visual Studio is only showing error-level traces because that is the default setting when you enable the log monitoring service. When you create a new Azure Web App, all logging is disabled by default, as you saw when you opened the settings page earlier:
+	Visual Studio is only showing error-level traces because that is the default setting when you enable the log monitoring service. When you create a new Azure web app, all logging is disabled by default, as you saw when you opened the settings page earlier:
 
 	![Application Logging off](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
