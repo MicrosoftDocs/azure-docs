@@ -1,5 +1,6 @@
 <properties 
 	pageTitle="Monitor your Logic Apps" 
+	description="Learn how to monitor your Logic Apps." 
 	authors="jtwist" 
 	manager="dwrede" 
 	editor="" 
