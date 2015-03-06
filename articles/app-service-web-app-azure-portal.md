@@ -38,7 +38,7 @@ The Azure Portal enables users to build applications end-to-end with a series of
 
 ## Navigation examples ##
 
-### How to create a web app, empty, with databases, or from a gallery of applications. ###
+### How to create a web app: empty, with a database, or from a gallery of applications. ###
 
 Creating new web apps is still as easy as 1-2-3. Notice that, other than layout, not much has changed in the number of steps needed to get a web app up and running. 
 
