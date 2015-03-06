@@ -68,7 +68,7 @@ Launch Visual Studio and create a new ASP.NET Web Application project. Name the 
 
 ![][3]
 
-In Visual Studio 2013, the ASP.NET Web Application project includes a template for Windows Azure Mobile Service. Select this template and click **OK**.
+In Visual Studio 2013, the ASP.NET Web Application project includes a template for Azure Mobile Service. Select this template and click **OK**.
 
 ![][4]
  
@@ -121,7 +121,7 @@ Right click the Controllers folder >  **Add** > **New Scaffolded Item**.
 
 ![][6] 
 
-In the **Add Scaffold** dialog, expand **Common** on the left and select **Windows Azure Mobile Services**. Then select **Windows Azure Mobile Services Table Controller**. Click **Add**.
+In the **Add Scaffold** dialog, expand **Common** on the left and select **Azure Mobile Services**. Then select **Azure Mobile Services Table Controller**. Click **Add**.
 
 ![][7] 
  
@@ -666,7 +666,7 @@ In Solution Explorer, right-click the Leaderboard project and select **Publish**
  
 ![][12]
 
-In the **Publish** dialog, click **Windows Azure Mobile Services**.
+In the **Publish** dialog, click **Azure Mobile Services**.
 
 ![][13]
  
