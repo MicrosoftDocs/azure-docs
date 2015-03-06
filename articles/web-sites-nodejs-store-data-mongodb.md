@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" 
-	description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." 
+	description="How to use MongoDB to store data in a Node.js application hosted on Azure." 
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
 	authors="wpickett" 
-	writer="" 
+	writer="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 # Create a Node.js Application on Azure with MongoDB in a Virtual Machine

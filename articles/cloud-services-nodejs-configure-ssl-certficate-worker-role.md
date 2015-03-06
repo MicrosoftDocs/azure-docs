@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Configure SSL for a cloud service (Node.js) worker role" 
-	description="" 
+	description="Configure SSL for a Node.js cloud service worker role in Azure" 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/25/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 

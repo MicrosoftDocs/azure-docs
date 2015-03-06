@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Run Cassandra with Linux on Azure" 
-	description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." 
+	description="How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app" 
 	services="virtual-machines" 
 	documentationCenter="nodejs" 
-	authors="hanuk" 
-	manager="timlt" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/01/2014" 
-	ms.author="hanuk"/>
+	ms.author="MikeWasson"/>
 
 
 
