@@ -75,7 +75,7 @@ this topic:
 -   [Starter project download][StarterProject]
 -   [Completed project download][CompletedProject]
 
-##<a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website
+##<a name="bkmk_DeployStarterProject"></a>Deploy the starter project to an Azure Website
 
 1.	Download the conference-listing application [starter project][StarterProject].
 
