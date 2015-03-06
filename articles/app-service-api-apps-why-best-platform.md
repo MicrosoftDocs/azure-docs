@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="API Apps in Azure App Service" 
+	pageTitle="What are API Apps?" 
 	description="Learn why Azure App Service is the best platform for developing, publishing, and hosting RESTful APIs." 
 	services="app-service" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/19/2015" 
+	ms.date="03/06/2015" 
 	ms.author="tdykstra"/>
 
-# API Apps in Azure App Service
+# What are API Apps?
 
 ## Overview
 
