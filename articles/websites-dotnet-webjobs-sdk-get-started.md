@@ -80,7 +80,7 @@ This tutorial shows how to run the frontend in a web app and the backend as a We
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
-The tutorial instructions have been written using [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510328). The only difference for Visual Studio 2013 Update 3 is in the create-from-scratch section where you create the WebJob project: with Update 4 the WebJobs SDK packages are automatically included in the project; without Update 4 you have to install the packages manually.
+The tutorial instructions apply to Azure SDK for .NET 2.5.1 or later. In the create-from-scratch section where you create the WebJob project, the WebJobs SDK packages are automatically included in the project; with earlier versions of the SDK you have to install the packages manually.
 
 ## <a id="storage"></a>Create an Azure Storage account
 
@@ -92,13 +92,13 @@ In a real-world application, you typically create separate accounts for applicat
 
 2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure**.
 
-![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+	![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Sign in using your Azure credentials.
 
 5. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
 
-![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+	![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. In the **Create Storage Account** dialog, enter a name for the storage account. 
 
@@ -238,11 +238,9 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
 
-2. In the **Select existing web app** box, click **Sign In**.
- 
-	![Click Sign In](./media/websites-dotnet-webjobs-sdk-get-started/signin.png)	
+2. In the **Select existing web app** box, click **Sign In** and enter your credentials if you're not already signed in.
 
-5. After you're signed in, click New.
+5. After you're signed in, click **New**.
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
