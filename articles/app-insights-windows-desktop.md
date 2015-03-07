@@ -41,7 +41,7 @@ In Windows Desktop applications, you have to use the API to send telemetry to th
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Install the Application Insights SDK for Web apps.
+2. Install the Application Insights SDK for Web Applications.
    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
