@@ -16,7 +16,7 @@
 	ms.date="02/22/2015" 
 	ms.author="yuaxu"/>
 
-# Add push notifications to your Mobile App
+# Add push notifications to your iOS App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
@@ -70,8 +70,7 @@ Next, you will register your app with Apple, enable push notifications, and uplo
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and register for push notifications. 
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=27
-2. 56" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to create an app ID for your app.
+1. If you have not already registered your app, navigate to the iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to create an app ID for your app.
     
     ![][102]
 
@@ -157,29 +156,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 ## <a name="configure-appServiceMobile"></a>Configure App Service mobile backend to send push requests
 
-After you have registered your app with APNS and configured your project, you must next configure your app service to integrate with APNS.
-
-1. In Keychain Access, right-click the new certificate, click **Export**, name your file, select the **.p12** format, then click **Save**.
-
-    ![][28]
-
-    Make a note of the file name and location of the exported certificate.
-
-2. Log on to the [Preview Portal], click **Mobile Apps**, and then click your app.
-
-    ![][18]
-
-3. Click the **Push** tab and click **Upload** under **apple push notification settings**.
-
-    ![][19]
-
-    This displays the Upload Certificate dialog.
-
-4. Click **File**, select the exported certificate .p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
-
-    ![][20] 
-
-Your mobile service is now configured to work with APNS.
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
 ## <a name="configure-app"></a>Configure your Xamarin.iOS application
 
@@ -205,12 +182,7 @@ Your mobile service is now configured to work with APNS.
 
         public string DeviceToken { get; set; }
 
-2. Open the **TodoItem** class and add the following property:
-
-        [JsonProperty(PropertyName = "deviceToken")]
-        public string DeviceToken { get; set; }
-
-3. In **QSTodoService**, override the existing client declaration to be:
+2. In **QSTodoService**, override the existing client declaration to be:
         
         public MobileServiceClient client { get; private set; }
 

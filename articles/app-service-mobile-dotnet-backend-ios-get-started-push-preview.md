@@ -54,7 +54,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Configure Mobile Services to send push requests
 
-[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/app-service-mobile-apns-configure-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
 
 ##<a id="update-server"></a>Update the server to send push notifications
