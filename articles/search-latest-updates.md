@@ -20,6 +20,12 @@
 
 Azure Search is now generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the [2015-02-28 version of the API](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx).
 
+Watch this video for a demo and discussion of the latest features:
+
+> [AZURE.VIDEO azure-search-general-availability-and-whats-new/]
+
+##How features are versioned and rolled out##
+
 Features are released through the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or both. This page lists and describes each release in terms of the functionality it provides.
 
 Currently, only the REST APIs have multiple versions. Older APIs remain operational as we roll out new features. The only other release is the .NET SDK, which is in its first pre-release iteration. You can visit [Search service versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) to learn more about our versioning policy.

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to use Azure Redis Cache with Java" 
-   description="Get started with Azure Redis Cache using Java" 
+   pageTitle="How to use Azure Redis Cache with Node.js" 
+   description="Get started with Azure Redis Cache using Node.js and node_redis." 
    services="redis-cache" 
    documentationCenter="" 
    authors="MikeWasson" 

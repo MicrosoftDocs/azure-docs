@@ -72,14 +72,14 @@ When you sign up for a Twilio account, you'll receive an account ID and an authe
 
 
 <h2><a id="create_app"></a>Create a PHP Application</h2>
-A PHP application that uses the Twilio service and is running in Azure is no different than any other PHP application that uses the Twilio service. While Twilio services are REST-based and can be called from PHP in several ways, this article will focus on how to use Twilio services with [Twilio library for PHP from Github][twilio_php]. For more information about using the Twilio library for PHP, see [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
+A PHP application that uses the Twilio service and is running in Azure is no different than any other PHP application that uses the Twilio service. While Twilio services are REST-based and can be called from PHP in several ways, this article will focus on how to use Twilio services with [Twilio library for PHP from GitHub][twilio_php]. For more information about using the Twilio library for PHP, see [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
 
 Detailed instructions for building and deploying a Twilio/PHP application to Azure are available at [How to Make a Phone Call Using Twilio in a PHP Application on Azure][howto_phonecall_php].
 
 <h2><a id="configure_app"></a>Configure Your Application to Use Twilio Libraries</h2>
 You can configure your application to use the Twilio library for PHP in two ways:
 
-1. Download the Twilio library for PHP from Github ([https://github.com/twilio/twilio-php][twilio_php]) and add the **Services** directory to your application.
+1. Download the Twilio library for PHP from GitHub ([https://github.com/twilio/twilio-php][twilio_php]) and add the **Services** directory to your application.
 
 	-OR-
 

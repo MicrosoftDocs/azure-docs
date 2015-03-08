@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="How to use Notification Hubs with Node.js" 
-	description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." 
+	description="Learn how to use Notification Hubs to send push notifications from a Node.js application." 
 	services="notification-hubs" 
 	documentationCenter="nodejs" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="02/26/2015" 
-	ms.author="wesmc"/>
+	ms.author="mwasson"/>
 
 # How to use Notification Hubs from Node.js
 <div class="dev-center-tutorial-selector sublanding"> 

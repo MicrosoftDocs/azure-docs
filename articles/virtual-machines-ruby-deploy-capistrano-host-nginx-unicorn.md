@@ -435,7 +435,7 @@ The application should now be ready for deployment.
 
 	> [AZURE.NOTE] Some portions of the deployment may return 'exit status 1 (failed).' These can generally be ignored as long as the deployment completes successfully.
 
-	> [AZURE.NOTE] On some systems, you may encounter a situation where the SSH Agent cannot forward credentials to the remote VM when authenticating to GitHub. If this occurs, you can work around the error by modifying the **config/deploy.rb** file and change the `set :repo_url` line to use HTTPS when accessing Github. When using HTTPS, you must specify your GitHub user name and password (or authentication token,) as part of the URL. For example:
+	> [AZURE.NOTE] On some systems, you may encounter a situation where the SSH Agent cannot forward credentials to the remote VM when authenticating to GitHub. If this occurs, you can work around the error by modifying the **config/deploy.rb** file and change the `set :repo_url` line to use HTTPS when accessing GitHub. When using HTTPS, you must specify your GitHub user name and password (or authentication token,) as part of the URL. For example:
 	> 
 	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
 	> 

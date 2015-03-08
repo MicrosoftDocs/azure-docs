@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Get started with push notification hubs using .NET runtime mobile services" 
-	description="Learn how to use Windows Azure .Net runtime mobile services and Notification Hubs to send push notifications to your Windows phone app." 
+	description="Learn how to use Notification Hubs with Azure mobile services to send push notifications to your Windows phone app." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -11,7 +11,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/23/2015" 
@@ -23,7 +23,7 @@
 
 ##Overview
 
-This topic shows you how to use Azure Mobile Services with a .NET backend to send push notifications to a Windows Phone Silverlight 8 app. In this tutorial you enable push notifications using Windows Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
+This topic shows you how to use Azure Mobile Services with a .NET backend to send push notifications to a Windows Phone Silverlight 8 app. In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Add Mobile Services to an existing app] to connect your project to the mobile service.
