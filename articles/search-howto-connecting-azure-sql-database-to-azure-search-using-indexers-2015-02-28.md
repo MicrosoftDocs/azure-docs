@@ -3,7 +3,7 @@
 	description="Learn how to pull data from Azure SQL Database to an Azure Search index using indexers." 
 	services="search" 
 	documentationCenter="" 
-	authors="HeidiSteen" 
+	authors="chaosrealm" 
 	manager="pablocas" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="03/09/2015" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search Using Indexers#
