@@ -10,14 +10,14 @@
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="02/24/2015"
 	ms.author="chrande"/>
 
 
-# <a name="getting-started"> </a>Get started with your mobile app (Xamarin iOS)
+# <a name="getting-started"> </a>Create a Xamarin.iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../includes/app-service-mobile-selector-get-started-preview.md)]
 
