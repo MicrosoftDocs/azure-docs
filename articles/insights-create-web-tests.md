@@ -2,16 +2,17 @@
 	pageTitle="How to create web test" 
 	description="Learn how to create web tests in Azure." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
-<tags 
+<tags
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-17" 
+	ms.date="01/17/2015" 
 	ms.author="awills"/>
 
 # Web tests for Microsoft Azure Websites
