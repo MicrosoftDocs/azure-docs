@@ -16,7 +16,7 @@
     ms.date="03/26/2015" 
     ms.author="donnam"/>
 
-# Enable offline sync for your Mobile App (Xamarin iOS)
+# Enable offline sync for your Xamarin iOS mobile app 
 
 <!-- [AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
  -->
