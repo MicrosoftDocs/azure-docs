@@ -17,7 +17,7 @@
 	ms.author="chrande"/>
 
 
-# <a name="getting-started"> </a>Create a Xamarin.iOS app
+# <a name="getting-started"> </a>Create a Xamarin iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../includes/app-service-mobile-selector-get-started-preview.md)]
 
