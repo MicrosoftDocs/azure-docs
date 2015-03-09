@@ -17,23 +17,16 @@
 	ms.date="11/24/2014" 
 	ms.author="cephalin"/>
 
-#Restore a Microsoft Azure website
+# Restore a Microsoft Azure website
 
-This article shows you how to restore a website that you have previously backed up by using the Azure Websites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/). 
+This article shows you how to restore a website that you have previously backed up by using the Azure Websites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](../web-sites-backup/). 
 
 The Azure Websites Restore feature lets restore your website on-demand to a previous state, or create a new website based on one of your original site's backups. Creating a new website that runs in parallel to the latest version can be useful for A/B testing.
 
 The Restore feature, available on the Backups tab in the Azure Websites portal, is available only in Standard mode.
 
-##In this article
-- [To Restore an Azure web site from a previously made backup](#PreviousBackup)
-- [To Restore an Azure web site directly from a storage account](#StorageAccount)
-- [Choose Your Web Site Restore Settings and Start the Restore Operation](#RestoreSettings)
-- [View the Operation Logs](#OperationLogs)
-
-
 <a name="PreviousBackup"></a>
-##To Restore an Azure website from a previously made backup
+## To Restore an Azure website from a previously made backup
 
 1. On the **Backups** tab, click **Restore Now** in the command bar at the bottom of the portal page. The **Restore Now** dialog box appears.
 	
@@ -44,7 +37,7 @@ The Restore feature, available on the Backups tab in the Azure Websites portal, 
 4. Follow the steps in the [Choose Your Web Site Restore Settings](#RestoreSettings) section later in this article.
 
 <a name="StorageAccount"></a>
-##To Restore an Azure website directly from a storage account
+## To Restore an Azure website directly from a storage account
 
 1. On the **Backups** tab, click **Restore Now** in the command bar at the bottom of the portal page. The **Restore Now** dialog box appears.
 	
@@ -68,7 +61,7 @@ The Restore feature, available on the Backups tab in the Azure Websites portal, 
 7. Continue with the section that follows, [Choose Your Web Site Restore Settings and Start the Restore Operation](#RestoreSettings).
 
 <a name="RestoreSettings"></a>
-##Choose Your Website Restore Settings and Start the Restore Operation
+## Choose Your Website Restore Settings and Start the Restore Operation
 1. Under **Choose your website restore settings**, **Restore To**, select either **Current website** or **New website instance**.
 	
 	![Choose your web site restore settings][ChooseRestoreSettings]
@@ -104,7 +97,7 @@ The Restore feature, available on the Backups tab in the Azure Websites portal, 
 	![Restored Contoso web site][RestoredContosoWebSite]
 
 <a name="OperationLogs"></a>
-##View the Operation Logs
+## View the Operation Logs
 	
 1. To see details about the success or failure of the website restore operation, go to the website's Dashboard tab. In the **Quick Glance** section, under **Management Services**, click **Operation Logs**.
 	

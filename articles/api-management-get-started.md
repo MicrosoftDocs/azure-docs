@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure API Management" 
+	pageTitle="Manage your first API in Azure API Management" 
 	description="Learn how to create APIs, operations, and get started with API Management." 
 	services="api-management" 
 	documentationCenter="" 
@@ -13,23 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/27/2015" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
-# Get started with Azure API Management
+# Manage your first API in Azure API Management
 
 This guide shows you how to quickly get started using API Management and make your first API call.
-
-## In this topic
-
--	[Create an API Management instance][]
--	[Create an API][]
--	[Add an operation][]
--	[Add the new API to a product][]
--	[Subscribe to the product that contains the API][]
--	[Call an operation from the Developer Portal][]
--	[View analytics][]
--	[Next steps][]
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
 
@@ -258,7 +247,7 @@ The **Analytics** section has the following four tabs.
 
 -	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 
-[Azure Free Trial]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api

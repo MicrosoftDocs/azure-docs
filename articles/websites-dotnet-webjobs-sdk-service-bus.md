@@ -58,7 +58,7 @@ The following code sample reads a queue message that contains a string and write
 		    logger.WriteLine(message);
 		}
 
-**Note:** If you are creating the queue messages in an application that doesn't use the WebJobs SDK, make sure to set [BrokeredMessage.ContentType](http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) to "text/plain".
+**Note:** If you are creating the queue messages in an application that doesn't use the WebJobs SDK, make sure to set [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) to "text/plain".
 
 ### POCO queue message
 

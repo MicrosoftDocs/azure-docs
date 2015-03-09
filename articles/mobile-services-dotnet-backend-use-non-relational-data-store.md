@@ -115,8 +115,8 @@ The tutorial requires completion of the [Get started with Mobile Services] or [G
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Get Started with Data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Get Started with Data]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Azure Management Portal]: https://manage.windowsazure.com/
-[What is the Table Service]: /en-us/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
-[MongoLab Add-on Page]: /en-us/gallery/store/mongolab/mongolab
+[What is the Table Service]: /documentation/articles/storage-dotnet-how-to-use-tables/#what-is
+[MongoLab Add-on Page]: /gallery/store/mongolab/mongolab

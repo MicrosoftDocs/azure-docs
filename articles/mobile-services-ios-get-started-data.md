@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Add Mobile Services to an existing app (iOS) | Mobile Dev Center" 
-	description="Learn how to get started using Mobile Services to leverage data in your iOS app." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add Mobile Services to an existing app (iOS) | Mobile Dev Center"
+	description="Learn how to get started using Mobile Services to leverage data in your iOS app."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="10/10/2014"
 	ms.author="krisragh"/>
 
 # Add Mobile Services to an existing app
@@ -22,7 +22,7 @@
 
 This topic shows you how to use Azure Mobile Services to leverage data in an iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
 
-> [AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an iOS app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services](/en-us/develop/mobile/tutorials/get-started-ios).
+> [AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an iOS app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services](/develop/mobile/tutorials/get-started-ios).
 
 This tutorial walks you through these basic steps:
 
@@ -35,7 +35,7 @@ This tutorial walks you through these basic steps:
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] and iOS 5.0 or later versions.
-+ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>.</p></div>
++ A Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
 ##<a name="download-app"></a>Download the GetStartedWithData project
 
@@ -96,9 +96,6 @@ Next, consider completing one of the following tutorials that is based on the Ge
 * [Validate and modify data with scripts]
   <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
 Once you have completed the data series, try these other iOS tutorials:
 
 * [Get started with authentication]
@@ -130,12 +127,11 @@ Once you have completed the data series, try these other iOS tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

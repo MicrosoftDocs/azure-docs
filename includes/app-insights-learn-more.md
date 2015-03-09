@@ -35,6 +35,7 @@ Processing
 Problems? Questions?
 
 <ul>
+<li><a href="../app-insights-platforms/">Can I use Application Insights with...?</a></li>
 <li><a href="../app-insights-troubleshoot-faq/">Q & A and troubleshooting</a>
 </li>
 <li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
@@ -43,34 +44,32 @@ Problems? Questions?
 
 </td><td>
 
-Device apps
+
+Get started with ...
+
 <ul>
-<li><a href="../app-insights-windows-get-started/">Monitor usage and crashes in Windows device apps</a>
+<li><a href="../app-insights-start-monitoring-app-health-usage/">ASP.NET web apps</a>
+</li>
+<li><a href="../app-insights-windows-get-started/">Windows device apps</a>
+</li>
+<li><a href="../app-insights-windows-desktop/">Windows desktop apps</a>
+<li><a href="../app-insights-monitor-performance-live-website-now/">ASP.NET server</a>
+</li>
+<li><a href="../app-insights-web-track-usage/">Web pages</a>
+</li>
+<li><a href="../app-insights-monitor-web-app-availability/">Web tests to monitor availability</a>
+</li>
+<li><a href="../insights-perf-analytics/">Azure websites</a>
+</li>
+<li><a href="../app-insights-java-get-started/">Java applications and web services</a>
+</li>
+<li><a href="../app-insights-platforms/">Other platforms</a>
 </li>
 </ul>
 
 
-Web sites and web applications
+Performance monitoring
 
-<ul>
-<li> Getting started
-
-<ul>
-<li><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights SDK to your Visual Studio project</a>
-</li>
-<li><a href="../app-insights-monitor-performance-live-website-now/">Install Status Monitor to track ASP.NET application performance and dependencies</a>
-</li>
-<li><a href="../app-insights-web-track-usage/">Insert a script to monitor usage in web pages</a>
-</li>
-<li><a href="../app-insights-monitor-web-app-availability/">Create web tests to monitor availability</a>
-</li>
-<li><a href="../insights-perf-analytics/">Enable Application Insights for Azure websites</a>
-</li>
-<li><a href="../app-insights-java-get-started/">Get started with Java applications</a>
-</li>
-</ul>
-</li>
-<li>Performance monitoring
 <ul>
 <li><a href="../app-insights-web-monitor-performance/">Detect performance issues in web applications</a>
 </li>
@@ -78,19 +77,18 @@ Web sites and web applications
 </li>
 <li><a href="../app-insights-java-trace-logs/">Search Java traces and logs</a>
 </li>
+<li><a href="../app-insights-java-track-http-requests/">Track HTTP requests in Java apps</a></li>
 <li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">Telemetry API reference</a>
 </li>
 </ul>
-</li>
-<li>Tracking usage
+
+Usage tracking
 <ul>
 <li><a href="../app-insights-web-track-usage/">Analyze usage in web applications</a>
 </li>
 <li><a href="../app-insights-web-track-usage-custom-events-metrics/">Track custom events and metrics</a>
 </li>
 <li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">API for custom events</a>
-</li>
-</ul>
 </li>
 </ul>
 
@@ -121,6 +119,12 @@ Web sites and web applications
 [knowUsers]: ../app-insights-overview-usage/
 [java]: ../app-insights-java-get-started/
 [javalogs]: ../app-insights-java-trace-logs/
+[javareqs]: ../app-insights-java-track-http-requests/
+[eclipse]: ../app-insights-java-eclipse/
 [windows]: ../app-insights-windows-get-started/
+[desktop]: ../app-insights-windows-desktop/
 [windowsUsage]: ../app-insights-windows-usage/
 [windowsCrash]: ../app-insights-windows-crashes/
+[platforms]: ../app-insights-platforms/
+[android]: https://github.com/Microsoft/AppInsights-Android
+

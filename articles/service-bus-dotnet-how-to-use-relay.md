@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -24,7 +24,7 @@
 
 # How to Use the Service Bus Relay Service
 
-This guide shows you how to use the Service Bus relay service.
+This guide describes how to use the Service Bus relay service.
 The samples are written in C# and use the Windows Communication
 Foundation API with extensions contained in the Service Bus assembly
 that is part of the .NET Azure SDK. For more
@@ -32,7 +32,7 @@ information on the Service Bus relay, see the "Next Steps" section.
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-<h2>What is the Service Bus Relay</h2>
+## What is the Service Bus relay?
 
 The Service Bus **Relay** service enables you to build **hybrid
 applications** that run in both an Azure datacenter and your
@@ -59,7 +59,7 @@ This guide demonstrates how to use the Service Bus relay to create a WCF
 web service, exposed using a TCP channel binding, that implements a
 secured conversation between two parties.
 
-##Create a Service Namespace
+##Create a service namespace
 
 To begin using the Service Bus relay in Azure, you must first
 create a service namespace. A namespace provides a scoping
@@ -95,7 +95,7 @@ To create a service namespace:
 
 	The namespace you created then appears in the Management Portal and takes a moment to activate. Wait until the status is **Active** before continuing.
 
-##Obtain the Default Management Credentials for the Namespace
+##Obtain the default management credentials for the namespace
 
 In order to perform management operations, such as creating a relay connection, on the new namespace, you must configure the Shared Access Signature (SAS) authorization rule for the namespace. For more information about SAS, see [Shared Access Signature Authentication with Service Bus][].
 
@@ -112,7 +112,7 @@ In order to perform management operations, such as creating a relay connection, 
  
 4.  When a Service Bus namespace is provisioned, a **SharedAccessAuthorizationRule**, with **KeyName** set to **RootManageSharedAccessKey**, is created by default. This page displays that key, as well as the primary and secondary keys for the default rule. 
 
-##Get the Service Bus NuGet Package
+##Get the Service Bus NuGet package
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -131,7 +131,7 @@ To install the NuGet package in your application, do the following:
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
   
 
-##How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP
+##How to use Service Bus to expose and consume a SOAP web service with TCP
 
 To expose an existing WCF SOAP web service for external
 consumption, you must make changes to the service bindings and
@@ -153,7 +153,7 @@ your environment:
 2.  Add the **Azure Service Bus NuGet** package to both projects.
     This adds all of the necessary assembly references to your projects.
 
-### How to Create the Service
+### How to create the service
 
 First, create the service itself. Any WCF service consists of at
 least three distinct parts:
@@ -195,7 +195,7 @@ With the contract in place, the implementation is trivial:
             }
         }
 
-####How to Configure a Service Host Programmatically
+###How to configure a service host programmatically
 
 With the contract and implementation in place, you can now host
 the service. Hosting occurs inside a
@@ -237,7 +237,7 @@ endpoint as a Service Bus TCP endpoint with a fully qualified external
 DNS name. If you place the code replacing the placeholders as explained
 above into the **Main** function of the "Service" application, you will have a functional service. If you want your service to listen exclusively on Service Bus, remove the local endpoint declaration.
 
-####How to Configure a Service Host in the App.config File####
+###How to configure a service host in the App.config file
 
 You can also configure the host using the App.config file. The service
 hosting code in this case is as follows:
@@ -277,9 +277,9 @@ Replace the placeholders with your Service Bus service namespace and SAS key.
 
 After you make these changes, the service starts as it did before, but with two live endpoints: one local and one listening in the cloud.
 
-### How to Create the Client
+### How to create the client
 
-####How to Configure a Client Programmatically
+####How to configure a client programmatically
 
 To consume the service, you can construct a WCF client using a
 **ChannelFactory** object. Service Bus uses a claims-based security
@@ -312,7 +312,7 @@ You can now compile the client and the service, run
 them (run the service first), and the client will call the service and
 print "9". You can run the client and server on different machines, even across networks, and the communication will still work. The client code can also run in the cloud or locally.
 
-####How to Configure a Client in the App.config File
+####How to configure a client in the App.config file
 
 You can also configure the client using the App.config file. The client
 code for this is as follows:
@@ -347,7 +347,7 @@ and SAS key.
         </endpointBehaviors>
     </behaviors>
 
-#Next Steps
+## Next Steps
 
 Now that you've learned the basics of the Service Bus **Relay** service,
 follow these links to learn more.
@@ -361,7 +361,7 @@ follow these links to learn more.
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Shared Access Signature Authentication with Service Bus]: http://msdn.microsoft.com/en-us/library/dn170477.aspx
-  [Building a Service for Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
-  [Building a Service Bus Client Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
+  [Shared Access Signature Authentication with Service Bus]: http://msdn.microsoft.com/library/dn170477.aspx
+  [Building a Service for Service Bus]: http://msdn.microsoft.com/library/ee173564.aspx
+  [Building a Service Bus Client Application]: http://msdn.microsoft.com/library/ee173543.aspx
   [Azure Samples]: http://code.msdn.microsoft.com/windowsazure

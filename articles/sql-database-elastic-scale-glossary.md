@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
-	ms.author="sidneyh"/>
+	ms.date="02/16/2015" 
+	ms.author="sidneyh@microsoft.com"/>
 
 #Elastic Scale Glossary
 The following terms are defined for the Elastic Scale feature of Azure SQL Database.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
@@ -22,11 +22,11 @@ These steps show you how to customize a set of Azure PowerShell commands that cr
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
+For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
 
 ##Step 1: Install Azure PowerShell
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an administrator-level Azure PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
 
 ##Step 2: Set your subscription and storage account
 
@@ -98,7 +98,7 @@ Optionally, for a standalone Windows computer, specify the local administrator a
 	$localadminpassword="<local administrator account password>"
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
 
-Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the account credentials of a domain account.
+Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the name and password of a domain account.
 
 	$localadminusername="<local administrator account name>"
 	$localadminpassword="<local administrator account password>"
@@ -108,7 +108,7 @@ Optionally, to add the Windows computer to an existing Active Directory domain, 
 	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
 
-Note that this requires you to specify the account name and password of an Active Directory domain account. If you are saving the resulting command set as a file, ensure that you store it in a secure location to protect the domain account name and password.
+Note that both of these options require you to specify account names and passwords. If you are saving the resulting command set in a file, store it in a secure location to protect them.
 
 For additional pre-configuration options for Windows-based virtual machines, see the syntax for the **Windows** and **WindowsDomain** parameter sets in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -259,12 +259,12 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 ##Additional Resources
 
-[Virtual machines documentation](http://azure.microsoft.com/en-us/documentation/services/virtual-machines/)
+[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
+[How to install and configure Azure PowerShell](../install-configure-powershell/)
 
-[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/)
+[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](../virtual-machines-ps-create-preconfigure-linux-vms/)

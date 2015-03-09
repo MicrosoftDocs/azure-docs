@@ -21,7 +21,7 @@
 
 **What is RECOMMENDATIONS?**
 
-For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborating filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. RECOMMENDATIONS is currently in public preview, and it is on the way to becoming a generally available service.
+For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborative filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -29,11 +29,12 @@ For organizations and businesses that rely on recommendations to cross-sell and 
 
 RECOMMENDATIONS takes as input an item or a set of items and returns a list of relevant recommendations. For example: A customer of an online retailer clicks a product. The online retailer sends that product as input to RECOMMENDATIONS, gets a list of products in return, and decides which of these products will be shown to the customer. You may want to use RECOMMENDATIONS to optimize your online store or even to inform your inside sales department or call center.
 
-**Are there any limitations during the launch period?**
+**Are there any usage limitations?**
 
-Recommendations has the following limitations during the public preview:
+Recommendations has the following usage limitations:
 * Maximum number of models per subscription: 10
 * Maximum number of items that a catalog can hold: 100,000
+* The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
 * Maximum size of data that can be sent in email (for example, import catalog data, import usage data) is 200 MB
 * Number of transactions per second (TPS) for a Recommendations model build that is not active is ~2 TPS. A Recommendations model build that is active can hold up to 20 TPS.
 
@@ -42,7 +43,7 @@ Recommendations has the following limitations during the public preview:
 
 **How much does Recommendations cost during the launch period?**
 
-Recommendations is a subscription-based service. Charging is based on volume of transactions per month. During the launch period, the service is free, and it is restricted to 100,000 transactions per month.
+Recommendations is a subscription-based service. Charging is based on volume of transactions per month. You can check the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) in Microsoft Azure Marketplace for pricing information.
 
 **Are there any costs associated with having Recommendations track and store user activity for me?**
 
@@ -50,15 +51,7 @@ Not at the moment.
 
 **Does Recommendations have a free trial?**
 
-During the launch period, the service is free, and it is restricted to 100,000 transactions per month.
-
-**When will the launch period end?**
-
-The launch period and its pricing are expected to last for several months. We will notify our subscribed users about upcoming changes in status and pricing.
-
-**How much will it cost when it becomes generally available?**
-
-Pricing for Recommendations when it becomes generally available is yet to be determined. If there are price changes, subscribers will be notified.
+There is a free trail which is restricted to 10,000 transactions per month.
 
 **When will I be billed for Recommendations?**
 
@@ -66,19 +59,18 @@ A paid subscription is any subscription for which there is a monthly fee. When y
 
 **How do I upgrade to a higher tier service?**
 
-During the launch period, the service is restricted to 100,000 transactions per month, and it is not upgradable to a higher tier.
-
-When Recommendations becomes generally available, if you discover that your subscription does not provide you with enough transactions, you can upgrade to a subscription with a higher transaction limit.
+You can buy or update your subscription from the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) page on Microsoft Azure Marketplace.
 
 When you upgrade a subscription:
+
 * Transactions that are remaining on your old subscription are not added to your new subscription. 
 * You pay full price for the new subscription, even though you have unused transactions on your old subscription.
 
 Process to upgrade a subscription:
-* Sign in to the Marketplace.
-* Click the **My Data** tab.
-* Click **Use** for the subscription you want to upgrade. 
-* In the right pane, all the available subscriptions are listed and your subscription is showing as unavailable. Click the radio button for the subscription you want to upgrade to.
+
+* Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
+* Sign in to the Marketplace if you aren't already Signed in.
+* In the right pane, all the available plans are listed. Click the radio button for the plan you want to upgrade to.
 * If you want to upgrade, click **OK**. If you do not want to upgrade, click **Cancel**.
 
 **Important** Carefully read the dialog box before you upgrade because there are billing and use implications.
@@ -93,9 +85,8 @@ To cancel your subscription, use the following steps. If your current subscripti
 
 **Note** No refund is given if you cancel before the end of a billing period or for unused transactions in a billing period.
 
-* Sign in to the Marketplace.
-* Click the **My Data** tab.
-* Find the subscription you want to cancel.
+* Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
+* Sign in to the Marketplace if you aren't already Signed in.
 * Click **Cancel** to the right of the dataset name and status. You can use this subscription until the end of the current billing period or your transaction limit is reached (whichever occurs first).
 
 If you would like to cancel your subscription immediately so you can purchase a new subscription, file a ticket at [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
@@ -116,11 +107,11 @@ Recommendations also requires a catalog of your products or services. If you don
 
 **How do I set up Recommendations for the first time?**
 
-After subscribing to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations – Quick Start Guide](https://onedrive.live.com/view.aspx?cid=8536718B52F71725&resid=8536718B52F71725!118&app=Word&authkey=!AOLb7aR6D0cVqMQ) to set up the service.
+After [subscribing] (https://datamarket.azure.com/dataset/amla/recommendations) to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations – Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) to set up the service.
 
 **Where can I find API documentation?** 
 
-The API documentation is [Azure Machine Learning Recommendations – Quick Start Guide](https://onedrive.live.com/view.aspx?cid=8536718B52F71725&resid=8536718B52F71725!118&app=Word&authkey=!AOLb7aR6D0cVqMQ).
+The API documentation is [Azure Machine Learning Recommendations – Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md).
 
 **What options do I have to upload catalog and usage data to Recommendations?**
 
@@ -135,7 +126,7 @@ In addition, a subscription can contain up to 10 data sets (models).
 
 **Where can I get technical support for Recommendations?**
 
-Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MachineLearning) site.
+Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) site.
 
 **Where can I find the terms of use?**
 

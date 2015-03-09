@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 # How to Use Service Bus Queues
@@ -56,7 +56,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-## Setup an Azure Service Bus connection
+## Set up an Azure Service Bus connection
 
 To instantiate an Azure Service Bus client you must first have a valid connection string following this format:
 
@@ -108,7 +108,7 @@ The example below shows how to instantiate a **ServiceBusRestProxy** and call **
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		// http://msdn.microsoft.com/library/windowsazure/dd179357
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -142,7 +142,7 @@ To send a message to a Service Bus queue, your application will call the **Servi
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+		// http://msdn.microsoft.com/library/windowsazure/hh780775
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -202,7 +202,7 @@ The example below demonstrates how a message can be received and processed using
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+		// http://msdn.microsoft.com/library/windowsazure/hh780735
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -249,6 +249,6 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
 [require_once]: http://php.net/require_once
 

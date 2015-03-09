@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2015" 
+	ms.date="02/12/2015" 
 	ms.author="jaymathe"/>
 
 # Quick start guide for the Machine Learning Recommendations API
 
-This document depicts how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. 
+This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -48,15 +48,37 @@ All the steps above are done through the Azure Machine Learning Recommendations 
 ##Integration
 
 ###Authentication
-Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either the Basic or OAuth authentication method.
+Micosoft Azure Marketplace supports either the Basic or OAuth authentication method.
+####Basic Authentication
+Add the Authorization header:
+
+	Authorization: Basic <creds>
+               
+	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	
+Convert to Base64 (C#)
+
+	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var creds = Convert.ToBase64String(bytes);
+	
+Convert to Base64 (JavaScript)
+
+	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
+	
+You get your account key [here]( https://datamarket.azure.com/account/keys). 
+
+
 
 ###Service URI
-The service root URIs for the Azure Machine Learning Recommendations APIs are [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
+The service root URI for the Azure Machine Learning Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
 The full service URI is expressed using elements of the OData specification.
 
 ###API version
 Each API call will have, at the end, a query parameter called apiVersion that should be set to "1.0".
+
+###IDs are case sensitive
+IDs, returned by any of the APIs, are case sensitive and should be used as such when passed as parameters in subsequent API calls. For instance, model IDs and catalog IDs are case sensitive.
 
 ###Create a model
 Creating a “create model” request:
@@ -78,6 +100,7 @@ Creating a “create model” request:
 HTTP Status code: 200
 
 - `feed/entry/content/properties/id` - Contains the model ID.
+**Note**: model ID is case sensitive.
 
 OData XML
 
@@ -120,7 +143,7 @@ If you upload several catalog files to the same model with several calls, we wil
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model.  |
+|	modelId	|	Unique identifier of the model (case sensitive)  |
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -169,7 +192,7 @@ This section shows how to upload usage data by using a file. You can call this A
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId	|	Unique identifier of the model.  |
+|	modelId	|	Unique identifier of the model (case sensitive) |
 | filename | Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 |	apiVersion		| 1.0 |
 |||
@@ -323,7 +346,7 @@ HTTP Status code: 200
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId |	Unique identifier of the model.  |
+| modelId |	Unique identifier of the model (case sensitive)  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | apiVersion | 1.0 |
 |||
@@ -399,7 +422,7 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-|	modelId			|	Unique identifier of the model.	|
+|	modelId			|	Unique identifier of the model  (case sensitive)	|
 |	onlyLastBuild	|	Indicates whether to return all the build history of the model or only the status of the most recent build.	|
 |	apiVersion		|	1.0									|
 
@@ -483,10 +506,10 @@ OData XML
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| modelId | Unique identifier of the model. |
+| modelId | Unique identifier of the model (case sensitive) |
 | itemIds | Comma-separated list of the items to recommend for.<br>Max length: 200 |
-| numberOfResults | Number of required results. |
-| includeMetatadata | Future use, always false. |
+| numberOfResults | Number of required results |
+| includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
 
 **Response:**
@@ -666,7 +689,7 @@ This mechanism enables you - once you have a recommendation model in production 
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
-| id | Unique identifier of the model. |
+| id | Unique identifier of the model (case sensitive) |
 | apiVersion | 1.0 |
 |||
 | Request Body | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Note that the XML tags Description and ActiveBuildId are optional. If you do not want to set Description or ActiveBuildId, remove the entire tag. |

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2014" 
+	ms.date="02/12/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -24,7 +24,7 @@ How can we predict groups of credit cardholders’ behaviors in order to reduce 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
    
-In practice, cluster analysis classifies a set of observations into two or more mutually exclusive unknown groups based on combinations of variables. The purpose of cluster analysis is to discover a system of organizing observations, usually people or their characteristics, into groups, where members of the groups share properties in common. This [service](https://datamarket.azure.com/dataset/aml_labs/k_cluster_model) uses the K-Means methodology, a commonly used clustering technique, to cluster arbitrary data into groups. This web service takes the data and the number of k clusters as input, and produces predictions of which of the k groups to which each observations belongs. 
+Cluster analysis classifies a set of observations into two or more mutually exclusive unknown groups based on combinations of variables. The purpose of cluster analysis is to discover a system of organizing observations, usually people or their characteristics, into groups, where members of the groups share properties in common. This [service](https://datamarket.azure.com/dataset/aml_labs/k_cluster_model) uses the K-Means methodology, a commonly used clustering technique, to cluster arbitrary data into groups. This web service takes the data and the number of k clusters as input, and produces predictions of which of the k groups to which each observations belongs. 
 
 >This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example. But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code. With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service. The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.  
 
@@ -41,14 +41,14 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string value;
 	        public string k;
-	    }
+	}
 	
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
@@ -65,14 +65,14 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+	    	var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
 
 
 ##Creation of web service  
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. The data schema was created with a simple “Execute R Script”. Then, the data schema was linked to the cluster model section, again created with an “Execute R Script”. In the “Execute R Script” used for the cluster model, the web service then utilizes the “k-means” function, which is prebuilt into the “Execute R Script” of Azure Machine Learning.    
    
@@ -83,6 +83,7 @@ From within Azure Machine Learning, a new blank experiment was created and two �
 ####Module 1: 
 	#Enter the input data as a string 
 	mydata <- data.frame(value = "1; 3; 5; 6; 7; 7, 5; 5; 6; 7; 2; 1, 3; 7; 2; 9; 56; 6, 1; 4; 5; 26; 4; 23, 15; 35; 6; 7; 12; 1, 32; 51; 62; 7; 21; 1", k=5, stringsAsFactors=FALSE)
+	
 	maml.mapOutputPort("mydata");     
 	
 
@@ -116,7 +117,7 @@ From within Azure Machine Learning, a new blank experiment was created and two �
 This is a very simple example of a clustering web service. As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service. Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called. 
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-cluster-model/cluster-img1.png
 [2]: ./media/machine-learning-r-csharp-cluster-model/cluster-img2.png

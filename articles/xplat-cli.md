@@ -16,9 +16,9 @@
 	ms.date="1/16/2015" 
 	ms.author="rasquill"/>
 
-#Install and Configure the Azure Cross-Platform Command-Line Interface
+# Install and Configure the Azure Cross-Platform Command-Line Interface
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
@@ -109,7 +109,7 @@ Once the xplat-cli has been installed, you will be able to use the **azure** com
 
 > [AZURE.NOTE] Node.js and npm can also be installed on Windows from <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
-<h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
+## <a id="configure">How to connect to your Azure subscription</a>
 
 While some commands provided by the xplat-cli will work without an Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your subscription you can either:
 
@@ -175,7 +175,7 @@ To log out, use the following command:
 > 
 > If you need to work with these commands, use a publish settings file to authenticate to Azure as described in the following section.
 
-###Use the publish settings file method
+### Use the publish settings file method
 
 To download the publish settings for your account, use the following command:
 
@@ -429,7 +429,7 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 * For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 
@@ -438,15 +438,15 @@ If you are writing a script that relies on the exit status, please verify that t
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[authandsub]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[batch]: http://technet.microsoft.com/en-us/library/bb490890.aspx
-[xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[batch]: http://technet.microsoft.com/library/bb490890.aspx
+[xplatarm]: /documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
+[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/

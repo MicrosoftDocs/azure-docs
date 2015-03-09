@@ -61,7 +61,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 **To install the command-line interface using windows installer**
 
-1.	Browse to **http://azure.microsoft.com/en-us/downloads/**.
+1.	Browse to **http://azure.microsoft.com/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
 ##Download and import Azure account publishsettings
@@ -103,15 +103,7 @@ After you have imported the publishsettings file, you can use the following comm
 	azure account storage create [options] <StorageAccountName>
 
 
-> [AZURE.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
-
-><ul>
-<li>Southeast Asia</li>
-<li>North Europe</li>
-<li>West Europe</li>
-<li>East US</li>
-<li>West US</li>
-</ul>
+> [AZURE.NOTE] The storage account must be collocated in the same data center with HDInsight.
 
 
 For information on creating an Azure storage account using Azure Management portal, see [Create, manage, or delete a storage account][azure-create-storageaccount].
@@ -205,11 +197,10 @@ In this article, you have learned how to perform different HDInsight cluster adm
 
 
 [azure-command-line-tools]: ../xplat-cli/
-[azure-command-line-tool]: ../command-line-tools/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/

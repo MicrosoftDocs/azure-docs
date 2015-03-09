@@ -205,7 +205,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 
 
 <!--Link references-->
-[Python Developer Center]: /en-us/develop/python/
+[Python Developer Center]: /develop/python/
 [Azure Cloud Services]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->

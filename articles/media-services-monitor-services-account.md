@@ -21,6 +21,9 @@
 
 
 #<a id="monitormediaservicesaccount"></a>How to Monitor a Media Services Account
+
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series. 
+
 The Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.
 
 You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well. You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.

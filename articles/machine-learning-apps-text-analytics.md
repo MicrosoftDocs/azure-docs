@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Machine Learning app: Text Analytics Service for analyzing sentiment | Azure "
 	description="Text Analytics API is a suite of text analytics built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis and key phrase extraction."
 	services="machine-learning"
@@ -41,14 +41,14 @@ https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
 In the GET call below, we are requesting for the sentiment for the phrase *Hello World*
 
-    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=%27Hello%20world%27
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
 Headers:
 
 	Authorization: Basic <creds>
 	Accept: application/json
                
-Where <creds\> = ConvertToBase64(“AccountKey:”<AccountKey\>);  
+	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
 You get your account key [here]( https://datamarket.azure.com/account/keys). 
 
@@ -71,15 +71,15 @@ https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
 
 In the GET call below, we are requesting for the sentiment for the key phrases in the text *It was a wonderful hotel to stay at, with unique decor and friendly staff*
 
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?Text=
-	It%20was%20a%20 wonderful%20hotel%20to%20stay%20at,%20with%20unique%20decor%20and%20friendly%20staff
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
+	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
 
 Headers:
 
 	Authorization: Basic <creds>
 	Accept: application/json
                
-Where <creds\> = ConvertToBase64(“AccountKey:”<AccountKey\>)
+	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey)
 
 You get your account key [here]( https://datamarket.azure.com/account/keys). 
 
@@ -90,3 +90,4 @@ You get your account key [here]( https://datamarket.azure.com/account/keys).
 	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata","KeyPhrases":[
 	    "wonderful hotel","unique decor","friendly staff"]
 	}
+ 

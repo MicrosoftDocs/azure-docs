@@ -14,11 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/15/2015" 
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account
+
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+
 
 In Media Services, a Streaming Endpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Currently, Microsoft Azure Media Services does not offer a seamless CDN integration, but you can utilize one of the CDN providers on the market (Azure CDN or Akamai). The outbound stream from the Streaming Endpoint service can be a live stream, or a video on demand Asset in your Media Services account. 
 
@@ -30,7 +33,7 @@ This topic shows how to manage Streaming Endpoints using the Azure Management Po
 ##Adding and Deleting Streaming Endpoints 
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
-2. Select the STREAMING ENDPOINTS page. 
+2. Select the **STREAMING ENDPOINTS** page. 
 3. Click the ADD or DELETE button at the bottom of the page. Note that the default streaming endpoint cannot be deleted. 
 4. Click the START button to start the streaming endpoint. 
 5. Click on the name of the streaming endpoint to configure it.   
@@ -39,7 +42,7 @@ This topic shows how to manage Streaming Endpoints using the Azure Management Po
 
 ##<a id="scale_streaming_endpoints"></a>Scale the Streaming Endpoint
 
-Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and  additional functionality which currently includes [dynamic packaging capabilities](http://go.microsoft.com/fwlink/?LinkId=276874). By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase Streaming Units. 
+Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and  additional functionality which currently includes [dynamic packaging capabilities](http://go.microsoft.com/fwlink/?LinkId=276874). By default, streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve a streaming throughput, it is recommended to purchase Streaming Units. 
 
 To change the number of streaming units, do the following:
 
@@ -71,10 +74,9 @@ The CONFIGURE tab enables you to perform configurations as shown in this image. 
 
 3. Specify configuration for Akamai signature header authentication.
 
-4. You can specify a cross domain access policy for Adobe Flash clients (for more information see, [Cross-domain policy file specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). As well as client access policy for Microsoft Silverlight clients (for more information, see [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/en-us/library/cc197955(v=vs.95).aspx).  
+4. You can specify a cross domain access policy for Adobe Flash clients (for more information see, [Cross-domain policy file specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). As well as client access policy for Microsoft Silverlight clients (for more information, see [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).  
 
-5. You can also configure custom host names by Clicking the **configure** button. For more information, see the **CustomHostNames** property in the [StreamingEndpont](https://msdn.microsoft.com/en-us/library/dn783468.aspx) topic.  
-
+5. You can also configure custom host names by Clicking the **configure** button. For more information, see the **CustomHostNames** property in the [StreamingEndpont](https://msdn.microsoft.com/library/dn783468.aspx) topic.  
 
 
 

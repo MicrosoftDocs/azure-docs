@@ -82,7 +82,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 	**Important: The step is only valid for CentOS 6.3 and earlier.**  In CentOS 6.4+ the Linux Integration Services are *already available in the kernel*.
 
-	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=41554).
+	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=41554).
 
 	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
 

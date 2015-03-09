@@ -3,7 +3,7 @@
 	description="Consume an Azure Machine Learning Web Service from Excel" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luiscabrer" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,56 +13,54 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="luiscabrer"/>
+	ms.date="02/18/2015" 
+	ms.author="luisca"/>
 
 
 # Consuming an Azure Machine Learning Web Service from Excel #
 
-For a web service to be useful, users need to be able to send data to it and receive results. Usually this is done by writing a program that calls the web service directly. That said, Azure Machine Learning Studio makes it easy to consume scoring web services directly from Excel without the need to write any code.
-
-This page describes necessary to consume an Azure Machine Learning Web Service from Excel.
+ Azure Machine Learning Studio makes it easy to consume scoring web services directly from Excel without the need to write any code. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
-##Steps##
+## Steps
 
-1. First of all you need to publish a web service. [This page](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-5-publish-web-service/) explains how to do it. Currently the Excel Workbook feature is only supported for Request/Response services that have a single output (i.e. A single scoring label). 
+1. Publish a web service. [This page](../machine-learning-walkthrough-5-publish-web-service/) explains how to do it. Currently the Excel Workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label). 
  
-2. Once you have a web service, click on the **WEB SERVICES** section on the left of the studio, and then select the web service you would like to consume from Excel. 
+2. Once you have a web service, click on the **WEB SERVICES** section on the left of the studio, and then select the web service to consume from Excel. 
 
-3. On the **DASHBOARD** tab for the web service, you will see a row for the **REQUEST/RESPONSE** service. If this service had a single output, you should see the **Download Excel Workbook** link in that row.
+3. On the **DASHBOARD** tab for the web service is a row for the **REQUEST/RESPONSE** service. If this service had a single output, you should see the **Download Excel Workbook** link in that row.
 
 	![][1]
  
-4. Click on the **Download Excel Workbook** link. This will download a workbook, and open it in Excel.
+4. Click on **Download Excel Workbook**, and open it in Excel.
 
-5. A Security Warning will appear, click on the **Enable Editing** button.
+5. A Security Warning appears; click on the **Enable Editing** button.
 
 	![][2]
 
-6. A Security Warning will appear, click on the **Enable Content** button. This will allow macros to run on your spreadsheet.
+6. A Security Warning appears. Click on the **Enable Content** button to run macros on your spreadsheet.
 
 	![][3] 
  
-7. Once macros are enabled, a table will be generated. In blue color you will see columns that are required as input into the RRS web service, or **PARAMETERS**. In green you will see the **PREDICTED VALUES**, or the output of the RRS call. Once all of the columns for a given row are filled, the workbook will automatically call the scoring API, and display the scored results. As easy as that, no need for any coding.
+7. Once macros are enabled, a table is generated. Columns in blue are required as input into the RRS web service, or **PARAMETERS**. Note the output of the RRS service, **PREDICTED VALUES** in green. When all columns for a given row are filled, the workbook automatically calls the scoring API, and displays the scored results. 
 
 	![][4]
 
-7. Need to score more than one row? Not a problem, simply fill the second row with data and the predicted values will be automatically produced. You can even paste several rows at once.
+7. To score more than one row, fill the second row with data and the predicted values are produced. You can even paste several rows at once.
 
-8. Now you can use any of the many Excel features (graphs, power map, conditional formatting, etc.) with the predicted values!    
+8. Now use any of the Excel features (graphs, power map, conditional formatting, etcetera) with the predicted values!    
 
 
-###Sharing your workbook###
+## Sharing your workbook
 
-In order for the macros to work, you ACCESS KEY needs to be part of the spreadsheet. That means that you should only share the workbook with entities/individuals with whom you don't mind sharing your access key.
+In order for the macros to work, your ACCESS KEY needs to be part of the spreadsheet. That means that you should share the workbook only with entities/individuals you trust.
 
-###Automatic updates###
+## Automatic updates
 
 An RRS call is made in these two situations:
 
-1. The first time a row has content in all of it's **PARAMETERS**
+1. The first time a row has content in all of its **PARAMETERS**
     
 2. Any time any of the **PARAMETERS** changes in a row that had all of its **PARAMETERS** entered.
 

@@ -19,7 +19,7 @@
 
 # Create a database in the Latest SQL Database Update V12 (preview)
 
-[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. To get started, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information. 
+[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. To get started, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information. 
 
 
 | Create database | Screen shot |
@@ -34,9 +34,9 @@
 |5c.The **New server** blade gives you the choice to create the new server with V12 updates. To learn more about the features in V12 servers, review [What's new in Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/).| ![Select V12 server][6]|
 |5d. Make your selections on **New server** blade and click **OK**. That will take you back to **SQL Database** blade to complete the rest of the actions to create a database. | ![Complete New Server blade actions][8]|
 |6. Click **Select Source**. The different types of sources you can select from to create a database are: a blank database, a sample database or from a backup of a database.| ![Select the source for the database][10]|
-|7. Next, in **SQL database** blade, click **PRICING TIER**. You can select the recommended pricing tier or browse all available pricing tiers. After you make a choice, click **Select**. <p> For more information about pricing tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](http://azure.microsoft.com/en-us/documentation/articles/sql-database-upgrade-new-service-tiers/) and [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/en-us/library/azure/dn741336.aspx). |![Select a pricing tier][7]
+|7. Next, in **SQL database** blade, click **PRICING TIER**. You can select the recommended pricing tier or browse all available pricing tiers. After you make a choice, click **Select**. <p> For more information about pricing tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](http://azure.microsoft.com/documentation/articles/sql-database-upgrade-new-service-tiers/) and [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx). |![Select a pricing tier][7]
 | 8. Next, in **SQL database** blade, click **Optional Configuration**, make the selections and click **OK**. 
-| 9. In **SQL database** blade, click **Resource Group**. Create a new resource group or select an existing resource group from the list. Click **OK**. For more information, review [Using resource groups to manage your Azure resources.](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups)|![Specify Resource group][11]
+| 9. In **SQL database** blade, click **Resource Group**. Create a new resource group or select an existing resource group from the list. Click **OK**. For more information, review [Using resource groups to manage your Azure resources.](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups)|![Specify Resource group][11]
 | 10. In **SQL database** blade, click **SUBSCRIPTION**.A **Subscription** blade opens. Select an Azure subscription that supports the server selection you made. Please note that based on the subscription selection, the server settings might change.| ![Select subscription.][13]
 | 11. Click **Create**. A new database with SQL Database Update V12 features is created. |![Creates a new database][12]
 

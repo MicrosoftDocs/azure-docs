@@ -82,6 +82,10 @@ Once the data has been converted to CSV format, we need to upload it into Machin
  
 This uploads the data into a dataset module that we can use in an experiment.
 
+For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio][importdata].
+
+[importdata]: ../machine-learning-import-data/
+
 **Next: [Create a new experiment][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png

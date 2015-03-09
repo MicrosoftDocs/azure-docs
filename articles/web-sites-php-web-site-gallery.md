@@ -26,6 +26,6 @@
 ##<a name="nextsteps"></a>Next Steps
 You've seen how to create and deploy a website from the gallery. To learn more about how to create, configure, deploy, and scale Azure websites, check out these resources:
 
-- [Create a PHP-MySQL Azure web site and deploy using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/) -- Create an PHP website from scratch and deploy it to an Azure website using Git
-- [More PHP tutorials](/en-us/develop/php/tutorials/) - Create additional types of applications using PHP and Azure
+- [Create a PHP-MySQL Azure web site and deploy using Git](/develop/php/tutorials/website-w-mysql-and-git/) -- Create an PHP website from scratch and deploy it to an Azure website using Git
+- [More PHP tutorials](/develop/php/tutorials/) - Create additional types of applications using PHP and Azure
 

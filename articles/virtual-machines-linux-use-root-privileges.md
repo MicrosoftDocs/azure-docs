@@ -37,6 +37,12 @@ Log into the Linux virtual machine using SSH key or password authentication, the
 
 In this case the user will be prompted for a password. After entering the password `sudo` will run the command with `root` privileges.
 
+You can also enable passwordless sudo by editing the `/etc/sudoers.d/waagent` file, for example:
+
+	#/etc/sudoers.d/waagent
+	azureuser (ALL) = (ALL) NOPASSWD: ALL
+
+This change will allow for passwordless sudo by the azureuser user.
 
 ## SSH Key Only
 

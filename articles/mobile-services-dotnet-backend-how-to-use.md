@@ -17,7 +17,7 @@
 	ms.author="mahender"/>
 # Use the Mobile Services .NET Backend
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend">JavaScript backend</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend" class="current">.NET backend</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend">JavaScript backend</a></div>
 
 This article provides detailed information about and examples of how to work with the .NET backend in Azure Mobile Services. This topic is divided into these sections:
 

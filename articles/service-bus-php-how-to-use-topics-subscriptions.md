@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/10/2015" 
 	ms.author="sethm"/>
 
 
@@ -39,7 +39,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 ## Configure your application to use Service Bus
 
-To use the Azure Service Bus topic APIs, you need to:
+To use the Service Bus APIs:
 
 1. Reference the autoloader file using the [require_once][require-once] statement, and
 2. Reference any classes you might use.
@@ -55,7 +55,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-## Set up an Azure Service Bus connection
+## Set up a Service Bus connection
 
 To instantiate an Azure Service Bus client you must first have a valid connection string following this format:
 
@@ -105,7 +105,7 @@ The example below shows how to instantiate a **ServiceBusRestProxy** and call **
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		// http://msdn.microsoft.com/library/windowsazure/dd179357
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -139,7 +139,7 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		// http://msdn.microsoft.com/library/windowsazure/dd179357
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -203,7 +203,7 @@ To send a message to a Service Bus topic, your application will call the **Servi
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+		// http://msdn.microsoft.com/library/windowsazure/hh780775
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -268,7 +268,7 @@ The example below demonstrates how a message can be received and processed using
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+		// http://msdn.microsoft.com/library/windowsazure/hh780735
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -304,7 +304,7 @@ The following example shows how to delete a topic (`mytopic`) and its registered
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		// http://msdn.microsoft.com/library/windowsazure/dd179357
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -338,8 +338,8 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[sqlfilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[sqlfilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 
 [require-once]: http://php.net/require_once

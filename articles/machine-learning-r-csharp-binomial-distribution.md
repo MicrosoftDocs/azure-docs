@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/11/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -73,20 +73,22 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 ###Starting C# code for web service consumption:
 
 ###Binomial Distribution Quantile Calculator
-	    public class Input
-	    {
+	public class Input
+	{
 	        public string p;
 	        public string size;
 	        public string prob;
 	        public string side;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
-	    void main()
-	    {
+	
+    void main()
+	{
 	        var input = new Input() { p = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
 	        var json = JsonConvert.SerializeObject(input);
 	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
@@ -97,22 +99,24 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
-	    }
+		    var scoreResult = result.ReadAsStringAsync().Result;
+	}
 
 ###Binomial Distribution Probability Calculator
 	public class Input
-	    {
+	{
 	        public string q;
 	        public string size;
 	        public string prob;
 	        public string side;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
 	        var input = new Input() { q = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
@@ -125,22 +129,24 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+		    var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
 ###Binomial Distribution Generator
 	public class Input
-	    {
+	{
 	        public string n;
 	        public string size;
 	        public string p;
 	}
-	    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	    {
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
 	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
 	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
+	
 	void Main()
 	{
 	        var input = new Input() { n = TextBox1.Text, size = TextBox2.Text, p = TextBox3.Text };
@@ -153,7 +159,7 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 	
 	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
 	        var result = response.Result.Content;
-	    var scoreResult = result.ReadAsStringAsync().Result;
+		    var scoreResult = result.ReadAsStringAsync().Result;
 	}
 
 
@@ -162,7 +168,7 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 
 ##Creation of web service 
 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 ###Binomial Distribution Quantile Calculator
 
@@ -207,7 +213,8 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     }
 
     output = as.data.frame(quantile)
-    # Select data.frame to be sent to the output Dataset port
+    
+	# Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
 
@@ -244,7 +251,8 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     }
 
     output = as.data.frame(prob)
-    # Select data.frame to be sent to the output Dataset port
+    
+	# Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
 ###Binomial Distribution Generator
@@ -263,14 +271,15 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     dist = rbinom(param$n,param$size,param$p)
 
     output = as.data.frame(t(dist))
-    # Select data.frame to be sent to the output Dataset port
+    
+	# Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
 ##Limitations 
 These are very simple examples surrounding the binomial distribution. As can be seen from the example code above, little error catching is implemented.
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png

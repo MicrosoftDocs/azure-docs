@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 # How to manage developer accounts in Azure API Management
 
 In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.
-
-## In this topic
-
--   [Create a new developer][]
--   [Invite a developer][]
--   [Deactivate or reactivate a developer account][]
--   [Next steps][]
 
 ## <a name="create-developer"> </a>Create a new developer
 

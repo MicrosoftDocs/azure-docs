@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="How to use Service Bus topics (Node.js) - Azure" 
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." 
+	description="Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
-	ms.author="sethm"/>
+	ms.date="02/10/2015" 
+	ms.author="mwasson"/>
 
 
 
 
 
 
-# How to Use Service Bus topics/subscriptions
+# How to Use Service Bus topics and subscriptions
 
-This guide will show you how to use Service Bus topics and subscriptions
+This guide describes how to use Service Bus topics and subscriptions
 from Node.js applications. The scenarios covered include **creating
 topics and subscriptions, creating subscription filters, sending
 messages** to a topic, **receiving messages from a subscription**, and
@@ -34,12 +34,11 @@ and subscriptions, see the [Next Steps][] section.
 
 ## Create a Node.js application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
-## Configure your application to Use Service Bus
+## Configure your application to use Service Bus
 
-To use Azure Service Bus, you need to download and use the
-Node.js azure package. This includes a set of convenience libraries that
+To use Service Bus, download the Node.js azure package. This package includes a set of libraries that
 communicate with the Service Bus REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
@@ -73,7 +72,7 @@ the **server.js** file of the application:
 
     var azure = require('azure');
 
-### Setup an Azure Service Bus connection
+### Set up a Service Bus connection
 
 The azure module will read the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to your Azure Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
@@ -166,7 +165,7 @@ filter.
 
 ### Create subscriptions with filters
 
-You can also setup filters that allow you to scope which messages sent
+You can also create filters that allow you to scope which messages sent
 to a topic should show up within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
@@ -433,11 +432,11 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Azure Management Portal]: http://manage.windowsazure.com
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/

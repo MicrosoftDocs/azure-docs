@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="02/28/2015" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service
@@ -50,40 +50,6 @@ An Azure Data Factory Hub is a container for storage and compute services (both 
 
 Hubs will help to encapsulate storage and compute in a way where pipelines can reference only a Hub rather than the specific services and tables it uses. The Hub can then use policies to decide where to run a pipeline. This will have several important impacts. One is that it will provide easier scale-up as more Linked services can be added to a Hub, and pipelines can be load-balanced across these new Linked services. Another is that it will reuse of pipeline definitions on different Hubs.
 
-## Scenarios
-There are a wide range of scenarios for data pipelines that span on-premises systems, cloud systems, SaaS systems as well as streaming and batch-based data production.  This section describes a few example scenarios that the Azure Data Factory can support today, and will continue to grow as Hub scenarios.
-
-###Scenario #1: Data Sources for the Data Hub
-![Source the Data Hub][image-data-factory-introduction-secenario1-source-datahub]
-
-Enterprises have data of disparate types located in disparate sources.  The first step in building an information production system is to connect to all the required sources of data and processing, such as SaaS services, file shares, FTP, web services, and move the data as-needed for subsequent processing.
-
-Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing.  This is expensive, and hard to integrate and maintain such systems, and it often lacks the enterprise grade monitoring and alerting, and the controls that a fully managed service can offer.
-  
-With Azure Data Factory data storage and processing services are collected into a Hub container which facilitates and optimizes computation and storage activities, enables unified resource consumption management, and provides services for data movement as-needed.
-
-###Scenario #2: Operationalize Information Production
-
-Operationalization scenarios are the next logical step after data sourcing scenarios. Once data is present in a Hub, you want to author and operationalize data pipelines to reliably produce transformed data on a maintainable and controlled schedule to feed production environments with trusted data.  Data transformation in Azure Data Factory is through Hive, Pig and custom C# processing running on Hadoop (Azure HDInsight).  These transformations can be used to clean data, mask critical data fields, and perform other operations on the data in a wide variety of complex ways.  Ordinarily, operationalization is achieved with complex and hard to maintain infrastructure and custom services, and poses a number of challenges for implementation, management, scaling, troubleshooting, and versioning such a solution.
-  
-With Data Factory as a fully managed service, users can operationalize these pipelines by defining them with one-time or complex recurring schedules, and orchestration is handled directly by the Data Factory service.  With Hubs, cluster management for all of the data and processing within a Hub is handled on behalf of the user, so users can focus on transformative analytics instead on infrastructure management.  Azure Data Factory removes the challenges of working with brittle custom services, and enables enterprises to produce trusted information reliably and reproducibly.
-
-
-###Scenario #3:  Integrate Information Production with data discovery
-Traditional BI approaches and technologies, while providing an “authoritative source of the truth”, almost always have a serious side effect: a constant backlog of requests due to a carefully controlled change request process.  To adapt to quickly changing business questions, there is a need for greater flexibility for enterprises to connect their information production systems with their information consumption systems.  Azure Data Factory helps address the challenge of connecting these systems with streamlined data pipelines for information production, and the information consumption challenge by making up-to-date trusted data available in easily consumable forms.
-  
-Azure Data Factory supports the following capabilities to enable simple consumption of the data produced:
-
-- Easily move (one time or scheduled) the produced data assets to relational data marts for consumption using existing BI tools (Excel, Tableau, etc…).
-- Consume data assets produced by a data factory directly using Power Query in Excel.
-
-See the following topics for consuming data using Power Query: 
-
-- [Power Query: Connect to Microsoft Azure Table Storage] [Power-Query-Azure-Table]
-- [Power Query: Connect to Microsoft Azure Blob Storage] [Power-Query-Azure-Blob]
-- [Power Query: Connect to Microsoft Azure SQL Database] [Power-Query-Azure-SQL]
-- [Power Query: Connect to Microsoft On-premises SQL Server][Power-Query-OnPrem-SQL] 
-
 ## Application Model
 The following diagram illustrates the application model supported by Azure Data Factory.
 
@@ -103,6 +69,15 @@ Data Factories enable developers to create **pipelines** which are groups of dat
 Once data is in a **hub**, **pipelines** hosted by the compute services of the hub, are used to transform data into a form suitable for consumption (by BI tools, applications, customers, etc.).  
   
 Finally, **pipelines** can be chained (as shown in the diagram) such that the output **dataset(s)** of one are the input(s) of another.  This allows complex data flows to be factored into **pipelines** that run within a data hub or span multiple hubs.  Using **pipelines** in this way provides organizations the building blocks to compose the best of breed on-premises, cloud and Software-as-a-Service (SaaS) services all through the lens of a single, easily managed data factory. 
+
+## Authoring experience
+
+You can author/create data factories using one of the following:
+
+- **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
+- **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an example of using PowerShell cmdles to create ad deploy a data factory. 
+- **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
+- **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for comprehensive documentation of Data Factory REST API. 
 
 
 ##Terminology
@@ -146,7 +121,8 @@ Azure Data Factory supports the following activities in a pipeline:
 
 - **Copy Activity** copies the data from a data store to another data store. See [Copy data with Azure Data Factory][copy-data-with-adf] for details about what data stores the Copy Activity supports. 
 - **HDInsight Activity** processes data by running Hive/Pig scripts or MapReduce programs on an HDInsight cluster. See [Use Pig and Hive with Data Factory][use-pig-hive] and [Invoke MapReduce Programs from Data Factory][run-map-reduce] for details. 
-- **Azure ML Batch Scoring Activity** invokes the Azure Machine Learning batch scoring API. See [Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning][azure-ml-adf] for details. 
+- **Azure Machine Learning Batch Scoring Activity** invokes the Azure Machine Learning batch scoring API. See [Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning][azure-ml-adf] for details. 
+- **Stored Procedure Activity** invokes a stored procedure in an Azure SQL Database. See the [Stored Procedure Activity][msdn-stored-procedure-activity] on MSDN Library for details.   
  
 ###Data Hub
 An Azure Data Hub is a container for data storage and compute services. For example, a Hadoop cluster with HDFS as storage and Hive/Pig as compute (processing) is a data hub. Similarly, an enterprise data warehouse (EDW) can be modeled as a data hub (database as storage, stored procedures and/or ETL tool as compute services).  Pipelines use data stores and run on compute resources in a data hub. Only HDInsight hub is supported at this moment.
@@ -158,7 +134,7 @@ An important characteristic of Hub is that a pipeline runs on a single hub. This
 ###Slice
 A slice is a logical time based partitioning of the data produced by one or more activity runs. A table in an Azure data factory is composed of slices over the time axis. The width of a slice is determined by the schedule – hourly/daily. When the schedule is “hourly”, a slice is produced hourly with the start time and end time of a pipeline and so on.  
 
-Slices provide the ability for IT Professionals to work with a subset of overall data for a specific time window (for example: the slice that is produced for the duration (hour): 1:00 PM to 2:00 PM). They can also view all the downstream data slices for a given time internal and rerun a slice in case of a failure.
+Slices provide the ability for IT Professionals to work with a subset of overall data for a specific time window (for example: the slice that is produced for the duration (hour): 1:00 PM to 2:00 PM). They can also view all the downstream data slices for a given time interval and rerun a slice in case of a failure.
 
 The run is a unit of processing for a slice. There could be one or more runs for a slice in case of retries or if you rerun your slice in case of failures. A slice is identified by its start time. 
 
@@ -170,16 +146,25 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 
 1. [Get started with Data Factory][datafactory-getstarted]. This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
 2. [Tutorial: Move and process log files using Data Factory][adf-tutorial]. This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
+3. [Common scenarios for using Azure Data Factory][adf-common-scenarios]. This article describes a few common scenarios for using the Azure Data Factory service.
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
 [Power-Query-Azure-Blob]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx
 [Power-Query-Azure-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx
 [Power-Query-OnPrem-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx
 
-[copy-data-with-adf]: http://azure.microsoft.com/documentation/articles/data-factory-copy-activity/
-[use-pig-hive]: http://azure.microsoft.com/documentation/articles/data-factory-pig-hive-activities/
-[run-map-reduce]: http://azure.microsoft.com/documentation/articles/data-factory-map-reduce/
-[azure-ml-adf]: http://azure.microsoft.com/documentation/articles/data-factory-create-predictive-pipelines/
+[copy-data-with-adf]: ../data-factory-copy-activity
+[use-pig-hive]: ../data-factory-pig-hive-activities/
+[run-map-reduce]: ../data-factory-map-reduce/
+[azure-ml-adf]: ../data-factory-create-predictive-pipelines/
+[adf-common-scenarios]: ../data-factory-common-scenarios
+[create-factory-using-dotnet-sdk]: ../data-factory-create-data-factories-programmatically
+[data-factory-editor]: ../data-factory-editor
+
+
+[msdn-stored-procedure-activity]: https://msdn.microsoft.com/library/dn912649.aspx
+[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
+[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
 
 [adf-tutorial]: ../data-factory-tutorial
 [datafactory-getstarted]: ../data-factory-get-started/
@@ -187,10 +172,6 @@ Microsoft Data Management Gateway is software that connects on-premises data sou
 [image-data-factory-introduction-traditional-ETL]: ./media/data-factory-introduction/TraditionalETL.PNG
 
 [image-data-factory-introduction-todays-diverse-processing-landspace]:./media/data-factory-introduction/TodaysDiverseDataProcessingLandscape.PNG
-
-[image-data-factory-introduction-secenario1-source-datahub]:./media/data-factory-introduction/Scenario1SourceDataHub.png
-
-[image-data-factory-introduction-secenario2-operationalize-infoproduction]:./media/data-factory-introduction/Scenario2-OperationalizeInformationProduction.png
 
 [image-data-factory-application-model]:./media/data-factory-introduction/DataFactoryApplicationModel.png
 

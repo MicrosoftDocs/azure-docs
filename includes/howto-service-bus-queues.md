@@ -1,10 +1,10 @@
 <a id="what-are-service-bus-queues"></a>
 ##What are Service Bus Queues?
 
-Service Bus Queues support a **brokered messaging communication**
+Service Bus queues support a **brokered messaging communication**
 model. When using queues, components of a distributed application do not
 communicate directly with each other, they instead exchange messages via
-a queue, which acts as an intermediary. A message producer (sender)
+a queue, which acts as an intermediary (broker). A message producer (sender)
 hands off a message to the queue and then continues its processing.
 Asynchronously, a message consumer (receiver) pulls the message from the
 queue and processes it. The producer does not have to wait for a reply
@@ -94,7 +94,7 @@ namespace. You can obtain these credentials from either the Management Portal, o
 
 ###To obtain management credentials from Server Explorer
 
-To obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+To obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
 
 Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
 

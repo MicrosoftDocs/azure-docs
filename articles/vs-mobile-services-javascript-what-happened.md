@@ -24,7 +24,7 @@
 
 #####References Added
 
-The Windows Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
+The Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
   
 #####Connection string values for Mobile Services 
 
