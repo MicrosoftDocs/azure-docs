@@ -16,7 +16,7 @@
 	ms.date="02/23/2015" 
 	ms.author="donnam"/>
 
-# Enable offline sync for your Mobile App (iOS)
+# Enable offline sync for your iOS mobile app
 
 <!-- [AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)] -->
 
