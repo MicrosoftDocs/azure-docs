@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="cloud-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/3/2014" 
+	ms.date="02/18/2015" 
 	ms.author="kempb"/>
 
 # Continuous Delivery for Cloud Services in Azure
@@ -313,7 +313,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     key and upload certificates to each target cloud service using the
     Azure Management Portal. Read the following article to learn
     more:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][].
+    [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Upgrade Deployment vs. Delete Deployment -\> New Deployment**
 
@@ -791,7 +791,7 @@ To enable remote debugging when using continuous delivery, see [these instructio
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Azure Libraries]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799

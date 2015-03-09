@@ -18,7 +18,7 @@
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory #
 
-In this article, you will learn how to easily create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](http://azure.microsoft.com/en-us/services/websites/) using [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) as the identity provider. You will also learn how to use the [Azure AD Graph Client Library](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx) to query directory data in the application.
+In this article, you will learn how to easily create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](/services/websites/) using [Azure Active Directory](/services/active-directory/) (AAD) as the identity provider. You will also learn how to use the [Azure AD Graph Client Library](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx) to query directory data in the application.
 
 The AAD tenant that you use can be can have an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.
 
@@ -32,7 +32,7 @@ You will build a simple LOB Create-Read-Update-Delete (CRUD) application in Azur
 - Authenticates users against AAD
 - Sign-in and sign-out functionality
 - Uses `[Authorize]` to authorize users for different CRUD actions
-- Queries AAD data using [Azure AD Graph API](http://msdn.microsoft.com/en-us/library/azure/hh974476.aspx)
+- Queries AAD data using [Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
 - Uses [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (instead of Windows Identity Foundation, i.e. WIF), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF
 
 <a name="bkmk_need"></a>
@@ -344,7 +344,7 @@ Now that you have configured the authorizations and LOB functionality for the di
 - [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 - [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
-- [Azure's new Hybrid Connections not your father's #hybridCloud](http://azure.microsoft.com/en-us/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
-- [Similarities between Active Directory and Azure AD](http://technet.microsoft.com/en-us/library/dn518177.aspx)
-- [Directory Sync with Single Sign-On Scenario](http://technet.microsoft.com/en-us/library/dn441213.aspx)
-- [Azure AD Supported Token and Claim Types](http://msdn.microsoft.com/en-us/library/azure/dn195587.aspx)
+- [Azure's new Hybrid Connections not your father's #hybridCloud](/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
+- [Similarities between Active Directory and Azure AD](http://technet.microsoft.com/library/dn518177.aspx)
+- [Directory Sync with Single Sign-On Scenario](http://technet.microsoft.com/library/dn441213.aspx)
+- [Azure AD Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx)

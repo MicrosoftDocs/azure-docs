@@ -1,9 +1,9 @@
 <properties 
    pageTitle="Get started with SQL Database Dynamic Data Masking" 
    description="How to get started with SQL Database Dynamic Data Masking" 
-   services="Azure SQL Database, dynamic data masking" 
+   services="sql-database" 
    documentationCenter="" 
-   authors="nadav" 
+   authors="nadavhelfman" 
    manager="jeffreyg" 
    editor="v-romcal"/>
 
@@ -12,8 +12,8 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sql-database" 
-   ms.date="02/13/2015"
+   ms.workload="data-services" 
+   ms.date="02/24/2015"
    ms.author="nadavh; ronmat; v-romcal; v-stste"/>
 
 # Get started with SQL Database Dynamic Data Masking 
@@ -66,7 +66,7 @@ When you set up dynamic data masking Azure gives you a security-enabled connecti
 * Original connection string format: <*server name*>.database.windows.net
 * Security-enabled connection string: <*server name*>.database.**secure**.windows.net
 
-You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to **REQUIRED**, which ensures there is no option to access the database with the original connection string and ignore the dynamic data masking policy. While you are experimenting with dynamic data masking using specific clients (example, a DEV phase application or SSMS), choose **OPTIONAL**. For production, choose **REQUIRED**.
+You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to **REQUIRED**, which ensures there is no option to access the database with the original connection string and ignore the dynamic data masking policy. While you are experimenting with dynamic data masking using specific clients (example, a DEV phase application or SSMS), choose **OPTIONAL**. For production, choose **REQUIRED**.<br/><br/>
 
 ![Navigation pane][Image3]<br/><br/>
 
@@ -142,17 +142,16 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 11. Click **SAVE** to save the new or updated masking rule.
 
-
 ## Set up dynamic data masking for your database using REST API
 
-See [Operations for Azure SQL Databases](https://msdn.microsoft.com/en-us/library/dn505719.aspx).
+See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
 
 [Image1]: ./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png
 [Image2]: ./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png
 [Image3]: ./media/sql-database-dynamic-data-masking-get-started/3_DDM_Current_Preview.png
 [Image4]: ./media/sql-database-dynamic-data-masking-get-started/4_DDM_Activation.png
 [Image5]: ./media/sql-database-dynamic-data-masking-get-started/5_DMM_Policy_Tile.png
-[Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Priviledged_Logins.png
+[Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png
 [Image7]: ./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png
 [Image8]: ./media/sql-database-dynamic-data-masking-get-started/8_DDM_Security_Enabled_Access.png
 [Image9]: ./media/sql-database-dynamic-data-masking-get-started/9_DMM_Policy_Classic_Portal.png

@@ -20,9 +20,11 @@
 
 # Develop C# Hadoop streaming programs for HDInsight
 
-Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through a word count scenario in which you count the occurrences of a given word in the input data you provide. The following illustration shows how the MapReduce framework does a word count.
+Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through creating a C# word count program, which counts the occurrences of a given word in the input data you provide. The following illustration shows how the MapReduce framework does a word count.
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
+
+> [AZURE.NOTE] The steps in this article only apply to Windows-based HDInsight clusters. For an example of streaming for Linux-based HDInsight, see [Develop Python streaming programs for HDInsight](../hdinsight-hadoop-streaming-python/).
 
 This topic shows you how to:
 
@@ -30,7 +32,7 @@ This topic shows you how to:
 - Run the same MapReduce job on Azure HDInsight 
 - Retrieve the results of the MapReduce job
 
-**Prerequisites:**
+##<a name="prerequisites"></a>Prerequisites
 
 Before you begin this tutorial, you must have done the following:
 
@@ -38,14 +40,6 @@ Before you begin this tutorial, you must have done the following:
 - Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure]
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-##In this article
-
-- [Develop a word count Hadoop streaming program in C#](#develop)
-- [Test the program on the emulator](#test)
-- [Upload data and the applications to Azure Blob storage](#upload)
-- [Run the MapReduce program on Azure HDInsight](#run)
-- [Retrieve the MapReduce results](#retrieve)
-- [Next steps](#nextsteps)
 
 ##<a name="develop"></a>Develop a word count Hadoop streaming program in C&#35;
 
@@ -534,9 +528,9 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 - [Use Hive with HDInsight][hdinsight-use-hive]
 - [Use Pig with HDInsight][hdinsight-use-pig]
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/

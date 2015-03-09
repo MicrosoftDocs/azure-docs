@@ -38,7 +38,7 @@ The input and output format, used by all three applications, read and write the 
 
 **Prerequisites**	
 
-- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](../hdinsight-provision-clusters/)
 
@@ -426,7 +426,7 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
 [Powershell-install-configure]: ../install-configure-powershell/

@@ -3,7 +3,7 @@
 	description="Learn how to use a custom domain name with Azure App Service Web App" 
 	services="app-service-web" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr;jroth;mwasson;tarcher"/>
+	ms.date="02/18/2015" 
+	ms.author="mwasson"/>
 
 #Configuring a custom domain name for a web app in Azure App Service
 

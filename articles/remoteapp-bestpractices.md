@@ -12,27 +12,27 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/11/2014" 
+    ms.date="2/17/2015" 
     ms.author="elizapo" />
 
-#Best practices for configuring and using Azure RemoteApp
+# Best practices for configuring and using Azure RemoteApp
 
 The following information can help you configure and use Azure RemoteApp productively.
 
-##Connectivity
+## Connectivity
 
 
 - Always use the latest client version. Using older clients might result in connectivity issues and other degraded experiences. Enabling automatic application updates for your device will ensure that the latest client is always installed.
 - Always use the most stable and reliable internet connection available to you.  
 - Use only supported proxy connections for optimal connectivity performance.  The SOCKS proxy is not supported.
  
-##Applications
+## Applications
 
 
 - Save and close RemoteApp applications when you are done with the application. Not closing the application might result in data loss.   
-- Validate custom applications before using them in Azure RemoteApp. This includes ensuring they work on a multi-session platform and don’t consume unnecessary resources such as memory and CPU that might starve another user in the same collection. For information, download and review the [Application Compatibility Best Practices for Remote Desktop Services](http://www.microsoft.com/en-us/download/details.aspx?id=18704). 
+- Validate custom applications before using them in Azure RemoteApp. This includes ensuring they work on a multi-session platform and don’t consume unnecessary resources such as memory and CPU that might starve another user in the same collection. For information, download and review the [Application Compatibility Best Practices for Remote Desktop Services](http://www.microsoft.com/download/details.aspx?id=18704). 
  
-##Configuration and management
+## Configuration and management
 
 
 - Keep your template images up to date, installing software updates and other critical fixes as needed. This ensures that as Azure RemoteApp auto-scales to meet your capacity, each instance is patched.  

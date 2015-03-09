@@ -41,9 +41,9 @@ The following file types are accepted:
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 
 1. In the **Web App** blade of the [Azure management portal](http://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
-
+	
 	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
- 
+	
 5. Click **Add**. The **Add WebJob** dialog appears.
 	
 	![Add WebJob blade](./media/web-sites-create-web-jobs/addwjblade.png)
@@ -55,21 +55,21 @@ The following file types are accepted:
 3. In the **File Upload** box, click the folder icon and browse to the zip file that contains your script. The zip file should contain your executable (.exe .cmd .bat .sh .php .py .js) as well as any supporting files needed to run the program or script.
 	
 5. Check **Create** to upload the script to your web app. 
-
+	
 	The name you specified for the WebJob appears in the list on the **WebJobs** blade.
 	
 6. To run the WebJob, right-click its name in the list and click **Run**.
 	
 	![Run WebJob](./media/web-sites-create-web-jobs/runondemand.png)
-
+	
 ## <a name="CreateContinuous"></a>Create a continuously running WebJob
 
 1. To create a continuously executing WebJob, follow the same steps for creating a WebJob that runs once, but in the **How to Run** box, choose **Continuous**.
-	
+
 2. To start or stop a continuous WebJob, right-click the WebJob in the list and click **Start** or **Stop**.
-
+	
 > [AZURE.NOTE] If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Microsoft Azure.
-
+	
 > [AZURE.NOTE] For continuous WebJobs, it is recommended that you enable **Always On** for your web app. The Always On feature, available in Basic and Standard mode, prevents web apps from being unloaded, even if they have been idle for some time. If your web app is always loaded, your continuously running WebJob may run more reliably. 
 
 ## <a name="CreateScheduled"></a>Create a scheduled WebJob

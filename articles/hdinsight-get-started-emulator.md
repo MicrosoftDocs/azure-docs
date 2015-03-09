@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2015" 
+	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
 # Get started with the HDInsight Emulator 
@@ -56,7 +56,7 @@ The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform I
 
 > [AZURE.NOTE] The HDInsight Emulator currently only supports English OS. If you a previous version of the Emulator installed, you must uninstall the following two components from Control Panel/Program and Features before installing the latest version of Emulator.
 ><ul>
-<li>Microsoft HDInsight Emulator for Windows Azure or HDInsight Developer Preview, whichever is installed.</li>
+<li>Microsoft HDInsight Emulator for Azure or HDInsight Developer Preview, whichever is installed.</li>
 <li>Hortonworks Data Platform</li>
 </ul>
 
@@ -469,14 +469,14 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 - [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-deploy-streaming]
 - [HDInsight emulator release notes][hdinsight-emulator-release-notes]
-- [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
+- [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
 
-[azure-sdk]: http://azure.microsoft.com/en-us/downloads/
+[azure-sdk]: http://azure.microsoft.com/downloads/
 [azure-create-storage-account]: ../storage-create-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
-[netstat-url]: http://technet.microsoft.com/en-us/library/ff961504.aspx
+[netstat-url]: http://technet.microsoft.com/library/ff961504.aspx
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
@@ -485,7 +485,7 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-develop-deploy-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-versions]: ../hdinsight-component-versioning/

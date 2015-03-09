@@ -18,7 +18,7 @@
 
 # Using Windows PowerShell with Resource Manager #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
 Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
 
@@ -31,11 +31,11 @@ In this tutorial, you learn how to use Windows PowerShell with Resource Manager 
 
 Before you can use Windows PowerShell with Resource Manager, you must have the following:
 
-- Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855).
+- Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 	
-- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).
+- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/).
 
-This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/en-us/library/hh857337.aspx).
+This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
 To get detailed help for any cmdlet that you see in this tutorial, use the Get-Help cmdlet. 
 
@@ -57,7 +57,7 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 ##<a id="about"></a>About the Azure PowerShell Modules ##
 Beginning in version 0.8.0, the Azure PowerShell installation includes three Windows PowerShell modules:
 
-- **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, websites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/en-us/library/jj152841.aspx).
+- **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, websites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/jj152841.aspx).
 
 - **AzureResourceManager**: Includes cmdlets for creating, managing, and deploying the Azure resources for a resource group. For more information, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765).
 
@@ -170,7 +170,7 @@ The Microsoft.WebSiteSQLDatabase.0.2.2-preview template looks interesting. To ge
 
 The cmdlet returns an object with much more information about the template, including a description.
 
-	<p>Windows Azure Websites offers secure and flexible development, 
+	<p>Azure Websites offers secure and flexible development, 
 	deployment and scaling options for any sized web application. Leverage 
 	your existing tools to create and deploy applications without the hassle 
 	of managing infrastructure.</p>
@@ -497,8 +497,8 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 To learn more about using Windows PowerShell with Resource Manager:
  
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
-- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/): Learn how to create and manage resource groups with command-line tools that work on many operating system platforms. 
+- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://www.windowsazure.com/documentation/articles/xplat-cli-azure-resource-manager/): Learn how to create and manage resource groups with command-line tools that work on many operating system platforms. 
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.

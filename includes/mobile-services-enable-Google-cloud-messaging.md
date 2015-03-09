@@ -1,6 +1,4 @@
 
-
-
 1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **Create Project**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
@@ -13,7 +11,7 @@
 
 	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
-4. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 

@@ -38,17 +38,13 @@ In this article, you will learn:
 
 * Visual Studio 2010 or 2013
 
-##Table of Contents
-
-* [SCP and Storm](#scpandstorm)
-
 ##<a id="scpandstorm"></a>SCP and Storm
 
 Apache Storm is a distributed computation system that runs on Hadoop clusters, and allows you to perform real-time data processing. While Storm runs in the Java Virtual Machine (JVM), it was designed so that solutions (known as **topologies**,) can be implemented in a variety of programming languages. You can even create a topology that is a mix of components written in multiple languages.
 
 SCP provides the libraries that make it easy to create Storm solutions using .NET. Storm clusters on HDInsight include the necessary server-side components to run SCP solutions that you create.
 
-For more information on Storm on HDInsight, see the [HDInsight Storm Overview](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/).
+For more information on Storm on HDInsight, see the [HDInsight Storm Overview](http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/).
 
 ###Design an SCP solution
 
@@ -69,7 +65,7 @@ Designing a solution involves the following:
 
 ##Install the SCP SDK
 
-The SCP SDK is provided on the Storm cluster on HDInsight. After [creating a Storm cluster on HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-getting-started/), use the following steps to download the SDK to your local development environment.
+The SCP SDK is provided on the Storm cluster on HDInsight. After [creating a Storm cluster on HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/), use the following steps to download the SDK to your local development environment.
 
 1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com).
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Giraph on HDInsight Hadoop clusters
@@ -21,15 +21,6 @@
 You can install Giraph on any type of cluster in Hadoop on HDInsight using **Script Action** cluster customization. Script action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight cluster using script action][hdinsight-cluster-customize].
 
 In this topic, you will learn how to install Giraph using Script Action. Once you have installed Giraph, you'll also learn how to use Giraph for most typical applications, which is to process large scale graphs.
-
-
-## In this article
-
-- [What is Giraph?](#whatis)
-- [How do I install Giraph?](#install)
-- [How do I use Giraph in HDInsight?](#usegiraph)
-- [Install Giraph on HDInsight Hadoop clusters using PowerShell](#usingPS)
-- [Install Giraph on HDInsight Hadoop clusters using the .NET SDK](#usingSDK) 
 
 
 ## <a name="whatis"></a>What is Giraph?
@@ -45,9 +36,9 @@ In this topic, you will learn how to install Giraph using Script Action. Once yo
 
 A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). This section provides instructions on how to use the sample script while provisioning the cluster using the Azure Management Portal. 
 
-> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script works only with HDInsight cluster version 3.1.  For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
-1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Start provisioning a cluster using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the Script Action, as shown below:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Use Script Action to customize a cluster")
@@ -161,7 +152,7 @@ We use the SimpleShortestPathsComputation to demonstrate the basic <a href = "ht
 
 ## <a name="usingPS"></a>Install Giraph on HDInsight Hadoop clusters using PowerShell
 
-In this section we use the **<a href = "http://msdn.microsoft.com/en-us/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured PowerShell. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
+In this section we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured PowerShell. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 Perform the following steps:
 
@@ -322,7 +313,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
             Version = "3.1"
         };        
 
-10. Append the following code to the Main() function to use the [ScriptAction](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) class to invoke a custom script to install Giraph.
+10. Append the following code to the Main() function to use the [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) class to invoke a custom script to install Giraph.
 
 		// ADD THE SCRIPT ACTION TO INSTALL GIRAPH
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -355,7 +346,7 @@ Provide a cluster name and press ENTER to provision a cluster with Giraph instal
 
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/

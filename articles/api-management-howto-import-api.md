@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 # How to import the definition of an API with operations in Azure API Management
@@ -28,12 +28,6 @@ APIs and their operations can be imported using the following formats.
 This guide shows how create a new API and import its operations in one step.
 
 >For information on manually creating an API and adding operations, see [How to create APIs][] and [How to add operations to an API][].
-
-## In this topic
-
--   [Import an API][]
--   [Export an API][]
--   [Next Steps][]
 
 ## <a name="import-api"> </a>Import an API
 

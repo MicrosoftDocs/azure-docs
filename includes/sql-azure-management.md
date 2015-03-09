@@ -3,30 +3,25 @@
 
 You can use Azure SQL Database Management Portal or the SQL Server Management Studio (SSMS) client application to administer your SQL Database subscriptions and create and manage associated logical servers and databases. The guidance below describes how to use Management Studio to manage SQL Database logical servers and databases.
 
-<div class="dev-callout-new-collapsed">
-<strong>Note <span>Click to collapse</span></strong>
-<div class="dev-callout-content">
-<p>You can use SQL Server 2014, SQL Server 2012, or the SQL Server 2008 R2 version of SSMS. Earlier versions are not supported.</p>
-</div>
-</div>
+>[AZURE.NOTE] You should use SQL Server 2014 Management Studio and install the latest updates (CU5 or later) to manage Azure SQL Database, including the latest SQL Database Update V12. You can also use SQL Server 2012, or the SQL Server 2008 R2 version of SSMS. Earlier versions are not supported. 
 
 This topic includes the following steps:
 
--   [Step 1: Get SQL Server Management Studio][]
+-   [Step 1: Get SQL Server 2014 Management Studio][]
 -   [Step 2: Connect to SQL Database][]
 -   [Step 3: Create and manage databases][]
 -   [Step 4: Create and manage logins][]
 -   [Step 5: Monitor SQL Database using Dynamic Management Views][]
 
-<h2><a id="Step1" name="Step1"> </a>Step 1: Get Management Studio</h2>
+<h2><a id="Step1" name="Step1"> </a>Step 1: Get SQL Server 2014 Management Studio</h2>
 
 Management Studio is an integrated environment for
 managing SQL databases. When managing 
 databases on Azure, you can use the Management Studio application installed with
-SQL Server or download the free SQL Server 2012 Management Studio Express (SSMSE) version. The steps below describe
-how to install SSMSE.
+SQL Server or download the free SQL Server 2014 Management Studio (SSMS). The steps below describe
+how to install SSMS.
 
-1.  On the [Microsoft SQL Server 2012 Express][] page, select the x86 version of Management Studio if you are running a 32-bit operating system, or x64 if you are running a 64-bit operating system. Click **Download**, and when prompted, run Setup.
+1.  On the [SQL Server 2014 Express][] page, scroll down and select **MgmtStudio 32BIT\SQLManagementStudio_x86_ENU.exe** if you are running a 32-bit operating system, or **MgmtStudio 64BIT\SQLManagementStudio_x64_ENU.exe** if you are running a 64-bit operating system. Click **Next**, and when prompted, run Setup.
 
 2.  Click **New SQL Server stand-alone installation or add features to an
     existing installation** and click **OK**.
@@ -35,16 +30,15 @@ how to install SSMSE.
 
 4. Click **Install** to install files required by SQL Server Setup.
 
-5.  On the **Feature Selection** screen, **Management Tools -
-    Basic** is preselected. This is because you are running the installer for Management Studio. If you are running Setup for all of SQL Server Express, choose the **Management Tools - Basic** option, and click **Next**.
+5.  On the **Feature Selection** screen, **Management Tools - Basic** and **Management Tools - Complete** are preselected. Click **Next**.
 
 6.  On the **Error Reporting** screen, you can optionally choose to send
-    error reports to Microsoft. This is not required to use SSMSE. Click
-    **Next** to start the installation.
+    error reports to Microsoft.
 
 7.  When the installation is complete, you will see the **Complete**
     page. Click **Close**. 
 
+8. Install the latest updates from the [Cumulative update package 5 for SQL Server 2014][] page.
 
 <h2><a id="Step2" name="Step2"> </a>Step 2: Connect to SQL Database</h2>
 
@@ -77,7 +71,7 @@ allow connections from your local machine. You do this by adding your local mach
 	You are now ready to connect to SQL Database using Management Studio.
 
 1.  On the taskbar, click **Start**, point to **All Programs**, point to
-    **Microsoft SQL Server 2012**, and then click **SQL Server
+    **Microsoft SQL Server 2014**, and then click **SQL Server
     Management Studio**.
 
 2.  In **Connect to Server**, specify the fully-qualified
@@ -86,21 +80,15 @@ allow connections from your local machine. You do this by adding your local mach
 3.  Select **SQL Server Authentication**.
 
 4.  In the **Login** box, enter the SQL Server administrator login that you
-    specified in the portal when creating your server in the format
-    *login*@*yourServerName*.
+    specified in the portal when you created  your server.
 
 5.  In the **Password** box, enter the password that you specified in
-    the portal when creating your server.
+    the portal when you created  your server.
 
 8.  Click **Connect** to establish the connection.
 
-On Azure, each SQL Database logical server is an abstraction that defines a grouping of databases. The physical location of each database might be on any computer in the data center. 
-
-In previous versions, you had to connect directly to **master** when setting up the connection in Management Studio. This step is no longer necessary. Connections will now succeed based on the server name, authentication type, and administrator credentials.
-
-Many of the SSMS wizards you can use for tasks like
-creating and modifying logins and databases on a SQL Server database are
-not available for SQL databases on Azure, so you'll need to utilize
+SQL Server 2014 SSMS with the latest updates offers expanded support for tasks like
+creating and modifying Azure SQL databases. In addition, you can also use
 Transact-SQL statements to accomplish these tasks. The steps below
 provide examples of these statements. For more information about using
 Transact-SQL with SQL Database, including details about which commands are
@@ -115,29 +103,27 @@ tasks through Management Studio. To perform these tasks, make sure you are conne
 **master** database with the server-level principal login that you
 created when you set up your server.
 
-To open a query window in Management Studio, open the Databases folder, expand the **System Databsaes** folder, right-click on **master**, and then click **New Query**.
+To open a query window in Management Studio, open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
 -   Use the **CREATE DATABASE** statement to create a new database. For
     more information, see [CREATE DATABASE (SQL Database)][]. The statement below creates a new database named
-    **myTestDB** and specifies that it is a Web Edition database
-    with a maximum size of 1 GB.
+    **myTestDB** and specifies that it is a Standard S0 Edition database with a default maximum size of 250GB.
 
         CREATE DATABASE myTestDB
-        (MAXSIZE=1GB,
-         EDITION='web');
+        (EDITION='Standard',
+         SERVICE_OBJECTIVE='S0');
 
 Click **Execute** to run the query.
 
 -   Use the **ALTER DATABASE** statement to modify an existing database,
-    for example if you want to change the name, maximum size, or edition
-    (business or web) of the database. For more information, see [ALTER DATABASE (SQL Database)][]. The
+    for example if you want to change the name and edition
+    of the database. For more information, see [ALTER DATABASE (SQL Database)][]. The
     statement below modifies the database you created in the previous
-    step to change the maximum size to 5 GB.
+    step to change edition to Standard S1.
 
         ALTER DATABASE myTestDB
         MODIFY
-        (MAXSIZE=5GB,
-         EDITION='web');
+        (SERVICE_OBJECTIVE='S1');
 
 -   Use **the DROP DATABASE** Statement to delete an existing database.
     For more information, see [DROP DATABASE (SQL Database)][]. The statement below deletes the **myTestDB**
@@ -155,14 +141,7 @@ Click **Execute** to run the query.
     between databases. Instead, you need to establish a connection
     directly to the target database.
 
-<div class="dev-callout-new">
- <strong>Note <span>Click to collapse</span></strong>
- <div class="dev-callout-content">
-   <p>Many of the Transact-SQL statements that create or modify a
-database must be run within their own batch and cannot be grouped with
-other Transact-SQL statements. For more information, see the statement-specific information available from the links listed above.</p>
-</div>
-</div>
+>[AZURE.NOTE] Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements. For more information, see the statement-specific information available from the links listed above.
 
 <h2><a id="Step4" name="Step4"> </a>Step 4: Create and Manage Logins</h2>
 
@@ -305,18 +284,17 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
 * [Introducing SQL Database][]   
 * [Managing Databases and Logins in SQL Database][]   
 * [Monitoring SQL Database using Dynamic Management Views][]   
-* [SQL Database Provisioning Model][]   
-* [Adding Users to your SQL Database][]   
 * [Transact-SQL Reference (SQL Database)][]
 
-  [How to use Azure SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
-  [Step 1: Get SQL Server Management Studio]: #Step1
+  [How to use Azure SQL Database]: http://www.windowsazure.com/develop/net/how-to-guides/sql-azure/
+  [Step 1: Get SQL Server 2014 Management Studio]: #Step1
   [Step 2: Connect to SQL Database]: #Step2
   [Step 3: Create and manage databases]: #Step3
   [Step 4: Create and manage logins]: #Step4
   [Step 5: Monitor SQL Database using Dynamic Management Views]:
     #Step5
-  [Microsoft SQL Server 2012 Express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+  [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/download/details.aspx?id=42299
+  [Cumulative update package 5 for SQL Server 2014]: http://support2.microsoft.com/kb/3011055
   [SSMS Installer - Select installation type]: /media/installer_installation_type.png
   [SSMS Installer - Select features]: /media/installer_feature_selection.png
   [SSMS Installer - Installation complete]: /media/installer_completed.png
@@ -324,16 +302,15 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png
-  [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/en-us/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336274.aspx
-  [ALTER DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394109.aspx
-  [DROP DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336259.aspx
-  [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336268.aspx
-  [CREATE USER (SQL Database)]: http://msdn.microsoft.com/en-us/library/ee336277.aspx
-  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/en-us/library/ms187750.aspx
-  [ALTER LOGIN (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336254.aspx
-  [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
-  [Introducing SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
-  [SQL Database Provisioning Model]: http://msdn.microsoft.com/en-us/library/ee336227.aspx
-  [Adding Users to your SQL Database]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+  [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
+  [CREATE DATABASE (SQL Database)]: https://msdn.microsoft.com/library/dn268335.aspx
+  [ALTER DATABASE (SQL Database)]: https://msdn.microsoft.com/library/ms174269.aspx
+  [DROP DATABASE (SQL Database)]: https://msdn.microsoft.com/library/ms178613.aspx
+  [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
+  [CREATE LOGIN (SQL Database)]: https://msdn.microsoft.com/library/ms189751.aspx
+  [CREATE USER (SQL Database)]: https://msdn.microsoft.com/library/ms173463.aspx
+  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
+  [ALTER LOGIN (SQL Database)]: https://msdn.microsoft.com/library/ms189828.aspx
+  [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+  [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database/
+ 

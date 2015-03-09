@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="03/05/2015" 
 	ms.author="juliako"/>
 
 
@@ -28,9 +28,15 @@ Note that you can integrate Media Services with your existing tools and processe
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![VoD workflow][vod-overview]
 
+For more information, see [Media Services Overview](../media-services-overview).
+
 ##Creating a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
+Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
+
+##Configuring streaming endpoints
+
+[work in in progress]
 
 ##Setting up development environment  
 
@@ -50,23 +56,21 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-##Processing media
+##Processing media: encoding, indexing, monitoring jobs
 
-###Get Media Processor
+###Getting Media Processor
 
 Get Media Processor with **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../includes/media-services-selector-get-media-processor.md)]
 
-###Managing jobs
+###Creating jobs 
 
-**Creating jobs:** 
-
-For example on how to create jobs, see:
+A job is an entity that contains metadata about a set of tasks (for example, encoding or indexing). Each task performs an atomic operation on the input asset(s). For example on how to create encoding jobs, see:
 
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-**Monitoring job progress:**
+###Monitoring job progress
 
 Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**.
 
@@ -78,15 +82,19 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 ###Encoding 
 
+An overview: [Encoding On-Demand Content with Azure Media Services](../media-services-encode-asset).
+
+Encode with **Media Encoder Premium Workflow** using **.NET**. 
+
+[Advanced encoding with Media Encoder Premium Workflow](../media-services-encode-with-premium-workflow).
+
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-For more information, see [Encoding and Packaging](https://msdn.microsoft.com/en-us/library/azure/dn621224.aspx).
-
 ##Configure content key authorization policy 
 
-Configure key authorization policy using **.NET** or **REST API**.
+Configure content protection and key authorization policy using **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
@@ -94,7 +102,7 @@ Configure key authorization policy using **.NET** or **REST API**.
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
 ##Publishing assets
 
@@ -102,9 +110,17 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
+##Scaling a Media Services account
+
+You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with. 
+
+You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
+
+[This](../media-services-how-to-scale) topic links to relevant topics.
 
 
+##Playback your content
 
-
+For more information, see [playing your content with existing players](../media-services-playback-content).
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png

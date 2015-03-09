@@ -1,12 +1,12 @@
 ## Create the WebAPI Project
 
-Follow the steps below to create a new ASP.NET WebAPI backend to authenticate clients and generate notifications, or modify an existing backend from previous projects or the [Send push notifications to authenticated users](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/) tutorial.
+Follow the steps below to create a new ASP.NET WebAPI backend to authenticate clients and generate notifications, or modify an existing backend from previous projects or the [Send push notifications to authenticated users](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/) tutorial.
 
 > [AZURE.NOTE] **Important**: Before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
 > 
 > ![][4]
 
-> [AZURE.NOTE] Make sure you have installed the Visual Studio [Azure SDK](http://azure.microsoft.com/en-us/downloads/) for website deployment.
+> [AZURE.NOTE] Make sure you have installed the Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) for website deployment.
 
 1. Start Visual Studio or Visual Studio Express.
 2. In Visual Studio, click **File**, then click **New**, then **Project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET Web Application**, type the name **AppBackend**, and then click **OK**. 
