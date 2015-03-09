@@ -16,6 +16,6 @@
 	ms.date="03/05/2015"
 	ms.author="jtwist"/>
 
-##Transforming XML documents
+##Transform XML documents
 
 ###This documentation is coming soon.
