@@ -5,7 +5,7 @@
    <th align="left" valign="middle">Maximum Limit</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Cores per <a href="http://azure.microsoft.com/en-us/services/batch/">Batch</a> account</p></td>
+   <td valign="middle"><p>Cores per <a href="http://azure.microsoft.com/services/batch/">Batch</a> account</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>N/A<sup>1</sup></p></td>
 </tr>

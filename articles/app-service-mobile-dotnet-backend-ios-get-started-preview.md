@@ -10,13 +10,13 @@
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="2/20/2015"
+	ms.date="02/20/2015"
 	ms.author="yuaxu"/>
 
-# <a name="getting-started"> </a>Get started with App Service Mobile Apps
+# <a name="getting-started"> </a>Create an iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../includes/app-service-mobile-selector-get-started-preview.md)]
 
@@ -48,11 +48,11 @@ Now that you have created your mobile backend, you can follow an easy quickstart
 
 6. Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
 
-## Test the mobile service
+## Test the mobile app
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
-## Publish your mobile service
+## Publish your mobile app
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
@@ -61,11 +61,6 @@ Now that you have created your mobile backend, you can follow an easy quickstart
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../includes/app-service-mobile-ios-run-app-preview.md)]
 
 
-<!-- Anchors. -->
-[Getting started with Mobile Services]:#getting-started
-[Create a new mobile service]:#create-new-service
-[Define the mobile service instance]:#define-mobile-service-instance
-[Next Steps]:#next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-completed-ios.png

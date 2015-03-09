@@ -16,7 +16,7 @@
 	ms.date="2/13/2015" 
 	ms.author="stbaro"/>
 
-# Learn about the DocumentDB Document Explorer #
+# View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #
 
 This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure Preview portal tool that enables you to view, edit, create, and upload JSON documents with DocumentDB. 
 

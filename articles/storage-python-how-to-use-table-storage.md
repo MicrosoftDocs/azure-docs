@@ -22,14 +22,13 @@
 
 # How to Use the Table Storage Service from Python
 This guide shows you how to perform common scenarios using the Azure Table storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating and deleting a
-table, inserting and querying entities in a table**. For more
-information on tables, see the [Next Steps][] section.
+table, inserting and querying entities in a table**.
 
-[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+[AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
 
 
 ## How to Create a Table
@@ -159,11 +158,11 @@ The following code deletes a table from a storage account.
 ## Next Steps
 
 Now that you have learned the basics of table storage, follow these links
-to learn how to do more complex storage tasks.
+to learn about more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   [Visit the Azure Storage Team Blog][]
 
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure package]: https://pypi.python.org/pypi/azure  

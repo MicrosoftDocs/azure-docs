@@ -16,7 +16,7 @@
 	ms.date="02/12/2015" 
 	ms.author="cephalin"/>
 
-#Connect to an on-premises SQL Server from an Azure website using Hybrid Connections
+# Connect to an on-premises SQL Server from an Azure website using Hybrid Connections
 
 Hybrid Connections can connect Microsoft Azure websites to on-premises resources that use a static TCP port. Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. 
 
@@ -24,10 +24,10 @@ In this tutorial, you will learn how to create a website in the Azure Preview Po
 
 > [AZURE.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
-##Prerequisites##
+## Prerequisites ##
 To complete this tutorial, you'll need the following products. All are available in free versions, so you can start developing for Azure entirely for free.
 
-- **Azure subscription** - For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
+- **Azure subscription** - For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
 
 - **Visual Studio 2013** - To download a free trial version of Visual Studio 2013, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). Install this before continuing.
 
@@ -76,7 +76,7 @@ If you already have SQL Server installed in a configuration and in an environmen
 
 This section shows you how to install SQL Server Express, enable TCP/IP, and create a database so that your web application will work with the Azure Preview environment.
 
-###Install SQL Server Express###
+### Install SQL Server Express ###
 
 1. To install SQL Server Express, run the **SQLEXPRWT_x64_ENU.exe** or **SQLEXPR_x86_ENU.exe** file that you downloaded. The SQL Server Installation Center wizard appears.
 	
@@ -100,11 +100,11 @@ This section shows you how to install SQL Server Express, enable TCP/IP, and cre
 	
 6. Step through the rest of the wizard to complete the installation.
 
-###Enable TCP/IP###
-To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/en-us/library/hh231672%28v=sql.110%29.aspx) before continuing.
+### Enable TCP/IP ###
+To enable TCP/IP, you will use SQL Server Configuration Manager, which was installed when you installed SQL Server Express. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) before continuing.
 
 <a name="CreateSQLDB"></a>
-###Create a SQL Server database on-premises###
+### Create a SQL Server database on-premises ###
 
 Your Visual Studio web application requires a membership database that can be accessed by Azure. This requires a SQL Server or SQL Server Express database (not the LocalDB database that the MVC template uses by default), so you'll create the membership database next. 
 
@@ -244,7 +244,7 @@ Now that the hybrid connection infrastructure is complete, you will create a web
 <a name="CreateASPNET"></a>
 ## E. Create a basic ASP.NET web project, edit the database connection string, and run the project locally ##
 
-###Create a basic ASP.NET project###
+### Create a basic ASP.NET project ###
 1. In Visual Studio, on the **File** menu, create a new Project:
 	
 	![New Visual Studio project][HCVSNewProject]
@@ -261,7 +261,7 @@ Now that the hybrid connection infrastructure is complete, you will create a web
 	
 	![Readme page][HCVSReadmePage]
 
-###Edit the database connection string for the application###
+### Edit the database connection string for the application ###
 
 In this step, you edit the connection string that tells your application where to find your local SQL Server Express database. The connection string is in the application's Web.config file, which contains configuration information for the application. 
 
@@ -285,7 +285,7 @@ In this step, you edit the connection string that tells your application where t
 	
 3. Click **Save** in Visual Studio to save the Web.config file.
 
-###Run the project locally and register a new user ###
+### Run the project locally and register a new user ###
 
 1. Now, run your new web project locally by clicking the browse button under Debug. This example uses Internet Explorer.
 	
@@ -310,7 +310,7 @@ You are now ready for the next step, which is to publish the application to Azur
 
 Now, you'll publish your application to your website on Azure and then test it to see how the hybrid connection you configured earlier is being used to connect your website application to the database on your local machine. 
 
-###Publish the web application###
+### Publish the web application ###
 
 1. You can download your publishing profile for the website in the Azure portal. On the blade for your website, choose **Download publish profile**, and then save the file to your computer.
 	
@@ -342,7 +342,7 @@ Now, you'll publish your application to your website on Azure and then test it t
 
 Next, you will use your live web application to see its Hybrid Connection in action.
 
-###Test the completed web application on Azure ###
+### Test the completed web application on Azure ###
 1. On the top right of your web page on Azure, choose **Log in**.
 	
 	![Test log in][HCTestLogIn]
@@ -365,18 +365,18 @@ Next, you will use your live web application to see its Hybrid Connection in act
 	
 You have now created and deployed an ASP.NET web application that uses a hybrid connection between a website in the Azure cloud and an on-premises SQL Server database. Congratulations!
 
-##See Also##
+## See Also ##
 [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
 [Josh Twist introduces hybrid connections (Channel 9 video)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
+[Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-dashboard-monitor-scale-tabs/)
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
+[Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started/)
 
 [Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 

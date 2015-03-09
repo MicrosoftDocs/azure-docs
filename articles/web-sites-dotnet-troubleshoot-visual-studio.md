@@ -139,7 +139,7 @@ This section shows how to debug remotely using the project you create in [Gettin
             return View();
         }
 
-2. [Set a breakpoint](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
+2. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
 
 1. In **Solution Explorer**, right-click the project, and click **Publish**.
 
@@ -203,7 +203,7 @@ This section shows how to debug remotely using the project and web app you creat
 
 1. In the ContosoAdsWebJob project, open *Functions.cs*.
 
-2. [Set a breakpoint](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) on the first statement in the `GnerateThumbnail` method.
+2. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the first statement in the `GnerateThumbnail` method.
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -261,7 +261,7 @@ If your function [wrote logs](../websites-dotnet-webjobs-sdk-storage-queues-how-
 
 * Avoid long stops at breakpoints when remote debugging. Azure treats a process that is stopped for longer than a few minutes as an unresponsive process, and shuts it down.
 
-* While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Azure Pricing](/en-us/pricing/calculator/).
+* While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Azure Pricing](/pricing/calculator/).
 
 * Make sure that the `debug` attribute of the `compilation` element in the *Web.config* file is set to true. It is set to true by default when you publish a debug build configuration.
 
@@ -270,7 +270,7 @@ If your function [wrote logs](../websites-dotnet-webjobs-sdk-storage-queues-how-
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
-* If you find that the debugger won't step into code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Restrict stepping to Just My Code](http://msdn.microsoft.com/en-us/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* If you find that the debugger won't step into code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Restrict stepping to Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 
 * A timer starts on the server when you enable the remote debugging feature, and after 48 hours the feature is automatically turned off. This 48 hour limit is done for security and performance reasons. You can easily turn the feature back on as many times as you like. We recommend leaving it disabled when you are not actively debugging.
 
@@ -281,7 +281,7 @@ If your function [wrote logs](../websites-dotnet-webjobs-sdk-storage-queues-how-
 An ASP.NET application that runs in an Azure web app can create the following kinds of logs:
 
 * **Application tracing logs**<br/>
-  The application creates these logs by calling methods of the [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/system.diagnostics.trace.aspx) class.
+  The application creates these logs by calling methods of the [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) class.
 * **Web server logs**<br/>
   The web server creates a log entry for every HTTP request to the web app.
 * **Detailed error message logs**<br/>
@@ -376,7 +376,7 @@ For information about how to create application logs in WebJobs, see [How to wor
 
 	The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
 
-3. Add a <a href="http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
+3. Add a <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -482,7 +482,7 @@ Web server logs record all HTTP activity for the web app. In order to see them i
 	![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **diagnostics** section in [How to configure web apps](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig). 
+By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **site diagnostics** section in [How to Configure Web Sites](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig). 
 
 If you use the management portal to enable web server logging to an Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored. 
 
@@ -527,7 +527,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 	![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
 	* Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
-	* Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
+	* Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
 	* Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
 
 	(The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
@@ -619,7 +619,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx).
+	This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/ff683677.aspx).
 
 7. To look at the details for a single row, double-click one of the rows.
 
@@ -706,7 +706,7 @@ For help with a specific troubleshooting question, start a thread in one of the 
 
 ### Debugging in Visual Studio 
 
-For more information about how to use debug mode in Visual Studio, see the [Debugging in Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx) MSDN topic and [Debugging Tips with Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+For more information about how to use debug mode in Visual Studio, see the [Debugging in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) MSDN topic and [Debugging Tips with Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### Remote debugging in Azure
 
@@ -725,14 +725,14 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
 
 * [Monitoring and Telemetry (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br> 
   E-book chapter with recommendations for tracing in Azure cloud applications.
-* [ASP.NET Tracing](http://msdn.microsoft.com/en-us/library/ms972204.aspx)<br/>
+* [ASP.NET Tracing](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Old but still a good resource for a basic introduction to the subject.
-* [Trace Listeners](http://msdn.microsoft.com/en-us/library/4y5y10s7.aspx)<br/>
-  Information about trace listeners but doesn't mention the [WebPageTraceListener](http://msdn.microsoft.com/en-us/library/system.web.webpagetracelistener.aspx).
-* [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](http://msdn.microsoft.com/en-us/library/b0ectfxd.aspx)<br/>
+* [Trace Listeners](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  Information about trace listeners but doesn't mention the [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
+* [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   This too is old, but includes some additional information that the introductory article doesn't cover.
 * [Tracing in ASP.NET MVC Razor Views](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](http://msdn.microsoft.com/en-us/library/bb397417.aspx) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
+  Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](http://msdn.microsoft.com/library/bb397417.aspx) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
 
         try
         {
@@ -757,7 +757,7 @@ Also, note that you don't have to use ASP.NET or System.Diagnostics tracing if y
 
 For more information about analyzing web server logs, see the following resources:
 
-* [LogParser](http://www.microsoft.com/en-us/download/details.aspx?id=24659)<br/>
+* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   A tool for viewing data in web server logs (*.log* files).
 * [Troubleshooting IIS Performance Issues or Application Errors using LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   An introduction to the Log Parser tool that you can use to analyze web server logs.

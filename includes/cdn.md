@@ -29,13 +29,13 @@ Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Azure storage service
 components: Blob services, Queue services, and Table services. For more
 information about the Azure storage services, see [Using the
-Azure Storage Services](http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx).
+Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
 > [AZURE.NOTE] For information about performing this operation by using the
-Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx) reference topic.
+Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
 
 **To create a storage account for an Azure subscription**
 
@@ -92,7 +92,7 @@ when the cached content time-to-live period expires.
 5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
 
 	The origin domain is the location from which the CDN caches
-    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/en-us/library/gg680306.aspx) for more information. 
+    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/library/gg680306.aspx) for more information. 
 
 
     > [AZURE.NOTE] The configuration created for the endpoint will not
@@ -116,7 +116,7 @@ Delivery Network (CDN), you can take one of the following steps:
 
 -   For an Azure blob, you can delete the blob from the public
     container.
--   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/en-us/library/dd179354.aspx) for more information.
+-   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/library/dd179354.aspx) for more information.
 -   You can disable or delete the CDN endpoint using the Management
     Portal.
 -   You can modify your hosted service to no longer respond to requests for the
@@ -128,7 +128,7 @@ expires, the CDN will check to see whether the CDN endpoint is still
 valid and the object still anonymously accessible. If it is not, then
 the object will no longer be cached.
 
-The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](http://azure.microsoft.com/en-us/support/options/)  if you need to immediately purge content. 
+The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](http://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
 
 ## Additional resources
 
@@ -137,16 +137,16 @@ The ability to immediately purge content is currently not supported on Azure Man
 -   [About the Service Management API]
 -   [How to Map CDN Content to a Custom Domain]
 
-  [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+  [Create Storage Account]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+  [Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
   [Azure Management Portal]: https://manage.windowsazure.com/
-  [billing plan]: /en-us/pricing/calculator/?scenario=full
-  [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
+  [billing plan]: /pricing/calculator/?scenario=full
+  [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/library/windowsazure/ee795179.aspx
   [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
-  [Overview of the Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919703.aspx
-  [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-  [About the Service Management API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
+  [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/library/windowsazure/hh531567.aspx
+  [About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
+  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png

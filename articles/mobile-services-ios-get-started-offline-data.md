@@ -29,7 +29,7 @@ Offline sync has several potential uses:
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
 If this is your first experience with Mobile Services, consider first completing the tutorial [Get Started with Mobile Services].
 
@@ -283,14 +283,14 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 
 [Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[How to use the Mobile Services client library for iOS]: /documentation/articles/mobile-services-ios-how-to-use-client-library/
 [Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Mobile Services sample repository on GitHub]: https://github.com/Azure/mobile-services-samples
 
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
-[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Get started with Mobile Services]: /documentation/articles/mobile-services-ios-get-started/
+[Get started with data]: /documentation/articles/mobile-services-ios-get-started-data/
+[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
+[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

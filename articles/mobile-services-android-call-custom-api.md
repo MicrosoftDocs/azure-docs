@@ -11,11 +11,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="10/16/2014" 
-	ms.author="ricksal"/>
+	ms.date="02/03/2015" 
+	ms.author="ricksal,glenga"/>
 
 # Call a custom API from the client
 
@@ -25,11 +25,7 @@ This topic shows you how to call a custom API from an Android app. A custom API 
 
 The custom API created in this topic enables you to send a single POST request that sets the *completed* flag to `true` for all the todo items in your mobile service's table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
-You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. To do this, you will complete the following steps:
-
-1. [Define the custom API]
-2. [Update the app to call the custom API]
-3. [Test the app] 
+You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. 
 
 
 >[AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">here</a>.
@@ -68,9 +64,9 @@ Now that you have created a custom API and called it from your Android app, cons
 [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-android-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-android-get-started-push/
+[Get started with Mobile Services]: /documentation/articles/mobile-services-android-get-started/
+[Get started with data]: /documentation/articles/mobile-services-android-get-started-data/
+[Get started with authentication]: /documentation/articles/mobile-services-android-get-started-users/
+[Get started with push notifications]: /documentation/articles/mobile-services-android-get-started-push/
 
-[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control

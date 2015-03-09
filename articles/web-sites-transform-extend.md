@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Transform and extend your site" 
-	description="TBD" 
+	description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure websites and to add private site extensions to enable custom site administration actions." 
 	authors="cephalin" 
 	writer="cephalin" 
 	editor="mollybos" 
@@ -19,7 +19,7 @@
 
 # Transform and extend your site
 
-By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Azure websites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
+By using [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Azure websites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
 
 ##<a id="transform"></a>Transform the Site Configuration in ApplicationHost.config
 The Azure Websites platform provides flexibility and control for site configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Azure Websites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
@@ -50,9 +50,9 @@ For additional samples, see [https://github.com/projectkudu/kudu/wiki/Azure-Site
 Elements from the list of modules under `system.webServer` cannot be removed or reordered, but additions to the list are possible. 
 
 
-##<a id="extend"></a>Extend your Site
+##<a id="extend"></a> Extend your Site
 
-###<a id="overview"></a>Overview of private site extensions
+###<a id="overview"></a> Overview of private site extensions
 
 Azure Websites supports site extensions as an extensibility point for site administrative actions. In fact, some Azure Websites platform features are implemented as pre-installed site extensions. While the pre-installed platform extensions cannot be modified, you can create and configure private extensions for your own sites. This functionality also relies on XDT declarations. The key steps for creating a private site extension are the following:
 
@@ -65,11 +65,11 @@ Internal links for the web application should point to a path relative to the ap
 
 **Note**: Additional information for these key elements is available at [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions). A detailed example is included to illustrate the steps for creating and enabling a private site extension. The source code for the PHP Manager example that follows can be downloaded from [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
 
-###<a id="SiteSample"></a>Site extension example: PHP Manager
+###<a id="SiteSample"></a> Site extension example: PHP Manager
 
 PHP Manager is a site extension that allows site administrators to easily view and configure their PHP settings using a web interface instead of having to modify PHP .ini files directly. Common configuration files for PHP include the php.ini file located under Program Files and the .user.ini file located in the root folder of your site. Since the php.ini file is not directly editable on the Azure Websites platform, the PHP Manager extension uses the .user.ini file to apply setting changes.
 
-####<a id="PHPwebapp"></a>The PHP Manager web app
+####<a id="PHPwebapp"></a> The PHP Manager web app
 	
 The following is the home page of the PHP Manager website:
 
@@ -111,7 +111,7 @@ When the link is part of a site extension, the link must be in the following for
 
 You can work around this requirement by either using only relative paths within your website, or in the case of ASP.NET websites, by using the `@Html.ActionLink` method which creates the appropriate links for you.
 
-####<a id="XDT"></a>The applicationHost.xdt file
+####<a id="XDT"></a> The applicationHost.xdt file
 
 The code for your site extension goes under %HOME%\SiteExtensions\[your-extension-name]. We'll call this the extension root.  
 
@@ -158,7 +158,7 @@ This has the effect of adding a new application path to the `system.applicationH
 	  ...
 	</system.applicationHost>
 
-###<a id="deploy"></a>Site extension deployment
+###<a id="deploy"></a> Site extension deployment
 
 To install your site extension, you can use FTP to copy all the files of your web app to the `\SiteExtensions\[your-extension-name]` folder of the site on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well.
 

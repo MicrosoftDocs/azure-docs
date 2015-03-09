@@ -40,7 +40,7 @@ For information about hosting plans, see [What is an App Service Hosting Plan?](
 	![Choose Hosting Plan][ChooseWHP]
 	
 4. In the **Choose your pricing tier** blade, choose either **Shared** or a **Basic** mode, then click **Select**.
-
+	
 	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete. 
 	
 5. Slide the **Instance** bar from left to right to increase the number of instances, then click **Save** in hte command bar. The instance size option is not available in **Shared** mode. For more information about these instance sizes, see [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes].
@@ -59,36 +59,36 @@ For information about hosting plans, see [What is an App Service Hosting Plan?](
 1. To scale to **Standard** mode, follow the same initial steps as when scaling to **Shared** or **Basic**, and then choose a **Standard** mode in **Choose your pricing tier**, then click **Select**. 
 	
 	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete, and **Autoscale Mode** will be enabled.
-
+	
 	![Scale in Standard Mode][ScaleStandard]
-
+	
 	You can still slide the **Instance** bar to manually scale to more instances, just like in **Basic** mode as shown above. However, here you will learn how to use **Autoscale Mode**. 
-
+	
 2. In **Autoscale Mode**, select **Performance** to autoscale based on performance metrics.
 	
 	![Autoscale Mode set to Performance][Autoscale]
 	
 3. In **Instance Range**, move the two sliders to define the minimum and maximum number of instances to scale automatically for the hosting plan. For this tutorial, move the maximum slider to **6** instances.
-
+	
 4. Click **Save** in the command bar.
-
+	
 4. Under **Target Metrics**, click **>** to configure autoscaling rules for the default metric.  
 	
 	![Set Target Metrics][SetTargetMetrics]
 	
 	You can configure autoscaling rules for different performance metrics, including CPU, memory, disk queue, HTTP queue, and data flow. Here, you will configure autoscaling for CPU percentage that does the following:
-
+	
 	- Scale up by 1 instance if CPU is above 70% in the last 10 minutes
 	- Scale up by 3 instances if CPU is above 90% in the last 5 minutes
 	- Scale down by 1 instance if CPU is below 50% in the last 30 minutes 
-
-
+	
+	
 4. Leave **Metric** dropdown as **CPU Percentage**.
 	
 5. In **Scale up rules**, configure the first rule by setting **Condition** to **Greater**, **Threshold** to **70** (%), **Over past** to **10** (minutes), **Scale up by** to **1** (instance), and **Cool down** to **10** (minutes). 
 	
 	![Set First Autoscale Rule][SetFirstRule]
-
+	
 	>[AZURE.NOTE] The **Cool down** setting specifies how long this rule should wait after the previous scale action to scale again.
 	
 6. Click **Add Scale Up Rule**, then configure the second rule by setting **Condition** to **Greater**, **Threshold** to **90** (%), **Over past** to **1** (minutes), **Scale up by** to **3** (instance), and **Cool down** to **1** (minutes).
@@ -116,7 +116,7 @@ If you have one or more SQL Server databases linked to your web app (regardless 
 	![Scale your SQL Database][ScaleDatabase]
 	
 3. You can also set up geo-replication to increase the high availability and disaster recovery capabilities of your SQL Database. To do this, click the **Geo Replication** part.
-
+	
 	![Set up geo-replication for SQL Database][GeoReplication]
 
 <a name="devfeatures"></a>
@@ -145,8 +145,7 @@ Depending on the web app's hosting plan mode, the following developer-oriented f
 <a name="Next Steps"></a>	
 ## Next Steps
 
-- To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
-
+- To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 - For information on pricing, support, and SLA, visit the following links.
 	
 	[Data Transfers Pricing Details](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
@@ -167,11 +166,9 @@ Depending on the web app's hosting plan mode, the following developer-oriented f
 
 - Videos on scaling Azure Websites:
 	
-	[When to Scale Azure Websites - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-	
-	[Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
-
-	[How Azure Websites Scale - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+	- [When to Scale Azure Websites - with Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	- [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
+	- [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 
 

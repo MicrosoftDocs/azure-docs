@@ -4,19 +4,19 @@
 	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
-	editor="" 
+	editor="na" 
 	services="app-service-mobile"/>
 
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="03/05/2015" 
 	ms.author="mahender"/>
 
-# Connect a Mobile App to an enterprise SaaS
+# Connect your mobile app to SaaS APIs
 
 In this tutorial, you will connect your mobile app to an enterprise software-as-a-service (SaaS) solution. You will update the app from the [Authenticate your app with Active Directory Authentication Library Single Sign-On] to create a Word document in SharePoint Online whenever a new TodoItem is added.
 

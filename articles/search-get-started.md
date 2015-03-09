@@ -24,15 +24,8 @@ Microsoft Azure Search (Public Preview) is new service that allows you to embed 
 
 As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 
-<!--Table of contents  -->
-
-+ [Start with the free service](#sub-1)
-+ [Upgrade to standard search](#sub-2)
-+ [Test service operations](#sub-3)
-+ [Explore Search service dashboard](#sub-4)
-+ [Try it out](#next-steps)
-
-<h2 id="sub-1">Start with the free service</h2>
+<a id="sub-1"></a>
+## Start with the free service
 
 Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
@@ -90,8 +83,8 @@ In a few minutes, the service is created. You can return to the configuration se
 
 Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
 
-
-<h2 id="sub-2">Upgrade to standard search</h2>
+<a id="sub-2"></a>
+## Upgrade to standard search
 
 Standard search gets you dedicated resources in an Azure data center that can be used only by you. Search workloads require both storage and service replicas. When you sign up for standard search, you can optimize service configuration to use more of whichever resource is the most important to your scenario.
 
@@ -131,18 +124,18 @@ Standard search starts with one replica and partition each, but can be easily re
 
 Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
 
-You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
 
  ![][15]
 
-  
-<h2 id="sub-3">Test service operations</h2>
+<a id="sub-3"></a>
+## Test service operations
 
 Confirming that your service is operational and accessible from a client application is the final step in configuring Search. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
 
 The following procedure works for both shared and standard search. In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
 
-<h3>Create an index</h3>
+### Create an index
 
 1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you'll formulate a request that looks like this: 
 
@@ -191,7 +184,7 @@ In a few seconds, you should see an HTTP 201 response in the session list, indic
 
 If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 
-<h3>Load documents</h3>
+### Load documents
 
 On the Composer tab, your request to post documents will look like the following. The body of the request contains the search data for 4 hotels.
 
@@ -277,7 +270,7 @@ On the Composer tab, your request to post documents will look like the following
 
 In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
 
-<h3>Query the index</h3>
+### Query the index
 
 Now that an index and documents are loaded, you can issue queries against them.  On the Composer tab, a GET command that queries your service will look similar to the following:
 
@@ -302,7 +295,7 @@ The response code should be 200, and the response output should look similar to 
  
    ![][19]
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/en-us/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
+The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
 
 **Before spaces are replaced:**
 
@@ -312,7 +305,7 @@ The following example query is from the [Search Index operation (Azure Search AP
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
 
-<h3>Query the system</h3>
+### Query the system
 
 You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
 
@@ -339,7 +332,8 @@ You can also query the system to get document counts and storage consumption. On
 
  	![][21]
 
-<h2 id="sub-4">Explore Search service dashboard</h2>
+<a id="sub-4"></a>
+## Explore Search service dashboard
 
 If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
@@ -358,7 +352,8 @@ If you need a refresher on where to find the configuration pages, follow these s
 
 
 <!--Next steps and links -->
-<h2 id="next-steps">Try it out</h2>
+<a id="next-steps"></a>
+## Try it out
 
 Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
@@ -368,9 +363,9 @@ Ready for the next step? The following links take you to additional material tha
 
 - [Manage your search solution in Microsoft Azure](../search-manage/) 
 
-- [Azure Search Technical Overview](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
+- [Azure Search Technical Overview](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [Azure Search REST API](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
+- [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 

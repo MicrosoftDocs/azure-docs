@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="02/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -28,9 +28,16 @@ Note that you can integrate Media Services with your existing tools and processe
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![Live workflow][live-overview]
 
+
+For more information, see [Media Services Overview](../media-services-overview).
+
 ##Creating a Media Services account
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
+
+##Configuring streaming endpoints
+
+[work in in progress]
 
 ##Setting up development environment  
 
@@ -46,13 +53,13 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 
 ##Working with Live Transcoders
 
-For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/en-us/library/azure/dn783464.aspx).
+For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 ##Managing Channels, Programs, Assets
 
-For more information, see [Live Streaming](https://msdn.microsoft.com/en-us/library/azure/dn783466.aspx).
+For more information, see [Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 
-##Configure content key authorization policy 
+##Configure content protection and content key authorization policy 
 
 Configure key authorization policy using **.NET** or **REST API**.
 
@@ -62,7 +69,7 @@ Configure key authorization policy using **.NET** or **REST API**.
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-configure_asset_delivery_policy](../includes/media-services-selector-configure_asset_delivery_policy.md)]
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
 ##Publishing assets
 
@@ -71,7 +78,11 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 
+##Scaling a Media Services account
 
+You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
+
+For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
 
 
 

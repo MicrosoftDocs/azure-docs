@@ -10,13 +10,13 @@
 <tags 
 	ms.service="app-service" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
 	ms.author="mahender"/>
 
-# Add authentication to your mobile app (Xamarin.iOS)
+# Add authentication to your Xamarin.iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../includes/app-service-mobile-selector-get-started-users.md)]
 

@@ -1,4 +1,4 @@
-After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
+After you have registered your app with APNS and configured your project, you must next configure your mobile app to integrate with APNS.
 
 1. In Keychain Access, right-click the quickstart app's new certificate in **Keys** or **My Certificates**, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
 
@@ -8,7 +8,7 @@ After you have registered your app with APNS and configured your project, you mu
 
 >[AZURE.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
 
-2. Log on to the [Azure Preview Portal], navigate to your Mobile App, and click on Push Notification services.
+2. Log on to the [Azure Preview Portal], select **Browse**, **Mobile Apps**, and then click your app. click on Push Notification services.
 
 3. In Apple Push Notification Service, upload your certificate with the **.p12** file, the password you associated with it, and select the desired mode.
 

@@ -59,7 +59,7 @@ In this section you will create a new PhoneGap app that is connected to your mob
 
 3. If you haven't already done so, download and install PhoneGap and at least one of the platform development tools (Windows Phone, iOS, or Android).
 
-4. Click **Create TodoItems table** to create a table to store app data.
+4. Click **Create TodoItem table** to create a table to store app data.
 
 5. Under **Download and run your app**, click **Download**. 
 
@@ -108,7 +108,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	> [AZURE.IMPORTANT] Changes to this platform project will be overwritten if the main project is rebuilt with the PhoneGap tools. Instead, make changes in the project's root www directory as outlined in the section below.
 
-4. Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItems</strong> table.
+4. Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItem</strong> table.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -165,9 +165,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-html-get-started-users
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Get started with data]: /documentation/articles/mobile-services-html-get-started-data
+[Get started with authentication]: /documentation/articles/mobile-services-html-get-started-users
+[Get started with push notifications]: /develop/mobile/tutorials/mobile-services-html-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532

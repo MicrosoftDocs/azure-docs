@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/15/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app 
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-This topic shows you how to authenticate users in Azure Mobile Services from your HTML or PhoneGap app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
+This topic shows you how to authenticate users in Azure Mobile Services from your HTML app, including PhoneGap or Cordova apps.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -138,9 +138,9 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-html-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Authorize users with scripts]: /en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts
+[Get started with Mobile Services]: /documentation/articles/mobile-services-html-get-started
+[Get started with data]: /documentation/articles/mobile-services-html-get-started-data
+[Authorize users with scripts]: /documentation/articles/mobile-services-javascript-backend-service-side-authorization/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /documentation/articles/mobile-services-html-how-to-use-client-library

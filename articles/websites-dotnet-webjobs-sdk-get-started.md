@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to create a multi-tier ASP.NET MVC application that uses the WebJobs SDK to work with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in an [Azure web app](/en-us/documentation/services/websites/). The application also uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279). 
+This tutorial shows how to create a multi-tier ASP.NET MVC application that uses the WebJobs SDK to work with [Azure queues](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) and [Azure blobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in an [Azure Website](/documentation/services/websites/). The application also uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279). 
 
 The sample application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full size image when they select an ad to see the details. Here's a screenshot:
 
@@ -92,13 +92,13 @@ In a real-world application, you typically create separate accounts for applicat
 
 2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure**.
 
-	![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Sign in using your Azure credentials.
 
 5. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
 
-	![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. In the **Create Storage Account** dialog, enter a name for the storage account. 
 
@@ -138,7 +138,7 @@ In a real-world application, you typically create separate accounts for applicat
  
 	The file contains a SQL connection string and an Azure storage connection string for working with blobs and queues. 
 
-	The SQL connection string points to a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database.
+	The SQL connection string points to a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database.
  
 	The storage connection string is an example that has placeholders for the storage account name and access key. You'll replace this with a connection string that has the name and key of your storage account.  
 
@@ -239,7 +239,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 	![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)	
 
 2. In the **Select existing web app** box, click **Sign In** and enter your credentials if you're not already signed in.
-
+ 
 5. After you're signed in, click **New**.
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
@@ -429,7 +429,7 @@ In this section you'll do the following tasks:
 	* Added a *webjobs-list.json* file in the web project Properties folder.
 	* Installed the Microsoft.Web.WebJobs.Publish NuGet package in the WebJob project.
 	 
-	For more information about these changes, see [How to Deploy WebJobs by using Visual Studio](/en-us/documentation/articles/websites-dotnet-deploy-webjobs/).
+	For more information about these changes, see [How to Deploy WebJobs by using Visual Studio](/documentation/articles/websites-dotnet-deploy-webjobs/).
 
 ### Add NuGet packages
 
@@ -641,7 +641,7 @@ Similar code gets a reference to the *images* queue.
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/en-us/library/system.web.httppostedfilebase.aspx) object to the method.
+Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) object to the method.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -794,7 +794,7 @@ For more information about how to write functions that use  WebJobs SDK attribut
 
 ### WebJobs SDK versus Cloud Service worker role without WebJobs SDK
 
-If you compare the amount of code in the `GenerateThumbnails` method in this sample application with the worker role code in the [Cloud Service version of the application](/en-us/documentation/articles/cloud-services-dotnet-get-started/), you can see how much work the WebJobs SDK is doing for you. The advantage is greater than it appears, because the Cloud Service sample application code doesn't do all of the things (such as poison message handling) that you would do in a production application, and which the WebJobs SDK does for you.
+If you compare the amount of code in the `GenerateThumbnails` method in this sample application with the worker role code in the [Cloud Service version of the application](/documentation/articles/cloud-services-dotnet-get-started/), you can see how much work the WebJobs SDK is doing for you. The advantage is greater than it appears, because the Cloud Service sample application code doesn't do all of the things (such as poison message handling) that you would do in a production application, and which the WebJobs SDK does for you.
 
 In the Cloud Service version of the application, the record ID is the only information in the queue message, and the background process gets the image URL from the database. In the WebJobs SDK version of the application, the queue message includes the image URL so that it can be provided to the `Blob` attributes. If the queue message didn't have the blob URL, you could [use the Blob attribute in the body of the method instead of in the method signature](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
 

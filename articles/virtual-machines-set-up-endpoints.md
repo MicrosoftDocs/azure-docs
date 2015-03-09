@@ -65,7 +65,7 @@ To define the set of computers that can send traffic, the ACL on an endpoint can
 
 > [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
 
-> [AZURE.NOTE] If the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+If the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
 
 
 1.	If you have not already done so, sign in to the Azure Management Portal.
@@ -89,7 +89,7 @@ For PowerShell configuration of ACLs, see [Managing Access Control Lists (ACLs) 
 
 ##Additional Resources
 
-[Load Balancing Virtual Machines](http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)
+[Load Balancing Virtual Machines](http://www.windowsazure.com/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)
 
 [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?linkid=303816&clcid=0x409)
 
