@@ -77,7 +77,6 @@ Performance monitoring
 </li>
 <li><a href="../app-insights-java-trace-logs/">Search Java traces and logs</a>
 </li>
-<li><a href="../app-insights-java-track-http-requests/">Track HTTP requests in Java apps</a></li>
 <li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">Telemetry API reference</a>
 </li>
 </ul>
