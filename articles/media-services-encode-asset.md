@@ -166,6 +166,6 @@ Output Audio Codecs
 ##Related articles
 
 - [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/how-to-use-premium-encoding-in-azure-media-services)
+- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 - [Quotas and Limitations](../media-services-quotas-and-limitations)
 
