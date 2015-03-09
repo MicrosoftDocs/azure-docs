@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Set up a simulated hybrid cloud environment for testing
@@ -42,7 +42,7 @@ There are four major phases to setting up this hybrid cloud test environment:
 3.	Create the VNet-to-VNet VPN connection.
 4.	Configure DC2. 
 
-If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
@@ -140,7 +140,7 @@ Next, you configure the TestLabLNet and TestVNETLNet local networks with the pub
 6.	On the Specify your local network details page, type the IP address of the virtual network gateway for the TestVNET virtual network (from step 7 in the previous procedure) in **VPN Device IP Address (Optional)**, and then click the right arrow.
 7.	On the Specify the address space page, click the check mark.
 
-Next, you will configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network. Run these commands from an adminstrator-level Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.
+Next, you will configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network. Run these commands from an Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet –SharedKey $preSharedKey
@@ -158,7 +158,7 @@ First, create an Azure Virtual Machine for DC2. Run these commands at the Azure 
 	$ServiceName="<Your cloud service name from Phase 2>"
 	$LocalAdminName="<A local administrator account name>" 
 	$LocalAdminPW="<A password for the local administrator account>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
@@ -262,7 +262,7 @@ Next, you configure the TestLabLNet and TestVNETLNet local networks with the new
 6.	On the Specify your local network details page, type the IP address of the virtual network gateway for the TestVNET virtual network (from step 7 in the previous procedure) in **VPN Device IP Address (Optional)**, and then click the right arrow.
 7.	On the Specify the address space page, click the check mark.
 
-Next, you configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network. Run these commands from an administrator-level Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.
+Next, you configure the pre-shared key for both gateways to use the same value, which is the key value determined by the Azure Management Portal for the TestLab virtual network. Run these commands from an Azure PowerShell command prompt on your local computer, filling in the value of the TestLab pre-shared key.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet –SharedKey $preSharedKey

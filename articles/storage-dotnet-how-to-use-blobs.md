@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 # How to use Blob Storage from .NET
@@ -38,7 +38,7 @@ use the Azure Storage Client Library for .NET. The scenarios covered include
 ### Obtaining the assembly
 We recommend that you use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
 
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` directory.
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` directory.
 
 ### Namespace declarations
 Add the following namespace declarations to the top of any C\# file

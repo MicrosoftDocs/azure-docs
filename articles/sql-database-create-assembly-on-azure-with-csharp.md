@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CREATE ASSEMBLY on Azure SQL Database with C#"
+	pageTitle="CREATE ASSEMBLY on Azure SQL Database with CSharp"
 	description="Provides C# source code to issue CREATE ASSEMBLY to Azure SQL Database after first encoding a DLL file into a string that contains a long hexadecimal number." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="03/04/2015" 
 	ms.author="genemi"/>
 
 
-# CREATE ASSEMBLY on Azure SQL Database with C# &nbsp;
+# CREATE ASSEMBLY on Azure SQL Database with CSharp
 
 
 <!--
-GeneMi , Latest edit = 2015-Feb-27  Friday  13:48pm
-Applied tech review feedback from JMNeto.
-sql-database-create-assembly-on-azure-with-csharp.md
+GeneMi , Latest edit = 2015-March-04  Wednesday  15:32pm
+HTML '&nbsp;' was treated as literal text by build system, thus change title from C# to CSharp.
 -->
 
 
@@ -72,7 +71,7 @@ The trivial C# code sample in this section can be compiled into an assembly DLL 
 This code sample contains the method **CompareCaseSensitiveNet** which is referenced later in a T-SQL CREATE FUNCTION statement. Notice that the method is decorated with a .NET attribute named **SqlFunction**. A method that is decorated with this attribute can be called by your T-SQL as a function.
 
 
-	using           System;
+	using           System;   // C#
 	using SDSqTyp = System.Data.SqlTypes;
 	using MSqServ = Microsoft.SqlServer.Server;
 	
@@ -129,8 +128,8 @@ The following sequence occurs when you run the EXE that is built from this C# sa
 			        /// args[0] = FullDirPathFileNameOfAssembly.
 			        /// args[1] = AssemblyName.
 			        ///    For the CREATE ASSEMBLY assemblyName statement.
-			        /// args[2] = Azure SQL Database - ServerName.
-			        /// args[3] = Azure SQL Database - ServerName.
+			        /// args[2] = Azure SQL Database - ServerName, including a suffix like .database.windows.net .
+			        /// args[3] = Azure SQL Database - DatabaseName.
 			        /// args[4] = Azure SQL Database - LoginName.
 			        /// args[5] = Azure SQL Database - Password for login.
 			        ///    (Better if from .config file.)
@@ -221,7 +220,7 @@ The following sequence occurs when you run the EXE that is built from this C# sa
 			
 			            sbuilderConnection.Append("Server=tcp:");
 			            sbuilderConnection.Append(AzureSqlDbServerName);
-			            sbuilderConnection.Append(".database.windows.net,1433;");
+			            sbuilderConnection.Append(",1433;");
 			
 			            sbuilderConnection.Append("Database=");
 			            sbuilderConnection.Append(AzureSqlDbDatabaseName);
@@ -287,7 +286,7 @@ The following code block displays an example of the command line that you would 
 	CreateAssemblyFromHexString6.exe
 		C:\my\bin\debug\CreateAssemblyFunctions3.dll
 		CreateAssemblyFunctions3
-		myazuresqldbsvr2
+		myazuresqldbsvr2.database.windows.net
 		myazuresqldbdab4
 		myazurelogin
 		Mypassword123
@@ -299,7 +298,7 @@ For simplicity of explanation this example passes the password as a command line
 ## D. Run a CREATE FUNCTION Statement
 
 
-After the assembly is stored in your Azure SQL Database server, you must run a T-SQL CREATE FUNCTION statement that references the method in the assembly.
+After the assembly is stored in your Azure SQL Database server, you must run a Transact-SQL CREATE FUNCTION statement that references the method in the assembly.
 
 
 The following block of Transact-SQL code includes a couple of nonessential SELECT statements to show proof that the database system has records for your assembly and your function. Finally there is a SELECT that calls the function.
@@ -326,7 +325,7 @@ The following block of Transact-SQL code includes a couple of nonessential SELEC
 	GO
 
 
-The preceding T-SQL code block ends with a SELECT statement that calls the new function. You could place the SELECT statement into a stored procedure.
+The preceding Transact-SQL code block ends with a SELECT statement that calls the new function. You could place the SELECT statement into a stored procedure.
 
 
 <!-- EndOfFile -->

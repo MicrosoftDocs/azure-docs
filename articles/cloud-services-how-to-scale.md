@@ -36,7 +36,7 @@ You should consider the following information before you configure scaling for y
 
 - You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](http://www.windowsazure.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
 
-- To enable high availability of your application, you should ensure that it is deployed with two or more role instances or Virtual Machines. For more information, see [Service Level Agreements](https://www.windowsazure.com/en-us/support/legal/sla/).
+- To enable high availability of your application, you should ensure that it is deployed with two or more role instances or Virtual Machines. For more information, see [Service Level Agreements](https://www.windowsazure.com/support/legal/sla/).
 
 
 ## Manually scale an application running Web Roles or Worker Roles

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/20/2015" 
+	ms.date="02/20/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -349,11 +349,11 @@ follow these links to learn how to do more complex caching tasks.
 [Azure Management Portal]: http://windows.azure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Azure Caching]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
+[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
 [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658

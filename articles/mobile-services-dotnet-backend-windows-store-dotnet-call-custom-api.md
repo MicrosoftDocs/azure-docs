@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Call a custom API from a Windows Store client - Mobile Services" 
-	description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." 
+	description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -63,10 +63,10 @@ Now that you have created a custom API and called it from your Windows Store app
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started/
+[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
 
-[Define a custom API that supports periodic notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
-[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+[Define a custom API that supports periodic notifications]: /documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
+[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control

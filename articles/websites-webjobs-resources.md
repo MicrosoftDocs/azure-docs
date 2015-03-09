@@ -91,7 +91,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Running Powershell Web Jobs on Azure websites](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Getting notified when your Azure triggered WebJobs completes](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
 * [Simple Web Site Backup retention policy with WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
-* [Windows Azure WebSites and Cloud Services Slow on First Request](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Shows how to use WebJobs to simulate the AlwaysOn feature that is only available for the Standard Websites tier.
+* [Azure WebSites and Cloud Services Slow on First Request](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Shows how to use WebJobs to simulate the AlwaysOn feature that is only available for the Standard Websites tier.
 * [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). For WebJobs SDK graceful shutdown, see [Graceful shutdown](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).)
 * Videos
 	* [Azure WebJobs videos by Magnus Mårtensson](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
@@ -129,6 +129,6 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [StackOverflow for WebJobs](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [StackOverflow for the WebJobs SDK](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Azure and ASP.NET forum](http://forums.asp.net/1247.aspx)
-* [Azure Websites forum](http://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)
+* [Azure Websites forum](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure Websites User Voice site](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). Use the hashtag #AzureWebJobs.

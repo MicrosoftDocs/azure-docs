@@ -17,11 +17,11 @@
 	ms.author="wesmc"/>
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome">Chrome</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone" class="current">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome">Chrome</a></div>
 
 ##Overview
 
-This topic shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application. If you are targeting Windows Phone 8.1 (non-Silverlight) then refer to the [Windows Universal](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) version.
+This topic shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application. If you are targeting Windows Phone 8.1 (non-Silverlight) then refer to the [Windows Universal](/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) version.
 In this tutorial you create a blank Windows Phone 8 app that receives push notifications using the Microsoft Push Notification service (MPNS). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
 > [AZURE.NOTE] Notification Hubs Windows Phone SDK does not support using WNS with Windows Phone 8.1 Silverlight apps. To use WNS (instead of MPNS) with Windows Phone 8.1 Silverlight apps, follow this sample [Notification Hub - WP Silverlight tutorial] which uses REST APIs
@@ -128,7 +128,7 @@ You now have the connection strings required to register your Windows Phone 8 ap
 
 ##Send notification from your backend
 
-You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/) | [JavaScript backend](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](/en-us/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/en-us/documentation/articles/notification-hubs-php-backend-how-to/)).
+You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/) | [JavaScript backend](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/documentation/articles/notification-hubs-php-backend-how-to/)).
 
 1. Right-click the solution, select **Add** and **New Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**. 
 
@@ -207,14 +207,14 @@ In this simple example you broadcast notifications to all your Windows Phone 8 d
 
 <!-- URLs. -->
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone 8]: tbd!!!
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
-[Use Notification Hubs to push notifications to users]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
+[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
 [toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp

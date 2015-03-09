@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
@@ -12,24 +12,15 @@
    ms.devlang="Java"
    ms.topic="article"
    ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
 # Azure Mobile Engagement - Troubleshooting Guides
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="#ANALYTICS" title="Analytics">Analytics</a>
-<a href="#APIS" title="APIs">APIs</a>
-<a href="#PUSH" title="Push/Reach">Push/Reach</a>
-<a href="#SERVICE" title="Service">Service</a>
-<a href="#SDK" title="SDK">SDK</a>
-<a href="#SR" title="SR">SR Info</a>
-</div>
-
 ## Introduction
 
-The following troubleshooting guides cover the most common issues with Azure Mobile Engagement, with the exception of [billing][Link 11] questions and assistance signing up for the [preview][Link 7]. If you aren't able to resolve your issue with these troubleshooting guides you can either open an Azure service request - if you have an [Azure Support Agreement](http://azure.microsoft.com/en-us/support/options/) - or you can request assistance on the [MSDN Forum][Link 8]. Please be sure to include all of the troubleshooting information from <a href="#SR" title="SR">SR Info</a> when you open a service request to help technical support to investigate your issue.
+The following troubleshooting guides cover the most common issues with Azure Mobile Engagement, with the exception of [billing][Link 11] questions and assistance signing up for the [preview][Link 7]. If you aren't able to resolve your issue with these troubleshooting guides you can either open an Azure service request - if you have an [Azure Support Agreement](http://azure.microsoft.com/support/options/) - or you can request assistance on the [MSDN Forum][Link 8]. Please be sure to include all of the troubleshooting information from <a href="#SR" title="SR">SR Info</a> when you open a service request to help technical support to investigate your issue.
 
 ## <a name="#ANALYTICS">Analytics, Monitoring, Segmentation, and Dashboards</a>
 
@@ -550,10 +541,10 @@ Please provide the following information when you open any Azure Mobile Engageme
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: ../mobile-engagement-user-interface-navigation/
 [Link 13]: ../mobile-engagement-user-interface-home/
 [Link 14]: ../mobile-engagement-user-interface-my-account/

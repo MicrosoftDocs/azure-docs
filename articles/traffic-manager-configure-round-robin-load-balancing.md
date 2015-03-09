@@ -37,7 +37,7 @@ A common load balancing pattern is to provide a set of identical endpoints, whic
 
 [About Traffic Manager Load Balancing Methods](../traffic-manager-load-balancing-methods)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Traffic Manager Overview](../traffic-manmager-overview)
 

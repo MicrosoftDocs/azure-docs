@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure API Management" 
+	pageTitle="Manage your first API in Azure API Management" 
 	description="Learn how to create APIs, operations, and get started with API Management." 
 	services="api-management" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
-# Get started with Azure API Management
+# Manage your first API in Azure API Management
 
 This guide shows you how to quickly get started using API Management and make your first API call.
 

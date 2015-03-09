@@ -22,17 +22,17 @@
 
 Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.
 
-To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Management Portal](https://manage.windowsazure.com/); for details, see [How To Monitor a Storage Account](../how-to-monitor-a-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. [Use the Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/en-us/library/hh452239.aspx), and [Get Table Service Properties operations to enable Storage Analytics](https://msdn.microsoft.com/en-us/library/hh452238.aspx) for each service.
+To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Management Portal](https://manage.windowsazure.com/); for details, see [How To Monitor a Storage Account](../how-to-monitor-a-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. [Use the Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), and [Get Table Service Properties operations to enable Storage Analytics](https://msdn.microsoft.com/library/hh452238.aspx) for each service.
 
 ##Transaction metrics
 
-A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, including ingress/egress, availability, errors, and categorized request percentages. You can see a complete list of the transaction details in the [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/en-us/library/hh343264.aspx) topic.
+A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, including ingress/egress, availability, errors, and categorized request percentages. You can see a complete list of the transaction details in the [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/hh343264.aspx) topic.
 
 Transaction data is recorded at two levels – the service level and the API operation level. At the service level, statistics summarizing all requested API operations are written to a table entity every hour even if no requests were made to the service. At the API operation level, statistics are only written to an entity if the operation was requested within that hour.
 
 For example, if you perform a **GetBlob** operation on your Blob service, Storage Analytics Metrics will log the request and include it in the aggregated data for both the Blob service as well as the **GetBlob** operation. However, if no **GetBlob** operation is requested during the hour, an entity will not be written to the `$MetricsTransactionsBlob` for that operation.
 
-Transaction metrics are recorded for both user requests and requests made by Storage Analytics itself. For example, requests by Storage Analytics to write logs and table entities are recorded. For more information on how these requests are billed, see [Storage Analytics and Billing](https://msdn.microsoft.com/en-us/library/hh360997.aspx)
+Transaction metrics are recorded for both user requests and requests made by Storage Analytics itself. For example, requests by Storage Analytics to write logs and table entities are recorded. For more information on how these requests are billed, see [Storage Analytics and Billing](https://msdn.microsoft.com/library/hh360997.aspx)
 
 ##Capacity metrics
 
@@ -72,13 +72,13 @@ All data in the metrics tables can be accessed by using the Table service APIs, 
 
 ##Next steps
 ###Concepts
-[Enabling and Configuring Storage Analytics](https://msdn.microsoft.com/en-us/library/hh360996.aspx) 
+[Enabling and Configuring Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx) 
 
-[Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/en-us/library/hh343264.aspx) 
+[Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/hh343264.aspx) 
 
-[Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/en-us/library/hh343260.aspx) 
+[Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx) 
 
-[About Storage Analytics Logging](https://msdn.microsoft.com/en-us/library/hh343262.aspx) 
+[About Storage Analytics Logging](https://msdn.microsoft.com/library/hh343262.aspx) 
 
 ###Other Resources
 

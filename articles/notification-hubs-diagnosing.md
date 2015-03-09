@@ -226,7 +226,7 @@ More details here -
 <!-- LINKS -->
 [Notification Hubs Overview]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
 [Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Template guidance]: https://msdn.microsoft.com/en-us/library/dn530748.aspx 
+[Template guidance]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM guidance]: http://developer.android.com/google/gcm/adv.html
 [Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx

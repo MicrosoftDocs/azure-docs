@@ -71,7 +71,7 @@ Since the example above opened the default SSH port, connecting to the VM once i
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-A great place to see more examples of using xplat-cli to manage your Azure infrastructure is [Azure command-line tool for Mac and Linux](http://azure.microsoft.com/documentation/articles/command-line-tools/)
+A great place to see more examples of using xplat-cli to manage your Azure infrastructure is [Azure command-line tool for Mac and Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

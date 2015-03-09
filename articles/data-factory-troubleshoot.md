@@ -135,7 +135,7 @@ You can overide this default by changing the defaults at the time of provisionin
 >            "mapreduce.task.timeout":"1200000"
 >        }
 
-For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/en-us/library/azure/dn893526.aspx
+For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/library/azure/dn893526.aspx
 
 
 

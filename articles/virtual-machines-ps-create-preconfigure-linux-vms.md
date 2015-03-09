@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines
@@ -26,7 +26,7 @@ For the companion topic to configure Windows-based virtual machines, see [Use Az
 
 ##Step 1: Install Azure PowerShell
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an administrator-level Azure PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell/) to install Azure PowerShell on your local computer. Then, open an Azure PowerShell command prompt.
 
 ##Step 2: Set your subscription and storage account
 
@@ -83,7 +83,7 @@ Specify the initial Linux user name and password (required). Choose a strong pas
 	$pass="<user account password>"
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
-If you are saving the resulting command set as a file, ensure that you store it in a secure location to protect the account name and password.
+If you are saving the resulting command set in a file, store it in a secure location to protect the account name and password.
 
 Optionally, specify a set of SSH key pairs that are already deployed in the subscription.
 

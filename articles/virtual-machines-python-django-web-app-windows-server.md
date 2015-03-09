@@ -22,7 +22,7 @@
 
 # Django Hello World Web Application
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
 This tutorial describes how to host a Django-based website on Microsoft 
 Azure using a Windows Server virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
@@ -198,7 +198,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created A
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
-[portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 
