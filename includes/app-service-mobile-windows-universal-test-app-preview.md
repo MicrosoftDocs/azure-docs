@@ -5,10 +5,10 @@
 
 	![](./media/app-service-mobile-windows-universal-test-app-preview/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile service hosted in Azure.
+	This sends a POST request to the new mobile app hosted in Azure.
 
 3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app and press F5 again.
 
 	![](./media/app-service-mobile-windows-universal-test-app-preview/mobile-quickstart-completed-wp8.png)
 
-	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
+	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.

@@ -1,16 +1,16 @@
 <properties 
 	pageTitle="How to configure Facebook authentication for your App Services application"
 	description="Learn how to configure Facebook authentication for your App Services application." 
-	services="app-services" 
+	services="app-service-mobile" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
@@ -71,4 +71,3 @@ You are now ready to use Facebook for authentication in your app.
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://portal.azure.com/
-[Azure Mobile Services]: http://azure.microsoft.com/en-us/services/mobile-services/

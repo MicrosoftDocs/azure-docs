@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Using BizTalk Rules" 
+   pageTitle="Use BizTalk Rules" 
    description="This topic covers the features of BizTalk Rules and provides instructions on its usage" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
