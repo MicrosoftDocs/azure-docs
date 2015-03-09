@@ -33,7 +33,7 @@ Before you can use Windows PowerShell with Resource Manager, you must have the f
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 	
-- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/).
+- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/).
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -170,7 +170,7 @@ The Microsoft.WebSiteSQLDatabase.0.2.2-preview template looks interesting. To ge
 
 The cmdlet returns an object with much more information about the template, including a description.
 
-	<p>Windows Azure Websites offers secure and flexible development, 
+	<p>Azure Websites offers secure and flexible development, 
 	deployment and scaling options for any sized web application. Leverage 
 	your existing tools to create and deploy applications without the hassle 
 	of managing infrastructure.</p>

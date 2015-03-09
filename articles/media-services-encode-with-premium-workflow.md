@@ -260,3 +260,8 @@ The following is a complete example. For information on how to set up with Media
 	        }
 	    }
 	}
+
+
+##Known issues
+
+If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file.

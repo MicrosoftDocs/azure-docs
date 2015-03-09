@@ -3,8 +3,8 @@
 	description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." 
 	services="" 
 	documentationCenter="nodejs" 
-	authors="thinkingserious" 
-	manager="sendgrid" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="10/30/2014" 
-	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
+	ms.author="mwasson"/>
 
 
 
