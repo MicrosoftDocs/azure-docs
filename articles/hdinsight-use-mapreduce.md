@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
-In this article, you will learn how to run MapReduce jobs on Hadoop. In HDInsight clusters, we run a basic word count operation implemented as a Java MapReduce job.
+In this article, you will learn how to run MapReduce jobs on Hadoop in HDInsight clusters. We run a basic word count operation implemented as a Java MapReduce job.
 
 ##<a id="whatis"></a>What is MapReduce?
 

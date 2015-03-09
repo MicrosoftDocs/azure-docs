@@ -4,7 +4,7 @@
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
 	authors="chrischang12" 
-	manager="partners@mongolab.com" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/04/2014" 
-	ms.author="chris@mongolab.com"/>
+	ms.author="mwasson"/>
 
 
 

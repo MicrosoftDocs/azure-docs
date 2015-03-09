@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/23/2015" 
@@ -24,7 +24,7 @@
 
 Like the other identity providers offered with Mobile Services, the Azure Active Directory (AAD) provider also supports a rich Graph API which can be used for programmatic access to the directory. In this tutorial you update the ToDoList app to personalize the authenticated user’s app experience returning additional user information you retrieve from the directory using the [Graph REST API].
 
-For more information on the Azure AD Graph API, see the [Windows Azure Active Directory Graph Team Blog]. 
+For more information on the Azure AD Graph API, see the [Azure Active Directory Graph Team Blog]. 
 
 >[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication with the Azure Active Directory. It is expected that you have completed the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial.
 
@@ -178,4 +178,4 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Role based access control with the AAD in Mobile Services]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
-[Windows Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536
+[Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536
