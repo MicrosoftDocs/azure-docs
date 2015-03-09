@@ -3,7 +3,7 @@
 	description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure website." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 # Build and deploy a Node.js website to Azure using WebMatrix

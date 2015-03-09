@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="How to use Service Bus queues (Node.js) - Azure" 
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." 
+	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/10/2015" 
-	ms.author="sethm"/>
+	ms.author="mwasson"/>
 
 
 

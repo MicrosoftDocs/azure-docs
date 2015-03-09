@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [This article uses the Azure Preview portal](../includes/preview-portal-note.md)]
 
-Microsoft Azure Search (Public Preview) is new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a REST API. To read more about why you would use Azure Search, see [Azure Search Scenarios and Capabilities](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
+Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET SK or a REST API. To read more about why you would use Azure Search, see [Azure Search Scenarios and Capabilities](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
 
 As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
 

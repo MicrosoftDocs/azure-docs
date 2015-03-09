@@ -3,7 +3,7 @@
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." 
 	services="storage" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="tfitzmac,tamram" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tomfitz"/>
 
 # How to use the Table service from PHP
@@ -463,8 +463,8 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 
 Now that you’ve learned the basics of the Azure Table Service, follow these links to learn about more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Azure] []
-- Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+- See the MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
