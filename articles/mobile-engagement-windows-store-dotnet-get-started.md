@@ -227,8 +227,8 @@ The following sections will setup your app to receive them.
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
-		   EngagementAgent.Instance.OnActivated(args);
-		   EngagementReach.Instance.OnActivated(args);
+		   EngagementAgent.Instance.Init(args);
+		   EngagementReach.Instance.Init(args);
 		}
 
 3. Run the application. 
