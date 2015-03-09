@@ -23,7 +23,7 @@
 
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](../hyper-v-recovery-manager-overview.md).
 
-This scenario guide describes how to deploy Site Recovery to protect virtual machines running on Hyper-V host servers that are located in VMM private clouds using Hyper-V Replica for virtual machine replication. 
+This scenario guide describes how to deploy Site Recovery to protect virtual machines running on Hyper-V host servers that are located in VMM private clouds using Hyper-V Replica to replicate virtual machines. 
 
 The guide includes prerequisites for the scenario and shows you how to set up a Site Recovery vault, get the Azure Site Recovery Provider installed on source and target VMM servers, register the servers in the vault, configure protection settings for VMM clouds that will be applied to all protected virtual machines, and then enable protection for those virtual machines. Finish up by testing the failover to make sure everything's working as expected.
 

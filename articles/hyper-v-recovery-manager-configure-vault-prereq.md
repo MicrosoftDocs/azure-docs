@@ -1,19 +1,20 @@
 <properties 
-   pageTitle="Prerequisites for setting up protection between VMM sites" 
-   services="site-recovery" 
-   documentationCenter="" 
-   authors="raynew" 
-   manager="jwhit" 
-   editor=""/>
+	pageTitle="Prerequisites for setting up protection between VMM sites" 
+	description="Describes the prerequisites for setting up protection between VMM sites with Azure Site Recovery." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags
-   ms.service="site-recovery"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="backup-recovery" 
-   ms.date="02/28/2015"
-   ms.author="raynew"/>
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/19/2015" 
+	ms.author="raynew"/>
 
 # Prerequisites for setting up protection between VMM sites
 

@@ -20,7 +20,7 @@
 
 ## Run a recovery plan
 
-Test your deployment to make sure virtual machines and data fail over as expected. To do this you'll create a recovery plan and then run a test failover on the plan.
+Test your deployment to make sure that virtual machines and data fail over as expected. To do this you'll create a recovery plan and then run a test failover on the plan.
 
 1. On the **Recovery Plans** tab, click **Create Recovery Plan**.
 2. Specify a name for the recovery plan, and source and target VMM servers. The source server must have virtual machines that are enabled for failover and recovery. Select **Hyper-V** to view only clouds that are configured for Hyper-V replication.

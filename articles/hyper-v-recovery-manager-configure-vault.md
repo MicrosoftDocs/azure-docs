@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuration protection" 
+	pageTitle="Configure protection" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises VMM sites." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -21,7 +21,7 @@
 
 <h2><a id="overview" name="overview" href="#overview"></a>Overview</h2>
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. By default Azure Site Recovery uses Hyper-V Replica to replicate virtual machines.
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. 
 
 This walkthrough describes how to deploy Azure Site Recovery to orchestrate and automate protection for workloads running on an on-premises VMM site to another on-premises VMM site.
 
