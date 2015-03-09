@@ -2,7 +2,7 @@
 	pageTitle="Media Services Release Notes" 
 	description="Media Services Release Notes" 
 	services="media-services" 
-	documentationCenter="media" 
+	documentationCenter="" 
 	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
