@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to create web test" 
+	pageTitle="How to create web tests" 
 	description="Learn how to create web tests in Azure." 
 	services="application-insights" 
     documentationCenter=""
