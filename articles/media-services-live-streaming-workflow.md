@@ -37,7 +37,7 @@ Use **Azure Management Portal** to [Create Azure Media Services Account](../medi
 
 ##Configuring streaming endpoints
 
-[work in in progress]
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](../media-services-manage-origins/)
 
 ##Setting up development environment  
 
