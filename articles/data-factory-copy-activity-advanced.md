@@ -65,6 +65,14 @@ It does not support the following and throw an exception:
 - Duplicate mapping.
 - SQL query result does not have a column name
 
+Specially, while copying data between two Azure Blobs, Copy Activity would mostly treat it as a direct binary data copy, unless the following 3 scenarios are met:
+
+
+1. If the input and output tables have different format, Copy Activity will do format conversion;
+2. If the input table is specified as a folder which may contain multiple files and output table is specified as a file, Copy Activity will merge the files under source folder into one single sink file;
+3. If the "columnMapping" is specified, Copy Activity will do the corresponding data transformation.
+
+
 ### Sample 1 – column mapping from SQL Server to Azure blob
 In this sample, the **input table** is defined as follows. The input table has a structure and it points to a SQL table in a SQL Server database.
          
@@ -204,7 +212,7 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 
 ![Column Mapping 2][image-data-factory-column-mapping-2]
 
-### Data Type Handling by the Copy Activity
+## Data Type Handling by the Copy Activity
 
 The data types specified in the Structure section of the Table definition is only honored for **BlobSource**.  The table below describes how data types are handled for other types of source and sink.
 
@@ -252,6 +260,8 @@ The data types specified in the Structure section of the Table definition is onl
 	</tr>
 
 </table>
+
+**Note:** Azure Table only support a limited set of data types, please refer to [Understanding the Table Service Data Model][azure-table-data-type].
 
 ## Invoke stored procedure for SQL Sink
 When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked. 
@@ -313,6 +323,7 @@ The stored procedure feature takes advantage of [Table-Valued Parameters][table-
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
