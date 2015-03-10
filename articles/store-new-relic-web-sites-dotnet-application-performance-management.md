@@ -44,7 +44,7 @@ New Relic special pricing through the Azure Store
 New Relic Standard is free to Azure users.
 New Relic Pro is offered in multiple packages based on which website mode you are using, and the instance size if you are using reserved mode.
 
-For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/gallery/store/new-relic/new-relic/).
+For pricing information see the [New Relic page in the Azure Store](http://azure.microsoft.com/en-us/marketplace/partners/newrelic/newrelic/).
 
 > [AZURE.NOTE] Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 
