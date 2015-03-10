@@ -13,7 +13,7 @@ t<tags
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/24/2015"
+	ms.date="02/24/2015"
 	ms.author="jtwist"/>
 
 ##What are Logic Apps?
