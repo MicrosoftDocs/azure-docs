@@ -100,7 +100,7 @@ Here are the steps we took when preparing to deploy these scripts:
 
 ## <a name="runScriptAction"></a>How to run a Script Action
 
-You can use Script Actions to customize HDInsight clusters using the Azure Management Portal, PowerShell, or the HDInsight .NET SDK. For instructions, see [How to use Script Action](./hdinsight-hadoop-customize-cluster/#howto). 
+You can use Script Actions to customize HDInsight clusters using the Azure Management Portal, PowerShell, or the HDInsight .NET SDK. For instructions, see [How to use Script Action](../hdinsight-hadoop-customize-cluster/#howto). 
 
 
 ## <a name="sampleScripts"></a>Custom script samples
