@@ -136,8 +136,6 @@ In this sample, the **output table** is defined as follows. The output table has
 		}
 	}	
 
-if you don't specify a **fileName** for an **input table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
-
 If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, **folderPath** uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
@@ -152,9 +150,8 @@ To set **folderPath** and **fileName** dynamically based on the **SliceStart** t
         { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
     ],
 
-In this sample, an activity in a pipeline is defined as follows. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
-
 #### Sample – Define Column mapping
+In this sample, an activity in a pipeline is defined as follows. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
 
 	{
 		"name": "CopyActivity",
@@ -234,8 +231,8 @@ The data types specified in the Structure section of the Table definition is onl
 
 	<tr>
 		<td>BlobSource</td>
-		<td>When transferring from <b>BlobSource</b> to <b>BlobSink</b>, there is no type transformation. Types defined in <b>Structure</b> section of table definition are ignored.  For destinations other than <b>BlobSink</b>, data types defined in <b>Structure</b> section of Table definition will be honored.<br/><br/>
-		If the <b>Structure</b> is not specified in table definition, type handling depends on the <b>format</b> property of <b>BlobSink</b>:
+		<td>When transferring from <b>BlobSource</b> to <b>BlobSink</b>, there is no type transformation; data types defined in <b>Structure</b> section of table definition are ignored.  For destinations other than <b>BlobSink</b>, data types defined in <b>Structure</b> section of table definition will be honored.<br/><br/>
+		If the <b>Structure</b> is not specified in table definition, type handling depends on the <b>format</b> property of <b>BlobSource</b> table:
 		<ul>
 			<li> <b>TextFormat:</b> all column types are treated as string, and all column names are set as "Prop_<0-N>"</li> 
 			<li><b>AvroFormat:</b> use the built-in column types and names in Avro file.</li> 
@@ -246,7 +243,7 @@ The data types specified in the Structure section of the Table definition is onl
 
 	<tr>
 		<td>BlobSink</td>
-		<td>Data types defined in <b>Structure</b> section of input Table definition are ignored.  Data types defined on the underlying input data store will be used.  Columns will be specified as nullable for Avro serialization.</td>
+		<td>Data types defined in <b>Structure</b> section of Table definition are ignored.  Data types defined on the underlying input data store will be used.  Columns will be specified as nullable for Avro serialization.</td>
 	</tr>
 
 	<tr>
