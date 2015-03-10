@@ -7,7 +7,7 @@
 	services="app-service-logic" 
 	documentationCenter=""/>
 
-t<tags
+<tags
 	ms.service="app-service-logic"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
