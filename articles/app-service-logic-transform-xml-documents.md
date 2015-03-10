@@ -111,16 +111,16 @@ Once the map has been authored and tested, it is now ready for consumption. User
 4. The output of the action 'Output XML' can be used in subsequent actions in the Flow.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-transform-xml-documents/Create_Everything.PNG
-[2]: ./media/app-service-logic-transform-xml-documents/Create_Marketplace.PNG
-[3]: ./media/app-service-logic-transform-xml-documents/Create_APIApp.PNG
-[4]: ./media/app-service-logic-transform-xml-documents/Search_TransformAPIApp.PNG
-[5]: ./media/app-service-logic-transform-xml-documents/Select_TransformAPIApp.PNG
-[6]: ./media/app-service-logic-transform-xml-documents/New_TransformAPIApp_Blade.PNG
-[7]: ./media/app-service-logic-transform-xml-documents/Browse_APIApps.PNG
-[8]: ./media/app-service-logic-transform-xml-documents/Select_APIApp_List.PNG
-[9]: ./media/app-service-logic-transform-xml-documents/Configure_Transform_APIApp.PNG
-[10]: ./media/app-service-logic-transform-xml-documents/Add_Map.PNG
+[1]: ./media/app-service-logic-transform-xml-documents/Create_Everything.png
+[2]: ./media/app-service-logic-transform-xml-documents/Create_Marketplace.png
+[3]: ./media/app-service-logic-transform-xml-documents/Create_APIApp.png
+[4]: ./media/app-service-logic-transform-xml-documents/Search_TransformAPIApp.png
+[5]: ./media/app-service-logic-transform-xml-documents/Select_TransformAPIApp.png
+[6]: ./media/app-service-logic-transform-xml-documents/New_TransformAPIApp_Blade.png
+[7]: ./media/app-service-logic-transform-xml-documents/Browse_APIApps.png
+[8]: ./media/app-service-logic-transform-xml-documents/Select_APIApp_List.png
+[9]: ./media/app-service-logic-transform-xml-documents/Configure_Transform_APIApp.png
+[10]: ./media/app-service-logic-transform-xml-documents/Add_Map.png
 
 
 
