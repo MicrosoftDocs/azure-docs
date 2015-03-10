@@ -106,9 +106,9 @@ A brief description of the fields follows.
 
 ##<a id="enable_cdn"></a>Enable Azure CDN integration
 
-Indicates whether or not the Azure CDN integration for this StreamingEndpoint is enabled (disabled by default.)
+You can specify to enable the Azure CDN integration for a Streaming Endpoint (it is disabled by default.)
 
-To set the Azure CDN integration to true, the StreamingEndpoint must have at least one streaming (scale) unit and be in the stopped state. If later you want to set scale units to 0, you must first disable the CDN integration. 
+To set the Azure CDN integration to true, the streaming endpoint must have at least one streaming (scale) unit and be in the stopped state. If later you want to set scale units to 0, you must first disable the CDN integration. 
 
 It could take up to 90 min for the Azure CDN integration to get enabled.   
 
