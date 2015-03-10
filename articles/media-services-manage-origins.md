@@ -44,7 +44,7 @@ To add\delete streaming endpoint using the Portal, do the following:
 4. Click the START button to start the streaming endpoint. 
 5. Click on the name of the streaming endpoint to configure it.   
 
-	![Origin page][origin-page]
+	![Streaming Endpoint page][streaming-endpoint]
 
 
 By default you can have up to two streaming endpoints. If you need to request more, see [Quotas and limitations](media-services-quotas-and-limitations/).
@@ -114,7 +114,11 @@ It could take up to 90 min for the Azure CDN integration to get enabled.
 
 Once it is enabled, the following configurations get disabled: **Custom Host Names** and **Access Control**.
 
-Not all data centers support the Azure CDN integration. If you are using Azure Management Portal, you will see all the available data centers. If you are using .NET SDK or REST API, you need to check whether or not your data center has the Azure CDN integration available. 
+Not all data centers support the Azure CDN integration. If you are using Azure Management Portal, you will see the **ENABLE CDN** option if it is available in your data center. 
+
+![Streaming Endpoint Enable CDN][streaming-endpoint-enable-cdn]
+
+If you are using .NET SDK or REST API, you need to check whether or not your data center has the Azure CDN integration available. 
 
 To check, do the following:
 
@@ -124,7 +128,7 @@ To check, do the following:
 	If you get this error, the data center does not support it. You should try another data center.
 
 
-
-[origin-page]: ./media/media-services-manage-origins/media-services-origins-page.png
+[streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
+[streaming-endpoint]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
