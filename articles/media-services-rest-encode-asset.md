@@ -19,14 +19,14 @@
 
 #How to encode an asset using Azure Media Encoder
 
-This article is one in a series introducing [Azure Media Services programming](../media-services-video-on-demand-workflow/). The previous topic was [How to: Get a Media Processor](../media-services-get-media-processor/).
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
 
 ##Overview
 In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
-Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see Task Presets for Azure Media Services. If you used a third party encoder, you should [validate your files](https://msdn.microsoft.com/en-us/library/azure/dn750842.aspx).
+Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see Task Presets for Azure Media Services. If you used a third party encoder, you should [validate your files](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](https://msdn.microsoft.com/en-us/library/azure/jj889436.aspx).
+It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](https://msdn.microsoft.com/library/azure/jj889436.aspx).
 
 ##Create a job with a single encoding task 
 
@@ -37,7 +37,7 @@ It is recommended to always encode your mezzanine files into an adaptive bitrate
 >After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
 
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. When encoding with Azure Media Encoder, you can use task configuration presets specified [here](https://msdn.microsoft.com/en-us/library/azure/dn619389.aspx).
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. When encoding with Azure Media Encoder, you can use task configuration presets specified [here](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 	
 Request:
 
@@ -113,9 +113,9 @@ In many application scenarios, developers want to create a series of processing 
 Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](../media-services-rest-check-job-progress/) topic.
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/en-us/library/dn619392.aspx
+[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
 [How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
 [How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
 [How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [How to Check Job Progress]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx
+[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx

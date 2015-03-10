@@ -11,7 +11,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
 
 ## Create a web app in the portal
 
@@ -23,11 +23,11 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 3. Click the **Web + Mobile** blade. 
 	<!--todo:screenshot-->
-
-4. Click the **WordPress** icon.
 	
-	<!--todo:![WordPress from list][7]-->
+4. Click the **WordPress** icon.
 
+	<!--todo:![WordPress from list][7]-->
+	
 5. Click on each part (**WEB APP**, **DATABASE**, and **SUBSCRIPTION**) and enter or select values for the required fields:
 	
 - Enter a URL name of your choice	
@@ -38,7 +38,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 6. When finished defining the web app, click **Create**.
 
 ## Launch and manage your WordPress web app
-
+	
 1. From the **Web Apps** blade, click on your new web app to open the dashboard.
 
 	<!--todo:![launch dashboard][10]-->
@@ -69,6 +69,4 @@ You'll build a WordPress blog that uses a default template. The following illust
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png

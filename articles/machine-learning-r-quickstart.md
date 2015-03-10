@@ -3,7 +3,7 @@
 	description="How to use R in the Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -51,22 +51,6 @@ We will progress through several steps as you learn how to create, test and exec
 * With our data prepared we will perform an analysis of the correlations between several of the variables in our dataset.
 
 * Finally, we will create a seasonal time series forecasting model for milk production.
-
-##Table of contents
-
-* [Interacting with R in Machine Learning Studio](#mlstudio)
-
-* [Getting data in and out of the Execute R Script module](#scriptmodule)
-
-* [Data filtering and transformation](#filtering)
-
-* [Time series objects and correlation analysis](#timeseries)
-
-* [Time series example: seasonal forecasting](#seasonalforecasting)
-
-* [Appendix A - Guide to RStudio](#appendixa)
-
-* [Appendix B - Further reading](#appendixb)
 
 ##<a id="mlstudio"></a>Interacting with R in Machine Learning Studio
 
@@ -162,7 +146,7 @@ If you do not have R installed on your desktop machine, I recommend you do so no
 
 If you are new to RStudio, you should download and install the desktop version. You can find the RStudio downloads for Windows, Mac OS, and Linux/UNIX at http://www.rstudio.com/products/RStudio/. Follow the directions provided to install RStudio on your desktop machine.  
 
-A tutorial introduction to RStudio is available at https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio.
+A tutorial introduction to RStudio is available at https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 I provide some additional information on using RStudio in [Appendix A][appendixa].  
 
@@ -1114,19 +1098,19 @@ RStudio is quite well documented, so in this appendix I will provide some links 
 
 1.	Creating projects
 
-	You can organize and manage your R code into projects by using RStudio. The documentation that uses projects can be found at https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects.
+	You can organize and manage your R code into projects by using RStudio. The documentation that uses projects can be found at https://support.rstudio.com/hc/articles/200526207-Using-Projects.
 
 	I recommend that you follow these directions and create a project for the R code examples in this document.  
 
 2.	Editing and executing R code
 
-	RStudio provides an integrated environment for editing and executing R code. Documentation can be found at https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code.
+	RStudio provides an integrated environment for editing and executing R code. Documentation can be found at https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 
 3.	Debugging
 
-	RStudio includes powerful debugging capabilities. Documentation for these features is at https://support.rstudio.com/hc/en-us/articles/200713843-Debugging-with-RStudio.
+	RStudio includes powerful debugging capabilities. Documentation for these features is at https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
 
-	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/en-us/articles/200534337-Breakpoint-Troubleshooting.
+	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ##<a id="appendixb"></a>APPENDIX B - Further reading
 
@@ -1151,6 +1135,14 @@ There are many books on R that can help you get started. Here are a few I find u
 A catalogue of R time series packages can be found in the CRAN Task View for time series analysis: http://cran.r-project.org/web/views/TimeSeries.html. For information on specific time series object packages, you should refer to the documentation for that package.
 
 The book Introductory Time Series with R by Paul Cowpertwait and Andrew Metcalfe provides an introduction to using R for time series analysis. Many more theoretical texts provide R examples.
+
+Some great internet resources:
+
+- DataCamp: DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free interactive R tutorial at https://www.datacamp.com/courses/introduction-to-r  
+
+- A quick R tutorial by Kelly Black from Clarkson University http://www.cyclismo.org/tutorial/R/
+
+- 60+ R resources listed at http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html 
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png

@@ -13,62 +13,61 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/19/2015" 
+	ms.date="03/05/2015" 
 	ms.author="tdykstra"/>
 
 # Create an API app using Visual Studio 2013
 
 ## Overview
 
-In this tutorial you create an Azure API App using a project template in
-Visual Studio 2013. The tutorial explains how to customize the API App
+In this tutorial you create an Azure App Service API app using a project template in
+Visual Studio 2013. The tutorial explains how to customize the API app
 metadata that you specify in project files and folders.
 
 You'll create the same Web API that is created by the [Getting Started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) tutorial, but your project will be prepared for publishing and deployment as an Azure API app.
 
 ## Prerequisites
 
-This tutorial requires Visual Studio 2013 with [Update
-4](http://www.microsoft.com/en-us/download/details.aspx?id=44921).
+This tutorial requires Visual Studio 2013 with Azure SDK 2.5.1.
+
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Create an API App project
 
-For this tutorial you’ll use the Azure API App template to create a new
-project. For information about how to add API App metadata and runtime
-services to an existing ASP.NET Web API project, see [Create an Azure API
-App](../app-service-create-api-app/).
+For this tutorial you’ll use the **Azure API App** template to create a new project.
 
 1.  Open the **New Project** dialog in Visual Studio.
 
-2.  Select the **Cloud** node in the **Installed Templates** pane, and then select the Azure API App template.
+2.  Select the **Cloud** node in the **Installed Templates** pane, and then select the **ASP.NET Web Application** template.
 
-	![Azure API App template](./media/app-service-dotnet-create-api-app-visual-studio/vstemplate.png)
+3.  Name the project *ApiAppSite*, and then click **OK**.
 
-3.  Name the project *ProductsApp*, and then click **OK**.
+	![New Project dialog](./media/app-service-dotnet-create-api-app-visual-studio/vstemplate.png)
 
-	Visual Studio creates a typical Web API project file and folder structure including folders such as Controllers, Models, and Views. In addition, there is an *apiapp.json* file and a *Metadata* folder that store information about the API App.
+4. In the **New ASP.NET Project** dialog, select the **Azure API App** template, clear the **Host in the cloud** check box, and then click **OK**.
+
+	![Azure API App template](./media/app-service-dotnet-create-api-app-visual-studio/vstemplate2.png)
+
+	Visual Studio creates project files for an empty Web API project, plus an *apiapp.json* file and a *Metadata* folder that store information about the Azure App Service API app.
 
 	![API App files in Solution Explorer](./media/app-service-dotnet-create-api-app-visual-studio/metadatainse.png)
 
-In the following sections you change some of the default values for this
-API App metadata and look at the other customizations you can make.
+In the following sections you change some of the default values for this API app metadata and then add a Model and Controller.
 
 ## Review apiapp.json
 
-The settings in the *apiapp.json* file determine how the API App is
-identified and presented in the API App Gallery and the Azure
-Marketplace. In this section you edit the file and review its contents.
+The settings in the *apiapp.json* file determine how the API App is identified and presented in the API App Gallery and the Azure Marketplace. In this section you edit the file and review its contents.
 
 1.  Open the *apiapp.json* file.
 
     The file created by the template looks like the following example:
 
 		{
-		  "\$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json\#",
-		  "id": "ProductsApp",
+		  "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+		  "id": "ContactsList",
 		  "domain": null,
 		  "version": "1.0.0",
-		  "title": "ProductsApp",
+		  "title": "ContactsList",
 		  "summary": "[Summary]",
 		  "author": "[Author]",
 		  "endpoints": {
@@ -79,10 +78,9 @@ Marketplace. In this section you edit the file and review its contents.
 
 1.  Change *id* to a unique value, for example:
 
-    “FilePersistingAPI-*{MyLiveIdNoPeriod}*”.
+    "ContactsList-*{MyLiveIdNoPeriod}*".
 
-    The *id* can contain letters and numbers. It can’t contain periods,
-    slashes, or @ signs.
+    The *id* can contain letters and numbers. It can’t contain periods, slashes, or @ signs.
 
 2.  Change “[Author]” to your name.
 
@@ -165,9 +163,76 @@ experience by adding more UI hints and validation.
 
 ## Add Application Code
 
-You write code for an API App project as you would for any Web API project. To add a Model and Controller and test the Web API to see that it is working, follow the instructions starting at the **Adding a Model** section of 
-[Getting Started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api).
+You write code for an API App project as you would for any Web API project. 
+
+1. Create a *Models* folder in the project folder.
+
+3. Right-click the **Models** folder in the Web API project, and then in the context menu click **Add > Class**. 
+
+	![](./media/app-service-dotnet-create-api-app/03-add-new-class-v2.png) 
+
+4. Name the new file *Contact.cs*, and then click **Add**.
+
+5. Replace the content of the new *.cs* file with the following code. 
+
+		namespace ContactsList.Models
+		{
+			public class Contact
+			{
+				public int Id { get; set; }
+				public string Name { get; set; }
+				public string EmailAddress { get; set; }
+			}
+		}
+
+	![](./media/app-service-dotnet-create-api-app/04-contacts-model-v2.png)
+
+5. Right-click the **Controllers** folder, and then in the context menu click **Add > Controller**. 
+
+	![](./media/app-service-dotnet-create-api-app/05-new-controller-v2.png)
+
+6. In the **Add Scaffold** dialog, select the **Web API 2 Controller - Empty** option, and then click **Add**. 
+
+	![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog-v2.png)
+
+7. Name the controller **ContactsController**, and then click **Add**. 
+
+	![](./media/app-service-dotnet-create-api-app/07-new-controller-name-v2.png)
+
+8. Replace the code in the new controller file with the code below. 
+
+		using ContactsList.Models;
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Net;
+		using System.Net.Http;
+		using System.Threading.Tasks;
+		using System.Web.Http;
+		
+		namespace ContactsList.Controllers
+		{
+		    public class ContactsController : ApiController
+		    {
+		        [HttpGet]
+		        public IEnumerable<Contact> Get()
+		        {
+		            return new Contact[]{
+		                new Contact { Id = 1, EmailAddress = "gu@microsoft.com", Name = "ScottGu"},
+		                new Contact { Id = 2, EmailAddress = "hu@microsoft.com", Name = "ScottHu"},
+		                new Contact { Id = 3, EmailAddress = "ha@microsoft.com", Name = "ScottHa"},
+		            };
+		        }
+		    }
+		}
+
+	![](./media/app-service-dotnet-create-api-app/08-contacts-controller-with-get-v2.png)
 
 ## Next steps
 
-You now have a working API App. You can deploy it directly to Azure or you can publish it to the Gallery and deploy it from the Azure Marketplace. In the Gallery you can make the API App public, keep it private so only you can see it, or restrict access to members of your organization. For more information, see [Publish an API App](../app-service-dotnet-publish-api-app/) and [“Deploy an API App”](../app-service-dotnet-deploy-api-app/).
+You now have a working API App. You can deploy it directly to Azure or you can publish it to the Gallery and deploy it from the Azure Marketplace. In the Gallery you can make the API App public, keep it private so only you can see it, or restrict access to members of your organization. For more information, see the following tutorials:
+
+* [Publish an API App](../app-service-dotnet-publish-api-app/)
+* [Deploy an API App](../app-service-dotnet-deploy-api-app/)
+* [Debug an API App](../app-service-dotnet-remotely-debug-api-app/)
+

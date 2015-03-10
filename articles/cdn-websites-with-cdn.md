@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Integrate an Azure Web app with Azure CDN" 
+	pageTitle="Use Azure CDN in a Web App in Azure App Service" 
 	description="A tutorial that teaches you how to deploy an Azure web app that serves content from an integrated Azure CDN endpoint" 
 	services="app-service-web" 
 	documentationCenter=".net" 
@@ -17,7 +17,7 @@
 	ms.author="cephalin"/>
 
 <a name="intro"></a>
-# Integrate an Azure web app with Azure CDN #
+# Use Azure CDN in a Web App in Azure App Service
 
 Azure App Service can be integrated with [Azure CDN](http://azure.microsoft.com/en-us/services/cdn/), adding to the global scaling capabilities inherent in App Service Web App by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx). This integration dramatically increases the performance of your Azure App Service Web App and significantly improves your web app's user experience worldwide. 
 
@@ -37,7 +37,7 @@ You will deploy a web app to Azure App Service using the default ASP.NET MVC tem
 This tutorial has the following prerequisites:
 
 -	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/)
--	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2013 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
 > + You can [open an Azure account for free](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web App.
@@ -67,10 +67,12 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 8. Assuming that you haven't created an Azure web app, Visual Studio can help you create it. In the **Configure Microsoft Azure Website** dialog, make sure your site name is unique. Then, click **OK**.
 
+	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Once your ASP.NET application is created, publish it to Azure in the Web Publish Activity pane by clicking **Publish `<app name>` to this site now**. Click **Publish** to complete the process.
 
+	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	You will see your published web app in the browser when publishing is complete. 
@@ -80,7 +82,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	> [AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
@@ -367,7 +369,7 @@ This enables you to debug the JavaScript code in your development environment wh
 
 Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
 
-1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/en-us/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
+1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -461,9 +463,9 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
 When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap. It's serious enough to lose images on your web app due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.
 
-The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
+The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
 
-1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/en-us/library/jj646464.aspx), and make the following highlighted changes to add fallback mechanism to the default bundles:  
+1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and make the following highlighted changes to add fallback mechanism to the default bundles:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -575,7 +577,7 @@ The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bun
 
 # More Information #
 - [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Serve Content from Azure CDN in Your Web Application](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Integrate a cloud service with Azure CDN](http://azure.microsoft.com/en-us/documentation/articles/cdn-cloud-service-with-cdn/)
+- [Serve Content from Azure CDN in Your Web Application](../cdn-serve-content-from-cdn-in-your-web-application/)
+- [Integrate a cloud service with Azure CDN](../cdn-cloud-service-with-cdn/)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
+- [Using CDN for Azure](../cdn-how-to-use/)

@@ -5,15 +5,15 @@
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
-	ms.service="cloud-services" 
+	ms.service="web-sites" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="02/17/2015" 
 	ms.author="kempb"/>
 
 
@@ -52,7 +52,7 @@ Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to
 You can deploy a website or a cloud service (Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure and ASP.NET](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure Websites and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
 
 2. Open the context menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]
@@ -137,12 +137,12 @@ The following table shows the available properties in the Deployment section:
 ><tr><td>Do Not Delete</td><td>If true, do not overwrite an existing unrelated deployment (upgrade is allowed).</td></tr>
 <tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a website, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
 <tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
-<tr><td>Windows Azure Deployment Environment</td><td>The website or cloud service name</td></tr>
+<tr><td>Azure Deployment Environment</td><td>The website or cloud service name</td></tr>
 </table>
 <br/>
 
 If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the **Build, Advanced, MSBuild arguments** setting. For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option /p:TargetProfile=Test.<br/>
-![][37]
+![][38]
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]
@@ -174,12 +174,12 @@ This step applies only to cloud services, not websites. When you are ready, you 
 
 <h2> <a name="step7"> </a>Step 7: Run unit tests</h2>
 
-To put a quality gate on your live or staging deployments, you can run unit tests and if they fail, you can stop the deployment.
+This step applies only to websites, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
 
 1.  In Visual Studio, add a unit test project.<br/>
 ![][39]
 
-2.  Add project references to the projects you want to test.<br/>
+2.  Add project references to the project you want to test.<br/>
 ![][40]
 
 3.  Add some unit tests. To get started, try a dummy test that will always pass.
@@ -222,13 +222,13 @@ To put a quality gate on your live or staging deployments, you can run unit test
 <br/>
 ![][47]
 
-8.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that throws the NotImplementedException. 
+8.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception. 
 
 		[TestMethod]
-		[ExpectedException(typeof(NotImplementedException))]
+		//[ExpectedException(typeof(NotImplementedException))]
 		public void TestMethod2()
 		{
-		    //throw new NotImplementedException();
+		    throw new NotImplementedException();
 		}
 
 9. Check in the change to queue a new build.<br/>
@@ -241,7 +241,7 @@ To put a quality gate on your live or staging deployments, you can run unit test
 
 For more about unit testing in Visual Studio Online, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Azure Websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publish to Azure Websites with Git](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/).
 
 [Step 1: Create a team project.]: #step1
 [Step 2: Check in a project to source control.]: #step2

@@ -22,8 +22,8 @@ You can connect a website on Microsoft Azure to any on-premises resource that us
 
 > [AZURE.NOTE] The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
-##Prerequisites
-- An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
+## Prerequisites
+- An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
 
 - To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Using a default instance on SQL Server is recommended because it uses static port 1433. For information on installing and configuring SQL Server Express for use with hybrid connections, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -153,17 +153,17 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 
 - For information on creating an ASP.NET web application that uses a hybrid connection, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
-###Additional Resources
+### Additional Resources
 
 [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
 [Josh Twist introduces hybrid connections (Channel 9 video)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
+[Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-dashboard-monitor-scale-tabs/)
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

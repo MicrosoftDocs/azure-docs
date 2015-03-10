@@ -1,39 +1,49 @@
-<properties pageTitle="Get Started with Azure Media Services REST APIs" description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
+<properties 
+	pageTitle="Delivering Video-on-Demand with Media Services REST APIs" 
+	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.devlang="REST" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/20/2015" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/24/2015" 
+	ms.author="juliako"/>
 
-
-# Delivering Video-on-Demand with Media Services REST APIs 
+# Quickstart: Delivering Video-on-Demand with Media Services REST APIs 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
-This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs. 
+This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs. 
 
 The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.  
-
-To implement a VoD content delivery application, you can use different technologies (for example, .NET, REST, or Java) or tools (Azure Management Portal or Azure Media Services Explorer) or a combination of two. 
-
-This tutorial uses Azure Management Portal and Media Services REST APIs to achieve the following tasks:     
-
-
-1.  [Create a Media Services account using Portal](#create_ams).
-1.  [Connect to the Media Services account with REST API](#connect).
-1.  [Create a new asset and upload a video file with REST API](#upload).
-1.  [Configure streaming units with REST API](#configure_streaming_units).
-2.  [Encode the source file into a set of adaptive bitrate MP4 files with REST API](#encode).
-1.  [Configure delivery policy for the encoded asset with REST API](#configure_delivery_method).
-1.  [Publish the asset and get streaming and progressive download URLs with REST API](#publish_get_urls). 
-1.  [Play your content](#play). 
 
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services with REST APIs.
 
-- Understanding of how to develop with Media Services REST API. For more information, see [media-services-rest-overview](http://msdn.microsoft.com/en-us/library/azure/hh973616.aspx).
+- Understanding of how to develop with Media Services REST API. For more information, see [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
 - An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler). 
+
+The following tasks are shown in this quickstart.
+
+1.  Create a Media Services account using Portal.
+1.  Connect to the Media Services account with REST API.
+1.  Create a new asset and upload a video file with REST API.
+1.  Configure streaming units with REST API.
+2.  Encode the source file into a set of adaptive bitrate MP4 files with REST API.
+1.  Configure delivery policy for the encoded asset with REST API.
+1.  Publish the asset and get streaming and progressive download URLs with REST API. 
+1.  Play your content. 
 
 
 ## <a id="create_ams"></a>Create a Media Services account using Portal
@@ -278,7 +288,7 @@ If successful, the following is returned:
 	
 ### Create an AssetFile
 
-The [AssetFile](http://msdn.microsoft.com/en-us/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many AssetFiles. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+The [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many AssetFiles. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
 After you upload your digital media file into a blob container, you will use the **MERGE** HTTP request to update the AssetFile with information about your media file (as shown later in the topic). 
 
@@ -341,7 +351,7 @@ After you upload your digital media file into a blob container, you will use the
 
 ### Creating the AccessPolicy with write permission. 
 
-Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/en-us/library/azure/hh974297.aspx).
+Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 The following example shows how to create an AccessPolicy:
 		
@@ -390,7 +400,7 @@ The following example shows how to create an AccessPolicy:
 
 ### Get the Upload URL
 
-To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators use the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/en-us/library/azure/hh974308.aspx).
+To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators use the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 
 A SAS URL has the following format:
@@ -464,7 +474,7 @@ Once you have the AccessPolicy and Locator set, the actual file is uploaded to a
 
 >[AZURE.NOTE] You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/en-us/library/azure/dd135733.aspx).
+For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
 ### Update the AssetFile 
@@ -544,16 +554,15 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content (described in this section).
+- get at least one streaming unit for the **streaming endpoint **from which you plan to delivery your content (described in this section).
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
 
-Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
 
 >[AZURE.NOTE] For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-To change the number of on-demand streaming reserved units, do the following:
+To change the number of streaming reserved units, do the following:
 	
 ### Get the streaming endpoint you want to update
 
@@ -611,7 +620,7 @@ If successful, the following is returned:
 	
 ### <a id="long_running_op_status"></a> Check on the status of a long-running operation
 
-The allocation of any new units of on-demand streaming takes around 20 minutes to complete. To check the status of the operation use the **Operations** method and specify the Id of the operation. The operation Id was returned in the response to the **Scale** request.
+The allocation of any new units takes around 20 minutes to complete. To check the status of the operation use the **Operations** method and specify the Id of the operation. The operation Id was returned in the response to the **Scale** request.
 
 	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
  
@@ -658,14 +667,14 @@ The allocation of any new units of on-demand streaming takes around 20 minutes t
 
 ## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
-After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each [Job](http://msdn.microsoft.com/en-us/library/azure/hh974289.aspx) is comprised of atomic Tasks that do the actual work on the Asset file. 
+After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each [Job](http://msdn.microsoft.com/library/azure/hh974289.aspx) is comprised of atomic Tasks that do the actual work on the Asset file. 
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). 
 
 To take advantage of dynamic packaging, you need to do the following:
 
 - encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
-- get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. 
+- get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. 
 
 The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Azure Media Encoder**. The section also shows how to monitor the job processing progress. When the job is complete you you would be able to create locators that are needed to get access to your assets. 
 
@@ -720,7 +729,7 @@ The following code requests the encoder's id.
 
 Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing; however, for the readability of the code examples in this topic, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/en-us/library/azure/dn619392.aspx) supported by the Azure Media Processor.  
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/azure/dn619392.aspx) supported by the Azure Media Processor.  
 
 **HTTP Request**
 	
@@ -840,7 +849,7 @@ There are a few important things to note in any Job request:
 	- A job must have at least 2 tasks
 	- There must be at least one task whose input is output of another task in the job.
 
-For more information see, [Creating an Encoding Job with the Media Services REST API](http://msdn.microsoft.com/en-us/library/azure/jj129574.aspx).
+For more information see, [Creating an Encoding Job with the Media Services REST API](http://msdn.microsoft.com/library/azure/jj129574.aspx).
 
 ### Monitor Processing Progress
 
@@ -961,21 +970,6 @@ One of the steps in the Media Services content delivery workflow is configuring 
 The following **AssetDeliveryPolicies** HTTP Request specifies not to apply dynamic encryption (AssetDeliveryPolicyType could be one of these values: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols (AssetDeliveryProtocol could be a combination of the following values: None = 0,        SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535). 
 
 
-As a result of this delivery configuration you would be able to request a Smooth, HLS, or MPEG DASH streams using the following formats:
-
-Smooth Streaming:
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-HLS:
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-
-MPEG DASH
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
-
-
 ### Create AssetDeliveryPolicies
 
 
@@ -1056,15 +1050,15 @@ To stream or download an asset you first need to "publish" it by creating a loca
 Once you create the locators, you can build the URLs that are used to stream or download your files. 
 
 
-An on-demand URL for Smooth Streaming has the following format:
+A streaming URL for Smooth Streaming has the following format:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-An on-demand URL for HLS has the following format:
+A streaming URL for HLS has the following format:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-An on-demand URL for MPEG DASH has the following format:
+A streaming URL for MPEG DASH has the following format:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
@@ -1081,7 +1075,7 @@ This sections shows how to perform the following tasks necessary to "publish" yo
 
 ###Creating the AccessPolicy with read permission
 
-Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://msdn.microsoft.com/en-us/library/azure/hh974297.aspx#accesspolicy_properties).
+Before downloading or streaming any media content, first define an AccessPolicy with read permissions and create the appropriate Locator entity that specifies the type of delivery mechanism you want to enable for your clients. For more information on the properties available, see [AccessPolicy Entity Properties](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
 
 The following example shows how to specify the AccessPolicy for read permissions for a given Asset.
 
@@ -1176,7 +1170,7 @@ Once you have the AccessPolicy and Locator set, you can download files using the
 
 >[AZURE.NOTE] You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/en-us/library/azure/dd135733.aspx).
+For more information on working with Azure storage blobs, see [Blob Service REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 As a result of the encoding job that you performed earlier (encoding into Adaptive MP4 set), you have multiple MP4 files that you can progressively download. For example:    
 	
@@ -1197,10 +1191,10 @@ As a result of the encoding job that you performed earlier (encoding into Adapti
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-###Creating an on-demand origin URL for streaming content
+###Creating an streaming URL for streaming content
 
 
-The following code shows how to create an origin URL Locator:
+The following code shows how to create a streaming URL Locator:
 
 	POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
 	Content-Type: application/json
@@ -1280,7 +1274,7 @@ To test smooth streaming, use [http://amsplayer.azurewebsites.net/](http://amspl
 
 To test MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/javascript/).
 
-To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/en-us/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
 
 
 

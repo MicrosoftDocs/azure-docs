@@ -10,17 +10,17 @@
 <tags 
 	ms.service="app-service" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
 	ms.author="mahender"/>
 
-# Add authentication to your mobile app (Xamarin.iOS)
+# Add authentication to your Xamarin.iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../includes/app-service-mobile-selector-get-started-users.md)]
 
-This topic shows you how to authenticate users in App Services Mobile Apps from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Services. After being successfully authenticated and authorized by Mobile Apps, the user ID value is displayed.
+This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -28,7 +28,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
 
-This tutorial is based on the Mobile Apps quickstart. You must also first complete the tutorial [Get started with Mobile Apps]. 
+This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Get started with your mobile app]. 
 
 ##<a name="register"></a>Register your app for authentication and configure App Services
 
@@ -41,7 +41,7 @@ This tutorial is based on the Mobile Apps quickstart. You must also first comple
 <ol start="7">
 <li><p>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
    
-   	<p>This happens because the app attempts to access App Services Mobile Apps as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
+   	<p>This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
 </ol>
 
 Next, you will update the app to authenticate users before requesting resources from your App Service.
@@ -110,10 +110,6 @@ In this section, you will modify the app to display a login screen before displa
 
 	Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items and you can make updates to the data.
 
-<!-- ## <a name="next-steps"> </a>Next steps
-
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
- -->
  
 <!-- Anchors. -->
 [Register your app for authentication and configure App Services]: #register
@@ -126,6 +122,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Apps]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started/push/
+[Get started with your mobile app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/
 
 [Azure Management Portal]: https://portal.azure.com

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/19/2015" 
+	ms.date="02/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Remotely debug an Azure API App using Visual Studio
 
 ## Overview
 
-Visual Studio's remote debugging capabilities have been extended to include support for Azure API Apps. As a result, you can use familiar debugging tools and utilities to see how your code is running live in Azure. This topic demonstrates how to use the integrated Swagger UI installed when you enable **Automatic Metadata Generation** to execute your Azure API App calls, which can then be remotely debugged using Visual Studio.
+Visual Studio's remote debugging capabilities have been extended to include support for Azure API Apps. As a result, you can use familiar debugging tools and utilities to see how your code is running live in Azure. This topic demonstrates how to use Visual Studio's **Azure API App Client** code generation feature to produce client code that will make calls to the deployed API App. Then, you'll debug the client app and the API App code simultaneously as it runs in the cloud.
 
 This tutorial is the last in a series of four:
 
@@ -29,53 +29,54 @@ This tutorial is the last in a series of four:
 * In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deploy the API app you created to your Azure subscription.
 * In this tutorial you use Visual Studio to remotely debug the code while it runs in Azure.
 
-## Use Swagger to Access the API 
 
-When you navigate to the the URL of your running Azure API App's gateway site, appended with the Azure API App's ID, you can access the Azure API App directly. The exact URL format of the Swagger UI dashboard is as follows:
+## Generate an API App Client for use in a Desktop App
+In this tutorial you'll learn how easy the API App tools in Visual Studio make it for you to generate C# code used for calling out to your Azure API Apps from desktop, store, and mobile apps. 
 
-    http://[AzureApiAppProxySite].azurewebsites.net/[Azure API ID]/Swagger
+1. Right-click your solution and select the **Add -> New Project** option.
 
-For example, if you named your resource group ContactsListRG and your API ID ContactsList2, the URL would be `http://contactsListrgproxysite.azurewebsites.net/contactslist2/Swagger`. 
+![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/01-add-new-project.png)
 
-The Swagger UI provides an easy-to-use interface that provides details about your API App's endpoints. 
+2. Select the **Windows Desktop** category and **Console Application** project template.
 
-![Swagger UI](./media/app-service-dotnet-remotely-debug-api-app/40-swagger-ui.png)
+	![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/02-contact-list-console-project.png)
 
-When you click **Try it out!**, the API method will be called directly from the Swagger UI. 
+3. Once the solution returns to focus, right-click the Console Application project you created and select the **Add - Azure API App Client** menu item. 
 
-## Debug the API project
+	![Add a new Client](./media/app-service-dotnet-remotely-debug-api-app/03-add-azure-api-client.png)
+	
+4. Select the API App you want to code against from the dialog
 
-1. Leave the Swagger UI page open in the browser and switch back to Visual Studio to initiate the debugging session.
+	![Generation Screen](./media/app-service-dotnet-remotely-debug-api-app/04-select-the-api.png)
 
-1. In Visual Studio, set breakpoints on the individual methods you intend to call from the Swagger UI.
- 
-	![Breakpoints set for remote debugging](./media/app-service-dotnet-remotely-debug-api-app/41-set-breakpoints.png)
+5. Once you select the API App for which your client code will need a client, code will be dropped into your C# project enabling a typed interface to the API App layer.
 
-2. Open Visual Studio **Server Explorer**. 
+	![Generation Happening](./media/app-service-dotnet-remotely-debug-api-app/05-metadata-downloading.png)
 
-3. In **Server Explorer**, you'll see the **App Service** node underneath the top-level **Azure** node. Expand that node and you'll see resource groups under it.  Expand the node for the resource group that you created, and then right-click the individual API App you want to debug, and select the **Attach Debugger** context menu item. The debugger attach process will provide status as it attaches. The process may take a few seconds to complete. If the attach process fails the first time you try it, try again.
+6. Once code generation is complete you'll see a new folder in your Visual Studio Solution Explorer named with the name of the API App you're hitting in Azure. Within that folder is code that exposes strongly-typed classes that make it easy for client developers to reach out to the APIs. 
 
-	![API App Attach Debugger context menu option](./media/app-service-dotnet-remotely-debug-api-app/42-attach-debugger.png)
+	![Generation Complete](./media/app-service-dotnet-remotely-debug-api-app/06-code-gen-output.png)
 
-4. Watch the **Output** window for confirmation that Visual Studio has connected to the remote debugger. 
+7. Now, open up the **Server Explorer** window and expand the **App Service** node. Find the resource group you created when you deployed your API App, and then right-click the **API App** node and select the **Attach Debugger** gesture. 
 
-	![Visual Studio Output window](./media/app-service-dotnet-remotely-debug-api-app/44-debugger-attached.png)
+	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger.png)
 
-5. With the remote debugger attached, return to the Swagger UI window and click **Try it out!** for the **Get** API method.
+8. You will see the remote debugger try to connect. In some cases it may require a second use of the **Attach Debugger** gesture prior reaching out and establishing a connection. If it fails. try once more. In most cases a second remote debug attach will work.
 
-	![Swagger UI](./media/app-service-dotnet-remotely-debug-api-app/45-push-the-button.png)
+	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/09-attaching.png)
 
-6. Once the HTTP request reaches your Azure API App code, the debugger will break so that you can step through the code. Hit F5 to let the code complete. 
 
-	![Stepping through the code with Visual Studio](./media/app-service-dotnet-remotely-debug-api-app/46-debugging-the-get-call.png)
+9. Put breakpoints in the Azure API App code's controller file. They may not appear as active at first, but if the remote debugger's attached you're ready to debug. 
 
-7. In the Swagger UI browser window, click the **Model Schema** to pre-load the **Parameters** text box with JSON code to be sent to your API App using an HTTP POST method. If the textarea isn't pre-loaded when you click the Model Schema area, simply copy the JSON from that area and paste it into the **Parameters** text box manually. 
+	![Applying breakpoints to controller](./media/app-service-dotnet-remotely-debug-api-app/10-breakpoints.png)
 
-	![Swagger UI](./media/app-service-dotnet-remotely-debug-api-app/47-posting-from-swagger-ui.png)
+10. To debug, run the console app, which will reach out to the API App I'm remotely debugging. As soon as the client hits the API, the remote debugger should light up. 
 
-8. Customize the JSON in the **Parameters** text box and once again click **Try it out!** to post the JSON data to the live API App. The Visual Studio debugger will break once the HTTP Post method reaches the API app. By inspecting the incoming Contact instance in the debugger window, it shows the exact data that was posted to the API. 
+	![Debugging the local client to hit the API](./media/app-service-dotnet-remotely-debug-api-app/11-while-debugging-api-debug-client-too.png)
 
-	![Testing remote debugging](./media/app-service-dotnet-remotely-debug-api-app/48-post-being-debugged.png)
+11. Once you've got the API App being debugged remotely and the client app being debugged locally you can see the entire flow of the data. 
+
+	![Debugging the local client to hit the API](./media/app-service-dotnet-remotely-debug-api-app/12-debugging-live.png)
 
 ## Summary
 

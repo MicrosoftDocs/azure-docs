@@ -19,6 +19,8 @@
 
 # Connecting to Media Services Account using Media Services REST API
 
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series. 
+
 This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services REST API.
 
 Two things are required when accessing Microsoft Azure Media Services: An access token provided by Azure Access Control Services (ACS), and the URI of Media Services itself. You can use any means you want when creating these requests as long as you specify the correct header values and pass in the access token correctly when calling into Media Services.

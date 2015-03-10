@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Build an app with a mobile and web client"
-	description="Build a multi-channel app with both a website and mobile client"
-	services="app-service-mobile"
+	pageTitle="Create a multi-channel app in Azure App Service"
+	description="Build a multi-channel app with both a website and mobile client in Azure App Service."
+	services="app-service-web"
 	documentationCenter=".net" 
 	authors="lindydonna"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
+	ms.service="app-service-web"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
@@ -16,7 +16,7 @@
 	ms.date="03/05/2015"
 	ms.author="donnam"/>
 
-# Build an app with a mobile and web client
+# Create a multi-channel app in Azure App Service
 
 This topic shows you how to create an app with both a mobile and web client. You will create a mobile app and a web app and use the same underlying database for both.
 

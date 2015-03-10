@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/19/2015" 
+	ms.date="02/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Publish an API App
@@ -22,7 +22,7 @@
 
 This is the second tutorial in a series of four:
 
-1. In [Create an API App](../app-service-dotnet-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
+1. In [Create an API App](../app-service-dotnet-create-api-app/) you create an Azure API App project and prepare it to be published as an API App in the Azure API Marketplace.
 * In this tutorial you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
 * In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deploy the API app you created to your Azure subscription.
 * In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
@@ -31,21 +31,15 @@ This is the second tutorial in a series of four:
 
 1. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Publish**. 
 
-	![](./media/app-service-dotnet-publish-api-app/12-publish-gesture.png) 
+	![](./media/app-service-dotnet-publish-api-app/12-publish-gesture-v2.png) 
 
-2. In the **Profile** tab of the **Publish Web** wizard, click **Microsoft Azure API Apps**. 
+2. In the **Profile** tab of the **Publish Web** wizard, click **Microsoft Azure API Marketplace**. 
 
-	![](./media/app-service-dotnet-publish-api-app/13-select-api-apps.png)
+	![](./media/app-service-dotnet-publish-api-app/13-select-api-marketplace.png)
 
-3. Select the option labeled **Share your API in the Azure API Marketplace**. 
+3. In the **API App ID** field add some characters to make the ID unique. A red exclamation mark will appear to the right of the field if the ID is not unique. The ID must be at least 8 characters long.
 
-	![](./media/app-service-dotnet-publish-api-app/14-host-or-share-screen.png)
-
-	The **Publish to API Marketplace** dialog appears.
-
-4. In the **Microservice ID** field add some characters to make the ID unique. A red exclamation mark will appear to the right of the field if the ID is not unique. The ID must be at least 8 characters long.
-
-5. In the **Author** field enter your name.
+4. In the **Author** field enter your name.
 
 5. In the **Description** field enter a value such as "My first API App.".
 

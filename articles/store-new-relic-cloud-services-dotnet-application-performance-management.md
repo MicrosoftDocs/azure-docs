@@ -44,7 +44,7 @@ New Relic special pricing through the Azure Store
 New Relic Standard is free to Azure users
 New Relic Pro is offered based on instance size for Azure Cloud Services
 
-For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
+For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 
@@ -115,7 +115,7 @@ To sign up for New Relic directly from the Azure Store, follow these three easy 
 
 
 **Note:** If this is your first time deploying this app to Azure, you will be prompted to enter your 
-Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Website</a>.
+Azure credentials. For more information, see <a href="/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Website</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 

@@ -1,6 +1,6 @@
-<properties pageTitle="Azure Active Directory Connect" description="The Azure Active Directory Connect wizard is the single tool and guided experience for connecting your on-premises Windows Server Active Directory with Azure Active Directory" services="active-directory" documentationCenter="" authors="gabag" manager="terrylan" editor="" />
+<properties pageTitle="Azure Active Directory Connect" description="The Azure Active Directory Connect wizard is the single tool and guided experience for connecting your on-premises Windows Server Active Directory with Azure Active Directory" services="active-directory" documentationCenter="" authors="Gayana" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/26/2015" ms.author="gabag" />
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/27/2015" ms.author="gabag" />
 
 <h1 id="vnettut1">Azure Active Directory Connect</h1>
 
@@ -10,7 +10,8 @@ The Azure Active Directory Connect wizard is the single tool and guided experien
 
 > **Azure Active Directory Connect is now your one-stop shop for sync, sign-on, and all other aspects of your on-premises to Azure AD integration.**
 
-If you are currently evaluating or using Azure Active Directory Synchronization Tool (DirSync), Azure Active Directory Synchronization Services (AAD Sync), or Forefront Identity Manager 2010 R2, see [Directory Intergration Tools](http://msdn.microsoft.com/en-us/library/azure/dn757582.aspx "Directory Integration Tools") for more information.
+
+If you are currently evaluating or using Azure Active Directory Synchronization Tool (DirSync), Azure Active Directory Synchronization Services (AAD Sync), or Forefront Identity Manager 2010 R2, see [Directory Integration Tools](http://msdn.microsoft.com/library/azure/dn757582.aspx "Directory Integration Tools") for more information.
 
 
 ##  Azure Active Directory Connect Public Preview 
@@ -26,4 +27,4 @@ With this preview release of Azure Active Directory Connect you can do the follo
 - Configure additional synchronization options such as Exchange Hybrid mode, password writeback, and alternate ID attribute
 
 ##  Additional Resources
-[Azure Active Directory Documentation](http://azure.microsoft.com/en-us/documentation/services/active-directory/)
+[Azure Active Directory Documentation](http://azure.microsoft.com/documentation/services/active-directory/)

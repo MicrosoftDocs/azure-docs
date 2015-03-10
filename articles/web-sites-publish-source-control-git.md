@@ -4,7 +4,7 @@
 	description="Learn how to use Git to publish an Azure web app, and then enable continuous deployment from GitHub and CodePlex." 
 	services="app-service-web" 
 	documentationCenter="php" 
-	authors="blackmist" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 

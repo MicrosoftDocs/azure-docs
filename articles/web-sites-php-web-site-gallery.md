@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="WordPress web app from Gallery - Azure tutorial" 
+	pageTitle="Create a WordPress Web App from the gallery in Azure App Service" 
 	description="A tutorial that teaches you how to create a new Azure web app for a WordPress blog, and then deploy it through the Management Portal." 
 	services="app-service-web" 
 	documentationCenter="php" 
@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="web-apps" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
@@ -16,12 +16,7 @@
 	ms.date="02/05/2015" 
 	ms.author="tomfitz"/>
 
-
-
-
-# Create a WordPress web app from the gallery in Azure
-
->[AZURE.NOTE] For tips on how to follow the tutorial steps using the [preview portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-preview-portal/).
+# Create a WordPress Web App from the gallery in Azure App Service
 
 [AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 

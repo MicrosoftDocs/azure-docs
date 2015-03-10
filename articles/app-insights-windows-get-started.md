@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Application Insights for Windows Store and Phone apps" 
+	pageTitle="Application Insights: Get started with Windows Phone and Store apps" 
 	description="Analyze usage and performance of your Windows device app with Application Insights." 
 	services="application-insights" 
 	authors="alancameronwills" 
@@ -11,12 +11,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-10" 
+	ms.date="2015-02-20" 
 	ms.author="awills"/>
 
-# Application Insights
-
-## Monitor usage and crashes in Windows apps and Windows Phone apps
+# Application Insights: Get started with Windows device apps
 
 *Application Insights is in preview.*
 
@@ -28,35 +26,53 @@ Application Insights lets you monitor your published application for:
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 
-## <a name="add"></a>1. Add Application Insights
+## <a name="add"></a>Add Application Insights
 
-**If you're creating a new Windows Phone 8 or Windows 8.1 project** select Application Insights in the New Project dialog. 
+What kind of project are you working with?
+
+* [New Windows Store or Windows Phone project](#new)
+* [Existing Windows Store or Windows Phone project](#existing)
+* [Windows Universal app](#universal)
+* [Windows Desktop project][desktop]
+
+###<a name="new"></a> Creating a new Windows app project
+
+Select Application Insights in the New Project dialog. 
 
 If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).
 
 ![](./media/appinsights/appinsights-d21-new.png)
 
 
-**If you already have a project** add Application Insights from Solution Explorer.
+###<a name="existing"></a> Existing project
+
+Add Application Insights from Solution Explorer.
 
 
 ![](./media/appinsights/appinsights-d22-add.png)
 
-**If yours is a Windows Universal app** create the app in Visual Studio, and then:
+###<a name="universal"></a> Windows Universal app 
+
+Create the app in Visual Studio, and then:
 
 1.  In the [Azure portal][portal], create a new Application Insights resource.
+    ![](./media/app-insights-windows-get-started/01-new.png)
 2.  Go to the Properties blade and copy the Instrumentation Key.
+    ![](./media/app-insights-windows-get-started/02-props.png)
 
 In Visual Studio, repeat the following steps for both the Windows Phone project and the Windows project:
 
 1. Right-click the project in Solution Explorer and choose **Manage NuGet Packages**.
+    ![](./media/app-insights-windows-get-started/03-nuget.png)
 2. Select **Online**, **Include prerelease**, and search for "Application Insights".
-3. Pick the appropriate package - one of:
-       * Application Insights for Windows applications
-       * Application Insights for Windows Phone applications
+    ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
+3. Pick the latest version of the appropriate package - one of:
+   * Application Insights for Windows applications - *for Windows Store apps*
+   * Application Insights for Windows Phone applications
+   * Application Insights for Web Apps - *use this for a desktop application* 
 4. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
-    &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
 
 
 ## <a name="network"></a>2. Enable network access for your app

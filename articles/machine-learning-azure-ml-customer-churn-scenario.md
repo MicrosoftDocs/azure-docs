@@ -3,7 +3,7 @@
 	description="Case study of developing an integrated model for analyzing and scoring customer churn" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="" 
+	authors="jeannt" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/06/2014" 
-	ms.author="barga"/>
+	ms.author="jeannt"/>
 
 # Analyzing Customer Churn by using Azure Machine Learning
 

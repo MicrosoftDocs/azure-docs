@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Staged Deployment for Web App in Azure App Service" 
-	description="Learn how to use staged publishing for you web apps in Azure App Service." 
+	pageTitle="Deploy to Staging Environments for Web Apps in Azure App Service" 
+	description="Learn how to use staged publishing for web apps in Azure App Service." 
 	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -18,8 +18,9 @@
 	ms.author="cephalin"/>
 
 <a name="Overview"></a>
-# Staged Deployment for Web App in Azure App Service #
-When you deploy your web app to Azure App Service, you can deploy to a separate deployment slot instead of the default production slot, which are actually live web apps with their own hostnames. This option is available in the **Standard** hosting plan mode. Furthermore, you can swap the apps and app configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+# Deploy to Staging Environments for Web Apps in Azure App Service
+
+When you deploy your web app to Azure App Service, you can deploy to a separate deployment slot instead of the default production slot, which are actually live web apps with their own hostnames. This option is available in the **Standard** App Service plan mode. Furthermore, you can swap the apps and app configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 - You can validate web app changes in a staging deployment slot before swapping it with the production slot.
 
@@ -29,9 +30,9 @@ When you deploy your web app to Azure App Service, you can deploy to a separate 
 
 ## Deployment Slots Support Details ##
 
-Four deployment slots in addition to the production slot are supported for each web app in the **Standard** hosting plan mode. 
+Four deployment slots in addition to the production slot are supported for each web app in the **Standard** App Service plan mode. 
 
-- Multiple deployment slots are only available for web apps in the **Standard** hosting plan mode. When your web app has multiple slots, you cannot change the hosting plan mode.
+- Multiple deployment slots are only available for web apps in the **Standard** App Service plan mode. When your web app has multiple slots, you cannot change the App Service plan mode.
 
 - Scaling is not available for non-production slots.
 
@@ -39,12 +40,12 @@ Four deployment slots in addition to the production slot are supported for each 
 
 - By default, your deployment slots share the same resources as your production slots and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
 	
-	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different hosting plan mode. Note that the non-production slot must once again share the same hosting plan mode with the production slot before you can swap the two slots.
+	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same App Service plan mode with the production slot before you can swap the two slots.
 
 <a name="Add"></a>
 ## To Add a Deployment Slot to a Web App ##
 
-The web app must be running in the **Standard** hosting plan to enable multiple deployment slots. 
+The web app must be running in the **Standard** App Service plan to enable multiple deployment slots. 
 
 1. In the [Azure Preview Portal](https://portal.azure.com/), open your web app's blade.
 2. Click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**. 
@@ -121,7 +122,7 @@ In the blade for a deployment slot, click **Delete** in the command bar.
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing web app deployment slots in Azure App Service. 
 
-- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Windows Azure subscription, see [How to install and configure Windows Azure PowerShell](../install-configure-powershell/).  
+- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell/).  
 
 - To list the cmdlets available for Azure App Service in PowerShell, call `help AzureWebsite`. 
 

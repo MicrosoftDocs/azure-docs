@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure App Service web apps and ASP.NET" 
+	pageTitle="Create and deploy an ASP.NET Web App in Azure App Service" 
 	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to a web app in Azure App Service. In less than 15 minutes you'll have an app up and running in the cloud." 
 	services="app-service-web" 
 	documentationCenter=".net" 
@@ -8,7 +8,7 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-apps" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -16,7 +16,7 @@
 	ms.date="03/05/2015" 
 	ms.author="tdykstra"/>
 
-# Get started with Azure App Service web apps and ASP.NET
+# Create and deploy an ASP.NET Web App in Azure App Service
 
 ## Overview
 
@@ -91,7 +91,7 @@ The following diagram illustrates what's happening in these two steps.
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
 	The default settings specify that Visual Studio will create an Azure web app for your web project. In the next section of the tutorial you'll deploy the web project to the newly created web app.
-	
+
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Sign in with the ID and password of the account that you use to manage your Azure subscription.
 	
 	When you're signed in, the **Configure Microsoft Azure web app settings** dialog box asks you what resources you want to create.
@@ -230,13 +230,13 @@ In this section of the tutorial, you change the **h1** heading of the home page,
 ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
 ## Monitor and manage the web app in the management portal
-
+  
 The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web app you just created. In this section of the tutorial you look at some of what you can do in the portal.
 
 1. In your browser, go to [http://portal.azure.com](), and sign in with your Azure credentials.
 
 2. Click **Browse > Web Apps**, then click the name of your web app.
-
+  
 	The **Web App** blade for your web app displays an overview of usage statistics and links for a commonly used web app management functions.
 
 	![Web app blade](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
@@ -244,17 +244,17 @@ The [Azure Management Portal](/en-us/services/management-portal/) is a web inter
 	At this point your web app hasn't had much traffic and may not show anything in the graph. If you browse to your application, refresh the page a few times, and then refresh the portal page, you'll see some statistics show up.
 
 3. Click **All settings** to see more options for configuring your web app.
-
+  
 	You see a list of types of settings.
 
 	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)-->
-  
+
 4. Click **Application settings** to see an example of the kinds of settings you can configure in the portal.
 
 	For example, you can control the .NET version used for the web app, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/), set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/), and more. 
 
 	![Portal web app configure tab](./media/web-sites-dotnet-get-started-vs2013/portalconfigure2.png)
-  
+
 These are just a few of the management portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
 
 ## Next steps
@@ -283,8 +283,8 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 	For information about how to use SSL and your own domain (for example www.contoso.com instead of contoso.azurewebsites.net), see the following resources:
 
-	* [Configuring a custom domain name for an Azure Website](/en-us/documentation/articles/web-sites-custom-domain-name/). 
-	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Configuring a custom domain name for an Azure Website](/documentation/articles/web-sites-custom-domain-name/). 
+	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * How to avoid wake-up wait time after idle time-outs 
 

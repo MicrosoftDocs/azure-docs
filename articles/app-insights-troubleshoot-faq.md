@@ -18,17 +18,7 @@
 
 ## <a name="platforms"</a>Can I use Application Insights with ...?
 
-+	[Ruby](https://rubygems.org/gems/application_insights) 
-+	[Node.JS](https://www.npmjs.com/package/applicationinsights)
-+	[Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+	[WordPress](https://wordpress.org/plugins/application-insights/)
-+	[Angular](http://ngmodules.org/modules/angular-appinsights)
-+	[Cordova](#cordova)
-+	[Windows Store JavaScript apps](#cordova)
-+	[Log4Net, NLog, or System.Diagnostics.Trace][diagnostic]
-+	[Windows Store and Phone apps][windows]
-+	[An IIS website that's already running][redfield]
-+	[An Azure website][azure]
+[See Platforms][platforms]
 
 
 ## <a name="q01"></a>I don't see any option to Add Application Insights to my project in Visual Studio
@@ -140,10 +130,6 @@ Web availability tests depend on incoming access to your web server on port 80.
 
 Take a look at [Data Retention and Privacy][data].
 
-## <a name="cordova"></a>Can I use Application Insights with Cordova or Windows Store JavaScript apps?
-
-Yes - you can use the standard client-side [web app script][usage] with one addition: Explicitly set the endpoint url (that is, the destination for the telemetry): 
-   https://dc.services.visualstudio.com/v2/track
 
 
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
