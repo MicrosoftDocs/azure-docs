@@ -3,8 +3,8 @@
 	description="Use Windows PowerShell to create a resource group" 
 	services="" 
 	documentationCenter="" 
-	authors="sdkaczmarek" 
-	manager="stevenka" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2014" 
-	ms.author="stevenka"/>
+	ms.date="03/09/2015" 
+	ms.author="tomfitz"/>
 
 # Using Windows PowerShell with Resource Manager #
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+
+## Introduction
 
 Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
 
@@ -27,13 +29,13 @@ In this tutorial, you learn how to use Windows PowerShell with Resource Manager 
 **Estimated time to complete:** 15 minutes
 
 
-## Prerequisites ##
+## Prerequisites
 
 Before you can use Windows PowerShell with Resource Manager, you must have the following:
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 	
-- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/).
+- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://www.windowsazure.com/documentation/articles/powershell-install-configure/).
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -45,16 +47,7 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 
 	Get-Help Add-AzureAccount -Detailed
 
-## In this tutorial ##
-* [About the Azure Powershell Modules](#about)
-* [Create a resource group](#create)
-* [Manage a resource group](#manage)
-* [Troubleshoot a resource group](#troubleshoot)
-* [Next steps](#next)
-
-
-
-##<a id="about"></a>About the Azure PowerShell Modules ##
+## About the Azure PowerShell Modules
 Beginning in version 0.8.0, the Azure PowerShell installation includes three Windows PowerShell modules:
 
 - **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, websites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/jj152841.aspx).
@@ -62,8 +55,6 @@ Beginning in version 0.8.0, the Azure PowerShell installation includes three Win
 - **AzureResourceManager**: Includes cmdlets for creating, managing, and deploying the Azure resources for a resource group. For more information, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765).
 
 - **AzureProfile**: Includes cmdlets common to both modules, such as Add-AzureAccount, Get-AzureSubscription, and Switch-AzureMode. For more information, see [Azure Profile Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394766).
-
->[AZURE.NOTE] The Azure Resource Manager module is currently in preview. It might not provide the same management capabilities as the Azure module. 
 
 The Azure and Azure Resource Manager modules are not designed to be used in the same Windows PowerShell session. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
 
@@ -113,13 +104,13 @@ For example,
 	Get-Help Get-AzureLocation -Full
 
   
-#<a id="create"></a> Create a resource group#
+## Create a resource group
 
 This section of the tutorial guides you through the process of creating and deploying a resource group for a website with a SQL database. 
 
 You don't need to be an expert in Azure, SQL, websites, or resource management to do this task. The templates provide a model of the resource group with all of the resources that you're likely to need. And because we're using Windows PowerShell to automate the tasks, you can use these process as a model for scripting large-scale tasks.
 
-## Step 1: Switch to Azure Resource Manager 
+### Step 1: Switch to Azure Resource Manager 
 1. Start Windows PowerShell. You can use any host program that you like, such as the Windows PowerShell console or Windows PowerShell ISE.
 
 2. Use the **Switch-AzureMode** cmdlet to import the cmdlets in the AzureResourceManager and AzureProfile modules. 
@@ -138,7 +129,7 @@ The account settings expire, so you need to refresh them occasionally. To refres
 
 
 
-## Step 2: Select a gallery template ##
+### Step 2: Select a gallery template
 
 There are several ways to create a resource group and its resources, but the easiest way  is to use a resource group template. A *resource group template* is JSON string that defines the resources in a resource group. The string includes placeholders called "parameters" for user-defined values, like names and sizes.
 
@@ -179,7 +170,7 @@ This template looks like it will meet our needs. Let's save it to disk and look 
 
 >[AZURE.NOTE] There can be new versions of the template. If the specific template identity doesn't exist, please find one with a valid version.
 
-## Step 3: Examine the Template
+### Step 3: Examine the Template
 
 Let's save the template to a JSON file on disk. This step is not required, but it makes it easier to view the template. To save the template, use the **Save-AzureResourceGroupGalleryTemplate** cmdlet. Use its **Identity** parameter to specify the template and the **Path** parameter to specify a path on disk.
 
@@ -261,7 +252,7 @@ Note that the **administratorLoginPassword** parameter uses a secure string, not
 
 We're almost ready to use the template, but before we do, we need to find locations for each of the resources.
 
-## Step 4: Get resource type locations
+### Step 4: Get resource type locations
 
 Most templates ask you to specify a location for each of the resources in a resource group. Every resource is located in an Azure data center, but not every Azure data center supports every resource type. 
 
@@ -286,7 +277,7 @@ To get the locations that support each resource type, use the **Get-AzureLocatio
 
 Now, we have the information that we need to create the resource group.
 
-## Step 5: Create a resource group
+### Step 5: Create a resource group
  
 In this step, we'll use the resource group template to create the resource group. For reference, open the Microsoft.WebSiteSQLDatabase.0.2.2-preview JSON file on disk and follow along. 
 
@@ -389,7 +380,7 @@ In just a few steps, we created and deployed the resources required for a comple
 The gallery template provided almost all of the information that we needed to do this task.
 And, the task is easily automated. 
 
-#<a id="manage"></a> Manage a Resource Group
+## Manage a Resource Group
 
 After creating a resource group, you can use the cmdlets in the AzureResourceManager module to manage the resource group, change it, add resources to it, remove it.
 
@@ -469,10 +460,10 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-#<a id="troubleshoot"></a> Troubleshoot a Resource Group
+## Troubleshoot a Resource Group
 As you experiment with the cmdlets in the AzureResourceManager modules, you are likely to encounter errors. Use the tips in this section to resolve them.
 
-## Preventing errors
+### Preventing errors
 
 The AzureResourceManager module includes cmdlets that help you to prevent errors.
 
@@ -484,7 +475,7 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 
 
 
-## Fixing errors
+### Fixing errors
 
 - **Get-AzureResourceGroupLog**: This cmdlet gets the entries in the log for each  deployment of the resource group. If something goes wrong, begin by examining the deployment logs. 
 
@@ -493,7 +484,7 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 - **Your Azure credentials have not been set up or have expired**:  To refresh the credentials in your Windows PowerShell session, use the Add-AzureAccount cmdlet. The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
 
 
-#<a id="next"></a> Next Steps
+## Next Steps
 To learn more about using Windows PowerShell with Resource Manager:
  
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.

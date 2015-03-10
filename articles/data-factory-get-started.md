@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="03/09/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
-This article helps you get started with using Azure Data Factory. The tutorial in this article shows you how to create an Azure data factory and create a pipeline in the data factory to copy sample data from an Azure blob storage to an Azure SQL database.
-
+This article helps you get started with using the Azure Data Factory service. The tutorial in this article shows you how to create an Azure data factory and create a pipeline in the data factory to copy sample data from an Azure blob storage to an Azure SQL database. 
 
 ##Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -396,7 +395,7 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 4.	Create **pipelines**. A pipeline consists of one or more activities and processes the inputs and produces outputs. 
 5.	Specify the **active period** for pipelines (for data processing). The active period defines the time duration in which data slices will be produced.
 
-For a list of supported activities, see [Pipelines and Activities][msdn-activities] topic and for a list of supported linked services, see [Linked Services][msdn-linkedservices] topic on MSDN Library.  
+For a list of supported activities, see [Pipelines and Activities][msdn-activities] topic and for a list of supported linked services, see [Linked Services][msdn-linkedservices] topic on MSDN Library.
 
 ## Next steps
 
@@ -404,10 +403,10 @@ Article | Description
 ------ | ---------------
 [Copy data with Azure Data Factory - Copy Activity][copy-activity] | This article provides detailed description of the **Copy Activity** you used in this tutorial. 
 [Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an **on-premises SQL Server database** to an Azure blob.
+[Create and monitor a data factory using Azure PowerShell][monitor-manage-using-powershell] | This article describes how to use Data Factory cmdlets in an Azure PowerShell to create and monitor a data factory. 
 [Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use **HDInsight Activity** to run a **hive/pig** script to process input data to produce output data.
 [Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
 [Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a **custom activity** and using it in a pipeline. 
-[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to **monitor and manage** an Azure Data Factory using **Azure PowerShell cmdlets**. You can try out the examples in the article on the ADFTutorialDataFactory.
 [Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
 [Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
