@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
@@ -28,11 +28,11 @@ In this tutorial you will create a 'Free Trial' API product that allows develope
 
 In this step, you will create a Free Trial product that does not require subscription approval.
 
-To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![API Management console][api-management-management-console]
 
 Click **Products** in the **API Management** menu on the left to display the **Products** page.
 

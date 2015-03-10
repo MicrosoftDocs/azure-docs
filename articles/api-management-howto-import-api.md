@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # How to import the definition of an API with operations in Azure API Management
@@ -31,11 +31,11 @@ This guide shows how create a new API and import its operations in one step.
 
 ## <a name="import-api"> </a>Import an API
 
-To create and configure APIs, click **Management console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+APIs are created and configured in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![Management console][api-management-management-console]
 
 Click **APIs** from the **API Management** menu on the left, and then click **import API**.
 
@@ -60,7 +60,7 @@ Once all values are entered, click **Save** to create the API and the associated
 
 ## <a name="export-api"> </a> Export an API
 
-In addition to importing new APIs, you can export the definitions of your APIs from the management console. To do so, click **Export API** from the **Summary tab** of your **API**.
+In addition to importing new APIs, you can export the definitions of your APIs from the publisher portal. To do so, click **Export API** from the **Summary tab** of your **API**.
 
 ![Export API][api-management-export-api]
 
