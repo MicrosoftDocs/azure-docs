@@ -30,14 +30,7 @@
 
 The following are possible issues you may encounter with how Azure Mobile Engagement gathers information about your applications, devices, and users.
 
-**Symptom List:**
-
-1. <a href="#ANALYTICS1">Missing/Delayed Information</a> 
-2. <a href="#ANALYTICS2">Can't locate items in UI</a>
-3. <a href="#ANALYTICS3">Crash troubleshooting</a>
- 
-<a name="#ANALYTICS1">
-## 1. Missing/Delayed Information</a>
+## Missing/Delayed Information
 
 - Information is delayed in appearing in Analytics, Segmentation, or Dashboard.
 - Information is missing from Monitoring.
@@ -61,8 +54,7 @@ Segments can only contain 10 criteria.
 
 - [Troubleshooting Guide - SDK][Link 25], [API Documentation][Link 4], [UI Documentation - Segments][Link 18]
 
-<a name="#ANALYTICS2">
-## 2. Can't locate items in UI</a>
+## Can't locate items in UI
 
 - Can't create segments based on certain built in or custom app info tag criteria.
 - Can't find certain built in or custom app info tag criteria in Analytics, Monitoring, or Dashboards.
@@ -78,8 +70,7 @@ Segments can only contain 10 criteria.
 
 - [UI Documentation - Reach New Push Criterion for targeting Audience][Link 28]
  
-<a name="#ANALYTICS3">
-## 3. Crash troubleshooting</a>
+## Crash troubleshooting
 
 - Application Crashes appearing in Analytics, Monitoring, or Dashboard.
 
