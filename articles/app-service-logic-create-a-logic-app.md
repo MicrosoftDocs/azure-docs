@@ -79,25 +79,29 @@ Now, select Actions and choose **Upload file**, and click the checkmark.
 
 Now for the hard part: you need to pass the data from the Twitter search Dropbox. 
 
-Field | Enter...
-File path | `/tweet.txt`
-Content | Click the `...` button and select the **Tweet text** option. This will enter `@actions('twitterconnector').outputs.body[0].TweetText` into the text box.
+Field                     | Enter...
+------------------------- | ---
+File path                 | `/tweet.txt`
+Content                   | Click the `...` button and select the **Tweet text** option. This will enter `@first(actions('twitterconnector').outputs.body).TweetText` into the text box.
 Content transfer encoding | `none`
-Overwrite | `false`
+Overwrite                 | `false`
 
 The most confusing part here is the Content field. Let’s break this content down:
 - The `@` means that you are entering a function (rather than an actual value)
 - `actions('twitterconnector').outputs.body` will give you the list of tweets that were found
-- Last `[0].TweetText` will select the message property from the first tweet found
+- `first()` is because the Search Tweets action returns back a list, but you only want to upload one file
+- Last, `.TweetText` will select the message property tweet
 
-That’s it! You can select the Update button. Finally, choose the “Create” button. That’s it, your done!
+![Dropbox](./media/app-service-logic-create-a-logic-app/dropbox.png)
+
+That’s it! You can select the Update button. Finally, choose the **Create** button. That’s it, your done!
 
 ## Managing your Logic App after creation
 
-Now your Logic App is alive! Every time it sees a tweet with that keyword you’ll get that in your dropbox. But what if you want to turn off the Logic App, or see how it’s doing. That’s easy to:
+Now your Logic App is alive! Every time it sees a tweet with that keyword you’ll get that in your dropbox. But what if you want to turn off the Logic App, or see how it’s doing. 
 
 Click on Browse at the left side of the screen and select Logic Apps. You’ll see the name that you entered when you first created it. 
 
 Now you can see all the details. Click the Triggers and Actions part to edit the Logic app you created. Or you can turn it off by clicking **Disable** in the command bar.
 
-In less than 5 minutes you were able to set up a simple Logic App running in the cloud. To learn more about using Logic App features, see **Using Logic App features**.
+In less than 5 minutes you were able to set up a simple Logic App running in the cloud. To learn more about using Logic App features, see **Using Logic App Features**.

@@ -66,7 +66,7 @@ To define parameters, go to the `parameters : {}` object and add inside of it ty
     
 Now, scroll to the send Twitter action. You’ll see the input for the to query there, replace it with `@parameters('topic')`. You can also go to the Dropbox action and add the topic parameter there:
 
-    @contact('/tweets/', parameters('topic'), '/',repeatItem(),'.txt')
+    @contact('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
 
 Parameters are a good way to pull out values that you are likely to change a lot. Additionally, they are especially useful if you have different environments and you want to override parameters in different environments. Check out our full REST documentation on how to override parameters depending on environment.
 
