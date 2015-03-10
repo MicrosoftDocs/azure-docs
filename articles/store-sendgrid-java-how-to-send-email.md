@@ -1,13 +1,25 @@
-<properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties 
+	pageTitle="How to use the SendGrid email service (Java) - Azure" 
+	description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." 
+	services="" 
+	documentationCenter="java" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor="mollybos"/>
 
-
-
-
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 # How to Send Email Using SendGrid from Java
 
 This guide demonstrates how to perform common programming tasks with the
-SendGrid email service on Windows Azure. The samples are written in
+SendGrid email service on Azure. The samples are written in
 Java. The scenarios covered include **constructing email**, **sending
 email**, **adding attachments**, **using filters**, and **updating
 properties**. For more information on SendGrid and sending email, see
@@ -46,7 +58,7 @@ For more information, see <http://sendgrid.com>.
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid account
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_HowToUseJavax"> </a>How to: Use the javax.mail libraries
 
@@ -57,6 +69,11 @@ to send email using SMTP is to do the following:
 
 1.  Specify the SMTP values, including the SMTP server, which for
     SendGrid is smtp.sendgrid.net.
+    
+        import java.util.Properties;
+        import javax.activation.*;
+        import javax.mail.*;
+        import javax.mail.internet.*;
 
         public class MyEmailer {
 	       private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
@@ -131,7 +148,7 @@ The following shows how to send an email.
     // Connect the transport object.
     transport.connect();
     // Send the message.
-    transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+    transport.sendMessage(message, message.getAllRecipients());
     // Close the connection.
     transport.close();
 
@@ -209,7 +226,7 @@ To add a **Cc** recipient, use the following:
 ## <a name="bkmk_HowToUseAdditionalSvcs"> </a>How to: Use additional SendGrid services
 
 SendGrid offers web-based APIs that you can use to leverage additional
-SendGrid functionality from your Windows Azure application. For full
+SendGrid functionality from your Azure application. For full
 details, see the [SendGrid API documentation][].
 
 ## <a name="bkmk_NextSteps"> </a>Next steps
@@ -217,10 +234,10 @@ details, see the [SendGrid API documentation][].
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
-* Sample that demonstrates using SendGrid in a Windows Azure deployment: [How to Send Email Using SendGrid from Java in a Windows Azure Deployment](/en-us/develop/java/how-to-guides/sendgrid-sample/)
-* SendGrid Java information: <http://sendgrid.com/docs/Code_Examples/java.html>
-* SendGrid API documentation: <http://sendgrid.com/docs/API_Reference/index.html>
-* SendGrid special offer for Windows Azure customers: <http://sendgrid.com/azure.html>
+* Sample that demonstrates using SendGrid in an Azure deployment: [How to send email using SendGrid from Java in an Azure deployment](../store-sendgrid-java-how-to-send-email-example/)
+* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
+* SendGrid API documentation: <https://sendgrid.com/docs/API_Reference/index.html>
+* SendGrid special offer for Azure customers: <https://sendgrid.com/windowsazure.html>
 
   [Next Steps]: #bkmk_NextSteps
   [What is the SendGrid Email Service?]: #bkmk_WhatIsSendGrid
@@ -232,13 +249,13 @@ these links to learn more.
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
   [How to: Update Email Properties]: #bkmk_HowToUpdateEmail
   [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
-  [http://sendgrid.com]: http://sendgrid.com
+  [http://sendgrid.com]: https://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
-  [http://www.sendgrid.com/azure.html]: http://www.sendgrid.com/azure.html
-  [http://sendgrid.com/features]: http://sendgrid.com/features
+  [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
+  [http://sendgrid.com/features]: https://sendgrid.com/features
   [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
-  [Filter Settings]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
-  [SendGrid API documentation]: http://sendgrid.com/docs/API_Reference/index.html
-  [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
-  [cloud-based email service]: http://sendgrid.com/solutions
-  [transactional email delivery]: http://sendgrid.com/transactional-email
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
+  [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
+  [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email

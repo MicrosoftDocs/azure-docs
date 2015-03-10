@@ -1,12 +1,34 @@
-<properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler"/>
+<properties 
+	urldisplayname="Team Foundation Service" 
+	headerexpose="" 
+	pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" 
+	metakeywords="" 
+	footerexpose="" 
+	description="Learn how to test the performance of a cloud service in the local Azure Compute Emulator by using the Visual Studio profiler" 
+	umbraconavihide="0" 
+	disquscomments="1" 
+	authors="patshea" 
+	manager="douge" 
+	editor="tglee" 
+	services="cloud-services" 
+	documentationCenter=""/>
 
-# Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="patshea"/>
+
+# Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 
 A variety of tools and techniques are available for testing the performance of cloud services.
-When you publish a cloud service to Windows Azure, you can have Visual Studio collect profiling
-data and then analyze it locally, as described in [Profiling a Windows Azure Application][1].
+When you publish a cloud service to Azure, you can have Visual Studio collect profiling
+data and then analyze it locally, as described in [Profiling an Azure Application][1].
 You can also use diagnostics to track a variety of performance
-counters, as described in [Using Performance Counters in Windows Azure][2].
+counters, as described in [Using performance counters in Azure][2].
 You might also want to profile your application locally in the compute emulator before deploying it to the cloud.
 
 This article covers the CPU Sampling method of profiling, which can be done locally in the emulator. CPU sampling is a method of profiling that is not very intrusive. At a designated sampling interval, the profiler takes a snapshot of the call stack. The data is collected over a period of time, and shown in a report. This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.  This gives you the opportunity to focus on the "hot path" where your application is spending the most time.
@@ -15,20 +37,6 @@ This article covers the CPU Sampling method of profiling, which can be done loca
 ## Prerequisites
 
 You can run the profiler locally only if you have Visual Studio Premium or Visual Studio Ultimate. 
-
-## In this article:
-
--   [Step 1: Configure Visual Studio for Profiling][]
-
--   [Step 2: Attach to a Process][]
-
--   [Step 3: View Profiling Reports][]
-
--   [Step 4: Make Changes and Compare Performance][]
-
--   [Troubleshooting][]
-
--   [Next Steps][]
 
 ## <a name="step1"> </a> Step 1: Configure Visual Studio for Profiling
 
@@ -40,7 +48,7 @@ If desired, you can simplify the reports that the profiler generates by setting 
 
 ![][17]
 
-You can use these instructions with an existing project or with a new project.  If you create a new project to try the techniques described below, choose a C# **Windows Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
+You can use these instructions with an existing project or with a new project.  If you create a new project to try the techniques described below, choose a C# **Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
 
 ![][5]
 
@@ -52,7 +60,7 @@ a lot of time and demonstrates some obvious performance problem. For example, ad
 	    public static string Concatenate(int number)
 	    {
 	        int count;
-	        string s = ""
+	        string s = "";
 	        for (count = 0; count < number; count++)
 	        {
 	            s += "\n" + count.ToString();
@@ -61,18 +69,19 @@ a lot of time and demonstrates some obvious performance problem. For example, ad
 	    }
 	}
 
-Call this code from the Run method in the worker role's RoleEntryPoint-derived class.
+Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class. (Ignore the warning about the method running synchronously.)
 
-	public override void Run()
-	{
-	    while (true)
-	    {
-	        Concatenator.Concatenate(10000);
-	    }
-	}
+        private async Task RunAsync(CancellationToken cancellationToken)
+        {
+            // TODO: Replace the following with your own logic.
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                Trace.TraceInformation("Working");
+                Concatenator.Concatenate(10000);
+            }
+        }
 
-Build and run your cloud service locally with the solution configuration set to **Release**. This ensures that all files and folders are 
-created for running the application locally, and ensures that all the emulators are started.
+Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
 
 ## <a name="step2"> </a> Step 2: Attach to a Process
 
@@ -127,13 +136,13 @@ of the execution time.
 
 ![][12]
 
-If you added the string concatenation code in this article, you should see a warning in the Task List for this. You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are disposed.
+If you added the string concatenation code in this article, you should see a warning in the Task List for this. You may also see a warning that there is an excessive amount of garbage collection, which is due to the number of strings that are created and disposed.
 
 ![][14]
 
 ## <a name="step4"> </a> Step 4: Make Changes and Compare Performance
 
-You can also compare the performance before and after a code change.  Edit the code to replace the string concatenation operation with the use of StringBuilder:
+You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 
 	public static string Concatenate(int number)
 	{
@@ -158,7 +167,7 @@ Congratulations! You've gotten started with the profiler.
 
 ## <a name="troubleshooting"> </a> Troubleshooting
 
-- Make sure you are profiling a Release build.
+- Make sure you are profiling a Release build and start without debugging.
 
 - If the Attach/Detach option is not enabled on the Profiler menu, run the Performance Wizard.
 
@@ -173,7 +182,7 @@ command line, especially the global settings, make sure that VSPerfClrEnv /globa
 
 ## <a name="nextSteps"> </a> Next Steps
 
-Instrumenting Windows Azure binaries in the emulator is not supported in the Visual Studio 2010 profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
+Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
 
 
 [Step 1: Configure Visual Studio for Profiling]: #step1
@@ -183,19 +192,19 @@ Instrumenting Windows Azure binaries in the emulator is not supported in the Vis
 [Troubleshooting]: #troubleshooting
 [Next Steps]: #nextSteps
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
-[2]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling
+[1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
+[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
 [3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
-[4]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally09.png
-[5]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally10.png
-[6]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally02.png
-[7]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally05.png
-[8]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally010.png
-[9]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally07.png
-[10]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally06.png
-[11]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally03.png
-[12]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally011.png
-[14]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally04.png 
-[15]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally013.png
-[16]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally012.png
-[17]: ./media/cloud-services-perfomce-testing-visual-studio-profiler/ProfilingLocally08.png
+[4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
+[5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
+[6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png
+[7]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally05.png
+[8]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally010.png
+[9]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally07.png
+[10]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally06.png
+[11]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally03.png
+[12]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally011.png
+[14]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally04.png 
+[15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
+[16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
+[17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png

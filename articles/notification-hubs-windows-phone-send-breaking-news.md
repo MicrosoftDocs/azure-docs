@@ -1,11 +1,27 @@
-<properties linkid="manage-services-web-sites-operating-system-functionality-available-to-applications" urlDisplayName="Operating System Functionality Available to Applications on Windows Azure Web Sites" pageTitle="Operating System Functionality Available to Applications on Windows Azure Web Sites" metaKeywords="" description="Learn about the common baseline operating system functionality that is available to all applications running on Windows Azure Web Sites, including file access, network access, and registry access." metaCanonical="" services="notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="" solutions="" writer="glenga" manager="" editor=""  />
+<properties 
+	pageTitle="Use Notification Hubs to send breaking news (Windows Phone)" 
+	description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/03/2014" 
+	ms.author="glenga"/>
 
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/breaking-news-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/breaking-news-ios" title="iOS">iOS</a>
+    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-This topic shows you how to use Windows Azure Notification Hubs to broadcast breaking news notifications to a Windows Phone app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
+This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Phone 8.0/8.1 Silverlight app. If you are targeting Windows Store or Windows Phone 8.1 app, please refer to to the [Windows Universal](/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/) version. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
 
 Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Guidance]. 
 
@@ -99,9 +115,7 @@ The first step is to add the UI elements to your existing main page that enable 
 
 4. In the above code, replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
 
-	<div class="dev-callout"><strong>Note</strong> 
-		<p>Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.</p>
-	</div> 
+	> [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
 
 4. In the App.xaml.cs project file, add the following property to the **App** class:
 
@@ -138,9 +152,7 @@ Your app is now able to store a set of categories in local storage on the device
 
 These steps register with the notification hub on startup using the categories that have been stored in local storage. 
 
-<div class="dev-callout"><strong>Note</strong> 
-	<p>Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
-</div>  
+> [AZURE.NOTE] Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
 
 1. Add the following code to the **Notifications** class:
 
@@ -178,9 +190,9 @@ These steps register with the notification hub on startup using the categories t
 
 The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
 
-<h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
+<h2><a name="send"></a>Send notifications from your back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ##<a name="test-app"></a>Run the app and generate notifications
 
@@ -200,7 +212,7 @@ The app is now complete and can store a set of categories in the device local st
 
 	+ **Console app:** start the console app.
 
-	+ **Mobile Services:** click the **Scheduler** tab, click the job, then click **Run once**.
+	+ **Java/PHP:** run your app/script.
 
 	Notifications for the selected categories appear as toast notifications.
 
@@ -236,14 +248,14 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 <!-- URLs.-->
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[Get started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
 [Use Notification Hubs to broadcast localized breaking news]: ./breakingnews-localized-wp8.md 
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users/
-[Mobile Service]: /en-us/develop/mobile/tutorials/get-started
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
 
 

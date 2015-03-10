@@ -1,28 +1,21 @@
 
 
-By default, all requests to mobile service resources are restricted to clients that present the application key, which does not strictly secure access to resources. To secure your resources, you need to restrict access to authenticated clients only.
+By default, all requests to mobile service resources are restricted to clients that present the application key, which does not strictly secure access to resources. To secure your resources, you must restrict access to only authenticated clients.
 
-1. In Visual Studio, open the project that contains your mobile service. 
-
-2. In Solution Explorer, expand the Controllers folder and open the TodoItemController.cs project file.
-
-	The **TodoItemController** class implements data access for the TodoItem table. 
-
-3. Add the following `using` statement at the top of the code page:
+1. In Visual Studio, open your mobile service project, expand the Controllers folder, and open **TodoItemController.cs**. The **TodoItemController** class implements data access for the TodoItem table. Add the following `using` statement:
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-4. To each method in the **TodoItemController** class, apply the following RequiresAuthorization attribute:
+2. Apply the following _AuthorizeLevel_ attribute to the **TodoItemController** class. This ensures that all operations against the _TodoItem_ table require an authenticated user.
 
-		[RequiresAuthorization(AuthorizationLevel.User)]
+		[AuthorizeLevel(AuthorizationLevel.User)]
 
-	This will ensure that all operations against the **TodoItem** table require an authenticated user. 
+	>[AZURE.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
 
-5. (Optional) Open the web.config file for the mobile service project, locate the Mobile Services keys in appSettings, and set the crendentials that you obtained from your identity provider earlier in the tutorial.
+3. If you wish to debug authentication locally, expand the `App_Start` folder, open **WebApiConfig.cs**, and add the following code to the **Register** method.  
 
-	You only need to do this when you plan to test authentication on your local computer. 
-	
-	>[WACOM.NOTE]These credentials are only used when your service runs locally. The settings are overwritten with the values that you set in the Management Portal.
+		config.SetIsHosted(true);
 
-6. Republish your service project.
+	This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the *AuthorizeLevel* settings. Without this setting, all HTTP requests to localhost are permitted without authentication despite the *AuthorizeLevel* setting. 
 
+4. Republish your project.

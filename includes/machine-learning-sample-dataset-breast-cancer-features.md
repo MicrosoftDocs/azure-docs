@@ -1,0 +1,1 @@
+The dataset contains information for 102K suspicious regions (candidates) of X-ray images, each described by 117 features. The features are proprietary and their meaning is not revealed by the dataset creators (Siemens Healthcare). 

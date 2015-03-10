@@ -1,14 +1,26 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Windows Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Windows Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Continuous delivery for cloud services with TFS in Azure" 
+	description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="kempb"/>
 
-
-
-
-# Continuous Delivery for Cloud Services in Windows Azure
+# Continuous Delivery for Cloud Services in Azure
 
 The process described in this article shows you how to set up continuous
-delivery for Windows Azure cloud apps. This process enables you to
-automatically create packages and deploy the package to Windows Azure
+delivery for Azure cloud apps. This process enables you to
+automatically create packages and deploy the package to Azure
 after every code check-in. The package build process described in this
 article is equivalent to the Package command in Visual Studio, and the
 publishing steps are equivalent to the Publish command in Visual Studio.
@@ -17,9 +29,9 @@ with MSBuild command-line statements and Windows PowerShell scripts, and
 it also demonstrates how to optionally configure Visual Studio Team
 Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
-environment and Windows Azure target environments.
+environment and Azure target environments.
 
-You can also use Team Foundation Service, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service][].
+You can also use Visual Studio Online, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][].
 
 Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you 
@@ -33,9 +45,9 @@ This task includes the following steps:
 -   [Step 4: Publish a Package using a PowerShell Script][]
 -   [Step 5: Publish a Package using TFS Team Build (Optional)][]
 
-<h2> <a name="step1"> </a><span class="short-header">Configure the Build Server</span>Step 1: Configure the Build Server</h2>
+<h2> <a name="step1"> </a>Step 1: Configure the Build Server</h2>
 
-Before you can create a Windows Azure package by using MSBuild, you must
+Before you can create an Azure package by using MSBuild, you must
 install the required software and tools on the build server.
 
 Visual Studio is not required to be installed on the build server. If
@@ -43,24 +55,16 @@ you want to use Team Foundation Build Service to manage your build
 server, follow the instructions in the [Team Foundation Build Service][]
 documentation.
 
-1.  On the build server, install the [.NET Framework 4][], which
-    includes MSBuild.
-2.  Install the [Windows Azure Authoring Tools][] (look for
-    WindowsAzureAuthoringTools-x86.msi or WindowsAzureAuthoringTools-x64.msi,
-    depending on your build server's processor).
-3.  Copy the Microsoft.WebApplication.targets file from a Visual Studio
-    installation to the build server.On a computer with Visual Studio
-    installed, the file is located in the directory C:\\Program Files
-    (x86)\\MSBuild\\Microsoft\\VisualStudio\\v10.0\\WebApplications (v11.0
-    for Visual Studio 2012). You
-    should copy it to the same directory on the build server.
-4.  Install the [Windows Azure Tools for Visual Studio][].
-    Look for WindowsAzureTools.VS110.exe.
+1.  On the build server, install the [.NET Framework 4][], [.NET Framework 4.5][], or [.NET Framework 4.5.2][], which include MSBuild.
+2.  Install the [Azure Authoring Tools][] (look for MicrosoftAzureAuthoringTools-x86.msi or MicrosoftAzureAuthoringTools-x64.msi, depending on your build server's processor). Older versions of the files might have WindowsAzure in the filename.
+3. Install the [Azure Libraries][] (look for MicrosoftAzureLibsForNet-x86.msi or MicrosoftAzureLibsForNet-x64.msi).
+4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.On a computer with Visual Studio installed, the file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 for Visual Studio 2013). You should copy it to the same directory on the build server.
+5.  Install the [Azure Tools for Visual Studio][]. Look for MicrosoftAzureTools.VS110.exe to build Visual Studio 2012 projects, and MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects, and MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 Preview projects.
 
-<h2><a name="step2"> </a><span class="short-header">Build a Package Using MSBuild</span>Step 2: Build a Package using MSBuild Commands</h2>
+<h2><a name="step2"> </a>Step 2: Build a Package using MSBuild Commands</h2>
 
-This section describes how to construct an MSBuild command that builds a
-Windows Azure package. Run this step on the build server to verify that
+This section describes how to construct an MSBuild command that builds an
+Azure package. Run this step on the build server to verify that
 everything is configured correctly and that the MSBuild command does
 what you want it to do. You can either add this command line to existing
 build scripts on the build server, or you can use the command line in a
@@ -75,12 +79,12 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     If Visual Studio is not installed on the build server, open a
     command prompt and make sure that MSBuild.exe is accessible on the
     path. MSBuild is installed with the .NET Framework in the path   
-    %WINDIR%\\Microsoft.NET\\Framework\\*&lt;Version\&gt;*. For example, to
+    %WINDIR%\\Microsoft.NET\\Framework\\*Version*. For example, to
     add MSBuild.exe to the PATH environment variable when you have .NET
     Framework 4 installed, type the following command at the command
     prompt:
 
-        set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\4.0"
+        set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
 2.  At the command prompt, navigate to the folder containing the Windows
     Azure project file that you want to build.
@@ -92,8 +96,8 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
 
     This option can be abbreviated as /t:Publish. The /t:Publish option
     in MSBuild should not be confused with the Publish commands
-    available in Visual Studio when you have the Windows Azure SDK
-    installed. The /t:Publish option only builds the Windows Azure
+    available in Visual Studio when you have the Azure SDK
+    installed. The /t:Publish option only builds the Azure
     packages. It does not deploy the packages as the Publish commands in
     Visual Studio do.
 
@@ -104,14 +108,14 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
 
 4.  Locate the output. By default, this command creates a directory in
     relation to the root folder for the project, such as
-    *&lt;ProjectDir&gt;*\\bin\\*&lt;Configuration&gt;*\\app.publish\\. When you
-    build a Windows Azure project, you generate two files, the package
+    *ProjectDir*\\bin\\*Configuration*\\app.publish\\. When you
+    build an Azure project, you generate two files, the package
     file itself and the accompanying configuration file:
 
     -   Project.cspkg
-    -   ServiceConfiguration.*&lt;TargetProfile&gt;*.cscfg
+    -   ServiceConfiguration.*TargetProfile*.cscfg
 
-    By default, each Windows Azure project includes one
+    By default, each Azure project includes one
     service configuration file (.cscfg file) for local (debugging)
     builds and another for cloud (staging or production) builds, but you
     can add or remove service configuration files as needed. When you
@@ -127,44 +131,58 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
 6.  Specify the location for the output. Set the path by using the
-    /p:PublishDir=*&lt;Directory\&gt;*\\ option, including the trailing
+    /p:PublishDir=*Directory*\\ option, including the trailing
     backslash separator, as in the following example:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
     Once you've constructed and tested an appropriate MSBuild command
-    line to build your projects and combine them into a Windows Azure package,
+    line to build your projects and combine them into an Azure package,
     you can add this command line to your build scripts. If your build
     server uses custom scripts, this process will depend on the
-    specifics of your build custom process. If you are using TFS as a
+    specifics of your custom build process. If you are using TFS as a
     build environment, then you can follow the instructions in the next
-    step to add the Windows Azure package build to your build process.
+    step to add the Azure package build to your build process.
 
-<h2> <a name="step3"> </a><span class="short-header">Build a Package Using TFS </span>Step 3: Build a Package using TFS Team Build (Optional)</h2>
+<h2> <a name="step3"> </a>Step 3: Build a Package using TFS Team Build (Optional)</h2>
 
 If you have Team Foundation Server (TFS) set up as a build controller
 and the build server set up as a TFS build machine, then you can set up
-an automated build for your Windows Azure package. For information on
+an automated build for your Azure package. For information on
 how to set up and use Team Foundation server as a build system, see
 [Understanding the Team Foundation Build System][]. In particular, the
 following procedure assumes that you have configured your build server
-as described in [Configure a Build Machine][].
+as described in [Configure a Build Machine][], and that you have created
+a team project, created a cloud service project in the team project.
 
-To configure TFS to build Windows Azure packages, perform the following
+To configure TFS to build Azure packages, perform the following
 steps:
 
-1.  In Visual Studio 2010 on your development computer, on the View
+1.  In Visual Studio on your development computer, on the View
     menu, choose **Team Explorer**, or choose Ctrl+\\, Ctrl+M. In the
-    Team Explorer window, expand the **Builds** node, right-click **All
-    Build Definitions**, and then click **New Build Definition**:
+    Team Explorer window, expand the **Builds** node or choose the **Builds**
+    page, and choose **New Build Definition**.
 
     ![][0]
 
-2.  Click the **Process** tab. On the Process tab, choose the default
-    template, under Items to Build, choose the project,
-    and expand the **Advanced** section in the grid. 
+2.  Click the **Trigger** tab, and specify the desired conditions for
+    when you want the package to be built. For example, specify
+    **Continuous Integration** to build the package whenever a source
+    control check-in occurs.
 
-3.  Choose **MSBuild Arguments**, and set the appropriate MSBuild
+3.	Choose the **Source Settings** tab, and make sure your project folder is listed
+	in the **Source Control Folder** column, and the status is **Active**.
+
+4.  Choose the **Build Defaults** tab, and under Build controller, verify
+    the name of the build server.  Also, choose the option **Copy build 
+    output to the following drop folder** and specify the desired drop
+    location.
+
+5.  Click the **Process** tab. On the Process tab, choose the default
+    template, under **Build**, choose the project if it is not already selected,
+    and expand the **Advanced** section in the **Build** section of the grid. 
+
+6.  Choose **MSBuild Arguments**, and set the appropriate MSBuild
     command line arguments as described in Step 2 above. For example,
     enter **/t:Publish /p:PublishDir=\\\\myserver\\drops\\** to build a
     package and copy the package files to the location
@@ -175,44 +193,34 @@ steps:
     **Note:** Copying the files to a public share makes it easier to
     manually deploy the packages from your development computer.
 
-4.  Click the **Trigger** tab, and specify the desired conditions for
-    when you want the package to be built. For example, specify
-    **Continuous Integration** to build the package whenever a source
-    control check-in occurs.
-
-5.  Choose the **Build Defaults** tab, and under Build controller, verify
-    the name of the build server.  Also, choose the option **Copy build 
-    output to the following drop folder** and specify the desired drop
-    location.
-
 5.  Test the success of your build step by checking in a change to your
     project, or queue up a new build. To queue up a new build, in the
     Team Explorer, right-click **All Build Definitions,** and then
     choose **Queue New Build**.
 
-<h2> <a name="step4"> </a><span class="short-header">Publish Using Powershell</span>Step 4: Publish a Package using a Powershell Script</h2>
+<h2> <a name="step4"> </a>Step 4: Publish a Package using a PowerShell Script</h2>
 
 This section describes how to construct a Windows PowerShell script that
-will publish the Cloud app package output to Windows Azure using
+will publish the Cloud app package output to Azure using
 optional parameters. This script can be called after the build step in
 your custom build automation. It can also be called from Process
 Template workflow activities in Visual Studio TFS Team Build.
 
-1.  Install the [Windows Azure PowerShell Cmdlets][] (v0.6.1 or higher).
+1.  Install the [Azure PowerShell cmdlets][] (v0.6.1 or higher).
     During the cmdlet setup phase choose to install as a snap-in. Note
     that this officially supported version replaces the older version
     offered through CodePlex, although the previous versions were numbered 2.x.x.
 
-2.  Start Windows Azure PowerShell using the Start menu. If you start in this way,
-    the Windows Azure PowerShell cmdlets will be loaded.
+2.  Start Azure PowerShell using the Start menu or Start page. If you start in this way,
+    the Azure PowerShell cmdlets will be loaded.
 
 3.  At the PowerShell prompt, verify that the PowerShell cmdlets are loaded
     by typing the partial command Get-Azure and then pressing tab for statement
     completion.
 
-    You should see various Windows Azure PowerShell commands.
+    If you press tab repeatedly, you should see various Azure PowerShell commands.
 
-4.  Verify that you can connect to your Windows Azure subscription by
+4.  Verify that you can connect to your Azure subscription by
     importing your subscription information from the .publishsettings file.
 
     Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
@@ -238,21 +246,21 @@ Template workflow activities in Visual Studio TFS Team Build.
     deployment is being created.
 
     -   To create a new cloud service, you can call this script or use
-        the Windows Azure Management Portal. The cloud service name
+        the Azure Management Portal. The cloud service name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   To create a new storage account, you can call this script or use
-        the Windows Azure Management Portal. The storage account name
+        the Azure Management Portal. The storage account name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique. You can try using the same name as the
         cloud service.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-7.  Call the script directly from Windows Azure PowerShell, or wire up this
+7.  Call the script directly from Azure PowerShell, or wire up this
     script to your host build automation to occur after the package
     build.
 
@@ -267,7 +275,7 @@ Template workflow activities in Visual Studio TFS Team Build.
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     This is typically followed up by test run verification and a VIP
-    swap. The VIP swap can be done via the Windows Azure Management
+    swap. The VIP swap can be done via the Azure Management
     Portal or by using the Move-Deployment cmdlet.
 
     **Example scenario 2:** continuous deployment to the production
@@ -277,7 +285,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 
     **Remote Desktop:**
 
-    If Remote Desktop is enabled in your Windows Azure project you will
+    If Remote Desktop is enabled in your Azure project you will
     need to perform additional one-time steps to ensure the correct
     Cloud Service Certificate is uploaded to all cloud services
     targeted by this script.
@@ -303,9 +311,9 @@ Template workflow activities in Visual Studio TFS Team Build.
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target cloud service using the
-    Windows Azure Management Portal. Read the following article to learn
+    Azure Management Portal. Read the following article to learn
     more:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][].
+    [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Upgrade Deployment vs. Delete Deployment -\> New Deployment**
 
@@ -328,10 +336,10 @@ Template workflow activities in Visual Studio TFS Team Build.
     enable continuous delivery from automation where no user/operator
     prompting is possible.
 
-<h2><a name="step5"> </a><span class="short-header">Publish Using TFS </span>Step 5: Publish a Package using TFS Team Build (Optional)</h2>
+<h2><a name="step5"> </a>Step 5: Publish a Package using TFS Team Build (Optional)</h2>
 
 This step will wire up TFS Team Build to the script created in step 4,
-which handles publishing of the package build to Windows Azure. This
+which handles publishing of the package build to Azure. This
 entails modifying the Process Template used by your build definition so
 that it runs a Publish activity at the end of the workflow. The Publish
 activity will execute your PowerShell command passing in parameters from
@@ -342,12 +350,14 @@ piped into the standard build output.
 
 2.  Select the **Process** tab.
 
-3.  Create a new process template by clicking on the New... button in
-    the Process Template Selection area of the tab. The New Build
-    Process Template dialog will be loaded. In this dialog ensure Copy
-    an Existing XAML file is selected, and browse to the ProcessTemplate
-    to copy if you want to change the basis from the default. Provide
-    the new template with a name such as DefaultTemplateAzure.
+3.	Follow [these instructions](http://msdn.microsoft.com/library/dd647551.aspx) to add an
+    Activity project for the build process template, download the default template, add it to
+	the project and check it in. Give the build process template a new name, such as
+	AzureBuildProcessTemplate.
+
+3.  Return to the **Process** tab, and use **Show Details** to show a list of available
+	build process templates. Choose the **New...** button, and navigate to the project you
+	just added and checked in. Locate the template you just created and choose **OK**.
 
 4.  Open the selected Process Template for editing. You can open
     directly in the Workflow designer or in the XML editor to work with
@@ -429,17 +439,17 @@ piped into the standard build output.
 
             ![][4]
 
-    4.  Add a ConvertWorkspaceItem activity at the beginning of the new
-        Sequence. Direction=ServerToLocal, DisplayName='Convert publish
+    4.  If you are using TFS 2012 or earlier, add a ConvertWorkspaceItem activity at the beginning of the new
+        Sequence. If you are using TFS 2013 or later, add a GetLocalPath activity at the beginning of the new sequence. For a ConvertWorkspaceItem, set the properties as follows: Direction=ServerToLocal, DisplayName='Convert publish
         script filename', Input=' PublishScriptLocation',
-        Result='PublishScriptFilePath', Workspace='Workspace'. This
+        Result='PublishScriptFilePath', Workspace='Workspace'. For a GetLocalPath activity, set the property IncomingPath to 'PublishScriptLocation', and the Result to 'PublishScriptFilePath'. This
         activity converts the path to the publish script from TFS server
         locations (if applicable) to a standard local disk path.
 
-    5.  Add another ConvertWorkspaceItem activity at the end of the new
+    5.  If you are using TFS 2012 or earlier, add another ConvertWorkspaceItem activity at the end of the new
         Sequence. Direction=ServerToLocal, DisplayName='Convert
         subscription filename', Input=' SubscriptionDataFileLocation',
-        Result= 'SubscriptionDataFilePath', Workspace='Workspace'.
+        Result= 'SubscriptionDataFilePath', Workspace='Workspace'. If you are using TFS 2013 or later, add another GetLocalPath. IncomingPath='SubscriptionDataFileLocation', and Result='SubscriptionDataFilePath.'
 
     6.  Add an InvokeProcess activity at the end of the new Sequence.
         This activity calls PowerShell.exe with the arguments passed in
@@ -453,30 +463,34 @@ piped into the standard build output.
             PackageLocation, CloudConfigLocation,
             SubscriptionDataFilePath, SubscriptionName, Environment)
 
-        2.  DisplayName ='Execute publish script'
+        2.  DisplayName = Execute publish script
 
-        3.  FileName = "PowerShell"
+        3.  FileName = "PowerShell" (include the quotes)
 
         4.  OutputEncoding=
-            'System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)'
+            System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
 
-    7.  In the Handle Standard Output section textbox of the
+    7.  In the **Handle Standard Output** section textbox of the
         InvokeProcess, set the textbox value to 'data'. This is a
         variable to store the standard output data.
 
-    8.  Add a WriteBuildMessage activity just below the standard output
+    8.  Add a WriteBuildMessage activity just below the **Handle Standard Output**
         section. Set the Importance =
         'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High'
         and the Message='data'. This ensures the standard output of the
         script will get written to the build output.
 
-    9.  In the Handle Standard Error section textbox of the
+    9.  In the **Handle Error Output** section textbox of the
         InvokeProcess, set the textbox value to 'data'. This is a
         variable to store the standard error data.
 
-    10. Add a WriteBuildError activity just below the standard output
+    10. Add a WriteBuildError activity just below the **Handle Error Output**
         section. Set the Message='data'. This ensures the standard
         errors of the script will get written to the build error output.
+
+	11. Correct any errors, indicated by blue exclamation marks. Hover over the
+		exclamation marks to get a hint about the error. Save the workflow to 
+		clear errors.
 
     The final result of the publish workflow activities will look like
     this in the designer:
@@ -486,68 +500,54 @@ piped into the standard build output.
     The final result of the publish workflow activities will look like
     this in XAML:
 
-        	</TryCatch>
-              <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap:VirtualizedContainerService.HintSize="1539,552">
-                <If.Then>
-                  <Sequence DisplayName="Start publish" sap:VirtualizedContainerService.HintSize="297,446">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
-                      <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
-                    </Sequence.Variables>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
-                    <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription data file filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-                    <mtbwa:InvokeProcess Arguments="[String.Format(" -File ""{0}"" -serviceName {1} -storageAccountName {2} -packageLocation ""{3}"" -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}"" -selectedSubscription {6} -environment ""{7}""", PublishScriptFilePath, ServiceName, StorageAccountName, PackageLocation, CloudConfigLocation, SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="Execute publish script" FileName="PowerShell" sap:VirtualizedContainerService.HintSize="234,198">
-                      <mtbwa:InvokeProcess.ErrorDataReceived>
-                        <ActivityAction x:TypeArguments="x:String">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-                          </ActivityAction.Argument>
-                          <mtbwa:WriteBuildError sap:VirtualizedContainerService.HintSize="200,22" Message="[data]" />
-                        </ActivityAction>
-                      </mtbwa:InvokeProcess.ErrorDataReceived>
-                      <mtbwa:InvokeProcess.OutputDataReceived>
-                        <ActivityAction x:TypeArguments="x:String">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-                          </ActivityAction.Argument>
-                          <mtbwa:WriteBuildMessage sap:VirtualizedContainerService.HintSize="200,22" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
-                        </ActivityAction>
-                      </mtbwa:InvokeProcess.OutputDataReceived>
-                    </mtbwa:InvokeProcess>
-                  </Sequence>
-                </If.Then>
-              </If>
-            </mtbwa:AgentScope>
-            <mtbwa:InvokeForReason DisplayName="Check In Gated Changes for CheckInShelveset Builds" sap:VirtualizedContainerService.HintSize="1370,146" Reason="CheckInShelveset">
-              <mtbwa:CheckInGatedChanges DisplayName="Check In Gated Changes" sap:VirtualizedContainerService.HintSize="200,22" />
-            </mtbwa:InvokeForReason>
-          </Sequence>
-        </Activity>
+		<If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
+	        <If.Then>
+	          <Sequence DisplayName="Start Publish" sap2010:WorkflowViewState.IdRef="Sequence_4">
+	            <Sequence.Variables>
+	              <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
+	              <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
+	            </Sequence.Variables>
+	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
+	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
+	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+	              <mtbwa:InvokeProcess.ErrorDataReceived>
+	                <ActivityAction x:TypeArguments="x:String">
+	                  <ActivityAction.Argument>
+	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+	                  </ActivityAction.Argument>
+	                  <mtbwa:WriteBuildError Message="{x:Null}" sap2010:WorkflowViewState.IdRef="WriteBuildError_1" />
+	                </ActivityAction>
+	              </mtbwa:InvokeProcess.ErrorDataReceived>
+	              <mtbwa:InvokeProcess.OutputDataReceived>
+	                <ActivityAction x:TypeArguments="x:String">
+	                  <ActivityAction.Argument>
+	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+	                  </ActivityAction.Argument>
+	                  <mtbwa:WriteBuildMessage sap2010:WorkflowViewState.IdRef="WriteBuildMessage_2" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
+	                </ActivityAction>
+	              </mtbwa:InvokeProcess.OutputDataReceived>
+	            </mtbwa:InvokeProcess>
+	          </Sequence>
+	        </If.Then>
+	      </If>
+	    </Sequence>
 
-7.  Save the DefaultTemplateAzure workflow and Check In this file.
 
-8.  Select the DefaultTemplateAzure process template in your build
-    definition. Click Refresh or select the New button if you do not yet
-    see this file in the list of Process Templates.
+7.  Save the build process template workflow and Check In this file.
+
+8.  Edit the build definition (close it if it is already open), and select
+	the **New** button if you do not yet see the new template in the list of Process Templates.
 
 9.  Set the parameter property values in the Misc section as follows:
 
-    1.  CloudConfigLocation =
-        'c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'   
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'   
         *This value is derived from:
         ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation =
-        'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'   
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'   
         *This value is derived from: ($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation =
-        'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
     4.  ServiceName = 'mycloudservicename'   
         *Use the appropriate cloud service name here*
@@ -567,7 +567,7 @@ piped into the standard build output.
 10. Save the changes to the Build Definition.
 
 11. Queue a Build to execute both the package build and publish. If you
-    have a trigger set to Continuous Deploy, you will execute this
+    have a trigger set to Continuous Integration, you will execute this
     behavior on every check-in.
 
 ### <a name="script"> </a>PublishCloudService.ps1 script template
@@ -752,7 +752,8 @@ Import-Module Azure
 #configure powershell with publishsettings for your subscription
 $pubsettings = $subscriptionDataFile
 Import-AzurePublishSettingsFile $pubsettings
-Set-AzureSubscription -CurrentStorageAccount $storageAccountName -SubscriptionName $selectedsubscription
+Set-AzureSubscription -CurrentStorageAccountName $storageAccountName -SubscriptionName $selectedsubscription
+Select-AzureSubscription $selectedsubscription
 
 #set remaining environment variables for Azure cmdlets
 $subscription = Get-AzureSubscription $selectedsubscription
@@ -773,7 +774,11 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
 
-  [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ../cloud-services-continuous-delivery-use-vso/
+## Next steps
+
+To enable remote debugging when using continuous delivery, see [these instructions](http://go.microsoft.com/fwlink/p/?LinkID=402354). 
+
+  [Continuous Delivery to Azure by Using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Step 1: Configure the Build Server]: #step1
   [Step 2: Build a Package using MSBuild Commands]: #step2
   [Step 3: Build a Package using TFS Team Build (Optional)]: #step3
@@ -781,15 +786,18 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Step 5: Publish a Package using TFS Team Build (Optional)]: #step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
-  [Windows Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
-  [Windows Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
+  [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
+  [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
+  [Azure Libraries]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
-  [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
+  [Azure PowerShell cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
   

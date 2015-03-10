@@ -1,35 +1,31 @@
-<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties 
+	pageTitle="How to use Service Bus queues (Java) - Azure" 
+	description="Learn how to use Service Bus queues in Azure. Code samples written in Java." 
+	services="service-bus" 
+	documentationCenter="java" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	/>
 
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
+# How to use Service Bus queues
 
-
-
-
-
-
-# How to Use Service Bus Queues
-
-This guide will show you how to use Service Bus queues. The samples are
-written in Java and use the [Windows Azure SDK for Java][]. The
+This guide describes how to use Service Bus queues. The samples are
+written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
 
-## Table of Contents
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
--   [What are Service Bus Queues?][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Security Token Provider][]
--   [How to: Create a Queue][How to: Create a Security Token Provider]
--   [How to: Send Messages to a Queue][]
--   [How to: Receive Messages from a Queue][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [Next Steps][]
-
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
-
-## <a name="bkmk_ConfigApp"> </a>Configure Your Application to Use Service Bus
+## Configure your application to use Service Bus
 
 Add the following import statements to the top of the Java file:
 
@@ -39,7 +35,7 @@ Add the following import statements to the top of the Java file:
 	import com.microsoft.windowsazure.services.core.*; 
 	import javax.xml.datatype.*;
 	
-## <a name="bkmk_HowToCreateQueue"> </a>How to Create a Queue
+## How to create a queue
 
 Management operations for Service Bus queues can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
@@ -86,7 +82,7 @@ Note that you can use the **listQueues** method on **ServiceBusContract**
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
-## <a name="bkmk_HowToSendMsgs"> </a>How to Send Messages to a Queue
+## How to send messages to a queue
 
 To send a message to a Service Bus Queue, your application will obtain a
 **ServiceBusContract** object. The below code demonstrates how to send a
@@ -136,7 +132,7 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a>How to Receive Messages from a Queue
+## How to receive messages from a queue
 
 The primary way to receive messages from a queue is to use a
 **ServiceBusContract** object. Received messages can work in two
@@ -220,7 +216,7 @@ our "TestQueue":
 	    System.exit(-1);
 	} 	
 
-## <a name="bkmk_HowToHandleAppCrashes"> </a>How to Handle Application Crashes and Unreadable Messages
+## How to handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -248,12 +244,12 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
-## <a name="bkmk_NextSteps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
-  [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
+  [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -263,12 +259,5 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
-  [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-  [Windows Azure Management Portal]: http://manage.windowsazure.com/
-  [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-  [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-  [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-  [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
-  [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
-  [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com/
+  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

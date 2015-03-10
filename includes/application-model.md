@@ -1,16 +1,16 @@
 # Compute
 
-Windows Azure enables you to deploy and monitor your application code
+Azure enables you to deploy and monitor your application code
 running inside a Microsoft data center. When you create an application
-and run it on Windows Azure, the code and configuration together is
-called a Windows Azure hosted service. Hosted services are easy to
+and run it on Azure, the code and configuration together is
+called an Azure hosted service. Hosted services are easy to
 manage, scale up and down, reconfigure, and update with new versions of
-your application's code. This article focuses on the Windows Azure
+your application's code. This article focuses on the Azure
 hosted service application model.<a id="compare" name="compare"></a>
 
 ## Table of Contents<a id="_GoBack" name="_GoBack"></a>
 
--   [Windows Azure Application Model Benefits][]
+-   [Azure Application Model Benefits][]
 -   [Hosted Service Core Concepts][]
 -   [Hosted Service Design Considerations][]
 -   [Designing your Application for Scale][]
@@ -20,58 +20,58 @@ hosted service application model.<a id="compare" name="compare"></a>
 -   [Creating and Deploying a Hosted Service][]
 -   [References][]
 
-## <a id="benefits"> </a>Windows Azure Application Model Benefits
+## <a id="benefits"> </a>Azure Application Model Benefits
 
-When you deploy your application as a hosted service, Windows Azure
+When you deploy your application as a hosted service, Azure
 creates one or more virtual machines (VMs) that contain your
 application's code, and boots the VMs on physical machines residing in
-one of the Windows Azure data centers. As client requests to your hosted
+one of the Azure data centers. As client requests to your hosted
 application enter the data center, a load balancer distributes these
-requests equally to the VMs. While your application is hosted in Windows
+requests equally to the VMs. While your application is hosted in 
 Azure, it gets three key benefits:
 
--   **High availability.** High availability means Windows Azure ensures
+-   **High availability.** High availability means Azure ensures
     that your application is running as much as possible and is able to
     respond to client requests. If your application terminates (due to
-    an unhandled exception, for example), then Windows Azure will detect
+    an unhandled exception, for example), then Azure will detect
     this, and it will automatically re-start your application. If the
     machine your application is running on experiences some kind of
-    hardware failure, then Windows Azure will also detect this and
+    hardware failure, then Azure will also detect this and
     automatically create a new VM on another working physical machine
     and run your code from there. NOTE: In order for your application to
     get Microsoft's Service Level Agreement of 99.95% available, you
     must have at least two VMs running your application code. This
-    allows one VM to process client requests while Windows Azure moves
+    allows one VM to process client requests while Azure moves
     your code from a failed VM to a new, good VM.
 
--   **Scalability.** Windows Azure lets you easily and dynamically
+-   **Scalability.** Azure lets you easily and dynamically
     change the number of VMs running your application code to handle the
     actual load being placed on your application. This allows you to
     adjust your application to the workload that your customers are
     placing on it while paying only for the VMs you need when you need
-    them. When you want to change the number of VMs, Windows Azure
+    them. When you want to change the number of VMs, Azure
     responds within minutes making it possible to dynamically change the
     number of VMs running as often as desired.
 
--   **Manageability.** Because Windows Azure is a Platform as a Service
+-   **Manageability.** Because Azure is a Platform as a Service
     (PaaS) offering, it manages the infrastructure (the hardware itself,
     electricity, and networking) required to keep these machines
-    running. Windows Azure also manages the platform, ensuring an
+    running. Azure also manages the platform, ensuring an
     up-to-date operating system with all the correct patches and
     security updates, as well as component updates such as the .NET
     Framework and Internet Information Server. Because all the VMs are
-    running Windows Server 2008, Windows Azure provides additional
+    running Windows Server 2008, Azure provides additional
     features such as diagnostic monitoring, remote desktop support,
     firewalls, and certificate store configuration. All these features
     are provided at no extra cost. In fact, when you run your
-    application in Windows Azure, the Windows Server 2008 operating
+    application in Azure, the Windows Server 2008 operating
     system (OS) license is included. Since all of the VMs are running
     Windows Server 2008, any code that runs on Windows Server 2008 works
-    just fine when running in Windows Azure.
+    just fine when running in Azure.
 
 ## <a id="concepts"> </a>Hosted Service Core Concepts
 
-When your application is deployed as a hosted service in Windows Azure,
+When your application is deployed as a hosted service in Azure,
 it runs as one or more *roles.* A *role* simply refers to application
 files and configuration. You can define one or more roles for your
 application, each with its own set of application files and
@@ -80,11 +80,11 @@ number of VMs, or *role instances*, to run. The figure below show two
 simple examples of an application modeled as a hosted service using
 roles and role instances.
 
-##### Figure 1: A single role with three instances (VMs) running in a Windows Azure data center
+##### Figure 1: A single role with three instances (VMs) running in an Azure data center
 
 ![image][0]
 
-##### Figure 2: Two roles, each with two instances (VMs), running in a Windows Azure data center
+##### Figure 2: Two roles, each with two instances (VMs), running in an Azure data center
 
 ![image][1]
 
@@ -98,17 +98,17 @@ with different input endpoints directing client requests to them.
 
 ![image][2]
 
-When you create a hosted service in Windows Azure, it is assigned a
+When you create a hosted service in Azure, it is assigned a
 publicly addressable IP address that clients can use to access it. Upon
 creating the hosted service you must also select a URL prefix that is
 mapped to that IP address. This prefix must be unique as you are
 essentially reserving the *prefix*.cloudapp.net URL so that no one else
 can have it. Clients communicate with your role instances by using the
-URL. Usually, you will not distribute or publish the Windows Azure
+URL. Usually, you will not distribute or publish the Azure
 *prefix*.cloudapp.net URL. Instead, you will purchase a DNS name from
 your DNS registrar of choice and configure your DNS name to redirect
-client requests to the Windows Azure URL. For more details, see
-[Configuring a Custom Domain Name in Windows Azure][].
+client requests to the Azure URL. For more details, see
+[Configuring a Custom Domain Name in Azure][].
 
 ## <a id="considerations"> </a>Hosted Service Design Considerations
 
@@ -117,7 +117,7 @@ several considerations to think about such as latency,
 high-availability, and scalability.
 
 Deciding where to locate your application code is an important
-consideration when running a hosted service in Windows Azure. It is
+consideration when running a hosted service in Azure. It is
 common to deploy your application to data centers that are closest to
 your clients to reduce latency and get the best performance possible.
 However, you might choose a data center closer to your company or closer
@@ -175,11 +175,11 @@ location in which you want your code to execute.
 
 To achieve high availability and scalability, it is critically important
 that your application's data be kept in a central repository accessible
-to multiple role instances. To help with this, Windows Azure offers
+to multiple role instances. To help with this, Azure offers
 several storage options such as blobs, tables, and SQL Database. Please see
-the [Data Storage Offerings in Windows Azure][] article for more
+the [Data Storage Offerings in Azure][] article for more
 information about these storage technologies. The figure below shows how
-the load balancer inside the Windows Azure data center distributes
+the load balancer inside the Azure data center distributes
 client requests to different role instances all of which have access to
 the same data storage.
 
@@ -194,13 +194,13 @@ center.
 ## <a id="scale"> </a>Designing your Application for Scale
 
 Sometimes, you may want to take a single application (like a simple web
-site) and have it hosted in Windows Azure. But frequently, your
+site) and have it hosted in Azure. But frequently, your
 application may consist of several roles that all work together. For
-example, in the figure below, there are two instances of the Web Site
+example, in the figure below, there are two instances of the Website
 role, three instances of the Order Processing role, and one instance of
 the Report Generator role. These roles are all working together and the
 code for all of them can be packaged together and deployed as a single
-unit up to Windows Azure.
+unit up to Azure.
 
 ![image][4]
 
@@ -208,22 +208,22 @@ The main reason to split an application into different roles each
 running on its own set of role instances (that is, VMs) is to scale the
 roles independently. For example, during the holiday season, many
 customers may be purchasing products from your company, so you might
-want to increase the number of role instances running your Web Site role
+want to increase the number of role instances running your Website role
 as well as the number of role instances running your Order Processing
 role. After the holiday season, you may get a lot of products returned,
-so you may still need a lot of Web Site instances but fewer Order
+so you may still need a lot of Website instances but fewer Order
 Processing instances. During the rest of the year, you may only need a
-few Web Site and Order Processing instances. Throughout all of this, you
+few Website and Order Processing instances. Throughout all of this, you
 may need only one Report Generator instance. The flexibility of
-role-based deployments in Windows Azure enables you to easily adapt your
+role-based deployments in Azure enables you to easily adapt your
 application to your business needs.
 
 It's common to have the role instances within your hosted service
-communicate with each other. For example, the web site role accepts a
+communicate with each other. For example, the website role accepts a
 customer's order but then it offloads the order processing to the Order
 Processing role instances. The best way to pass work form one set of
 role instances to another set of instances is using the queuing
-technology provided by Windows Azure, either the Queue Service or
+technology provided by Azure, either the Queue Service or
 Service Bus Queues. The use of a queue is a critical part of the story
 here. The queue allows the hosted service to scale its roles
 independently allowing you to balance the workload against cost. If the
@@ -234,7 +234,7 @@ number of Order Processing role instances. This way, you are only paying
 for the instances required to handle the actual workload.
 
 The queue also provides reliability. When scaling down the number of
-Order Processing role instances, Windows Azure decides which instances
+Order Processing role instances, Azure decides which instances
 to terminate. It may decide to terminate an instance that is in the
 middle of processing a queue message. However, because the message
 processing does not complete successfully, the message becomes visible
@@ -244,9 +244,9 @@ guaranteed to eventually get processed. The queue also acts as a load
 balancer by effectively distributing its messages to any and all role
 instances that request messages from it.
 
-For the Web Site role instances, you can monitor the traffic coming into
+For the Website role instances, you can monitor the traffic coming into
 them and decide to scale the number of them up or down as well. The
-queue allows you to scale the number of Web Site role instances
+queue allows you to scale the number of Website role instances
 independently of the Order Processing role instances. This is very
 powerful and gives you a lot of flexibility. Of course, if your
 application consists of additional roles, you could add additional
@@ -255,7 +255,7 @@ the same scaling and cost benefits.
 
 ## <a id="defandcfg"> </a>Hosted Service Definition and Configuration
 
-Deploying a hosted service to Windows Azure requires you to also have a
+Deploying a hosted service to Azure requires you to also have a
 service definition file and a service configuration file. Both of these
 files are XML files, and they allow you to declaratively specify
 deployment options for your hosted service. The service definition file
@@ -269,7 +269,7 @@ instance.
 As I mentioned earlier, the service definition (CSDEF) file is an XML
 file that describes the various roles that make up your complete
 application. The complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
 The CSDEF file contains a WebRole or WorkerRole element for each role
 that you want in your application. Deploying a role as a web role (using
 the WebRole element) means that the code will run on a role instance
@@ -429,7 +429,7 @@ Network I/O**
 You are charged hourly for each VM you use as a role instance and you
 are also charged for any data that your role instances send outside the
 data center. You are not charged for data entering the data center. For
-more information, see [Windows Azure Pricing][]. In general, it is
+more information, see [Azure Pricing][]. In general, it is
 advisable to use many small role instances as opposed to a few large
 instances so that your application is more resilient to failure. After
 all, the fewer role instances you have, the more disastrous a failure in
@@ -443,8 +443,8 @@ more useful items available to you:
 
 -   **Certificates**. You use certificates for encrypting data or if
     your web service supports SSL. Any certificates need to be uploaded
-    to Windows Azure. For more information, see [Managing Certificates
-    in Windows Azure][]. This XML setting installs previously-uploaded
+    to Azure. For more information, see [Managing Certificates
+    in Azure][]. This XML setting installs previously-uploaded
     certificates into the role instance's certificate store so that they
     are usable by your application code.
 
@@ -458,7 +458,7 @@ more useful items available to you:
 
 -   **Input Endpoints**. Here you specify any HTTP, HTTPS, or TCP
     endpoints (with ports) that you want to expose to the outside world
-    via your *prefix*.cloadapp.net URL. When Windows Azure deploys your
+    via your *prefix*.cloadapp.net URL. When Azure deploys your
     role, it will configure the firewall on the role instance
     automatically.
 
@@ -470,12 +470,12 @@ more useful items available to you:
 
 -   **Import Modules**. These optionally install useful components on
     your role instances. Components exist for diagnostic monitoring,
-    remote desktop, and Windows Azure Connect (which allows your role
+    remote desktop, and Azure Connect (which allows your role
     instance to access on-premises resources through a secure channel).
 
 -   **Local Storage**. This allocates a subdirectory on the role
     instance for your application to use. It is described in more detail
-    in the [Data Storage Offerings in Windows Azure][] article.
+    in the [Data Storage Offerings in Azure][] article.
 
 -   **Startup Tasks**. Startup tasks give you a way to install
     prerequisite components on a role instance as it boots up. The tasks
@@ -486,7 +486,7 @@ more useful items available to you:
 The service configuration (CSCFG) file is an XML file that describes
 settings that can be changed without redeploying your application. The
 complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][].
 The CSCFG file contains a Role element for each role in your
 application. Here are some of the items you can specify in the CSCFG
 file:
@@ -496,20 +496,20 @@ file:
     your application code. This OS is known as the *guest OS*, and each
     new version includes the latest security patches and updates
     available at the time the guest OS is released. If you set the
-    osVersion attribute value to "\*", then Windows Azure automatically
+    osVersion attribute value to "\*", then Azure automatically
     updates the guest OS on each of your role instances as new guest OS
     versions become available. However, you can opt out of automatic
     updates by selecting a specific guest OS version. For example,
     setting the osVersion attribute to a value of
     "WA-GUEST-OS-2.8\_201109-01" causes all your role instances to get
     what is described on this web page:
-    [http://msdn.microsoft.com/en-us/library/hh560567.aspx][]. For more
+    [http://msdn.microsoft.com/library/hh560567.aspx][]. For more
     information about guest OS versions, see [Managing Upgrades to the
-    Windows Azure Guests OS].
+    Azure Guests OS].
 
 -   **Instances**. This element's value indicates the number of role
     instances you want provisioned running the code for a particular
-    role. Since you can upload a new CSCFG file to Windows Azure
+    role. Since you can upload a new CSCFG file to Azure
     (without redeploying your application), it is trivially simple to
     change the value for this element and upload a new CSCFG file to
     dynamically increase or decrease the number of role instances
@@ -520,20 +520,19 @@ file:
 -   **Configuration Setting Values**. This element indicates values for
     settings (as defined in the CSDEF file). Your role can read these
     values while it is running. These configuration settings values are
-    typically used for connection strings to SQL Database or to Windows
+    typically used for connection strings to SQL Database or to 
     Azure Storage, but they can be used for any purpose you desire.
 
 ## <a id="hostedservices"> </a>Creating and Deploying a Hosted Service
 
-Creating a hosted service requires that you first go to the [Windows
-Azure Management Portal] and provision a hosted service by specifying
+Creating a hosted service requires that you first go to the [Azure Management Portal] and provision a hosted service by specifying
 a DNS prefix and the data center you ultimately want your code running
 in. Then in your development environment, you create your service
 definition (CSDEF) file, build your application code and package (zip)
 all these files into a service package (CSPKG) file. You must also
 prepare your service configuration (CSCFG) file. To deploy your role,
-you upload the CSPKG and CSCFG files with the Windows Azure Service
-Management API. Once deployed, Windows Azure, will provision role
+you upload the CSPKG and CSCFG files with the Azure Service
+Management API. Once deployed, Azure, will provision role
 instances in the data center (based upon the configuration data),
 extract your application code from the package, copy it to the role
 instances, and boot the instances. Now, your code is up and running.
@@ -541,26 +540,26 @@ instances, and boot the instances. Now, your code is up and running.
 The figure below shows the CSPKG and CSCFG files you create on your
 development computer. The CSPKG file contains the CSDEF file and the
 code for two roles. After uploading the CSPKG and CSCFG files with the
-Windows Azure Service Management API, Windows Azure creates the role
+Azure Service Management API, Azure creates the role
 instances in the data center. In this example, the CSCFG file indicated
-that Windows Azure should create three instances of role \#1 and two
+that Azure should create three instances of role \#1 and two
 instances of Role \#2.
 
 ![image][5]
 
 For more information about deploying, upgrading, and reconfiguring your
-roles, see the [Deploying and Updating Windows Azure Applications][]
+roles, see the [Deploying and Updating Azure Applications][]
 article.<a id="Ref" name="Ref"></a>
 
 ## <a id="references"> </a>References
 
--   [Creating a Hosted Service for Windows Azure][]
+-   [Creating a Hosted Service for Azure][]
 
--   [Managing Hosted Services in Windows Azure][]
+-   [Managing Hosted Services in Azure][]
 
--   [Migrating Applications to Windows Azure][]
+-   [Migrating Applications to Azure][]
 
--   [Configuring a Windows Azure Application][]
+-   [Configuring an Azure Application][]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
 
@@ -568,7 +567,7 @@ article.<a id="Ref" name="Ref"></a>
 
 </div>
 
-  [Windows Azure Application Model Benefits]: #benefits
+  [Azure Application Model Benefits]: #benefits
   [Hosted Service Core Concepts]: #concepts
   [Hosted Service Design Considerations]: #considerations
   [Designing your Application for Scale]: #scale
@@ -580,20 +579,20 @@ article.<a id="Ref" name="Ref"></a>
   [0]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [Configuring a Custom Domain Name in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-  [Data Storage Offerings in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
+  [Configuring a Custom Domain Name in Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Data Storage Offerings in Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   
-  [Windows Azure Pricing]: http://www.windowsazure.com/en-us/pricing/calculator/
-  [Managing Certificates in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/en-us/library/hh560567.aspx]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-  [Managing Upgrades to the Windows Azure Guests OS]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
-  [Windows Azure Management Portal]: http://manage.windowsazure.com/
+  [Azure Pricing]: http://www.windowsazure.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
-  [Deploying and Updating Windows Azure Applications]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-  [Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-  [Managing Hosted Services in Windows Azure]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-  [Migrating Applications to Windows Azure]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-  [Configuring a Windows Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+  [Deploying and Updating Azure Applications]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
+  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migrating Applications to Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configuring an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

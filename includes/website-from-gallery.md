@@ -1,34 +1,31 @@
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
+The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Azure Management Portal. 
 
 In this tutorial, you'll learn:
 
 - How to create a new site through the gallery.
 
-- How to deploy the site through the Windows Azure Portal.
+- How to deploy the site through the Azure Management Portal.
  
 You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
 
 ![Wordpress blog][13]
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account. You can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Create a Windows Azure account</a>.</p>
-</div>
-<br />
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
 
-## Create a web site in the portal
+## Create a website in the portal
 
-1. Login to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+1. Login to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click the **New** icon on the bottom left of the dashboard.
 	
 	![Create New][5]
 
-3. Click the **Web Site** icon, and click **From Gallery**.
+3. Click the **Website** icon, and click **From Gallery**.
 	
 	![Create From Gallery][6]
 
-4. Locate and click the WordPress icon in list, and then click **Next**.
+4. Click **CMS**, then select **WordPress**. Click **Next**.
 	
 	![WordPress from list][7]
 
@@ -36,33 +33,27 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 - Enter a URL name of your choice	
 - Leave **Create a new MySQL database** selected in the **Database** field
-- Select the region closest to you
+- Select the web scale group
 
 	![configure your app][8]
 
 6. Then click **Next**.
 
-7. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to you as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
+7. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to your website as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
 	
 	![create database][9]
 
-After you click **Complete** Windows Azure will initiate build and deploy operations. While the web site is being built and deployed the status of these operations is displayed at the bottom of the Web Sites page. After all operations are performed,  A final status message when the site has been successfully deployed.
+After you click **Complete** Azure will initiate build and deploy operations. While the website is being built and deployed the status of these operations is displayed at the bottom of the Websites page. After all operations are performed,  A final status message when the site has been successfully deployed.
 
 ## Launch and manage your WordPress site
 
-1. Click on your new site from the **Web Sites** page to open the dashboard for the site.
+1. Click on the URL of your new website from the **Websites** page to open its welcome page.
 
-	![launch dashboard][10]
+	![site URL][10]
 
-2. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site's welcome page.
+3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the website's login page.
 
-	![site URL][11] 
-
-3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web site's login page.
-
-	![login to WordPress][12]
-
-4. Login to the new WordPress web site by entering the username and password that you specified on the **Welcome** page.
+4. Login to the new WordPress website by entering the username and password that you specified on the **Welcome** page.
 
 5. You'll have a new WordPress site that looks similar to the site below.  
 
@@ -79,8 +70,6 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

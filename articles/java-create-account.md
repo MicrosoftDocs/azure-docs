@@ -1,3 +1,19 @@
-﻿<properties title="Java create account" pageTitle="Java create account" metaKeywords="" description="Create an account on windows azure." documentationCenter="Java" services="" solutions="" writer="waltpo" manager="bjsmith" editor="mollybos" />
+<properties 
+	pageTitle="Java create account" 
+	description="Create an account on Azure." 
+	documentationCenter="java" 
+	services="" 
+	manager="wpickett" 
+	editor="mollybos" 
+	authors="rmcmurray"/>
 
-[WACOM.INCLUDE [create-a-windows-azure-account](../includes/create-a-windows-azure-account.md)]
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="robmcm"/>
+
+[AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]

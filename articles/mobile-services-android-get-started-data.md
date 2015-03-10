@@ -1,234 +1,85 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Windows Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor="" />
+<properties 
+	pageTitle="Get started with data (Android) | Mobile Dev Center" 
+	description="Learn how to get started using Mobile Services to leverage data in your Android app." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="ricksal,glenga"/>
 
+# Add Mobile Services to an existing app
 
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
-# Get started with data in Mobile Services
-<div class="dev-center-tutorial-selector sublanding">    
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
-</div>	
-
+## Summary
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in an Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
+<p>This topic shows you how to use Azure Mobile Services to leverage data in an Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</p>
 
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">15:32</span></div>
 </div>
 
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-android">Get started with Mobile Services</a>.</p>
-</div>
+<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/develop/mobile/tutorials/get-started-android">Get started with Mobile Services</a>.</p>
 
-This tutorial walks you through these basic steps:
+> [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">here</a>.
 
-1. [Download the Android app project] 
-2. [Create the mobile service]
-3. [Add a data table for storage]
-4. [Update the app to use Mobile Services]
-5. [Test the app against Mobile Services]
+If you would like to see the Eclipse version of this tutorial, go to 
+[Get started with data using Eclipse](/documentation/articles/mobile-services-android-get-started-data-EC/).
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure Free Trial</a>.
 
-This tutorial requires the [Mobile Services Android SDK]; the <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a>, which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin; and Android 4.2 or a later version. 
+This tutorial requires the [Mobile Services Android SDK]; the <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android Studio integrated development environment</a>, which includes the Android SDK; and Android 4.2 or a later version. 
 
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK. The downloaded GetStartedWithData project requires Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.</p>
-</div>
+> [AZURE.NOTE] This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK. The downloaded GetStartedWithData project requires Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.
+<!-- -->
 
+> [AZURE.NOTE] This tutorial uses the latest version of the Mobile Services SDK. You can find an earlier version of it <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> here</a> for backward compatibility purposes, but the code contained in these tutorials does not work with it.
 
+<h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
 
-<h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
+###Get the sample code
 
-This tutorial is built on the [GetStartedWithData app][GitHub], which is an Android app. The UI for this app is identical to the app generated by the Mobile Services Android quickstart, except that added items are stored locally in memory. 
+[AZURE.INCLUDE [download-android-sample-code](../includes/download-android-sample-code.md)]
 
+###Verify Android SDK Version
 
-1. Download the `GetStartedWithData` sample app and expand the files on your computer. 
+[AZURE.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
-2. In Eclipse, click **File** then **Import**, expand **Android**, click **Existing Android Code into Workspace**, and then click **Next.** 
 
- 	![][14]
+###Inspect and run the sample code
 
-3. Click **Browse**, browse to the location of the expanded project files, click **OK**, and make sure that the TodoActivity project is checked. If you want the project copied into your workspace, check the **Copy projects into workspace** box. Finally, click **Finish**. 
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
- 	![][15]
+<h2><a name="create-service"></a>Create a new mobile service in the Management Portal</h2>
 
-	This imports the project files into the current workspace.
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-4. Look in the Eclipse Console in the bottom pane. If there are **not** any error messages of the form "**Unable to resolve target 'android-n'**", skip this step and go on to the next step. If you do see such messages, the reason is that the version of the Android SDK installed on your computer does not match the SDK target of the downloaded project. The Android SDK referenced in this tutorial is version 19, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recomend using the latest version available. To update the version, make the following changes:
+<h2><a name="add-table"></a>Add a new table to the mobile service</h2>
 
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
-- In Eclipse, click **Window**, then click **Android SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
+<h2><a name="update-app"></a>Update the app to use the mobile service for data access</h2>
 
-- Open the project file **AndroidManifest.xml**. Ensure that in the **uses-sdk** element, the **targetSdkVersion** is set to the latest version installed. The **uses-sdk** tag might look like this:
- 
-	 	    <uses-sdk
-	 	        android:minSdkVersion="8"
-	 	        android:targetSdkVersion="19" />
-	
-- In the Eclipse Package Explorer right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
 
-5. In Package Explorer, expand **GetStartedWithData**, **src**, and **.com.example.GetStartedWithData**, then examine the ToDoActivity.java file.
 
-   	![][12]
+<h2><a name="test-app"></a>Test the app against your new mobile service</h2>
 
-   	Notice that there are `//TODO` comments that specify the steps you must take to make this app work with your mobile service.
+Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.
 
-6. From the **Run** menu, click **Run As** and then click **1 Android Application** to start the project.
-
-	<div class="dev-callout"><strong>Note</strong> <p>You can run this project using an Android phone, or using the Android emulator. Running with an Android phone  requires you to download a phone-specific USB driver.</p> <p>To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.</p></div>
-
-7. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
-
-   	![][13]
-
-   	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
-
-<h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
-
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
-
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
-
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
-
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
-
-Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
-
-1. If you don't already have the [Mobile Services Android SDK], download it now and expand the compressed files.
-
-2. Copy the `.jar` files from the SDK into the `libs` folder of the GetStartedWithData project.
-
-3. In Package Explorer in Eclipse, right-click the `libs` folder, click **Refresh**, and the copied jar files will appear
-
-  	This adds the Mobile Services SDK reference to the workspace.
-
-4. Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Windows Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. From Package Explorer, Open the TodoActivity.java file located in the com.example.getstartedwithdata package, and uncomment the following lines of code: 
-
-		import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-		import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
-		import com.microsoft.windowsazure.mobileservices.NextServiceFilterCallback;
-		import com.microsoft.windowsazure.mobileservices.ServiceFilter;
-		import com.microsoft.windowsazure.mobileservices.ServiceFilterRequest;
-		import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
-		import com.microsoft.windowsazure.mobileservices.ServiceFilterResponseCallback;
-		import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
-		import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
-
-		import java.net.MalformedURLException;
- 
-6. We will remove the in-memory list currently used by the app, so we can replace it with a mobile service. In the **ToDoActivity** class, comment out the following line of code, which defines the existing **toDoItemList** list.
-
-		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
-
-7. Once the previous step is done, the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. Also remove `import java.util.ArrayList`. This fully removes the in-memory list. 
-
-8. We now add our mobile service. Uncomment the following lines of code:
-
-		private MobileServiceClient mClient;
-		private private MobileServiceTable<ToDoItem> mToDoTable;
-
-9. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
-
-10. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
-
-   	![][8]
-
-  	You will need these values when accessing the mobile service from your app code.
-
-11. In the **onCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
-
-		try {
-		// Create the Mobile Service Client instance, using the provided
-		// Mobile Service URL and key
-			mClient = new MobileServiceClient(
-					"MobileServiceUrl",
-					"AppKey", 
-					this).withFilter(new ProgressFilter());
-
-			// Get the Mobile Service Table instance to use
-			mToDoTable = mClient.getTable(ToDoItem.class);
-		} catch (MalformedURLException e) {
-			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
-		}
-
-  	This creates a new instance of MobileServiceClient that is used to access your mobile service. It also creates the MobileServiceTable instance that is used to proxy data storage in the mobile service.
-
-12. In the code above, replace `MobileServiceUrl` and `AppKey` with the URL and application key from your mobile service, in that order.
-
-13. Find the ProgressFilter class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while MobileServiceClient is running network operations.
-
-14. Uncommment these lines of the **checkItem** method:
-
-		mToDoTable.update(item, new TableOperationCallback<ToDoItem>() {	
-			public void onCompleted(ToDoItem entity, Exception exception,
-					ServiceFilterResponse response) {
-				if(exception == null){
-					if (entity.isComplete()) {
-						mAdapter.remove(entity);
-					}
-				} else {
-					createAndShowDialog(exception, "Error");	
-				}
-			}
-		});
-
-   	This sends an item update to the mobile service and removes checked items from the adapter.
-    
-15. Uncommment these lines of the **addItem** method:
-	
-		mToDoTable.insert(item, new TableOperationCallback<ToDoItem>() {
-			
-			public void onCompleted(ToDoItem entity, Exception exception,
-					ServiceFilterResponse response) {
-				if(exception == null){
-					if (!entity.isComplete()) {
-						mAdapter.add(entity);
-					}
-				} else {
-					createAndShowDialog(exception, "Error");
-				}				
-			}
-		});
-		
-
-  	This code creates a new item and inserts it into the table in the remote mobile service.
-
-16. Uncommment these lines of the **refreshItemsFromTable** method:
-
-		mToDoTable.where().field("complete").eq(false)
-		.execute(new TableQueryCallback<ToDoItem>() {
-		     public void onCompleted(List<ToDoItem> result, 
-		    		 int count, Exception exception, 
-		    		 ServiceFilterResponse response) {
-						
-						if(exception == null){
-							mAdapter.clear();
-	
-							for (ToDoItem item : result) {
-								mAdapter.add(item);
-							}
-						} else {
-							createAndShowDialog(exception, "Error");
-						}
-					}
-				}); 
-
-	This queries the mobile service and returns all items that are not marked as complete. Items are added to the adapter for binding.
-		
-
-Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
-
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
-
-1. From the **Run** menu, click **Run** to start the project in the Android emulator.
+1. From the **Run** menu, click **Run app** to start the project.
 
 	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
 
@@ -275,18 +126,8 @@ Once you have completed the data series, try these other Android tutorials:
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-
-
-
-
-
-
-
-
 [8]: ./media/mobile-services-android-get-started-data/mobile-dashboard-tab.png
 [9]: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
-
-
 [12]: ./media/mobile-services-android-get-started-data/mobile-eclipse-project.png
 [13]: ./media/mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
 [14]: ./media/mobile-services-android-get-started-data/mobile-services-import-android-workspace.png
@@ -294,15 +135,16 @@ Once you have completed the data series, try these other Android tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-android
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-android
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
+[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
-[Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125

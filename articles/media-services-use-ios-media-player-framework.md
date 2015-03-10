@@ -1,10 +1,26 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Windows Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Windows Azure Media Services iOS Media Player Framework" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Use the iOS Media Player Framework with Azure Media Services" 
+	description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
-#How to use the Windows Azure Media Services iOS Media Player Framework
+#How to use the Azure Media Services iOS Media Player Framework
 
-The Windows Azure Media Services iOS Media Player Framework library makes it easy for iPod, iPhone, and iPad developers to create rich, dynamic client applications that create and mix video and audio streams together on the fly. For example, applications that display sports content can easily insert advertisements wherever they choose and control how often those advertisements appear even when the main content is rewound. Educational applications can use the same functionality, for example, to create content in which the main lectures have asides, or sidebars, before returning to the main content.
+The Azure Media Services iOS Media Player Framework library makes it easy for iPod, iPhone, and iPad developers to create rich, dynamic client applications that create and mix video and audio streams together on the fly. For example, applications that display sports content can easily insert advertisements wherever they choose and control how often those advertisements appear even when the main content is rewound. Educational applications can use the same functionality, for example, to create content in which the main lectures have asides, or sidebars, before returning to the main content.
 
 Typically it's relatively complex work to build an application that can create content streams that result from an interaction between the application and its user - normally, you must create the entire stream from scratch and store it, in advance, on the server. Using the iOS Media Player Framework, you can build client applications that can do all of this without having control over or modifying the main content stream. You can:
 
@@ -104,12 +120,12 @@ Doing this following the preceding code schedules two content streams on the mai
 In the current release, only a **pauseTimeline=false** advertisement is supported, which means that after an advertisement ends, the player will pick up from where main content left off. 
 
 Here are some key points:
-* All **LinearTime.duration** needs to be 0 when scheduling an advertisement.
-* When **clipEndMediaTime** is longer than the duration of the advertisement, the advertisement ends after it is finished and no exception is thrown. You are advised to verify whether advertisement natural duration is within the render time (**clipEndMediaTime**) so you don't lose an ad opportunity. 
-* Pre-roll, mid-roll, and post-roll advertisements are supported. Pre-roll can only be scheduled at the very beginning of all content. For instance, you can't schedule a pre-roll for the second content in a rough cut editing (RCE) scenario. 
-* Sticky ads and play-once ads are supported and can be used in conjunction with either pre-roll, mid-roll or post-roll advertisement.
-* Advertisement format can be either .Mp4 or HLS.
-
+<ul><li> All **LinearTime.duration** needs to be 0 when scheduling an advertisement.</li>
+<li> When **clipEndMediaTime** is longer than the duration of the advertisement, the advertisement ends after it is finished and no exception is thrown. You are advised to verify whether advertisement natural duration is within the render time (**clipEndMediaTime**) so you don't lose an ad opportunity.</li> 
+<li> Pre-roll, mid-roll, and post-roll advertisements are supported. Pre-roll can only be scheduled at the very beginning of all content. For instance, you can't schedule a pre-roll for the second content in a rough cut editing (RCE) scenario. </li>
+<li> Sticky ads and play-once ads are supported and can be used in conjunction with either pre-roll, mid-roll or post-roll advertisement.</li>
+<li> Advertisement format can be either .Mp4 or HLS.</li>
+</ul>
 ### How to Schedule Pre-roll, Mid-roll, Post-roll Ads, and Ad Pods
 
 ####Scheduling Pre-roll Advertisements

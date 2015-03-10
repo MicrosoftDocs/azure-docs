@@ -1,14 +1,26 @@
-<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Windows Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on a Windows Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on a Windows Azure virtual machine" authors=""  solutions="" writer="waltpo" manager="" editor=""  />
+<properties 
+	pageTitle="Compute intensive .NET task on a virtual machine - Azure" 
+	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." 
+	services="virtual-machines" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="wpickett"/>
 
+# How to run a compute-intensive task in .NET on an Azure virtual machine
 
+With Azure, you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications. On completing this guide, you will have an understanding of how to create a virtual machine that runs a compute-intensive .NET application that can be monitored by another .NET application.
 
-
-# How to run a compute-intensive task in .NET on a Windows Azure virtual machine
-
-With Windows Azure, you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications. On completing this guide, you will have an understanding of how to create a virtual machine that runs a compute-intensive .NET application that can be monitored by another .NET application.
-
-This tutorial assumes you know how to create .NET console applications. No knowledge of Windows Azure is assumed. 
+This tutorial assumes you know how to create .NET console applications. No knowledge of Azure is assumed. 
 
 You will learn:
 
@@ -28,11 +40,11 @@ The following is an example of the .NET application monitoring the compute-inten
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 <h2>To create a virtual machine</h2>
 
-1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
@@ -53,13 +65,13 @@ The following is an example of the .NET application monitoring the compute-inten
 
 <h2>How to create a service bus namespace</h2>
 
-To begin using Service Bus queues in Windows Azure, you must first
+To begin using Service Bus queues in Azure, you must first
 create a service namespace. A service namespace provides a scoping
 container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1.  Log in to the [Azure Management Portal](https://manage.windowsazure.com).
 2.  In the left navigation pane of the Management Portal, click **Service Bus**.
 3.  In the lower pane of the Management Portal, click  **Create**.
 
@@ -68,11 +80,10 @@ To create a service namespace:
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  After ensuring the namespace name is available, choose the region in which your namespace should be hosted (make sure you use the same region in which your virtual machine is hosted).
-    <div class="dev-callout">
-    <strong>Important</strong>
-    <p>Pick the **same region** that you use or intend to use for your virtual machine. This will give you the best performance.</p>
-    </div>
-6. If you have more than one Windows Azure subscription for the account with which you're logged on, select the subscription to use for the namespace. (If you have only one subscription for the account with which you're logged on, you will not see a dropdown list containing your subscriptions.)
+
+    > [AZURE.IMPORTANT] Pick the **same region** that you use or intend to use for your virtual machine. This will give you the best performance.
+
+6. If you have more than one Azure subscription for the account with which you're logged on, select the subscription to use for the namespace. (If you have only one subscription for the account with which you're logged on, you will not see a dropdown list containing your subscriptions.)
 7. Click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 	![Click create screenshot][click_create]
@@ -96,9 +107,9 @@ namespace.
 
 <h2>How to create a .NET application that performs a compute-intensive task</h2>
 
-1. On your development machine (which does not have to be the virtual machine that you created), download the [Windows Azure SDK for .NET](http://www.windowsazure.com/en-us/develop/net/).
-2. Create a .NET console application with the project named **TSPSolver**. Ensure the traget framework is set for .**NET Framework 4** (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
-3. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to **C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\ref** and select **Microsoft.ServiceBus.dll** as a reference.
+1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for .NET](http://www.windowsazure.com/develop/net/).
+2. Create a .NET console application with the project named **TSPSolver**. Ensure the traget framework is set for .**NET Framework 4** or later (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
+3. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
 4. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.
 5. Use the example code at the end of this section for the contents of **Program.cs**.
 6. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
@@ -329,8 +340,8 @@ namespace.
 
 <h2>How to create a .NET application that monitors the progress of the compute-intensive task</h2>
 
-1. On your development machine, create a .NET console application using **TSPClient** as the project name. Ensure the traget framework is set for .**NET Framework 4** (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
-2. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to **C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\ref** and select **Microsoft.ServiceBus.dll** as a reference.
+1. On your development machine, create a .NET console application using **TSPClient** as the project name. Ensure the traget framework is set for .**NET Framework 4** or later (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
+2. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
 3. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPClient**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.
 4. Use the example code at the end of this section for the contents of **Program.cs**.
 5. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
@@ -521,7 +532,7 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
 The solver will run until it finishes examining all routes.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
  
 <h3>How to run the monitoring client application</h3>
@@ -546,7 +557,7 @@ The solver will run until it finishes examining all routes.
 For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prior to normal completion.
 
 <h2>Alternative to creating and deleting the queue with TSPSolver</h2>
-Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Windows Azure Management Portal](https://manage.windowsazure.com). Visit the service bus section of the Management Portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your service bus queues, allowing you to view metrics for your incoming and outgoing messages. 
+Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Azure Management Portal](https://manage.windowsazure.com). Visit the service bus section of the Management Portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your service bus queues, allowing you to view metrics for your incoming and outgoing messages. 
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png

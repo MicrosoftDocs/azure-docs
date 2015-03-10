@@ -1,39 +1,57 @@
-<properties linkid="manage-services-storage-using-storage-with-windows-store-apps" urlDisplayName="Windows Azure Storage in Windows Store apps" pageTitle="Use Windows Azure Storage in Windows Store Apps | Windows Azure Tutorial" metaKeywords="" description="Learn how to use Windows Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="" documentationCenter="" title="How to use Windows Azure Storage in Windows Store Apps" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Use Azure storage in Windows Store Apps | Azure" 
+	description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
+
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="03/05/2015" 
+	ms.author="tamram"/>
 
 
 
 
 
-# How to use Windows Azure Storage in Windows Store Apps
+# How to use Azure Storage in Windows Store Apps
 
-This guide shows how to get started with developing a Windows Store app that makes use of Windows Azure Storage.
+## Overview
+
+This guide shows how to get started with developing a Windows Store app that makes use of Azure Storage.
 
 ## Download Required Tools ##
 
-- [Visual Studio 2012](http://msdn.microsoft.com/en-us/library/windows/apps/br211384) makes it easy to build, debug, localize, package, and deploy Windows Store apps.
-- [Windows Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) contains types used to communicate with Windows Azure Storage, packaged in a Windows Runtime component.
-- [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/en-us/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store Apps in Visual Studio 2012.
+- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) makes it easy to build, debug, localize, package, and deploy Windows Store apps.
+- [Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) provides a class library for working with Azure Storage.
+- [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store Apps in Visual Studio 2012 and later.
 
 ## Develop Apps ##
 
-<h3>Getting ready</h3>
+### Getting ready
 
-Create a new Windows Store app project in Visual Studio 2012:
+Create a new Windows Store app project in Visual Studio 2012 or later:
 
 ![store-apps-storage-vs-project][store-apps-storage-vs-project]
 
-Next, add a reference to the Windows Azure Storage Client Library by right clicking on **References**, then choosing **Add Reference**, and browsing to the Storage Client Library for Windows Runtime that you downloaded:
+Next, add a reference to the Azure Storage Client Library by right clicking on **References**, then choosing **Add Reference**, and browsing to the Storage Client Library for Windows Runtime that you downloaded:
 
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
-<h3>Using the library with the Blob and Queue services</h3>
+### Using the library with the Blob and Queue services
 
-At this point, your app is ready to communicate with the Blob and Queue services. Add the following **using** statements so that Windows Azure Storage types can be referenced directly:
+At this point, your app is ready to call the Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Next, add a button to your page. Add the following code to its **Click** event and modify your event handler method with the [async keyword](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx):
+Next, add a button to your page. Add the following code to its **Click** event and modify your event handler method with the [async keyword](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -45,7 +63,7 @@ This code assumes that you have two string variables, *accountName* and *account
 
 Build and run the application. Clicking on the button will first check if a container named *container1* exists in your account and create it if not.
 
-<h3>Using the library with the Table service</h3>
+### Using the library with the Table service
 
 Types used to communicate with Table service depend on WCF Data Services for Windows Store Apps library. Next, add a reference to the required WCF libraries by using Package Manager Console:
 

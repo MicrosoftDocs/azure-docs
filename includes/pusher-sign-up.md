@@ -2,7 +2,7 @@ Your first step is to create a new account to use for the tutorial. You can use 
 
 ### To sign up for a Pusher account
 
-1. Log in to the [Windows Azure Management Portal][].
+1. Log in to the [Azure Management Portal][].
 
 2. In the lower pane of the management portal, click **New**.
 
@@ -16,7 +16,7 @@ Your first step is to create a new account to use for the tutorial. You can use 
 
 5. In the **Personalize Add-on** dialog select the **Pusher** plan you want to sign up for.
 
-6. Enter a name to identify your **Pusher** service in your Windows Azure settings, or use the default value of **Pusher**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
+6. Enter a name to identify your **Pusher** service in your Azure settings, or use the default value of **Pusher**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
 
 	![store-screen-1][store-screen-1]
 
@@ -65,6 +65,6 @@ For more information on getting started with Pusher, see [Understanding Pusher][
 
 <!--Links-->
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com
+[Azure Management Portal]: https://manage.windowsazure.com
 [Understanding Pusher]: http://pusher.com/docs
 

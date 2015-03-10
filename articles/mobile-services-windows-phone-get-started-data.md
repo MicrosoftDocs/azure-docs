@@ -1,26 +1,32 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Windows Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Windows Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""/>
+<properties 
+	pageTitle="Add Mobile Services to an existing app (WP8) - Azure Mobile Services" 
+	description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="glenga"/>
 
 
-# Get started with data in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
-</div>	
+# Add Mobile Services to an existing app
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title=".NET backend">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
+<p>This topic shows you how to use Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">12:54</span></div>
-</div>
-
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data in a Windows Phone 8 app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-wp8">Get started with Mobile Services</a>.</p>
 </div>
 
 This tutorial walks you through these basic steps:
@@ -31,22 +37,23 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-This tutorial requires the [Windows Phone 8 SDK] running on Windows 8. 
+This tutorial requires Visual Studio 2012 Express for Windows Phone 8 and the [Windows Phone 8 SDK] running on Windows 8. To complete this tutorial to create a Windows Phone 8.1 app, you must use Visual Studio 2013 Update 2, or a later version.
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Windows Azure Free Trial</a>.</li></ul> </div> 
+>[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Azure Free Trial</a>.
 
-<h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
+##<a name="download-app"></a>Download the GetStartedWithData project
 
-This tutorial is built on the [GetStartedWithData app][Developer Code Samples site], which is a Windows Phone 8 app. The UI for this app is identical to the app generated by the Mobile Services quickstart, except that added items are stored locally in memory. 
+This tutorial is built on the [GetStartedWithData app][Developer Code Samples site], which is a Windows Phone Silverlight 8 app project.  
 
-1. Download the GetStartedWithData sample app from the [Developer Code Samples site]. 
+1. Download the GetStartedWithData sample app project from the [Developer Code Samples site]. 
 
-2. In Visual Studio 2012 Express for Windows Phone 8, open the downloaded project and examine the MainPage.xaml.cs file.
+	>[AZURE.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. To create a Windows Phone Store app, download the [Windows Phone Store app version](http://go.microsoft.com/fwlink/p/?LinkId=397372) of the GetStartedWithData sample app project. 
+
+2. In Visual Studio, open the downloaded project and examine the MainPage.xaml.cs file.
 
    	Notice that added **TodoItem** objects are stored in an in-memory **ObservableCollection&lt;TodoItem&gt;**.
 
 3. Press the **F5** key to rebuild the project and start the app.
-
 
 4. In the app, type some text in the text box, then click the **Save** button.
 
@@ -54,21 +61,21 @@ This tutorial is built on the [GetStartedWithData app][Developer Code Samples si
 
    	Notice that the saved text is displayed in the list below.
 
-<h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
+<h2><a name="create-service"></a>Create a new mobile service in the Management Portal</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
+<h2><a name="add-table"></a>Add a new table to the mobile service</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
+<h2><a name="update-app"></a>Update the app to use the mobile service for data access</h2>
 
 Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices`, click **Install** on the **Windows Azure Mobile Services** package, then accept the license agreement.
+2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices`, click **Install** on the **Azure Mobile Services** package, then accept the license agreement.
 
   	![][7]
 
@@ -141,7 +148,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
+<h2><a name="test-app"></a>Test the app against your new mobile service</h2>
 
 1. In Visual Studio, press the F5 key to run the app.
 
@@ -157,25 +164,20 @@ Now that the app has been updated to use Mobile Services for backend storage, it
   
    	Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
 
-This concludes the **Get started with data** tutorial for Windows Phone 8.
+This concludes the tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work with data in Mobile Services. Next, consider completing the following tutorial that is based on the GetStartedWithData app that you created in this tutorial:
-
-* [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
-
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
-Once you have completed the data series, you can also try one of the following Windows Phone 8 tutorials:
+This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work with data in Mobile Services. Next, consider reading up on one of these other topics:
 
 * [Get started with authentication] 
   <br/>Learn how to authenticate users of your app.
 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.
+
+* [Mobile Services C# How-to Conceptual Reference](/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
+  <br/>Learn more about how to use Mobile Services with .NET.
  
 <!-- Anchors. -->
 [Download the Windows Phone 8 app project]: #download-app
@@ -200,14 +202,14 @@ Once you have completed the data series, you can also try one of the following W
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-wp8
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-wp8
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-wp8
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-wp8
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-wp8
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375

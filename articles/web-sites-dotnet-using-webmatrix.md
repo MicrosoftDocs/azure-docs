@@ -1,108 +1,178 @@
-<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET web site with WebMatrix - Windows Azure tutorials" metaKeywords="WebMatrix Windows Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Learn how to develop and deploy a Windows Azure web site with WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a web site with Microsoft WebMatrix" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle=".NET website with WebMatrix - Azure tutorials" 
+	description="Learn how to develop and deploy an Azure website with WebMatrix." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="2/5/2015" 
+	ms.author="tomfitz"/>
 
 
+#Develop and deploy a website with Microsoft WebMatrix
 
+## Overview
 
-
-#Develop and deploy a web site with Microsoft WebMatrix
-This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
+This guide describes how to use Microsoft WebMatrix to create and deploy a website to Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:
 
-* How to sign into Windows Azure from within WebMatrix
+* How to sign into Azure from within WebMatrix
 * How to create a site using a built in template with WebMatrix 
-* How to deploy the customized web site directly from WebMatrix to Windows Azure.
+* How to deploy the customized website directly from WebMatrix to Azure.
 
+> [AZURE.NOTE]
+> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/pricing/free-trial/">sign up for a free trial</a>.
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
-
-## Sign into Windows Azure
+## Sign into Azure
 
 1. Launch WebMatrix.
-2. If this is the first time you've used WebMatrix 3, you will be prompted to sign into Windows Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Choose to **Sign in** using your Microsoft Account.
+2. If this is the first time you've used WebMatrix 3, you will be prompted to sign into Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Choose to **Sign in** using your Microsoft Account.
 
 	![Add Account][addaccount]
 
-3. If you have signed up for a Windows Azure account, you may log in using your Microsoft Account:
+3. If you have signed up for an Azure account, you may log in using your Microsoft Account:
 
-	![Sign into Windows Azure][signin]	
+	![Sign into Azure][signin]	
 
 
-## Create a site using a built in template for Windows Azure
+## Create a site using a built in template for Azure
 
 1. On the start screen, click the **New** button, and choose **Template Gallery** to create a new site from the Template Gallery:
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. The Template Gallery will show a list of available templates that can run locally or on Windows Azure.  Select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
+2. The Template Gallery will show a list of available templates that can run locally or on Azure.  Select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
 
 	![Create Site from Template][sitefromtemplatedetails]
 
-3. If you are signed into Windows Azure, you now have the option to create a Windows Azure Web Site for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
+3. If you are signed into Azure, you now have the option to create an Azure Website for your local site.  Choose a unique name, and select the data center where you would like your site to be created: 
 
-	![Create site on Windows Azure][sitefromtemplateazure]
+	![Create site on Azure][sitefromtemplateazure]
 
-	After WebMatrix finishes building the web site, the WebMatrix IDE is displayed:
+	After WebMatrix finishes building the website, the WebMatrix IDE is displayed:
 
 	![WebMatrix IDE][howtowebmatrixide] 
 
-## Test the web site
+## Set up email
 
-The bakery sample includes a simulated order form that sends an email message with the item ordered to a Windows Live Hotmail account that you provide.
+The bakery sample includes a simulated order form that sends an email message with the item ordered. You will use the SendGrid email service on Azure to send emails from your site.
 
-1. In the left hand navigation pane of WebMatrix, expand the **bakerysample** folder.
+1. Follow the steps in the [How to Send Email Using SendGrid with Azure][sendgridexample] tutorial to set up a SendGrid account and retrieve the connection information. You do not need to do the entire tutorial - just to the point getting connection information.
 
-	![][modify1]
+2. Add the SendGrid NuGet package to your WebMatrix project. First, click the NuGet button.
 
-2. Open the *Order.cshtml* page by double-clicking the file name.
+    ![Add SendGrid][addsendgrid]
+
+    Search for SendGrid and install it.
+
+    ![Install SendGrid][installsendgrid]
+
+    After the package has finished intalling, notice that the SendGrid assemblies have been added to bin.
+
+    ![SendGrid added][binsendgrid]
+
+3. Open the *Order.cshtml* page by double-clicking the file name.
 
 	![][modify2]
 
-3. Find the comment that says //SMTP Configuration for Hotmail.
+4. At the top of the file, add the following code:
 
-	![][modify3]
+        @using SendGrid;
+        @using System.Net.Mail;
 
-4. Change the values in the following lines to match your own email provider:
+4. Find the comment that says //SMTP Configuration for Hotmail, and delete or comment out all of the code for using WebMail.
 
-		WebMail.SmtpServer = "smtp.live.com";
-		WebMail.SmtpPort  = 25;
-		WebMail.EnableSsl = true; 
+        /*
+        //SMTP Configuration for Hotmail
+        WebMail.SmtpServer = "smtp.live.com";
+        WebMail.SmtpPort = 25;
+        WebMail.EnableSsl = true;
 
-		//Enter your Hotmail credentials for UserName/Password and a "From" address for the e-mail
+        //Enter your Hotmail credentials for UserName/Password and a "From" address for the e-mail
         WebMail.UserName = "";
         WebMail.Password = "";
         WebMail.From = "";
 
-	Change the value of WebMail.SmtpServer to the name of the email server you normally use to send email. Then fill in values for the user name and password. Set the From property to your email address.
+        if (WebMail.UserName.IsEmpty() || WebMail.Password.IsEmpty() || WebMail.From.IsEmpty()) {
+            Response.Redirect("~/OrderSuccess?NoEmail=1");
+        } 
+        else {
+            try {
+                WebMail.Send(to: customerEmail, subject: "Fourth Coffee - New Order", body: body);
+                Response.Redirect("~/OrderSuccess");
+            } catch {
+                ModelState.AddFormError("There was an error and your order could not be processed at this time");
+            }
+        }*/
 
-4. On the WebMatrix ribbon click **Run** to test the site.
+
+5. Add code to use SendGrid for sending emails instead of WebMail. Add the following code in place of the code you deleted in the previous step.
+
+		 if (email.IsEmpty()) {
+            Response.Redirect("~/OrderSuccess?NoEmail=1");
+        }
+        else {
+            // Create the email object first, then add the properties.
+            SendGridMessage myMessage = new SendGridMessage();
+            myMessage.AddTo(email);
+            myMessage.From = new MailAddress("FourthCoffee@example.com", "Fourth Coffee");
+            myMessage.Subject = "Fourth Coffee - New Order";
+            myMessage.Text = body;
+
+            // Create credentials, specifying your user name and password.
+            var credentials = new NetworkCredential("[your user name", "[your password]");
+
+            // Create an Web transport for sending email.
+            var transportWeb = new Web(credentials);
+
+            // Send the email.
+            try {
+                transportWeb.Deliver(myMessage);
+                Response.Redirect("~/OrderSuccess");
+            } catch {
+                ModelState.AddFormError("There was an error and your order could not be processed at this time");
+            }
+        }
+
+
+6. On the WebMatrix ribbon click **Run** to test the site.
 
 	![][modify4]
 
-5. Click **Order Now** on one of the products and send an order to yourself.
+7. Click **Order Now** on one of the products and send an order to yourself.
 
-6. Check your email and make sure you got the order confirmation. If you have difficulties sending email, see [Issues with Sending Email][sendmailissues] in the ASP.NET Web Pages (Razor) Troubleshooting Guide.
+8. Check your email and make sure you got the order confirmation. If you have difficulties sending email, see [Issues with Sending Email][sendmailissues] in the ASP.NET Web Pages (Razor) Troubleshooting Guide.
  
 
-## Deploy the customized web site from WebMatrix to Windows Azure
+## Deploy the customized website from WebMatrix to Azure
 
-1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
+1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the website.
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated web site on Windows Azure is displayed at the bottom of the WebMatrix IDE.  
+2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated website on Azure is displayed at the bottom of the WebMatrix IDE.  
 
 	![Publishing Complete][publishcomplete]
 
-3. Click on the link to open the web site in your browser:
+3. Click on the link to open the website in your browser:
 
 	![Bakery Sample Site][bakerysample]
 
-	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites for your subscription. The URL for each web site is displayed in the URL column on the web sites page.
+	The URL for the website can also be found in the Azure portal by clicking **Websites** to display all websites for your subscription. The URL for each website is displayed in the URL column on the websites page.
 
-## Modify the web site and republish it to the Windows Azure web site
+## Modify the website and republish it to the Azure website
 
-You can use WebMatrix to modify the site and republish it to your Windows Azure web site. In the following procedure you will add a check box to indicate that the order is a gift.
+You can use WebMatrix to modify the site and republish it to your Azure website. In the following procedure you will add a check box to indicate that the order is a gift.
 
 1. Open the *Order.cshtml* page.
 
@@ -139,13 +209,13 @@ You can use WebMatrix to modify the site and republish it to your Windows Azure 
 
 7. On the **Publish Preview** dialog box, make sure both the Order.cshtml is checked, and click continue.
 
-8. Click on the link to open the web site in your browser and test the update on your Windows Azure web site.
+8. Click on the link to open the website in your browser and test the update on your Azure website.
 
 # Next Steps
 
-You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
 
-* [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
@@ -153,8 +223,11 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 
 
-[howtowebmatrixide]: ./media/web-sites-dotnet-using-webmatrix/howtowebmatrixide.png
+[howtowebmatrixide]: ./media/web-sites-dotnet-using-webmatrix/howtowebmatrixide2.png
 [howtopublishpreview]: ./media/web-sites-dotnet-using-webmatrix/howtopublishpreview.png
+[addsendgrid]: ./media/web-sites-dotnet-using-webmatrix/addsendgridpackage.png
+[installsendgrid]: ./media/web-sites-dotnet-using-webmatrix/installsendgrid.png
+[binsendgrid]: ./media/web-sites-dotnet-using-webmatrix/sendgridbin.png
 
 [publishcomplete]: ./media/web-sites-dotnet-using-webmatrix/howtopublished2.png
 [bakerysample]: ./media/web-sites-dotnet-using-webmatrix/howtobakerysamplesite.png
@@ -175,3 +248,4 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
+[sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/

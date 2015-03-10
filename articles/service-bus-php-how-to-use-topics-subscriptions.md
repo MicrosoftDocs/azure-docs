@@ -1,53 +1,53 @@
-<properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="How to use Service Bus topics (PHP) - Azure" 
+	description="Learn how to use Service Bus topics with PHP in Azure." 
+	services="service-bus" 
+	documentationCenter="php" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor=""/>
+
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 # How to Use Service Bus Topics/Subscriptions
 
-This guide will show you how to use Service Bus topics and
-subscriptions. The samples are written in PHP and use the [Windows Azure SDK for PHP][download-sdk]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
+This guide shows you how to use Service Bus topics and
+subscriptions. The samples are written in PHP and use the [Azure SDK for PHP][download-sdk]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
 
-## Table of Contents
+[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
--   [What are Service Bus Topics and Subscriptions?](#what-are-service-bus-topics)
--   [Create a Service Namespace](#create-a-service-namespace)
--   [Obtain the Default Management Credentials for the Namespace](#obtain-default-credentials)
-- 	[Create a PHP application](#CreateApplication)
--	[Get the Windows Azure Client Libraries](#GetClientLibrary)
--   [Configure Your Application to Use Service Bus](#ConfigureApp)
--   [How to: Create a Topic](#CreateTopic)
--   [How to: Create a Subscription](#CreateSubscription)
--   [How to: Send Messages to a Topic](#SendMessage)
--   [How to: Receive Messages from a Subscription](#ReceiveMessages)
--   [How to: Handle Application Crashes and Unreadable Messages](#HandleCrashes)
--   [How to: Delete Topics and Subscriptions](#DeleteTopicsAndSubscriptions)
--   [Next Steps](#NextSteps)
+## Create a PHP application
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP][download-sdk] from within your code. You can use any development tools to create your application, including Notepad.
 
-##<a id="CreateApplication"></a>Create a PHP application
-
-The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the [Windows Azure SDK for PHP][download-sdk] from within your code. You can use any development tools to create your application, including Notepad.
-
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
 
-In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
-##<a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries
+## Get the Azure client libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-##<a id="ConfigureApp"></a>Configure your application to use Service Bus
+## Configure your application to use Service Bus
 
-To use the Windows Azure Service Bus topic APIs, you need to:
+To use the Service Bus APIs:
 
 1. Reference the autoloader file using the [require_once][require-once] statement, and
 2. Reference any classes you might use.
 
 The following example shows how to include the autoloader file and reference the **ServiceBusService** class.
 
-	> [WACOM.NOTE]
-	> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
+	> [AZURE.NOTE]
+	> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -55,15 +55,15 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-##<a id="ConnectionString"></a>Setup a Windows Azure Service Bus connection
+## Set up a Service Bus connection
 
-To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
+To instantiate an Azure Service Bus client you must first have a valid connection string following this format:
 
 	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
 
 Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
 
-To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+To create any Azure service client you need to use the **ServicesBuilder** class. You can:
 
 * pass the connection string directly to it or
 * use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
@@ -80,7 +80,7 @@ For the examples outlined here, the connection string will be passed directly.
 
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-##<a id="CreateTopic"></a>How to: Create a topic
+## How to: create a topic
 
 Management operations for Service Bus topics can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
@@ -105,16 +105,16 @@ The example below shows how to instantiate a **ServiceBusRestProxy** and call **
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		// http://msdn.microsoft.com/library/windowsazure/dd179357
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> You can use the <b>listTopics</b> method on <b>ServiceBusRestProxy</b> objects to check if a topic with a specified name already exists within a service namespace.
 
-##<a id="CreateSubscription"></a>How to: Create a subscription
+## How to: create a subscription
 
 Topic subscriptions are also created with the **ServiceBusRestProxy->createSubscription** method. Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.
 
@@ -139,7 +139,7 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		// http://msdn.microsoft.com/library/windowsazure/dd179357
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -147,9 +147,9 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 
 ### Create subscriptions with filters
 
-You can also setup filters that allow you to scope which messages sent to a topic should show up within a specific topic subscription. The most flexible type of filter supported by subscriptions is the **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about SqlFilters, see [SqlFilter.SqlExpression Property][sqlfilter].
+You can also set up filters that allow you to scope which messages sent to a topic should show up within a specific topic subscription. The most flexible type of filter supported by subscriptions is the **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about SqlFilters, see [SqlFilter.SqlExpression Property][sqlfilter].
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
 
 The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3 (see [How to: Send messages to a topic](#SendMessage) for information about adding custom properties to messages):
@@ -178,7 +178,7 @@ Similarly, the following example creates a subscription named "LowMessages" with
 
 When a message is now sent to the `mytopic` topic, it will always be delivered to receivers subscribed to the `mysubscription` subscription, and selectively delivered to receivers subscribed to the "HighMessages" and "LowMessages" subscriptions (depending upon the message content).
 
-##<a id="SendMessage"></a>How to: Send messages to a topic
+## How to: send messages to a topic
 
 To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendTopicMessage** method. The code below demonstrates how to send a message to the `mytopic` topic we created above within the
 `MySBNamespace` service namespace.
@@ -203,7 +203,7 @@ To send a message to a Service Bus topic, your application will call the **Servi
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+		// http://msdn.microsoft.com/library/windowsazure/hh780775
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -225,7 +225,7 @@ Messages sent to Service Bus topics are instances of the **BrokeredMessage** cla
 
 Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
-##<a id="ReceiveMessages"></a>How to: Receive messages from a subscription
+## How to: receive messages from a subscription
 
 The primary way to receive messages from a subscription is to use a **ServiceBusRestProxy->receiveSubscriptionMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** (the default) and **PeekLock**.
 
@@ -268,13 +268,13 @@ The example below demonstrates how a message can be received and processed using
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here:
-		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+		// http://msdn.microsoft.com/library/windowsazure/hh780735
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="HandleCrashes"></a>How to: Handle application crashes and unreadable messages
+## How to: handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlockMessage** method on the received message (instead of the **deleteMessage** method). This will cause Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
 
@@ -282,7 +282,7 @@ There is also a timeout associated with a message locked within the queue, and i
 
 In the event that the application crashes after processing the message but before the **deleteMessage** request is issued, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **getMessageId** method of the message, which will remain constant across delivery attempts.
 
-##<a id="DeleteTopicsAndSubscriptions"></a>How to Delete Topics and Subscriptions
+## How to delete topics and subscriptions
 
 To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic** or the **ServiceBusRestProxy->deleteSubscripton** methods respectively. Note that deleting a topic will also delete any subscriptions that are registered with the topic.
 
@@ -304,7 +304,7 @@ The following example shows how to delete a topic (`mytopic`) and its registered
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		// http://msdn.microsoft.com/library/windowsazure/dd179357
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -314,7 +314,7 @@ By using the **deleteSubscription** method, you can delete a subscription indepe
 
 	$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
-##<a id="NextSteps"></a>Next steps
+## Next steps
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
@@ -332,14 +332,14 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
 [Next Steps]: #bkmk_NextSteps
 [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-[Windows Azure Management Portal]: http://manage.windowsazure.com/
+[Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
 [Create a New Namespace screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[sqlfilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[sqlfilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 
 [require-once]: http://php.net/require_once

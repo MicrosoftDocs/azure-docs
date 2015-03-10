@@ -1,4 +1,4 @@
-<h2><a name="what-are-service-bus-topics"></a>What are Service Bus Topics and Subscriptions</h2>
+## What are Service Bus Topics and Subscriptions
 
 Service Bus topics and subscriptions support a **publish/subscribe
 messaging communication** model. When using topics and subscriptions,
@@ -25,16 +25,16 @@ Service Bus topics and subscriptions enable you to scale to process a
 very large number of messages across a very large number of users and
 applications.
 
-<h2><a name="create-a-service-namespace"></a>Create a Service Namespace</h2>
+## Create a service namespace
 
-To begin using Service Bus topics and subscriptions in Windows Azure,
+To begin using Service Bus topics and subscriptions in Azure,
 you must first create a service namespace. A service namespace provides
 a scoping container for addressing Service Bus resources within your
 application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
     **Service Bus**.
@@ -54,18 +54,20 @@ To create a service namespace:
 	IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6. 	Click the check mark. The system now creates your service
+6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
 	![][6]
 
 
-<h2><a name="obtain-default-credentials"></a>Obtain the Default Management Credentials for the Namespace</h2>
+## Obtain the default management credentials for the namespace
 
 In order to perform management operations, such as creating a topic or
-subscription, on the new namespace, you need to obtain the management
-credentials for the namespace.
+subscription on the new namespace, you must obtain the management
+credentials for the namespace. You can obtain these credentials from either the Management Portal, or from the Visual Studio Server Explorer.
+
+###To obtain management credentials from the portal
 
 1.  In the left navigation pane, click the **Service Bus** node to
     display the list of available namespaces:   
@@ -79,11 +81,20 @@ credentials for the namespace.
 
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace. 
 
+###To obtain management credentials from Server Explorer
+
+To obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+
+Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
+
+![][34]
+
  
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
+  [34]: ./media/howto-service-bus-topics/VSProperties.png

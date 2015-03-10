@@ -1,23 +1,35 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Windows Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Selecting User Names for Linux on Azure" 
+	description="Learn how to select user names for a Linux virtual machine in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="szark"/>
 
 
 
+#Selecting User Names for Linux on Azure#
+
+When you create a Linux virtual machine, you can pick a name for the user name, or accept the default, *azureuser*. In most cases this new user doesn't exist on the base image and is created during the provisioning process. If the user exists on the base VM image, then the Azure Linux agent simply configures the password (and/or SSH key) for that user based on the information you specified when creating the VM.
+
+**However**, Linux defines a set of user names that should not be used. The provisioning process will **fail** if you try to provision a Linux VM using an existing system user, which is defined as a user with UID 0-99. A typical example is the `root` user, which has UID 0.
+
+ - See also: [Linux Standard Base - User ID Ranges](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+
+Following are user names that you should avoid using when provisioning a Linux virtual machine. We recommended that you **do not use these usernames** because the provisioning process might fail.
 
 
-#Selecting User Names for Linux on Windows Azure#
-
-When you create a virtual machine instance for Linux images on Windows Azure you have the ability to select the user name to provision.
-
-Linux defines a set of user names that you can't use. It is very important that you **avoid using these names**. If you do use one of these user names, you won't be able to provision the image.
-
-In addition, the Service Management API will return an error that states: Failed to create user *xxxxxx*. This will also be true if you use a user name that already exists in the image as a result of a previous capture operation that did not deprovision the user name already created in the image. 
-
-Following are the user names that you can't use. 
-
-
-
-OpenSUSE
--------------------
+## openSUSE
 - abrt
 - adm
 - audio
@@ -73,8 +85,8 @@ OpenSUSE
 - video
 - wheel
 
-SLES
-------------------
+
+## SLES
 - audio
 - bin
 - cdrom
@@ -120,8 +132,7 @@ SLES
 - xok
 
  
-CentOS
--------------------
+## CentOS
 - abrt
 - adm
 - audio
@@ -177,8 +188,8 @@ CentOS
 - video
 - wheel
 
-UBUNTU
--------------------
+
+## Ubuntu
 - adm
 - admin
 - audio
@@ -232,3 +243,4 @@ UBUNTU
 - voice
 - whoopsie
 - www-data
+

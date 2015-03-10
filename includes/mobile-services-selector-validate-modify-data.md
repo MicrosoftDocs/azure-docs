@@ -1,0 +1,11 @@
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(iOS | JavaScript)](/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts/)
+- [(Windows Store C# | .NET)](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/)
+- [(Windows Store C# | Javascript)](/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/)
+- [(Windows Store JavaScript | Javascript)](/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+- [(Windows Phone | .NET)](/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/)
+- [(Windows Phone | Javascript)](/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts/)
+- [(Android | Javascript)](/documentation/articles/mobile-services-android-validate-modify-data-server-scripts/)
+- [(Xamarin iOS | Javascript)](/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/)
+- [(Xamarin Android | Javascript)](/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/)
+- [(HTML | Javascript)](/documentation/articles/mobile-services-html-validate-modify-data-server-scripts/)

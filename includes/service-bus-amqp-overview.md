@@ -1,15 +1,15 @@
 # AMQP 1.0 support in Service Bus
 
 
->Both Windows Azure Service Bus and Service Bus for Windows Server (Service Bus 1.1) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and running on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
+Both the Azure Service Bus cloud service and Service Bus for Windows Server (Service Bus 1.1) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and that run on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
 
 ## Introduction: What is AMQP 1.0 and why is it important?
 
-Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers. This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker. This results in a degree of "lock-in" to that vendor, since porting an application to a different product requires re-coding all the connected applications. 
+Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers. This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker. This results in a degree of "lock-in" to that vendor, since porting an application to a different product requires code changes in all the connected applications. 
 
-Furthermore, connecting messaging brokers from different vendors is tricky and typically requires application-level bridging to move messages from one system to another, and to translate between their proprietary message formats. This is a common requirement; for example, when providing a new unified interface to older disparate systems, or integrating IT systems following a merger.
+Furthermore, connecting messaging brokers from different vendors together is tricky. This typically requires application-level bridging to move messages from one system to another and to translate between their proprietary message formats. This is a common requirement; for example, when you must provide a new unified interface to older disparate systems, or integrate IT systems following a merger.
 
-The software industry is a fast-moving business; new programming languages and application frameworks are invented at a sometimes bewildering pace. Similarly, the requirements of IT systems evolve over time and developers want to take advantage of the latest languages and frameworks. However, sometimes the selected messaging vendor does not support these platforms. Because the protocols are proprietary, it's not possible for others to provide libraries for these new platforms. Therefore, you are restricted to building gateways, bridges and other approaches.
+The software industry is a fast-moving business; new programming languages and application frameworks are invented at a sometimes bewildering pace. Similarly, the requirements of IT systems evolve over time and developers want to take advantage of the latest platform features. However, sometimes the selected messaging vendor does not support these platforms. Because the messaging product's protocols are proprietary, it's not possible for others to provide libraries for these new platforms. Therefore, you must use approaches such as building gateways or bridges to enable you to continue to use the messaging product.
 
 The development of AMQP (Advanced Message Queuing Protocol) 1.0 was motivated by these issues. It originated at JP Morgan Chase, who, like most financial services firms, are heavy users of message-oriented middleware. The goal was simple: to create an open-standard messaging protocol that makes it possible to build message-based applications using components built using different languages, frameworks, and operating systems, all using best-of-breed components from a range of suppliers.
 
@@ -42,7 +42,7 @@ Some of the commonly cited benefits of open standards include:
 
 ## AMQP 1.0 and Service Bus
 
-The addition of AMQP 1.0 means that you can now leverage the queuing and publish/subscribe brokered messaging features of Service Bus from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks and operating systems.
+The addition of AMQP 1.0 support to Service Bus means that you can now leverage its queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks and operating systems.
 
 The diagram below illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API, and .NET clients running on Windows, exchange messages via Service Bus using AMQP 1.0.
 
@@ -80,19 +80,19 @@ At this time the following client libraries are known to work with Service Bus:
 
 **Figure 2: Table of AMQP 1.0 client libraries**
 
-For more information about how to obtain and use these libraries with Service Bus, see the Service Bus AMQP Developer's Guide. See the "References" section below for further information.
+For more information about how to obtain and use these libraries with Service Bus, see the [Service Bus AMQP Developer's Guide][]. See the "References" section below for further information.
 
 ## Summary
 
 *    AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.
-*    AMQP 1.0 support is now available in Windows Azure Service Bus and Service Bus for Windows Server (Service Bus 1.1). Pricing is the same as for the existing protocols.
+*    AMQP 1.0 support is now available in Azure Service Bus as well as Service Bus for Windows Server (Service Bus 1.1). Pricing is the same as for the existing protocols.
 
 ## References
 
 *    [How to use AMQP 1.0 with the Service Bus .NET API](http://aka.ms/lym3vk)
 *    [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
+*    [Service Bus AMQP Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx)
 *    [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
-
+[Service Bus AMQP Developer's Guide]: http://msdn.microsoft.com/library/jj841071.aspx

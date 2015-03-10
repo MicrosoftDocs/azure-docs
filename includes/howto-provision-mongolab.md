@@ -1,6 +1,6 @@
-You can subscribe to an Azure-hosted, fully-managed MongoDB database in the Windows Azure Store. To do so, follow these steps:
+You can subscribe to an Azure-hosted, fully-managed MongoDB database in the Azure Store. To do so, follow these steps:
 
-1. Log into the Windows Azure Management Portal.
+1. Log into the Azure Management Portal.
 1. Click **New**.  
 ![New][button-new]
 1. Select **Store**.  
@@ -23,7 +23,7 @@ You can subscribe to an Azure-hosted, fully-managed MongoDB database in the Wind
 A success message displays when provisioning completes.  
 ![SuccessMessage][message-success]
 
-Congratulations! MongoLab has just provisioned a MongoDB database in the Windows Azure region you selected. You now have access to our management UI and 24/7 support.
+Congratulations! MongoLab has just provisioned a MongoDB database in the Azure region you selected. You now have access to our management UI and 24/7 support.
 
 [button-new]: ./media/howto-provision-mongolab/button-new.png
 [button-store]: ./media/howto-provision-mongolab/button-store.png

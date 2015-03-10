@@ -1,3 +1,19 @@
-<properties title="Python create account" pageTitle="Python create account" metaKeywords="" description="Create an account on windows azure." documentationCenter="" services="" solutions="" />
+<properties 
+	pageTitle="Python create account" 
+	description="Create an account on Azure." 
+	documentationCenter="python" 
+	services="" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-[WACOM.INCLUDE [create-a-windows-azure-account](../includes/create-a-windows-azure-account.md)]
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
+
+[AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]

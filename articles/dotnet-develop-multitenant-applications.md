@@ -1,36 +1,22 @@
-<properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Windows Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Windows Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" 
+	description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="wpickett"/>
 
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-<li><a href="/en-us/develop/net/reference/">Reference</a></li>
-<li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
-<li><a href="/en-us/develop/net/architecture/">Architecture</a></li>
-<li><a href="/en-us/develop/net/samples/">Samples</a></li>
-<li><a href="/en-us/develop/net/end-to-end-Apps/">Scenario-Based Tutorials</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to"><br />
-<ul>
-<li>In this section (jump to):</li>
-<li><a href="/en-us/develop/net/architecture/#overviews">Application architecture overviews</a></li>
-<li><strong>Application pattern: Multitenant apps</strong></li>
-<li><a href="/en-us/develop/net/architecture/load-testing-pattern/">Application pattern: Load testing</a></li>
-<li><a href="/en-us/develop/net/architecture/#designpatterns">Design patterns</a></li>
-</ul>
-</div>
-</div>
-</div>
-
-# Multitenant Applications in Windows Azure
+# Multitenant Applications in Azure
 
 A multitenant application is a shared resource that allows separate users, or "tenants," to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
 
@@ -52,49 +38,49 @@ A properly implemented multitenant application provides the following benefits t
  
 In short, while there are many considerations that you must take into account to provide a highly scalable service, there are also a number of the goals and requirements that are common to many multitenant applications. Some may not be relevant in specific scenarios, and the importance of individual goals and requirements will differ in each scenario. As a provider of the multitenant application, you will also have goals and requirements such as, meeting the tenants' goals and requirements, profitability, billing, multiple service levels, provisioning, maintainability monitoring, and automation. 
 
-For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Windows Azure][].
+For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][].
 
-Windows Azure provides many features that allow you to address the key problems encountered when designing a multitenant system. 
+Azure provides many features that allow you to address the key problems encountered when designing a multitenant system. 
 
 **Isolation** 
 
-- Segment Web site Tenants by Host Headers with or without SSL communication
-- Segment Web site Tenants by Query Parameters
+- Segment Website Tenants by Host Headers with or without SSL communication
+- Segment Website Tenants by Query Parameters
 - Web Services in Worker Roles
 	- Worker Roles. that typically process data on the backend of an application.
 	- Web Roles that typically act as the frontend for applications.
 
 **Storage**
 
-Data management such as SQL Azure Database or Windows Azure Storage services such as the Table service which provides services for storage of large amounts of unstructured data and the Blob service which provides services to store large amounts of unstructured text or binary data such as video, audio and images.
+Data management such as SQL Azure Database or Azure Storage services such as the Table service which provides services for storage of large amounts of unstructured data and the Blob service which provides services to store large amounts of unstructured text or binary data such as video, audio and images.
 
-- Securing Multitenant Data in SQL Database appropriate per-tenant SQL Server logins, 
-- Using Windows Azure Tables for Application Resources By specifying a container level access policy, you can the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures. 
-- Windows Azure Queues for Application Resources Windows Azure queues are commonly used to drive processing on behalf of tenants, but may also be used to distribute work required for provisioning or management. 
+- Securing Multitenant Data in SQL Database appropriate per-tenant SQL Server logins. 
+- Using Azure Tables for Application Resources By specifying a container level access policy, you can the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures. 
+- Azure Queues for Application Resources Azure queues are commonly used to drive processing on behalf of tenants, but may also be used to distribute work required for provisioning or management. 
 - Service Bus Queues for Application Resources that pushes work to a shared a service, you can use a single queue where each tenant sender only has permissions (as derived from claims issued from ACS) to push to that queue, while only the receivers from the service have permission to pull from the queue the data coming from multiple tenants. 
 
 
 **Connection and Security Services**
 
-- Windows Azure Service Bus, a messaging infrastructure that sits between applications allowing them to exchange messages in a loosely coupled way for improved scale and resiliency. 
+- Azure Service Bus, a messaging infrastructure that sits between applications allowing them to exchange messages in a loosely coupled way for improved scale and resiliency. 
 
 **Networking Services**
 
-Windows Azure provides several networking services that support authentication, and improve manageability of your hosted applications. These services include the following: 
+Azure provides several networking services that support authentication, and improve manageability of your hosted applications. These services include the following: 
 
-- Windows Azure Virtual Network lets you provision and manage virtual private networks (VPNs) in Windows Azure as well as securely link these with on-premises IT infrastructure. 
-- Virtual Network Traffic Manager allows you to load balance incoming traffic across multiple hosted Windows Azure services whether they're running in the same datacenter or across different datacenters around the world. 
-- Windows Azure Active Directory (Windows Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for your cloud applications. Using Windows Azure AD for Application Resources Windows Azure AD to provides an easy way of authenticating and authorizing users to gain access to your web applications and services while allowing the features of authentication and authorization to be factored out of your code. 
-- Windows Azure Service Bus provides a secure messaging and data flow capability for distributed and hybrid applications, such as communication between Windows Azure hosted applications and on-premises applications and services, without requiring complex firewall and security infrastructures. Using Service Bus Relay for Application Resources to The services that are exposed as endpoints may belong to the tenant (for example, hosted outside of the system, such as on-premise), or they may be services provisioned specifically for the tenant (because sensitive, tenant-specific data travels across them). 
+- Azure Virtual Network lets you provision and manage virtual private networks (VPNs) in Azure as well as securely link these with on-premises IT infrastructure. 
+- Virtual Network Traffic Manager allows you to load balance incoming traffic across multiple hosted Azure services whether they're running in the same datacenter or across different datacenters around the world. 
+- Azure Active Directory (Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for your cloud applications. Using Azure AD for Application Resources Azure AD to provides an easy way of authenticating and authorizing users to gain access to your web applications and services while allowing the features of authentication and authorization to be factored out of your code. 
+- Azure Service Bus provides a secure messaging and data flow capability for distributed and hybrid applications, such as communication between Azure hosted applications and on-premises applications and services, without requiring complex firewall and security infrastructures. Using Service Bus Relay for Application Resources to The services that are exposed as endpoints may belong to the tenant (for example, hosted outside of the system, such as on-premise), or they may be services provisioned specifically for the tenant (because sensitive, tenant-specific data travels across them). 
 
 
 
 **Provisioning Resources**
 
-Windows Azure provides a number of ways provision new tenants for the application. For multitenant applications with a large number of tenants, it is usually necessary to automate this process by enabling self-service provisioning.
+Azure provides a number of ways provision new tenants for the application. For multitenant applications with a large number of tenants, it is usually necessary to automate this process by enabling self-service provisioning.
 
 - Worker roles allow you to provision and de-provision per tenant resources (such as when a new tenant signs-up or cancels), collect metrics for metering use, and manage scale following a certain schedule or in response to the crossing of thresholds of key performance indicators. This same role may also be used to push out updates and upgrades to the solution. 
-- Windows Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
+- Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
 - Options for provisioning SQL Database resources for a tenant include:
 
 	- 	DDL in scripts or embedded as resources within assemblies 
@@ -102,11 +88,11 @@ Windows Azure provides a number of ways provision new tenants for the applicatio
 	- 	Copying from a master reference database 
 	- 	Using database Import and Export to provision new databases from a file. 
 
-For more in depth coverage of how you can apply Windows Azure to multitenant applications, see [Designing Multitenant Applications on Windows Azure][].
+
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Windows Azure]: http://msdn.microsoft.com/en-us/library/hh534480.aspx
-[Designing Multitenant Applications on Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh689716
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 

@@ -1,154 +1,130 @@
+<properties title="Create a Virtual Machine Running Windows Server" pageTitle="How to create a Virtual Machine Running Windows Server" description="Describes how to create a Windows virtual machine, add a data disk, and log on remotely" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+
 # Create a Virtual Machine Running Windows Server #
 
-It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Windows Azure Management Portal. This tutorial will teach you how to create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Windows Azure to use this tutorial. 
+This tutorial shows you how easy it is to create an Azure virtual machine running Windows Server, using the Image Gallery in the Windows Azure Management Portal. The Image Gallery offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images. 
 
-You will learn:
+> [AZURE.NOTE] You don't need any experience with Azure VMs to finish this tutorial. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
-- [About virtual machines in Windows Azure] []
-- [How to create the virtual machine] []
-- [How to log on to the virtual machine after you create it] []
-- [How to attach a data disk to the new virtual machine] []
+This tutorial shows you:
 
-**Note:** This tutorial creates a virtual machine that is not connected to a virtual network.  If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+- [How to create the virtual machine](#createvirtualmachine)
+- [How to log on to the virtual machine after you create it](#logon)
+- [How to attach a data disk to the new virtual machine](#attachdisk)
 
-##<a id="virtualmachine"> </a>About virtual machines in Windows Azure ##
-
-A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and re-create it whenever you need to, and you can access the virtual machine just like any other server. Virtual hard disks (.vhd files) are used to create a virtual machine. You can use the following types of virtual hard disks to create a virtual machine:
-
-- **Image** - An image is a template that you use to create a new virtual machine. An image does not have specific settings like a running virtual machine, such as the computer name and user account settings. If you use an image to create a virtual machine, an operating system disk is automatically created for the new virtual machine.
-- **Disk** - A disk is a VHD that you can boot and mount as a running version of an operating system. After an image is provisioned, it becomes a disk. A disk is always created when you use an image to create a virtual machine. Any VHD that is attached to virtualized hardware and that is running as part of a service is a disk. 
-
-You can use the following options to create a virtual machine from an image:
-
-- Create a virtual machine by using a platform image available from the Windows Azure Management Portal.
-- Create and upload a .vhd file that contains an image to Windows Azure, and then  use the uploaded image to create a virtual machine. For instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](/en-us/manage/windows/common-tasks/upload-a-vhd/).
-
-Each virtual machine resides in a cloud service, either by itself, or grouped with other virtual machines. You can place virtual machines in the same cloud service to enable the virtual machines to communicate with each other, to load-balance network traffic among virtual machines, and to maintain high availability of the machines. For more information about cloud services and virtual machines, see the "Execution Models" section in [Introducing Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=311926).
-
-##<a id="custommachine"> </a>How to create the virtual machine##
-
-This tutorial shows you how to use the **From Gallery** method in the Management Portal to create a custom virtual machine. This method provides more options than the **Quick Create** method does for configuring the virtual machine when you create it, such as the connected resources, the DNS name, and the network connectivity if needed.
+If you'd like to know more, see [Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
 
-1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
+##<a id="createvirtualmachine"> </a>How to create the virtual machine##
 
-2. On the command bar, click **New**.
+This section shows you how to use the **From Gallery** option in the Management Portal to create the virtual machine. This option provides more configuration choices than the **Quick Create** option. For example, if you want to join a virtual machine to a virtual network, you'll need to use the **From Gallery** option.
 
-3. Click **Virtual Machine**, and then click **From Gallery**.
-	
-4. From **Choose an Image**, select an image from one of the lists. (The available images may differ depending on the subscription you're using.) Click the arrow to continue.
-	
-5. If multiple versions of the image are available, in **Version Release Date**, pick the version you want to use.
-
-6. In **Virtual Machine Name**, type the name that you want to use for the virtual machine. For this virtual machine, type **MyTestVM1**.
-
-7. In **Size**, select the size of the virtual machine. The size you should select depends on the number of cores required to run your application. For this virtual machine, choose the smallest available size.
-
-8. In **New User Name**, type a name for the administrative account that you want to use to manage the server. For this virtual machine, type **MyTestVM1Admin**.
-
-9. In **New Password**, type a strong password for the administrative account on the virtual machine. In **Confirm Password**, retype the password. Click the arrow to continue.
-
-10. You can place virtual machines together under a cloud service to provide robust applications, but for this tutorial, you only create a single virtual machine. To do this, select **Create a new cloud service**.
-
-11. In **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. This name becomes part of the URI that is used to contact the virtual machine through the cloud service. For this virtual machine, type **MyService1**.
-
-12. In **Region/Affinity Group/Virtual Network**, select where you want to locate the virtual machine.
-
-13. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use an Automatically Generated Storage Account**.
-
-14. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the arrow to continue.
-
-15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=394093). **Important**: The VM Agent can be installed only when you create the virtual machine. 
- 
-16. Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such as through Remote Desktop
-and Windows PowerShell remoting. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/).
-
-17. Click the check mark to create the virtual machine.
-    
-	After the virtual machine and cloud service are created, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
-
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <a id="logon"> </a>How to log on to the virtual machine after you create it ##
 
-You can log on to the virtual machine that you created to manage both its settings and the applications that are running on it.
+This section shows you how to log on to the virtual machine so you can manage its settings and the applications that you'll run on it.
 
-1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
+1. Sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 
-2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
+2. Click **Virtual Machines**, and then select the **MyTestVM** virtual machine.
+
+	![Select MyTestVM](./media/CreateVirtualMachineWindowsTutorial/selectvm.png)
 
 3. On the command bar, click **Connect**.
 
+	![Connect to MyTestVM](./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png)
+	
 4. Click **Open** to use the remote desktop protocol file that was automatically created for the virtual machine.
 
+	![Open the rdp file](./media/CreateVirtualMachineWindowsTutorial/openrdp.png)
+	
 5. Click **Connect**.
 
-	![Continue with connecting](./media/CreateVirtualMachineWindowsTutorial/connectpublisher.png)
+	![Continue with connecting](./media/CreateVirtualMachineWindowsTutorial/connectrdc.png)
 
 6. In the password box, type the user name and password that you specified when you created the virtual machine, and then click **OK**.
 
 7. Click **Yes** to verify the identity of the virtual machine.
 
-	![Verify the identity of the machine](./media/CreateVirtualMachineWindowsTutorial/connectverify.png)
+	![Verify the identity of the machine](./media/CreateVirtualMachineWindowsTutorial/certificate.png)
 
 	You can now work with the virtual machine just like you would a server in your office.
 
 ## <a id="attachdisk"> </a>How to attach a data disk to the new virtual machine ##
 
-Your application might need to store data. To set this up, attach a data disk to the virtual machine. The easiest way to do this is to attach an empty data disk to the virtual machine.
+This section shows you how to attach an empty data disk to the virtual machine. See the [Attach a Data Disk Tutorial] (http://www.windowsazure.com/documentation/articles/storage-windows-attach-disk/) for more information on attaching empty disks as well as how to attach existing disks.
 
-1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
+1. Sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 
-2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
+2. Click **Virtual Machines**, and then select the **MyTestVM** virtual machine.
 
-3. On the command bar, click **Attach**, and then click **Attach Empty Disk**.
+	![Select MyTestVM](./media/CreateVirtualMachineWindowsTutorial/selectvm.png)
+	
+3. You may be taken to the Quick Start page first. If so, select **Dashboard** from the top.
 
-	The **Attach Empty Disk** dialog box appears.
+	![Select Dashboard](./media/CreateVirtualMachineWindowsTutorial/dashboard.png)
 
-4. The **Virtual Machine Name**, **Storage Location**, **File Name**, and **Host Cache Preference** are already defined for you. All you have to do is enter the size that you want for the disk. Type **5** in the **Size** field.
+4. On the command bar, click **Attach**, and then click **Attach Empty Disk** when it pops up.
 
-	**Note:** All disks are created from a VHD file in Windows Azure storage. You can provide a name for the VHD file that is added to storage, but Windows Azure generates the name of the disk automatically.
+	![Select Attach from the command bar](./media/CreateVirtualMachineWindowsTutorial/commandbarattach.png)	
 
-5. Click the check mark to attach the data disk to the virtual machine.
+5. The **Virtual Machine Name**, **Storage Location**, **File Name**, and **Host Cache Preference** are already defined for you. All you have to do is enter the size that you want for the disk. Type **5** in the **Size** field. Then click the check mark to attach the empty disk to the virtual machine.
 
-6. Click the name of the virtual machine. This displays the dashboard so you can verify that the data disk was successfully attached to the virtual machine.
+	![Specify the size of the empty disk](./media/CreateVirtualMachineWindowsTutorial/emptydisksize.png)	
+	
+	>[AZURE.NOTE] All disks are created from a VHD file in Windows Azure storage. Under **File Name**, you can provide the name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.
 
-	The virtual machine now has 2 disks. The disk that you attached is listed in the **Disks** table.
+6. Return to the dashboard to verify that the empty data disk was successfully attached to the virtual machine. It will be listed as a second disk in the **Disks** list along with the OS Disk.
 
-	![Attach empty disk](./media/CreateVirtualMachineWindowsTutorial/attachemptysuccess.png)
+	![Attach empty disk](./media/CreateVirtualMachineWindowsTutorial/disklistwithdatadisk.png)
 
 	After you attach the data disk to the virtual machine, the disk is offline and not initialized. Before you can use it to store data, you'll need to log on to the virtual machine and initialize the disk.
 
-7. Connect to the virtual machine by using the steps in the previous section, **How to log on to the virtual machine after you create it**.
+7. Connect to the virtual machine by using the steps in the previous section, [How to log on to the virtual machine after you create it] (#logon).
 
-8. After you log on to the virtual machine, open **Server Manager**. In the left pane, expand **Storage**, and then click **Disk Management**.
+8. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
 
-	![Initialize the disk in Server Manager](./media/CreateVirtualMachineWindowsTutorial/servermanager.png)
+	![Expand File and Storage Services in Server Manager](./media/CreateVirtualMachineWindowsTutorial/fileandstorageservices.png)
 
-9. Right-click **Disk 2**, and then click **Initialize Disk**.
+9. Select **Disks** from the expanded menu.
+
+	![Expand File and Storage Services in Server Manager](./media/CreateVirtualMachineWindowsTutorial/selectdisks.png)	
+	
+10. In the **Disks** section, there are three disks in the list: disk 0, disk 1, and disk 2. Disk 0 is the OS disk, disk 1 is a temporary resource disk (which should not be used for data storage), and disk 2 is the data disk you have attached to the virtual machine. Note that the data disk has a capacity of 5 GB as specified earlier. Right-click disk 2 and then select **Initialize**.
 
 	![Start initialization](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 
-10. Click **OK** to start the initialization process.
+11. Click **Yes** to start the initialization process.
 
-11. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
+	![Continue initialization](./media/CreateVirtualMachineWindowsTutorial/yesinitialize.png)
+
+12. Right-click disk 2 again and select **New Volume**. 
 
 	![Create the volume](./media/CreateVirtualMachineWindowsTutorial/initializediskvolume.png)
 
-	The disk is now online and ready to use with a new drive letter.
+13. Complete the wizard using the default values provided. Once the wizard is finished, a new volume will be listed in the **Volumes** section. 
 
-	![Initialization success](./media/CreateVirtualMachineWindowsTutorial/initializesuccess.png)
+	![Create the volume](./media/CreateVirtualMachineWindowsTutorial/newvolumecreated.png)
 
-
+	The disk is now online and ready to use with a new drive letter. 
+	
 ##Next Steps 
 
-To learn more about configuring Windows virtual machines on Windows Azure, see the following articles:
+To learn more about configuring Windows virtual machines on Azure, see the following articles:
 
--[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/documentation/articles/cloud-services-connect-virtual-machine/)
 
--[Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/)
+[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://www.windowsazure.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[About virtual machines in Windows Azure]: #virtualmachine
+[Attach Data Disks to a Virtual Machine](http://www.windowsazure.com/documentation/articles/storage-windows-attach-disk/)
+
+[Manage the Availability of Virtual Machines](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/)
+
+[About virtual machines in Azure]: #virtualmachine
 [How to create the virtual machine]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
+
+

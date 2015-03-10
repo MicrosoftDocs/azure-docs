@@ -1,4 +1,20 @@
-<properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Windows Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Windows Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Use the autoscaling application block (.NET) - Azure" 
+	description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="squillace" 
+	manager="timlt" 
+	editor=""/>
+
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="rasquill"/>
 
 
 
@@ -10,7 +26,7 @@
 
 This guide will demonstrate how to perform common scenarios using the
 Autoscaling Application Block from the [Microsoft Enterprise Library 5.0
-Integration Pack for Windows Azure][]. The samples are written in C\#
+Integration Pack for Azure][]. The samples are written in C\#
 and use the .NET API. The scenarios covered include **hosting the
 block**, **using constraint rules**, and **using reactive rules**. For
 more information on the Autoscaling Application Block, see the [Next Steps][] section.
@@ -19,7 +35,7 @@ more information on the Autoscaling Application Block, see the [Next Steps][] se
 
 [What is the Autoscaling Application Block?][]   
  [Concepts][]   
- [Collect Performance Counter Data from your Target Windows Azure Application][]   
+ [Collect Performance Counter Data from your Target Azure Application][]   
  [Set up a Host Application for the Autoscaling Application Block][]   
  [How to: Instantiate and Run the Autoscaler][] [How To: Define your Service Model][]   
  [How To: Define your Autoscaling Rules][]   
@@ -30,24 +46,24 @@ more information on the Autoscaling Application Block, see the [Next Steps][] se
 
 The Autoscaling Application Block can automatically scale your Windows
 Azure application based on rules that you define specifically for your
-application. You can use these rules to help your Windows Azure
+application. You can use these rules to help your Azure
 application maintain its throughput in response to changes in its
 workload, while at the same time control the costs associated with
-hosting your application in Windows Azure. Along with scaling by
+hosting your application in Azure. Along with scaling by
 increasing or decreasing the number of role instances in your
 application, the block also enables you to use other scaling actions
 such as throttling certain functionality within your application or
 using custom-defined actions.
 
-You can choose to host the block in a Windows Azure role or in an
+You can choose to host the block in an Azure role or in an
 on-premises application.
 
-The Autoscaling Application Block is part of the [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure][].
+The Autoscaling Application Block is part of the [Microsoft Enterprise Library 5.0 Integration Pack for Azure][].
 
 ## <a id="Concepts"> </a>Concepts
 
 In the following diagram, the green line shows a plot of the number of
-running instances of a Windows Azure role over two days. The number of
+running instances of an Azure role over two days. The number of
 instances changes automatically over time in response to a set of
 autoscaling rules.
 
@@ -79,36 +95,36 @@ The block stores its configuration settings in two stores:
 
 -   **Rules Store:** The Rules Store holds your business configuration;
     a list of all the autoscaling rules that you have defined for your
-    Windows Azure application. This store is typically an XML file that
+    Azure application. This store is typically an XML file that
     is located where the Autoscaling Application Block can read it, for
-    example in Windows Azure blob storage or in a local file.
+    example in Azure blob storage or in a local file.
 
 -   **Service Information Store:** The Service Information Store stores
     your operational configuration, which is the service model of your
-    Windows Azure application. This service model includes all of the
-    information about your Windows Azure application (such as role names
+    Azure application. This service model includes all of the
+    information about your Azure application (such as role names
     and storage account details) that the block needs to be able to
-    collect data points from the target Windows Azure application and to
+    collect data points from the target Azure application and to
     perform scaling operations.
 
-## <a id="PerfCounter"> </a>Collect Performance Counter Data from your Target Windows Azure Application
+## <a id="PerfCounter"> </a>Collect Performance Counter Data from your Target Azure Application
 
 Reactive rules can use performance counter data from roles as part of
 the rule definition. For example, a reactive rule may monitor the CPU
-utilization of a Windows Azure role to determine whether the block
+utilization of an Azure role to determine whether the block
 should initiate a scaling operation. The block reads performance counter
-data from the Windows Azure Diagnostics table named
-**WADPerformanceCountersTable** in Windows Azure storage.
+data from the Azure Diagnostics table named
+**WADPerformanceCountersTable** in Azure storage.
 
-By default, Windows Azure does not write performance counter data to the
-Windows Azure Diagnostics table in Windows Azure storage. Therefore, you
+By default, Azure does not write performance counter data to the
+Azure Diagnostics table in Azure storage. Therefore, you
 should modify the roles from which you need to collect performance
 counter data to save this data. For details about how to enable
-performance counters in your application, see [Using Performance Counters in Windows Azure][].
+performance counters in your application, see [Using performance counters in Azure][].
 
 ## <a id="CreateHost"> </a>Set up a Host Application for the Autoscaling Application Block
 
-You can host the Autoscaling Application Block either in a Windows Azure
+You can host the Autoscaling Application Block either in an Azure
 role or in an on-premises application. The Autoscaling Application Block
 is typically hosted in a separate application from the target
 application that you want to scale automatically. This section provides
@@ -124,7 +140,7 @@ and tools in Visual Studio and Visual Web Developer. The Autoscaling
 Application Block NuGet package is the easiest way to get the Autscaling
 Application Block APIs. For more information about **NuGet**, and how to
 install and use the **NuGet** Visual Studio extension, see the [NuGet][]
-web site.
+website.
 
 Once you have the NuGet Package Manager installed, to install the Autoscaling NuGet
 package in your application, do the following:
@@ -233,19 +249,19 @@ to the output folder. To do this:
 
 You must replace the values in square brackets with values specific to
 your environment and target application. To find many of these values,
-you will need to log in to the [Windows Azure Management Portal][].
+you will need to log in to the [Azure Management Portal][].
 
 Sign in to the management portal.
 
 -   **[subscriptionname]:** Choose a friendly name to refer to the
-    Windows Azure subscription that contains the application in which
+    Azure subscription that contains the application in which
     you want to use auto-scaling.
 
 -   **[subscriptionid]:** The unique ID of the
-    Windows Azure subscription that contains the application in which
+    Azure subscription that contains the application in which
     you want to use auto-scaling.
 
-    1.  In the Windows Azure Management Portal, click
+    1.  In the Azure Management Portal, click
         **Cloud Services**.
 
     2.  In the list of Cloud Services, click on the service that hosts the
@@ -258,7 +274,7 @@ Sign in to the management portal.
   
 	-   **[hostedservicednsprefix]:** The DNS Prefix of the hosted service in which you want to use auto-scaling.
 
-    1.  In the Windows Azure Management Portal, click
+    1.  In the Azure Management Portal, click
         **Cloud Services**.
 
     2.  In the list of Cloud Services, locate the service that hosts the
@@ -269,7 +285,7 @@ Sign in to the management portal.
  
 	-   **[targetrolename]:** The name of the role that is the target of your auto-scaling rules.
 
-    1.  In the Windows Azure Management Portal, click
+    1.  In the Azure Management Portal, click
         **Cloud Services**.
 
     2.  In the list of Cloud Services, click on the service that hosts the
@@ -280,9 +296,9 @@ Sign in to the management portal.
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
 
-	-   **[storageaccountname]** and **[storageaccountkey]:** The name of the Windows Azure storage account that you are using for your target Windows Azure application.
+	-   **[storageaccountname]** and **[storageaccountkey]:** The name of the Azure storage account that you are using for your target Azure application.
 
-    1.  In the Windows Azure Management Portal, click
+    1.  In the Azure Management Portal, click
         **Storage**.
 
     2.  In the list of Storage Accounts, select  the storage account you are using. The
@@ -296,7 +312,7 @@ Sign in to the management portal.
  
 	-   **[managementcertificatethumbprint]:** The **Thumbprint** of the Management Certificate that the block will use to secure scaling requests to the target application.
 
-    1.  In the Windows Azure Management Portal, click
+    1.  In the Azure Management Portal, click
         **Settings**.
 
     2.  The **Thumbprint** column will display the **Thumbprint**.
@@ -378,7 +394,7 @@ the **service model**:
 
 -   Both reactive rules use an **operand** named
     **WebRoleA\_CPU\_Avg\_5m** that calculates the average CPU usage
-    over the last five minutes for a Windows Azure role named
+    over the last five minutes for an Azure role named
     **AutoscalingApplicationRole.** This role is defined in the
     **service model**.
 
@@ -399,7 +415,7 @@ operational configuration information is stored in the application
 configuration file.
 
 By default, the Autoscaling Application Block expects the autoscaling
-rules and service model to be stored in Windows Azure blobs. In this
+rules and service model to be stored in Azure blobs. In this
 example, you will configure the block to load them from the local file
 system.
 
@@ -413,7 +429,7 @@ system.
   
 3.  Expand the **Autoscaling Settings** and then click the ellipsis (...)
     next to the **Data Points Store Storage Account**, add the **Account
-    name** and **Account key** of the Windows Azure storage account
+    name** and **Account key** of the Azure storage account
     where the block will store the data points that it collects (see
     [How To: Define your Service Model][] if you are unsure about where
     to find these values), and then click **OK**:  
@@ -422,7 +438,7 @@ system.
 
 4.  Expand the **Autoscaling Settings** section to reveal the **Rules
     Store** and **Service Information Store** sections. By default, they
-    are configured to use Windows Azure blob storage:  
+    are configured to use Azure blob storage:  
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
@@ -480,7 +496,7 @@ behavior.
 
 You can now run your Autoscaling Application Block host console
 application and observe how the autoscaling rules work with your target
-Windows Azure application. When you run the host console application,
+Azure application. When you run the host console application,
 you should see messages similar to the following in the Output window in
 Visual Studio. These log messages help you to understand the behavior of
 the block. For example, they indicate which rules are being matched by
@@ -530,33 +546,33 @@ autoscaling scenarios:
 -   [Using Notifications and Manual Scaling][]
 -   [Defining Scale Groups][]
 -   [Using the WASABiCmdlets for manipulating the block via Windows PowerShell][]
--   [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Windows Azure][]
--   [How Sage Reduces Windows Azure Hosting Costs Using Autoscaling][]
--   [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Windows Azure][]
+-   [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure][]
+-   [How Sage Reduces Azure Hosting Costs Using Autoscaling][]
+-   [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure][]
 
-  [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure]:
+  [Microsoft Enterprise Library 5.0 Integration Pack for Azure]:
     http://go.microsoft.com/fwlink/?LinkID=235134
   [Next Steps]: #NextSteps
   [What is the Autoscaling Application Block?]: #WhatIs
   [Concepts]: #Concepts
-  [Collect Performance Counter Data from your Target Windows Azure Application]: #PerfCounter
+  [Collect Performance Counter Data from your Target Azure Application]: #PerfCounter
   [Set up a Host Application for the Autoscaling Application Block]: #CreateHost
   [How to: Instantiate and Run the Autoscaler]: #Instantiate
   [How To: Define your Service Model]: #DefineServiceModel
   [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
   [How To: Configure the Autoscaling Application Block]: #Configure
-  [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
+  [Using performance counters in Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [Storing Your Service Information Data]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx		
-  [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
-  [Implementing Throttling Behavior]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
-  [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
-  [Extending and Modifying the Autoscaling Application Block]: http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx
-  [Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs]: http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx
-  [Using Notifications and Manual Scaling]: http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx
-  [Defining Scale Groups]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx
-  [Using the WASABiCmdlets for manipulating the block via Windows PowerShell]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx
-  [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Windows Azure]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
-  [How Sage Reduces Windows Azure Hosting Costs Using Autoscaling]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
-  [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Windows Azure]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [Storing Your Service Information Data]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx		
+  [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
+  [Implementing Throttling Behavior]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
+  [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
+  [Extending and Modifying the Autoscaling Application Block]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
+  [Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
+  [Using Notifications and Manual Scaling]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
+  [Defining Scale Groups]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
+  [Using the WASABiCmdlets for manipulating the block via Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
+  [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
+  [How Sage Reduces Azure Hosting Costs Using Autoscaling]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
+  [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx

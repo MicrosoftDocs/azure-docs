@@ -1,40 +1,59 @@
-<properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Web Site and SQL Database using WebMatrix" authors=""  solutions="" writer="" manager="" editor="mollybos"  />
+<properties 
+	pageTitle="PHP website with SQL Database and WebMatrix - Azure" 
+	description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in SQL Database." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
+
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tomfitz"/>
 
 
 
 
 
-#Create and Deploy a PHP Web Site and SQL Database using WebMatrix
+#Create and Deploy a PHP Website and SQL Database using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a PHP application that uses a Windows Azure SQL Database to a Windows Azure web site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix supports PHP and includes intellisense for PHP development. 
+This tutorial shows you how to use WebMatrix to develop and deploy a PHP application that uses an Azure SQL Database to an Azure website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development. 
 
-This tutorial assumes you have [SQL Server Express][install-SQLExpress] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having SQL Server Express installed. Instead, you can deploy your application directly to Windows Azure web sites.
+This tutorial assumes you have [SQL Server Express][install-SQLExpress] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having SQL Server Express installed. Instead, you can deploy your application directly to Azure websites.
 
-Upon completing this guide, you will have a PHP-SQL Database web site running in Windows Azure.
+Upon completing this guide, you will have a PHP-SQL Database website running in Azure.
  
 You will learn:
 
-* How to create a Windows Azure Web Site and a SQL Database using the Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
+* How to create an Azure Website and a SQL Database using the Management Portal. Because PHP is enabled in Azure Websites by default, nothing special is required to run your PHP code.
 * How to develop a PHP application using WebMatrix.
-* How to publish and re-publish your application to Windows Azure using WebMatrix.
+* How to publish and re-publish your application to Azure using WebMatrix.
  
-By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure web site. A screenshot of the running application is below:
+By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in an Azure website. A screenshot of the running application is below:
 
-![Windows Azure PHP Web Site][running-app]
+![Azure PHP Web Site][running-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [AZURE.NOTE]
+> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/pricing/free-trial/">sign up for a free trial</a>.
+> 
+> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
 ##Prerequisites
 
 1. [Download][tasklist-sqlazure-download] the Tasklist application files. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a SQL Database (SQL Server Express for local testing). The application consists of these files:
 
-* **index.php**: Displays tasks and provides a form for adding an item to the list.
-* **additem.php**: Adds an item to the list.
-* **getitems.php**: Gets all items in the database.
-* **markitemcomplete.php**: Changes the status of an item to complete.
-* **deleteitem.php**: Deletes an item.
-* **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
-* **createtable.php**: Creates the SQL Database table for the application. This file will only be called once.
+	* **index.php**: Displays tasks and provides a form for adding an item to the list.
+	* **additem.php**: Adds an item to the list.
+	* **getitems.php**: Gets all items in the database.
+	* **markitemcomplete.php**: Changes the status of an item to complete.
+	* **deleteitem.php**: Deletes an item.
+	* **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
+	* **createtable.php**: Creates the SQL Database table for the application. This file will only be called once.
 
 2. Create a SQL Server database called `tasklist`. You can do this from the `sqlcmd` command prompt with these commands:
 
@@ -44,18 +63,18 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	This step is only necessary if you want to test your application locally.
 
-## Create a web site and SQL Database
+## Create a website and SQL Database
 
 1. Login to the [Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Web Site][NewWebSite1]
+	![Create New Azure Web Site][NewWebSite1]
 
-3. Click **WEB SITE**, then **CUSTOM CREATE**.
+3. Click **WEBSITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new Web Site][NewWebSite2]
 
-	Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+	Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in web site details][NewWebSite3_SQL]
 
@@ -63,7 +82,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	![Fill in SQL Database settings][NewWebSite4_SQL]
 
-	When the web site has been created you will see the text **Creating Web Site "[SITENAME]" succeeded**. Next, you will get the database connection information.
+	When the website has been created you will see the text **Creating Website "[SITENAME]" succeeded**. Next, you will get the database connection information.
 
 5. Click **LINKED RESOURCES**, then the database's name.
 
@@ -79,7 +98,7 @@ From the **PHP** section of the resulting dialog, make note of the values for `U
 
 You can install WebMatrix from the [Management Portal][preview-portal]. 
 
-1. After logging in, navigate to your web site's Quick Start page, and click the WebMatrix icon at the bottom of the page:
+1. After logging in, navigate to your website's Quick Start page, and click the WebMatrix icon at the bottom of the page:
 
 	![Install WebMatrix][InstallWebMatrix]
 
@@ -111,7 +130,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 	In the resulting dialog, navigate to the files you downloaded earlier, select all of them, and click Open. When prompted, choose to replace the `index.php` file. 
 
-2. Next, you need to add your local SQL Server database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Web Sites.)
+2. Next, you need to add your local SQL Server database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Azure Websites.)
 
 		// DB connection info
 		$host = "localhost\sqlexpress";
@@ -130,14 +149,14 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 <h2><a id="Publish"></a>Publish your application</h2>
 
-Before publishing your application to Windows Azure Web Sites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Web Site and SQL Database](#CreateWebsite) section).
+Before publishing your application to Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create an Azure Web Site and SQL Database](#CreateWebsite) section).
 
 1. Open the `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function.
 
 		// DB connection info
 		$host = "value of $serverName";
 		$user = "value of UID";
-		$pwd = "the SQL password you created when creating the web site";
+		$pwd = "the SQL password you created when creating the website";
 		$db = "value of Database";
 	
 	Save the `taskmodel.php` file.
@@ -170,9 +189,9 @@ You can easily modify your application by editing the local copy of the site you
 
 ## Next Steps
 
-You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
 
-* [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
@@ -180,7 +199,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 
 
-[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [running-app]: ./media/web-sites-php-sql-database-use-webmatrix/tasklist_app_windows.png
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [NewWebSite1]: ./media/web-sites-php-sql-database-use-webmatrix/NewWebSite1.jpg

@@ -1,6 +1,22 @@
-<properties linkid="develop-net-how-to-guides-service-bus-amqp-overview" urlDisplayName="Service Bus AMQP Overview" pageTitle="Service Bus AMQP overview - Windows Azure " metaKeywords="" description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Windows Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Service Bus AMQP overview - Azure" 
+	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
+
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="sethm"/>
 
 
 
 
-[WACOM.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
+[AZURE.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]

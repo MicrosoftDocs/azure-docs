@@ -1,7 +1,23 @@
-<properties linkid="manage-windows-how-to-guides-detach-a-disk" urlDisplayName="Detach a Disk" pageTitle="Detach a disk from a Windows Virtual Machine in Windows Azure" metaKeywords="" description="Learn how to detach a disk from a Windows Virtual Machine in Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Detach a disk from a Windows Virtual Machine | Azure" 
+	description="Learn to detach a disk from a Virtual Machine in Azure." 
+	services="virtual-machines, storage" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="kathydav"/>
 
 
 
 
 
-[WACOM.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]

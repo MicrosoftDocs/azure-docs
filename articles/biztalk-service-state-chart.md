@@ -1,22 +1,38 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: BizTalk Service State Chart" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+<properties 
+	pageTitle="Tasks allowed in different states or statuses in BizTalk Services | Azure" 
+	description="The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
+
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mandia"/>
 
 
 
-# BizTalk Services: BizTalk Service State Chart
-Depending on the current state of the BizTalk Service, there are operations that you can or cannot perform on the BizTalk Service.
+# BizTalk Services: Service state chart
+Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.
 
-For example, you provision a new BizTalk Service in the Windows Azure Management Portal. When it completes successfully, the BizTalk Service is in Active state. In the Active State, you can Stop the BizTalk Service. If Stop is successful, the BizTalk Service goes to a Stopped state. If Stop fails, the BizTalk Service goes to a StopFailed state. In the StopFailed state, you can Restart the BizTalk Service. If you try an Operation that is not allowed, like Resume the BizTalk Service, the following error occurs:
+For example, you provision a new BizTalk service in the Azure Management Portal. When it completes successfully, the BizTalk service is in Active state. In the Active State, you can Stop the BizTalk service. If Stop is successful, the BizTalk service goes to a Stopped state. If Stop fails, the BizTalk service goes to a StopFailed state. In the StopFailed state, you can Restart the BizTalk service. If you try an Operation that is not allowed, like Resume the BizTalk service, the following error occurs:
 
 **Operation not allowed**
 
-To provision a BizTalk Service, refer to [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280).
+To provision a BizTalk Service, refer to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280).
 
-The following tables list the Operations that can be performed when the BizTalk Service is in a specific state. A check mark means the operation can be performed while in that state. A blank entry means the operation cannot be performed while in that state.
+The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state. A check mark means the operation is allowed while in that state. A blank entry means the operation cannot be performed while in that state.
 
-#### Start, Stop, Restart, Suspend, Resume, and Delete Operations
+## Start, Stop, Restart, Suspend, Resume, and Delete Operations
 <table border="1">
 <tr>
-        <th colspan="15">Operation</th>
+        <th colspan="15">Operation or Action</th>
 </tr>
 
 <tr>
@@ -146,10 +162,10 @@ RestoreFailed<br/></b></td>
 </table>
 <br/>
 
-####Scale, Update Configuration, and Backup Operations
+## Scale, Update Configuration, and Backup Operations
 <table border="1">
 <tr>
-        <th colspan="15">Operation</th>
+        <th colspan="15">Operation or Action</th>
 </tr>
 
 <tr>
@@ -240,12 +256,12 @@ RestoreFailed<br/></b></td>
 </table>
 
 ## See Also
-- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 - [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 - [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+- [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 

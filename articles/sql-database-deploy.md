@@ -1,22 +1,34 @@
-<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Windows Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Windows Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="How to deploy a SQL Database - Azure" 
+	description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
+
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="jeffreyg"/>
 
 
 
 
 
 
-<h1><a id="howtodeploySQLdb"></a>How to Deploy a Database to Windows Azure</h1>
+<h1><a id="howtodeploySQLdb"></a>How to Deploy a Database to Azure</h1>
 
-There are several different ways you can move an on-premises SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
+There are several different ways you can move an on-premises SQL Server database to Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
 
 The School sample database is conveniently simple; all of its objects are compatible with SQL Database, eliminating the need to modify or prepare a database for migration. As a new administrator, try deploying a simple database first to learn the steps before using your own databases. 
 
-**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Windows Azure. Also, consider downloading the Windows Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
+**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Azure. Also, consider downloading the Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
 
-##Table of Contents##
-* [How to: Create the school database on an on-premises server](#schooldb)
-* [How to: Deploy to SQL Database](#deploydb)
-* [How to: Verify database deployment](#verify)
 
 <h2><a id="schooldb"></a>How to: Create the school database on an on-premises server</h2>
 
@@ -520,7 +532,7 @@ Next, copy and execute the Insert Data script.
 	GO
 </pre></div>
 
-   You now have an on-premises database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
+   You now have an on-premises database that you can export to Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Azure, and imports it into SQL Database.
 
 
 <h2><a id="deploydb"></a>How to: Deploy to SQL Database</h2>
@@ -541,7 +553,7 @@ Next, copy and execute the Insert Data script.
 
 8. Click **Options**.
 
-9. In Connection Properties, in Connect to database, type **master**.
+9. In Connection Properties, in **Connect to database**, type **master**.
 
 10. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
 
@@ -553,7 +565,7 @@ Next, copy and execute the Insert Data script.
 
 1. In Management Studio, in Object Explorer refresh the databases to view the new one you just created.
 
-2. Expand the Databases folder. You should see the **school** database in the list.
+2. Expand the **Databases** folder. You should see the **school** database in the list.
 
 3. Right-click on the school database and click **New Query**.
 
@@ -579,5 +591,5 @@ Next, copy and execute the Insert Data script.
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[Getting Started with SQL Database Administration]: /en-us/manage/services/sql-databases/getting-started-w-sql-databases/  
+[Getting Started with SQL Database Administration]: /manage/services/sql-databases/getting-started-w-sql-databases/  
 

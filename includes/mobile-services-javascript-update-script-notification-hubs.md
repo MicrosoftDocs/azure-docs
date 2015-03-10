@@ -4,8 +4,6 @@ Finally, you must update the script registered to the insert operation on the To
 
 1. Click **TodoItem**, click **Script** and select **Insert**. 
 
-   	![](./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png)
-
 2. Replace the insert function with the following code, and then click **Save**:
 
 		function insert(item, user, request) {
@@ -17,7 +15,7 @@ Finally, you must update the script registered to the insert operation on the To
 		request.execute({
 		    success: function() {
 		        // If the insert succeeds, send a notification.
-		    	push.wns.send(null,payload, 'wns/toast', {
+		    	push.wns.send(null, payload, 'wns/toast', {
 		            success: function(pushResponse) {
 		                console.log("Sent push:", pushResponse);
 						request.respond();

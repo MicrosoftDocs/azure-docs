@@ -1,29 +1,45 @@
-<properties linkid="dev-nodejs-worker-app-with-socketio" urlDisplayName="App Using Socket.IO" pageTitle="Node.js application using Socket.io - Windows Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js application hosted on Windows Azure." metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties 
+	pageTitle="Node.js application using Socket.io - Azure tutorial" 
+	description="Learn how to use socket.io in a node.js application hosted on Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mwasson"/>
 
 
 
 
 
-# Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service
+# Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service
 
 Socket.IO provides realtime communication between between your node.js
 server and clients. This tutorial will walk you through hosting a
-socket.IO based chat application on Windows Azure. For more information
+socket.IO based chat application on Azure. For more information
 on Socket.IO, see <a href="http://socket.io/">http://socket.io/</a>.
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the service hosted on Windows Azure][completed-app]  
+![A browser window displaying the service hosted on Azure][completed-app]  
 
 ## Create a Cloud Service Project
 
 The following steps create the cloud service project that will host the Socket.IO application.
 
-1. From the **Start Menu** or **Start Screen**, search for **Windows Azure PowerShell**. Finally, right-click **Windows Azure PowerShell** and select **Run As Administrator**.
+1. From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**. Finally, right-click **Azure PowerShell** and select **Run As Administrator**.
 
-	![Windows Azure PowerShell icon][powershell-menu]
+	![Azure PowerShell icon][powershell-menu]
 
-	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
+	[AZURE.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 
 
@@ -58,7 +74,7 @@ and add it to the project you previously created.
 
 ### Modify Server.js and Install Modules
 
-Before testing the application in the Windows Azure emulator, we must
+Before testing the application in the Azure emulator, we must
 make some minor modifications. Perform the following steps to the
 server.js file:
 
@@ -83,10 +99,10 @@ server.js file:
 		});
 
 After saving the changes to server.js, use the following steps to
-install required modules, and then test the application in the Windows
+install required modules, and then test the application in the
 Azure emulator:
 
-1.  Using **Windows Azure PowerShell**, change directories to the **C:\\node\\chatapp\\WorkerRole1** directory and use the following command to install the modules required by this application:
+1.  Using **Azure PowerShell**, change directories to the **C:\\node\\chatapp\\WorkerRole1** directory and use the following command to install the modules required by this application:
 
         PS C:\node\chatapp\WorkerRole1> npm install
 
@@ -121,45 +137,37 @@ Azure emulator:
 
         PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
 
-4.  To deploy the application to Windows Azure, use the
+4.  To deploy the application to Azure, use the
     **Publish-AzureServiceProject** cmdlet. For example:
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.</p>
-	<p>If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Windows Azure. See the <b>Deploying the Application to Windows Azure</b> section of <a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">Build and deploy a Node.js application to a Windows Azure Cloud Service</a></p>
-	</div>
+	> [AZURE.IMPORTANT] Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.
+	> 
+	> If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
 
-    ![A browser window displaying the service hosted on Windows Azure][completed-app]
+    ![A browser window displaying the service hosted on Azure][completed-app]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Windows Azure. See the <b>Deploying the Application to Windows Azure</b> section of <a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">Build and deploy a Node.js application to a Windows Azure Cloud Service</a></p>
-	</div>
+	> [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
 
-Your application is now running on Windows Azure, and can relay chat
+Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Windows Azure SDK for Node.js GitHub repository</a>.</p>
-</div>
+> [AZURE.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the [Azure SDK for Node.js GitHub repository](https://github.com/WindowsAzure/azure-sdk-for-node).
 
 ##Next steps
 
-In this tutorial you learned how to create a basic chat application hosted in a Windows Azure Cloud Service. To learn how to host this application in a Windows Azure Web Site, see [Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site][chatwebsite].
+In this tutorial you learned how to create a basic chat application hosted in an Azure Cloud Service. To learn how to host this application in an Azure Website, see [Build a Node.js Chat Application with Socket.IO on an Azure Web Site][chatwebsite].
 
-  [chatwebsite]: /en-us/develop/nodejs/tutorials/website-using-socketio/
+  [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
-  [Windows Azure SLA]: http://www.windowsazure.com/en-us/support/sla/
-  [Windows Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure SLA]: http://www.windowsazure.com/support/sla/
+  [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
   [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-  [Windows Azure SDK for Node.js]: https://www.windowsazure.com/en-us/develop/nodejs/
-  [Node.js Web Application]: https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
+  [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-  [Windows Azure Considerations]: #windowsazureconsiderations
+  [Azure Considerations]: #windowsazureconsiderations
   [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
   [Summary and Next Steps]: #summary
   [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png

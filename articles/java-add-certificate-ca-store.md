@@ -1,9 +1,25 @@
-<properties linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Cert to the CA Store" pageTitle="Add a certificate to the Java CA store - Windows Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Windows Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
+<properties 
+	pageTitle="Add a certificate to the Java CA store - Azure" 
+	description="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Azure Service Bus." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe"/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="robmcm"/>
 
 # Adding a Certificate to the Java CA Certificates Store
-The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store. The example used is for the CA certificate required by the Twilio service. Information provided later in the topic describes how to install the CA certificate for the Windows Azure Service Bus. 
+The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store. The example used is for the CA certificate required by the Twilio service. Information provided later in the topic describes how to install the CA certificate for the Azure Service Bus. 
 
-You can use keytool to add the CA certificate prior to zipping your JDK and adding it to your Windows Azure project's **approot** folder, or you could run a Windows Azure start-up task that uses keytool to add the certificate. This example assumes you will add a CA certificate prior to the JDK being zipped. Also, a specific CA certificate will be used in the example, but the steps of obtaining a different CA certificate and importing it into the cacerts store would be similar.
+You can use keytool to add the CA certificate prior to zipping your JDK and adding it to your Azure project's **approot** folder, or you could run an Azure start-up task that uses keytool to add the certificate. This example assumes you will add a CA certificate prior to the JDK being zipped. Also, a specific CA certificate will be used in the example, but the steps of obtaining a different CA certificate and importing it into the cacerts store would be similar.
 
 ## To add a certificate to the cacerts store
 
@@ -22,17 +38,17 @@ You can use keytool to add the CA certificate prior to zipping your JDK and addi
 
 	`keytool -list -keystore cacerts`
 
-5. Zip the JDK and add it to your Windows Azure project's **approot** folder.
+5. Zip the JDK and add it to your Azure project's **approot** folder.
 
 For information about keytool, see <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
 
-# Windows Azure Root Certificates
+# Azure Root Certificates
 
-Your applications that use Windows Azure services (such as Windows Azure Service Bus) need to trust the Baltimore CyberTrust Root certificate. (Beginning April 15, 2013, Windows Azure began migrating from the GTE CyberTrust Global Root to the Baltimore CyberTrust Root. This migration took several months to complete.)
+Your applications that use Azure services (such as Azure Service Bus) need to trust the Baltimore CyberTrust Root certificate. (Beginning April 15, 2013, Azure began migrating from the GTE CyberTrust Global Root to the Baltimore CyberTrust Root. This migration took several months to complete.)
 
 The Baltimore certificate might already be installed in your cacerts store, so remember to run the **keytool -list** command first to see if it already exists.
 
 If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:b9 and SHA1 fingerprint d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. It can be downloaded from <https://cacert.omniroot.com/bc2025.crt>, saved to a local file with extension **.cer**, and then imported using **keytool** as shown above.
 
-For more information about the root certificates used by Windows Azure, see [Windows Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
+For more information about the root certificates used by Azure, see [Windows Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 

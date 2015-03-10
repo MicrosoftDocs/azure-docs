@@ -1,55 +1,50 @@
-<properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Windows Azure feature guide" metaKeywords="" description="Learn how to use the Windows Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Windows Azure SQL Database in Java" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties 
+	pageTitle="How to use SQL Azure (Java) - Azure feature guide" 
+	description="Learn how to use the Azure SQL Database from Java code." 
+	services="sql-database" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-# How to Use Windows Azure SQL Database in Java
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="robmcm"/>
 
-The following steps show you how to use Windows Azure SQL Database with Java. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Windows Azure, or in other environments. This guide covered creating a server and creating a database from the [Windows Azure Management Portal](https://windows.azure.com). For information about performing these tasks from the production portal, see [Using SQL Database with Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx).
+# How to Use Azure SQL Database in Java
 
-## What is Windows Azure SQL Database
+The following steps show you how to use Azure SQL Database with Java. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Azure, or in other environments. This guide covers creating a server and creating a database from the [Azure Management Portal](https://windows.azure.com).
 
-Windows Azure SQL Database provides a relational database management system for Windows Azure, and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
+## What is Azure SQL Database
 
-## Table of Contents
+Azure SQL Database provides a relational database management system for Azure, and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
--   [Concepts][]
--   [Prerequisites][]
--   [Creating a Windows Azure SQL Database][]
--   [Determining the SQL Database connection string][]
--   [To allow access to a range of IP addresses][]
--   [To use Windows Azure SQL Database in Java][]
--   [Communicating with Windows Azure SQL Database from your code][]
--   [To create a table][]
--   [To create an index on a table][]
--   [To insert rows][]
--   [To retrieve rows][]
--   [To retrieve rows using a WHERE clause][]
--   [To retrieve a count of rows][]
--   [To update rows][]
--   [To delete rows][]
--   [To check whether a table exists][]
--   [To drop an index][]
--   [To drop a table][]
--   [Using SQL Database in Java within a Windows Azure Deployment][]
--   [Next steps][]
 
-<h2><a id="concepts"></a>Concepts</h2>
-Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Database from Java is very similar to accessing SQL Server from Java. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. You can use a SQL Server JDBC driver for your application. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx).
+
+## Concepts
+Because Azure SQL Database is built on SQL Server technologies, accessing SQL Database from Java is very similar to accessing SQL Server from Java. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. You can use a SQL Server JDBC driver for your application. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ff394102.aspx).
 
 For additional resources for SQL Database, see the [Next steps][] section.
 
-<h2><a id="prerequisites"></a>Prerequisites</h2>
+## Prerequisites
 
 The following are prerequisites if you intend to use SQL Database with Java.
 
 * A Java Developer Kit (JDK), v 1.6 or later.
-* A Windows Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-* If you are using Eclipse, you'll need Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. You will also need the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
-* If you are not using Eclipse, you will need the Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/en-us/download/details.aspx?id=11774>.
+* An Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
+* If you are using Eclipse, you'll need Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. You will also need the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+* If you are not using Eclipse, you will need the Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/download/details.aspx?id=11774>.
 
-<h2><a id="create_db"></a>Creating a Windows Azure SQL Database</h2>
+## Creating an Azure SQL Database
 
-Before using Windows Azure SQL Database in Java code, you will need to create a Windows Azure SQL Database server.
+Before using Azure SQL Database in Java code, you will need to create an Azure SQL Database server.
 
-1. Login to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1. Login to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 
     ![Create new SQL database][create_new]
@@ -64,15 +59,15 @@ Before using Windows Azure SQL Database in Java code, you will need to create a 
     ![SQL database settings][create_database_settings]
 
 6. Click the next arrow.	
-7. In the **Server settings** dialog, specify a SQL Server login name. For purposes of this guide, **MySQLAdmin** was used. Specify and confirm a password. Specify a region, and ensure that **Allow Windows Azure Services to access the server** is checked.
+7. In the **Server settings** dialog, specify a SQL Server login name. For purposes of this guide, **MySQLAdmin** was used. Specify and confirm a password. Specify a region, and ensure that **Allow Azure Services to access the server** is checked.
 
     ![SQL server settings][create_server_settings]
 
 8. Click the completion button.
 
-<h2><a id="determine_connection_string"></a>Determining the SQL Database connection string</h2>
+## Determining the SQL Database connection string
 
-1. Login to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1. Login to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click **SQL Databases**.
 3. Click the database that you want to use.
 4. Click **Show connection strings**.
@@ -94,7 +89,8 @@ Before using Windows Azure SQL Database in Java code, you will need to create a 
 
 We'll actually use this string later in this guide, for now you know the steps to determine the connection string. Also, depending on your application needs, you may not need to use the **encrypt** and **hostNameInCertificate** settings, and you may need to modify the **loginTimeout** setting.
 
-<h2><a id="specify_allowed_ips"></a>To allow access to a range of IP addresses</h2>
+## To allow access to a range of IP addresses
+
 1. Login to the [Management Portal](https://manage.windowsazure.com).
 2. Click **SQL Databases**.
 3. Click **Servers**.
@@ -107,7 +103,7 @@ We'll actually use this string later in this guide, for now you know the steps t
 
 8. Click the completion button. The IP addresses that you specify will now be allowed access to your database server.
 
-<h2><a id="use_sql_azure_in_java"></a>To use Windows Azure SQL Database in Java</h2>
+## To use Azure SQL Database in Java
 
 1. Create a Java project. For purposes of this tutorial, call it **HelloSQLAzure**.
 2. Add a Java class file named **HelloSQLAzure.java** to the project.
@@ -121,7 +117,7 @@ We'll actually use this string later in this guide, for now you know the steps t
     4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
     5. Click **OK** to close the **Properties** dialog.
 
-    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
+    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/library/ms378526.aspx).
 
 4. Within your **HelloSQLAzure.java** code, add in `import` statements as shown in the following:
 
@@ -138,7 +134,7 @@ We'll actually use this string later in this guide, for now you know the steps t
 
 You're now ready to add in code that will communicate with your SQL Database server.
 
-<h2><a id="communicate_from_code"></a>Communicating with Windows Azure SQL Database from your code</h2>
+## Communicating with Azure SQL Database from your code
 
 The remainder of this topic shows examples that do the following:
 
@@ -149,7 +145,7 @@ The remainder of this topic shows examples that do the following:
 
 The following sections are intended to be read (sampled) in order. The first snippet is a complete sample; the others would rely on part of the framework in the complete sample, such as the **import** statements, **class** and **main** declarations, error handling and resource closing.
 
-<h2><a id="to_create_table"></a>To create a table</h2>
+## To create a table
 
 The following code shows you how to create a table named **Person**.
 
@@ -234,7 +230,7 @@ The following code shows you how to create a table named **Person**.
 	}
 	
 
-<h2><a id="to_create_index"></a>To create an index on a table</h2>
+## To create an index on a table
 
 The following code shows you how to create an index named **index1** on the **Person** table, using the **PersonID** column.
 
@@ -280,7 +276,7 @@ The following code shows you how to create an index named **index1** on the **Pe
 
 
 
-<h2><a id="to_insert_rows"></a>To insert rows</h2>
+## To insert rows
 
 The following code shows you how to add rows to the **Person** table.
 
@@ -332,7 +328,7 @@ The following code shows you how to add rows to the **Person** table.
 	// Exception handling and resource closing not shown...
 
  
-<h2><a id="to_retrieve_rows"></a>To retrieve rows</h2>
+## To retrieve rows
 
 The following code shows you how to retrieve rows from the **Person** table.
 
@@ -392,7 +388,7 @@ The following code shows you how to retrieve rows from the **Person** table.
 	String sqlString = "SELECT * FROM Person";
 
  
-<h2><a id="to_retrieve_rows_using_where"></a>To retrieve rows using a WHERE clause</h2>
+## To retrieve rows using a WHERE clause
 
 To retrieve rows using a clause, use the code as shown above, except change the SQL statement to include a clause. The following SQL statement includes a clause for rows whose **FirstName** value equals **Jim**.
 
@@ -452,7 +448,7 @@ The following code shows you how to retrieve a count of rows from the **Person**
 	}
 	// Exception handling and resource closing not shown...
 
-<h2><a id="to_update_rows"></a>To update rows</h2>
+## To update rows
 
 The following code shows you how to update rows. In this example, the **LastName** value is changed to **Kim** for any rows where the **FirstName** value is **Jim**.
 
@@ -497,7 +493,7 @@ The following code shows you how to update rows. In this example, the **LastName
 
  
 
-<h2><a id="to_delete_rows"></a>To delete rows</h2>
+## To delete rows
 
 The following code shows you how to delete rows. In this example, any rows where the **FirstName** value is **Jim** are deleted.
 
@@ -543,7 +539,7 @@ The following code shows you how to delete rows. In this example, any rows where
 	// Exception handling and resource closing not shown...
 	
  
-<h2><a id="to_check_table_existence"></a>To check whether a table exists</h2>
+## To check whether a table exists
 
 The following code shows you how to determine whether a table exists.
 
@@ -598,7 +594,7 @@ The following code shows you how to determine whether a table exists.
 	}
 	// Exception handling and resource closing not shown...
 
-<h2><a id="to_drop_index"></a>To drop an index</h2>
+## To drop an index
 
 The following code shows you how to drop an index named **index1** on the **Person** table.
 
@@ -644,7 +640,7 @@ The following code shows you how to drop an index named **index1** on the **Pers
 	// Exception handling and resource closing not shown...
 
  
-<h2><a id="to_drop_table"></a>To drop a table</h2>
+## To drop a table
 
 The following code shows you how to drop a table named **Person**.
 
@@ -687,9 +683,9 @@ The following code shows you how to drop a table named **Person**.
 	}
 	// Exception handling and resource closing not shown...
 
-<h2><a id="using_in_azure"></a>Using SQL Database in Java within a Windows Azure Deployment</h2>
+## Using SQL Database in Java within an Azure Deployment
 
-To use SQL Database in Java within a Windows Azure deployment, in addition to having Microsoft JDBC Driver 4.0 for SQL Server as a library in your class path as shown above, you'll need to package it with your deployment.
+To use SQL Database in Java within an Azure deployment, in addition to having Microsoft JDBC Driver 4.0 for SQL Server as a library in your class path as shown above, you'll need to package it with your deployment.
 
 
 **Packaging the Microsoft JDBC Driver 4.0 SQL Server if you are using Eclipse**
@@ -699,23 +695,23 @@ To use SQL Database in Java within a Windows Azure deployment, in addition to ha
 3. In the **New Assembly Directive** dialog, click **Java Build Path Entries** and then click **Next**.
 4. Select **Microsoft JDBC Driver 4.0 SQL Server** and then click **Finish**.
 5. Click **OK** to close the **Properties** dialog.
-6. Export your project's WAR file to your approot folder, and rebuild your Azure project, per the steps documented at [Creating a Hello World Application Using the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx). That topic also describes how to run your application in the compute emulator, and in Windows Azure.
+6. Export your project's WAR file to your approot folder, and rebuild your Azure project, per the steps documented at [Creating a Hello World Application Using the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). That topic also describes how to run your application in the compute emulator, and in Azure.
 
 **Packaging the Microsoft JDBC Driver 4.0 SQL Server if you are not using Eclipse**
 
 * Ensure the Microsoft JDBC Driver 4.0 SQL Server library is included within the same Azure role as your Java application, and added to the class path of your application.
 
-<h2><a id="nextsteps"></a>Next steps</h2>
+## Next steps
 
-To learn more about Microsoft JDBC Driver for SQL Server, see [Overview of the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378749.aspx). To learn more about SQL Database, see [SQL Database Overview](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx).
+To learn more about Microsoft JDBC Driver for SQL Server, see [Overview of the JDBC Driver](http://msdn.microsoft.com/library/ms378749.aspx). To learn more about SQL Database, see [SQL Database Overview](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
 
 [Concepts]:#concepts
 [Prerequisites]:#prerequisites
-[Creating a Windows Azure SQL Database]:#create_db
+[Creating an Azure SQL Database]:#create_db
 [Determining the SQL Database connection string]:#determine_connection_string
 [To allow access to a range of IP addresses]:#specify_allowed_ips
-[To use Windows Azure SQL Database in Java]:#use_sql_azure_in_java
-[Communicating with Windows Azure SQL Database from your code]:#communicate_from_code
+[To use Azure SQL Database in Java]:#use_sql_azure_in_java
+[Communicating with Azure SQL Database from your code]:#communicate_from_code
 [To create a table]:#to_create_table
 [To create an index on a table]:#to_create_index
 [To insert rows]:#to_insert_rows
@@ -727,7 +723,7 @@ To learn more about Microsoft JDBC Driver for SQL Server, see [Overview of the J
 [To check whether a table exists]:#to_check_table_existence
 [To drop an index]:#to_drop_index
 [To drop a table]:#to_drop_table
-[Using SQL Database in Java within a Windows Azure Deployment]:#using_in_azure
+[Using SQL Database in Java within an Azure Deployment]:#using_in_azure
 [Next steps]:#nextsteps
 [create_new]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
 [create_new_sql_db]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
