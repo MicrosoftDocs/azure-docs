@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Publishing from Source Control to Azure Web Apps" 
+	pageTitle="Using Git to deploy Web Apps in Azure App Service" 
 	description="Learn how to use Git to publish an Azure web app, and then enable continuous deployment from Bitbucket, CodePlex, Dropbox, GitHub, or Mercurial." 
 	services="app-service-web" 
 	documentationCenter=".net" 

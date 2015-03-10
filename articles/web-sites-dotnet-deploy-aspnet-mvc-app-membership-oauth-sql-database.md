@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to Azure App Service Web App" 
-	description="Learn how to develop an ASP.NET MVC 5 app with a SQL Database back-end deploy it to Azure." 
+	pageTitle="Create and deploy an ASP.NET MVC app with authentication and SQL DB" 
+	description="Learn how to develop an ASP.NET MVC 5 app with a SQL Database back-end, add authentication and authorization, and deploy it to Azure." 
 	services="app-service-web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
@@ -19,7 +19,7 @@
 
 
 
-# Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to Web App in Azure App Service
+# Create and deploy an ASP.NET MVC app with authentication and SQL DB
 
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Azure.
 
