@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="03/04/2015"
+   ms.date="03/10/2015"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application #
@@ -65,7 +65,11 @@ The sample application we'll be exploring creates a new index named "stores", po
     // This sample shows how to delete, create, upload documents and query an index
     static void Main(string[] args)
     {
-        string searchServiceName = "myservice"; // Put your search service name here. 
+        // Put your search service name here. This is the hostname portion of your service URL.
+        // For example, if your service URL is https://myservice.search.windows.net, then your
+        // service name is myservice.
+        string searchServiceName = "myservice"; 
+        
         string apiKey = "Put your API admin key here."
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
@@ -93,7 +97,11 @@ The sample application we'll be exploring creates a new index named "stores", po
 
 We'll walk through this step by step. First we need to create a new `SearchServiceClient`. This object allows you to manage indexes. In order to construct one, you need to provide your Azure Search service name as well as an admin API key.
 
-        string searchServiceName = "myservice"; // Put your search service name here. 
+        // Put your search service name here. This is the hostname portion of your service URL.
+        // For example, if your service URL is https://myservice.search.windows.net, then your
+        // service name is myservice.
+        string searchServiceName = "myservice"; 
+        
         string apiKey = "Put your API admin key here."
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
@@ -357,7 +365,11 @@ Program.cs:
             // This sample shows how to delete, create, upload documents and query an index
             static void Main(string[] args)
             {
-                string searchServiceName = "myservice"; // Put your search service name here. 
+                // Put your search service name here. This is the hostname portion of your service URL.
+                // For example, if your service URL is https://myservice.search.windows.net, then your
+                // service name is myservice.
+                string searchServiceName = "myservice"; 
+        
                 string apiKey = "Put your API admin key here."
 
                 SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
