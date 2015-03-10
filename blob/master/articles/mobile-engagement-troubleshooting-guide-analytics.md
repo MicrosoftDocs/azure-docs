@@ -26,11 +26,11 @@
 <a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
 </div>
 
-# Troubleshooting Guide for Analytics, Monitoring, Segmentation, and Dashboard issues
+# Troubleshooting guide for Analytics, Monitoring, Segmentation, and Dashboard issues
 
 The following are possible issues you may encounter with how Azure Mobile Engagement gathers information about your applications, devices, and users.
 
-## Missing/Delayed Information
+## Missing/Delayed information
 
 - Information is delayed in appearing in Analytics, Segmentation, or Dashboard.
 - Information is missing from Monitoring.
