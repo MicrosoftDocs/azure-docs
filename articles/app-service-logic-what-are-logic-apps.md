@@ -1,13 +1,11 @@
 <properties 
 	pageTitle="What are Logic Apps?" 
-	description="Learn about flow apps" 
-	authors="stepsic-microsoft-com" 
+	description="Learn more about App Service Logic Apps" 
+	authors="jtwist" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service-logic" 
 	documentationCenter=""/>
-
-
 
 <tags
 	ms.service="app-service-logic"
@@ -15,36 +13,42 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/24/2015"
-	ms.author="stepsic"/>
-
+	ms.date="02/24/2015"
+	ms.author="jtwist"/>
 
 ##What are Logic Apps?
 
-###This documentation is coming soon.
+Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers that brings a rich set of capabilities to web, mobile and integration scenarios. Logic Apps are one part of the App Service suite and allow any technical user or developer to automate business process execution via an easy to use visual designer.
 
-<!--
-
-Integrate a single application that uses any number of connector to public SaaS services or your own custom backed. There are already 40 + connectors published by Microsoft, from Facebook and Twitter to SQL to AS2 and EDIFACT. You don't need to know how the Facebook API works, because the connectors describe exactly what they need to be used, from what Authentication needs to be provided to the set of actions and parameters they support. 
-
-Out of the box connectors based on the API app framework provide connectivity to a wide range of SaaS services and on-premise servers. Connecting a business process to a data source or destination works the same way a web or mobile app leveraging App Services would connect, thus providing a consistent and easy to learn experience for developers, and allowing a wider set of developers to contribute to building integration applications. Further, these are a part of the marketplace, which makes it easy for third party developers to enrich the available connectors, or for enterprises to build custom connectors to their LoB systems.
-
-# Easy to use design tools
-
-You can design flows end-to-end right in your browser. You can start with any trigger, from a simple schedule to whenever a tweet appears about your company. Then, you can orchestrate any number of actions that use connectors. The designer makes it easy to construct even complex flows that fork an loop over data. By being entirely browser-based, you can make the flows on whatever device, from Desktop to Tablet, your users are comfortable with. 
+Best of all, Logic Apps can be combined with API apps and Connectors, from our open marketplace, to help solve tricky integration scenarios with ease.
 
 ![Flow app designer](./media/app-service-learn-about-flows-preview/Designer.png)
 
-# Rich out of box functionality 
+### The SaaS, PaaS and Hybrid Explosion
 
-You can get started in just minutes by connecting one or more services. We support :
-- A rich workflow experience - App Services provides Flows, which is a powerful cloud based engine for orchestrating API apps. It provides the ability to implement a wide range of workflows, ranging from simple message processing between two data sources, to orchestrating typical business processes like creating travel bookings, on-boarding a new employee etc. The inbuilt capabilities to perform conditional execution based on previous outputs and success/failure make it easy to develop complex flows that involve processing batches and error handling. 
-- Rules engine - The business rules engine provides a way for Business Analysts to create and maintain business policies. These policies are maintained independent of the business process, making it easy to update the policy per business requirements as and when needed, even if the overall process doesn’t change. 
-- JSON/XML transformation- Out of the box API apps provide the ability to handle XML data easily with validation, transformation and extract operations which can be used to enforce contract between your XML based LoB apps and transform data to suit the needs of a particular data source. Further, JSON objects are natively recognized by the underlying flow engine and can be processed by the flow itself. 
-- Trading partner management - : App Services provides out of the box capability to create and manage trading partners, receive/send messages and process B2B data, and then connect back to your enterprise, all in a single business process (flow). Hosting B2B connectivity in the cloud provides a simpler and more manageable solution than hosting extranet servers and managing their security in-house. With inbuilt capabilities to parse X12 and EDIFACT messages, handling batches and sending/processing acknowledgements you can easily integrate B2B messages into an e2e business process to automate the handling of your B2B transactions.
+The cloud era is bringing an explosion in the usage of SaaS and PaaS systems, putting increasing strain on developers everywhere. Meanwhile, IT's application backlogs are getting longer and these heterogeneous and distributed solutions present new integration challenges. And, of course, enterprises need to leverage on-premises data and services, securely.
 
-#Extensibility and eco-system 
+Building solutions that span these systems poses non-trivial challenges that are time consuming and error prone for development teams.
 
-The foundation of API apps for building the individual pieces means that both additional connectivity and functionality pieces for data processing can be developed by anyone and deployed to the platform for use in an end to end business process. These pieces could be developed by both third party developers and made available in a marketplace, or by enterprises to suit their own specific needs. There will be hundreds of third-party connectors and services to extend the platform.
+###Why Logic Apps?
 
--->
+Logic Apps allow developers to design workflows that articulate intent via a series of steps, each invoking an App Service API whilst securely taking care of authentication and best practices like durable execution.
+
+- **Easy to use design tools** - Logic Apps can be designed end-to-end in the browser. Start with a trigger - from a simple schedule to whenever a tweet appears about your company. Then orchestrate any number of actions  using the rich gallery of connectors.
+
+- **Compose SaaS easily** - Even composition tasks that are easy to describe are difficult to implement in code. Logic Apps make it a cinch to connect disparate systems. Want to create a task in CRM based on activity on your Facebook or Twitter accounts? Want to connect your cloud marketing solution to your on-premises billing system? Logic apps are the fastest, most reliable way to deliver.
+
+- **Get started quickly from templates** - To help you get started we've provided a gallery of templates that allow you rapidly create some common solutions. From advanced BizTalk solutions to simple SaaS connectivity, and even a few that are just 'for fun' - the gallery is the fastest way to understand the power of Logic Apps.
+
+- **Extensibility baked in** - Don't see the connector you need? Logic Apps are part of the App Service suite and designed to work with API apps; you can easily create your own API app to use as a connector. Build a new app just for you, or share and monetize in the marketplace.
+
+- **Real integration horsepower** - Start easy and grow as you need. Logic Apps can easily leverage the power of BizTalk, Microsoft's industry leading integration solution to enable integration professionals to build the solutions they need. Find out more about the [BizTalk capabilities provided with App Services][biztalk].
+
+For more information about the Azure App Service platform, see [Azure App Service][appservice].
+
+[biztalk]: /documentation/articles/app-service-logic-what-are-biztalk-api-apps/
+[appservice]: /documentation/articles/app-service-value-prop-what-is/
+
+
+
+
