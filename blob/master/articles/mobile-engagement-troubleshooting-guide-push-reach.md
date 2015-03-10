@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guide - Push/Reach" 
-   description="Troubleshooting Guides for Azure Mobile Engagement" 
+   description="Troubleshooting user interaction and notification issues in Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
@@ -16,8 +16,6 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Troubleshooting Guides - Push/Reach
-
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-troubleshooting-guide/" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-troubleshooting-guide-analytics/" title="Analytics">Analytics</a>
@@ -28,20 +26,11 @@
 <a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
 </div>
 
-# Push/Reach
+# Troubleshooting Guide for Push and Reach issues
 
-Issues with how Azure Mobile Engagement sends information to your users.
+The following are possible issues you may encounter with how Azure Mobile Engagement sends information to your users.
  
-**Symptom List:**
-
-1. <a href="#PUSH1">Push Failures</a>
-2. <a href="#PUSH2">Push Testing Issues</a>
-3. <a href="#PUSH3">Push Customization Issues</a>
-4. <a href="#PUSH4">Push Targeting Issues</a>
-5. <a href="#PUSH5">Push Scheduling</a>
- 
-<a name="#PUSH1">
-## 1. Push Failures:</a>
+## Push Failures
 
 - Pushes don't work (in app, out of app, or both).
 
@@ -70,8 +59,7 @@ Issues with how Azure Mobile Engagement sends information to your users.
 
 - [Troubleshooting Guide - SDK][Link 25], [Troubleshooting Guide - Push][Link 23], [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5]
  
-<a name="#PUSH2">
-## 2. Push Testing Issues:</a>
+## Push Testing
 
 - Pushes can be sent to a specific device based on a Device ID.
 
@@ -84,8 +72,7 @@ Issues with how Azure Mobile Engagement sends information to your users.
 
 - [UI Documentation - Reach][Link 17]
  
-<a name="#PUSH3">
-## 3. Push Customization Issues:</a>
+## Push Customization
 
 - Advanced push content item won't work (badge, ring, vibrate, picture, etc.).
 - Links from pushes don't work (out of app, in app, to a website, to a location in app).
@@ -105,9 +92,8 @@ Issues with how Azure Mobile Engagement sends information to your users.
 **See also:**
 
 - [How Tos - First Push][Link 27], [Troubleshooting Guide - Push][Link 23], [HTTP Protocol Info]( http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
- 
-<a name="#PUSH4">
-## 4. Push Targeting Issues:</a>
+
+## Push Targeting
 
 - Built in targeting doesn't work as expected.
 - App Info Tag targeting doesn't work as expected.
@@ -126,8 +112,7 @@ Issues with how Azure Mobile Engagement sends information to your users.
 
 - [UI Documentation - Reach][Link 17], [UI Documentation - Settings][Link 20], [API Documentation - Reach][Link 4], [API Documentation - Push][Link 4], [API Documentation - Device][Link 4]
  
-<a name="#PUSH5">
-## 5. Push Scheduling:</a>
+## Push Scheduling
 
 - Push scheduling doesn't work as expected (sent too early or delayed).
 
