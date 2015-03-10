@@ -32,12 +32,13 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 
 ## Missing/Delayed information
 
+### Issue
 - Information is delayed in appearing in Analytics, Segmentation, or Dashboard.
 - Information is missing from Monitoring.
 - Information is missing from Analytics, Segmentation, or Dashboard.
 - Hitting segmentation limits.
 
-**Causes:**
+### Causes
 
 - You can use the Analytics API, Monitor API, and Segments API to see if any data you are missing from the UI is visible through the APIs.
 - If the Azure Mobile Engagement SDK is not correctly integrated into your app then you won't be able to see information in the Analytics, Segmentation, Monitoring, or Dashboards.
@@ -50,36 +51,38 @@ Segments can only contain 10 criteria.
 - The time period for Analytics is based on the date from the users' device settings, so a user whose phone has the date incorrectly set could show up in the wrong time period.
 - No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
 
-**See also:** 
+### See also
 
 - [Troubleshooting Guide - SDK][Link 25], [API Documentation][Link 4], [UI Documentation - Segments][Link 18]
 
 ## Can't locate items in UI
 
+### Issue
 - Can't create segments based on certain built in or custom app info tag criteria.
 - Can't find certain built in or custom app info tag criteria in Analytics, Monitoring, or Dashboards.
 - Can't interpret the data in Analytics, Monitoring, Segmentation, or Dashboards.
 
-**Causes:**
+### Causes
 
 - Some built in items and app info tags are only available as push criteria but may not be added to a segment or visible from Analytics, Monitoring, or Dashboard. 
 - For built in items and app info tags that can't be added to a segment, you will need to setup list of targeting criteria in each campaign to perform the same function as targeting based on a segment.
 - See the context menus in the Analytics, Monitoring, Segmentation, and Dashboards sections of the Azure Mobile Engagement UI for more help and how to information.
 
-**See Also:**
+### See also
 
 - [UI Documentation - Reach New Push Criterion for targeting Audience][Link 28]
  
 ## Crash troubleshooting
 
+### Issue
 - Application Crashes appearing in Analytics, Monitoring, or Dashboard.
 
-**Causes:**
+### Causes
 
 - To troubleshoot Application Crashes seen in Analytics, Monitoring, or Dashboard make sure to check the release notes for known issues with previous versions of the SDK.
 - To further troubleshoot application crashes perform an event from a test device with your application installed and look up your device ID in the “Monitor – Events” section of the Azure Mobile Engagement UI. Then perform the even that is causing your application to crash and look up additional information in the “Monitor – Crash” section of the Azure Mobile Engagement UI. 
 
-**See Also:**
+### See also
 
 - [Concepts - FAQ][Link 6], [Concepts - Glossary][Link 6], [UI Documentation][Link 1], [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5]
 
