@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
+   ms.date="03/09/2015"
    ms.author="kasing"/>
 
 # Manage your Virtual Machines using Azure PowerShell
