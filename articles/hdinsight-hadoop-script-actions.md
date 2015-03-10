@@ -23,17 +23,6 @@ Script Actions provide Azure HDInsight functionality that is used to install add
 Script Action can be deployed from Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight cluster using Script Actions][hdinsight-cluster-customize].
 
 
-## In this article
-
-- [Best practices for script development](#bestPracticeScripting)
-- [Helper methods for custom scripts](#helpermethods)
-- [Checklist for deploying a Script Action](#deployScript)
-- [How to run a Script Action](#runScriptAction)
-- [Custom script samples](#sampleScripts) 
-- [How to test your custom script with the HDInsight Emulator](#testScript)
-- [How to debug your custom script](#debugScript)
-- [See also](#seeAlso)
-
 
 ## <a name="bestPracticeScripting"></a>Best practices for script development
 
