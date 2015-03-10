@@ -1,22 +1,20 @@
 <properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guide - Analytics" 
-   description="Troubleshooting Guides for Azure Mobile Engagement" 
+   description="Troubleshooting Analytics, Monitoring, Segmentation, and Dashboard issues in Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
    manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
+   ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
-
-# Troubleshooting Guide - Analytics
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-troubleshooting-guide/" title="Introduction">Introduction</a>
@@ -28,9 +26,9 @@
 <a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
 </div>
 
-# Analytics, Monitoring, Segmentation, and Dashboards
+# Troubleshooting Guide for Analytics, Monitoring, Segmentation, and Dashboard issues
 
-Issues with how Azure Mobile Engagement gathers information about your applications, devices, and users.
+The following are possible issues you may encounter with how Azure Mobile Engagement gathers information about your applications, devices, and users.
 
 **Symptom List:**
 
@@ -39,7 +37,7 @@ Issues with how Azure Mobile Engagement gathers information about your applicati
 3. <a href="#ANALYTICS3">Crash troubleshooting</a>
  
 <a name="#ANALYTICS1">
-## 1. Missing/Delayed Information:</a>
+## 1. Missing/Delayed Information</a>
 
 - Information is delayed in appearing in Analytics, Segmentation, or Dashboard.
 - Information is missing from Monitoring.
@@ -64,7 +62,7 @@ Segments can only contain 10 criteria.
 - [Troubleshooting Guide - SDK][Link 25], [API Documentation][Link 4], [UI Documentation - Segments][Link 18]
 
 <a name="#ANALYTICS2">
-## 2. Can't locate items in UI:</a>
+## 2. Can't locate items in UI</a>
 
 - Can't create segments based on certain built in or custom app info tag criteria.
 - Can't find certain built in or custom app info tag criteria in Analytics, Monitoring, or Dashboards.
@@ -81,7 +79,7 @@ Segments can only contain 10 criteria.
 - [UI Documentation - Reach New Push Criterion for targeting Audience][Link 28]
  
 <a name="#ANALYTICS3">
-## 3. Crash troubleshooting:</a>
+## 3. Crash troubleshooting</a>
 
 - Application Crashes appearing in Analytics, Monitoring, or Dashboard.
 
