@@ -76,7 +76,7 @@ There are a few different ways to start flows, each has slightly different behav
 ### Polling triggers
 Some triggers check on an API app based on some time interval. You can define that interval, and the Logic App will at most be as responsive as that time. If you look at the definition you will see a field called `triggerState` - it will have a value like `@coalesce(triggers()?.outputs.body['triggerState'], '0')`. This field is used to pass the state of the last time the Logic App checked on the trigger. 
 
-Note, just because you define an interval of every 1 minute, that does not mean you will see a new run every minute. That's because it's up to the trigger to determine if it has any new data.
+Note, just because you define an interval of every 1 minute, that does not mean you will see a new run every minute. That's because it's up to the trigger to determine if it has any new data. The way that a trigger indicates it should run is by returning a `200` status code, and it indicates a run should not start by returning `202`.
 
 ### Callback triggers
 Other triggers call the Logic App endpoint when they have a new request. You may notice in the definition there is a field called `callbackURI` that contains this function you need to give the trigger the callback endpoint: `@accessEndpoint('default').primaryRunURI`.
