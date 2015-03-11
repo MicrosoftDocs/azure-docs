@@ -24,18 +24,7 @@ Using Git, you can deploy an ASP.NET application to an Azure website. In this tu
 [AZURE.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
 
-
-##Overview##
-
-In this tutorial you will:
-
-- [Create a virtual machine and install MongoDB](#virtualmachine)
-- [Create and run the My Task List ASP.NET application on your development computer](#createapp)
-- [Create an Azure web site](#createwebsite)
-- [Deploy the ASP.NET application to the web site using Git](#deployapp)
-
-
-##Background knowledge##
+## Background knowledge ##
 
 Knowledge of the following is useful for this tutorial, though not required:
 
@@ -45,12 +34,8 @@ Knowledge of the following is useful for this tutorial, though not required:
 * Azure. You can get started reading at [Azure][WindowsAzure].
 
 
-##Preparation##
-
-In this section you will learn how to create a virtual machine in Azure and install MongoDB, and set up your development environment.
-
 <a id="virtualmachine"></a> 
-###Create a virtual machine and install MongoDB###
+## Create a virtual machine and install MongoDB ##
 
 This tutorial assumes you have created a virtual machine in Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
 
@@ -59,18 +44,18 @@ This tutorial assumes you have created a virtual machine in Azure. After creatin
 
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
 
-### Install Visual Studio###
+## Install Visual Studio ##
 
-Start by installing and running  [Visual Studio Express 2013 for Web] [VSEWeb] or [Visual Studio 2013] [VSUlt].
+Install and run [Visual Studio Express 2013 for Web] [VSEWeb] or [Visual Studio 2013] [VSUlt].
 
 Visual Studio is an IDE, or integrated development environment. Just like you use Microsoft Word to write documents, you'll use an IDE to create applications. This tutorial uses Microsoft Visual Studio 2013, but you can use Microsoft Visual Studio Express 2013, which is a free version of Microsoft Visual Studio.
 
 <a id="createapp"></a>
-##Create and run the My Task List ASP.NET application on your development computer##
+## Create and run the My Task List ASP.NET application on your development computer ##
 
 In this section you will create an ASP.NET application called "My Task List" by using Visual Studio.  You will run the application locally, but it will connect to your virtual machine on Azure and use the MongoDB instance that you created there.
 
-###Create the application###
+## Create the application ##
 In Visual Studio, click **New Project**.
 
 ![Start Page New Project][StartPageNewProject]
@@ -87,7 +72,7 @@ After the project completes, the default page created by the template appears.
 
 ![Default ASP.NET MVC Application][VS2013DefaultMVCApplication]
 
-###Install the MongoDB C# driver
+## Install the MongoDB C# driver
 
 MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer. The C# driver is available through NuGet.
 
@@ -111,7 +96,7 @@ The MongoDB C# driver is now installed.  References to the **MongoDB.Driver.dll*
 
 ![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
 
-###Add a model###
+## Add a model ##
 In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** and name it *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
 
 	using System;
@@ -144,7 +129,7 @@ In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Cl
 	    }
 	}
 
-###Add the data access layer###
+## Add the data access layer ##
 In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.  Right-click the *DAL* folder and **Add** a new **Class**. Name the class file *Dal.cs*.  In *Dal.cs*, replace the existing code with the following code:
 
 	using System;
@@ -250,7 +235,7 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	    }
 	}
 
-###Add a controller###
+## Add a controller ##
 Open the *Controllers\HomeController.cs* file in **Solution Explorer** and replace the existing code with the following:
 
 	using System;
@@ -331,7 +316,7 @@ Open the *Controllers\HomeController.cs* file in **Solution Explorer** and repla
 	    }
 	}
 
-###Set up the site style###
+## Set up the site style ##
 To change the title at the top of the page, open the *Views\Shared\\_Layout.cshtml* file in **Solution Explorer** and replace "Application name" in the navbar header with "My Task List Application" so that it looks like this:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
@@ -420,7 +405,7 @@ To add the ability to create a new task, right-click the *Views\Home\\* folder a
 
 ![Solution Explorer][SolutionExplorerMyTaskListApp]
 
-###Set the MongoDB connection string###
+## Set the MongoDB connection string ##
 In **Solution Explorer**, open the *DAL/Dal.cs* file. Find the following line of code:
 
 	private string connectionString = "mongodb://<vm-dns-name>";
@@ -437,7 +422,7 @@ If the virtual machine endpoint specifies a different external port for MongoDB,
 
 For more information on MongoDB connection strings, see [Connections][MongoConnectionStrings].
 
-###Test the local deployment###
+## Test the local deployment ##
 
 To run your application on your development computer, select **Start Debugging** from the **Debug** menu or hit **F5**. IIS Express starts and a browser opens and launches the application's home page.  You can add a new task, which will be added to the MongoDB database running on your virtual machine in Azure.
 
@@ -448,7 +433,7 @@ To run your application on your development computer, select **Start Debugging**
 In this section you will create a website and deploy the My Task List ASP.NET application using Git.
 
 <a id="createwebsite"></a> 
-###Create an Azure website###
+## Create an Azure website ##
 In this section you will create an Azure website.
 
 1. Open a web browser and browse to the [Azure Management Portal][AzurePortal]. Sign in with your Azure account. 
@@ -464,7 +449,7 @@ In this section you will create an Azure website.
 ![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
 
 <a id="deployapp"></a> 
-###Deploy the ASP.NET application to the website using Git
+## Deploy the ASP.NET application to the website using Git
 In this section you will deploy the My Task List application using Git.
 
 1. Click your website name in **Websites**, then click **Dashboard**.  On the right side, under Quick Glance, click **Set up deployment from source control**.
@@ -486,7 +471,7 @@ In this section you will deploy the My Task List application using Git.
 
 9. Your Azure website is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: http://mytasklistapp.azurewebsites.net.
 
-##Summary##
+## Summary ##
 
 You have now successfully deployed your ASP.NET application to an Azure website.  To view the site, click the link in the **Site URL** field of the **Dashboard** page. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
 
@@ -500,8 +485,8 @@ You have now successfully deployed your ASP.NET application to an Azure website.
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnCentOSLinuxVM]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[InstallMongoOnWindowsVM]: /en-us/manage/windows/common-tasks/install-mongodb/
+[InstallMongoOnCentOSLinuxVM]: /manage/linux/common-tasks/mongodb-on-a-linux-vm/
+[InstallMongoOnWindowsVM]: /manage/windows/common-tasks/install-mongodb/
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 

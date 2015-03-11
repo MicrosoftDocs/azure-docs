@@ -3,7 +3,7 @@
 	description="Describes what happened to your Azure Mobile Service project in Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 

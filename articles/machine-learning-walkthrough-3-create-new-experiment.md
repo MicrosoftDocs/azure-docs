@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Step 3: Create a new Machine Learning experiment | Azure" 
-	description="Step 3: Create a new training experiment in Azure Machine Learning Studio" 
+	description="Solution walkthrough step 3: Create a new training experiment in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/18/2015" 
 	ms.author="garye"/>
 
 
@@ -43,7 +43,7 @@ This is the third step of the walkthrough, [Developing a Predictive Solution wit
 We need to create a new experiment in ML Studio that uses the dataset we uploaded.  
 
 1.	In ML Studio, click **+NEW** at the bottom of the window.
-2.	Select **EXPERIMENT**.
+2.	Select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful
 3.	In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 4.	Find the dataset you created and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
 
@@ -111,6 +111,10 @@ We need to do this same replication operation for each output of the **Split** m
 Our experiment now looks something like this:
  
 ![Adding Split module and R scripts][3]
+
+For more information on using R scripts in your experiments, see [Extend your experiment with R][r].
+
+[r]: ../machine-learning-extend-your-experiment-with-r/
 
 **Next: [Train and evaluate the models][train-models]**
 

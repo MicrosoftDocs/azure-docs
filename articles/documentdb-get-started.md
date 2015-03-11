@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/12/2014" 
+	ms.date="03/04/2015" 
 	ms.author="mimig"/>
 
 #Get started with the DocumentDB .NET SDK  
@@ -21,16 +21,6 @@
 This guide shows you how to get started using [Microsoft Azure DocumentDB (Preview)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) and the [DocumentDB .NET SDK](http://go.microsoft.com/fwlink/p/?linkid=402989). DocumentDB is a NoSQL document database service, which has a [number of APIs and SDKs available](http://go.microsoft.com/fwlink/p/?linkid=522476). The code samples in this article are written in C# and use the DocumentDB .NET SDK, which is packaged and distributed as a NuGet package. 
 
 The scenarios covered in this article include creating and configuring a DocumentDB account, creating databases, creating collections, and storing JSON documents within the account. Each of these samples are part of a complete solution available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). You can [download the solution](#GetSolution) to view the sample code in context, or you can just review the samples in this article.
-
-## In this article
-
--	[Connect to a DocumentDB account](#Connect)
--	[Create a database](#CreateDB)
--	[Create a collection](#CreateColl)
--	[Create documents](#CreateDoc)
--	[Query DocumentDB resources](#Query)
--	[Get the complete solution](#GetSolution)
--	[Next steps](#NextSteps)
 
 ##<a id="Connect"></a>Connect to a DocumentDB account
 
@@ -48,7 +38,7 @@ Next, a **DocumentClient** can be instantiated using the DocumentDB account endp
     // Create a new instance of the DocumentClient.
     var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
-> [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Windows Azure Web Sites: How Application Strings and Connection Strings Work](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. 
+> [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Azure Web Sites: How Application Strings and Connection Strings Work](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. 
 
 The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the [Azure preview management portal](https://portal.azure.com) blade for your DocumentDB account. 
 

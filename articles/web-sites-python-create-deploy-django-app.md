@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
+	ms.date="02/09/2015" 
 	ms.author="huvalo"/>
 
 
@@ -26,52 +26,35 @@ This tutorial describes how to get started running Python on Azure Websites.  Az
 You will create an application using the Django web framework (see alternate versions of this tutorial for [Flask](../web-sites-python-create-deploy-flask-app) and [Bottle](../web-sites-python-create-deploy-bottle-app)).  You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">sign up for a free trial</a>.
+> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/pricing/free-trial/">sign up for a free trial</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
 
-+ [Prerequisites](#prerequisites)
-+ [Website Creation on Portal](#website-creation-on-portal)
-+ [Application Overview](#application-overview)
-+ Website Development
-  + [Windows - Python Tools for Visual Studio](#website-development-windows-ptvs)
-  + [Windows - Command Line](#website-development-windows-command-line)
-  + [Mac/Linux - Command Line](#website-development-mac-linux-command-line)
-+ [Troubleshooting - Deployment](#troubleshooting-deployment)
-+ [Troubleshooting - Package Installation](#troubleshooting-package-installation)
-+ [Troubleshooting - Virtual Environment](#troubleshooting-virtual-environment)
-+ [Troubleshooting - Static Files](#troubleshooting-static-files)
-+ [Troubleshooting - Settings](#troubleshooting-settings)
-+ [Using a Database](#using-a-database)
-+ [Django Admin Interface](#django-admin-interface)
-+ [Next steps](#next-steps)
-
-
-<h2><a name="prerequisites"></a>Prerequisites</h2>
+## Prerequisites
 
 - Windows, Mac or Linux
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- Python Tools for Visual Studio (optional)
+- [Python Tools 2.1 for Visual Studio][] (optional)
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
 ### Windows
 
-If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7](http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409) or [Azure SDK for Python 3.4](http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409) using Web Platform Installer.  This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).  Alternatively, you can get Python from [python.org](http://www.python.org/).
+If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7][] or [Azure SDK for Python 3.4][] using Web Platform Installer.  This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).  Alternatively, you can get Python from [python.org][].
 
-For Git, we recommend [Git for Windows](http://msysgit.github.io/). This tutorial uses the Git Shell from Git for Windows.  If you use Visual Studio, you can use the integrated Git support.
+For Git, we recommend [Git for Windows][] or [GitHub for Windows][].  If you use Visual Studio, you can use the integrated Git support.
 
-We also recommend installing [Python Tools for Visual Studio](http://pytools.codeplex.com).  This is optional, but if you have [Visual Studio](http://www.visualstudio.com/), including the free Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
+We also recommend installing [Python Tools 2.1 for Visual Studio][].  This is optional, but if you have [Visual Studio][], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
 
 ### Mac/Linux
 
 You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.
 
 
-<h2><a name="website-creation-on-portal"></a>Website Creation on Portal</h2>
+## Website Creation on Portal
 
 The first step in creating your app is to create the website via the Azure Management Portal.  To do this, you will need to login to the portal and click the **NEW** button in the bottom left corner. A window will appear. Click **COMPUTE**, **WEB SITE**, then **FROM GALLERY**.
 
@@ -102,7 +85,7 @@ After setting up Git publishing, you will momentarily see a page informing you t
 We'll follow these instructions in the next sections.
 
 
-<h2><a name="application-overview"></a>Application Overview</h2>
+## Application Overview
 
 ### Git repository contents
 
@@ -182,7 +165,7 @@ The next 3 sections describe how to proceed with the website development under 3
 - Mac/Linux, with command line
 
 
-<h2><a name="website-development-windows-ptvs"></a>Website Development - Windows - Python Tools for Visual Studio</h2>
+## Website Development - Windows - Python Tools for Visual Studio
 
 ### Clone the repository
 
@@ -224,7 +207,7 @@ Press F5 to start debugging, and your web browser will open automatically to the
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
-You can set breakpoints in the sources, use the watch windows, etc.  See the [PTVS documentation](http://pytools.codeplex.com/documentation) for more information on the various features.
+You can set breakpoints in the sources, use the watch windows, etc.  See the [PTVS documentation][] for more information on the various features.
 
 ### Make changes
 
@@ -261,7 +244,7 @@ Visual Studio doesn't show the progress of the deployment.  If you'd like to rev
 Browse to the Azure URL to view your changes.
 
 
-<h2><a name="website-development-windows-command-line"></a>Website Development - Windows - Command Line</h2>
+## Website Development - Windows - Command Line
 
 ### Clone the repository
 
@@ -350,7 +333,7 @@ You will see the output of the deployment script, including virtual environment 
 Browse to the Azure URL to view your changes.
 
 
-<h2><a name="website-development-mac-linux-command-line"></a>Website Development - Mac/Linux - Command Line</h2>
+## Website Development - Mac/Linux - Command Line
 
 ### Clone the repository
 
@@ -439,22 +422,22 @@ You will see the output of the deployment script, including virtual environment 
 Browse to the Azure URL to view your changes.
 
 
-<h2><a name="troubleshooting-deployment"></a>Troubleshooting - Deployment</h2>
+## Troubleshooting - Deployment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>Troubleshooting - Package Installation</h2>
+## Troubleshooting - Package Installation
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>Troubleshooting - Virtual Environment</h2>
+## Troubleshooting - Virtual Environment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
-<h2><a name="troubleshooting-static-files"></a>Troubleshooting - Static Files</h2>
+## Troubleshooting - Static Files
 
 Django has the concept of collecting static files.  This takes all the static files from their original location and copies them to a single folder.  For this application, they are copied to `/static`.
 
@@ -477,7 +460,7 @@ Then you'll need to do the collection manually on your local machine:
 Then remove the `\static` folder from `.gitignore` and add it to the Git repository.
 
 
-<h2><a name="troubleshooting-settings"></a>Troubleshooting - Settings</h2>
+## Troubleshooting - Settings
 
 Various settings for the application can be changed in `DjangoWebProject/settings.py`.
 
@@ -504,16 +487,16 @@ In practice, you may want to do something more complex to deal with switching be
 You can set environment variables through the Azure portal **CONFIGURE** page, in the **app settings** section.  This can be useful for setting values that you may not want to appear in the sources (connection strings, passwords, etc), or that you want to set differently between Azure and your local machine.  In `settings.py`, you can query the environment variables using `os.getenv`.
 
 
-<h2><a name="using-a-database"></a>Using a Database</h2>
+## Using a Database
 
 The database that is included with the application is a sqlite database.  This is a convenient and useful default database to use for development, as it requires almost no setup.  The database is stored in the db.sqlite3 file in the project folder.
 
-Azure provides database services which are easy to use from a Django application.  Tutorials for using [SQL Database](../web-sites-python-ptvs-django-sql) and [MySQL](../web-sites-python-ptvs-django-mysql) from a Django application show the steps necessary to create the database service, change the database settings in `DjangoWebProject/settings.py`, and the libraries required to install.
+Azure provides database services which are easy to use from a Django application.  Tutorials for using [SQL Database][] and [MySQL][] from a Django application show the steps necessary to create the database service, change the database settings in `DjangoWebProject/settings.py`, and the libraries required to install.
 
 Of course, if you prefer to manage your own database servers, you can do so using Windows or Linux virtual machines running on Azure.
 
 
-<h2><a name="django-admin-interface"></a>Django Admin Interface</h2>
+## Django Admin Interface
 
 Once you start building your models, you'll want to populate the database with some data.  An easy way to do add and edit content interactively is to use the Django administration interface.
 
@@ -522,7 +505,7 @@ The code for the admin interface is commented out in the application sources, bu
 After it's enabled, synchronize the database, run the application and navigate to `/admin`.
 
 
-<h2><a name="next-steps"></a>Next Steps</h2>
+## Next Steps
 
 Follow these links to learn more about Django and Python Tools for Visual Studio: 
  
@@ -538,8 +521,20 @@ For information on using SQL Database and MySQL:
 <!--Link references-->
 [Django and MySQL on Azure with Python Tools 2.1 for Visual Studio]: ../web-sites-python-ptvs-django-mysql
 [Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio]: ../web-sites-python-ptvs-django-sql
+[SQL Database]: ../web-sites-python-ptvs-django-sql
+[MySQL]: ../web-sites-python-ptvs-django-mysql
+
 
 <!--External Link references-->
+[Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[python.org]: http://www.python.org/
+[Git for Windows]: http://msysgit.github.io/
+[GitHub for Windows]: https://windows.github.com/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Visual Studio]: http://www.visualstudio.com/
+[PTVS documentation]: http://pytools.codeplex.com/documentation
 [Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
 [Django Documentation]: https://www.djangoproject.com/
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" 
-	description="Step 2: Upload existing public data into Azure Machine Learning Studio" 
+	description="Solution walkthrough step 2: Upload existing public data into Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2015" 
+	ms.date="02/18/2015" 
 	ms.author="garye"/>
 
 This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
@@ -81,6 +81,10 @@ Once the data has been converted to CSV format, we need to upload it into Machin
 
  
 This uploads the data into a dataset module that we can use in an experiment.
+
+For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio][importdata].
+
+[importdata]: ../machine-learning-import-data/
 
 **Next: [Create a new experiment][create-new]**
 

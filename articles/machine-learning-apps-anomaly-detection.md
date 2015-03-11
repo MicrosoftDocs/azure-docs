@@ -1,11 +1,29 @@
-<properties title="Machine Learning app: Anomaly Detection Service | Azure" pageTitle="Machine Learning app: Anomaly Detection Service | Azure " description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." services="machine-learning" documentationCenter="" authors="LuisCabrer" manager="paulettm" /> 
+<properties 
+	pageTitle="Machine Learning app: Anomaly Detection Service | Azure " 
+	description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm"
+	editor="cgronlun" /> 
 
-<tags ms.service="machine-learning" ms.devlang="na" ms.topic="reference" ms.tgt_pltfrm="na" ms.workload="multiple" ms.date="01/27/2015" ms.author="luisca"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.devlang="na" 
+	ms.topic="reference" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="multiple" 
+	ms.date="01/27/2015" 
+	ms.author="luisca"/>
 
 
 # Machine Learning Anomaly Detection Service#
 
+##Overview
+
 Anomaly Detection API is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
 This anomaly detection service can detect the following different types of anomalies on time series data:
 
@@ -18,7 +36,7 @@ This anomaly detection service can detect the following different types of anoma
 
 These detectors track changes in values over time and reports ongoing changes in their values. They do not require adhoc threshold tuning and their scores can be used to control false positive rate. The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage metrics such as number of searches, numbers of clicks, performance counters like memory, cpu, file reads, etc. over time. 
 
-##API Definition##
+##API Definition
 
 The service provides a REST based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc. We have an [Azure web application](http://anomalydetection-aml.azurewebsites.net/) that helps run the anomaly detection web service on your data and visualize the results. 
 
@@ -29,7 +47,7 @@ The figure below shows an example of anomalies detected in a times series using 
 
 ![][1]
 
-###Input###
+##Input
 
 The API takes 2 input parameters 
 
@@ -101,7 +119,6 @@ which is a representation of the following table:
    </tr>
    </table>
    
-
 
 [1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg
 

@@ -23,7 +23,7 @@ This guide will show you how to programmatically perform common service manageme
 ## <a name="WhatIs"> </a>What is Service Management
 The Service Management API provides programmatic access to much of the service management functionality available through the [management portal][management-portal]. The Azure SDK for Python allows you to manage your cloud services and storage accounts.
 
-To use the Service Management API, you will need to [create an Azure account](http://www.windowsazure.com/en-us/pricing/free-trial/).
+To use the Service Management API, you will need to [create an Azure account](http://www.windowsazure.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concepts
 The Azure SDK for Python wraps the [Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
@@ -427,19 +427,19 @@ Now that you've learned the basics of service management, you can access the [Co
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
 [management-portal]: https://manage.windowsazure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[download-SDK-Python]: https://www.windowsazure.com/en-us/develop/python/common-tasks/install-python/
-[cloud service]:http://windowsazure.com/en-us/documentation/articles/cloud-services-what-is
-[service package]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-[Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
-[cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
-[Deploying an Azure Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
-[storage service]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
-[azure-blobs]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/blob-service/
-[azure-tables]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
-[azure-queues]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/queue-service/
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-[Cloud Services]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-[Virtual Machines]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx
+[download-SDK-Python]: https://www.windowsazure.com/develop/python/common-tasks/install-python/
+[cloud service]:http://windowsazure.com/documentation/articles/cloud-services-what-is
+[service package]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+[Azure PowerShell cmdlets]: https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/
+[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
+[Deploying an Azure Service]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
+[storage service]: https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/
+[azure-blobs]: https://www.windowsazure.com/develop/python/how-to-guides/blob-service/
+[azure-tables]: https://www.windowsazure.com/develop/python/how-to-guides/table-service/
+[azure-queues]: https://www.windowsazure.com/develop/python/how-to-guides/queue-service/
+[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+[Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx

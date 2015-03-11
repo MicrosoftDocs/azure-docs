@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/27/2015" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # Get started with Azure API Management
@@ -54,9 +54,9 @@ An API consists of a set of operations that can be invoked from a client applica
 
 Each API Management service instance comes pre-configured with a sample Echo API on which you can invoke any HTTP verb, and the return value will equal to the headers and body that you sent. This tutorial uses the backend web service for the Echo API to create a new API in API Management called **My Echo Service**.
 
-APIs are created and configured from the API Management console, which is accessed through the Azure management portal. To reach the API Management console, click **Management Console** in the Azure Portal for your API Management service.
+APIs are created and configured from the API publisher portal, which is accessed through the Azure portal. To reach the API publisher portal, click **Manage** in the Azure portal for your API Management service.
 
-![New API Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 To create the **My Echo API**, click **APIs** from the **API Management** menu on the left, and then click **add API**.
 
@@ -170,7 +170,7 @@ After an operation is invoked, the developer portal displays the **Requested URL
 -   Customize the developer portal
 -   Trace calls using API inspector
 
-[Azure Free Trial]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Azure Free Trial]: http://www.windowsazure.com/pricing/free-trial/
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api

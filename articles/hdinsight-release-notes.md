@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev"/>
+	authors="nitinme"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,11 +13,192 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2015" 
-	ms.author="bradsev"/>
+	ms.date="03/03/2015" 
+	ms.author="nitinme"/>
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 03/03/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.488.1375841	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.488.1375841	(HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight 	3.1.3.488.1375841	(HDP 2.1.10.0-2290 - unchanged)
+* HDInsight		3.2.3.488.1375841	(HDP-2.2.10.0-2340 - unchanged)
+* SDK			1.5.0				(unchanged)
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(e.g. Service, OSS component, SDK, PS, AUX)</p></th>
+<th>Cluster Type Impacted (e.g. Hadoop, HBase, Storm, All)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Reliability improvements</td>
+<td>We have made fixes that allows the service to scale better with the increased load with respect to cluster creations.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+
+
+</table>
+<br>
+
+## Notes for 02/18/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.471.1342507	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.471.1342507	(HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight 	3.1.3.471.1342507	(HDP 2.1.10.0-2290 - unchanged)
+* HDInsight		3.2.3.471.1342507	(HDP-2.2.10.0-2340)
+* SDK			1.5.0
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(e.g. Service, OSS component, SDK, PS, AUX)</p></th>
+<th>Cluster Type Impacted (e.g. Hadoop, HBase, Storm, All)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>HDInsight 3.2 clusters</td>
+<td>Hadoop 2.6/HDP2.2 is now available with HDInsight 3.2 clusters. It contains major updates to all of the open source components.  More details are available here at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">What's new in HDInsight</a> and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
+<td>OSS</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDinsight on Linux (Preview)</td>
+<td>Clusters can now be deployed running on Ubuntu Linux. Find out more details at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-get-started/" target ="_blank">Getting Started with HDInsight on Linux</a>.</td>
+<td>Service</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Storm GA</td>
+<td>Apache Storm clusters are now generally available. Find out more details at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/" target="_blank">Getting started using Storm in HDInsight</a>.</td>
+<td>Service</td>
+<td>Storm</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>VM Sizes</td>
+<td>Azure HDInsight is now available on more virtual machine (VM) types and sizes. HDInsight can now utilize A2 to A7 sizes built for general purposes; D-Series nodes that feature solid-state drives (SSDs) and 60-percent faster processors; and A8 and A9 sizes that have InfiniBand support for fast networking.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Cluster scaling</td>
+<td>You can now change the number of data nodes of a running HDInsight cluster without having to delete or recreate it. Currently, only Hadoop Query and Apache Storm cluster types have this ability, but support for Apache HBase cluster type is soon to follow. Find out more information at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-cluster-scaling/" target="_blank">Cluster scaling in HDInsight</a>.</td>
+<td>Service</td>
+<td>Hadoop, Storm</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>VS Tooling</td>
+<td>In addition to complete tooling for Apache Storm, the tooling for Apache Hive in Visual studio has been updated to include statement completion, local validation, and improved debugging support. Find out more information at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get Started with HDInsight Hadoop Tools for Visual Studio</a>.</td>
+<td>Tooling</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>DocumentDB Hadoop Connector</td>
+<td>With DocumentDB Hadoop connector, you are now able to perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across DocumentDB collections or even across database accounts. For more information and tutorial, see <a href="http://azure.microsoft.com/documentation/articles/documentdb-run-hadoop-with-hdinsight/" target="_blank">Run Hadoop jobs using DocumentDB and HDInsight</a>.</td>
+<td>Service</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Bug Fixes</td>
+<td>We have made various minor bug fixes for HDInsight services. No customer-facing behavior changes are expected.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
+
+## Notes for 02/06/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.463.1325367	(HDP 1.3.9.0-01351 - unchanged)
+* HDInsight 	3.0.6.463.1325367	(HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight 	3.1.2.463.1325367	(HDP 2.1.10.0-2290)
+* SDK			N/A
+
+This release contains the following update.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(e.g. Service, OSS component, SDK, PS, AUX)</p></th>
+<th>Cluster Type Impacted (e.g. Hadoop, HBase, Storm, All)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Bug Fixes</td>
+<td>We have made various minor bug fixes for HDInsight services. No customer-facing behavior changes are expected.</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDP 2.1 Maintenance Update</td>
+<td>HDInsight 3.1 is now updated to deploy HDP 2.1.10.0. Full Release Notes for this HDP release are available <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.10/bk_releasenotes_hdp_2.1/content/ch_relnotes-HDP-2.1.10.html" target="_blank">here</a>. </td>
+<td>OSS</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>HDP Binary Updates</td>
+<td>There are a few JAR files in HBase for which file names have been updated. These JARs are used internally by HBase so it is not expected that customers have a dependency on the names of these JAR files. These include:
+<ul>
+<li>./lib/jetty-6.1.26.hwx.jar</li>
+<li>./lib/jetty-sslengine-6.1.26.hwx.jar</li>
+<li>./lib/jetty-util-6.1.26.hwx.jar</li>
+</ul>
+</td>
+<td>OSS</td>
+<td>HBase</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
 
 ## Notes for 1/29/2015 release of HDInsight ##
 
@@ -43,10 +224,10 @@ This release contains the following update.
 
 <tr>
 
-<td> Bug Fixes</td>
+<td>Bug Fixes</td>
 <td>We have made a few important bug fixes that that improves the reliability of the HDInsight Clusters during Azure upgrades.</td>
-<td>Services</td>
-<td></td>
+<td>Service</td>
+<td>All</td>
 <td>N/A</td>
 </tr>
 
@@ -148,8 +329,8 @@ This release contains the following component updates.
 </tr>
 
 <tr>
-<td><a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">Cluster customization GA</a></td>
-<td><p>Customization provides the ability for you to customize your Azure HDInsight clusters with projects available from the Apache Hadoop ecosystem. With this new feature, you can now experiment and deploy Hadoop projects to Azure HDInsight. This is enabled through the <b>Script Action</b> feature that can modify Hadoop clusters in arbitrary ways using custom scripts. This customization is available on all types of HDInsight clusters including Hadoop, HBase, and Storm. To demonstrate the power of this capability, we have documented the process to install the popular <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>, and <a href = "http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> modules. This release also adds the capability for customers to specify their custom script action via the Azure Management Portal, provides guidelines and best practices on how to build custom script actions using helper methods, and provides guidelines on how to test the script action. </p></td>
+<td><a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">Cluster customization GA</a></td>
+<td><p>Customization provides the ability for you to customize your Azure HDInsight clusters with projects available from the Apache Hadoop ecosystem. With this new feature, you can now experiment and deploy Hadoop projects to Azure HDInsight. This is enabled through the <b>Script Action</b> feature that can modify Hadoop clusters in arbitrary ways using custom scripts. This customization is available on all types of HDInsight clusters including Hadoop, HBase, and Storm. To demonstrate the power of this capability, we have documented the process to install the popular <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>, and <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> modules. This release also adds the capability for customers to specify their custom script action via the Azure Management Portal, provides guidelines and best practices on how to build custom script actions using helper methods, and provides guidelines on how to test the script action. </p></td>
 <td>Feature GA</td>
 <td>All</td>
 <td>N/A</td>
@@ -400,9 +581,9 @@ For more information on the memory configuration settings used by YARN and MapRe
 
 HDInsight PowerShell/SDK Error: "*Cluster is not configured for Http Services access*":
 
-* This error is a known [compatibility issue](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) that may occur due to a difference in the version of SDK/PowerShell and the version of the cluster. Clusters created on 8/15 or later have support for new provisioning capability into Virtual Networks. But this capability is not correctly interpreted by older versions of the SDK/PowerShell. The result is a failure in some job submission operations. If you use SDK APIs or PowerShell cmdlets to submit jobs (**Use-AzureHDInsightCluster**, **Invoke-Hive**), those operations may fail with the error message “*Cluster <clustername> is not configured for Http Services access*” or, depending on the operation, other error messages such as “*Cannot connect to cluster*”.
+* This error is a known [compatibility issue](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) that may occur due to a difference in the version of SDK/PowerShell and the version of the cluster. Clusters created on 8/15 or later have support for new provisioning capability into Virtual Networks. But this capability is not correctly interpreted by older versions of the SDK/PowerShell. The result is a failure in some job submission operations. If you use SDK APIs or PowerShell cmdlets to submit jobs (**Use-AzureHDInsightCluster**, **Invoke-Hive**), those operations may fail with the error message “*Cluster <clustername> is not configured for Http Services access*” or, depending on the operation, other error messages such as “*Cannot connect to cluster*”.
 
-* Those compatibility issues are resolved in the latest versions of the HDInsight SDK and Azure PowerShell. We recommend updating the HDInsight SDK to the version 1.3.1.6 or later and Azure PowerShell Tools to the version 0.8.8 or later. You can get access to the latest HDInsight SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) and the Azure PowerShell Tools at [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
+* Those compatibility issues are resolved in the latest versions of the HDInsight SDK and Azure PowerShell. We recommend updating the HDInsight SDK to the version 1.3.1.6 or later and Azure PowerShell Tools to the version 0.8.8 or later. You can get access to the latest HDInsight SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) and the Azure PowerShell Tools at [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 
 * You can expect that SDK and PowerShell will continue to work with new updates to clusters as long as the version of the cluster remains the same. For example, clusters version 3.1 will always be compatible with current version of the SDK/PowerShell 1.3.1.6 and 0.8.8.
 
@@ -445,7 +626,7 @@ You can expect that SDK and PowerShell will continue to work with new updates to
 	* East Asia, 
 	* North Central US and 
 	* South Central US. 
-* With this release, HDInsight v1.6 (HDP1.1, Hadoop 1.0.3) and HDInsight v2.1 (HDP1.3, Hadoop 1.2) are being removed from the Azure Management Portal. You may continue to create Hadoop clusters for these versions using HDInsight PowerShell cmdlets ([New-AzureHDInsightCluster](http://msdn.microsoft.com/en-us/library/dn593744.aspx)) or by using the [HDInsight SDK](http://msdn.microsoft.com/en-us/library/azure/dn469975.aspx). Please refer to the [HDInsight component versioning](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/) page for more information.
+* With this release, HDInsight v1.6 (HDP1.1, Hadoop 1.0.3) and HDInsight v2.1 (HDP1.3, Hadoop 1.2) are being removed from the Azure Management Portal. You may continue to create Hadoop clusters for these versions using HDInsight PowerShell cmdlets ([New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) or by using the [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Please refer to the [HDInsight component versioning](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) page for more information.
 * Hortonworks Data Platform (HDP) changes in this release: 
 
 <table border="1">

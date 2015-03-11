@@ -13,28 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/24/2015" 
 	ms.author="juliako"/>
-
-
-
 
 
 # How to Manage Content in Media Services #
 
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+
 This topic shows how to use Azure Management Portal to manage media content in your Media Services account.
 
-Currently you can perform the following content operations directly from the portal:
+This topic shows how to perform the following content operations directly from the portal:
 
 - View content information like published state, published URL, size, datetime of last update, and whether or not the asset is encrypted.
 - Upload new content
 - Index content
 - Encode content
 - Play content
+- Encrypt
 - Publish/Unpublish content
 
-
-## How to: Upload content 
+##<a id="upload"></a>How to: Upload content 
 
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
@@ -55,9 +54,9 @@ Once the upload has completed, you will see the new asset listed in the Content 
 
 If the file size value does not get updated after the uploading process stops, press the **Sync Metadata** button. This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
-## How to: Index content
+##<a id="index"></a>How to: Index content
 
-Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783455.aspx).
+Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](../media-services-index-content/).
 
 To following steps demonstrate how to use the Management Portal to index your content.
 
@@ -69,7 +68,7 @@ To following steps demonstrate how to use the Management Portal to index your co
 	
 	![Process][process]
 
-## How to: Encode content
+##<a id="encode"></a>How to: Encode content
 
 In order to deliver digital video over the internet you must compress the media. Media Services provides a media encoder that allows you to specify how you want for your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.) 
 
@@ -79,13 +78,12 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
-- get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](http://azure.microsoft.com/en-us/documentation/articles/media-services-how-to-scale/).
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](../media-services-manage-origins#scale_streaming_endpoints/).
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
 
 Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
-
 
 This section describes the steps you can take to encode your content with Azure Media Encoder using the Management Portal.
 
@@ -97,7 +95,7 @@ This section describes the steps you can take to encode your content with Azure 
 	![Process2][process2]
 
 		
-	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/en-us/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prests for Adaptive Streaming**  categories means.  
+	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prests for Adaptive Streaming**  categories means.  
 
 
 	The **Other** configurations are described below:
@@ -117,10 +115,24 @@ This section describes the steps you can take to encode your content with Azure 
 
 	To view the progress of the encoding job, switch to the **JOBS** page.  
 
-
 	If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
-## How to: Publish content
+##<a id="encrypt"></a>How to: Encrypt content
+
+If you want for Media Services to dynamically encrypt your asset with an AES key or PlayReady DRM make sure to do the following:
+
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated in the [Encode](#encode) section).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](../media-services-manage-origins#scale_streaming_endpoints/).
+- Configure "default aes clear key service policy" or "default playready license service policy". For more information, see [Configure Content Key Authorization Policy](../media-services-portal-configure-content-key-auth-policy).  
+
+
+	When you are ready to enable encryption, press the **ENCRYPTION** button on the bottom of the **CONTENT** page.
+
+	![Encrypt][encrypt] 
+
+	Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+
+##<a id="publish"></a>How to: Publish content
 
 When you publish the content, you will be provided with a streaming or progressive download URL. You client would be able to playback your videos using this URL.
 
@@ -150,3 +162,4 @@ Only content that has been published is playable from the portal. Also, the enco
 [contentpage]: ./media/media-services-manage-content/media-services-content-page.png
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
+[encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2014" 
+	ms.date="2/10/2015" 
 	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
@@ -24,21 +24,9 @@ A pipeline in an Azure data factory processes data in linked storage services by
  
 See [Invoke MapReduce Programs from Data Factory][data-factory-map-reduce] for details about running MapReduce programs on an HDInsight cluster from an Azure data factory pipeline by using MapReduce transformations of the HDInsight Activity. This article describes using Pig/Hive transformation of the HDInsight Activity.
 
-## In This Article
-
-Section | Description
-------- | -----------
-[Pig JSON example](#PigJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Pig transformation. 
-[Hive JSON example](#HiveJSON) | This section provides JSON schema for defining a HDInsight Activity that uses a Hive transformation. 
-[Using Pig and Hive scripts that are stored in Azure Blob storage](#ScriptInBlob) | Describes how to refer to Pig/Hive scripts stored in an Azure blob storage from an HDInsight Activity using Pig/Hive transformation.
-[Parameterized Pig and Hive Queries](#ParameterizeQueries) | Describes how to specify specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties** property in JSON.
-[Walkthrough: Use Hive with Azure Data Factory](#Waltkthrough) | Provides step-by-step instructions to create a pipeline that use Hive to process data.  
-
-
-
-When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
 ## <a name="PigJSON"></a> Pig JSON example
+When defining a Pig or Hive activity in a pipeline JSON, the **type** property should be set to: **HDInsightActivity**.
 
     {
 		"name": "Pig Activity",
@@ -99,7 +87,7 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 > [AZURE.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema. 
 
 
-## <a name="ScriptInBlob"></a>Using Pig and Hive scripts that are stored in Azure Blob storage
+## <a name="ScriptInBlob"></a>Using Pig and Hive scripts in HDInsight Activity
 You can store Pig/Hive scripts in an Azure blob storage associated with the HDInsight cluster and refer to them from Pig/Hive activities by using the following properties in the JSON: 
 
 * **scriptPath** – Path to the Pig or Hive script file
@@ -191,7 +179,10 @@ See the following example for specifying parameters for a Hive script using **ex
 ## <a name="Walkthrough"></a>Walkthrough: Use Hive with Azure Data Factory
 ### Pre-requisites
 1. Complete the tutorial from [Get started with Azure Data Factory][adfgetstarted] article.
-2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax. 
+2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax.
+
+	> [AZURE.NOTE] The emp.txt file is only a dummy file for this walkthrough. The actual input data comes from the **hivesampletable** that already exists on the HDInsight cluster. The pipeline does not use the emp.txt file at all.    
+	
 2. Create **hivequery.hql** file in a subfolder named **Hive** under **C:\ADFGetStarted** with the following content.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 

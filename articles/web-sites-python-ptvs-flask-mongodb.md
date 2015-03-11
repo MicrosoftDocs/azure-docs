@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="02/09/2015" 
 	ms.author="huvalo"/>
 
 
@@ -21,7 +21,7 @@
 
 # Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio
 
-In this tutorial, we'll create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=eql-crFgrAE).
+In this tutorial, we'll use [Python Tools for Visual Studio][] to create a simple polls application using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=eql-crFgrAE).
 
 The polls application defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
 
@@ -29,16 +29,7 @@ We'll learn how to use one of the hosted MongoDB services on Azure, how to confi
 
 See the [Python Developer Center][] for more articles that cover development of Azure Websites with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services.  While this article focuses on Azure Websites, the steps are similar when developing [Azure Cloud Services][].
 
-+ [Prerequisites](#prerequisites)
-+ [Create the Project](#create-the-project)
-+ [Create a MongoDB Database](#create-a-mongodb-database)
-+ [Configure the Project](#configure-the-project)
-+ [Explore the MongoDB Database](#explore-the-mongodb-database)
-+ [Publish to an Azure Website](#publish-to-an-azure-website)
-+ [Configure the Azure Website](#configure-the-azure-website)
-+ [Next steps](#next-steps)
-
-##<a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
  - Visual Studio 2012 or 2013
  - [Python Tools 2.1 for Visual Studio][]
@@ -49,7 +40,7 @@ See the [Python Developer Center][] for more articles that cover development of 
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="create-the-project"></a>Create the Project
+## Create the Project
 
 In this section, we'll create a Visual Studio project using a sample template.  We'll create a virtual environment and install required packages.  Then we'll run the application locally using the default in-memory repository.
 
@@ -73,7 +64,7 @@ In this section, we'll create a Visual Studio project using a sample template.  
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
-##<a name="create-a-mongodb-database"></a>Create a MongoDB Database
+## Create a MongoDB Database
 
 For the database, we'll create a MongoLab hosted database on Azure.
 
@@ -99,7 +90,7 @@ You can create a free trial with MongoLab by following these steps.
 
 1.  Click **PURCHASE**.
 
-##<a name="configure-the-project"></a>Configure the Project
+## Configure the Project
 
 In this section, we'll configure our application to use the MongoDB database we just created.  We'll see how to obtain connection settings from the Azure portal.  Then we'll run the application locally.
 
@@ -131,7 +122,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
 
-##<a name="explore-the-mongodb-database"></a>Explore the MongoDB Database
+## Explore the MongoDB Database
 
 You can use an application such as [RoboMongo][] to query and make edits to a MongoDB database.  In this section we'll use RoboMongo to view the contents of the polls application database.
 
@@ -153,7 +144,7 @@ You can use an application such as [RoboMongo][] to query and make edits to a Mo
 
   	![RoboMongo Query Results](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
-##<a name="publish-to-an-azure-website"></a>Publish to an Azure Website
+## Publish to an Azure Website
 
 PTVS provides an easy way to deploy your web application to an Azure Website.
 
@@ -175,7 +166,7 @@ PTVS provides an easy way to deploy your web application to an Azure Website.
 
     That's because the environment variables are not set on the Azure Website, so it uses the default values specified in **settings.py**.
 
-##<a name="configure-the-azure-website"></a>Configure the Azure Website
+## Configure the Azure Website
 
 In this section, we'll configure environment variables for the site.
 
@@ -199,7 +190,7 @@ In this section, we'll configure environment variables for the site.
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
 
-##<a name="next-steps"></a>Next steps
+## Next steps
 
 Follow these links to learn more about Python Tools for Visual Studio, Flask and MongoDB.
 
@@ -214,12 +205,13 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 
 
 <!--Link references-->
-[Python Developer Center]: /en-us/develop/python/
+[Python Developer Center]: /develop/python/
 [Azure Cloud Services]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510

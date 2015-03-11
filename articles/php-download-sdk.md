@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="2/5/2015" 
 	ms.author="tomfitz"/>
 
 #Download the Azure SDK for PHP
+
+## Overview
 
 The Azure SDK for PHP includes components that allow you to develop, deploy, and manage PHP applications for Azure. Specifically, the Azure SDK for PHP includes the following:
 

@@ -13,7 +13,7 @@ cross-premises connections, use the **From Gallery** method instead and specify 
 4. On the **Virtual machine configuration** page, provide the following information:
 	- Provide a **Virtual Machine Name**, such as "testlinuxvm".
 	- Specify a **New User Name**, such as "newuser", which will be added to the Sudoers list file.
-	- In the **New Password** box, type a [strong password](http://msdn.microsoft.com/en-us/library/ms161962.aspx).
+	- In the **New Password** box, type a [strong password](http://msdn.microsoft.com/library/ms161962.aspx).
 	- In the **Confirm Password** box, retype the password.
 	- Select the appropriate **Size** from the drop down list.
 

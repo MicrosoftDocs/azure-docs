@@ -23,10 +23,18 @@
 
 - [File names and locations for Azure technical articles](./file-names-and-locations.md)
 
+- [Linking guidelines](./create-links-markdown.md/)
+
+- [Retire or rename an article](./retire-or-rename-an-article.md)
+
 
 ##Authoring articles: markdown
 
-- [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [Markdown basics](https://help.github.com/articles/markdown-basics/)
+
+- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true)
+
+- [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
 
 - [Create tables in markdown](./create-tables-markdown.md)
 
@@ -35,5 +43,3 @@
 - [Markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md)
 
 - [Metadata for Azure technical articles](./article-metadata.md)
-
-

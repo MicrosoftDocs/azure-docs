@@ -19,7 +19,7 @@
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](../virtual-machines-linux-endorsed-distributions). All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
+**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](../virtual-machines-linux-endorsed-distributions) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
 - [Linux on Azure - Endorsed Distributions](../virtual-machines-linux-endorsed-distributions)
 - [Support for Linux images in Microsoft Azure](http://support2.microsoft.com/kb/2941892)
@@ -71,7 +71,7 @@ VHD images on Azure must have a virtual size aligned to 1MB.  Typically, VHDs cr
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/en-us/library/hh848535.aspx) Powershell cmdlet.
+To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet.
 
 If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD:
 

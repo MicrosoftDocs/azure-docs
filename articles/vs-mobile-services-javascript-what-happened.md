@@ -3,7 +3,7 @@
 	description="Describes what happened to your Azure Mobile Services project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
@@ -24,7 +24,7 @@
 
 #####References Added
 
-The Windows Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
+The Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
   
 #####Connection string values for Mobile Services 
 

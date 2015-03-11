@@ -3,7 +3,7 @@
 	description="Frequently Asked Questions" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2014" 
-	ms.author="jaymathe"/> 
+	ms.date="02/10/2015" 
+	ms.author="luisca"/> 
 
 #Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
 
@@ -27,6 +27,9 @@
 
 Your input parameter(s) may not conform to the required format for the specific web service. Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.
 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 **2. If I copy the API link for the web service that I see on the "Explore this dataset" page and paste it into another browser window, what credentials should I use to access the results, and how do I see them?**
 
 You should use your Marketplace account as the username and the primary account key as the password. The primary account key can be found on the **Explore this dataset** page under the description of the web service (click the **show** button). The result may display in the browser or it may be available to  download, depending on which browser you are using.
@@ -35,7 +38,12 @@ You should use your Marketplace account as the username and the primary account 
 
 **An unexpected error occurred while processing your request. Please try again.**
 
-One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-r-csharp-web-service-examples/).
+One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-web-service-examples/).
+
+**4. Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Management Portal?** 
+
+This is a known issue with the Azure Management Portal Marketplace. The team is working to resolve this issue. 
+
 
 ##Questions about publishing from Azure Machine Learning on Marketplace
 

@@ -19,29 +19,11 @@
 # Quick start guide for the Machine Learning Recommendations API
 
 Version: 1.0<br>
-Latest version can be found [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-recommendation-api-quick-start-guide/)
+Latest version can be found [here](http://azure.microsoft.com/documentation/articles/machine-learning-recommendation-api-quick-start-guide/)
 
 This document depicts how to onboard your service or application to use Azure ML Recommendations. 
 
-##Contents
-
-- [General Overview](#general-overview)
-- [Limitations](#limitations)
-- [Integration](#integration)
-	- [Authentication](#authentication)
-	- [Service URI](#service-uri)
-	- [API Version](#api-version)
-	- [Create a model](#create-a-model)
-	- [Import catalog data](#import-catalog-data)
-	- [Import usage data](#import-usage-data)
-		- [Uploading file](#uploading-file)
-		- [Using data acquisition](#using-data-acquisition)
-	- [Build a recommendation model](#build-a-recommendation-model)
-	- [Get Builds Status of a Model](#get-builds-status-of-a-model)
-	- [Get Recommendations](#get-recommendations)
-	- [Update Model](#update-model)
-- [Legal](#legal)
-
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ##General Overview
 
