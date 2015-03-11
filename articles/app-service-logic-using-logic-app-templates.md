@@ -1,4 +1,4 @@
-+<properties
+<properties
  pageTitle="Using Logic App Templates"
  description="Learn how to use pre-created Logic App Templates to help you get started."
  authors="kevinlam1"
