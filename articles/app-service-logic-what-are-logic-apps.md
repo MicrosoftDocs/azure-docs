@@ -18,9 +18,9 @@ t<tags
 
 ##What are Logic Apps?
 
-Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers that brings a rich set of capabilities to web, mobile and integration scenarios. Logic Apps are one part of the App Service suite and allow any technical user or developer to automate business process execution via an easy to use visual designer.
+Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers that brings a rich set of capabilities to web and mobile scenarios and beyond. Logic Apps are one part of the App Service suite and allow any technical user or developer to automate business process execution via an easy to use visual designer.
 
-Best of all, Logic Apps can be combined with API apps and Connectors, from our open marketplace, to help solve tricky integration scenarios with ease.
+Best of all, Logic Apps can be combined with Connectors from our open marketplace, to help solve compose SaaS apps and reach integration scenarios with ease.
 
 ![Flow app designer](./media/app-service-learn-about-flows-preview/Designer.png)
 
