@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Integrate with an on-premises SAP server"
 	description="Learn how to integrate with an on-premises SAP server"
-	authors="harish" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service-logic" 
@@ -106,7 +106,7 @@ Once the SAP connector has been created, it can be used inside your Logic App wo
 
 Create a new Logic App through New -> Logic App -> Create. Provide the metadata for the Logic App including resource group
 
-Click on *triggers and actions*. The flow designer opens up as
+Click on *triggers and actions*. The Logic App workflow designer opens up.
 
 Click on SAP connector from the right pane, and select an action from the actions tab. Note that the list of actions are based on the configuration you provided at the time of the SAP connector creation. For the selected action, you will see the input and output parameters. You can key in the inputs for the action and use the output of the current action in other API apps used downstream for further decision making.
 
