@@ -8,23 +8,11 @@ After you have registered your app with APNS and configured your project, you mu
 
 >[AZURE.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
 
-2. Log on to the [Azure Preview Portal], select **Browse**, **Mobile Apps**, and then click your app.
+2. Log on to the [Azure Preview Portal], select **Browse**, **Mobile Apps**, and then click your app. click on Push Notification services.
 
-   	![](./media/app-service-mobile-apns-configure-push/mobile-selection.png)
-
-3. Click the **Push** tab and click **Upload**.
-
-   	![](./media/app-service-mobile-apns-configure-push/mobile-push-tab-ios.png)
-
-	This displays the Upload Certificate dialog.
-
-4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected (either Dev/Sandbox or Prod/Production), click the check icon, then click **Save**.
-
-   	![](./media/app-service-mobile-apns-configure-push/mobile-push-tab-ios-upload.png)
-
-    > [AZURE.NOTE] This tutorial uses developement certificates.
+3. In Apple Push Notification Service, upload your certificate with the **.p12** file, the password you associated with it, and select the desired mode.
 
 Your App Service mobile app is now configured to work with APNS.
 
 <!-- URLs. -->
-[Azure Management Portal]: https://portal.azure.com/
+[Azure Preview Portal]: https://portal.azure.com/

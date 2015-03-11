@@ -18,32 +18,19 @@
 
 ## Using BizTalk Rules 
 
-Business rules (or business policies) define and control the structure, operation, and strategy of an organization. Business rules may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. Business rules are dynamic and subject to change over time, and can be found in all types of applications. Finance and insurance, e-business, transportation, telecommunications, Web-based services, and personalization are just a few of the many business domains that are governed by business rules. Each of these business domains shares the need to convey business strategies, policies, and regulations to information technology (IT) personnel for inclusion into software applications.
+Business rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
 
-Traditional procedural and object-oriented programming languages, such as C, C++, and Microsoft Visual Basic, are oriented towards programmers. Even advanced object-oriented languages, such as Java and C#, are still primarily programmers' languages. The traditional software development cycle of design, develop, compile, and test requires substantial time and coordination, and does not enable nonprogrammers to participate in the maintenance of automated business policies. The Business Rules Framework addresses this problem by providing a development environment that allows rapid application creation without the lengthy cycle of traditional application programming. For example, business policies constructed by using this framework can be updated without recompiling and redeploying the associated orchestrations.
+Implementing these policies in traditional programming languages requires substantial time and coordination, and does not enable non-programmers to participate in creation and maintenance of business policies. BizTalk Business Rules provides a way to rapidly implement these policies and decouple the rest of buisness process. This allows for making required changes to business policies without impacting the rest of the business process.
+
 
 ## Why Rules
 
-There are 3 key reasons to opt for Business Rules during application designs:
+There are 3 key reasons to use BizTalk Business Rules in business process:
 
 * Decouple Business logic from Application code
 - Allow Business Analysts to have more control over business logic management
 + Changes to business logic goto production faster
 
-## Rules Design Principles
-
-Microsoft Azure relied on 3 main design principles for Business Rules
-
-### Business Analyst Friendly
-Create a Business Analyst friendly experience for Creation, Edit and Update of Business Rules. To ensure this, the Rules authoring experience has moved to the Azure Portal, the grammar is regular English based and there is upfront validation to catch issues early on.
-
-### Rules as a Service
-Business Rules comes with a rich API set which allows user to invoke the Rule Engine from any application using REST calls.
-
-### Powerful Rule Engine
-
-The Rule Engine beneath the hood is based on the powerful RETE algorithm and is written from the ground up. Performance and efficiency are key tenants of the design.
- 
 ## Rules Concepts
 
 ### Vocabulary
@@ -104,14 +91,6 @@ The Claim Processing Unit in our scenario would be the one encompassing the Busi
  
 Let us now use Business Rules to implement this business logic.
 
-## Personas
-Business Rules is mainly targeted towards 2 main personas
-
-### Developer
-Developers are the folks who would be dealing with the company’s computing objects. They are the ones who understand the complex XML schema’s used by their systems and are hence the ones expected to create the vocabularies that are needed by business analysts to create business rules.
-
-### Business Admin
-Business Admins are the ones who author a company’s business logic. They come up with a set of rules and have a requirement to verify, monitor and quickly change the business logic. They work in tandem with their developers and use business friendly vocabularies to author their business rules and policies.
 
 ## Creation of Rules Api App
 1.	Login to the Azure Portal and get to the home page. 
@@ -195,8 +174,7 @@ The Action(Then) box can contain multiple statements, one per line, to create ac
 6.	null  
 7.	update  
 
-### Intellisense
-Intellisense capability has been added to help user’s author rules. This feature is available in both the condition and action boxes. This can be triggered by hitting ctrl+space or by just starting to type. Keywords matching typed characters will automatically be filtered down and shown. The intellisense window will show all keywords and vocabulary definitions.
+Condition and action boxes provide Intellisense to help user author a rule quickly. This can be triggered by hitting ctrl+space or by just starting to type. Keywords matching typed characters will automatically be filtered down and shown. The intellisense window will show all keywords and vocabulary definitions.
 
 ### Explicit Forward Chaining
 BizTalk Rules supports explicit forward chaining. What this means is that if users would like to re-evaluate rules in response to certain actions, they can trigger this by using certain keywords. The following are the keywords supported:  
