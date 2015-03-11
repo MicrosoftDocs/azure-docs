@@ -63,9 +63,9 @@ This folder contains articles that are part of our contributors' guide.
 
 ## Use GitHub, Git, and this repository
 
-For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see [Install and set up tools for authoring in GitHub](./tools-and-setup.md).
+For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md).
 
-If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in [Git commands for creating a new article or updating an existing article](./git-commands-for-master.md)
+If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md)
 
 ### Branches
 
@@ -94,4 +94,4 @@ Article metadata enables certain functionalities on the azure.microsoft.com web 
 
 ## More resources
 
-See the [index of our contributor's guide](./contributor-guide-index.md) for all our guidance topics.
+See the [index of our contributor's guide](./contributor-guide/contributor-guide-index.md) for all our guidance topics.
