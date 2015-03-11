@@ -211,6 +211,7 @@ The following scrip downloads a block blob to the current folder. Before running
 **PowerShell sample for deleting a file**
 
 The following script shows how to delete a file.
+
 	$storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
 	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
 	$blob = "example/data/sample.log" # The name of the blob to be downloaded.
