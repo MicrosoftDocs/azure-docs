@@ -104,9 +104,9 @@ Configure the output of HTTP Listener as the input of BizTalk Transforms. Also, 
 ###And you are done!
 
 <!--image references -->
-[1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.png
-[2]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/HTTPListener.png
-[3]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkXMLValidator.png
-[4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.png
-[5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.png
+[1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
+[2]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/HTTPListener.PNG
+[3]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkXMLValidator.PNG
+[4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
+[5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
