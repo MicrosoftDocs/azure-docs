@@ -20,6 +20,8 @@
 
 After you've created your Logic App you can see the full history of its execution in the Azure portal. Click on **Browse** at the left side of the portal screen and select **Logic Apps**. You’ll see a list of Logic Apps in your subscription and if they are Enabled or not (*Enabled* just means that triggers will run your Logic App when they decide to, *Disabled* Logic Apps will not run in response to trigger events).
 
+![Overview](./media/app-service-logic-monitor-your-logic-apps/overview.png)
+
 When you see the blade for your Logic App there are 2 sections that are useful:
 
 - **Summary**, which tells you the latest status and is an entry point to editing your Logic App
@@ -29,7 +31,7 @@ When you see the blade for your Logic App there are 2 sections that are useful:
 
 ![All Runs](./media/app-service-logic-monitor-your-logic-apps/allruns.png)
 
-This list of runs shows the **Start time**, the **Name** (you can use this Name when calling the REST API), and the **Duration** of the particular runs. Click any row to see details on that run.
+This list of runs shows the **Start time**, the **Run identifier** (you can use this when calling the REST API), and the **Duration** of the particular runs. Click any row to see details on that run.
 
 The details blade shows a graph with the execution time and sequence of all of the actions in the run. Below that is the full list of all of the actions that were executed.
 
