@@ -41,7 +41,7 @@ If you plan to have multiple content keys or want to specify a **Key\License Del
 
 ###Some considerations apply:
 
-- To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](../media-services-manage-origins#scale_streaming_endpoints). 
+- To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one streaming reserved unit. For more information, see [How to Scale a Media Service](../media-services-manage-origins#scale_streaming_endpoints). 
 - Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](../media-services-encode-asset/).  
 - The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
 

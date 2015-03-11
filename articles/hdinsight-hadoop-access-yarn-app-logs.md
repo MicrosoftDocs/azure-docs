@@ -34,12 +34,6 @@ To install the HDInsight SDK from a Visual Studio application, go the **Tools** 
 
 This command adds .NET libraries for HDInsight and references to them to the current Visual Studio project.
 
-## In this article
-
-- [YARN Timeline Server](#YARNTimelineServer)
-- [YARN Applications and Logs](#YARNAppsAndLogs)
-- [Enumerating Applications and Downloading Logs Programmatically](#enumerate-and-download)
-
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
