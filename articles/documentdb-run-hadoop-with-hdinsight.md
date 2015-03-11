@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="03/11/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -156,7 +156,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 			<td>Specify a name for the script action.</td></tr>
 		<tr><td>Script URI</td>
 			<td>Specify the URI to the script that is invoked to customize the cluster.</br></br>
-			Please enter: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v01.ps1</strong>.</td></tr>
+			Please enter: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</strong>.</td></tr>
 		<tr><td>Node Type</td>
 			<td>Specifies the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.</br></br>
 			Please select <strong>All Nodes</strong>.</td></tr>
