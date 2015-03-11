@@ -35,13 +35,6 @@ This tutorial shows you how to run a MapReduce word count example on an Hadoop c
 
 - You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure]
 
-##In this article	
-This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
-	
-1. [Run the sample using Azure PowerShell](#run-sample)	
-2. [The Java code for the WordCount MapReduce program](#java-code)
-3. [Summary](#summary)	
-4. [Next steps](#next-steps)	
 
 <h2><a id="run-sample"></a>Run the sample using Azure PowerShell</h2> 
 
@@ -209,7 +202,7 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
 [hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/

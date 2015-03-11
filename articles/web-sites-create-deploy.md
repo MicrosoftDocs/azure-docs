@@ -20,7 +20,7 @@
 
 This topic shows how to create a website from the gallery or by using the management portal.
 
-For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Websites](/en-us/documentation/services/web-sites/).
+For information about how to deploy your content to an Azure Website that you have created, see the **Deploy** section in [Azure Websites](/documentation/services/web-sites/).
 
 ##<a name="createawebsiteportal"></a> How to: Create a Website Using the Management Portal
 
@@ -61,4 +61,4 @@ Websites are deleted using the **Delete** icon in the Azure Management Portal. T
 
 ##<a name="nextsteps"></a> Next Steps
 
-For more information, see [Azure Web Sites](/en-us/documentation/services/web-sites/).
+For more information, see [Azure Web Sites](/documentation/services/web-sites/).

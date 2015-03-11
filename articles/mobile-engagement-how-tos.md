@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
@@ -12,21 +12,11 @@
    ms.devlang="Java"
    ms.topic="article"
    ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
 # Azure Mobile Engagement - How To Guides
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="#First" title="First Push">First Push</a>
-<a href="#Test" title="Test Campaign">Test Campaign</a>
-<a href="#Personalize" title="Personalize Push">Personalize Push</a>
-<a href="#Differentiate" title="Differentiate Push">Differentiate Push</a>
-<a href="#Schedule" title="Schedule Campaign">Schedule Campaign</a>
-<a href="#TextView" title="Text View">Text View</a>
-<a href="#WebView" title="Web View">Web View</a>
-</div>
 
 ## Introduction
 
@@ -308,10 +298,10 @@ Select the "Web announcement" content.
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: ../mobile-engagement-user-interface-navigation/
 [Link 13]: ../mobile-engagement-user-interface-home/
 [Link 14]: ../mobile-engagement-user-interface-my-account/

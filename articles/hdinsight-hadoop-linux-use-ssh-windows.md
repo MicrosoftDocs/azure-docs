@@ -20,7 +20,7 @@
 
 Linux-based HDInsight clusters provide the option of securing SSH access using either a password or an SSH key. This document provides information on connecting to HDInsight from Windows clients using the PuTTY SSH client.
 
-> [AZURE.NOTE] The steps in this article assume you are using a Windows client. If you are using a Linux, Unix, or OS X client, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/en-us/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+> [AZURE.NOTE] The steps in this article assume you are using a Windows client. If you are using a Linux, Unix, or OS X client, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
 
 ##Prerequisites
 

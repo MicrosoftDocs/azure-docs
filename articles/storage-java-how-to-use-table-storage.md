@@ -36,7 +36,7 @@ To do so, you will need to install the Java Development Kit (JDK) and create an 
 
 ## Configure your application to access table storage
 
-Add the following import statements to the top of the Java file where you want to use Windows Azure storage APIs to access tables:
+Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:
 
     // Include the following imports to use table APIs
     import com.microsoft.azure.storage.*;

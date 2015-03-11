@@ -60,6 +60,6 @@ You are now ready to use a Google login for authentication in your app by provid
 <!-- URLs. -->
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://manage.windowsazure.com/

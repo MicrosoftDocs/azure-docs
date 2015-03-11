@@ -4,9 +4,9 @@
 
 ## Markdown for Azure.microsoft.com
 
-For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
+For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/) and our [markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
 
-Azure.microsoft.com supports [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) and [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). However, ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block. 
+Azure.microsoft.com supports [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) and [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). However, ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block.
 
 ## Custom markdown extensions used in our technical articles
 
@@ -26,7 +26,7 @@ You can choose from 4 types of notes and tips:
 - AZURE.TIP
 - AZURE.IMPORTANT
 
-###Usage 
+###Usage
 In general, use notes and tips sparingly throughout your articles. When you do use them, choose the appropriate type of note or tip:
 
 - Use AZURE.NOTE to highlight neutral or positive information that emphasizes or supplements key points of the main text. A note supplies information that applies only in special cases.
@@ -45,7 +45,7 @@ In general, use notes and tips sparingly throughout your articles. When you do u
 
   ![](./media/custom-markdown-extensions/Notes-important.PNG)
 
-While these notes and tips support code blocks, images, lists, and links, try to keep your notes and tips simple and straightforward. If you find yourself creating complex notes with lots of formatting, that might be a sign you just need another section in the main text of the article. And, too many notes in an article can be distracting and hard to scan or read. 
+While these notes and tips support code blocks, images, lists, and links, try to keep your notes and tips simple and straightforward. If you find yourself creating complex notes with lots of formatting, that might be a sign you just need another section in the main text of the article. And, too many notes in an article can be distracting and hard to scan or read.
 
 ###Sample markdown
 
@@ -55,32 +55,32 @@ The samples all show an AZURE.NOTE. To use a TIP, WARNING, or IMPORTANT, replace
 
     > [AZURE.WARNING]
 
-    > [AZURE.IMPORTANT] 
+    > [AZURE.IMPORTANT]
 
 Single paragraph:
 
-    > [AZURE.NOTE] To complete this tutorial, you must have an active Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
+    > [AZURE.NOTE] To complete this tutorial, you must have an active Microsoft Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes.
 
 Multiparagraph:
 
-    > [AZURE.NOTE] To complete this tutorial, you must have an active Microsoft Azure account. 
-    > 
+    > [AZURE.NOTE] To complete this tutorial, you must have an active Microsoft Azure account.
+    >
     > If you don't have an account, you can [create a free trial account](http://www.windowsazure.com/pricing/free-trial/) in just a couple of minutes.
 
 ## Includes
 
-Reusable text fragments in our GitHub repository are called "includes". When you have text that needs to be used in multiple articles, you include a reference to the text fragments in the markdown files. The text fragment (the include) itself is a simple markdown (.md) file. It can contain any valid markdown, including text, links, and images. All include markdown files must be in [the /includes directory](https://github.com/Azure/azure-content/tree/master/includes) in the root of the repository. When the article is published, the include text is seamlessly integrated into the published topic. 
+Reusable text fragments in our GitHub repository are called "includes". When you have text that needs to be used in multiple articles, you include a reference to the text fragments in the markdown files. The text fragment (the include) itself is a simple markdown (.md) file. It can contain any valid markdown, including text, links, and images. All include markdown files must be in [the /includes directory](https://github.com/Azure/azure-content/tree/master/includes) in the root of the repository. When the article is published, the include text is seamlessly integrated into the published topic.
 
 - We use a specific syntax to reference an include.
 
-- Media files you put in an include must be created in a media folder specific to the include. Media folders for includes belong in [the azure-content/includes/media folder](https://github.com/Azure/azure-content/tree/master/includes/media). The media directory should not contain any images in its root. If the include does not have images, then a corresponding media directory is not required. 
+- Media files you put in an include must be created in a media folder specific to the include. Media folders for includes belong in [the azure-content/includes/media folder](https://github.com/Azure/azure-content/tree/master/includes/media). The media directory should not contain any images in its root. If the include does not have images, then a corresponding media directory is not required.
 
 ###Usage
 
 - Use includes wherever you need the same text to appear in multiple articles.
-- Includes are meant to be used for significant amounts of content - a paragraph or two, a shared procedure, or a shared section. Do not use them for anything smaller than a sentence; they are not for product names or incomplete sentences. 
+- Includes are meant to be used for significant amounts of content - a paragraph or two, a shared procedure, or a shared section. Do not use them for anything smaller than a sentence; they are not for product names or incomplete sentences.
 - Don't embed includes within other includes. Bad things happen in the publishing system!
-- Don't share media between files. Use a separate file with a unique name for each include and article. Store the media file in the media folder associated with the include. 
+- Don't share media between files. Use a separate file with a unique name for each include and article. Store the media file in the media folder associated with the include.
 - Because all includes must be in the /includes directory, the path to an include from an article is always
 
     ../includes
@@ -99,16 +99,16 @@ Reusable text fragments in our GitHub repository are called "includes". When you
 
 ###Sample markdown
 The syntax for adding an include to a documentation article is:
- 
-    [AZURE.INCLUDE [include-short-name](../includes/include-file-name.md)] 
+
+    [AZURE.INCLUDE [include-short-name](../includes/include-file-name.md)]
 
 Example
 
-    [AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)] 
- 
+    [AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+
 The first part of the include is the include name without the path and without the .md extension. The second part is the relative path to the include in the /includes directory, with the .md extension.
 
-###Rendering 
+###Rendering
 
 In the rendered GitHub page, the include will render as follows:
 
@@ -125,7 +125,7 @@ Our technical articles support embeddeded videos in technical articles as long a
 
 ### Usage
 
-- Make sure that the video is on the Video Center. 
+- Make sure that the video is on the Video Center.
 
 - Copy the video ID from the friendly URL of the video on Channel 9 or from the Azure Video Center. For example, the video ID for the video at [http://azure.microsoft.com/documentation/videos/azure-scheduler-unusual-schedules/](http://azure.microsoft.com/documentation/videos/azure-scheduler-unusual-schedules/) is **azure-scheduler-unusual-schedules**.
 
@@ -159,14 +159,14 @@ See [Get started with Notification Hubs](http://azure.microsoft.com/documentatio
 Example:
 
     > [AZURE.SELECTOR]
-    - [Windows Universal](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
-    - [Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/)
-    - [iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/)
-    - [Android](/en-us/documentation/articles/notification-hubs-android-get-started/)
-    - [Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/)
-    - [Baidu](/en-us/documentation/articles/notification-hubs-baidu-get-started/)
-    - [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/)
-    - [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/)
+    - [Windows Universal](/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
+    - [Windows Phone](/documentation/articles/notification-hubs-windows-phone-get-started/)
+    - [iOS](/documentation/articles/notification-hubs-ios-get-started/)
+    - [Android](/documentation/articles/notification-hubs-android-get-started/)
+    - [Kindle](/documentation/articles/notification-hubs-kindle-get-started/)
+    - [Baidu](/documentation/articles/notification-hubs-baidu-get-started/)
+    - [Xamarin.iOS](/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/)
+    - [Xamarin.Android](/documentation/articles/partner-xamarin-notification-hubs-android-get-started/)
 
 ### Rendering
 
@@ -176,7 +176,7 @@ The image above shows the rendering on azure.microsoft.com. On the rendered GitH
 [Notes and tips]: #notes-and-tips
 [Includes]: #includes
 [Embedded videos]: #embedded-videos
-[Technology and platform selectors]: #technology-and-platform-selectors 
+[Technology and platform selectors]: #technology-and-platform-selectors
 
 ###Contributors' Guide Links
 

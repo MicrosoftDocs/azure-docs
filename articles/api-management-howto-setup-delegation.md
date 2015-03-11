@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="03/05/2015" 
 	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
@@ -44,7 +44,7 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
 
 	Query parameters for the sign-in / sign-up case:
 	- **operation**: identifies what type of delegation request it is - it can only be "SignIn" in this case
@@ -91,7 +91,7 @@ Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
 	Query parameters for the product subscription case:
 	- **operation**: identifies what type of delegation request it is. For product subscription requests the valid options are:

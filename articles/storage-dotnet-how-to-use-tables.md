@@ -26,7 +26,7 @@ Azure Table Storage Service. The samples are written in C\# code
 and use the Azure Storage Client Library for .NET. The scenarios covered include **creating and
 deleting a table**, as well as **working with table entities**.
 
-> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [How to: Programmatically access Table storage][] below for more details on obtaining the Storage Client Library.
+> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [Programmatically access Table storage](#programmatically-access-table-storage) below for more details on obtaining the Storage Client Library.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
@@ -34,12 +34,12 @@ deleting a table**, as well as **working with table entities**.
 
 [AZURE.INCLUDE [storage-configure-connection-string-include](../includes/storage-configure-connection-string-include.md)]
 
-## How to: Programmatically access Table storage
+## Programmatically access Table storage
 
 ### Obtaining the assembly
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
 
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` directory.
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` directory.
 
 ### Namespace declarations
 Add the following code namespace declarations to the top of any C\# file
@@ -73,7 +73,7 @@ If you are creating an application with no reference to Microsoft.WindowsAzure.C
 ### ODataLib dependencies
 ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
 
-## How to: Create a table
+## Create a table
 
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
@@ -92,7 +92,7 @@ uses a storage connection string stored in the Azure application's service confi
     CloudTable table = tableClient.GetTableReference("people");
     table.CreateIfNotExists();
 
-## How to: Add an entity to a table
+## Add an entity to a table
 
 Entities map to C\# objects using a custom class derived from
 **TableEntity**. To add an entity to a table, create a
@@ -146,7 +146,7 @@ is represented by a **TableOperation** object.  The following code example shows
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-## How to: Insert a batch of entities
+## Insert a batch of entities
 
 You can insert a batch of entities into a table in one write
 operation. Some other notes on batch
@@ -192,7 +192,7 @@ to a **TableBatchOperation** using the **Insert** method. Then **CloudTable.Exec
 	// Execute the batch operation.
 	table.ExecuteBatch(batchOperation);
 
-## How to: Retrieve all entities in a partition
+## Retrieve all entities in a partition
 
 To query a table for all entities in a partition, use a **TableQuery** object.
 The following code example specifies a filter for entities where 'Smith'
@@ -219,7 +219,7 @@ each entity in the query results to the console.
             entity.Email, entity.PhoneNumber);
     }
 
-## How to: Retrieve a range of entities in a partition
+## Retrieve a range of entities in a partition
 
 If you don't want to query all the entities in a partition, you can
 specify a range by combining the partition key filter with a row key filter. The following code example
@@ -251,7 +251,7 @@ prints the query results.
             entity.Email, entity.PhoneNumber);
     }
 
-## How to: Retrieve a single entity
+## Retrieve a single entity
 
 You can write a query to retrieve a single, specific entity. The
 following code uses a **TableOperation** to specify the customer 'Ben Smith'.
@@ -282,7 +282,7 @@ retrieve a single entity from the Table service.
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-## How to: Replace an entity
+## Replace an entity
 
 To update an entity, retrieve it from the table service, modify the
 entity object, and then save the changes back to the table service. The
@@ -333,7 +333,7 @@ show you how to override this behavior.
 	else
 	   Console.WriteLine("Entity could not be retrieved.");
 
-## How to: Insert-or-replace an entity
+## Insert-or-replace an entity
 
 **Replace** operations will fail if the entity has been changed since
 it was retrieved from the server.  Furthermore, you must retrieve
@@ -383,7 +383,7 @@ overwritten.
 	else
 	   Console.WriteLine("Entity could not be retrieved.");
 
-## How to: Query a subset of entity properties
+## Query a subset of entity properties
 
 A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the
 following code returns only the email addresses of entities in the
@@ -411,7 +411,7 @@ also an **EntityResolver**. You can learn more about projection in this [blog po
         Console.WriteLine(projectedEmail);
     }
 
-## How to: Delete an entity
+## Delete an entity
 
 You can easily delete an entity after you have retrieved it, using the same pattern
 shown for updating an entity.  The following code
@@ -450,7 +450,7 @@ retrieves and deletes a customer entity.
 	else
 	   Console.WriteLine("Could not retrieve the entity.");
 
-## How to: Delete a table
+## Delete a table
 
 Finally, the following code example deletes a table from a storage account. A
 table which has been deleted will be unavailable to be recreated for a

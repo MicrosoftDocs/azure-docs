@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2014" 
+	ms.date="02/18/2014" 
 	ms.author="garye"/>
 
 # What is Azure Machine Learning Studio?

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/23/2015" 
@@ -68,7 +68,7 @@ Launch Visual Studio and create a new ASP.NET Web Application project. Name the 
 
 ![][3]
 
-In Visual Studio 2013, the ASP.NET Web Application project includes a template for Windows Azure Mobile Service. Select this template and click **OK**.
+In Visual Studio 2013, the ASP.NET Web Application project includes a template for Azure Mobile Service. Select this template and click **OK**.
 
 ![][4]
  
@@ -121,7 +121,7 @@ Right click the Controllers folder >  **Add** > **New Scaffolded Item**.
 
 ![][6] 
 
-In the **Add Scaffold** dialog, expand **Common** on the left and select **Windows Azure Mobile Services**. Then select **Windows Azure Mobile Services Table Controller**. Click **Add**.
+In the **Add Scaffold** dialog, expand **Common** on the left and select **Azure Mobile Services**. Then select **Azure Mobile Services Table Controller**. Click **Add**.
 
 ![][7] 
  
@@ -666,7 +666,7 @@ In Solution Explorer, right-click the Leaderboard project and select **Publish**
  
 ![][12]
 
-In the **Publish** dialog, click **Windows Azure Mobile Services**.
+In the **Publish** dialog, click **Azure Mobile Services**.
 
 ![][13]
  
@@ -755,9 +755,9 @@ Now when you run the app, it communicates with the real service.
 
 <!-- URLs. -->
 
-[Learn more about Azure Mobile Services]: /en-us/develop/mobile/resources/
+[Learn more about Azure Mobile Services]: /develop/mobile/resources/
 [Learn more about Web API]: http://asp.net/web-api
-[Handle database write conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[Add push notifications]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Handle database write conflicts]: /documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+[Add push notifications]: /documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing
@@ -41,7 +41,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the Office 365 FastTrack trial.
 3.	Configure the DirSync server (DS1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##Phase 1: Set up the hybrid cloud environment
 
@@ -79,11 +79,12 @@ This is your current configuration.
 First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
@@ -141,7 +142,7 @@ Next, configure Directory Sync on DS1.
 2.	On the **Start** screen, type **Directory Sync**.
 3.	Right-click **Directory Sync Configuration**, and then click **Run as administrator**. This starts the configuration wizard.
 4.	On the Welcome page, click **Next**.
-5.	On the Windows Azure Active Directory Credentials page, type the email address and password of the initial account you created when you set up the Office 365 FastTrack trial in Phase 2. Click Next. 
+5.	On the Microsoft Azure Active Directory Credentials page, type the email address and password of the initial account you created when you set up the Office 365 FastTrack trial in Phase 2. Click Next. 
 6.	On the Active Directory Credentials page, type **CORP\User1** in **User name** and the User1 account password in **Password**. Click **Next**.
 7.	On the Hybrid Deployment page, select **Enable Hybrid Deployment**, and then click **Next**.
 8.	On the Password Synchronization page, select **Enable Password Sync**, and then click **Next**.
@@ -185,3 +186,4 @@ This environment is now ready for you to perform testing of Office 365 applicati
 
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)

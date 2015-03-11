@@ -22,17 +22,6 @@
 ##Overview
 This topic shows how to use the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> to serialize objects and other data structures into streams in order to persist them to memory, a database or a file, and also how to deserialize them to recover the original objects. 
 
-## In this article
-
-- [Apache Avro](#apacheAvro)
-- [The Hadoop scenario](#hadoopScenario)
-- [Serialization in the Microsoft Avro Library](#serializationMAL) 
-- [Microsoft Avro Library prerequisites](#prerequisites)
-- [Microsoft Avro Library installation](#installation)
-- [Microsoft Avro Library source code](#sourceCode)
-- [Compiling the Schema with the Microsoft Avro Library](#compiling)
-- [Guide to the samples for the Microsoft Avro Library](#samples)
-
 
 ##<a name="apacheAvro"></a>Apache Avro
 The <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses <a href="http://www.json.org" target="_blank">JSON</a> to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. Detailed information on the format can be found in the <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro Specification</a>. Note that the current version of the Microsoft Avro Library does not support the Remote Procedure Calls (RPC) part of this specification.
@@ -52,7 +41,7 @@ When the data schema is known to both the writer and reader of the stream, the d
 
 
 ##<a name="prerequisites"></a> Microsoft Avro Library prerequisites
-- <a href="http://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework v4.0</a>
+- <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework v4.0</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (v6.0.4 or later) 
 
 Note that the Newtonsoft.Json.dll dependency is downloaded automatically with the installation of the Microsoft Avro Library, the procedure for which is provided in the following section.

@@ -591,5 +591,5 @@ Next, copy and execute the Insert Data script.
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[Getting Started with SQL Database Administration]: /en-us/manage/services/sql-databases/getting-started-w-sql-databases/  
+[Getting Started with SQL Database Administration]: /manage/services/sql-databases/getting-started-w-sql-databases/  
 

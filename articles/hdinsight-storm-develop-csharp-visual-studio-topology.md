@@ -26,11 +26,11 @@ You will also learn how to create hybrid topologies that use both C# and Java co
 
 * One of the following versions of Visual Studio
 
-	* Visual Studio 2012 with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	* Visual Studio 2012 with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
 
-	* Visual Studio 2013 with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	* Visual Studio 2013 with <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/en-us/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 * Azure SDK 2.5.1 or newer
 
@@ -542,6 +542,8 @@ For more ways to work with HDInsight, or more Storm on HDinsight samples, see th
 **Apache Storm on HDInsight**
 
 * [Deploy and monitor topologies with Apache Storm on HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+
+* [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
 
 * [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
 

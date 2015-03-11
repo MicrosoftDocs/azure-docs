@@ -63,11 +63,11 @@ Download the [GetStartedWithData iOS app]. In Xcode, open the project and examin
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
@@ -77,5 +77,5 @@ Download the [GetStartedWithData iOS app]. In Xcode, open the project and examin
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 
 
-[Quick Start]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started/
+[Quick Start]: /documentation/articles/mobile-services-javascript-backend-ios-get-started/
 [GetStartedWithData iOS app]: http://go.microsoft.com/fwlink/p/?LinkId=268622

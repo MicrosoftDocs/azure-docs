@@ -22,13 +22,6 @@ Heap dumps can be automatically collected for Hadoop services and placed inside 
 
 The collection of heap dumps for various services must be enabled for services on individual clusters. The default for this feature is to be off for a cluster. These heap dumps can be large in size so it is advisable to monitor the blob storage account where they are being saved once the collection has been enabled.
 
-## In this article
-
-- [For which services can heap dumps be enabled?](#whichServices)
-- [The configuration elements that enable heap dumps](#configuration)
-- [How to enable heap dumps with Azure HDInsight PowerShell](#powershell)
-- [How to enable heap dumps with HDInsight .NET SDK](#sdk)
-
 
 ## <a name="whichServices"></a>For which services can heap dumps be enabled?
 
