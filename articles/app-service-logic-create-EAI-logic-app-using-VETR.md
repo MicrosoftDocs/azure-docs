@@ -78,7 +78,7 @@ Now, let’s specify the actions that would run whenever this trigger fires (tha
 ####Adding a Validate action
 
 1.	Similar to how you created an instance of the HTTP Listener API app, select the BizTalk XML Validator API app from the gallery on the right hand side and provide it a name (Validate1) to create an instance.
-2.	Once the instance is created, the portal will present the interface for managing the validate API app. Configure an XSD schema to validate the incoming XML messges.
+2.	Once the instance is created, the portal will present the interface for managing the validate API app. Configure an XSD schema to validate the incoming XML messages.
 3.	Select the Validate action.
 4.	Select triggers(‘httplistener’).outputs.Content   as the value for the inputXml parameter.
 
