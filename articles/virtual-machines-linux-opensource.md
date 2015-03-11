@@ -1,19 +1,20 @@
 <properties
-  pageTitle="Linux and Open-Source Computing on Azure"
-  description="This topic contains a list of Linux and Open-Source Computing on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
-  documentationCenter=""
-  authors="squillace"
-  manager="timlt"
-  editor="tysonn"/>
+	pageTitle="Linux and Open-Source Computing on Azure"
+	description="This topic contains a list of Linux and Open-Source Computing on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
-  ms.service="virtual-machines"
-  ms.devlang="NA"
-  ms.topic="article"
-  ms.tgt_pltfrm="vm-linux"
-  ms.workload="infrastructure-services"
-  ms.date="02/28/2015"
-  ms.author="rasquill"/>
+	ms.service="virtual-machines"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="03/11/2015"
+	ms.author="rasquill"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
@@ -185,7 +186,7 @@ Look for this section to fill up quickly. If you have suggestions, send us a PR 
 4. [Video: Accessing Linux-based GUI on Azure in the Browser with fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
 5. [Video: Shared Storage on Linux Using Azure Files Preview -- Part 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)
 6. [Video: Embracing Linux Devices on Azure using Service Bus and Web Sites](http://channel9.msdn.com/Blogs/Open/Embracing-Linux-devices-on-Azure-via-Service-Bus-and-Web-Sites)
-7. [Video: Connecting a Native Linux-based memcached application to Windows Azure](http://channel9.msdn.com/Blogs/Open/Connecting-a-Linux-based-native-memcache-application-to-Windows-Azure)
+7. [Video: Connecting a Native Linux-based memcached application to Azure](http://channel9.msdn.com/Blogs/Open/Connecting-a-Linux-based-native-memcache-application-to-Windows-Azure)
 8. [Video: Load Balancing Highly Available Linux Services on Azure: OpenLDAP and MySQL](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)
 
 
