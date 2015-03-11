@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What are BizTalk API Apps" 
-	description="Learn how to create APIs, operations, and products in API Management." 
+	pageTitle="What are Connectors and BizTalk API Apps" 
+	description="Learn about API Apps, Connectors and BizTalk API Apps" 
 	services="app-service-logic" 
 	documentationCenter="" 
 	authors="jtwist" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service-logic" 
-	ms.workload="mobile" 
+	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
