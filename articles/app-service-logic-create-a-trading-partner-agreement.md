@@ -24,7 +24,7 @@ Trading partners are the entities involved in B2B (Business-to-Business) communi
 - EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
 - X12 (ASC X12)
 
-###BizTalk API apps to support B2B
+###BizTalk API apps that support B2B scenarios
 
 The following API Apps enable the above capabilities via rich and intuitive experience in Azure Portal:
 

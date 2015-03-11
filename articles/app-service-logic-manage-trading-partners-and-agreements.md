@@ -16,6 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
    
+#Manage Trading Partners and Agreements	
 These API Apps surface the following management capabilities via rich and intuitive experience in Azure Portal:  
 
 1. BizTalk Trading Partner Management
