@@ -16,6 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
 
+#Create a B2B Process
 # Business Scenario #
 Contoso and Northwind are two business partners. Contoso (the retailer) sends purchase orders to Northwind (the supplier) over an industry level transport i.e. AS2. Northwind stores all incoming orders in its Cloud storage. The purchase orders are XML messages between these two partners. Once the message is stored in Northwind's cloud storage then Northwind's internal processes process the order further from thereon. 
 The objective of this tutorial is to establish how Northwind can establish a business process via which it can receive messages (purchase orders in XML) from its partner Contoso over AS2 and then persist it in its Cloud storage.
