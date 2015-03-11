@@ -66,4 +66,4 @@ system
 9. Configure the output of HTTP Listener as the input of BizTalk Transforms. Also, provide the name of the transform to normalize the incoming data.
 
 <!--image references -->
-[1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.png
+[1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
