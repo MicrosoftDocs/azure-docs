@@ -44,13 +44,6 @@ The input and output format, used by all three applications, reads and writes th
 
 - You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
-##In this article
-This topic shows you how to run the series of MapReduce programs that make up the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections:
-	
-1. [Run the sample with Azure PowerShell](#run-sample)	
-2. [The Java code for the TeraSort MapReduce program](#java-code)
-3. [Summary](#summary)	
-4. [Next steps](#next-steps)	
 
 <h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
 
