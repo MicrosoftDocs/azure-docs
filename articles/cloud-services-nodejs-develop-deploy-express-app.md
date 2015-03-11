@@ -3,7 +3,7 @@
 	description="A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/25/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 

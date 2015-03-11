@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="remoteapp" 
-	ms.workload="tbd" 
+	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/17/2015" 
+	ms.date="03/06/2015" 
 	ms.author="elizapo"/>
 
 # How to create a cloud collection of RemoteApp
@@ -43,9 +43,8 @@ You need to do the following before creating the collection:
 
 
 
-1. In the [Windows Azure Management Portal](http://manage.windowsazure.com), go to the RemoteApp page.
+1. In the management portal, go to the RemoteApp page.
 2. Click **New > Quick Create**.
-
 3. Enter a name for your collection, and select your region.
 4. Choose the plan that you want to use - standard or basic.
 5. Choose the template to use for this collection. 

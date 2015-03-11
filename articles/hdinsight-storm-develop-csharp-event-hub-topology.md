@@ -34,11 +34,13 @@ In this document, you will learn how to use the HDInsight Tools for Visual Studi
 
 * The <a href="http://azure.microsoft.com/downloads/" target="_blank">Azure .NET SDK</a>
 
-* The <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools for Visual Studio</a>
+* The <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools for Visual Studio</a> - the 2/17/2015 version or newer
 
 ##Completed project
 
-You can download a complete version of the project created in this article at [https://github.com/Blackmist/hdinsight-storm-examples/tree/csharpeventhub/CSharpEventHub](https://github.com/Blackmist/hdinsight-storm-examples/tree/csharpeventhub/CSharpEventHub); however, you will still need to provide configuration settings by following the steps in this document.
+You can download a complete version of the project created in this article at [https://github.com/Blackmist/eventhub-storm-hybrid](https://github.com/Blackmist/eventhub-storm-hybrid); however, you will still need to provide configuration settings by following the steps in this document.
+
+> [AZURE.NOTE] When using the completed project, you must use the **NuGet Package Manager** to restore packages required by this solution.
 
 ##Event Hub spout and bolt
 

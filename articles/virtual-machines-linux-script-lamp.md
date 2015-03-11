@@ -70,7 +70,7 @@ Save the script as a text file, for example *lamp_install.sh*, and then upload i
 
 Also create a JSON file which describes how to download the script from Azure storage. Save this as *public_config.json* (replacing "mystorage" with the name of your storage account):
 
-    {fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
+    {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
 
 ## Deploying the extension

@@ -316,7 +316,7 @@ You can find filter examples in [OData expression syntax (Azure Search)](http://
 
 Azure Search Adventure Works Demo on Codeplex contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
 
-1.	Configure the sample application (see [Create your first application for instructions](./search-create-first-solution/)). 
+1.	Configure the sample application (see [Create your first application for instructions](../search-create-first-solution/)). 
 
 	Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
 

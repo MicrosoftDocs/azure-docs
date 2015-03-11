@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Command-Line Tools for Mac and Linux"
-	description="Learn about using the command-line tool for Mac and Linux in Azure."
+	pageTitle="Using the Azure Cross-Platform Command-Line Interface"
+	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure."
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="squillace"
@@ -13,39 +13,18 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/20/2014" 
+	ms.date="03/10/2015" 
 	ms.author="rasquill"/>
 
-#Azure command-line tool for Mac and Linux
+#Using the Azure Cross-Platform Command-Line Interface
 
-This tool provides functionality for creating, deploying, and managing virtual machines, websites and Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+This tool provides functionality for creating, deploying, and managing virtual machines, websites, Azure Mobile Services, and many other Azure services from Mac, Linux, and WIndows desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
-To install the tool on a Mac, download and run the [Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
-
-To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
-
-    npm install azure-cli -g
+For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](/documentation/articles/xplat-cli/).
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
 In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output. The --json option will output the result in raw json format.
-
-**Table of Contents:**
-
-* [Manage your account information and publish settings](#Manage_your_account_information_and_publish_settings)
-* [Commands to manage your Azure virtual machines](#Commands_to_manage_your_Azure_virtual_machines)
-* [Commands to manage your Azure virtual machine endpoints](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
-* [Commands to manage your Azure virtual machine images](#Commands_to_manage_your_Azure_virtual_machine_images)
-* [Commands to manage your Azure virtual machine data disks](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
-* [Commands to manage your Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
-* [Commands to manage your Azure certificates](#Commands_to_manage_your_Azure_certificates)
-* [Commands to manage your web sites](#Commands_to_manage_your_web_sites)
-* [Commands to manage Azure Mobile Services](#Commands_to_manage_mobile_services)
-* [Manage tool local settings](#Manage_tool_local_settings)
-* [Commands to manage Service Bus](#Commands_to_manage_service_bus)
-* [Commands to manage your Storage Objects](#Commands_to_manage_your_Storage_objects)
-* [Commands to manage SQL Databases](#Commands_to_manage_sql)
-* [Commands to manage your Virtual Networks](#Commands_to_manage_vnet)
 
 ##<a name="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
 Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
@@ -80,7 +59,7 @@ This command imports a publishsettings file or certificate so that it can be use
 
 **account clear [options]**
 
-This command removes the stored publish settings that have been imported. Use this command if you're finished using the tool on this machine and want to assure that the tool cannot be used with your account going forward.
+This command removes the stored publishsettings that have been imported. Use this command if you're finished using the tool on this machine and want to assure that the tool cannot be used with your account going forward.
 
 	~$ azure account clear
 	Clearing account info.

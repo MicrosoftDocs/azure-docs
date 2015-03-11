@@ -3,7 +3,7 @@
 	description="How to use R in the Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="02/18/2015" 
 	ms.author="larryfr"/>
 
 #Quick start guide to R for Azure Machine Learning
@@ -51,22 +51,6 @@ We will progress through several steps as you learn how to create, test and exec
 * With our data prepared we will perform an analysis of the correlations between several of the variables in our dataset.
 
 * Finally, we will create a seasonal time series forecasting model for milk production.
-
-##Table of contents
-
-* [Interacting with R in Machine Learning Studio](#mlstudio)
-
-* [Getting data in and out of the Execute R Script module](#scriptmodule)
-
-* [Data filtering and transformation](#filtering)
-
-* [Time series objects and correlation analysis](#timeseries)
-
-* [Time series example: seasonal forecasting](#seasonalforecasting)
-
-* [Appendix A - Guide to RStudio](#appendixa)
-
-* [Appendix B - Further reading](#appendixb)
 
 ##<a id="mlstudio"></a>Interacting with R in Machine Learning Studio
 

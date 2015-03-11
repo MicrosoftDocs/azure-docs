@@ -127,7 +127,7 @@ As you will see, your choice of **PartitionKey** and **RowKey** is fundamental t
 A table is made up of one or more partitions, and as you will see, many of the design decisions you make will be around choosing a suitable **PartitionKey** and **RowKey** to optimize your solution. A solution could consist of just a single table that contains all your entities organized into partitions, but typically a solution will have multiple tables. Tables help you to logically organize your entities, help you manage access to the data using access control lists, and you can drop an entire table using a single storage operation.  
 
 ### Table partitions  
-The account name, table name and **PartitionKey** together identify the partition within the storage service where the table service stores the entity. As well as being part of the addressing scheme for entities, partitions define a scope for transactions (see [Entity Group Transactions ](#entity-group-transactions) below), and form the basis of how the table service scales. For more information on partitions see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx).  
+The account name, table name and **PartitionKey** together identify the partition within the storage service where the table service stores the entity. As well as being part of the addressing scheme for entities, partitions define a scope for transactions (see [Entity Group Transactions](#entity-group-transactions) below), and form the basis of how the table service scales. For more information on partitions see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx).  
 
 In the Table service, an individual node services one or more complete partitions and the service scales by dynamically load-balancing partitions across nodes. If a node is under load, the table service can *split* the range of partitions serviced by that node onto different nodes; when traffic subsides, the service can *merge* the partition ranges from quiet nodes back onto a single node.  
 
@@ -188,11 +188,12 @@ A good starting point for designing your Table service solution to enable you to
 
 >[AZURE.NOTE] With the Table service, it’s important to get the design correct up front because it’s difficult and expensive to change it later. For example, in a relational database it’s often possible to address performance issues simply by adding indexes to an existing database: this is not an option with the Table service.  
 
-This section focuses on the key issues you must address when you design your tables for querying. The topics covered in this section include:  
--	[How your choice of PartitionKey and RowKey impacts query performance](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
--	[Choosing an appropriate PartitionKey](#choosing-an-appropriate-partitionkey)
--	[Optimizing queries with a key value store for the Table service](#optimizing-queries-with-a-key-value-store-for-the-table-service)
--	[Sorting data in a key value store in the Table service](#sorting-data-in-a-key-value-store-in-the-table-service)
+This section focuses on the key issues you must address when you design your tables for querying. The topics covered in this section include: 
+ 
+- [How your choice of PartitionKey and RowKey impacts query performance](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
+- [Choosing an appropriate PartitionKey](#choosing-an-appropriate-partitionkey)
+- [Optimizing queries with a key value store for the Table service](#optimizing-queries-with-a-key-value-store-for-the-table-service)
+- [Sorting data in a key value store in the Table service](#sorting-data-in-a-key-value-store-in-the-table-service)
 
 ### How your choice of PartitionKey and RowKey impacts query performance  
 
@@ -286,7 +287,7 @@ The following patterns in the section [Table Design Patterns](#table-design-patt
 
 -	[Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern) - Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
 -	[Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern) - Store multiple copies of each entity using different RowKey values in separate partitions or in separate tables to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values.  
--	[Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) - Enable eventually consistent behavior across partition boundaries or storage system boundaries by using Azure queues. Enable eventually consistent behavior across partition boundaries or storage system boundaries by using Azure queues. 
+-	[Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern) - Enable eventually consistent behavior across partition boundaries or storage system boundaries by using Azure queues.
 -	[Index Entities Pattern](#index-entities-pattern) - Maintain index entities to enable efficient searches that return lists of entities.  
 -	[Denormalization pattern](#denormalization-pattern) - Combine related data together in a single entity to enable you to retrieve all the data you need with a single point query.  
 -	[Data series pattern](#data-series-pattern) - Store complete data series in a single entity to minimize the number of requests you make.  

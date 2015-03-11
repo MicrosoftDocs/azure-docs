@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
@@ -12,20 +12,11 @@
    ms.devlang="Java"
    ms.topic="article"
    ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
 # Azure Mobile Engagement - Troubleshooting Guides
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="#ANALYTICS" title="Analytics">Analytics</a>
-<a href="#APIS" title="APIs">APIs</a>
-<a href="#PUSH" title="Push/Reach">Push/Reach</a>
-<a href="#SERVICE" title="Service">Service</a>
-<a href="#SDK" title="SDK">SDK</a>
-<a href="#SR" title="SR">SR Info</a>
-</div>
 
 ## Introduction
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Node.js Getting Started Guide - Azure Tutorial" 
-	description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." 
+	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
 	authors="MikeWasson" 

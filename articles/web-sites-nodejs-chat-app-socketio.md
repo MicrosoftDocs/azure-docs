@@ -3,7 +3,7 @@
 	description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="2/20/2015" 
-	ms.author="larryfr"/>
+	ms.date="02/20/2015" 
+	ms.author="mwasson"/>
 
 
 
