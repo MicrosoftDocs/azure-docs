@@ -16,7 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
 
-#Track B2B messages
+#Track B2B Messages
 
 ## B2B Tracking Information
 B2B communication involves message processing between trading partners. The relationships are defined as agreements between two trading partners. Once the communication is established then there needs to be a way to monitor if the communication is happening as expected. 
