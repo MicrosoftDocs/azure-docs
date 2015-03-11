@@ -16,6 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
    
+#Create a Trading Partner Agreement
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two trading partners (also simply referred to as partners here) partake in establishing a relationship between them then it is referred to as an Agreement. The agreement defined is based on the communication the two partners wish to achieve and hence is protocol or transport specific. The various B2B protocols and transports supported by Azure App Services currently are:
 
 1. AS2 (Applicability Statement 2)
