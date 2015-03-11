@@ -1,19 +1,20 @@
 <properties
-  pageTitle="Linux and Open-Source Computing on Azure"
-  description="This topic contains a list of Linux and Open-Source Computing on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
-  documentationCenter=""
-  authors="squillace"
-  manager="timlt"
-  editor="tysonn"/>
+	pageTitle="Linux and Open-Source Computing on Azure"
+	description="This topic contains a list of Linux and Open-Source Computing on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
-  ms.service="virtual-machines"
-  ms.devlang="NA"
-  ms.topic="article"
-  ms.tgt_pltfrm="vm-linux"
-  ms.workload="infrastructure-services"
-  ms.date="02/28/2015"
-  ms.author="rasquill"/>
+	ms.service="virtual-machines"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="03/11/2015"
+	ms.author="rasquill"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
