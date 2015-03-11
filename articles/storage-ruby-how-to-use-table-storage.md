@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use table storage (Ruby) | Microsoft Azure" 
+	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
 	services="storage" 
 	documentationCenter="ruby" 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
 
+# How to use Table storage from Ruby
 
-
-
-# How to Use the Table Service from Ruby
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use table storage  from .NET | Microsoft Azure" 
+	pageTitle="How to use Table storage from .NET | Microsoft Azure" 
 	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." 
 	services="storage" 
 	documentationCenter=".net" 
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tamram"/>
 
 
-# How to use Table Storage from .NET
+# How to use Table storage from .NET
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 
