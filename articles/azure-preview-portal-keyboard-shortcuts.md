@@ -30,6 +30,7 @@
 ## Navigation
 
 | Shortcut | Action |
+|--------|----------|
 | F | Move to the first open blade | 
 | H | Switch between Azure portal home and the current blade | 
 | J | Move to the previous open blade | 
@@ -42,6 +43,7 @@
 
 ## Controls
 | Shortcut | Action |
+|--------|----------|
 | Esc | Close a hub menu, dialog box, account menu, any open menu | 
 | # | Close all open blades | 
 | Home | Scroll to the top of the current blade | 
