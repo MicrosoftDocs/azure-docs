@@ -19,28 +19,28 @@
 ##Create EAI Logic App using VETR
 
 
-Most EAI scenarios involves mediating data between a source and a destination. There is a common set of needs to fulfill these scenario
+Most EAI scenarios involve mediating data between a source and a destination. There is a common set of needs for these scenarios:
 
 - Ensure the data obtained from the different systems are in the right format
-- Look up on some aspect of the incoming data to make decisions
+- Look up some aspect of the incoming data to make decisions
 - Convert data from one format to another format (for example, CRM systems might store the data in one format, and ERP might store the same data in some other format)
-- Route the data to selected destination
+- Route the data to the selected destination
 
 In this article, we will take a look at one of the most common integration patterns - one way message mediation (VETR).
 
-VETR pattern mediates data between a source entity and a destination entity. Usually source and destination are data sources. Let’s take an example:
+VETR pattern mediates data between a source entity and a destination entity. Usually, source and destination are data sources. Let’s look at an example:
 
-Consider a website that accepts orders. Users post orders in website (HTTP). Behind the scene the orders will be queued for further processing (e.g. Service Bus queue). The order processing system which processes the orders from the queue expects data in a specific format. The incoming data from the website needs to be validated for correctness and then normalized before it is persisted in the queue for further processing. Thus, the end-end data flow looks like the one depicted below 
+Consider a website that accepts orders. Users post orders in the website (HTTP). Behind the scene the orders will be queued for further processing (e.g., Service Bus queue). The order processing system, which processes the orders from the queue, expects data in a specific format. The incoming data from the website needs to be validated for correctness and then normalized before it is persisted in the queue for further processing. Thus, the end-end data flow looks like the one depicted below: 
 
 HTTP -> Validate -> Transform -> Service Bus
 
 ![Basic VETR flow][1]
 
-The API Apps that help in building this pattern
+The API Apps that help in building this pattern:
 
-*Trigger* - Source which triggers the message event (e.g. app dropped a file in FTP share).
+*Trigger* - Source which triggers the message event (e.g., app dropped a file in FTP share).
 
-*Validate* - Validate the correctness the incoming data
+*Validate* - Validate the correctness of the incoming data
 
 *Transform* - Transform the data from the incoming format to a format required by the downstream 
 system
@@ -51,13 +51,13 @@ system
 ####The Basics
 First, go to https://aka.ms/ApiAppsPublicPreview and sign in to your Azure subscription. 
 
-Once you’ve signed in click on the + New button at the bottom-left of the screen. Select Logic Apps. 
+Once you’ve signed in, click on the + New button at the bottom-left of the screen. Select Logic Apps. 
 
 When you click on Logic Apps, you’ll have to fill out some basic settings to get started:
 
-- Name your App something you’ll remember
+- Name your App something you’ll remember.
 
-- Choose the App Hosting Plan that you’ll use to pay for your flow. Note: you can get started with Free App
+- Choose the App Hosting Plan that you’ll use to pay for your flow. Note: you can get started with Free App.
 
 - Choose the Resource group for your App – resource groups act as containers for your apps – all of the resources for your app will go to the same resource group.
 
@@ -65,10 +65,10 @@ When you click on Logic Apps, you’ll have to fill out some basic settings to g
 
 - Choose a location to run your App from.
 
-Once you’ve filled out the basic settings for your flow you can add Triggers and Actions click there to get started.
+Once you’ve filled out the basic settings for your flow, you can add Triggers and Actions and click there to get started.
 
 ####Adding a HTTP Trigger
-1.	Select HTTP listener from list displayed on the right side and create a new instance called HTTP1. 
+1.	Select HTTP listener from the list displayed on the right side, and create a new instance called HTTP1. 
 2.	Leave the “Send response automatically?” setting as false, and click the check icon to create the API app.
 3.	Once the API app is created, select the trigger action. Provide the following inputs to configure the trigger:
 a.	Set “HTTP Method” to POST
@@ -121,7 +121,7 @@ Repeat the above steps to send an HTTP response on failure as well. Change the c
 
 
 ###And you are done!
-Every time someone send a message at HTTP end-point, it would trigger the App and go through the flow to execute actions we just created. 
+Every time someone sends a message at HTTP end-point, it would trigger the App and go through the flow to execute actions we just created. 
 To manage the App we just created, click on Browse at the left side of the screen and select Logic Apps. You’ll see the App that you created. Click on it. And you can see all the details of that App including historical runs.
 
 
