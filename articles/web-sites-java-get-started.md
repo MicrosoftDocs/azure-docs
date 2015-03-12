@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Microsoft Azure web apps using Java" 
+	pageTitle="Create a Java Web App in Azure App Service" 
 	description="This tutorial shows you how to deploy a Java web app to Microsoft Azure." 
 	services="app-service-web" 
 	documentationCenter="java" 
@@ -16,9 +16,7 @@
 	ms.date="03/05/2015" 
 	ms.author="robmcm"/>
 
-# Get started with Azure web apps and Java
-
->[AZURE.NOTE] For tips on how to follow the tutorial steps using the [Azure Portal](https://portal.azure.com/) instead of the [management portal](https://manage.windowsazure.com/), see [Reference for navigating the preview portal](../app-service-web-app-azure-portal/).
+# Create a Java Web App in Azure App Service
 
 This tutorial shows how to create a web app on Microsoft Azure using Java, using either the Azure Marketplace, or the Azure web app configuration UI. 
 

@@ -16,12 +16,8 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
    
-# Managing Trading Partners and Agreements
-
-##This documentation is coming soon.
-
-<!--
-These API Apps surface the following management capabilities:  
+#Manage Trading Partners and Agreements	
+These API Apps surface the following management capabilities via rich and intuitive experience in Azure Portal:  
 
 1. BizTalk Trading Partner Management
 	1. Management of Partners, Profiles & Identities via the 'Partners' part
@@ -34,5 +30,3 @@ These API Apps surface the following management capabilities:
 	1. State management of Batches (start and stop) in EDIFACT Agreements via the 'Batching' part	
 3. BizTalk X12
 	1. State management of Batches (start and stop) in X12 Agreements via the 'Batching' part
-
--->

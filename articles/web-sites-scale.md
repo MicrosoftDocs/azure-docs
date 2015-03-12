@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Scale a Web App in Azure App Service" 
+	pageTitle="Scale a Web App in Azure App Service" 
 	description="Learn how to scale up and scale out a Web App in Azure App Service, including autoscaling." 
 	services="app-service-web" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="03/23/2015" 
 	ms.author="cephalin"/>
 
-# How to Scale a Web App in Azure App Service #
+# Scale a Web App in Azure App Service #
 
 For increased performance and throughput for your web apps on Microsoft Azure, you can use the Azure Management Portal to scale your App Service hosting plan from Free mode to Shared, Basic, or Standard mode. 
 

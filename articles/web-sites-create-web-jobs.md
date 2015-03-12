@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use WebJobs to run background tasks in Azure web apps" 
+	pageTitle="Run Background tasks with WebJobs" 
 	description="Learn how to run background tasks in Azure web apps." 
 	services="app-service-web" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.date="03/05/2015" 
 	ms.author="tdykstra"/>
 
-#Use WebJobs to run background tasks in Azure web apps
+# Run Background tasks with WebJobs
 
 ## Overview
 

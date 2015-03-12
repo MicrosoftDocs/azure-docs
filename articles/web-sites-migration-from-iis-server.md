@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Migrate your IIS Websites to Azure App Service using the Migration Assistant" 
+	pageTitle="Migrate an enterprise web app to App Service using the Migration Assistant" 
 	description="Shows how to use Web App Migration Assistant to quickly migrate existing IIS websites to Azure App Service web apps" 
 	services="app-service-web" 
 	documentationCenter="" 
@@ -17,8 +17,9 @@
 	ms.date="03/23/2015" 
 	ms.author="cephalin"/>
 
-# Migrate your IIS websites to Azure App Service using the Migration Assistant #
-You can easily migrate to Azure App Service Web App your existing websites that run on Internet Information Service (IIS) 6 or later. [Web App Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service Web App, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
+# Migrate an enterprise web app to App Service using the Migration Assistant
+
+You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to to web apps in Azure App Service. [Web App Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
 
 >[AZURE.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web App is a low-risk, low-cost, and low-friction way to keep your websites online, and Web App Migration Assistant can help automate the migration process for you. 
 

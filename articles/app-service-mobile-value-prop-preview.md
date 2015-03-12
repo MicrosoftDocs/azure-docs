@@ -76,16 +76,11 @@ React to issues in real-time with monitoring and alerts to automatically notify 
 ##Ready, stage, go!
 Create multiple private testing and staging environments for your web apps. Use them to perform testing before you deploy. Swap to production with no downtime. Web apps are pre-loaded, ensuring the best customer experience.
 
-For more information about the *Azure App Service* platform, see [Azure App Service](./app-service-value-prop-what-is/).
+For more information about the *Azure App Service* platform, see [Azure App Service].
 
-To get started with *Mobile Apps* on *Azure App Service*, follow [Get Started](./app-service-mobile-ios-get-started-offline-data-preview/) tutorial.
+To get started with *Mobile Apps* on *Azure App Service*, follow [Get Started] tutorial.
 
 
-<!-- Anchors. -->
-[Getting started with Mobile Services]:#getting-started
-[Create a new mobile service]:#create-new-service
-[Define the mobile service instance]:#define-mobile-service-instance
-[Next Steps]:#next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-completed-ios.png
@@ -94,7 +89,8 @@ To get started with *Mobile Apps* on *Azure App Service*, follow [Get Started](.
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview
 
-[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Azure App Service]: /en-us/documentation/articles/app-service-value-prop-what-is
+[Get Started]: /en-us/documentation/articles/app-service-mobile-ios-get-started-offline-data-preview
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532

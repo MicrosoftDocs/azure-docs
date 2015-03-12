@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Troubleshooting Azure web apps in Visual Studio" 
+	pageTitle="Troubleshoot Web Apps in Azure App Service using Visual Studio" 
 	description="Learn how to troubleshoot an Azure web app by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." 
 	services="app-service-web" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="03/05/2015" 
 	ms.author="tdykstra"/>
 
-# Troubleshooting Azure web apps in Visual Studio
+# Troubleshoot Web Apps in Azure App Service using Visual Studio
 
 ## Overview
 
