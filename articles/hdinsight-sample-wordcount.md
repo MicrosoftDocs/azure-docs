@@ -49,11 +49,11 @@ This tutorial shows you how to run a MapReduce word count example on a Hadoop cl
 5. Run the following command to create a MapReduce job definition:
 
 		# Define the MapReduce job
-		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
 	> [AZURE.NOTE] *hadoop-examples.jar* comes with HDInsight version 2.1 clusters. The file was renamed *hadoop-mapreduce.jar* on HDInsight version 3.0 clusters.
 	
-	The hadoop-examples.jar file comes with the HDInsight cluster. There are two arguments for the MapReduce job. The first one is the source file name, and the second is the output file path. The source file comes with the HDInsight cluster, and the output file path will be created at run time.
+	The hadoop-mapreduce-examples.jar file comes with the HDInsight cluster. There are two arguments for the MapReduce job. The first one is the source file name, and the second is the output file path. The source file comes with the HDInsight cluster, and the output file path will be created at run time.
 
 6. Run the following command to submit the MapReduce job:
 
