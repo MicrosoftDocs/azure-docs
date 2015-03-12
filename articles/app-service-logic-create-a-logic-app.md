@@ -27,7 +27,7 @@ To use this scenario you will need:
 
 ##The Basics
 
-First, go to https://aka.ms/ApiAppsPublicPreview and sign in to your Azure subscription. 
+First, go to the Azure portal and sign in to your Azure subscription. 
 
 Once you’ve signed in click on the + New button at the bottom-left of the screen. This will let you choose from any of the Azure services, but for today, go to **Web + Mobile** and then choose Logic App. 
 
@@ -35,7 +35,7 @@ When you click on Logic App, you’ll have to fill out some basic settings to ge
 
 1. Name your Logic App something you’ll remember
 
-2. Choose the App Service Plan that you’ll use to pay for your Logic App. Note: you can choose Free, but Free Logic Apps can only use 1k actions per month.
+2. Choose the App Service Plan that you’ll use to pay for your Logic App. Note: you can choose Free, but Free Logic Apps can only use 1000 actions per month.
 
 3. Choose the Resource group for your flow – resource groups act as containers for your apps – all of the resources for your app will go to the same resource group.
 
@@ -51,7 +51,7 @@ Once you’ve filled out the basic settings, you can add Triggers and Actions. C
 
 Triggers are what make your Logic App run. The simplest trigger is a Recurrence trigger.
 
-After clicking the Triggers and Actions selector you’ll see a full-screen designer that will display your flow. On the right-hand side is a list of all possible services that have Triggers. First, find “Recurrence” in this pane and click it. This will add a box  where you can fill out the settings. Choose your frequency (for example, every 5 minutes) and hit the green checkmark.
+After clicking the Triggers and Actions selector you’ll see a full-screen designer that will display your flow. On the right-hand side is a list of all possible services that have Triggers. First, find **Recurrence** in this pane and click it. This will add a box  where you can fill out the settings. Choose your recurrence frequency (for example, every 1 hour) and hit the green checkmark.
 
 ![Recurrence](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
@@ -61,7 +61,7 @@ Actions are what your flow does. You can have any number of actions, and you can
 
 Next, click on TwitterConnector in the right-hand pane. This will cause the connector to be created in the Resource group and App Service Plan that you selected previously. This may take a minute or two. 
 
-Once the creation has completed, you should see an **Authorize** button. Click this button to grant the connector access to your Twitter account. Now you will see a list of possible Actions. Choose **Search tweets**.
+Once the creation has completed, you should see an **Authorize** button. Click this button to grant the connector access to your Twitter account. Now you will see a list of possible operations the Twitter Connector has. Choose **Search tweets**.
 
 ![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
 
@@ -69,15 +69,15 @@ You should now see a box to enter your query. For example, could you type `#Micr
 
 ![Twitter search](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
-## Adding a dropbox action
+## Adding a Dropbox action
 
-For today we will have just 1 more action: Upload to dropbox. Find Dropbox in the right-hand pane and click it. Like with Twitter, click the green checkmark and authorize. 
+We will have just one more action: Upload to dropbox. Find Dropbox in the right-hand pane and click it. 
 
 ![Authorize](./media/app-service-logic-create-a-logic-app/authorize.png)
 
-Now, select Actions and choose **Upload file**, and click the checkmark.
+Like with Twitter, click the green checkmark and authorize. 
 
-Now for the hard part: you need to pass the data from the Twitter search Dropbox. 
+Select **Upload file**, and you'll see the inputs for that operation. Now you need to pass the data from the Twitter search Dropbox. 
 
 Field                     | Enter...
 ------------------------- | ---
@@ -86,7 +86,8 @@ Content                   | Click the `...` button and select the **Tweet text**
 Content transfer encoding | `none`
 Overwrite                 | `false`
 
-The most confusing part here is the Content field. Let’s break this content down:
+The most complex function here is in the Content field. Let’s break this content down:
+
 - The `@` means that you are entering a function (rather than an actual value)
 - `actions('twitterconnector').outputs.body` will give you the list of tweets that were found
 - `first()` is because the Search Tweets action returns back a list, but you only want to upload one file
@@ -94,7 +95,7 @@ The most confusing part here is the Content field. Let’s break this content do
 
 ![Dropbox](./media/app-service-logic-create-a-logic-app/dropbox.png)
 
-That’s it! You can select the Update button. Finally, choose the **Create** button. That’s it, your done!
+Click on the **OK** button at the bottom of the screen. Finally, choose the **Create** button. That’s it!
 
 ## Managing your Logic App after creation
 
