@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using Logic App Features" 
+	pageTitle="Use Logic App Features" 
 	description="Learn how to use the advanced features of logic apps." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -16,7 +16,7 @@
 	ms.date="03/10/2015"
 	ms.author="stepsic"/>
 	
-## Using Logic App Features
+## Use Logic App Features
 
 You’ve [created a basic Logic App](/app-service-logic-create-a-logic-app), but now you want to get more serious and make a full process using Logic Apps. We will cover several key topics in this article:
 

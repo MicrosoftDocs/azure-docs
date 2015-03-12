@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Integrate with an on-premises SAP server"
 	description="Learn how to integrate with an on-premises SAP server"
-	authors="jtwist" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service-logic" 
@@ -14,34 +14,33 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/05/2015"
-	ms.author="jtwist"/>
+	ms.author="harish"/>
 
 ##Integrate with an on-premises SAP server
 
-##Overview
-SAP connector lets you connect to SAP server. You can invoke RFCs, BAPIs, tRFCs as well as send IDOCs to the SAP server.
+The SAP connector lets you connect Azure App Services web, mobile and logic apps to your existing SAP server. You can invoke RFCs, BAPIs, tRFCs as well as send IDOCs to the SAP server.
 	
-SAP server can be behind the firewall on-premise. In case of on-premise server, connectivity is established through a hybrid listener.
+The SAP server can even be behind your firewall on-premises. In case of on-premises server, connectivity is established through a hybrid listener, as shown below.
 
 ![Hybrid connectivity flow][1]
 
-SAP Connector in the cloud cannot directly connect to SAP server behind the firewall. Hybrid listener bridges the gap by hosting a relay endpoint. SAP connector can connect to, as well as establishing connectivity to SAP server.
+An SAP Connector in the cloud cannot directly connect to a SAP server behind a firewall. The Hybrid listener bridges the gap by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.
 
-##Different ways to integrate with SAP
-Following actions are supported to connect to SAP
+###Different ways to integrate with SAP
+The following actions are supported
 
 - Call RFC
 - Call TRFC
 - Call BAPI
 - Send IDoc
 
-##Pre-requisites
-SAP specific client libraries are required in the client machine where hybrid listener is running. Exact details is captured [here][9] under the section titled *For the SAP adapter*
+###Prerequisites
+The SAP specific client libraries are required on the client machine where hybrid listener is installed and running. The precise details are captured [here][9] under the section titled *For the SAP adapter*
 
 ##Getting started
 
 ###Create a new SAP adapter
-1. Login to Azure portal
+1. Login to the Azure portal
 2. Click on New.
 3. In the create blade, click on Compute -> Azure Marketplace
 4. In the marketplace blade, click on API Apps and search for SAP in the search bar
@@ -70,7 +69,7 @@ SAP specific client libraries are required in the client machine where hybrid li
 		- **IDOCs** - Specify the IDOCs in SAP that can be sent by the connector.
 	8. Click on create. Within a few minutes your SAP connector would be created.
 
-###Install hybrid listner
+###Install hybrid listener
 Browse to the SAP connector you created through Browse -> API Apps -> *name of your connector*
 
 In the connector blade, notice that the Hybrid connection status is pending. Click on Hybrid connection part. Hybrid connection blade opens up.
@@ -81,7 +80,7 @@ Copy the primary gateway configuration setting. You will use it later as part of
 
 Click on *Download and configure* link, and run the click once installer
 
-![Hybrid conection click once installer][4]
+![Hybrid connection click once installer][4]
 
 Click on install, and then enter the gateway configuration setting you copied earlier.
 
@@ -101,13 +100,13 @@ In the connector blade, notice that the Hybrid connection status is *Connected*
 
 ![Hybrid connection status - connected][8]
 
-##Using SAP connector in flow
+###Using the SAP connector in a Logic App
 
-Once the SAP connector has been created, it can be consumed from the flow.
+Once the SAP connector has been created, it can be used inside your Logic App workflow.
 
-Create a new flow through New -> flow -> Create. Provide the metadata for the flow including resource group
+Create a new Logic App through New -> Logic App -> Create. Provide the metadata for the Logic App including resource group
 
-Click on *triggers and actions*. The flow designer opens up
+Click on *triggers and actions*. The Logic App workflow designer opens up.
 
 Click on SAP connector from the right pane, and select an action from the actions tab. Note that the list of actions are based on the configuration you provided at the time of the SAP connector creation. For the selected action, you will see the input and output parameters. You can key in the inputs for the action and use the output of the current action in other API apps used downstream for further decision making.
 

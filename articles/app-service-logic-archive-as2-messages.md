@@ -16,6 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
    
+#Archive AS2 Messages
 The 'AS2 Connector' API App exposes archiving functionality. 
 Archiving simply stores the message at that point to the Azure Blob Container provided as part of the AS2 Connector package settings. 
 

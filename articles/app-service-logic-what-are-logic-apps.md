@@ -20,25 +20,25 @@
 
 Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers that brings a rich set of capabilities to web, mobile and integration scenarios. Logic Apps are one part of the App Service suite and allow any technical user or developer to automate business process execution via an easy to use visual designer.
 
-Best of all, Logic Apps can be combined with API apps and Connectors, from our open marketplace, to help solve tricky integration scenarios with ease.
+Best of all, Logic Apps can be combined with API apps and Connectors from our Marketplace to help solve even tricky integration scenarios with ease.
 
 ![Flow app designer](./media/app-service-learn-about-flows-preview/Designer.png)
 
 ### The SaaS, PaaS and Hybrid Explosion
 
-The cloud era is bringing an explosion in the usage of SaaS and PaaS systems, putting increasing strain on developers everywhere. Meanwhile, IT's application backlogs are getting longer and these heterogeneous and distributed solutions present new integration challenges. And, of course, enterprises need to leverage on-premises data and services, securely.
+The cloud era is bringing an explosion in the usage of SaaS and PaaS systems, putting increasing strain on developers everywhere. Meanwhile, IT's application backlogs are getting longer and these heterogeneous and distributed solutions present new integration challenges.  Furthermore, enterprises need to leverage their on-premises data and services in their solutions, and need to do so securely.
 
 Building solutions that span these systems poses non-trivial challenges that are time consuming and error prone for development teams.
 
 ###Why Logic Apps?
 
-Logic Apps allow developers to design workflows that articulate intent via a series of steps, each invoking an App Service API whilst securely taking care of authentication and best practices like durable execution.
+Logic Apps allow developers to design workflows that articulate intent via a trigger and series of steps, each invoking an App Service API app whilst securely taking care of authentication and best practices like durable execution.
 
 - **Easy to use design tools** - Logic Apps can be designed end-to-end in the browser. Start with a trigger - from a simple schedule to whenever a tweet appears about your company. Then orchestrate any number of actions  using the rich gallery of connectors.
 
-- **Compose SaaS easily** - Even composition tasks that are easy to describe are difficult to implement in code. Logic Apps make it a cinch to connect disparate systems. Want to create a task in CRM based on activity on your Facebook or Twitter accounts? Want to connect your cloud marketing solution to your on-premises billing system? Logic apps are the fastest, most reliable way to deliver.
+- **Compose SaaS easily** - Even composition tasks that are easy to describe are difficult to implement in code. Logic Apps make it a cinch to connect disparate systems. Want to create a task in CRM based on activity on your Facebook or Twitter accounts? Want to connect your cloud marketing solution to your on-premises billing system? Logic apps are the fastest, most reliable way to deliver solutions to these problems.
 
-- **Get started quickly from templates** - To help you get started we've provided a gallery of templates that allow you rapidly create some common solutions. From advanced BizTalk solutions to simple SaaS connectivity, and even a few that are just 'for fun' - the gallery is the fastest way to understand the power of Logic Apps.
+- **Get started quickly from templates** - To help you get started we've provided a gallery of templates that allow you to rapidly create some common solutions. From advanced BizTalk solutions to simple SaaS connectivity, and even a few that are just 'for fun' - the gallery is the fastest way to understand the power of Logic Apps.
 
 - **Extensibility baked in** - Don't see the connector you need? Logic Apps are part of the App Service suite and designed to work with API apps; you can easily create your own API app to use as a connector. Build a new app just for you, or share and monetize in the marketplace.
 

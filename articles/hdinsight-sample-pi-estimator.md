@@ -43,17 +43,10 @@ The other samples that are available to help you get up to speed in using HDInsi
 
 - You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
-##In this article	
-This topic shows you how to run the sample, presents the Java code for the pi estimator MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections:
-	
-1. [Run the sample with Azure PowerShell](#run-sample)	
-2. [The Java code for the pi estimator MapReduce program](#java-code)
-3. [Summary](#summary)	
-4. [Next steps](#next-steps)	
 
 <h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
 
-**To submit the MapReduce job**
+**To submit the MapReduce job**s
 
 1. Open Azure PowerShell. For instructions on how to use the Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 2. Set the two variables in the following commands, and then run them:
