@@ -189,13 +189,13 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 * <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a> - Learn more about the architecture and design of the Hadoop Distributed File System, the primary storage system used by Hadoop applications.		
 
-* <a target="_blank" href="http://mapreduce.org/">MapReduce</a> - Learn more about the programming framework for writing Hadoop applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.	
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">MapReduce Tutorial</a> - Learn more about the programming framework for writing Hadoop applications that rapidly process large amounts of data in parallel on large clusters of compute nodes.	
 
 ### SQL Database on Azure	
 		
 * [Azure SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx) - MSDN documentation for SQL Database.
 	
-* [Management Portal for SQL Database](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx) - A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+* [Management Portal for SQL Database](https://msdn.microsoft.com/en-us/library/azure/dn771027.aspx) - A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) - Download page for a SQL Database sample database.	
 
@@ -211,7 +211,7 @@ These BI tools can help in your big-data analysis:
 
 * [Microsoft Cloud Platform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx) - Learn about Power BI for Office 365, download the SQL Server trial, and set up SharePoint Server 2013 and SQL Server BI.
 
-* <a target="_blank" href="http://www.microsoft.com/server-cloud/solutions/business-intelligence/analysis.aspx">Learn more about SQL Server Analysis Services</a>.
+* <a target="_blank" https://msdn.microsoft.com/en-us/library/hh231701.aspx">Learn more about SQL Server Analysis Services</a>.
 
 * <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>.
 
