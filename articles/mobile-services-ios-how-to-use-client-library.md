@@ -25,7 +25,7 @@
 
 This guide teaches you to perform common scenarios using the Azure Mobile Services [iOS SDK]. If you are new to Mobile Services, first complete [Mobile Services Quick Start] or [Add Mobile Services to Existing App] to configure your account, create a table, and create a mobile service.
 
-> [AZURE.NOTE] This guide uses the latest (iOS Mobile Services SDK)[https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409]. If your project uses an older version of the SDK, first upgrade the framework in Xcode.
+> [AZURE.NOTE] This guide uses the latest [iOS Mobile Services SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). If your project uses an older version of the SDK, first upgrade the framework in Xcode.
 
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
