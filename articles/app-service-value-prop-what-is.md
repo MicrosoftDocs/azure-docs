@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/19/2015" 
+	ms.date="02/19/2015" 
 	ms.author="calvink"/>
 
 # The Azure Cloud Application Platform #
