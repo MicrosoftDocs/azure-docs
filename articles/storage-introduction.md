@@ -42,7 +42,7 @@ Azure Storage is accessible from anywhere in the world, from any type of applica
 
 Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, and C++) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
 
-Azure Premium Storage is now available in preview. Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for more details. 
+Azure Premium Storage is now available in preview. Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage-premium-storage-preview-portal) for more details. 
 
 ## Introducing the Azure Storage Services ##
 
@@ -51,7 +51,7 @@ An Azure storage account is a secure account that gives you access to services i
 - A standard storage account includes Blob, Table, Queue, and File storage.
 - A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/services/preview/).
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 100 uniquely named storage accounts with a single subscription. See [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 100 uniquely named storage accounts with a single subscription. See [Storage Pricing Details](/pricing/details/storage/) for information on volume pricing.
 
 You can get started with Azure with a [free trial](/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](/pricing/purchase-options/). If you’re an [MSDN subscriber](/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
 
