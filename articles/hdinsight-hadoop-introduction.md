@@ -84,7 +84,7 @@ In addition to the previous overall configurations, the following individual com
 
 * **[Sqoop](#sqoop)** - Data import and export. 
 
-* **[Zookeeper](#zookeeper)** - Coordination of processes in distributed systems.
+* **[ZooKeeper](#zookeeper)** - Coordination of processes in distributed systems.
 
 > [AZURE.NOTE] For information on the specific components and version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning]
 
@@ -133,8 +133,8 @@ For more information on MapReduce, see <a target="_blank" href="http://wiki.apac
 ### <a name="storm"></a>Storm
 <a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a> is a distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](../hdinsight-storm-sensor-data-analysis/).
 
-### <a name="zookeeper"></a>Zookeeper
-<a  target="_blank" href="http://zookeeper.apache.org/">Apache Zookeeper</a> coordinates processes in large distributed systems by means of a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on. 
+### <a name="zookeeper"></a>ZooKeeper
+<a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems by means of a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on. 
 
 ## <a name="advantage"></a>Advantages of Hadoop in the cloud
 
