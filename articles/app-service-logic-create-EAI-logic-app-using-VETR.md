@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create EAI Logic App using VETR" 
+   pageTitle="Create an EAI Logic App using VETR" 
    description="This topic covers the features of BizTalk XML services and details the Validate, Encode and Transform features." 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -16,7 +16,7 @@
    ms.date="03/05/2015"
    ms.author="rajram"/>
 
-##Create EAI Logic App using VETR
+##Create an EAI Logic App using VETR
 
 
 Most EAI (Enterprise Application Integration) scenarios involve mediating data between a source and a destination. There is a common set of requirements in such scenarios:
