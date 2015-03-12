@@ -18,12 +18,12 @@
 
 ##Transform XML documents
 
-## **BizTalk Transform Service Overview**
+###BizTalk Transform Service Overview
 
 BizTalk Transform API App converts data from one format to another format. You can create a transformation - a 'Map' between a 'Source Schema (XML Schema)' and a 'Target Schema (XML Schema)' in the Transform Designer in Visual Studio using the 'Microsoft Azure BizTalk Services SDK'.  You can use various inbuilt functions while creating your map, including string manipulations, conditional assignment, arithmetic expressions, date time formatters, and looping constructs. You can upload the map created in Visual Studio (.trfm) into BizTalk Transform API App.
 
 
-## **Create a Transform Service API App**
+###Create a Transform Service API App
 
 1.	Login to Azure Portal and go to homepage.
 
