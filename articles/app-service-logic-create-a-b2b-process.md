@@ -54,10 +54,6 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 
 **Message Processing & Troubleshooting**
 
-<<<<<<< HEAD
 1. It is time to test out the flow we have deployed. Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance created. You may need to configure the authentication for the endpoint so that it is publicly accessible
-=======
-1. It is time to test out the flow we have deployed. Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance that was created. You may need to configure the authentication for the endpoint so that it is publicly accessible.
->>>>>>> 1cee4160ccb29c0acc725c3e2f6709dde6b049ae
 2. Execution information about the flow is surfaced by browsing to the flow and then stepping into the flow instance which got executed
 3. For AS2 processing information, browse to the AS2Connector instance involved, and then follow by stepping into the Tracking part. You can use the filters involved to restrict the view to the information that is desired.
