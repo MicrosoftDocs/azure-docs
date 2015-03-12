@@ -233,5 +233,5 @@ The following links provide additional information for a no-code approach to man
 [2]: ./media/search-fiddler/AzureSearch_Fiddler2_PostDocs.png
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
-[5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.PNG
+[5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
