@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" 
-	description="required" 
+	description="Create an Umbraco content management system and deploy to Azure website." 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="tfitzmac" 
