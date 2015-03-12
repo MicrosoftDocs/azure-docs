@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Scratch TOC- Don't Publish" 
+   description="" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="rwike77" 
+   manager="timlt" 
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="02/18/2015"
+   ms.author="ryanwi"/>
+
 # Working List of WinFabric/PaaS v2 Content
 We will not be publishing this topic.  The ACOM landing page, learning map, and left-hand navigation TOCs will be built from this content.
 ## About
