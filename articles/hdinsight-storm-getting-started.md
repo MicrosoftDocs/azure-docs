@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Getting started using Apache Storm on HDInsight | Azure" 
-   description="Learn how to use Apache Storm to process data in realtime with Storm on HDInsight" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="Blackmist" 
-   manager="paulettm" 
+<properties
+   pageTitle="Getting started using Apache Storm on HDInsight | Azure"
+   description="Learn how to use Apache Storm to process data in realtime with Storm on HDInsight"
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="java"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
@@ -56,7 +56,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 2. Click **HDInsight** on the left, and then **+NEW** in the lower-left corner of the page.
 
-3. Click the HDInsight icon in the second column, and then select **QUICK CREATE**.
+3. Click the HDInsight icon in the second column, and then select **STORM**.
 
 	![quick create](./media/hdinsight-storm-getting-started/quickcreate.png)
 
@@ -68,7 +68,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 5. Finally, select the checkmark beside **CREATE HDINSIGHT CLUSTER** to create the cluster.
 
-> [AZURE.NOTE] Cluster provisioning takes some time, usually under 15 minutes, to create the cluster, configure software, and install sample data and topologies. 
+> [AZURE.NOTE] Cluster provisioning takes some time, usually under 15 minutes, to create the cluster, configure software, and install sample data and topologies.
 
 ##Using Storm on HDInsight
 
@@ -138,11 +138,11 @@ The Storm UI can be used to monitor the topology.
 	This page also provides actions that can be taken on the topology:
 
 	* **Activate** - Resumes processing of a deactivated topology.
-	
+
 	* **Deactivate** - Pauses a running topology.
-	
+
 	* **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
-	
+
 	* **Kill** - Terminates a Storm topology after the specified timeout.
 
 5. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
@@ -172,7 +172,7 @@ The Storm UI can be used to monitor the topology.
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957] 
+		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
 	From this data you can see that the word **seven** has occurred 1493957 times. That is how many times it has been encountered since this topology was started.
 
