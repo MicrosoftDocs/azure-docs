@@ -18,7 +18,7 @@
 	
 ## Use Logic App Features
 
-You’ve [created a basic Logic App](/app-service-logic-create-a-logic-app), but now you want to get more serious and make a full process using Logic Apps. We will cover several key topics in this article:
+You’ve [created a basic Logic App](./app-service-logic-create-a-logic-app/), but now you want to get more serious and make a full process using Logic Apps. We will cover several key topics in this article:
 
 - Add conditional logic (for example, only execute an action if a certain condition is met) and adding loops
 - Using the Code view to edit a Logic App
