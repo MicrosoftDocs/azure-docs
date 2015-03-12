@@ -58,7 +58,7 @@ You can use the **CloudStorageAccount** type to represent
 your Storage Account information. If you are using an 
 Azure project template and/or have a reference to the
 Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
-can you use the **CloudConfigurationManager** type
+can use the **CloudConfigurationManager** type
 to retrieve your storage connection string and storage account
 information from the Azure service configuration:
 
@@ -512,3 +512,4 @@ to learn about more complex storage tasks.
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+  [How to: Programmatically access Table Storage]: #tablestorage

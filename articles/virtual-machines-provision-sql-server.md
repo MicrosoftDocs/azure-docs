@@ -3,18 +3,18 @@
 	description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="Selcin" 
-	manager="jhubbard" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
 	editor="monicar"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/06/2015" 
-	ms.author="selcin"/>
+	ms.author="jeffreyg"/>
 
 # Provisioning a SQL Server Virtual Machine on Azure #
 

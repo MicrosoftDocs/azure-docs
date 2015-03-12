@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Configure a custom domain name for an Azure website that uses Traffic Manager" 
-	description="" 
+	description="Use a custom domain name for an Azure Website that includes Traffic Manager for load balancing." 
 	services="web-sites" 
 	documentationCenter="" 
-	authors="wpickett" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/18/2015" 
-	ms.author="wpickett"/>
+	ms.date="02/18/2015" 
+	ms.author="cephalin"/>
 
 #Configuring a custom domain name for an Azure Website using Traffic Manager
 
