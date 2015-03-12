@@ -454,7 +454,7 @@ For tutorials that describe running other samples and provide instructions on us
 * [Get Started with Azure HDInsight][hdinsight-get-started]
 * [Sample: 10GB GraySort][hdinsight-sample-10gb-graysort]
 * [Sample: Wordcount][hdinsight-sample-wordcount]
-* [Sample: C# Steaming][hdinsight-sample-csharp-streaming]
+* [Sample: C# Streaming][hdinsight-sample-csharp-streaming]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
