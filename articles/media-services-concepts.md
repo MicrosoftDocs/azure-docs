@@ -104,15 +104,21 @@ For information about supported encoders, see [Encoders](../media-services-encod
 
 ##Live Streaming
 
-###Live transcoder
+###On-premises (3rd Party) Live transcoder
 
-A live encoder (or transcoder) converts the audio and/or video that is streamed from your camera into a multi-bitrate RTMP or Smooth Streaming format. The transcoder then pushes the adaptive bitrate RTMP or Smooth streams into a Media Services channel. Media Services then broadcasts the event live.
+An on-premises live encoder (or transcoder) converts the audio and/or video that is streamed from your camera into a multi-bitrate RTMP or Smooth Streaming format. The transcoder then pushes the adaptive bitrate RTMP or Smooth streams into a Media Services channel. Media Services then broadcasts the event live.
 
 ###Channel
 
 In Media Services, [Channel](https://msdn.microsoft.com/library/azure/dn783458.aspx)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
 You can get the ingest URL and the preview URL when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data from a live transcoder into the channel, the channel must be started. Once the live transcoder starts ingesting data, you can preview your stream.
+
+Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
+
+By default you can add 5 channels to your Media Services account. To request a higher limit, see [Quotas and limitations](../media-services-quotas-and-limitations).  
+
+You are only billed when your channel is in running state.
 
 ###Program 
 
@@ -122,6 +128,7 @@ You can specify the number of hours you want to retain the recorded content for 
 ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
 Each program is associated with an Asset. To publish the program you must create a locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+
 A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
 ##Protecting content
@@ -166,7 +173,11 @@ When working with Media Services it is recommended to encode your mezzanine file
 
 A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account. In addition, you can control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which currently includes use dynamic packaging. 
 
-If you plan to use dynamic packaging and\or dynamic encryption, you must have at least one streaming unit for the endpoint from which you plan to stream. For more information, see  [Scaling streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+It is recommended to use dynamic packaging and\or dynamic encryption. To use these features, you must have at least one streaming unit for the endpoint from which you plan to stream. For more information, see  [Scaling streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+
+By default you can have up to 2 streaming endpoints in your Media Services account. To request a higher limit, see [Quotas and limitations](../media-services-quotas-and-limitations). 
+
+You are only billed when your StreamingEndpoint is in running state.
 
 ###Asset delivery policy
 
