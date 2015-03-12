@@ -8,12 +8,13 @@
 	editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.date="2/23/2015" 
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="02/23/2015" 
 	ms.author="jhubbard; v-stste@microsoft.com" 
 	ms.workload="data-services" 
 	ms.topic="article" 
-	ms.tgt_pltfrm=""/>
+	ms.tgt_pltfrm="NA"/>
 
 
 # Upgrade SQL Database Web or Business Databases to New Service Tiers
@@ -88,7 +89,21 @@ The Azure SQL Database service exposes information in the management portal, and
 Since Web and Business databases do not have any guaranteed DTUs/resource limits associated with them, we normalize the percentage values in terms of the amount of resources available to an S2 performance level database. The average DTU percentage consumption of a database at any specific interval can be calculated as the highest percentage value among CPU, IO and Log usage at that interval.
 
 
-Use the management portal for a high-level overview of DTU percentage usage, and then drill into the details using system views.
+Use the management portal for a high-level overview of DTU percentage usage, and then drill into the details using system views. 
+
+You can also use the new Azure management portal to view the recommended service tier for your Web or Business database when you upgrade a server to Azure SQL Database V12 ([at preview in some regions](http://azure.microsoft.com/en-us/documentation/articles/sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)).
+
+### How to view the recommended service tier in the new Azure Management Portal
+The management portal recommends the appropriate service tier for your Web or Business database during the process of upgrading a server to Azure SQL Database V12. The recommendation is based on a historical analysis of the resource consumption of the database.
+
+**New Management Portal**
+
+1. Log on to the [new management portal](https://portal.azure.com) and navigate to a server containing a Web or Business database.
+2. Click the **Latest Update** part in the server blade.
+3. Click **Upgrade this server**.
+
+The **Upgrade this server** blade now shows a list of Web or Business databases on the server along with the recommended service tier.
+
 
 
 ### How to view DTU consumption in the Management Portal

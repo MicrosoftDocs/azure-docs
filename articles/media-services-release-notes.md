@@ -2,7 +2,7 @@
 	pageTitle="Media Services Release Notes" 
 	description="Media Services Release Notes" 
 	services="media-services" 
-	documentationCenter="media" 
+	documentationCenter="" 
 	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [March 2015 Release](#march_changes_15)
 - [February 2015 Release](#february_changes_15)
 - [January 2015 Release](#january_changes_15)
 - [December 2014 Release](#december_changes_14)
@@ -67,6 +68,15 @@ These release notes summarize changes from previous releases and known issues.
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="march_changes_15"></a>March 2015 Release
+
+### General Media Services Updates
+
+- Media Services now provides Azure CDN integration. To support the integration, the **CdnEnabled** property was added to **StreamingEndpoint**.  **CdnEnabled** can be used with REST APIs starting with version 2.9 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/azure/dn783468.aspx)).  **CdnEnabled** can be used with .NET SDK starting with version 3.1.0.2 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint(v=azure.10).aspx)).
+- Announcement of **Media Encoder Premium Workflow**. For more information, see [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services).
+ 
+
 
 ##<a id="february_changes_15"></a>February 2015 Release
 

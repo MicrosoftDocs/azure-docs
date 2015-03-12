@@ -317,7 +317,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 	- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
 	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
-	> [AZURE.IMPORTANT] Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
+	> [AZURE.NOTE] Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
 	> If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property.
 	> In the example above, there will be 24 data slices as each data slice is produced hourly.
 	
@@ -339,7 +339,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 
 		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
-	> [AZURE.IMPORTANT] Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This should match the **Start** value in the pipeline JSON. 
+	> [AZURE.NOTE] Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This should match the **Start** value in the pipeline JSON. 
 
 	You should see 24 slices, one for each hour from 12 AM of the current day to 12 AM of the next day. 
 	
@@ -391,7 +391,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 		PipelineName        : ADFTutorialPipeline
 		Type                : Copy
 
-> [AZURE.IMPORTANT] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+> [AZURE.NOTE] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Manage Azure Storage using Azure Automation" 
 	description="Learn about how the Azure Automation service can be used to manage Azure Storage at scale." 
-	services="automation, storage" 
+	services="storage, automation" 
 	documentationCenter="" 
 	authors="jodoglevy" 
 	manager="eamono" 

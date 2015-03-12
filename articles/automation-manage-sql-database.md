@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Manage Azure SQL Databases using Azure Automation" 
 	description="Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale." 
-	services="automation, sql-database" 
+	services="sql-database, automation" 
 	documentationCenter="" 
 	authors="jodoglevy" 
 	manager="eamono" 
