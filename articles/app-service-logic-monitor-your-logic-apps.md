@@ -43,7 +43,7 @@ There is also the **Tracking ID**. This is the identifier that all calls are pas
 
 ##Trigger history and versioning
 
-There are two additional capabilities that are not currently possible in the UI but are coming soon. These are available via the REST api.
+There are two additional capabilities that are not currently possible in the UI but are coming soon. These are available via [the REST api](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 1. **Trigger history** - polling triggers check the API on some interval but don't necessarily start a run, depending on the response (for example a `200` means to run and a `202` means to not run). The trigger history gives you a way to see all of the calls that happen but that don't run the Logic App (the `202` responses).
 
