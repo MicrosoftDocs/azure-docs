@@ -7,14 +7,6 @@
 <p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
 
 
-## In this topic
-
-
-+ [Overview](#Overview)
-+ [Features currently available in Microsoft Azure Government](#Features)
-+ [Next Steps](#next)
-
-
 ## <a name="Overview"></a>Overview
 
 Azure Government is a government-community cloud (GCC) designed to support strategic government scenarios that require speed, scale, security, compliance and economics for U.S. government organizations.   It was developed based on Microsoft’s extensive experience delivering software, security, compliance, and controls in other Microsoft cloud offerings such as Azure public, Office 365, O365 GCC, Microsoft CRM Online etc. 
