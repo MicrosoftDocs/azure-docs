@@ -26,13 +26,15 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
 
 ## Create an index
 
-1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you'll formulate a request that looks like this: 
+1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. 
 
-  	![][16]
+3. On the Composer tab, you'll formulate a request that looks like this: 
+
+  	![][1]
 
 2. Select **PUT**.
 
-3. Enter a URL that specifies the service URL (which you can find on the Properties page), request attributes and the api-version. A few pointers to keep in mind:
+3. Enter a URL that specifies the service URL, request attributes and the api-version. A few pointers to keep in mind:
    + Use HTTPS as the prefix
    + Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
    + Api-version is lower-case, specified as "?api-version=2015-02-28". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer one when it is convenient.
@@ -55,8 +57,8 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-          {"name": "hotelName", "type": "Edm.String", "suggestions": true},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
           {"name": "parkingIncluded", "type": "Edm.Boolean"},
@@ -77,7 +79,7 @@ If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404,
 
 On the Composer tab, your request to post documents will look like the following. The body of the request contains the search data for 4 hotels.
 
-   ![][17]
+   ![][2]
 
 1. Select **POST**.
 
@@ -157,13 +159,13 @@ On the Composer tab, your request to post documents will look like the following
 
 8.	Click **Execute**.
 
-In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
+In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request. 
 
 ## Query the index
 
 Now that an index and documents are loaded, you can issue queries against them.  On the Composer tab, a GET command that queries your service will look similar to the following:
 
-   ![][18]
+   ![][3]
 
 1.	Select **GET**.
 
@@ -182,7 +184,7 @@ Now that an index and documents are loaded, you can issue queries against them. 
 
 The response code should be 200, and the response output should look similar to the following illustration.
  
-   ![][19]
+   ![][4]
 
 The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
 
@@ -198,7 +200,7 @@ The following example query is from the [Search Index operation (Azure Search AP
 
 You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
 
-   ![][20]
+ ![][5]
 
 1.	Select **GET**.
 
@@ -217,9 +219,7 @@ You can also query the system to get document counts and storage consumption. On
 
 5.	Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
 
-6.	Click the Inspectors tab | Headers, and select the JSON format. You should see the document count and storage size (in KB).
-
- 	![][21]
+6.	Click the **Inspectors** tab | **Headers**, and select the JSON format. You should see the document count and storage size (in KB).
 
 ## Next steps
 
@@ -229,9 +229,9 @@ The following links provide additional information for a no-code approach to man
 -  [How to use Chrome Postman with Azure Search](../search-chrome-postman/)
 
 <!--Image References-->
-[16]: ./media/search-fiddler/AzureSearch_Configure1_11_PUTIndex.PNG
-[17]: ./media/search-fiddler/AzureSearch_Configure1_12_POSTDocs.PNG
-[18]: ./media/search-fiddler/AzureSearch_Configure1_13_GETQuery.PNG
-[19]: ./media/search-fiddler/AzureSearch_Configure1_14_GETQueryResponse.PNG
-[20]: ./media/search-fiddler/AzureSearch_Configure1_15_Stats.PNG
-[21]: ./media/search-fiddler/AzureSearch_Configure1_16_StatsResponse.PNG
+[1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
+[2]: ./media/search-fiddler/AzureSearch_Fiddler2_PostDocs.png
+[3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
+[4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
+[5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+
