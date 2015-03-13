@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="03/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,7 +22,7 @@
 
 
 <!--
-GeneMi , 2015-March-12 Thursday 15:43pm
+GeneMi , 2015-March-13 Friday 13:38pm
 sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
@@ -124,7 +124,7 @@ For Elastic Scale, see:
 
 
 - [Get Started with Azure SQL Database Elastic Scale Preview](../sql-database-elastic-scale-get-started/)
-- [Data dependent routing](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-data-dependent-routing/)
+- [Data dependent routing](./sql-database-elastic-scale-data-dependent-routing/)
 
 
 ##Incomplete or outdated posts
@@ -133,7 +133,7 @@ For Elastic Scale, see:
 The links in this section are to blog posts or similar sources, so they might be incomplete or be outdated. Yet they might have some background value.
 
 
-- [Retry Logic for Transient Failures in Windows Azure SQL Database](http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-windows-azure-sql-database.aspx)
+- [Retry Logic for Transient Failures in Microsoft Azure SQL Database](http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-windows-azure-sql-database.aspx)
 
 <!-- -->
 
