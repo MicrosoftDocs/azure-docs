@@ -1,6 +1,6 @@
 <properties title="Azure Government Developers Guide" pageTitle="Azure Government Overview" description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " metaKeywords="Azure Government AzureGov GovCloud" services="azure-government" solutions="" documentationCenter="" authors="joharve2" videoId="" scriptId="" manager="required" />
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="3/13/2014" ms.author="jharve" />
+<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="03/13/2015" ms.author="jharve" />
 
 #  Microsoft Azure Government Overview 
 
@@ -13,7 +13,7 @@ Azure Government is a government-community cloud (GCC) designed to support strat
 
 In addition, Azure Government is designed to meet the higher level security and compliance needs for sensitive, dedicated, U.S. Public Sector workloads found in regulations such as United States Federal Risk and Authorization Management Program (FedRAMP), Department of Defense Enterprise Cloud Service Broker (ECSB), Criminal Justice Information Services (CJIS) Security Policy and Health Insurance Portability and Accountability Act (HIPAA).     
 
-Below is a summary view of the Azure Government Cloud infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  As some services below are only available in preview, please see the [regions page](http://azure.microsoft.com/en-us/regions/#services) as the most up to date services that are generally available are listed.
+Below is a summary view of the Azure Government Cloud infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  As some services below are only available in preview, please see the [regions page](http://azure.microsoft.com/regions/#services) as the most up to date services that are generally available are listed.
 
 ![][2]
 
@@ -60,7 +60,7 @@ Azure Government currently has the following services available in both US GOV I
 - Traffic Manager
 - Service Bus
 
-Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/en-us/regions/#services) which will highlight each available region and their services.  
+Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
 Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  Please refer to the regions page above for current data centers and services available.
 
