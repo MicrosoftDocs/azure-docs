@@ -1,6 +1,20 @@
-<properties title="Azure Government Image Gallery" pageTitle="Azure Government Image Gallery" description="This article provides an overview of the Azure Government Image Gallery and the images included" metaKeywords="Azure Government AzureGov GovCloud Image Gallery GovCloud" services="" solutions="" documentationCenter="" authors="John Harvey" videoId="" scriptId="" manager="required" />
+<properties 
+   pageTitle="Azure Government Image Gallery" 
+   description="This article provides an overview of the Azure Government Image Gallery and the images included" 
+   services="Azure-Government" 
+   documentationCenter="" 
+   authors="joharve2" 
+   manager="chrisnie" 
+   editor=""/>
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="3/13/2014" ms.author="jharve" />
+<tags
+   ms.service="multiple"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="azure-government" 
+   ms.date="03/13/2015"
+   ms.author="john.harvey@microsoft.com"/>
 
 
 #  Microsoft Azure Government Image Gallery

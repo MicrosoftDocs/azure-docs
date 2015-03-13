@@ -1,6 +1,20 @@
-<properties title="Azure Government Developers Guide" pageTitle="Azure Government Overview" description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " metaKeywords="Azure Government AzureGov GovCloud" services="azure-government" solutions="" documentationCenter="" authors="joharve2" videoId="" scriptId="" manager="required" />
+<properties 
+   pageTitle="Azure Government Overview" 
+   description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
+   services="Azure-Government" 
+   documentationCenter="" 
+   authors="joharve2" 
+   manager="chrisnie" 
+   editor=""/>
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="03/13/2015" ms.author="jharve" />
+<tags
+   ms.service="multiple"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="azure-government" 
+   ms.date="03/13/2015"
+   ms.author="john.harvey@microsoft.com"/>
 
 #  Microsoft Azure Government Overview 
 
