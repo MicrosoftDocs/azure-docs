@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.date="03/13/2015"
    ms.author="nitinme"/>
 
 # Get started using Hadoop with Hive in HDInsight on Linux (Preview)
 
-This tutorial gets you started quickly with HDInsight on Linux by showing you how to provision an HDInsight Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data. Then, you’ll analyze the results in a Business Intelligence (BI) tool, such as Tableau.
+This tutorial gets you started quickly with HDInsight on Linux by showing you how to provision an HDInsight Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data. Then, you’ll analyze the results in a Business Intelligence (BI) tool, such as Power BI.
 
 
 > [AZURE.NOTE] If you are new to Hadoop and Big Data, you can read more about the terms <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a>, and <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](../hdinsight-hadoop-introduction/).
