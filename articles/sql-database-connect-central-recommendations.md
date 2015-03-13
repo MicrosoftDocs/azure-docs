@@ -22,7 +22,7 @@
 
 
 <!--
-GeneMi , 2015-March-13 Friday 13:38pm
+GeneMi , 2015-March-13 Friday 14:11pm
 sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
