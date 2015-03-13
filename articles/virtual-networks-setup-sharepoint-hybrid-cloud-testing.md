@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/13/2015" 
 	ms.author="josephd"/>
 
 
-#Set up a SharePoint intranet farm in a hybrid cloud for testing
+# Set up a SharePoint intranet farm in a hybrid cloud for testing
 
 This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint farm hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -43,15 +43,17 @@ There are three major phases to setting up this hybrid cloud test environment:
 
 If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Phase 1: Set up the hybrid cloud environment
+## Phase 1: Set up the hybrid cloud environment
 
 Use the instructions in the [Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing/) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
 
 This is your current configuration.
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_1.png)
+
+> [AZURE.NOTE] For Phase 1, you can also set up the simulated hybrid cloud test environment. See [Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/) for the instructions.
  
-##Phase 2: Configure the SQL server computer (SQL1)
+## Phase 2: Configure the SQL server computer (SQL1)
 
 From the Azure Management Portal, start the DC2 computer if needed.
 
@@ -142,7 +144,7 @@ This is your current configuration.
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_2.png)
 
  
-##Phase 3: Configure the SharePoint server (SP1)
+## Phase 3: Configure the SharePoint server (SP1)
 
 First, create an Azure Virtual Machine for SP1 with these commands at the Azure PowerShell command prompt on your local computer.
 
@@ -191,7 +193,7 @@ This is your current configuration.
  
 Your SharePoint intranet farm in a hybrid cloud environment is now ready for testing.
 
-##Additional Resources
+## Additional Resources
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
