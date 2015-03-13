@@ -16,7 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
 
-##Create a Trading Partner Agreement   
+##Creating a Trading Partner Agreement   
 
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners partake in establishing a relationship, this is referred to as an *Agreement*. The agreement defined is based on the communication the two partners wish to achieve and hence is protocol or transport specific. The various B2B protocols and transports supported by Azure App Services are:
 
@@ -24,7 +24,7 @@ Trading partners are the entities involved in B2B (Business-to-Business) communi
 - EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
 - X12 (ASC X12)
 
-###BizTalk API apps that support B2B scenarios
+###BizTalk API Apps that support B2B scenarios
 
 The following API Apps enable the above capabilities via rich and intuitive experience in Azure Portal:
 
@@ -43,11 +43,13 @@ The following API Apps enable the above capabilities via rich and intuitive expe
 - Surfaces AS2 processing/tracking information for troubleshooting
 
 **BizTalk EDIFACT**
+
 - Executes EDIFACT Agreements as defined in the related TPM API App instance
 - Surfaces EDIFACT processing/tracking information for troubleshooting
 - Provides state management of batches (start and stop) as defined in EDIFACT Agreement(s) in the related TPM API App instance
 
 **BizTalk X12**
+
 - Executes X12 Agreements as defined in the related TPM API App instance 
 - Surfaces X12 processing/tracking information for troubleshooting
 - Provides state management of batches (start and stop) as defined in X12 Agreement(s) in the related TPM API App instance
@@ -63,3 +65,5 @@ To create trading partner agreements:
 3. Browse to the TPM instance created and step into the ‘Partners’ part
 4. Create partners as desired. Also edit the profile(s) as appropriate and add the required identities
 5. Now use the ‘Agreements’ part to create agreements. During agreement creation one of the initial steps is to choose the protocol. Based on the protocol chosen the rest of the agreement configuration takes place.
+
+> INSERT SNAPSHOT
