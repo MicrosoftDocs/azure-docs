@@ -53,6 +53,7 @@ Before you begin this tutorial, you must have the following:
 
 4. Click on the check icon on the lower left to create the HBase cluster.
 
+>[WACOM.NOTE] After a HBase cluster is deleted, you can create another HBase cluster use the same default Blob container. The new cluster will pick up the HBase tables you created in the original cluster.
 
 ## Create an HBase sample table from the HBase shell
 This section describes how to use the HBase shell to create HBase tables, add rows, and list rows. To access HBase shell, you must first enable RDP, and then make an RDP connection to the HBase cluster. For instructions, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-manage-portal].
@@ -203,7 +204,7 @@ The Microsoft HBase REST Client Library for .NET project must be downloaded from
 2. Open NuGet Package Manager Console by click the **TOOLS** menu, **NuGet Package Manager**, **Package Manager Console**.
 3. Run the following NuGet command in the console:
 
-	Install-Package Microsoft.HBase.Client
+		Install-Package Microsoft.HBase.Client
 
 5. Add the following using statements on the top of the file:
 		
