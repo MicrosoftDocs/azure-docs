@@ -29,7 +29,7 @@ There are 3 key reasons to use BizTalk Business Rules in business process:
 
 * Decouple Business logic from Application code
 - Allow Business Analysts to have more control over business logic management
-+ Changes to business logic goto production faster
++ Changes to business logic go to production faster
 
 ## Rules Concepts
 
@@ -100,7 +100,7 @@ Let us now use Business Rules to implement this business logic.
 
 3.	In the new blade that opens, enter the following information:  
 	1. Name – give a name for your Rules API App
-	1. Web Hosting Plan – select or create a web hosting plan
+	1. App Hosting Plan – select or create a web hosting plan
 	1. Pricing Tier – Choose the pricing tier you want this App to reside in
 	1. Resource Group – Select or create Resource group where the App should reside in
 	1. Location – Choose the geographic location where you would like the App to be deployed.
@@ -190,8 +190,8 @@ All the rules of a policy are executed in order. The priority of execution is de
 ### Test Policy
 After authoring your policy, before using it in production, there is provision for testing the policy. By using the “Test Policy” command, users can get into the Test Policy blade. In this blade you can see a list of vocabulary definitions that are used in the policy that require a user input. Users can manually add values for these inputs for their test scenario. Alternately, users can also choose to import test XMLs for inputs. Once all the inputs are in, the test can be run and the outputs for each vocabulary definition will be displayed in the output column for easy comparison. To view Business Analyst friendly logs, click on “View Logs” to view the execution logs. To save the logs, the “Save Output” option is available to store all test related data for independent analysis.
 
-## Using Rules in Flow
-Once the policy has been authored and tested, it is now ready for consumption. Users can create a new flow by doing New->Flow. Within the flow, BizTalk Rules should be available in the gallery to the right. This can now be dragged and dropped onto the designer surface. Once this is done, there will be an option to choose which Rules API App to target. Once this is done, the list of policies available to configure is available. Choose a specific policy after which the inputs required for the policy needs to be input. Users can use the output from the Rules API App downstream for further decision making.
+## Using Rules in Logic Apps
+Once the policy has been authored and tested, it is now ready for consumption. Users can create a new Logic App by doing New->Logic App. In the designer, BizTalk Rules is  available in the gallery to the right. This can now be dragged and dropped onto the designer surface. Once this is done, there will be an option to choose which Rules API App to target. Once this is done, the list of policies available to configure is available. Choose a specific policy after which the inputs required for the policy needs to be input. Users can use the output from the Rules API App downstream for further decision making.
 
 ## Using Rules via APIs
 The Rules API App can also be invoked using a rich set of APIs available. This way users aren’t restricted to just using flows and can use Rules in any application by making REST calls.
