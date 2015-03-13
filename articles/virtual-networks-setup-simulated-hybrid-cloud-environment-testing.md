@@ -19,7 +19,7 @@
 # Set up a simulated hybrid cloud environment for testing
 
 This topic steps you through creating a simulated hybrid cloud environment with Microsoft Azure for testing using two separate Azure virtual networks. Use this configuration as an alternative to 
-[Set up a hybrid cloud environment for testing](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
+[Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing/) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
 
 ![](./media/virtual-networks-set-up-simulated-hybrid-cloud-environment-for-testing/CreateSimHybridCloud_4.png)
 

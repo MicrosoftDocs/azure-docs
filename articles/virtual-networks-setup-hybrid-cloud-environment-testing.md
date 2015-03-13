@@ -105,7 +105,7 @@ This is your current configuration.
 
 ## Phase 3: Create the cross-premises Azure Virtual Network
 
-First, log on to the [Azure Management Portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) with your Azure subscription credentials and create a virtual network named TestVNET.
+First, log on to the [Azure Management Portal](https://manage.windowsazure.com/) with your Azure subscription credentials and create a virtual network named TestVNET.
 
 1.	In the task bar of the Azure Management Portal, click **New > Network Services > Virtual Network > Custom Create**.
 2.	On the Virtual Network Details page, type **TestVNET** in **Name**.
