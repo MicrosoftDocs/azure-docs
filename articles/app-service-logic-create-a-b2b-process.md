@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a B2B Process" 
+   pageTitle="Creating a B2B Process" 
    description="This topic covers creation of B2B Business Process" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -16,7 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
 
-##Create a B2B Process
+##Creating a B2B Process
 
 **Business Scenario:**
 
@@ -46,14 +46,21 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 	3. Use the 'Partners' part to create a partner as 'Northwind', and in its profile add the required AS2 identity.
 	4. Use the 'Agreements' part to create an AS2 agreement between Northwind and Contoso. Northwind will be the hosted partner here, and Contoso will be the guest partner. As appropriate, signing, encryption, compression, and acknowledgements can be configured during this agreement creation. In case certificates need to be used, they can be uploaded via the Certificates part when browsing the TPM service that is created.
 
+> INSERT SNAPSHOTS
+
 **Create a flow / business process**
 
 1. Create a new flow in which the first step is AS2. Drag and drop AS2Connector and choose the instance already created. Choose trigger as the functionality
 2. Next drag and drop BlobConnector and choose the instance already created. Choose action as the functionality and within that select UploadBlob as the desired functionality. Configure as appropriate
 3. Now create/deploy the flow
 
+> INSERT SNAPSHOTS
+
 **Message Processing & Troubleshooting**
 
-1. It is time to test out the flow we have deployed. Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance created. You may need to configure the authentication for the endpoint so that it is publicly accessible
+1. It is time to test out the flow we have deployed. Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance that was created. You may need to configure the authentication for the endpoint so that it is publicly accessible.
 2. Execution information about the flow is surfaced by browsing to the flow and then stepping into the flow instance which got executed
 3. For AS2 processing information, browse to the AS2Connector instance involved, and then follow by stepping into the Tracking part. You can use the filters involved to restrict the view to the information that is desired.
+
+> INSERT SNAPSHOTS
+

@@ -15,22 +15,24 @@
    ms.workload="integration" 
    ms.date="02/27/2015"
    ms.author="hariag"/>
-   
-#Archive AS2 Messages
-The 'AS2 Connector' API App exposes archiving functionality. 
-Archiving simply stores the message at that point to the Azure Blob Container provided as part of the AS2 Connector package settings. 
 
-Archive capability is currently exposed at 2 points:
+#Archive AS2 Messages
+
+The 'AS2 Connector' API App exposes the ability to archive messages. Archiving simply stores the message to the Azure Blob Container provided as part of the AS2 Connector package settings. 
+
+Archiving is currently exposed at 2 points:
 
 1. As part of Receive/Decode trigger: the message will be archived as soon as it is received by the API App instance 
-2. As part of Encode/Send action: the message will be archived post all processing has is complete and just before it is sent to the partner i.e. the encoded message will be archived
+2. As part of Encode/Send action: the message will be archived after all processing has completed and just before it is sent to the partner i.e. the encoded message will be archived
 
 The above is true for both messages and acknowledgments (MDNs). 
 
-**To know the archive location of a message**
+> INSERT SNAPSHOT
 
-Browse to the required AS2 Connector API App instance and then click the 'Tracking' part. The tracking/processing information for this API App will surfaces here. One can narrow down the list by using the filter parameters surfaced. Once the required message is in view then click on it to see its detailed view. Herein the archive URL for the message will be displayed if archiving was enabled for it.  
+**To discover the archive location of a message**
 
-**To fetch the archived message**
+Browse to the required AS2 Connector API App instance and then click the 'Tracking' part. The tracking/processing information for this API App will be available here. One can narrow down the list by using the filter parameters. Once the message you are interested in is in view then click on it to see its detailed view. The archive URL for the message will be displayed here if archiving was enabled for it.  
 
-Use the URL fetched above to retrieve the archived message from Azure Blobs.    
+**To retrieve the archived message**
+
+Use the URL discovered above to retrieve the archived message from Azure Blob Storage.
