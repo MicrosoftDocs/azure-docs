@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Error During Authentication Detection" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="kempb" manager="douge" editor=""/>
+<properties 
+	pageTitle="Error During Authentication Detection" 
+	description="The active directory connection wizard detected an incompatible authentication type" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 ###Error During Authentication Detection 
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   

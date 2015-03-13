@@ -13,16 +13,30 @@ All Azure technical articles contain two metadata sections - a properties sectio
 
 The properties section uses this syntax:
 
-    <properties pageTitle="required" description="required" services="" documentationCenter="" authors="your GitHub account" manager="required" />
+    <properties 
+       pageTitle="article-title" 
+       description="Article description that will be displayed on landing pages and in some search results" 
+       services="service-name" 
+       documentationCenter="dev-center-name" 
+       authors="GitHub-alias-of-author" 
+       manager="manager-alias" 
+       editor=""/>
 
 The tags section uses this syntax:
 
-    <tags ms.service="required" ms.devlang="may be required" ms.topic="article" ms.tgt_pltfrm="may be required" ms.workload="required" ms.date="mm/dd/yyyy" ms.author="Your MSFT alias or your full email address" />
+    <tags
+       ms.service="required"
+       ms.devlang="may be required"
+       ms.topic="article"
+       ms.tgt_pltfrm="may be required"
+       ms.workload="required" 
+       ms.date="mm/dd/yyyy"
+       ms.author="Your MSFT alias or your full email address"/>
 
 ##Usage
 
 - The element name and attribute names are case sensitive.
-- The <properties> section must be the first line of your file, and it must exist as a single line (e.g. don't add any line breaks between attributes).
+- The <properties> section must be the first line of your file.
 - Leave a blank line after each metadata section and before your page title to ensure that the page title is correctly converted to HTML during the publishing process.
 
 ## Attributes and values for the properties section
@@ -34,7 +48,7 @@ The tags section uses this syntax:
 - Sometimes displayed as the search results description in search results
 - Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
 
-![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. Values:
+![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - active-directory
 - backup
@@ -47,6 +61,7 @@ The tags section uses this syntax:
 - multi-factor-authentication
 - notification-hubs
 - recovery-manager
+- redis-cache
 - service-bus
 - scheduler
 - sql-database
@@ -56,7 +71,7 @@ The tags section uses this syntax:
 - visual-studio-online
 - web-sites
 
-![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. Values:
+![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - **.net** 
 - **nodejs** 
@@ -73,6 +88,8 @@ The tags section uses this syntax:
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
+
+![](./media/article-metadata/checkmark-small.png)**editor**: not required.
 
 ## Attributes and values for the tags section
 
@@ -139,25 +156,25 @@ The tags section uses this syntax:
 
  - **article**: A conceptual topic, tutorial, feature guide, or other non-reference article
 
- - **campaign-page**: Azure.com only.  A page that is specifically designed as a landing page for external campaigns, and is not included as part of the primary site IA.  Should not be used for documentation articles or regular doc landing pages.  Examples: azure.microsoft.com/en-us/develop/net/aspnet/; azure.microsoft.com/en-us/develop/mobile/ios/
+ - **campaign-page**: Azure.com only.  A page that is specifically designed as a landing page for external campaigns, and is not included as part of the primary site IA.  Should not be used for documentation articles or regular doc landing pages.  Examples: azure.microsoft.com/develop/net/aspnet/; azure.microsoft.com/develop/mobile/ios/
 
  - **dev-center-home-page**: Azure.com only.  A dev center home page, e.g. /develop/net/
 
  - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations
 
- - **home-page**: Top level documentation home page. We only have two: azure.microsoft.com/en-us/documentation/ and msdn.microsoft.com/en-us/library/azure/
+ - **home-page**: Top level documentation home page. We only have two: azure.microsoft.com/documentation/ and msdn.microsoft.com/library/azure/
 
- - **index-page**: Second-level landing pages for programming languages, services, or features. These are spread across Azure.com and the library, and are used as entry points for more specific, scoped information. Examples: http://azure.microsoft.com/en-us/develop/mobile/resources-wp8/, http://msdn.microsoft.com/library/azure/jj673460.aspx, http://msdn.microsoft.com/en-us/library/azure/hh689864.aspx
+ - **index-page**: Second-level landing pages for programming languages, services, or features. These are spread across Azure.com and the library, and are used as entry points for more specific, scoped information. Examples: http://azure.microsoft.com/develop/mobile/resources-wp8/, http://msdn.microsoft.com/library/azure/jj673460.aspx, http://msdn.microsoft.com/library/azure/hh689864.aspx
 
- - **infographic-page**: Azure.com only. A page that features a browsable infographic or poster, for instance http://azure.microsoft.com/en-us/documentation/infographics/windows-azure/
+ - **infographic-page**: Azure.com only. A page that features a browsable infographic or poster, for instance http://azure.microsoft.com/documentation/infographics/windows-azure/
 
- - **reference**: An API reference page
+ - **reference**: An API reference page (including REST API) or PowerShell cmdlet reference page
 
  - **service-home-page**: Azure.com only.  A doc service home page, e.g. /documentation/services/virtual-machines/
 
- - **site-section-home-page**: Azure.com only. A "home page" for a particular type of content on azure.com Examples: http://azure.microsoft.com/en-us/documentation/infographics/, http://azure.microsoft.com/en-us/documentation/scripts/, http://azure.microsoft.com/en-us/documentation/videos/home/, http://azure.microsoft.com/en-us/downloads/
+ - **site-section-home-page**: Azure.com only. A "home page" for a particular type of content on azure.com Examples: http://azure.microsoft.com/documentation/infographics/, http://azure.microsoft.com/documentation/scripts/, http://azure.microsoft.com/documentation/videos/home/, http://azure.microsoft.com/downloads/
 
- - **video-page**: Azure.com only.  A page that features a video, for instance http://azure.microsoft.com/en-us/documentation/videos/azure-webjobs-hosting-testing-net/
+ - **video-page**: Azure.com only.  A page that features a video, for instance http://azure.microsoft.com/documentation/videos/azure-webjobs-hosting-testing-net/
 
 ![](./media/article-metadata/checkmark-small.png)**ms.tgt_pltfrm**: Required. Specifies the target platform, for instance Windows, Linux, Windows Phone, iOS, Android, or special cache platforms. One value per page. This value will be **NA** for most topics except mobile and virtual machines.
 

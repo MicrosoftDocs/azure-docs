@@ -1,6 +1,20 @@
-<properties urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Azure - Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="python" title="" authors="szarkos" solutions="" manager="timlt" editor=""/>
+<properties
+	pageTitle="Introduction to Linux in Azure - Azure Tutorial"
+	description="Learn about using Linux virtual machines on Azure."
+	services="virtual-machines"
+	documentationCenter="python"
+	authors="szarkos"
+	manager="timlt"
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark" />
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2015"
+	ms.author="szark"/>
 
 
 
@@ -8,12 +22,11 @@
 
 #Introduction to Linux on Azure
 
-This topic provides an overview of some aspects of using Linux virtual machines in the Azure cloud. Deploying a Linux virtual machine is a straightforward process using an image from the gallery. 
+This topic provides an overview of some aspects of using Linux virtual machines in the Azure cloud. Deploying a Linux virtual machine is a straightforward process using an image from the gallery.
 
 ## Table of Contents ##
 
 * [Authentication: Usernames, Passwords and SSH keys.](#authentication)
-* [Generation and use of SSH keys for logging into Linux virtual machines.](#keygeneration)
 * [Obtaining superuser privileges using sudo](#superuserprivileges)
 * [Firewall configuration](#firewallconfiguration)
 * [Hostname changes](#hostnamechanges)
@@ -22,52 +35,11 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 
 ## <a id="authentication"></a>Authentication: Usernames, Passwords and SSH Keys
 
-When creating a Linux virtual machine using the Azure Management Portal, you are asked to provide a username, password and (optionally) an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
+When creating a Linux virtual machine using the Azure Management Portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 
+
+ - See [Create a Virtual Machine Running Linux](../virtual-machines-linux-tutorial/)
  - See [How to Use SSH with Linux on Azure](../linux-use-ssh-key/)
-
-
-### <a id="keygeneration"></a>SSH Key Generation
-
-The current version of the Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Please follow the steps below to generate and use SSH keys with Azure.
-
-1. Use openssl to generate an X509 certificate with a 2048-bit RSA keypair.
-		
-		openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-
-	Please answer the few questions that the openssl prompts for (you may leave them blank). The content in these fields is not used by the platform.
-
-2. Change the permissions on the private key to secure it.
-
-		chmod 600 myPrivateKey.key
-
-3. Convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate)
-
-		openssl  x509 -outform der -in myCert.pem -out myCert.cer
-
-4. Upload the `myCert.cer` while creating the Linux virtual machine. The provisioning process will automatically install the public key in this certificate into the `~/.ssh/authorized_keys` file for the specified user in the virtual machine.
-
-5. Connect to the Linux virtual machine using ssh.
-
-		ssh -i  myPrivateKey.key -p port  username@servicename.cloudapp.net
-
-	You will be prompted to accept the fingerprint of the host's public key the first time you log in.
-
-6. You may optionally copy `myPrivateKey.key` to `~/.ssh/id_rsa` so that your openssh client can automatically pick this up without the use of the -i option.
-   Alternatively you can modify `~/.ssh/config` to include a section for your virtual machine:
-
-        Host servicename.cloudapp.net
-          IdentityFile %d/.ssh/myPrivateKey.key
-
-
-### Generate a Key from an Existing OpenSSH Compatible Key
-The previous example describes how to create a new key for use with Windows Azure. In some cases users may already have an existing OpenSSH compatible public & private key pair and wish to use the same keys with Windows Azure.
-
-OpenSSH private keys are directly readable by the `openssl` utility. The following command will take an existing SSH private key (id_rsa in the example below) and create the `.pem` public key that is needed for Windows Azure:
-
-	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
-
-The **myCert.pem** file is the public key that may then be used to provision a Linux virtual machine on Windows Azure. During provisioning the `.pem` file will be translated into an `openssh` compatible public key and placed in `~/.ssh/authorized_keys`.
 
 
 ## <a id="superuserprivileges"></a>Obtaining Superuser Privileges Using `sudo`
@@ -105,7 +77,7 @@ The Azure Linux Agent includes functionality to automatically detect this name c
 ### Ubuntu Images
 Ubuntu images utilize cloud-init, which provides additional capabilities for bootstrapping a virtual machine.
 
- - See [Custom Data and Cloud-Init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - See [How to Inject Custom Data](../virtual-machines-how-to-inject-custom-data/) and [Custom Data and Cloud-Init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
 
 
 ## <a id="virtualmachine"></a>Virtual Machine Image Capture
@@ -132,4 +104,3 @@ On Linux, the resource disk is typically managed by the Azure Linux Agent and au
 On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](../virtual-machines-linux-how-to-attach-disk/).
 
  - See also: [Configure Software RAID on Linux](../virtual-machines-linux-configure-raid/)
-

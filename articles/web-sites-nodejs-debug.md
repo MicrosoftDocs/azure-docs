@@ -1,6 +1,20 @@
-<properties urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="" authors="blackmist" solutions="" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="How to Debug Azure Websites in Node.js" 
+	description="Learn how to debug an Azure website in Node.js." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -98,9 +112,9 @@ For information on specifying a Node.js version for your application, see [Speci
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Tools]: /en-us/documentation/articles/xplat-cli/
-[Using Node.js Modules with Azure Applications]: /en-us/documentation/articles/nodejs-use-node-modules-azure-apps/
-[Specifying a Node.js version in an Azure application]: /en-us/documentation/articles/nodejs-specify-node-version-azure-apps/
+[How to Use The Azure Command-Line Tools]: /documentation/articles/xplat-cli/
+[Using Node.js Modules with Azure Applications]: /documentation/articles/nodejs-use-node-modules-azure-apps/
+[Specifying a Node.js version in an Azure application]: /documentation/articles/nodejs-specify-node-version-azure-apps/
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png

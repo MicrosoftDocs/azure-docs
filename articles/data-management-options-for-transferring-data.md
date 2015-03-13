@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Options for transferring stored data to the cloud | Azure" description="Guidance for choosing the best option for transferring data from on-premises other cloud sources into Microsoft Azure for advanced analytics." metaKeywords="" services="data-factory, hdinsight, machine-learning, storage, sql-database" solutions="" documentationCenter="" authors="cjgronlund" videoId="" scriptId="" manager="paulettm" editor=""/>
+<properties 
+	pageTitle="Options for transferring stored data to the cloud | Azure" 
+	description="Guidance for choosing the best option for transferring data from on-premises other cloud sources into Microsoft Azure for advanced analytics." 
+	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
+	documentationCenter="" 
+	authors="cjgronlund" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-data" ms.date="1/7/2014" ms.author="cgronlun" />
+<tags 
+	ms.service="multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-data" 
+	ms.date="1/7/2014" 
+	ms.author="cgronlun"/>
 
 # Options for transferring stored data to the Azure cloud
 
@@ -91,7 +105,7 @@ Alternatively, developers can leverage Azure Stream Analytics, a fully managed s
 
 See:
 
-* [Event Hubs service information](/en-us/services/event-hubs/)
+* [Event Hubs service information](/services/event-hubs/)
 * [Event Hubs Overview][overview]
 * [Introduction to Azure Stream Analytics][stream]
 
@@ -99,9 +113,9 @@ See:
 
 Hybrid Connections provides an easy and convenient way to connect Azure Websites and Azure Mobile Services to on-premises resources. Developers can build web site to move data from on-premises to Azure. See [Hybrid Connections Overview][hybrid] for details.
 
-With [Virtual Network](/en-us/services/virtual-network/), you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute](/en-us/services/expressroute/) direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
+With [Virtual Network](/services/virtual-network/), you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute](/services/expressroute/) direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
 
-[Azure Marketplace](/en-us/marketplace/?source=datamarket) offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
+[Azure Marketplace](/marketplace/?source=datamarket) offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
 
 ## Choose the right data transfer option
 
@@ -150,7 +164,7 @@ Notes about the decision tree:
 </td>
 <td><ul>
 <li><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></li>
-<li><a href="http://msdn.microsoft.com/en-us/library/azure/ee730904.aspx">SQL Database Migration Tools</a></li>
+<li><a href="http://msdn.microsoft.com/library/azure/ee730904.aspx">SQL Database Migration Tools</a></li>
 </ul>
 </td>
 <td><p><a href="/documentation/articles/data-factory-introduction/">Azure Data Factory</a></p>
@@ -183,7 +197,7 @@ Notes about the decision tree:
 </td>
 <td><p>N/A</p>
 </td>
-<td><p><a href="http://msdn.microsoft.com/en-us/library/azure/hh456371.aspx">SQL Data Sync</a></p>
+<td><p><a href="http://msdn.microsoft.com/library/azure/hh456371.aspx">SQL Data Sync</a></p>
 </td>
 <td><p>SQL Data Sync (preview) synchronizes your data by sync groups which define the databases, tables and columns to synchronize as well as the synchronization schedule.</p>
 </td>
@@ -242,15 +256,15 @@ Notes about the decision tree:
 [pipelines]: ../data-factory-use-onpremises-datasources/
 [copy]: ../data-factory-copy-activity/
 [intro]: ../data-factory-introduction/
-[sql-import]: http://msdn.microsoft.com/en-us/library/azure/hh335292.aspx
-[sql-copy]: http://msdn.microsoft.com/en-us/library/azure/ff951624.aspx
-[integrate]: http://msdn.microsoft.com/en-us/library/azure/jj156150.aspx
-[SSIS]: http://msdn.microsoft.com/en-us/library/jj901708.aspx
-[wizard]: http://msdn.microsoft.com/en-us/library/azure/jj156152.aspx
-[use-wizard]: http://msdn.microsoft.com/en-us/library/azure/jj156144.aspx
-[bcp]: http://msdn.microsoft.com/en-us/library/azure/jj156153.aspx
-[migrate]: http://msdn.microsoft.com/en-us/library/azure/ee730904.aspx
-[overview]: http://msdn.microsoft.com/en-us/library/dn836025.aspx
+[sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
+[sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx
+[integrate]: http://msdn.microsoft.com/library/azure/jj156150.aspx
+[SSIS]: http://msdn.microsoft.com/library/jj901708.aspx
+[wizard]: http://msdn.microsoft.com/library/azure/jj156152.aspx
+[use-wizard]: http://msdn.microsoft.com/library/azure/jj156144.aspx
+[bcp]: http://msdn.microsoft.com/library/azure/jj156153.aspx
+[migrate]: http://msdn.microsoft.com/library/azure/ee730904.aspx
+[overview]: http://msdn.microsoft.com/library/dn836025.aspx
 [stream]: ../stream-analytics-introduction/
-[sync]: http://msdn.microsoft.com/en-us/library/azure/hh456371.aspx
+[sync]: http://msdn.microsoft.com/library/azure/hh456371.aspx
 [hybrid]: ../integration-hybrid-connection-overview/

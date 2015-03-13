@@ -1,22 +1,23 @@
-<properties title="" pageTitle="Monitor and manage Azure Data Factory using Azure Preview Portal" description="Learn how to use Azure Management Portal to monitor and manage Azure data factories you have created." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Monitor and manage Azure Data Factory using Azure Preview Portal" 
+	description="Learn how to use Azure Management Portal to monitor and manage Azure data factories you have created." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="spelluru"/>
 
 # Monitor Azure Data Factory using Azure Preview Portal
-
-- [View all data factories in an Azure subscription](#AllDataFactories)
-- [View details about a data factory](#DataFactoryDetails)
-- [View diagram view of a data factory](#DataFactoryDiagram)
-- [View linked services in a data factory](#DataFactoryLinkedServices)
-- [View details about a linked service](#DataFactoryLinkedService) 
-- [View datasets in a data factory](#DataFactoryDatasets)
-- [View details about a dataset](#DataFactoryDataset)
-- [View details about a slice](#DataFactorySlice) 
-- [View all activity runs for a slice](#DataFactoryActivtyRuns) 
-- [View details about an activity run](#DataFactoryActivtyRunDetails)
-- [Operations Lens - Events in the past week](#EventsInThePastweek)  
-   
-
+This article describes various scenarios for using the Azure Preview Portal to monitor and manage Azure Data Factory.
 
 ## <a name="AllDataFactories"></a> View all data factories in an Azure subscription
 

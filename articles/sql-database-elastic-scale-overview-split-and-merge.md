@@ -1,14 +1,47 @@
-<properties title="" pageTitle="Splitting and Merging with Elastic Scale" description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties 
+title="Splitting and Merging with Elastic Scale" 
+pageTitle="Splitting and Merging with Elastic Scale" 
+description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." 
+metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+services="sql-database" documentationCenter="" 
+manager="jhubbard" 
+authors="torsteng"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/05/2015" 
+	ms.author="torsteng" />
 
-# Splitting and Merging with Elastic Scale
+# Splitting and merging with Elastic Scale
 
 Applications built on Azure SQL Database face challenges when their data or processing needs no longer fit a single scale unit in Azure SQL Database. Examples include applications that go viral or where a particular set of tenants grow beyond the limits of a single Azure SQL DB database. The Elastic Scale **Split/Merge Service** greatly eases this pain. 
 
 This discussion of the Split/Merge Service manages scale-in and scale-out by changing the number of Azure DB databases and balancing the distribution of **shardlets** among them. (For term definitions, see [Elastic Scale Glossary](./sql-database-elastic-scale-glossary.md)). 
 
 With the current choices between Azure SQL DB editions, capacity can also be managed by scaling up or down the capacity of a single Azure SQL DB database. The scale-up/down dimension of elastic capacity management is not covered by Split/Merge – see Shard Elasticity instead [Elastic Scale Shard Elasticity](./sql-database-elastic-scale-elasticity.md)). 
+ 
+## What's new in Split/Merge
+
+The latest release of Split/Merge provides the following improvements:
+* List shard maps are now supported.
+* Range boundaries in requests can match more easily with ranges stored in the shard map.
+* Multiple worker role instances are now supported to improve availability.
+* Credentials stored as part of your split/merge operation are now encrypted at rest.
+
+## How to upgrade
+
+To upgrade to the latest version of Split/Merge, follow these steps:
+
+1. Download the latest version of the Split/Merge package from NuGet as described in the Split/Merge Getting Started tutorial section “Download the Split/Merge packages”.
+2. Change your cloud service configuration file for your split/merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
+3. Before deploying the update to Azure, ensure that all currently running split/merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the Split/Merge metadata database for ongoing requests.
+4. Update your existing cloud service deployment for split/merge in your Azure subscription with the new package and your updated service configuration file.
+
+You do not need to provision a new metadata database for split/merge to upgrade. The new version will automatically upgrade your existing metadata database to the new version. 
 
 ## Scenarios for Split/Merge 
 Applications need to stretch flexibly beyond the limits of a single Azure SQL DB database, as illustrated by the following scenarios: 
@@ -32,7 +65,7 @@ Figure 1: Conceptual Overview of Split/Merge
 
 ## Concepts & Key Features
 
-**Customer-Hosted Services**: Split/Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Elastic Scale Security Considerations](./sql-database-elastic-scale-configure-security.md).
+**Customer-Hosted Services**: Split/Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Elastic Scale Security Considerations](./sql-database-elastic-scale-configure-security.md).
 
 The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons. 
 
@@ -48,9 +81,9 @@ The default deployed service runs with one worker and one web role. Each uses th
 
 * **Sharded tables**: Split/Merge/Move operations move shardlets from source to target shard. After successful completion of the overall request, those shardlets are no longer present on the source. Note that the target tables need to exist on the target shard and must not contain data in the target range prior to processing of the operation. 
 
--    **Reference tables**: For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
+* **Reference tables**: For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
 
--    **Other Tables**: Other tables can be present on either the source or the target of a split/merge operation. Split/merge disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
+* **Other Tables**: Other tables can be present on either the source or the target of a split/merge operation. Split/merge disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
 
 The information on reference vs. sharded tables is provided by the **SchemaInfo** APIs on the shard map. The following example illustrates the use of these APIs on a given shard map manager object smm: 
 
@@ -82,11 +115,11 @@ The service binaries for Split/Merge are provided through [Nuget](http://www.nug
 
 Besides its worker role, the Split/Merge service package also includes a web role that can be used to submit Split/Merge requests in an interactive way. The main components of the user interface are as follows:
 
--    Operation Type: The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios discussed in Concepts and Key Features. In addition, you can also cancel a previously submitted operation.
+-    Operation Type: The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios discussed in Concepts and Key Features. In addition, you can also cancel a previously submitted operation.  You can use split, merge and move requests for range shard maps. List shard maps only support move operations.
 
 -    Shard Map: The next section of request parameters cover information about the shard map and the database hosting your shard map. In particular, you need to provide the name of the Azure SQL Database server and database hosting the shardmap, credentials to connect to the shard map database, and finally the name of the shard map. Currently, the operation only accepts a single set of credentials. These credentials need to have sufficient permissions to perform changes to the shard map as well as to the user data on the shards.
 
--    Source Range (Split/Merge): For split and merge operation, a request needs to have the low and high key of the source range on the source shard. Currently, you need to specifiy the keys exactly as they occur in the mappings in your shard map. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
+-    Source Range (Split/Merge): A split and merge operation processes a range using its low and high key. To specify an operation with an unbounded high key value, check the “High key is max” check box and leave the high key field empty. The range key values that you specifiy do not need to precisely match a mapping and its boundariess in your shard map. If you do not specify any range boundaries at all the service will infer the closest range for you automatically. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
 
 -    Split Key and Behavior (Split): For split operations, you also need to define at which point you want to split the source range. You do this by providing the sharding key where you want the split to occur. Use the radio button next to define whether you want the lower part of the range (excluding the split key) to move, or whether you want the upper part to move (including the split key).
 
@@ -113,7 +146,7 @@ The current implementation of the Split/Merge service is subject to the followin
 
 * During the course of request processing, some shardlet data may be present both on the source and the target shard. This is currently necessary to protect against failures during the shardlet movement. As explained above, the integration of Split/Merge with the Elastic Scale shard map ensures, that connections through the data dependent routing APIs using the **OpenConnectionForKey** method on the shard map do not see any inconsistent intermediate states. However, when connecting to the source or the target shards without using the **OpenConnectionForKey** method, inconsistent intermediate states might be visible when split/merge/move requests are going on. These connections may show partial or duplicate results depending on the timing or the shard underlying the connection. This limitation currently includes the connections made by Elastic Scale Multi-Shard-Queries.
 
-* The Split/Merge service currently does not support multiple role instances for its worker role. This precludes high availability configurations in Azure using failure or upgrade domains which depend on the ability to run multiple role instances. Also, the metadata database for Split/Merge must not be shared between different instances. For example, an instance of the Split/Merge service running in staging needs to point to a different metadata database than the instance running in production.
+* The metadata database for Split/Merge must not be shared between different roles. For example, a role of the Split/Merge service running in staging needs to point to a different metadata database than the production role.
  
 
 ## Billing 
@@ -140,7 +173,7 @@ The Split/Merge Service provides the **RequestStatus** table in the metadata sto
 
 ### Azure Diagnostics 
 
-The service template for Split/Merge is pre-configured to use WAD (Windows Azure Diagnostic) storage for additional detailed logging and diagnostics storage. You control the configuration for WAD such as the storage account and credentials through your service configuration file for Split/Merge. The WAD configuration for the service follows the guidance from [Cloud Service Fundamentals](http://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and Split/Merge application event logs. You can easily access these logs from the Visual Studio Server Explorer in the Azure part of the Explorer tree:
+The service template for Split/Merge is pre-configured to use WAD (Microsoft Azure Diagnostic) storage for additional detailed logging and diagnostics storage. You control the configuration for WAD such as the storage account and credentials through your service configuration file for Split/Merge. The WAD configuration for the service follows the guidance from [Cloud Service Fundamentals](http://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and Split/Merge application event logs. You can easily access these logs from the Visual Studio Server Explorer in the Azure part of the Explorer tree:
 
 ![Azure Diagnostics][2]   
 

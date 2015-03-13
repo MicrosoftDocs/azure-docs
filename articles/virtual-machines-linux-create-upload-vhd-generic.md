@@ -1,11 +1,25 @@
-<properties urlDisplayName="Upload a Linux VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="szarkos" solutions="" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Create and upload a Linux VHD in Azure" 
+	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="szarkos"/>
 
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](../virtual-machines-linux-endorsed-distributions). All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
+**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](../virtual-machines-linux-endorsed-distributions) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
 - [Linux on Azure - Endorsed Distributions](../virtual-machines-linux-endorsed-distributions)
 - [Support for Linux images in Microsoft Azure](http://support2.microsoft.com/kb/2941892)
@@ -57,7 +71,7 @@ VHD images on Azure must have a virtual size aligned to 1MB.  Typically, VHDs cr
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/en-us/library/hh848535.aspx) Powershell cmdlet.
+To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet.
 
 If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD:
 

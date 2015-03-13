@@ -1,10 +1,24 @@
-<properties title="" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="" authors="squillace" videoId="" scriptId="" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Using the Docker VM Extension for Linux on Azure" 
+	description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/21/2014" ms.author="rasquill" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/11/2015" 
+	ms.author="rasquill"/>
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Using the Docker VM Extension with the Azure Portal
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent] to create a Docker VM that hosts any number of containers for your applications on Azure. 
+[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension managed by [Azure Linux Agent] to create a Docker VM that hosts any number of containers for your applications on Azure. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 In this section
@@ -15,7 +29,7 @@ In this section
 + [Test Docker Client and Azure Docker Host]
 + [Next steps]
 
-> [AZURE.NOTE] This topic describes how to create a Docker VM in the Azure Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
+> [AZURE.NOTE] This topic describes how to create a Docker VM from the Azure Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
 
 ## <a id='createvm'>Create a new VM from the Image Gallery</a>
 The first step requires an Azure VM from a Linux image that supports the Docker VM Extension, using an Ubuntu 14.04 LTS image from the Image Gallery as an example server image and Ubuntu 14.04 Desktop as a client. In the portal, click **+ New** in the bottom left corner to create a new VM instance and select an Ubuntu 14.04 LTS image from the selections available or from the complete Image Gallery, as shown below. 
@@ -47,6 +61,7 @@ At the command line, use **`base64`** or another favorite encoding tool to creat
 
 ## <a id'adddockerextension'>Add the Docker VM Extension</a>
 To add the Docker VM Extension, locate the VM instance you created and scroll down to **Extensions** and click it to bring up VM Extensions, as shown below.
+> [AZURE.NOTE] This functionality is supported in the preview portal only: https://portal.azure.com/
 
 ![](./media/virtual-machines-docker-with-portal/ClickExtensions.png)
 ### Add an Extension
@@ -101,10 +116,12 @@ Kernel Version: 3.13.0-36-generic
 WARNING: No swap limit support
 ```
 
+Once you complete the above steps, you now have a fully functional Docker host running on an Azure VM, configured to be connected to remotely from other clients.
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-You are ready to go to the [Docker User Guide] and use your Docker VM. If you want to begin creating Docker VMs on Azure quickly and repeatedly, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]
+You are ready to go to the [Docker User Guide] and use your Docker VM. If you want to automate creating Docker hosts on Azure VMs through command line interface, see [How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]
 
 <!--Anchors-->
 [Create a new VM from the Image Gallery]: #createvm
@@ -127,7 +144,7 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. If you wa
 
 
 <!--Link references-->
-[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Azure Linux Agent]: ../virtual-machines-linux-agent-user-guide/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
 

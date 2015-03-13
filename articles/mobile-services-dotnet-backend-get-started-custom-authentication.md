@@ -1,6 +1,20 @@
-<properties urlDisplayName="Get started with custom authentication" pageTitle="Get started with custom authentication | Mobile Dev Center" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="windows" title="" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Get started with custom authentication | Mobile Dev Center" 
+	description="Learn how to authenticate users with a username and password." 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Get started with custom authentication
 
@@ -256,7 +270,7 @@ Next, you will create an endpoint for your users to log in. The username and pas
 
 ## <a name="require-authentication"></a>Configure the mobile service to require authentication
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 
 ## <a name="test-login"></a>Test the login flow using the test client
@@ -304,5 +318,5 @@ In your client application, you will need to develop a custom login screen which
 
 
 <!-- URLs. -->
-[Get Started with Users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Get Started with Users]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started

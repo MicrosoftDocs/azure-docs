@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." metaKeywords="" services="data-factory" solutions="" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar"/>
+<properties 
+	pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" 
+	description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
 
@@ -25,22 +39,28 @@ Data Management Gateway has a full range of on-premises data connection capabili
 - **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure.
 - **Encrypt credentials with your certificate** – Credentials used to connect to data sources are encrypted with a certificate fully owned by a user. Without the certificate, no one can decrypt the credentials into plain text, including Microsoft.
 
-### Gateway installation - best practices
-
-1.	If the host machine hibernates, the gateway won’t be able to respond to the data request. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. 
-2.	Data Management Gateway should be able to connect to the on-premises data sources that will be registered with the Azure Data Factory service. It does not need to be on the same machine as the data source, but **staying closer to the data source** reduces the time for the gateway to connect to the data source.
-
 ### Considerations for using Data Management Gateway
 1.	A single instance of Data Management Gateway can be used for multiple on-premises data sources, but keep in mind that a **gateway is tied to an Azure data factory** and can not be shared with another data factory.
 2.	You can have **only one instance of Data Management Gateway** installed on your machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
-3.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine. 
+3.	The **gateway does not need to be on the same machine as the data source**, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
+4.	You can have **multiple gateways on different machines connecting to the same on-premises data source**. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories. 
+5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine. 
+
+
+### Gateway installation - prerequisites 
+
+1.	The supported Operating System versions are Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
+2.	The recommended configuration for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
+3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.  
+
+
  
 
 ## Walkthrough
 
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
-### Step 1: Create an Azure data factory
+## Step 1: Create an Azure data factory
 In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
 1.	After logging into the [Azure Preview Portal][
@@ -72,7 +92,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	![Startboard][image-data-factory-startboard]
 
-### Step 2: Create linked services 
+## Step 2: Create linked services 
 In this step, you will create two linked services: **MyBlobStore** and **OnPremSqlLinkedService**. The **OnPremSqlLinkedService** links an on-premises SQL Server database and the **MyBlobStore** linked service links an Azure blob store to the **ADFTutorialDataFactory**. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
 
 ### Add a linked service to an on-premises SQL Server database
@@ -89,6 +109,9 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 	![Create Gateway blade][image-data-factory-create-gateway-blade]
 
 3. In the **Configure** blade, click **Install directly on this computer**. This will download the installation package for the gateway, install, configure, and register the gateway on the computer.
+
+	**NOTE: It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.**
+
 
 	![Gateway - Configure blade][image-data-factory-gateway-configure-blade]
 
@@ -126,6 +149,8 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 	![Data Source Credentials Blade][image-data-factory-credentials-blade]
 
 13.	In the **Credentials** blade, click **Click here to set Credentials securely**. It will launch the following pop up dialog box.
+
+	**NOTE: It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.**
 
 	![One Click application install][image-data-factory-oneclick-install]
 
@@ -407,7 +432,7 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	![Azure Storage Explorer][image-data-factory-stroage-explorer]
 
 
-## Creating and registering a gateway using Azure PowerShell cmdlets
+## Creating and registering a gateway using Azure PowerShell 
 This section describes how to create and register a gateway using Azure PowerShell cmdlets. 
 
 1. Launch **Azure PowerShell** in administrator mode. 
@@ -418,28 +443,28 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 2. Use the **New-AzureDataFactoryGateway** cmdlet to create a logical gateway as follows:
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName $df -Location “West US” -ResourceGroupName ADF –Description <desc>
+		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**Example command and output**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
-		Name            : MyGateway
-		Location        : West US
-		Description     : gateway for walkthrough
-		Version         :
-		Status          : NeedRegistration
-		VersionStatus   : None
-		CreateTime      : 9/28/2014 10:58:22
-		RegisterTime    :
-		LastConnectTime :
-		ExpiryTime      :
+		Name              : MyGateway
+		Description       : gateway for walkthrough
+		Version           :
+		Status            : NeedRegistration
+		VersionStatus     : None
+		CreateTime        : 9/28/2014 10:58:22
+		RegisterTime      :
+		LastConnectTime   :
+		ExpiryTime        :
+		ProvisioningState : Succeeded
 
 
 3. Use the **New-AzureDataFactoryGatewayKey** cmdlet to generate a registration key for the newly created gateway, and store the key in a local variable **$Key**:
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName $df 
+		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
 	**Example command output:**
@@ -456,7 +481,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 5. You can use the **Get-AzureDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
 
-		Get-AzureDataFactoryGateway -DataFactoryName $df -ResourceGroupName ADF
+		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
 You can remove a gateway using the **Remove-AzureDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzureDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 
@@ -504,7 +529,7 @@ Article | Description
 
 
 
-[azure-powershell-install]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[azure-powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png

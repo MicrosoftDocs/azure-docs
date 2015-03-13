@@ -1,6 +1,20 @@
-<properties urlDisplayName="Mobile Services Overview" pageTitle="Mobile Services Overview | Mobile Dev Center" metaKeywords="" description="Learn about Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="" title="" authors="mattchenderson" manager="dwrede" services="mobile-services" editor=""/>
+<properties 
+	pageTitle="Mobile Services Overview | Mobile Dev Center" 
+	description="Learn about Mobile Services." 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # Mobile Services Overview
 
@@ -12,6 +26,6 @@
 
 <!-- URLs. -->
 [@AzureMobile]: https://twitter.com/AzureMobile
-[Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
+[Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuremobile
 [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
 [blog post]: http://azure.microsoft.com/blog/2014/07/11/azure-mobile-services-why-should-asp-net-developers-care/

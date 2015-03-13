@@ -1,21 +1,30 @@
-<properties urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="" authors="juliako" solutions="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Create a Media Services Account - Azure" 
+	description="Describes how to create a new Media Services account in Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/15/2015" 
+	ms.author="juliako"/>
 
 
 
 #How to Create a Media Services Account
 
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+
 The Azure Management Portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account. 
 
 This topic explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account. 
-
-##Table of Contents
-
--  [Concepts][]
--  [How to: Create a Media Services account using Quick Create][]
-
 
 <h2><a id="concepts"></a>Concepts</h2>
 Accessing Media Services requires two associated accounts:

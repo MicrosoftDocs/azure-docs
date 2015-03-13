@@ -1,6 +1,20 @@
-<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hive in HDInsight Hadoop for website log analysis" pageTitle="Use Hive in HDInsight Hadoop for website log analysis| Azure" metaKeywords="" description="Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Use Hive in HDInsight Hadoop for website log analysis| Azure" 
+	description="Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/06/2015" 
+	ms.author="nitinme"/>
 
 # Use Hive with HDInsight to analyze logs from websites
 
@@ -19,7 +33,7 @@ In this sample you will use an HDInsight cluster to analyze website log files to
 
 - You must have provisioned an **HDInsight cluster**. For instructions, see [Provision HDInsight Clusters][hdinsight-provision]. 
 - You must have Microsoft Excel 2010 or Microsoft Excel 2013 installed.
-- You must have [Microsoft Hive ODBC Driver](http://www.microsoft.com/en-us/download/details.aspx?id=40886) to import data from Hive into Excel.
+- You must have [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886) to import data from Hive into Excel.
 
 
 ##To run the sample

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="brettsam" solutions="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" 
+	description="Learn how to recover your mobile service in the event of a disaster." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="brettsam" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="brettsam"/>
 
 # Recover your mobile service in the event of a disaster
 
@@ -73,11 +87,11 @@ Now you should be in a state where your mobile service has been recovered to a n
 <!-- Images. -->
 
 <!-- URLs. -->
-[SQL Database business continuity guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
+[SQL Database business continuity guidance]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[source control feature]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-[using the Azure command-line tool]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+[source control feature]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[using the Azure command-line tool]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Azure portal]: http://manage.windowsazure.com/
-[Azure Service Dashboard]: http://www.windowsazure.com/en-us/support/service-dashboard/
-[Automate mobile services with command-line tools]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+[Azure Service Dashboard]: http://www.windowsazure.com/support/service-dashboard/
+[Automate mobile services with command-line tools]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/

@@ -1,6 +1,19 @@
-<properties title="" pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure" description="Learn how to build an information portal and meta search engine using Search service on Microsoft Azure" metaKeywords="" services="search, sql-database,  storage, web-sites" solutions="" documentationCenter="" authors="HeidiSteen" videoId="" scriptId="" manager="mblythe" />
+<properties 
+	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure" 
+	description="Learn how to build an information portal and meta search engine using Search service on Microsoft Azure" 
+	services="search, sql-database,  storage, web-sites" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe"/>
 
-<tags ms.service="search" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="search" ms.date="01/13/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="NA" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="search" 
+	ms.date="01/13/2015" 
+	ms.author="heidist"/>
 
 <h1>Azure Search Developer Case Study</h1>
 
@@ -49,12 +62,12 @@ The diagram below illustrates the high-level components used in the WhatToPedia 
 
 Looking at the green boxes in the previous diagram, you’ll see that the WhatToPedia solution is built on these services:
 
-- [Azure Search](http://azure.microsoft.com/en-us/services/search/)
-- [Azure Websites using MVC 4](http://azure.microsoft.com/en-us/services/websites/)
-- [Azure WebJobs for scheduled tasks](http://azure.microsoft.com/en-us/documentation/articles/websites-webjobs-resources/)
-- [Azure SQL Database](http://azure.microsoft.com/en-us/services/sql-database/)
-- [Azure BLOB Storage](http://azure.microsoft.com/en-us/services/storage/)
-- [SendGrid Email Delivery](http://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Azure Search](http://azure.microsoft.com/services/search/)
+- [Azure Websites using MVC 4](http://azure.microsoft.com/services/websites/)
+- [Azure WebJobs for scheduled tasks](http://azure.microsoft.com/documentation/articles/websites-webjobs-resources/)
+- [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
+- [Azure BLOB Storage](http://azure.microsoft.com/services/storage/)
+- [SendGrid Email Delivery](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
 The very heart of the solution is data and search. The flow of data from the Reseller provider to the end customer is illustrated below:
 
@@ -105,14 +118,14 @@ This is how we built the prototype.
 **Develop a Search Indexer Job – Windows Console**
 
 1. Read all resellers from database.
-2. Call the Azure Search Service API to upload resellers one by one (see: http://msdn.microsoft.com/en-us/library/azure/dn798930.aspx).
+2. Call the Azure Search Service API to upload resellers one by one (see: http://msdn.microsoft.com/library/azure/dn798930.aspx).
 3. Set a property in database that reseller is indexed for incremental indexing. We did this by adding an ‘indexer’ field that stores the index status of each profile (indexed or not). 
 
 See the appendix for the code snippet that builds the indexer job.
 
 **Develop a Search Web Portal – MVC**
 
-1. Call Azure Search Service to get all documents from search (see: http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx)
+1. Call Azure Search Service to get all documents from search (see: http://msdn.microsoft.com/library/azure/dn798927.aspx)
 2. Extract following from the search service response (by using json.net http://james.newtonking.com/json)
    - Results
    - Facets
@@ -158,7 +171,7 @@ All web jobs have been developed as console applications that can be uploaded to
 
 The job is scheduled to run every 5 minutes as a scheduled web task. We calculated that the service takes approximately three minutes to upload 3,000 documents, which was within our requirements. 
 
-> [WACOM.NOTE] There is a prototype indexer feature that was recently introduced in Azure Search. This feature came too late for us to use it in our first release, but it appears to solve the same problem we used our indexer job for, which is to automate data load operations.
+> [AZURE.NOTE] There is a prototype indexer feature that was recently introduced in Azure Search. This feature came too late for us to use it in our first release, but it appears to solve the same problem we used our indexer job for, which is to automate data load operations.
 
 
 ###Backup strategy
@@ -167,7 +180,7 @@ We designed a multi-tiered backup strategy to recover from a range of scenarios,
 
 First, by keeping the web site source code in TFS Online, we know that if the site goes down, we can rebuild it by republishing from TFS. 
 
-Subscriber data in Azure SQL Database is the most sensitive asset. We back this up using the built-in feature (see [Azure SQL Database Backup and Restore](http://msdn.microsoft.com/en-us/library/azure/jj650016.aspx)). The backup schedule is full database backup once a week, differential database backups once a day, and transaction log backups every 5 minutes.  Given the size of the data, this solution is more than adequate for our immediate and projected data volumes.
+Subscriber data in Azure SQL Database is the most sensitive asset. We back this up using the built-in feature (see [Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)). The backup schedule is full database backup once a week, differential database backups once a day, and transaction log backups every 5 minutes.  Given the size of the data, this solution is more than adequate for our immediate and projected data volumes.
 
 Third, we store image and video files in Azure BLOB storage. We are still evaluating the ultimate backup plan for this data, considering Cloudberry Explorer for Azure as a potential solution. For now, we use a WebJob to copy images and videos to another location.
 
@@ -181,13 +194,13 @@ Previously, our code implemented paging, counts, and other behaviors that are st
 
 The greatest challenge during implementation was that it was a Preview version and finding information and shared experiences was difficult. Once we connected a few dots, we found that using Azure Search Service was pretty simple due to its REST API and JSON data format. We could call the framework directly from most open source plugins like JQuery JSON.Net, and we could use tools like Fiddler for fast experimentation and debugging. 
 
-> [WACOM.NOTE] Besides having the data prepped, it helped that those of us building the prototype already understood how search technology works, making us more productive, and more appreciative of the built-in features. If you need to ramp up on search query construction, faceted navigation, filters, etc. you should expect prototyping to take longer. 
+> [AZURE.NOTE] Besides having the data prepped, it helped that those of us building the prototype already understood how search technology works, making us more productive, and more appreciative of the built-in features. If you need to ramp up on search query construction, faceted navigation, filters, etc. you should expect prototyping to take longer. 
 
 ###Controlling facets in the search presentation page
 
 One of our learnings during the proof-of-concept was to plan facets carefully upfront. After loading a lot of data into the solution, we saw that the sheer volume of facets was too high to present to the users. 
 
-We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](http://azure.microsoft.com/en-us/documentation/articles/search-faceted-navigation/).
+We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](http://azure.microsoft.com/documentation/articles/search-faceted-navigation/).
 
 ###WebJobs for scheduling tasks
 
@@ -203,180 +216,190 @@ Thanks to the great folks at WhatToPedia for allowing us to share their story!
 
 We hope you found this case study useful. If you go on to use Azure Search, I recommend a few resources to speed you along:
 
-- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch)
+- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
-- [Documentation page on Azure.com](http://azure.microsoft.com/en-us/documentation/services/search/)
-- [Azure Search documentation on MSDN](http://msdn.microsoft.com/en-us/library/azure/dn798933.aspx)
+- [Documentation page on Azure.com](http://azure.microsoft.com/documentation/services/search/)
+- [Azure Search documentation on MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 
 ##Appendix: Search Indexer WebJob
 
 The following code builds the indexer mentioned in the section on building the prototype.
 
-    static void Main(string[] args)
-    {
-    int success = 0;
-    int errors = 0;
+        static void Main(string[] args)
+        {
+            int success = 0;
+            int errors = 0;
 
-    Log.Write("Starting job","", System.Diagnostics.TraceLevel.Info);
+            Log.Write("Starting job","", System.Diagnostics.TraceLevel.Info);
 
-    var serviceName = ConfigurationManager.AppSettings["SearchServiceName"];
-    var serviceKey = ConfigurationManager.AppSettings["SearchServiceKey"];
+            var serviceName = ConfigurationManager.AppSettings["SearchServiceName"];
+            var serviceKey = ConfigurationManager.AppSettings["SearchServiceKey"];
 
-    HttpClient client = new HttpClient();
-    client.DefaultRequestHeaders.Add("api-key", serviceKey);
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("api-key", serviceKey);
 
-    var db = new DB(Config.ConectionString);
+            var db = new DB(Config.ConectionString);
 
-    var recreateIndex = false;
-    Boolean.TryParse(ConfigurationManager.AppSettings["RecreateIndex"], out recreateIndex);
+            var recreateIndex = false;
+            Boolean.TryParse(ConfigurationManager.AppSettings["RecreateIndex"], out recreateIndex);
 
-    if(recreateIndex)
-    {
-    Log.Write("Recreating index and set all to no index", "", System.Diagnostics.TraceLevel.Info);
-    db.SetAllToNotIndexed();
-    RecreateIndex(serviceName, client);
-    }    
-    
-    var profiles = db.Profiles.Where(p=>!p.Indexed).ToList();
+            if(recreateIndex)
+            {
+                Log.Write("Recreating index and set all to no index", "", System.Diagnostics.TraceLevel.Info);
+                db.SetAllToNotIndexed();
+                RecreateIndex(serviceName, client);
+            }            
+            
+            var profiles = db.Profiles.Where(p=>!p.Indexed).ToList();
 
-    Log.Write(string.Format("Indexing {0} profiles",profiles.Count),"", System.Diagnostics.TraceLevel.Info);
+            Log.Write(string.Format("Indexing {0} profiles",profiles.Count),"", System.Diagnostics.TraceLevel.Info);
 
-    var cities = db.Cities.ToList();
-    var categories = db.Tags.Where(p=>p.ParentId==null).ToList();    
+            var cities = db.Cities.ToList();
+            var categories = db.Tags.Where(p=>p.ParentId==null).ToList();            
 
-    foreach (var profile in profiles)
-    {
-    Log.Write(string.Format("Indexing profile {0}", profile.Name),"",profile.ProfileId,0,System.Diagnostics.TraceLevel.Verbose);
-    try
-    {
-    var city = cities.Where(p => p.CityId == profile.CityId);
-    var category = categories.Where(p => p.TagId == profile.CategoryId);
+            foreach (var profile in profiles)
+            {
+                Log.Write(string.Format("Indexing profile {0}", profile.Name),"",profile.ProfileId,0,System.Diagnostics.TraceLevel.Verbose);
 
-    var cityse = city.Where(p => p.Lang == "se").FirstOrDefault();
-    var cityen = city.Where(p => p.Lang == "en").FirstOrDefault();
-    var categoryse = category.Where(p => p.Lang == "se").FirstOrDefault();
-    var categoryen = category.Where(p => p.Lang == "en").FirstOrDefault();
+                try
+                {
+                    var city = cities.Where(p => p.CityId == profile.CityId);
+                    var category = categories.Where(p => p.TagId == profile.CategoryId);
 
-    var citysename = cityse == null ? "" : cityse.Name;
-    var cityenname = cityen == null ? "" : cityen.Name;
-    var categorysename = categoryse == null ? "" : categoryse.Name;
-    var categoryenname = categoryen == null ? "" : categoryen.Name;
+                    var cityse = city.Where(p => p.Lang == "se").FirstOrDefault();
+                    var cityen = city.Where(p => p.Lang == "en").FirstOrDefault();
+                    var categoryse = category.Where(p => p.Lang == "se").FirstOrDefault();
+                    var categoryen = category.Where(p => p.Lang == "en").FirstOrDefault();
 
-    var tags = db.GetTagsFromProfile(profile.ProfileId);
+                    var citysename = cityse == null ? "" : cityse.Name;
+                    var cityenname = cityen == null ? "" : cityen.Name;
+                    var categorysename = categoryse == null ? "" : categoryse.Name;
+                    var categoryenname = categoryen == null ? "" : categoryen.Name;
 
-    var batch = new
-    {
-        value = new[] 
-    { 
-        new 
-        { 
-        id = profile.ProfileId.ToString()+"_en",
-        profileid = profile.ProfileId.ToString(),
-        city = cityenname,
-        category = categoryenname,
-        address = profile.Adress1,
-        email = profile.Email,
-        name = profile.Name,
-        lang = "en",
-        brands = profile.Brands,
-        descen=profile.DescEn,
-        descse=profile.DescSe,
-        orgnumber=profile.OrgNumber,
-        phone=profile.Phone,
-        zip=profile.Zip,
-        cities = city.Select(p=>p.Name).ToArray(),
-        categories = category.Select(p=>p.Name).ToArray(),
-        cityid = profile.CityId.ToString(),
-        tags=tags.ToArray()
-        },
-        new 
-        { 
-        id = profile.ProfileId.ToString()+"_se",
-        profileid = profile.ProfileId.ToString(),
-        city = citysename,
-        category = categorysename,
-        address = profile.Adress1,
-        email = profile.Email,
-        name = profile.Name,
-        lang = "se",
-        brands = profile.Brands,
-        descen=profile.DescEn,
-        descse=profile.DescSe,
-        orgnumber=profile.OrgNumber,
-        phone=profile.Phone,
-        zip=profile.Zip,
-        cities = city.Select(p=>p.Name).ToArray(),
-        categories = category.Select(p=>p.Name).ToArray(),
-        cityid = profile.CityId.ToString(),
-        tags=tags.ToArray()
+                    var tags = db.GetTagsFromProfile(profile.ProfileId);
+
+                    var batch = new
+                    {
+                        value = new[] 
+                    { 
+                        new 
+                        { 
+                            id = profile.ProfileId.ToString()+"_en",
+                            profileid = profile.ProfileId.ToString(),
+                            city = cityenname,
+                            category = categoryenname,
+                            address = profile.Adress1,
+                            email = profile.Email,
+                            name = profile.Name,
+                            lang = "en",
+                            brands = profile.Brands,
+                            descen=profile.DescEn,
+                            descse=profile.DescSe,
+                            orgnumber=profile.OrgNumber,
+                            phone=profile.Phone,
+                            zip=profile.Zip,
+                            cities = city.Select(p=>p.Name).ToArray(),
+                            categories = category.Select(p=>p.Name).ToArray(),
+                            cityid = profile.CityId.ToString(),
+                            tags=tags.ToArray()
+                        },
+                        new 
+                        { 
+                            id = profile.ProfileId.ToString()+"_se",
+                            profileid = profile.ProfileId.ToString(),
+                            city = citysename,
+                            category = categorysename,
+                            address = profile.Adress1,
+                            email = profile.Email,
+                            name = profile.Name,
+                            lang = "se",
+                            brands = profile.Brands,
+                            descen=profile.DescEn,
+                            descse=profile.DescSe,
+                            orgnumber=profile.OrgNumber,
+                            phone=profile.Phone,
+                            zip=profile.Zip,
+                            cities = city.Select(p=>p.Name).ToArray(),
+                            categories = category.Select(p=>p.Name).ToArray(),
+                            cityid = profile.CityId.ToString(),
+                            tags=tags.ToArray()
+                        }
+                    },
+                    };
+
+                    var response = client.PostAsync("https://" + serviceName + ".search.windows.net/indexes/profiles/docs/index?api-version=2014-10-20-Preview", new StringContent(JsonConvert.SerializeObject(batch), Encoding.UTF8, "application/json")).Result;
+                    response.EnsureSuccessStatusCode();
+
+                    db.Entry(profile).State = System.Data.Entity.EntityState.Modified;
+                    profile.Indexed = true;
+                    db.SaveChanges();
+                    success++;
+                }
+                catch(Exception ex)
+                {
+                    Log.Write("Error indexing profile", ex.Message, profile.ProfileId, 0, System.Diagnostics.TraceLevel.Verbose);
+                    errors++;
+                }
+            }
+            if(errors > 0)
+            {
+                Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Error);
+            }
+            else
+            {
+                Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Info);
+            }
+            
         }
-    },
-    };
-    var response = client.PostAsync("https://" + serviceName + ".search.windows.net/indexes/profiles/docs/index?api-version=2014-10-20-Preview", new StringContent(JsonConvert.SerializeObject(batch), Encoding.UTF8, "application/json")).Result;
-    response.EnsureSuccessStatusCode();
 
-    db.Entry(profile).State = System.Data.Entity.EntityState.Modified;
-    profile.Indexed = true;
-    db.SaveChanges();
-    success++;
-    }
-    catch(Exception ex)
-    {
-    Log.Write("Error indexing profile", ex.Message, profile.ProfileId, 0, System.Diagnostics.TraceLevel.Verbose);
-    errors++;
-    }
-    }
-    if(errors > 0)
-    {
-    Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Error);
-    }
-    else
-    {
-    Log.Write(string.Format("Job ended success ({0}), errors ({1})", success, errors), "", System.Diagnostics.TraceLevel.Info);
-    }  
-    }
+        static void RecreateIndex( string ServiceName, HttpClient client)
+        {
+            var index = new
+            {
+                name = "profiles",
+                fields = new[] 
+                { 
+                    new { name = "id",              type = "Edm.String",         key = true,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "profileid",       type = "Edm.String",         key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "cityid",          type = "Edm.String",         key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "city",            type = "Edm.String",         key = false, searchable = true,  filterable = true, sortable = true,  facetable = true, retrievable = true,  suggestions = true  },
+                    new { name = "category",        type = "Edm.String",         key = false, searchable = true,  filterable = true, sortable = false, facetable = true, retrievable = true,  suggestions = false  },
+                    new { name = "address",         type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "email",           type = "Edm.String",         key = false, searchable = true,  filterable = false, sortable = true, facetable = false, retrievable = true,  suggestions = false },
+                    new { name = "name",            type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true, suggestions = true },
+                    new { name = "lang",            type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = false,  facetable = false,  retrievable = true, suggestions = false },
+                    new { name = "brands",          type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "descen",          type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "descse",          type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "orgnumber",       type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "phone",           type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "zip",             type = "Edm.String",         key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
+                    new { name = "cities",          type = "Collection(Edm.String)",         key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
+                   new { name = "categories",      type = "Collection(Edm.String)",         key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
+                    new { name = "tags",            type = "Collection(Edm.String)",         key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false }
+                    
+                }
+            };
 
-    static void RecreateIndex( string ServiceName, HttpClient client)
-    {
-    var index = new
-    {
-    name = "profiles",
-    fields = new[] 
-    { 
-    new { name = "id",      type = "Edm.String",     key = true,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "profileid",   type = "Edm.String",     key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "cityid",  type = "Edm.String",     key = false,  searchable = false, filterable = false, sortable = false, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "city",    type = "Edm.String",     key = false, searchable = true,  filterable = true, sortable = true,  facetable = true, retrievable = true,  suggestions = true  },
-    new { name = "category",    type = "Edm.String",     key = false, searchable = true,  filterable = true, sortable = false, facetable = true, retrievable = true,  suggestions = false  },
-    new { name = "address",     type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "email",   type = "Edm.String",     key = false, searchable = true,  filterable = false, sortable = true, facetable = false, retrievable = true,  suggestions = false },
-    new { name = "name",    type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true, suggestions = true },
-    new { name = "lang",    type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = false,  facetable = false,  retrievable = true, suggestions = false },
-    new { name = "brands",  type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "descen",  type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "descse",  type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "orgnumber",   type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "phone",   type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "zip",     type = "Edm.String",     key = false, searchable = true,  filterable = true,  sortable = true,  facetable = false,  retrievable = true,  suggestions = false },
-    new { name = "cities",  type = "Collection(Edm.String)",     key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
-       new { name = "categories",  type = "Collection(Edm.String)",     key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false },
-    new { name = "tags",    type = "Collection(Edm.String)",     key = false, searchable = true,  filterable = false,  sortable = false,  facetable = false,  retrievable = false, suggestions = false }    
-    }
-    };
+            var url = "https://" + ServiceName + ".search.windows.net/indexes/?api-version=2014-10-20-Preview";
 
-    var url = "https://" + ServiceName + ".search.windows.net/indexes/?api-version=2014-10-20-Preview";
-    var deleteUrl = "https://" + ServiceName + ".search.windows.net/indexes/profiles?api-version=2014-10-20-Preview";
-    try
-    {
-    var deleteResponseIndex = client.DeleteAsync(deleteUrl).Result;
-    deleteResponseIndex.EnsureSuccessStatusCode();
-    }
-    catch (Exception ex)
-    {
-    }
-    var responseIndex = client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(index), Encoding.UTF8, "application/json")).Result;
-    responseIndex.EnsureSuccessStatusCode(); 
+            var deleteUrl = "https://" + ServiceName + ".search.windows.net/indexes/profiles?api-version=2014-10-20-Preview";
+
+            try
+            {
+                var deleteResponseIndex = client.DeleteAsync(deleteUrl).Result;
+                deleteResponseIndex.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            var responseIndex = client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(index), Encoding.UTF8, "application/json")).Result;
+            responseIndex.EnsureSuccessStatusCode();            
+          
+
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1

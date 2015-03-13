@@ -37,7 +37,7 @@ Your feedback is important. This article should give you an effective overview o
  
 <h2><a id="components"></a>The Components of Azure</h2>
 
-Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Windows Azure Infographic](http://azure.microsoft.com/en-us/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). The Management Portal is what you use to manage most (but not all) services in Azure. 
+Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Windows Azure Infographic](http://azure.microsoft.com/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). The Management Portal is what you use to manage most (but not all) services in Azure. 
 
 This paper will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
 
@@ -121,7 +121,7 @@ You have two roles to choose from when you create an instance, both based on Win
 Cloud Services are ideal to support massive scale out when you need more control over the platform than provided by Azure Websites but don’t need control over the underlying operating system. 
 
 ####Choosing a Compute Model####
-The page Azure Websites, Cloud Services and Virtual Machines comparison (http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/ ) provides more detailed information on how to choose a Compute model.
+The page Azure Websites, Cloud Services and Virtual Machines comparison (http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/ ) provides more detailed information on how to choose a Compute model.
 
 
 
@@ -246,7 +246,7 @@ If you need more bandwidth or security than an Azure Virtual Network connection 
 
 Setting it up an ExpressRoute connection requires more time and planning, so you might want to start with a site-to-site VPN, then migrate to an ExpressRoute connection.
 
-For more information about ExpressRoute, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/en-us/library/azure/dn606309.aspx).
+For more information about ExpressRoute, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/library/azure/dn606309.aspx).
 
 ###Traffic Manager###
 
@@ -268,7 +268,7 @@ Azure offers a number of tools to help developers and IT Professional create and
 ###Azure SDK###
 Back in 2008, the very first pre-release version of Azure supported only .NET development. Today, however, you can create Azure applications in pretty much any language. Microsoft currently provides language-specific SDKs for .NET, Java, PHP, Node.js, Ruby, and Python. There's also a general Azure SDK that provides basic support for any language, such as C++.  
 
-These SDKs help you build, deploy, and manage Azure applications. They're available either from [www.microsoftazure.com](http://azure.microsoft.com/en-us/downloads/)  or GitHub, and they can be used with Visual Studio and Eclipse. Azure also offers command line tools that developers can use with any editor or development environment, including tools for deploying applications to Azure from Linux and Macintosh systems. 
+These SDKs help you build, deploy, and manage Azure applications. They're available either from [www.microsoftazure.com](http://azure.microsoft.com/downloads/)  or GitHub, and they can be used with Visual Studio and Eclipse. Azure also offers command line tools that developers can use with any editor or development environment, including tools for deploying applications to Azure from Linux and Macintosh systems. 
 
 Along with helping you build Azure applications, these SDKs also provide client libraries that help you create software that uses Azure services. For example, you might build an application that reads and writes Azure blobs, or create a tool that deploys Azure applications through the Azure management interface. 
 
@@ -418,7 +418,7 @@ Data is safer because backups are encrypted before transmission and stored encry
 
 **Scenarios for Azure Backup**
 
-If you already using Windows Server or System Center, Azure backup is a natural solution for backing up your servers file system, virtual machines, and SQL Server databases.  It works with encrypted, sparse and compressed files. There are some limitations, so you should [check the Azure Backup pre-requisites](http://technet.microsoft.com/en-us/library/dn296608.aspx) first. 
+If you already using Windows Server or System Center, Azure backup is a natural solution for backing up your servers file system, virtual machines, and SQL Server databases.  It works with encrypted, sparse and compressed files. There are some limitations, so you should [check the Azure Backup pre-requisites](http://technet.microsoft.com/library/dn296608.aspx) first. 
 
 
 
@@ -600,7 +600,7 @@ For a more visual view of how Media Services works, download the [Azure Media Se
 
 <h2><a id="commerce"></a>Commerce</h2>
 
-The rise of Software as a Service is transforming how we create applications. It's also transforming how we sell applications. Since a SaaS application lives in the cloud, it makes sense that its potential customers should look for solutions online. And this change applies to data as well as to applications. Why shouldn't people look to the cloud for commercially available datasets? Microsoft addresses both of these concerns with [Azure Marketplace](http://datamarket.azure.com/) and [Azure Store](/en-us/store/overview/).
+The rise of Software as a Service is transforming how we create applications. It's also transforming how we sell applications. Since a SaaS application lives in the cloud, it makes sense that its potential customers should look for solutions online. And this change applies to data as well as to applications. Why shouldn't people look to the cloud for commercially available datasets? Microsoft addresses both of these concerns with [Azure Marketplace](http://datamarket.azure.com/) and [Azure Store](/store/overview/).
 
 ![Azure Commerce](./media/intro-to-azure/CommerceIntroNew.png)   
  **Figure: Azure Marketplace and Azure Store let you find and buy Azure applications and commercial datasets and use them as part of your Azure applications.**
@@ -615,9 +615,9 @@ SendGrid is an application in the Azure Store that allows you to send email. It 
 
 <h2><a id="start"></a>Getting Started</h2>
 
-Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](/en-us/downloads/), and go for it. Cloud computing is the new default--get started now.
+Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](/downloads/), and go for it. Cloud computing is the new default--get started now.
 
 
 
-[Azure Media Services Poster]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+[Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 

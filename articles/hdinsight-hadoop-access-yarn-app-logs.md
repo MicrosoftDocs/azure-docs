@@ -1,6 +1,20 @@
-<properties linkid="access yarn application logs" urlDisplayName="access yarn application logs" pageTitle="Access HDInsight Application Logs Programmatically| Azure" metaKeywords="" description="Access HDInsight Application Logs Programmatically." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Access HDInsight Application Logs Programmatically| Azure" 
+	description="Access HDInsight Application Logs Programmatically." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="bradsev"/>
 
 # Access HDInsight Application Logs Programmatically
 
@@ -19,12 +33,6 @@ To install the HDInsight SDK from a Visual Studio application, go the **Tools** 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
 This command adds .NET libraries for HDInsight and references to them to the current Visual Studio project.
-
-## In this article
-
-- [YARN Timeline Server](#YARNTimelineServer)
-- [YARN Applications and Logs](#YARNAppsAndLogs)
-- [Enumerating Applications and Downloading Logs Programmatically](#enumerate-and-download)
 
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Website" pageTitle="Create a Node.js website on Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="" authors="blackmist" solutions="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Create a Node.js website on Mac - Azure tutorials" 
+	description="Learn how to build and deploy a Node.js website in Azure." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -23,7 +37,7 @@ A screenshot of the completed application is below:
 Follow these steps to create an Azure Website, and then enable Git publishing for the website.
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
@@ -149,11 +163,11 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 While the steps in this article use the Azure Portal to create a website, you can also use the [Azure Command-Line Tools for Mac and Linux] to perform the same operations.
 
-Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Azure Websites work with modules, see [Using Node.js Modules with Azure Applications](/en-us/documentation/articles/nodejs-use-node-modules-azure-apps/).
+Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Azure Websites work with modules, see [Using Node.js Modules with Azure Applications](/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
-To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](/en-us/documentation/articles/nodejs-specify-node-version-azure-apps/).
+To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure Web Sites](/en-us/documentation/articles/web-sites-nodejs-debug/) for information on diagnosing the problem.
+If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure Web Sites](/documentation/articles/web-sites-nodejs-debug/) for information on diagnosing the problem.
 
 
 ##Additional Resources
@@ -161,13 +175,13 @@ If you encounter problems with your application after it has been deployed to Az
 * [Azure PowerShell]
 * [Azure Command-Line Tools for Mac and Linux]
 
-[Azure PowerShell]: /en-us/documentation/articles/install-configure-powershell/
+[Azure PowerShell]: /documentation/articles/install-configure-powershell/
 
 [nodejs.org]: http://nodejs.org
 [Git]: http://git-scm.com
 
 [Azure Management Portal]: http://manage.windowsazure.com
-[Azure Command-Line Tools for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
+[Azure Command-Line Tools for Mac and Linux]: /documentation/articles/xplat-cli/
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png

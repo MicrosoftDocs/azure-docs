@@ -1,20 +1,24 @@
-<properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="mimig1" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties 
+	pageTitle="Monitor a DocumentDB account | Azure" 
+	description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #Monitor a DocumentDB account  
 
 You can monitor your DocumentDB accounts in the [Azure Preview portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics (such as requests and server errors) and usage metrics (such as storage consumption) are available.
-
-##In this article  
-
-+ [How to: View performance metrics for a DocumentDB account](#metrics)
-+ [How to: Customize performance metric views for a DocumentDB account](#custom)
-+ [How to: Create side-by-side performance metric charts](#create)
-+ [How to: View usage metrics for a DocumentDB account](#view)
-+ [How to: Set up performance metric alerts for a DocumentDB account](#setup)
-+ [Next steps](#next)
- 
 
 ## <a id="metrics"></a>  How to: View performance metrics for a DocumentDB account
 1.	In the [Azure Preview portal](https://portal.azure.com/), click **Browse**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
@@ -31,7 +35,7 @@ You can monitor your DocumentDB accounts in the [Azure Preview portal](https://p
 	![](./media/documentdb-monitor-accounts/madocdb2.png)
 
 
-## <a id="custom"></a>  How to: Customize performance metric views for a DocumentDB account
+## <a id="custom"></a>Customize performance metric views for a DocumentDB account
 
 1.	To customize the metrics that display in a particular part, right-click the metric chart, and then select **Edit Chart**.  
 	![](./media/documentdb-monitor-accounts/madocdb3.png)
@@ -45,7 +49,7 @@ You can monitor your DocumentDB accounts in the [Azure Preview portal](https://p
 	![](./media/documentdb-monitor-accounts/madocdb5.png) 
 
 
-## <a id="create"></a>  How to: Create side-by-side performance metric charts
+## <a id="create"></a>Create side-by-side performance metric charts
 The Azure Preview portal allows you to create side-by-side metric charts.  
 
 1.	First, right-click on the chart you want to clone and modify and select **Customize**. 
@@ -60,7 +64,7 @@ The Azure Preview portal allows you to create side-by-side metric charts.
 You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.  By doing this, you can see two different metrics chart side-by-side at the same time.  
 	![](./media/documentdb-monitor-accounts/madocdb8.png)  
 
-## <a id="view"></a>  How to: View usage metrics for a DocumentDB account
+## <a id="view"></a>View usage metrics for a DocumentDB account
 1.	In the [Azure Preview portal](https://portal.azure.com/), click **Browse**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to see usage metrics.
 2.	Within the **Usage** lens you can view the following by default:
 	*	Estimated cost.
@@ -72,7 +76,7 @@ You may now treat this part as any other metric part, customizing the metrics an
 
 	![](./media/documentdb-monitor-accounts/madocdb9.png)
  
-## <a id="setup"></a>  How to: Set up performance metric alerts for a DocumentDB account
+## <a id="setup"></a>Set up performance metric alerts for a DocumentDB account
 1.	In the [Azure Preview portal](https://portal.azure.com/), click **Browse**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to setup performance metric alerts.
 2.	Within the **Operations** lens, click the **Alert rules** part.  
 	![](./media/documentdb-monitor-accounts/madocdb10.png)
@@ -90,7 +94,7 @@ You may now treat this part as any other metric part, customizing the metrics an
 	![](./media/documentdb-monitor-accounts/madocdb12.png)
 
  
-## <a id="next"></a>  Next steps
+## <a id="next"></a>Next steps
 To learn more about DocumentDB capacity and performance, see [Manage DocumentDB capacity and performance](../documentdb-manage/). 
 
 <!--Anchors-->

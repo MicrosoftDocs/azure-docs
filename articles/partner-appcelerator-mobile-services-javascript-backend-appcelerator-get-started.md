@@ -1,10 +1,24 @@
-<properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development." metaCanonical="" services="mobile-services" documentationCenter="" title="" authors="mattchenderson" solutions="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" 
+	description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="hero-article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 This tutorial will show you how to leverage Azure Mobile Services in your Appcelerator-built applications.
 
@@ -18,7 +32,7 @@ If building for Android, you will also need Android 4.3 or greater SDK.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Create a new Appcelerator app
 
@@ -113,5 +127,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Todolist application]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Get started with authentication]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Get started with authentication]: /documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
+[Get started with push notifications]: /documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push

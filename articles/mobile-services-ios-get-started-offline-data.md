@@ -1,10 +1,24 @@
-<properties urlDisplayName="Using Offline Data" pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="ios" title="" authors="krisragh" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="01/16/2015" 
+	ms.author="krisragh,donnam"/>
 
 # Get started with offline data sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 This tutorial covers the offline sync feature of Mobile Services on iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
 
@@ -15,7 +29,7 @@ Offline sync has several potential uses:
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
 If this is your first experience with Mobile Services, consider first completing the tutorial [Get Started with Mobile Services].
 
@@ -30,6 +44,9 @@ This tutorial walks you through these basic steps:
 ## <a name="get-app"></a>Get the sample offline ToDo app
 
 In the [Mobile Services sample repository on GitHub], clone the repo and open the project [Offline iOS Sample] in Xcode.
+
+### Beta SDK
+To add offline support to an existing app, get the latest [beta iOS SDK](http://aka.ms/gc6fex).
 
 ## <a name="review-sync"></a>Review the Mobile Services sync code
 
@@ -103,13 +120,13 @@ When using the Core Data offline store, you need to define particular tables and
       * MS_TableOperations: For tracking the items that need to be synchronized with the server
       * MS_TableOperationErrors: For tracking any errors that happen during offline synchronization 
       * MS_TableConfig: For tracking the last updated time for the last sync operation for all pull operations
-      * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, **ms_version**, and **ms_deleted** are optional system properties. The property **ms_deleted** is used for [Soft Delete]; see below for more information.
+      * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, and **ms_version** are optional system properties. 
 
->[AZURE.NOTE] The Mobile Services SDK reserves column names that being with **`ms_`**. You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote service.
+>[AZURE.NOTE] The Mobile Services SDK reserves column names that being with "**`ms_`**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote service.
 
 - When using the offline sync feature, you must define the system tables as shown below.
 
-    **System Tables**
+    ### System Tables
 
     **MS_TableOperations**
 
@@ -130,7 +147,7 @@ When using the Core Data offline store, you need to define particular tables and
     | Attribute  |    Type     |
     |----------- |   ------    |
     | id         | String      |
-    | operationID | Integer 64 |
+    | operationId | Integer 64 |
     | properties | Binary Data |
     | tableKind  | Integer 16  |
 
@@ -146,25 +163,22 @@ When using the Core Data offline store, you need to define particular tables and
     | table      | String      |
     | value      | String      |
 
-- The app also defines the TodoItem table with several optional system properties:
+    ### Data table
 
     ![][defining-core-data-todoitem-entity]
 
     **TodoItem**
 
-    | Attribute    |  Type   | Note                                            | 
-    |-----------   |  ------ | ----                                            |
-    | id           | String  | primary key in remote store                     |
-    | complete     | Boolean | todo item field                                 |
-    | text         | String  | todo item field                                 |
-    | ms_createdAt | Date    | *(optional)* maps to `__createdAt` system property |
-    | ms_deleted   | Boolean | *(optional)* used for [Soft Delete] feature      |
-    | ms_updatedAt | Date    | *(optional)* maps to `__updatedAt` system property |
-    | ms_version   | String  | *(optional)* used to detect conflicts, maps to `__version`            |
 
+    | Attribute    |  Type   | Note                                                   | 
+    |-----------   |  ------ | -------------------------------------------------------|
+    | id           | String  | primary key in remote store                            |
+    | complete     | Boolean | todo item field                                        |
+    | text         | String  | todo item field                                        |
+    | ms_createdAt | Date    | (optional) maps to __createdAt system property         |
+    | ms_updatedAt | Date    | (optional) maps to __updatedAt system property         |
+    | ms_version   | String  | (optional) used to detect conflicts, maps to __version |
 
-
->[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
 
 ## <a name="setup-sync"></a>Change the sync behavior of the app
 
@@ -201,6 +215,33 @@ In this section, you will turn of Wi-Fi in the simulator to create an offline sc
 4. Turn on the Wi-Fi in the iOS simulator, then perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
 
 5. View the TodoItem data again. The new and changed TodoItems should now appear.
+
+## Summary
+
+In order to support the offline features of mobile services, we used the `MSSyncTable` interface and initialized `MSClient.syncContext` with a local store. In this case the local store was a Core Data-based database. 
+
+When using a Core Data local store, you must define several tables with the [correct system properties][Review the Core Data model].
+
+The normal CRUD operations for mobile services work as if the app is still connected but, all the operations occur against the local store.
+
+When we wanted to synchronize the local store with the server, we used the `MSSyncTable.pullWithQuery` and `MSClient.syncContext.pushWithCompletion` methods.
+
+*  To push changes to the server, we called `Review the Core Data model`. This method is a member of `MSSyncContext` instead of the sync table because it will push changes across all tables.
+
+    Only records that have been modified in some way locally (through CUD operations) will be sent to the server.
+   
+* To pull data from a table on the server to the app, we called `MSSyncTable.pullWithQuery`.
+
+    A pull always issues a push first. This is to ensure all tables in the local store along with relationships remain consistent.
+
+    Note that `pullWithQuery` can by used to filter the data that is stored on the client, by customizing the `query` parameter. 
+
+* To enable incremental sync, pass a query ID to `pullWithQuery`. The query ID is used to store the last updated timestamp from the results of the last pull operation. The query ID should be a descriptive string that is unique for each logical query in your app. If the query has a parameter, then the same parameter value has to be part of the query ID.
+
+    If you want to opt out of incremental sync, pass `nill` as the query ID. In this case, all records will be retrieved on every call to `pullWithQuery`, which is potentially inefficient.
+
+* To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+
 
 ## Next Steps
 
@@ -242,14 +283,14 @@ In this section, you will turn of Wi-Fi in the simulator to create an offline sc
 
 [Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[How to use the Mobile Services client library for iOS]: /documentation/articles/mobile-services-ios-how-to-use-client-library/
 [Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Mobile Services sample repository on GitHub]: https://github.com/Azure/mobile-services-samples
 
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
-[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Get started with Mobile Services]: /documentation/articles/mobile-services-ios-get-started/
+[Get started with data]: /documentation/articles/mobile-services-ios-get-started-data/
+[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
+[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

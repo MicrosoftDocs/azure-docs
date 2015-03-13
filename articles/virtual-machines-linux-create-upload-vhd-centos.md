@@ -1,6 +1,20 @@
-<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="Create and upload a CentOS-based Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="szarkos" solutions="" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Create and upload a CentOS-based Linux VHD in Azure" 
+	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="szarkos"/>
 
 # Prepare a CentOS-Based Virtual Machine for Azure
 
@@ -68,7 +82,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 	**Important: The step is only valid for CentOS 6.3 and earlier.**  In CentOS 6.4+ the Linux Integration Services are *already available in the kernel*.
 
-	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=41554).
+	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=41554).
 
 	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
 

@@ -1,19 +1,26 @@
-<properties linkid="collect heap dumps" urlDisplayName="Collect Heap Dumps for Debugging and Analysis" pageTitle="Collect Heap Dumps for Debugging and Analysis| Azure" metaKeywords="" description="Collect Heap Dumps for Debugging and Analysis" metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Collect Heap Dumps for Debugging and Analysis| Azure" 
+	description="Collect Heap Dumps for Debugging and Analysis" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/08/2014" 
+	ms.author="bradsev"/>
 
 # Collect Heap Dumps for Debugging and Analysis
 
 Heap dumps can be automatically collected for Hadoop services and placed inside the blob storage account of a user under HDInsightHeapDumps/.  Dump files for a service with heaps contain a snapshot of the application's memory. This includes the values of variables at the time the dump was created.
 
 The collection of heap dumps for various services must be enabled for services on individual clusters. The default for this feature is to be off for a cluster. These heap dumps can be large in size so it is advisable to monitor the blob storage account where they are being saved once the collection has been enabled.
-
-## In this article
-
-- [For which services can heap dumps be enabled?](#whichServices)
-- [The configuration elements that enable heap dumps](#configuration)
-- [How to enable heap dumps with Azure HDInsight PowerShell](#powershell)
-- [How to enable heap dumps with HDInsight .NET SDK](#sdk)
 
 
 ## <a name="whichServices"></a>For which services can heap dumps be enabled?

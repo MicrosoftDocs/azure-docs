@@ -1,6 +1,20 @@
-<properties urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites, virtual-machines" documentationCenter="nodejs" title="" authors="chrischang12" solutions="" manager="partners@mongolab.com" editor=""/>
+<properties 
+	pageTitle="Node.js website with MongoDB on MongoLab - Azure" 
+	description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." 
+	services="web-sites, virtual-machines" 
+	documentationCenter="nodejs" 
+	authors="chrischang12" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="chris@mongolab.com" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/04/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -26,7 +40,7 @@ Before continuing, ensure that you have the following installed:
 
 * [Git]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Quick start
 If you have some familiarity with the Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
@@ -60,7 +74,7 @@ Now, on to the full tutorial...
 
 <h2><a name="provision"></a>Provision the database</h2>
 
-[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
+[AZURE.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 <h2><a name="create"></a>Create the app</h2>
 
@@ -106,15 +120,15 @@ In this section you will set up your development environment and lay the code fo
  
 3. To create the scaffolding which will be used for this application, use the **express** command:
 
-    express
+    	express
 
     Note that this tutorial is using Express v4.x.x. If you already have the Express 3 app generator installed on your system, you should first uninstall it:
 
-    npm uninstall -g express
+    	npm uninstall -g express
 
     Now install the new generator for version 4.x.x:
 
-    npm install -g express-generator
+    	npm install -g express-generator
 
 	Once the **express** command runs, the output should appear similar to the following:
 
@@ -391,7 +405,7 @@ To install the command-line tools, use the following command:
 	
 	npm install azure-cli -g
 
-If you have already installed the <strong>Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure command-line tool for Mac and Linux</a>.
+If you have already installed the <strong>Azure SDK for Node.js</strong> from the <a href="/develop/nodejs/">Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/documentation/articles/virtual-machines-command-line-tools/">Azure command-line tool for Mac and Linux</a>.
 
 While the Azure command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
@@ -443,10 +457,10 @@ Creating a website in Azure is very easy. If this is your first Azure website, y
 	Replace 'myuniquesitename' with the unique site name for your website. If the website is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
 	
 	The `--git` parameter will create:
-	A. a local git repository in the **tasklist** folder, if none exists.
-	A. a [Git remote] named 'azure', which will be used to publish the application to Azure.
-	A. an [iisnode.yml] file, which contains settings used by Azure to host node applications.
-	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
+	* a local git repository in the **tasklist** folder, if none exists.
+	* a [Git remote] named 'azure', which will be used to publish the application to Azure.
+	* an [iisnode.yml] file, which contains settings used by Azure to host node applications.
+	* a .gitignore file to prevent the node-modules folder from being published to .git.  
 	  
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
 
@@ -496,11 +510,11 @@ Remember process.env.CUSTOMCONNSTR\_MONGOLAB\_URI in the code? We want to popula
 
 #### Get the MongoLab connection string
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 #### Add the connection string to the website's environment variables
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
+[AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## Success!
 
@@ -510,7 +524,7 @@ Run `azure site browse` from your project directory to automatically open a brow
 
 <h2><a name="manage"></a>Manage the database</h2>
 
-[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
+[AZURE.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 Congratulations! You've just launched a Node.js application backed by a MongoLab-hosted MongoDB database! Now that you have a MongoLab database, you can contact [support@mongolab.com](mailto:support@mongolab.com) with any questions or concerns about your database, or for help with MongoDB or the node driver itself. Good luck out there!
 
@@ -533,16 +547,16 @@ Congratulations! You've just launched a Node.js application backed by a MongoLab
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[for free]: /en-us/pricing/free-trial
+[for free]: /pricing/free-trial
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Azure Developer Center]: /en-us/develop/nodejs/
-[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[Azure command-line tool for Mac and Linux]: /documentation/articles/virtual-machines-command-line-tools/
+[Azure Developer Center]: /develop/nodejs/
+[Create and deploy a Node.js application to Azure Web Sites]: /develop/nodejs/tutorials/create-a-website-(mac)/
+[Publishing to Azure Web Sites with Git]: /develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
-[Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
+[Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
 [node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
 [download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png

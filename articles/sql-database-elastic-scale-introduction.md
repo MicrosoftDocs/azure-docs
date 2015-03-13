@@ -1,11 +1,25 @@
-<properties title="" pageTitle="Azure SQL Database Elastic Scale" description="Easily scale database resources in the cloud using Elastic Scale feature of Azure SQL Database." metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties 
+	pageTitle="Azure SQL Database Elastic Scale" 
+	description="Easily scale database resources in the cloud using Elastic Scale feature of Azure SQL Database." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Azure SQL Database Elastic Scale Overview 
+# Azure SQL Database Elastic Scale Overview 
 Welcome to the Azure SQL Database Elastic Scale Public Preview! 
 
-###Promises and Challenges
+## Promises and Challenges
 Azure SQL Database Elastic Scale delivers on the promise of cloud computing and enables both virtually unbounded capacity as well as elasticity on the Azure SQL DB platform. To date, cloud service providers have been able to deliver on most aspects around boundless capacity of compute and blob storage. Elasticity, however, still remains a challenge when it comes to stateful data processing in the cloud, particularly with relational database management. We have seen these challenges emerge most prominently in the two following scenarios: 
 
 * Growing and shrinking capacity for the relational database part of your workload.
@@ -27,17 +41,15 @@ Use vertical scale out to increase the performance of a shard. This can occur wh
 For more information about scaling scenarios, see [Splitting and Merging with Elastic Scale](./sql-database-elastic-scale-overview-split-and-merge.md).
 
 
-##Capabilities 
+## Capabilities 
 
 Developing, scaling and managing scaled-out applications using sharding presents challenges for both the developer as well as for the administrator. Azure SQL DB Elastic Scale makes life easier for both these roles. The numbers in the graphic outline the main capabilities delivered with this public preview release. 
 The lower part shows the data tier of the application and the distribution of its data across several databases, called shards. Assume that multiple databases are storing the data for several shards. 
 
 For definitions of terms used here, see [Elastic Scale Glossary](./sql-database-elastic-scale-glossary.md).
 
-###Elastic Scale with Sharding 
+## Elastic Scale with Sharding 
 **Shard Elasticity** is the capability that enables administrators to automate the vertical (dialing up and down the edition of a single shard) and horizontal (adding or removing shards from a shard map) scaling of their sharded environment via PowerShell scripts and by means of the Azure Automation Service. For details, see [Shard Elasticity](./sql-database-elastic-scale-elasticity.md).
-
-
 
 The figure below shows the developer and the administrator on the left and right. Customers can expect to get full T-SQL functionality when submitting shard-local operations as opposed to cross-shard operations that have their own semantics. 
 The public preview release for Azure SQL Database Elastic Scale makes developing sharded Azure SQL DB applications easier through the following specific capabilities: 
@@ -53,10 +65,7 @@ The public preview release for Azure SQL Database Elastic Scale makes developing
 
 * **Split-Merge service**: When capacity needs fluctuate in tandem with business momentum, applications need to flexibly redistribute data across a number of databases. Elastic scale provides a customer-hosted service experience for growing and shrinking the data tier capacity and managing hotspots for sharded applications in situations that also involve movement of data. It builds on an underlying capability for moving shardlets on demand between different shards and integrates with shard map management to maintain consistent mappings and accurate data dependent routing connections. For details, see [Splitting and Merging with Elastic Scale](./sql-database-elastic-scale-overview-split-and-merge.md)
 
-
-
-
-##Common Sharding Patterns
+## Common Sharding Patterns
 
 **Sharding** is a technique to distribute large amounts of identically-structured data across a number of independent databases. It is especially popular with cloud developers who are creating Software as a Service (SAAS) offerings for end customers or businesses. These end customers are often referred to as “Tenants”. Sharding may be required for any number of reasons: 
 

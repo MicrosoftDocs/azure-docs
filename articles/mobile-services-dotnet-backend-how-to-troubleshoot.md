@@ -1,6 +1,20 @@
-<properties urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" metaCanonical="" services="" documentationCenter="windows" title="" authors="wesmc7777" solutions="" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Troubleshoot the Mobile Services .NET Backend - Azure Mobile Services" 
+	description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="wesmc" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="wesmc"/>
 # Troubleshoot the Mobile Services .NET Backend
 
 Developing with Mobile Services is usually easy and painless, but even then things can sometimes go wrong. This tutorial covers some techniques that let you troubleshoot common problems that can arise with the Mobile Services .NET backend. 
@@ -70,7 +84,7 @@ One of the key features of the .NET backend is the ability to debug the service 
 
     ![Publish debug][PublishDebug]
 
-10. Once the service has published successfully, open **Server Explorer** and expand the **Windows Azure** and **Mobile Services** nodes. Sign in if necessary.
+10. Once the service has published successfully, open **Server Explorer** and expand the **Azure** and **Mobile Services** nodes. Sign in if necessary.
 11. Right click the mobile service you just published to and select **Attach Debugger**.
 
     ![Attach debugger][AttachDebugger]
@@ -119,9 +133,9 @@ This problem is easy to correct: simply revert to a supported version of the req
 <a name="EFMigrations"></a>
 ## Troubleshooting Entity Framework Migrations
 
-When using the Mobile Services .NET backend with a SQL Database, Entity Framework (EF) is used as the data access technology that enables you to query the database and persist objects into it. One important aspect that EF handles on behalf of the developer is how the database columns (also known as *schema*) change as the model classes specified in code change. This process is known as [Code First Migrations](http://msdn.microsoft.com/en-us/data/jj591621).
+When using the Mobile Services .NET backend with a SQL Database, Entity Framework (EF) is used as the data access technology that enables you to query the database and persist objects into it. One important aspect that EF handles on behalf of the developer is how the database columns (also known as *schema*) change as the model classes specified in code change. This process is known as [Code First Migrations](http://msdn.microsoft.com/data/jj591621).
 
-Migrations can be complex and require that the database state be kept in sync with the EF model in order to succeed. For instructions on how to handle migrations with you mobile service and errors that can arise, see [How to make data model changes to a .NET backend mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
+Migrations can be complex and require that the database state be kept in sync with the EF model in order to succeed. For instructions on how to handle migrations with you mobile service and errors that can arise, see [How to make data model changes to a .NET backend mobile service](/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
 
 <!-- IMAGES -->
 

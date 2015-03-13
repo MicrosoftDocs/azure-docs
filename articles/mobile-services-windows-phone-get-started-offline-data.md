@@ -1,10 +1,24 @@
-<properties urlDisplayName="Using Offline Data" pageTitle="Using offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services with sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="windows" title="" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Using offline data in Mobile Services (Windows Phone) | Mobile Dev Center" 
+	description="Learn how to use Azure Mobile Services with sync offline data in your Windows Phone application" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Using offline data sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 
 This topic shows you how to use use the offline capabilities of Azure Mobile Services. Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. The offline features allow you to sync your local changes with the mobile service when you are online again. 
@@ -30,7 +44,7 @@ This tutorial requires the following:
 * [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store nuget]
 * [SQLite for Windows Phone 8]
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
@@ -233,7 +247,7 @@ In this section you will test push and pull operations to sync the local store w
 
 ##Summary
 
-[WACOM.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
 ## Next steps
 
@@ -264,13 +278,13 @@ In this section you will test push and pull operations to sync the local store w
 [12]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
 [Getting Started Offline Sample for Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-phone-get-started/
+[Get started with data]: /documentation/articles/mobile-services-windows-phone-get-started-data/
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
-[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0

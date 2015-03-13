@@ -1,6 +1,20 @@
-<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".net" title="" authors="" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId=""/>
+<properties 
+	pageTitle="Compute intensive .NET task on a virtual machine - Azure" 
+	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." 
+	services="virtual-machines" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="wpickett"/>
 
 # How to run a compute-intensive task in .NET on an Azure virtual machine
 
@@ -26,7 +40,7 @@ The following is an example of the .NET application monitoring the compute-inten
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 <h2>To create a virtual machine</h2>
 
@@ -93,7 +107,7 @@ namespace.
 
 <h2>How to create a .NET application that performs a compute-intensive task</h2>
 
-1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for .NET](http://www.windowsazure.com/en-us/develop/net/).
+1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for .NET](http://www.windowsazure.com/develop/net/).
 2. Create a .NET console application with the project named **TSPSolver**. Ensure the traget framework is set for .**NET Framework 4** or later (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
 3. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
 4. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.

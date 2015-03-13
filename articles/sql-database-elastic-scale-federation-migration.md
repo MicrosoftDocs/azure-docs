@@ -1,6 +1,20 @@
-<properties title="" pageTitle="Federations Migration" description="Outlines the steps to migrate an existing app built with Federations feature to Elastic Scale model." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh" editor=""/>
+<properties 
+	pageTitle="Federations Migration" 
+	description="Outlines the steps to migrate an existing app built with Federations feature to Elastic Scale model." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
 #Federations Migration 
 
@@ -29,7 +43,7 @@ The cloning of the federation root to the Shard Map Manager is a copy and transl
 
 ![Migrate the existing app to use the Elastic Scale APIs][2]
 
-## Modify the Existing Application 
+## <a name="Modify-the-Existing-Application"></a>Modify the Existing Application 
 
 With Shard Map Manager in place and the federation members and ranges registered with the Shard Map Manager (done via the migration utility), one can modify the existing Federations application to utilize the Elastic Scale APIs. As shown in the figure above, the application connections via the Elastic Scale APIs will be routed through the Shard Map Manager to appropriate federation members (now also a shard). Mapping federation members to the Shard Map Manager enables two versions of an application – one that uses Federations and one that uses Elastic Scale - to be executed side-by-side to verify functionality.   
 
@@ -70,7 +84,7 @@ With the Elastic Scale APIs, a connection to a particular shard is established v
 
 The steps in this section are necessary but may not address all migration scenarios that arise. For more information, please see the [conceptual overview of Elastic Scale](./sql-database-elastic-scale-introduction.md) and the [API reference](http://go.microsoft.com/?linkid=9862604).
 
-## Switch Out Existing Federation Members 
+## <a name="Switch-Out-Existing-Federation-Members"></a>Switch Out Existing Federation Members 
 
 ![Switch out the federation members for the shards][3]
 
@@ -103,6 +117,8 @@ Yields the same result as:
         USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF 
         SELECT * FROM customer WHERE CustomerId = 100 
 
+As an alternative, you can also use Row-Level Security (RLS) to help you with filtering. You can find the necessary steps described in the [RLS  blog post](http://azure.microsoft.com/blog/2015/03/02/building-more-secure-middle-tier-applications-with-azure-sql-database-using-row-level-security/). Note that RLS currently does not protect UPDATE and INSERT statements against changes that would place rows outside of the shardlet. If this is a concern for your application, use database constraints or triggers in addition to RLS to enforce these aspects.
+
 - The Elastic Scale **Split** feature is not fully online. During a split operation, each individual shardlet is taken offline during the duration of the move.
 - The Elastic Scale split feature requires manual database provisioning and schema management.
 
@@ -117,7 +133,7 @@ Yields the same result as:
 <!--Anchors-->
 [Create Shard Map Manager from a Federation Root]:#create-shard-map-manager
 [Modify the Existing Application]:#Modify-the-Existing-Application
-[Switch Out Existing Federation Members]:#Switch-Out-Existing-Federation-members
+[Switch Out Existing Federation Members]:#Switch-Out-Existing-Federation-Members
 
 
 <!--Image references-->

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="" authors="mumian" solutions="big-data" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" 
+	description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/27/2015" 
+	ms.author="jgao"/>
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight
 
@@ -11,10 +25,12 @@ Social web sites are one of the major driving forces for Big Data adoption. Publ
 
 ![][img-app-arch]
 
-- Get geo-tagged Tweets in real-time using the Twitter streaming API.
-- Evaluate the sentiment of these Tweets.
-- Store the sentiment information in HBase using the Microsoft HBase SDK.
-- Plot the real-time statistical results on Bing maps using an ASP.NET Web application. A visualization of the tweets will look something like this:
+- The streaming application
+	- Get geo-tagged Tweets in real-time using the Twitter streaming API.
+	- Evaluate the sentiment of these Tweets.
+	- Store the sentiment information in HBase using the Microsoft HBase SDK.
+- The Azure Web application
+	- Plot the real-time statistical results on Bing maps using an ASP.NET Web application. A visualization of the tweets will look something like this:
 
 	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 	
@@ -51,13 +67,6 @@ A complete Visual Studio solution sample can be found at [https://github.com/max
 
 
 
-##In this article
-
-- [Prerequisites](#prerequisites)
-- [Create a Twitter application](#twitter)
-- [Create a simple Twitter streaming service](#streaming)
-- [Create an Azure Website to visualize Twitter sentiment](#web)
-- [Next steps](#nextsteps)
 
 ##<a id="prerequisites"></a>Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -71,7 +80,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
 	</table>
 
-- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
+- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 
 
@@ -79,9 +88,7 @@ Before you begin this tutorial, you must have the following:
 
 ##<a id="twitter"></a>Create a Twitter application ID and secrets
 
-The Twitter Streaming APIs use [OAuth](http://oauth.net/) to authorize requests. 
-
-The first step to use OAuth is to create a new application on the Twitter Developer site.
+The Twitter Streaming APIs use [OAuth](http://oauth.net/) to authorize requests. The first step to use OAuth is to create a new application on the Twitter Developer site.
 
 **To create Twitter application ID and secrets:**
 
@@ -96,12 +103,14 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 	<tr><td>Website</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
 	</table>
 
+	> [WACOM.NOTE] The name Twitter application name must be an unique name.  
+
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 
-6. Click the **API Keys** tab.
+6. Click the **Keys and Access Tokens** tab.
 7. Click **Create my access token**.
 8. Click **Test OAuth** in the upper right corner of the page.
-9. Write down **API key**, **API secret**, **Access token**, and **Access token secret**. You will need the values later in the tutorial.
+9. Write down **Consumer key**, **Consumer secret**, **Access token**, and **Access token secret**. You will need the values later in the tutorial.
 
 	![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
 
@@ -138,14 +147,20 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 
 Create a console application to get Tweets, calculate Tweet sentiment score and send the processed Tweet words to HBase.
 
+**To download the sentiment dictionary file:**
+
+1. Browse to [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
+2. Click **Download ZIP**.
+3. Extract the file locally.
+4. Take a note of the path of the **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv** file. You will need it in the application
+
 **To create the  Visual Studio solution:**
 
 1. Open **Visual Studio**.
 2. From the **File** menu, point to **New**, and then click **Project**.
 3. Type or select the following values:
 
-	- Templates: **Visual C#**
-	- Template: **Console Application**
+	- Template: **Visual C# / Windows Desktop / Console Application**
 	- Name: **TweetSentimentStreaming** 
 	- Location: **C:\Tutorials**
 	- Solution name: **TweetSentimentStreaming**
@@ -157,13 +172,11 @@ Create a console application to get Tweets, calculate Tweet sentiment score and 
 **To install Nuget packages and add SDK references:**
 
 1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel will open at the bottom of the page.
-2. Use the following commands to install the [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API, and the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
+2. Use the following commands to install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is client library to access HBase cluster, and the [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API.
 
+		Install-Package Microsoft.HBase.Client
 		Install-Package TweetinviAPI
-		Install-Package protobuf-net 
-
-	> [AZURE.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 26th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
-
+	
 3. From **Solution Explorer**, right-click **References**, and then click **Add Reference**.
 4. In the left pane, expand **Assemblies**, and then click **Framework**.
 5. In the right pane, select the checkbox in front of **System.Configuration**, and then click **OK**.
@@ -479,13 +492,7 @@ Create a console application to get Tweets, calculate Tweet sentiment score and 
             }
         }
 
-**To download the sentiment dictionary file:**
 
-1. Browse to [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
-2. Click **Download ZIP**.
-3. Extract the file locally.
-4. Copy the file from **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**.
-5. Paste the file to your solution under **TweetSentimentStreaming/TweetSentimentStreaming/data/dictionary/dictionary.tsv**.
 
 **To run the streaming service:**
 
@@ -536,22 +543,20 @@ In this section, you will create a ASP.NET MVC Web application to read the real-
 	- Location: **C:\Tutorials** 
 4. Click **OK**.
 5. In **Select a template**, click **MVC**. 
-6. In **Windows Azure**, click **Manage Subscriptions**.
-7. From **Manage Windows Azure Subscriptions**, click **Sign in**.
+6. In **Microsoft Azure**, click **Manage Subscriptions**.
+7. From **Manage Microsoft Azure Subscriptions**, click **Sign in**.
 8. Enter your Azure credential. Your Azure subscription information will be shown on the Accounts tab.
-9. Click **Close** to close the Manage Windows Azure Subscriptions window.
+9. Click **Close** to close the Manage Microsoft Azure Subscriptions window.
 10. From **New ASP.NET Project - TweetSentimentWeb**, Click **OK**.
-11. From **Configure Windows Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. 
+11. From **Configure Microsoft Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. 
 12. Click **OK**.
 
 **To install Nuget packages:**
 
 1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
-2. Use the following command to install the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
+2. Use the following command to install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is client library to access HBase cluster.
 
-		Install-Package protobuf-net 
-
-	> [AZURE.NOTE] The Microsoft Hbase SDK Nuget package is not available as of August 20th, 2014. The Github repo is [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Until the SDK is available, you must build the dll yourself. For instructions, see [Get started using HBase with Hadoop in HDInsight][hdinsight-hbase-get-started].
+		Install-Package Microsoft.HBase.Client 
 
 **To add HBaseReader class:**
 
@@ -1336,9 +1341,9 @@ In this tutorial we have learned how to get Tweets, analyze the sentiment of Twe
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-get-started]: ../hdinsight-get-started/

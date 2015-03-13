@@ -1,9 +1,23 @@
-<properties title="" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="JoeDavies-MSFT" videoId="" scriptId="" manager="timlt" editor=""/>
+<properties 
+	pageTitle="SharePoint Server Farm Configuration Details" 
+	description="Describes the default configuration of SharePoint farms" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/12/2015" ms.author="josephd" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/04/2015" 
+	ms.author="josephd"/>
 
 
-#SharePoint Server Farm Configuration Details#
+#SharePoint Server Farm Configuration Details
 
 SharePoint Server Farm is a feature of the Microsoft Azure Preview Portal that automatically creates a pre-configured SharePoint Server 2013 farm for you. There are two farm configurations:
 
@@ -14,7 +28,7 @@ The following sections provide configuration details for each farm.
 
 For additional information, see [SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Basic SharePoint farm##
+##Basic SharePoint farm
 
 The basic SharePoint farm consists of three virtual machines in this configuration:
 
@@ -57,7 +71,7 @@ Here are the configuration details:
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
 
-##High-availability##
+##High-availability SharePoint farm
 
 The high-availability SharePoint farm consists of nine virtual machines in this configuration:
 
@@ -66,7 +80,7 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 Here are the configuration details:
 
 -	Azure Subscription: Specified during the initial configuration.
--	Azure Domain Names (also known as cloud services): Separate Domain Names are automatically created for each virtual machine.
+-	Azure Domain Names (also known as cloud services): Separate Domain Names are created according to the figure above.
 -	Storage account: Specified during the initial configuration.
 -	Virtual network	
 	-	Type: Cloud-only
@@ -77,7 +91,7 @@ Here are the configuration details:
 	-	*HostNamePrefix*-DC2 (AD DS domain controller)
 	-	*HostNamePrefix*-SQL1 (SQL Server 2014 server)
 	-	*HostNamePrefix*-SQL2 (SQL Server 2014 server)
-	-	*HostNamePrefix*-SQL0 (SQL Server 2014 server)
+	-	*HostNamePrefix*-SQL0 (Windows Server 2012 R2 server)
 	-	*HostNamePrefix*-WEB1 (SharePoint 2013 server)
 	-	*HostNamePrefix*-WEB2 (SharePoint 2013 server)
 	-	*HostNamePrefix*-APP1 (SharePoint 2013 server)
@@ -107,5 +121,6 @@ Here are the configuration details:
 
 ##Additional Resources
 
-[SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/)
 
+[SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)

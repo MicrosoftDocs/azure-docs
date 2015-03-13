@@ -1,22 +1,28 @@
-<properties title="" pageTitle="LOB App in Azure Websites with Azure AD" description="Learn how to create an ASP.NET LOB application in Azure Websites that authenticates with Azure Active Directory" metaKeywords="Azure,Azure Websites,line-of-business,line of business,cloud services,enterprise,enterprise  application,Azure Active Directory,Azure AD,ASP.NET,MVC" services="web-sites, active-directory" solutions="" documentationCenter=".net" authors="cephalin" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="LOB App in Azure Websites with Azure AD" 
+	description="Learn how to create an ASP.NET LOB application in Azure Websites that authenticates with Azure Active Directory" 
+	services="web-sites, active-directory" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="web" 
+	ms.date="02/12/2015" 
+	ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory #
 
-In this article, you will learn how to easily create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](http://azure.microsoft.com/en-us/services/websites/) using [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) as the identity provider. You will also learn how to use the [Azure AD Graph Client Library](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx) to query directory data in the application.
+In this article, you will learn how to easily create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](/services/websites/) using [Azure Active Directory](/services/active-directory/) (AAD) as the identity provider. You will also learn how to use the [Azure AD Graph Client Library](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx) to query directory data in the application.
 
 The AAD tenant that you use can be can have an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.
 
 For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](../web-sites-authentication-authorization).
-
-- [What you will build](#bkmk_build)
-- [What you will need](#bkmk_need)
-- [Use sample application for LOB template](#bkmk_sample)
-- [Run the sample application](#bkmk_run)
-- [Deploy the sample application to Azure Websites](#bkmk_deploy)
-- [Add LOB functionality to the sample application](#bkmk_crud)
-- [Further resources](#bkmk_resources)
 
 <a name="bkmk_build"></a>
 ## What you will build ##
@@ -26,13 +32,13 @@ You will build a simple LOB Create-Read-Update-Delete (CRUD) application in Azur
 - Authenticates users against AAD
 - Sign-in and sign-out functionality
 - Uses `[Authorize]` to authorize users for different CRUD actions
-- Queries AAD data using [Azure AD Graph API](http://msdn.microsoft.com/en-us/library/azure/hh974476.aspx)
+- Queries AAD data using [Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
 - Uses [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (instead of Windows Identity Foundation, i.e. WIF), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF
 
 <a name="bkmk_need"></a>
 ## What you will need ##
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 You need the following to complete this tutorial:
 
@@ -57,34 +63,25 @@ The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://git
 1.	Clone or download the sample solution at [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet) to your local directory.
 2.	Follow the instructions at [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/GroupClaims/README.md) to set up the AAD application and project.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>The permissions configured in the AAD application only requires the <strong>User</strong> role, not <strong>Global Administrator</strong>.</p>
-	</div>
+	> [AZURE.NOTE] The permissions configured in the AAD application only requires the <strong>User</strong> role, not **Global Administrator**.
 	
 3.	Once you're finished configuring the application, Type `F5` to run the application.
 4.	Once the application loads, click **Sign In**. 
 5.	If you configured the AAD application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the AAD application in the Azure portal, since it's the AAD application's default owner. 
 	
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediatley start managing application roles in the <code>Roles</code> controller.</p>
-	</div>
+	> [AZURE.NOTE] In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediatley start managing application roles in the <code>Roles</code> controller.
 	
 4.	Once signed in, click **Roles** to manage application roles.
 5.	In **Search for Users/Groups**, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your AAD tenant.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called <code>AadPicker</code> (defined in Scripts\AadPickerLibrary.js) to access the <code>Search</code> action in the <code>Roles</code> controller.</p>
+	> [AZURE.NOTE] In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called <code>AadPicker</code> (defined in Scripts\AadPickerLibrary.js) to access the <code>Search</code> action in the <code>Roles</code> controller.
 		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
 	...
     var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		<p>In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the AAD Graph API and returns the response back to the page.</p>
-		<p>Later, you will use the same method to create simple functionality in your application.</p>
-	</div>
+		In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the AAD Graph API and returns the response back to the page.
+		Later, you will use the same method to create simple functionality in your application.
 
 6.	Select a user or group from the dropdown, select a role, and click **Assign Role**.
 
@@ -126,10 +123,7 @@ Here, you will publish the application to an Azure Website. There are already in
 7. Under **Keys**, create a new key by selecting **1 year** in the dropdown.
 8. Under **Permissions to other applications**, for the **Windows Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>The exact permissions you need here depends on the desired functionality of your application. Some permissions require the <strong>Global Administrator</strong> role to set, but the permissions required by this tutorial only requires the <strong>User</strong> role.</p>
-	</div> 
+	> [AZURE.NOTE] The exact permissions you need here depends on the desired functionality of your application. Some permissions require the **Global Administrator** role to set, but the permissions required by this tutorial only requires the **User** role.
 
 9.  Clic **Save**.  
 10.  Before you navigate away from the saved configuration page, copy the following information into a text editor.
@@ -241,15 +235,10 @@ In this part of the tutorial, you will learn how to build out the desired LOB fu
 
 	Since you take care of role mappings in the Roles controller, all you need to do is make sure that each action authorizes the right roles.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the behavior described by <a href="https://twitter.com/BrockLAllen">Brock Allen</a> at <a href="http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/">MVC 4, AntiForgeryToken and Claims</a> your HTTP POST may fail anti-forgery token validation because:</p>
-		<ul>
-		<li>AAD does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.</li>
-		<li>If AAD is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.</li>
-		</ul>
-		<p>You will take care of this in the next step.</p>
-	</div>
+	> [AZURE.NOTE] You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail anti-forgery token validation because:
+	> + AAD does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.
+	> + If AAD is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.
+	> You will take care of this in the next step.
 
 12.  In App_Start\Startup.Auth.cs, add the following line of code in the `ConfigureAuth` method:
 
@@ -355,7 +344,7 @@ Now that you have configured the authorizations and LOB functionality for the di
 - [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 - [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
-- [Azure's new Hybrid Connections not your father's #hybridCloud](http://azure.microsoft.com/en-us/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
-- [Similarities between Active Directory and Azure AD](http://technet.microsoft.com/en-us/library/dn518177.aspx)
-- [Directory Sync with Single Sign-On Scenario](http://technet.microsoft.com/en-us/library/dn441213.aspx)
-- [Azure AD Supported Token and Claim Types](http://msdn.microsoft.com/en-us/library/azure/dn195587.aspx)
+- [Azure's new Hybrid Connections not your father's #hybridCloud](/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
+- [Similarities between Active Directory and Azure AD](http://technet.microsoft.com/library/dn518177.aspx)
+- [Directory Sync with Single Sign-On Scenario](http://technet.microsoft.com/library/dn441213.aspx)
+- [Azure AD Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx)

@@ -1,8 +1,22 @@
-<properties title="" pageTitle="How to create a custom template image for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="remoteapp" solutions="" documentationCenter="" authors="lizap" manager="mbaldwin" editor=""/>
+<properties 
+	pageTitle="How to create a custom template image for RemoteApp" 
+	description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="1/07/2015" ms.author="elizapo" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/27/2015" 
+	ms.author="elizapo"/>
 
-#How to create a custom template image for RemoteApp
+# How to create a custom template image for RemoteApp
 Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
 
 
@@ -24,19 +38,19 @@ Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the pro
 
 You need to do the following before creating the service:
 
-- Sign up for RemoteApp. You can do that at [http://azure.microsoft.com/en-us/services/remoteapp/](http://azure.microsoft.com/en-us/services/remoteapp/).
-- Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain. See [Configure Azure Active Directory for RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-ad/) for more information.
+- [Sign up](http://azure.microsoft.com/services/remoteapp/) for RemoteApp. 
+- Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain. See [Configure Azure Active Directory for RemoteApp](../remoteapp-ad/) for more information.
 - Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
+- Install the [Azure PowerShell](../install-configure-powershell/) module.
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
 
 
 
-## **Create a template image**##
+## Create a template image ##
 
 To create a new template image from scratch:
 
-1.	Locate a Windows Server 2012 R2 DVD or ISO image.
+1.	Locate a Windows Server 2012 R2 Update DVD or ISO image.
 2.	Create a VHD file.
 4.	Install Windows Server 2012 R2.
 5.	Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.
@@ -44,12 +58,12 @@ To create a new template image from scratch:
 7.	Install and configure your applications.
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS).
-10.	**REQUIRED:** Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB.
+10.	**REQUIRED:** Go to Windows Update and install all important updates.
 9.	SYSPREP the image.
 
 The detailed steps for creating a new image are:
 
-1.	Locate a Windows Server 2012 R2 DVD or ISO image. 
+1.	Locate a Windows Server 2012 R2 Update DVD or ISO image. 
 2.	Create a VHD file by using Disk Management. 
 	1.	Launch Disk Management (diskmgmt.msc). 
 	2.	Create a dynamically expanding VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
@@ -106,7 +120,7 @@ The detailed steps for creating a new image are:
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 9.	If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.
-10.	Install [KB 2977219](http://support.microsoft.com/kb/2977219) on your image. This KB is required for all Azure RemoteApp template images. Uploading your image will fail if you do not install this KB.
+10.	Go to Windows Update and install all important updates. You might need to run Windows Update multiple times to get all updates. (Sometimes you install an update, and that update itself requires an update.)
 10.	SYSPREP the image. At an elevated command prompt, run the following command: 
 
 	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
@@ -118,6 +132,6 @@ The detailed steps for creating a new image are:
 Now that you have your custom template image, you need to upload that image to your RemoteApp collection. Use the information in the following articles to create your collection:
 
 
-- [How to create a hybrid collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-hybrid-deployment/) 
-- [How to create a cloud collection of RemoteApp](http://azure.microsoft.com/en-us/documentation/articles/remoteapp-create-cloud-deployment/)
+- [How to create a hybrid collection of RemoteApp](../remoteapp-create-hybrid-deployment/) 
+- [How to create a cloud collection of RemoteApp](../remoteapp-create-cloud-deployment/)
 

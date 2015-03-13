@@ -1,6 +1,19 @@
-<properties pageTitle="Set up a Hybrid Compute Cluster with Microsoft HPC Pack" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="cloud-services" documentationCenter="" title="" authors="dlepow" solutions="" manager="timlt" />
+<properties 
+	pageTitle="Set up a Hybrid Compute Cluster with Microsoft HPC Pack" 
+	description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="danlep" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Set up a Hybrid Compute Cluster with Microsoft HPC Pack
@@ -14,21 +27,9 @@ This tutorial assumes no prior experience with compute clusters or HPC Pack. It 
 
 >[AZURE.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [About the A8 and A9 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
-This tutorial walks you through these basic steps:
-
-* [Prerequisites](#BKMK_Prereq)
-* [Install HPC Pack on the head node](#BKMK_DeployHN)
-* [Prepare the Azure subscription](#BKMK_Prpare)
-* [Configure the head node](#BKMK_ConfigHN)
-* [Add Azure nodes to the cluster](#BKMK_worker)
-* [Start the Azure nodes](#BKMK_start)
-* [Run a command across the cluster](#BKMK_RunCommand)
-* [Run a test job](#BKMK_RunJob)
-* [Stop the Azure nodes](#BKMK_stop)
-
 <h2 id="BKMK_Prereq">Prerequisites</h2>
 
->[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).
+>[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).
 
 In addition, you need the following for this tutorial.
 
@@ -305,7 +306,7 @@ After you try out the cluster, you can use HPC Cluster Manager to stop the Azure
 * [HPC Pack 2012 R2 and HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Burst to Azure with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure Big Compute: HPC and Batch](http://azure.microsoft.com/en-us/solutions/big-compute/)
+* [Azure Big Compute: HPC and Batch](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png

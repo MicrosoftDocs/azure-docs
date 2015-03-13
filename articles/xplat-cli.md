@@ -1,10 +1,24 @@
-<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="timlt" documentationCenter="" solutions="" authors="squillace" services=""/>
+<properties 
+	pageTitle="The Azure Cross-Platform Command-Line Interface" 
+	description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="1/16/2016" ms.author="rasquill" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="rasquill"/>
 
-#Install and Configure the Azure Cross-Platform Command-Line Interface
+# Install and Configure the Azure Cross-Platform Command-Line Interface
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
@@ -12,13 +26,6 @@ The xplat-cli is written in JavaScript, and requires Node.js. It is implemented 
 
 This document describes how to install and configure the Azure Cross-Platform Command-Line Interface, as well as how to use it to perform basic tasks with the Azure platform.
 
-##In this document
-
-* [How to install the Azure Cross-Platform Command-Line Interface](#install)
-* [How to connect to your Azure subscription](#configure)
-* [How to use the Azure Cross-Platform Command-Line Interface](#use)
-* [How to script the Azure Cross-Platform Command-Line Interface](#script)
-* [Additional resources](#additional-resources)
 
 ## <a id="install">How to install the Azure Cross-Platform Command-Line Interface</a>
 
@@ -52,7 +59,8 @@ Most of the more recent of these distributions require installing **nodejs-legac
 	sudo npm install -g azure-cli
 
 Some of the older distributions, such as Ubuntu 12.04, require installing the current binary distribution of node.js. The following code shows how to do that by installing and using **curl**. 
-> [AZURE.NOTE] The commands here are taken from the Joyent installation instructions found [here](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). However, when using **sudo** as a pipe target you should always take care to check the scripts that you are installing and validate that they do exactly what you are expecting before running them through **sudo**.
+
+>[AZURE.NOTE] The commands here are taken from the Joyent installation instructions found [here](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). However, when using **sudo** as a pipe target you should always take care to check the scripts that you are installing and validate that they do exactly what you are expecting before running them through **sudo**.
 	
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -69,7 +77,7 @@ Installing node.js on RPM-based distributions requires enabling the EPEL reposit
 	yum install epel-release [enter]
 	yum install nodejs [enter] 
 	yum install npm [enter] 
-	npm install azure-cli –g  [enter]
+	npm install -g azure-cli  [enter]
 
 
 Once the xplat-cli has been installed, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access the xplat-cli commands. At the end of the installation, you should see something similar to the following:
@@ -94,7 +102,7 @@ Once the xplat-cli has been installed, you will be able to use the **azure** com
 
 > [AZURE.NOTE] Node.js and npm can also be installed on Windows from <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
-<h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
+## <a id="configure">How to connect to your Azure subscription</a>
 
 While some commands provided by the xplat-cli will work without an Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your subscription you can either:
 
@@ -160,7 +168,7 @@ To log out, use the following command:
 > 
 > If you need to work with these commands, use a publish settings file to authenticate to Azure as described in the following section.
 
-###Use the publish settings file method
+### Use the publish settings file method
 
 To download the publish settings for your account, use the following command:
 
@@ -215,9 +223,9 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
-	info:    Windows Azure: Microsoft's Cloud Platform
+	info:    Microsoft Azure: Microsoft's Cloud Platform
 	info:
-	info:    Tool version 0.8.0
+	info:    Tool version 0.8.10
 	help:
 	help:    Display help for a given command
 	help:      help [options] [command]
@@ -242,7 +250,7 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	help:      -h, --help     output usage information
 	help:      -v, --version  output the application version
 
-The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously.
+The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously. See [Using the Azure Cross-Platform Command Line Interface] for details on the available commands and options.
 
 Most commands are formatted as `azure <command> <operation> [parameters]` and perform an operation on a service or object such as your account configuration. Other commands provide sub-commands and follow the format `azure <command> <subcommand> <operation> [parameters]`. The following are example commands that work with your account configuration:
 
@@ -414,7 +422,7 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 * For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 
@@ -423,15 +431,16 @@ If you are writing a script that relies on the exit status, please verify that t
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[authandsub]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[batch]: http://technet.microsoft.com/en-us/library/bb490890.aspx
-[xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[batch]: http://technet.microsoft.com/library/bb490890.aspx
+[xplatarm]: /documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
+[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[Using the Azure Cross-Platform Command Line Interface]: /documentation/articles/virtual-machines-command-line-tools/

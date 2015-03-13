@@ -1,21 +1,35 @@
-<properties title="" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="blackmist" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Configure a custom domain name for an Azure website" 
+	description="Learn how to use a custom domain name with Azure Web Sites" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="mwasson"/>
 
 #Configuring a custom domain name for an Azure Website
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-custom-domain-name" title="Custom Domain" class="current">Custom Domain</a><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-custom-domain-name/" title="Websites" class="current">Website</a> | <a href="/en-us/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Website using Traffic Manager</a></div>
+[AZURE.INCLUDE [web-selector](../includes/websites-custom-domain-selector.md)]
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 When you create a website, Azure assigns it to a subdomain of azurewebsites.net. For example, if your website is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
 ![contoso.azurewebsites.net subdomain][subdomain]
 
-For a production website, you probably want users to see a custom domain name. This article explains how to configure a custom domain with Azure Websites. (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
+For a production website, you probably want users to see a custom domain name. This article explains how to configure a custom domain with Azure Websites.
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 In this article:
 
@@ -42,7 +56,7 @@ Within this basic outline, there are specific cases to consider:
 - Mapping a subdomain. For example, **blogs.contoso.com**.  You can map different subdomains to different websites.
 - Mapping a wildcard. For example, ***.contoso.com**. A wildcard entry applies to all subdomains of your domain. 
  
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 
 ## DNS record types
@@ -63,7 +77,7 @@ Skip this step if you are creating a CNAME record. To create an A record, you ne
 
 1.	In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
 2.	In the **Websites** tab, click the name of your site and select **Dashboard**.
-3.	Select **Manage Domains** from the bottom of the page. (If this option is disabled, make sure you are using Shared, Basic, or Standard mode. For more information, see [How to scale websites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).) 
+3.	Select **Manage Domains** from the bottom of the page. (If this option is disabled, make sure you are using Shared, Basic, or Standard mode. For more information, see [How to scale websites](http://www.windowsazure.com/documentation/articles/web-sites-scale/).) 
 
 	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
 
@@ -119,7 +133,7 @@ Visitors to your site will not see the awverify subdomain; it’s only for Azure
 
 ## Enable the domain name on your website
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 
 <!-- Anchors. -->

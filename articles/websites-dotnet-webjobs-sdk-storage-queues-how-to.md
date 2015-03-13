@@ -1,8 +1,24 @@
-<properties linkid="" pageTitle="How to use Azure queue storage with the WebJobs SDK" metaKeywords="WebJobs SDK Azure queue storage .NET C#" description="Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites, storage" documentationCenter=".net" title="" authors="tdykstra" manager="wpickett" editor="jimbe"/>
+<properties 
+	pageTitle="How to use Azure queue storage with the WebJobs SDK" 
+	description="Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more." 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/15/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="tdykstra"/>
 
 # How to use Azure queue storage with the WebJobs SDK
+
+## Overview
 
 This guide provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.
 
@@ -16,7 +32,7 @@ Most of the code snippets only show functions, not the code that creates the `Jo
 		    host.RunAndBlock();
 		}
 		
-## Table of contents
+The guide includes the following topics:
 
 -   [How to trigger a function when a queue message is received](#trigger)
 	- String queue messages

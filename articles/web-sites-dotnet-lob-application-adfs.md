@@ -1,22 +1,26 @@
-<properties title="" pageTitle="LOB App in Azure Websites with AD FS" description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." metaKeywords="Azure,Azure Websites,line of business,cloud services,enterprise,enterprise  application,adfs,ASP.NET,MVC" services="web-sites" solutions="" documentationCenter=".net" authors="cephalin" videoId="" scriptId="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="LOB App in Azure Websites with AD FS" 
+	description="Learn how to create an ASP.NET MVC LOB application in Azure Websites that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="12/23/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="web" 
+	ms.date="02/12/2015" 
+	ms.author="cephalin"/>
 
 # Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS #
 
-In this article, you will learn how to create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](http://azure.microsoft.com/en-us/services/websites/) using an on-premises [Active Directory Federation Services](http://technet.microsoft.com/en-us/library/hh831502.aspx) as the identity provider. This scenario can work when you want to create LOB applications in Azure Websites but your organization requires all data to be stored on-site.
+In this article, you will learn how to create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](/services/websites/) using an on-premises [Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) as the identity provider. This scenario can work when you want to create LOB applications in Azure Websites but your organization requires all data to be stored on-site.
 
-For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](./web-sites-authentication-authorization).
-
-- [What you will build](#bkmk_build)
-- [What you will need](#bkmk_need)
-- [Use sample application for LOB template](#bkmk_sample)
-- [Set up the sample application](#bkmk_setup)
-- [Deploy the sample application to Azure Websites](#bkmk_deploy)
-- [Configure relying party trusts in AD FS Management](#bkmk_rptrusts)
-- [Authorize users for specific controllers or actions](#bkmk_authorize)
-- [Connect to on-premises data](#bkmk_data)
-- [Further resources](#bkmk_resources)
+For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](../web-sites-authentication-authorization/).
 
 <a name="bkmk_build"></a>
 ## What you will build ##
@@ -30,7 +34,7 @@ You will build a basic ASP.NET application in Azure Websites with the following 
 <a name="bkmk_need"></a>
 ## What you will need ##
 
-[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 You need the following to complete this tutorial:
 
@@ -43,7 +47,7 @@ You need the following to complete this tutorial:
 
 The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), is created by the Azure Active Directory team. Since AD FS supports WS-Federation, you can is it as a template to create new LOB applications with ease. It has the following features:
 
-- Uses [WS-Federation](http://msdn.microsoft.com/en-us/library/bb498017.aspx) to authenticate with an on-premises AD FS deployment
+- Uses [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) to authenticate with an on-premises AD FS deployment
 - Sign-in and sign-out functionality
 - Uses [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (instead of Windows Identity Foundation, i.e. WIF), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF
 
@@ -52,10 +56,7 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
 
 2.	Clone or download the sample solution at [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) to your local directory.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>The instructions at <a href="https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md">README.md</a> shows you how to set up the application with Azure Active Directory, but in this tutorial you will set it up with AD FS, so follow the steps here instead.</p>
-	</div>
+	> [AZURE.NOTE] The instructions at [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) shows you how to set up the application with Azure Active Directory, but in this tutorial you will set it up with AD FS, so follow the steps here instead.
 
 3.	Open the solution, and then open Controllers\AccountController.cs in the **Solution Explorer**.
 
@@ -144,10 +145,7 @@ If you want to attach the published website to the debugger (i.e. you must uploa
 
 Now you need to configure a RP trust in AD FS Mangement before you can your sample application can actually authenticate with AD FS. You will need to set up two separate RP trusts, one for your debug environment and one for your published website.
 
-<div class="wa-note">
-	<span class="wa-icon-bulb"></span>
-	<p>Make sure that you repeat the steps below for both of your environments.</p>
-</div>
+> [AZURE.NOTE] Make sure that you repeat the steps below for both of your environments.
 
 4.	On your AD FS server, log in with credentials that have management rights to AD FS.
 5.	Open AD FS Management. Right-click **AD FS\Trusted Relationships\Relying Party Trusts** and select **Add Relying Party Trust**.
@@ -162,10 +160,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 7.	In the **Choose Protocol** page, click **Next**.
 8.	In the **Configure Certificate** page, click **Next**.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see <a href="http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx">Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens</a>.</p>
-	</div>
+	> [AZURE.NOTE] Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see [Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
   
 5.	Before you move onto the next step, you need one piece of information from your Visual Studio project. In the project properties, note the **SSL URL** of the application. 
 
@@ -175,17 +170,11 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 
 	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>URL specifies where to send the client after authentication succeeds. For the debug environment, it should be <code>https://localhost:&lt;port&gt;/</code>. For the published website, it should be the website URL.</p>
-	</div>
+	> [AZURE.NOTE] URL specifies where to send the client after authentication succeeds. For the debug environment, it should be <code>https://localhost:&lt;port&gt;/</code>. For the published website, it should be the website URL.
 
 7.	In the **Configure Identifiers** page, verify that your project SSL URL is already listed and click **Next**. Click **Next** all the way to the end of the wizard with default selections.
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of <code>WsFederationAuthenticationOptions.Wtrealm</code> during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.</p>
-	</div>
+	> [AZURE.NOTE] In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of <code>WsFederationAuthenticationOptions.Wtrealm</code> during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.
 
 8.	You have now finished configuring the RP application for your project in AD FS. Next, you will configure this application to send the claims needed by your application. The **Edit Claim Rules** dialog is opened by default for you at the end of the wizard so you can start immediately. Let's configure at least the following claims (with schemas in parentheses):
 
@@ -194,10 +183,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 	-	Group memberships as roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - can be used with `[Authorize(Roles="role1, role2,...")]` decoration to authorize controllers/actions. In reality, this may not be the most performant approach for role authorization, especially if your AD users regularly belong to hundreds of security groups, which translates to hundreds of role claims in the SAML token. An alternative approach is to send a single role claim conditionally depending on the user's membership in a particular group. However, we'll keep it simple for this tutorial.
 	-	Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add LOB functionality** section of [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-adfs/#bkmk_crud).
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see <a href="http://msdn.microsoft.com/en-us/library/azure/dn195587.aspx">Supported Token and Claim Types</a>.</p>
-	</div>
+	> [AZURE.NOTE] The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx).
 
 8.	In the Edit Claim Rules dialog, click **Add Rule**.
 9.	Configure the name, UPN, and role claims as shown below and click **Finish**.
@@ -239,10 +225,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 
 	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
 
-	<div class="wa-note">
-		<span class="wa-icon-bulb"></span>
-		<p>Again, make sure that you repeat these steps for both your debug environment and published website.</p>
-	</div>
+	> [AZURE.NOTE] Again, make sure that you repeat these steps for both your debug environment and published website.
 
 <a name="bkmk_test"></a>
 ## Test federated authentication for your application
@@ -350,9 +333,9 @@ Since you have included group memberships as role claims in your RP trust config
 <a name="bkmk_data"></a>
 ## Connect to on-premises data
 
-A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your Azure website must access on-premise databases, since you are not allowed to use [SQL Database](http://azure.microsoft.com/en-us/services/sql-database/) as the data tier for your websites.
+A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your Azure website must access on-premise databases, since you are not allowed to use [SQL Database](/services/sql-database/) as the data tier for your websites.
 
-Azure Websites supports accessing on-premise databases with two approaches: [Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/integration-hybrid-connection-overview/) and [Virtual Networks](http://azure.microsoft.com/en-us/documentation/articles/web-sites-integrate-with-vnet/). For more information, see [Using VNET integration and Hybrid connections with Azure Websites](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Azure Websites supports accessing on-premise databases with two approaches: [Hybrid Connections](../integration-hybrid-connection-overview/) and [Virtual Networks](../web-sites-integrate-with-vnet/). For more information, see [Using VNET integration and Hybrid connections with Azure Websites](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Further resources
@@ -363,5 +346,5 @@ Azure Websites supports accessing on-premise databases with two approaches: [Hyb
 - [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
-- [Active Directory Federation Services Overview](http://technet.microsoft.com/en-us/library/hh831502.aspx)
+- [Active Directory Federation Services Overview](http://technet.microsoft.com/library/hh831502.aspx)
 - [WS-Federation 1.1 specification](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)

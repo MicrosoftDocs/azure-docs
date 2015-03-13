@@ -25,7 +25,7 @@
 </tr>
 <tr>
    <td valign="middle"><p>Maximum number of capacity units per database account</p></td>
-   <td valign="middle"><p>5</p></td>
+   <td valign="middle"><p>50</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Number of collections per capacity unit</p></td>
@@ -65,7 +65,7 @@
 </tr>
 <tr>
    <td valign="middle"><p>Maximum document storage per database (5 capacity units)</p></td>
-   <td valign="middle"><p>50 GB</p></td>
+   <td valign="middle"><p>500 GB</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Maximum Length of the Id property</p></td>
@@ -81,11 +81,11 @@
 </tr>
 <tr>
    <td valign="middle"><p>Maximum request size of document and attachment</p></td>
-   <td valign="middle"><p>256 KB</p></td>
+   <td valign="middle"><p>512 KB</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Maximum request size of stored procedure, trigger and UDF</p></td>
-   <td valign="middle"><p>256 KB</p></td>
+   <td valign="middle"><p>512 KB</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Maximum response size</p></td>

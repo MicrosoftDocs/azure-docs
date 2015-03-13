@@ -1,10 +1,24 @@
-<properties title="" pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="blackmist" videoId="" scriptId="" manager="paulettm" editor=""/>
+<properties 
+	pageTitle="Build an HBase application using Maven" 
+	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
+	editor=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/06/2014" 
+	ms.author="larryfr"/>
 
-##Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
+#Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
 
-Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java using Apache Maven. Then use the application with Azure HDInsight (Hadoop.)
+Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java using Apache Maven. Then use the application with Azure HDInsight (Hadoop).
 
 [Maven](http://maven.apache.org/) is a software project management and comprehension tool that allows you to build software, documentation, and reporting for Java projects. In this article, you will learn how to use it to create a basic Java application that that creates, queries, and deletes an HBase table on an Azure HDInsight cluster.
 
@@ -14,7 +28,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [Maven](http://maven.apache.org/)
 
-* [An Azure HDInsight cluster with HBase](/en-us/documentation/articles/hdinsight-hbase-get-started/#create-hbase-cluster)
+* [An Azure HDInsight cluster with HBase](/documentation/articles/hdinsight-hbase-get-started/#create-hbase-cluster)
 
 ##Create the project
 
@@ -140,13 +154,13 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	This file will be used to load the HBase configuration for an HDInsight cluster.
 
-	> [AZURE.NOTE] This is a very minimal hbase-site.xml file, containing the bare minimum settings for the HDInsight cluster. For a full version of the hbase-site.xml configuration file used by HDInsight, [remote desktop into the HDInsight cluster](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp), and the hbase-site.xml file is located in the C:\apps\dist\hbase-&lt;version number>-hadoop2\conf directory. The version number portion of the file path will change as HBase is updated on the cluster.
+	> [AZURE.NOTE] This is a very minimal hbase-site.xml file, containing the bare minimum settings for the HDInsight cluster. For a full version of the hbase-site.xml configuration file used by HDInsight, [remote desktop into the HDInsight cluster](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp), and the hbase-site.xml file is located in the C:\apps\dist\hbase-&lt;version number>-hadoop2\conf directory. The version number portion of the file path will change as HBase is updated on the cluster.
 
 3. Save the __hbase-site.xml__ file.
 
 ##Create the application
 
-1. Go to the __hbaseapp\src\main\java\com\microsoft\examples__ directory and rename the app.java__ file to __CreateTable.java__.
+1. Go to the __hbaseapp\src\main\java\com\microsoft\examples__ directory and rename the app.java file to __CreateTable.java__.
 
 2. Open the __CreateTable.java__ file and replace the existing contents with the following.
 
@@ -335,9 +349,9 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 ##Upload the JAR and start a job
 
-> [AZURE.NOTE] There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/). The steps below use [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](/documentation/articles/hdinsight-upload-data/). The steps below use [Azure PowerShell](/documentation/articles/install-configure-powershell/).
 
-1. After installing and configuring [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/), create a new file named __hbase-runner.psm1__. Use the following as the contents of this file.
+1. After installing and configuring [Azure PowerShell](/documentation/articles/install-configure-powershell/), create a new file named __hbase-runner.psm1__. Use the following as the contents of this file.
 
 		<#
 		.SYNOPSIS
@@ -468,7 +482,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/"
+		        throw "Azure PowerShell not found! For help, see http://www.windowsazure.com/documentation/articles/install-configure-powershell/"
 		    }
 		
 		    # Is there an active Azure subscription?

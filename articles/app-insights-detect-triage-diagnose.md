@@ -1,6 +1,18 @@
-<properties title="Detect, Triage and Diagnose with Application Insights" pageTitle="Detect, Triage, Diagnose" description="Analyse crashes and detect  and diagnose performance issues in your applications" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties 
+	pageTitle="Detect, Triage, Diagnose" 
+	description="Analyse crashes and detect  and diagnose performance issues in your applications" 
+	authors="alancameronwills" 
+	services="application-insights" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
 
 # Detect, Triage and Diagnose with Application Insights
 
@@ -236,6 +248,9 @@ Application Insights can also be used to learn what users do with an app. Once i
 
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you improve the performance of your own applications.
 
+## Video
+
+[AZURE.VIDEO app-insights-performance-monitoring]
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
