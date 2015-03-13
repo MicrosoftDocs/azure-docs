@@ -1,6 +1,6 @@
 <properties title="Azure Government Developers Guide" pageTitle="Azure Government Overview" description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " metaKeywords="Azure Government AzureGov GovCloud" services="azure-government" solutions="" documentationCenter="" authors="joharve2" videoId="" scriptId="" manager="required" />
 
-<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="1/9/2014" ms.author="jharve" />
+<tags ms.service="multiple" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="azure-government" ms.date="3/13/2014" ms.author="jharve" />
 
 #  Microsoft Azure Government Overview 
 
@@ -55,6 +55,10 @@ Azure Government currently has the following services available in both US GOV I
 - Scheduler
 - Virtual Networking
 - SQL Database
+- Azure Files
+- Media Services
+- Traffic Manager
+- Service Bus
 
 Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/en-us/regions/#services) which will highlight each available region and their services.  
 
