@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Archive AS2 Messages" 
+   pageTitle="Archive AS2 messages" 
    description="This topic covers archival of AS2 messages" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
@@ -16,7 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
 
-#Archive AS2 Messages
+#Archive AS2 messages
 
 The 'AS2 Connector' API App exposes the ability to archive messages. Archiving simply stores the message to the Azure Blob Container provided as part of the AS2 Connector package settings. 
 

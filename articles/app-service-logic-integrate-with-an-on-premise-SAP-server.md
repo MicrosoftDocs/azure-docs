@@ -9,14 +9,14 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="web"
+	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/05/2015"
 	ms.author="harish"/>
 
-##Integrate with an on-premises SAP server
+#Integrate with an on-premises SAP server
 
 The SAP connector lets you connect Azure App Services web, mobile and logic apps to your existing SAP server. You can invoke RFCs, BAPIs, tRFCs as well as send IDOCs to the SAP server.
 	
@@ -26,7 +26,7 @@ The SAP server can even be behind your firewall on-premises. In case of on-premi
 
 An SAP Connector in the cloud cannot directly connect to a SAP server behind a firewall. The Hybrid listener bridges the gap by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.
 
-###Different ways to integrate with SAP
+##Different ways to integrate with SAP
 The following actions are supported
 
 - Call RFC
@@ -34,12 +34,12 @@ The following actions are supported
 - Call BAPI
 - Send IDoc
 
-###Prerequisites
+##Prerequisites
 The SAP specific client libraries are required on the client machine where hybrid listener is installed and running. The precise details are captured [here][9] under the section titled *For the SAP adapter*
 
-##Getting started
+###Getting started
 
-###Create a new SAP adapter
+##Create a new SAP adapter
 1. Login to the Azure portal
 2. Click on New.
 3. In the create blade, click on Compute -> Azure Marketplace
@@ -69,7 +69,7 @@ The SAP specific client libraries are required on the client machine where hybri
 		- **IDOCs** - Specify the IDOCs in SAP that can be sent by the connector.
 	8. Click on create. Within a few minutes your SAP connector would be created.
 
-###Install hybrid listener
+##Install hybrid listener
 Browse to the SAP connector you created through Browse -> API Apps -> *name of your connector*
 
 In the connector blade, notice that the Hybrid connection status is pending. Click on Hybrid connection part. Hybrid connection blade opens up.
@@ -92,7 +92,7 @@ Click on install, and let the Hybrid connection manager setup progress and compl
 
 ![Hybrid connection manager installation completed][7]
 
-###Validate hybrid connection
+##Validate hybrid connection
 
 Browse to the SAP connector you created through Browse -> API Apps -> *name of your connector*
 
@@ -100,7 +100,7 @@ In the connector blade, notice that the Hybrid connection status is *Connected*
 
 ![Hybrid connection status - connected][8]
 
-###Using the SAP connector in a Logic App
+##Using the SAP connector in a Logic App
 
 Once the SAP connector has been created, it can be used inside your Logic App workflow.
 

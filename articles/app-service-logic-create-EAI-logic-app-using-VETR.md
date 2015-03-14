@@ -16,8 +16,7 @@
    ms.date="03/05/2015"
    ms.author="rajram"/>
 
-##Create an EAI Logic App using VETR
-
+#Create an EAI Logic App using VETR
 
 Most EAI (Enterprise Application Integration) scenarios involve mediating data between a source and a destination. There is a common set of requirements in such scenarios:
 
@@ -51,8 +50,8 @@ There are a number of BizTalk API Apps that help in building this pattern:
 *Service Bus Connector* - Destination entity where the data is being sent to
 
 
-###Constructing a basic VETR pattern
-####The Basics
+##Constructing a basic VETR pattern
+###The Basics
 First, go to the azure portal and sign-in to your subscription. 
 Once you’ve signed in, click on the +New button at the bottom-left of the screen and choose Logic App. 
 When you click on Logic App, you’ll have to fill out some basic settings to get started:
@@ -64,7 +63,7 @@ When you click on Logic App, you’ll have to fill out some basic settings to ge
 5.	Choose a location 
 Once you’ve filled out the basic settings for your flow you can add Triggers and Actions click there to get started.
 
-####Adding a HTTP Trigger
+##Adding a HTTP Trigger
 
 1.	Select HTTP listener from list displayed on the right side and create a new instance called HTTP1. 
 2.	Leave the “Send response automatically?” setting as false, and click the check icon to create the API app.
@@ -75,7 +74,7 @@ Now, let’s specify the actions that would run whenever this trigger fires (tha
 
 ![HTTP Trigger][2]
 
-####Adding a Validate action
+##Adding a Validate action
 
 1.	Similar to how you created an instance of the HTTP Listener API app, select the BizTalk XML Validator API app from the gallery on the right hand side and provide it a name (Validate1) to create an instance.
 2.	Once the instance is created, the portal will present the interface for managing the validate API app. Configure an XSD schema to validate the incoming XML messages.
@@ -86,7 +85,7 @@ Once you complete the configuration of the API, the validate action would be pos
 
 ![BizTalk XML Validator][3]
 
-####Adding a Transform action
+##Adding a Transform action
 Configure BizTalk Transforms and upload the transform which normalizes the incoming data.
 
 1.	Add the Transform API app and create an instance similar to how the Validate API app is created.
@@ -99,7 +98,7 @@ Configure BizTalk Transforms and upload the transform which normalizes the incom
 
 ![BizTalk Transforms][4]
 
-####Adding a Service Bus connector
+##Adding a Service Bus connector
 Now we can add the destination to write the data to, which is a Service Bus Queue.
 
 1.	Add the service bus connector from the gallery. Provide the following inputs to configure the API app:
@@ -113,7 +112,7 @@ Now we can add the destination to write the data to, which is a Service Bus Queu
 
 ![Service Bus][5]
 
-####Sending an HTTP response
+##Sending an HTTP response
 Once the pipeline processing is done, we need to send a response on the HTTP channel for both success and error cases. For this, carry out the following steps:
 
 1.	Select the HTTP Listener from the “Recently used” section in the right hand side gallery.
@@ -125,7 +124,7 @@ Once the pipeline processing is done, we need to send a response on the HTTP cha
 Repeat the above steps to send an HTTP response on failure as well. Change the condition to: @not(equals(actions('servicebusconnector').status,'Succeeded')).
 
 
-###And you are done!
+##And you are done!
 Every time someone sends a message at HTTP end-point, it would trigger the App and go through the flow to execute actions we just created. 
 To manage the App we just created, click on Browse at the left side of the screen and select Logic Apps. You’ll see the App that you created. Click on it. And you can see all the details of that App including historical runs.
 
