@@ -124,10 +124,10 @@ That takes care of all the initial setup and configuration, now let’s get down
 		
 		    client.queryDatabases(querySpec).toArray(function(err, results) {
 		      if (err) {
-		        callback(err);
+		        return callback(err);
 		      }
 		
-		      if (!err && results.length === 0) {
+		      if (results.length === 0) {
 		        client.createDatabase({
 		          id: databaseId
 		        }, function(err, created) {
@@ -150,10 +150,10 @@ That takes care of all the initial setup and configuration, now let’s get down
 		
 		    client.queryCollections(databaseLink, querySpec).toArray(function(err, results) {
 		      if (err) {
-		        callback(err);
+		        return callback(err);
 		      }
 		
-		      if (!err && results.length === 0) {
+		      if (results.length === 0) {
 		        client.createCollection(databaseLink, {
 		          id: collectionId
 		        }, function(err, created) {
