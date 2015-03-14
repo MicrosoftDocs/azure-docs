@@ -57,24 +57,43 @@ In this tutorial you'll learn how easy the API App tools in Visual Studio make i
 
 	![Generation Complete](./media/app-service-dotnet-remotely-debug-api-app/06-code-gen-output.png)
 
-7. Now, open up the **Server Explorer** window and expand the **App Service** node. Find the resource group you created when you deployed your API App, and then right-click the **API App** node and select the **Attach Debugger** gesture. 
+7. Once the API App Client code has been generated and dropped into your project, open up the **Program.cs** file from the project root and replace the code from the **Main** method with the code below. 
+
+		static void Main(string[] args)
+        {
+            var client = new ContactsList();
+            var contacts = client.Contacts.Get();
+
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine("{0}: {1} ({2})",
+                    contact.Id,
+                    contact.Name,
+                    contact.EmailAddress);
+            }
+
+            Console.WriteLine("Finished");
+            Console.ReadLine();
+        }
+
+8. Now, open up the **Server Explorer** window and expand the **App Service** node. Find the resource group you created when you deployed your API App, and then right-click the **API App** node and select the **Attach Debugger** gesture. 
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger.png)
 
-8. You will see the remote debugger try to connect. In some cases it may require a second use of the **Attach Debugger** gesture prior reaching out and establishing a connection. If it fails. try once more. In most cases a second remote debug attach will work.
+9. You will see the remote debugger try to connect. In some cases it may require a second use of the **Attach Debugger** gesture prior reaching out and establishing a connection. If it fails. try once more. In most cases a second remote debug attach will work.
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/09-attaching.png)
 
 
-9. Put breakpoints in the Azure API App code's controller file. They may not appear as active at first, but if the remote debugger's attached you're ready to debug. 
+10. Put breakpoints in the Azure API App code's controller file. They may not appear as active at first, but if the remote debugger's attached you're ready to debug. 
 
 	![Applying breakpoints to controller](./media/app-service-dotnet-remotely-debug-api-app/10-breakpoints.png)
 
-10. To debug, run the console app, which will reach out to the API App I'm remotely debugging. As soon as the client hits the API, the remote debugger should light up. 
+11. To debug, run the console app, which will reach out to the API App I'm remotely debugging. As soon as the client hits the API, the remote debugger should light up. 
 
 	![Debugging the local client to hit the API](./media/app-service-dotnet-remotely-debug-api-app/11-while-debugging-api-debug-client-too.png)
 
-11. Once you've got the API App being debugged remotely and the client app being debugged locally you can see the entire flow of the data. 
+12. Once you've got the API App being debugged remotely and the client app being debugged locally you can see the entire flow of the data. 
 
 	![Debugging the local client to hit the API](./media/app-service-dotnet-remotely-debug-api-app/12-debugging-live.png)
 
