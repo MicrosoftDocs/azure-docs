@@ -37,13 +37,9 @@ There are several methods for creating HDInsight clusters, this article only cov
 
 An HDInsight cluster uses an Azure Blob Storage container as the default file system. For more information about how Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
-An Azure storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can be provisioned in five data centers: 
 
-- Southeast Asia 
-- North Europe
-- West Europe 
-- East US 
-- West US 
+[AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
+
 
 For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
@@ -219,15 +215,15 @@ In this article, you have learned how to create an HDInsight cluster using the A
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-support]: http://azure.microsoft.com/en-us/support/options/
-[makecert-info]: http://msdn.microsoft.com/en-us/library/bfsktky3(v=vs.110).aspx
+[hdinsight-support]: http://azure.microsoft.com/support/options/
+[makecert-info]: http://msdn.microsoft.com/library/bfsktky3(v=vs.110).aspx
 
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hadoop-command-reference]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/18/2015" 
 	ms.author="garye"/>
 
 
@@ -56,6 +56,11 @@ After your Machine Learning workspace is created, you will see it listed on the 
 
 > [AZURE.TIP] You can share the experiments you're working on by inviting others to your workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
 
+<!-- Uncomment this when this article has more content
+For more information, see [Manage an Azure Machine Learning workspace][manageworkspace]
+
+[manageworkspace]: ../machine-learning-manage-workspace/
+-->
 ----------
 
 **Next: [Upload existing data][upload-data]**

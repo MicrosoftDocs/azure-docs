@@ -17,7 +17,8 @@
 	ms.author="juliako"/>
 
 #How to: Check Job Progress
-This article is one in a series introducing [Azure Media Services programming](../media-services-video-on-demand-workflow). The previous topic was [How to: Encode an Asset](../media-services-manage-content#encode)).
+
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
 
 ##Use Portal to check the job status
 

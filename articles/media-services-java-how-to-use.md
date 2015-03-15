@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="media-services" 
@@ -13,22 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/20/2015" 
 	ms.author="robmcm"/>
 
 #How to Use Media Services
 
 This guide shows you how to start programming with Azure Media Services using Java. The guide includes a technical overview of Media Services, steps to configure your Azure account for Media Services, and code that shows how to accomplish typical programming tasks. 
 
-## Table of Contents
-
--   [What is Media Services?](#media_services)
--   [Setting Up an Azure Account for Media Services](#setup-account)
--   [Setting up for Media Services development](#setup-dev)
--   [How to: Use Media Services with Java](#connect)
--   [Additional Resources](#additional-resources)
-
- 
 ##<a id="media_services"></a>What is Media Services
 
 Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
@@ -89,7 +80,7 @@ For PCs and Macs you can target a streaming experience using Microsoft Silverlig
 ####Windows 8 applications
 For Windows 8, you can build Windows Store applications using any of the supported development languages and constructs like HTML, Javascript, XAML, C# and C+.
 
--	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). For more information on how to create a Windows Store application using this SDK, see [How to Build a Smooth Streaming Windows Store Application](http://go.microsoft.com/fwlink/?LinkId=271647). For information on how to create a smooth streaming player in HTML5, see [Walkthrough: Building Your First HTML5 Smooth Streaming Player](http://msdn.microsoft.com/en-us/library/jj573656.aspx).
+-	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). For more information on how to create a Windows Store application using this SDK, see [How to Build a Smooth Streaming Windows Store Application](http://go.microsoft.com/fwlink/?LinkId=271647). For information on how to create a smooth streaming player in HTML5, see [Walkthrough: Building Your First HTML5 Smooth Streaming Player](http://msdn.microsoft.com/library/jj573656.aspx).
 
 -	[Microsoft Media Platform: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
@@ -102,7 +93,7 @@ Xbox supports Xbox LIVE applications that can consume Smooth Streaming content. 
 ####Embedded or dedicated devices
 Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline. Microsoft provides the following porting kits that can be licensed, and enables partners to port Smooth Streaming playback for the platform.
 
--	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/en-us/mediaplatform/sspk.aspx)
+-	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/mediaplatform/sspk.aspx)
 -	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
 
 ####Windows Phone
@@ -135,7 +126,7 @@ This section contains general prerequisites for Media Services development using
 
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and download the output files of the transformed asset.
 
-You'll need to set up a media services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/).
+You'll need to set up a media services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](http://www.windowsazure.com/manage/services/media-services/how-to-create-a-media-services-account/).
 
 Substitute your values for the `clientId` and `clientSecret` variables. The code also relies on a locally stored file, `c:/media/MPEG4-H264.mp4`. You'll need to provide your own file to use. The code also requires an output folder, `c:/output`, which is where the output files will be downloaded.
 
@@ -294,7 +285,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 	
 	        // Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
 	        // Information on the various configurations can be found at
-	        // http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx.
+	        // http://msdn.microsoft.com/library/windowsazure/jj129582.aspx.
 	        // This example uses only one task, but others could be added.
 	        Task.CreateBatchOperation task = Task.create(
 	                mediaProcessor.getId(),
@@ -457,7 +448,7 @@ For Media Services Javadoc documentation, see [Azure Libraries for Java document
 <!-- URLs. -->
 
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
+  [Azure Java Developer Center]: http://www.windowsazure.com/develop/java/
   [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
-  [Media Services Client Development]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
+  [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 

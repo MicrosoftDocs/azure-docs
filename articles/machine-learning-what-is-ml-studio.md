@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2014" 
+	ms.date="02/18/2014" 
 	ms.author="garye"/>
 
 # What is Azure Machine Learning Studio?
@@ -21,8 +21,6 @@
 Microsoft Azure Machine Learning Studio is a collaborative visual development environment that enables you to build, test, and deploy predictive analytics solutions that operate on your data. The Machine Learning service and development environment is cloud-based, provides compute resource and memory flexibility, and eliminates setup and installation concerns because you work through your web browser. 
 
 Machine Learning Studio is where data science, predictive analytics, cloud resources, and your data meet!
-
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ## The Machine Learning Studio interactive workspace
 
@@ -55,8 +53,8 @@ An experiment consists of datasets that provide data to analytical modules, whic
 - All input ports for modules must have some connection to the data flow. 
 - All required parameters for a module must be set. 
 
-For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/). 
-For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
+For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
 ### Datasets
 

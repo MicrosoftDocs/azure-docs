@@ -20,7 +20,7 @@
 
 This topic shows you how to register your app with the Windows Store to be able to use Live Connect for single sign-on as the identity provider for Azure Mobile Services. This step is also required to use push notifications.
 
-> [AZURE.IMPORTANT] You do not need to register your app with the Windows Store to be able to use Microsoft Account for authentication before you publish your app. When your Windows Store app does not require single sign-on or push notifications, you can just register your app with Live Connect to use a Microsoft Account login.  For more information, see [Register your Windows Store apps to use a Microsoft Account login](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication).
+> [AZURE.IMPORTANT] You do not need to register your app with the Windows Store to be able to use Microsoft Account for authentication before you publish your app. When your Windows Store app does not require single sign-on or push notifications, you can just register your app with Live Connect to use a Microsoft Account login.  For more information, see [Register your Windows Store apps to use a Microsoft Account login](/develop/mobile/how-to-guides/register-for-microsoft-authentication).
 
 1. If you have not already registered your app, navigate to the [Submit an app page] at the Dev Center for Windows Store apps, log on with your Microsoft Account, and then click **App name**.
 
@@ -81,12 +81,12 @@ You are now ready to integrate authentication by using Live Connect into your ap
 
 
 <!-- URLs. -->
-[Single sign-on for Windows Store apps by using Live Connect]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 [Azure Management Portal]: https://manage.windowsazure.com/

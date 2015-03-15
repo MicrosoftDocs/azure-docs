@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="PHP website with MySQL and Git - Azure tutorial" 
 	description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." 
-	services="web-sites" 
+	services="app-service-web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="web-apps" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
@@ -16,13 +16,13 @@
 	ms.date="11/14/2014" 
 	ms.author="tomfitz"/>
 
-#Create a PHP-MySQL Azure website and deploy using Git
+#Create a PHP-MySQL Azure web app and deploy using Git
 
-This tutorial shows you how to create a PHP-MySQL Azure website and how to deploy it using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL website running in Azure.
+This tutorial shows you how to create a PHP-MySQL Azure web app and how to deploy it using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL website running in Azure.
  
 You will learn:
 
-* How to create an Azure website and a MySQL database using the Azure Management Portal. Because PHP is enabled in Azure Websites by default, nothing special is required to run your PHP code.
+* How to create an Azure web app and a MySQL database using the Azure Management Portal. Because PHP is enabled in Azure Web apps by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
  
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure website. A screenshot of the completed application is below:
@@ -30,7 +30,7 @@ By following this tutorial, you will build a simple registration web application
 ![Azure PHP web site][running-app]
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account that has the Azure Websites feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account that has the Azure Websites feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure Free Trial</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
@@ -41,9 +41,9 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 > [AZURE.NOTE]
 > If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK for PHP</a>.
 
-##<a id="create-web-site-and-set-up-git"></a>Create an Azure website and set up Git publishing
+##<a id="create-web-site-and-set-up-git"></a>Create an Azure web app and set up Git publishing
 
-Follow these steps to create an Azure website and a MySQL database:
+Follow these steps to create an Azure web app and a MySQL database:
 
 1. Login to the [Azure Management Portal][management-portal].
 2. Click the **New** icon on the bottom left of the portal.
@@ -260,9 +260,10 @@ To publish changes to application, follow these steps:
 	![List of web site deployments][deployments-list]
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-[install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
+[install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
+[install-mysql]: http://dev.mysql.com/downloads/mysql/
 
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
@@ -281,4 +282,4 @@ To publish changes to application, follow these steps:
 [deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
-[sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx

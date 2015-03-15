@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure Machine Learning Recommendations API Documentation" 
 	description="Azure Machine Learning Recommendations API Documentation" 
 	services="machine-learning" 
@@ -15,9 +15,11 @@
 	ms.date="10/14/2014" 
 	ms.author="v-ahgumn"/>
 
+
 #Azure Machine Learning Recommendations API Documentation
+
 Version: 1.0<br>
-Latest version can be found [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-recommendation-api-documentation)
+Latest version can be found [here](http://azure.microsoft.com/documentation/articles/machine-learning-recommendation-api-documentation)
 
 This document depicts Azure ML Recommendations APIs.
 

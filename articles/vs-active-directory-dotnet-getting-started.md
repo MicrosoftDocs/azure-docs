@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="" 
+	pageTitle="Getting Started with Azure Active Directory (.NET Projects)" 
 	description="How to get started using Azure Active Directory in Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
   
 <tags 
 	ms.service="active-directory" 

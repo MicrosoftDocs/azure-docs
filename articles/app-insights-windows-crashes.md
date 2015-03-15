@@ -22,9 +22,12 @@
 
 If your users experience crashes in your app, you'd like to know about it quickly, and you'd like details about what happened. With Application Insights, you can monitor how frequently crashes occur, get alerts when they occur, and investigate reports of individual incidents.
 
-If you haven't done this already, add [Application Insights to your app project][windows], and republish it. 
+"Crash" means that the application terminates because of an uncaught exception. If your app catches an exception you can report it with the TrackException() API but continue running. In that case, it will not be logged as a crash.
+
 
 ## Monitor crash frequency
+
+If you haven't done this already, add [Application Insights to your app project][windows], and republish it. 
 
 Crashes show up on your application's overview blade in [the Application Insights portal][portal].
 

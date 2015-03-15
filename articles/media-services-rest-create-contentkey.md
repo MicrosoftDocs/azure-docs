@@ -13,26 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="02/15/2015" 
 	ms.author="juliako"/>
 
 
 #Create ContentKeys with REST
 
+This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+
 Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
-When you [create a new asset](../media-services-rest-upload-files/), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
+When you create a new asset (for example, before you [upload files](../media-services-rest-upload-files/)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
 When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](../media-services-rest-configure-asset-delivery-policy) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
 
-Whether you create a new encrypted asset or specify to encrypt an asset dynamically when it is delivered to the client, you need to create a **ContentKey** and link it to the asset you want to encrypt.
+Encrypted assets have to be associated with **ContentKey**s. This article describes how to create a content key.
 
 The following are general steps for generating content keys that you will associate with assets that you want to be encrypted. 
 
 1. Randomly generate a 16-byte AES key (for common and envelope encryption) or a 32-byte AES key (for storage encryption). 
 
 	This will be the content key for your asset, which means all files associated with that asset will need to use the same content key during decryption. 
-2.	Call the [GetProtectionKeyId](https://msdn.microsoft.com/en-us/library/azure/jj683097.aspx#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/en-us/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
+2.	Call the [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3.	Encrypt your content key with the public key of the X.509 Certificate. 
 
 	Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
