@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="03/15/2015" 
 	ms.author="ricksal"/>
 
 # Add push notifications to your Mobile Services app
@@ -163,10 +163,10 @@ You have successfully completed this tutorial.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Get started with data]
+* [Add Mobile Services to an existing app][Get started with data]
   <br/>Learn more about storing and querying data using mobile services.
 
-* [Get started with authentication]
+* [Add authentication to you app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
 * [What are Notification Hubs?]
@@ -197,23 +197,19 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /documentation/articles/mobile-services-android-get-started/
-[Get started with data]: /documentation/articles/mobile-services-android-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-android-get-started-users
-[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
-[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
-[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: ./mobile-services-android-get-started.md
+[Get started with data]: ./mobile-services-android-get-started-data.md
+[Get started with authentication]: ./mobile-services-android-get-started-users.md
 [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How to use the Android client library for Mobile Services]: /documentation/articles/mobile-services-android-how-to-use-client-library
+[How to use the Android client library for Mobile Services]: ./mobile-services-android-how-to-use-client-library.md
 
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Send push notifications to authenticated users]: /documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
+[Send push notifications to authenticated users]: ./mobile-services-javascript-backend-android-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /documentation/articles/notification-hubs-android-send-breaking-news/
-[Send template-based notifications to subscribers]: /documentation/articles/notification-hubs-android-send-localized-breaking-news/
+[What are Notification Hubs?]: ./notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: ./notification-hubs-android-send-breaking-news.md
+[Send template-based notifications to subscribers]: ./notification-hubs-android-send-localized-breaking-news.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="3/10/2015"
+	ms.date="3/15/2015"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
@@ -396,12 +396,9 @@ You have successfully completed this tutorial.
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: ./partner-xamarin-mobile-services-ios-get-started.md
+[Get started with data]: ./partner-xamarin-mobile-services-ios-get-started-data.md
+[Get started with authentication]: ./partner-xamarin-mobile-services-ios-get-started-users.md
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 

@@ -123,10 +123,10 @@ You have successfully completed this tutorial.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Get started with data]
+* [Add Mobile Services to an existing app][Get started with data]
   <br/>Learn more about storing and querying data using mobile services.
 
-* [Get started with authentication]
+* [Add authentication to an existing app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
 * [What are Notification Hubs?]
