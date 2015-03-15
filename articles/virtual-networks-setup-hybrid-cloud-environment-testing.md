@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/13/2015" 
 	ms.author="josephd"/>
 
-#Set up a hybrid cloud environment for testing
+# Set up a hybrid cloud environment for testing
 
 This topic steps you through creating a hybrid cloud environment with Microsoft Azure for testing. Here is the resulting configuration.
 
@@ -46,7 +46,9 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
-##Phase 1: Configure the computers on the Corpnet subnet
+This configuration requires a test subnet of up to four computers connected directly to the Internet using a public IP address. If you don't have these resources, you can also [Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/). The simulated hybrid cloud test environment requires only an Azure subscription.
+
+## Phase 1: Configure the computers on the Corpnet subnet
 
 Use the instructions in the "Steps for Configuring the Corpnet Subnet" section of the [Test Lab Guide: Base Configuration for Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) to configure the DC1, APP1, and CLIENT1 computers on a subnet named Corpnet. **This subnet must be isolated from your organization network because it will be connected directly to the Internet through the RRAS1 computer.** 
 
@@ -61,7 +63,7 @@ This is your current configuration.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_1.png)
  
-##Phase 2: Configure RRAS1
+## Phase 2: Configure RRAS1
 
 RRAS1 provides traffic routing and VPN device services between the computers on the Corpnet subnet and the TestVNET virtual network. RRAS1 must have two network adapters installed.
 
@@ -101,9 +103,9 @@ This is your current configuration.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_2.png)
 
-#Phase 3: Create the cross-premises Azure Virtual Network
+## Phase 3: Create the cross-premises Azure Virtual Network
 
-First, log on to the [Azure Management Portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) with your Azure subscription credentials and create a virtual network named TestVNET.
+First, log on to the [Azure Management Portal](https://manage.windowsazure.com/) with your Azure subscription credentials and create a virtual network named TestVNET.
 
 1.	In the task bar of the Azure Management Portal, click **New > Network Services > Virtual Network > Custom Create**.
 2.	On the Virtual Network Details page, type **TestVNET** in **Name**.
@@ -150,7 +152,7 @@ This is your current configuration.
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_3.png)
 
  
-#Phase 4: Create the site-to-site VPN connection
+## Phase 4: Create the site-to-site VPN connection
 
 First, you create a virtual network gateway.
 
@@ -213,7 +215,7 @@ This is your current configuration.
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_4.png)
 
 
-#Phase 5: Configure DC2
+## Phase 5: Configure DC2
 
 First, create an Azure Virtual Machine for DC2 with these commands at the Azure PowerShell command prompt on your local computer.
 
@@ -285,7 +287,7 @@ This is your current configuration.
  
 Your hybrid cloud environment is now ready for testing.
 
-##Additional Resources
+## Additional Resources
 
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
@@ -295,7 +297,7 @@ Your hybrid cloud environment is now ready for testing.
 
 [Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-##Minimizing the ongoing costs of this environment
+## Minimizing the ongoing costs of this environment
 
 To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the Test_VNET virtual network at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples/). 
 
