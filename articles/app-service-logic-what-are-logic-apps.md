@@ -57,9 +57,9 @@ To get started with Logic Apps, follow the [create a Logic App][create] tutorial
 
 For more information on Azure App Service platform, see [Azure App Service][appservice].
 
-[biztalk]: /documentation/articles/app-service-logic-what-are-biztalk-api-apps/
-[appservice]: /documentation/articles/app-service-value-prop-what-is/
-[create]: /documentation/articles/app-service-create-a-logic-app/
+[biztalk]: ../app-service-logic-what-are-biztalk-api-apps/
+[appservice]: ../app-service-value-prop-what-is/
+[create]: ../app-service-create-a-logic-app/
 
 
 
