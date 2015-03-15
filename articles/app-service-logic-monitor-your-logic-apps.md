@@ -9,14 +9,14 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="web"
+	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/10/2015"
 	ms.author="stepsic"/>
 
-##Monitor your Logic Apps
+#Monitor your Logic Apps
 
 After you've created your Logic App you can see the full history of its execution in the Azure portal. Click on **Browse** at the left side of the portal screen and select **Logic Apps**. You’ll see a list of Logic Apps in your subscription and if they are Enabled or not (*Enabled* just means that triggers will run your Logic App when they decide to, *Disabled* Logic Apps will not run in response to trigger events).
 
