@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Add push notifications to your Windows Store app with Azure App Service" 
-	description="Learn how to use Azure App Service to send push notifications to your Windows Store app." 
+	pageTitle="Add push notifications to your Windows Universal app with Azure App Service" 
+	description="Learn how to use Azure App Service to send push notifications to your Windows Universal app." 
 	services="app-service-mobile" 
 	documentationCenter="windows" 
 	authors="yuaxu" 
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
-This topic shows you how to send push notifications to a Windows Store app from a .NET backend using Azure App Service. When complete, your will be sending push notifications from your .NET backend to all registered Windows Store apps on record insertion.
+This topic shows you how to send push notifications to a Windows Universal app from a .NET backend using Azure App Service. When complete, your will be sending push notifications from your .NET backend to all registered Windows Universal apps on record insertion.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -39,7 +39,7 @@ To complete this tutorial, you need the following:
 
 ##<a id="register"></a>Register your app for push notifications
 
-To send push notifications to Windows Store apps with Azure App Service, you must submit your app to the Windows Store. You must then configure your mobile app push notification service credentials to integrate with WNS.
+To send push notifications to Windows Universal apps with Azure App Service, you must submit your app to the Windows Store. You must then configure your mobile app push notification service credentials to integrate with WNS.
 
 1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Submit an app page</a> in the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
 
