@@ -112,7 +112,7 @@ In many application scenarios, developers want to create a series of processing 
 
 
 ##Next Steps
-Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](../media-services-rest-check-job-progress/) topic.
+Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](media-services-rest-check-job-progress.md) topic.
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx

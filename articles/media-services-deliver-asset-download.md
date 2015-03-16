@@ -18,7 +18,7 @@
 
 #How to: Deliver an Asset by Download
 
-This article is part of the [Media Services Video on Demand workflow](./media-services-video-on-demand-workflow.md) series.  
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series.  
 
 This topic discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using a locator. You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN).
 

@@ -25,7 +25,7 @@ Azure Media Services provides the tools you need to create rich, dynamic client 
 
 ##Playback your content with existing players
 
-For more information, see [playing your content with existing players](./media-services-playback-content-with-existing-players.md).
+For more information, see [playing your content with existing players](media-services-playback-content-with-existing-players.md).
 
 
 ##Tools for creating player applications
