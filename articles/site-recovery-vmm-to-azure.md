@@ -35,7 +35,7 @@ Make sure you have these prerequisites in place:
 
 - You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. If you don't have one, start with a [free trial](http://aka.ms/try-azure). In addition you can read about [Azure Site Recovery Manager pricing](http://go.microsoft.com/fwlink/?LinkId=378268).
 - You'll need an Azure storage account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription. To learn more about setting up Azure storage, see [Introduction to Microsoft Azure Storage](http://go.microsoft.com/fwlink/?LinkId=398704).
-- You'll need to make sure that virtual machines you want to protect comply with Azure requirements. See [Virtual machine support](https://msdn.microsoft.com/en-us/library/azure/dn469078.aspx#BKMK_E2A) for details.
+- You'll need to make sure that virtual machines you want to protect comply with Azure requirements. See [Virtual machine support](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A) for details.
 
 ### VMM prerequisites
 - You'll need  VMM server running on System Center 2012 R2.
@@ -74,7 +74,7 @@ If you want to deploy network mapping you'll need the following:
 
 ## Step 1: Create a Site Recovery vault
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com) from the VMM server you want to register.
+1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register.
 
 
 2. Expand <b>Data Services</b>, expand <b>Recovery Services</b>, and click <b>Site Recovery Vault</b>.
