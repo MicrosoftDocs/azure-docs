@@ -64,7 +64,7 @@ You can also see a chart comparing your applications.
 ![Home5][6]
 
 You can use projects to group your applications and give permissions to your applications. The New projects button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created, you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. You can also delete this project, which will not destroy the applications it references. Nevertheless, you will lose access to all applications you do not own and that are not accessible from another project. So, be careful! 
-You can also invite a user to your project based on their e-mail address. Users need to have already created an account in Azure Mobile Engagement before you can grant them permissions. 
+You can also invite a user to your project based on their e-mail address.
 
 **Roles include:** 
 
