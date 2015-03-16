@@ -39,7 +39,7 @@ This tutorial requires the following:
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Android apps. 
 
-> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target="_blank").
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fhttp://azure.microsoft.com%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 

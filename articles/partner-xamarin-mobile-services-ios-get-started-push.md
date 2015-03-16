@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="3/15/2015"
+	ms.date="03/15/2015"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
@@ -200,16 +200,7 @@ Your mobile service is now configured to work with APNS.
 
 ## <a name="add-push"></a>Add push notifications to your app
 
-1. In Xamarin.Studio, open the AppDelegate.cs file and add the following property:
-
-        public string DeviceToken { get; set; }
-
-2. Open the **TodoItem** class and add the following property:
-
-        [JsonProperty(PropertyName = "deviceToken")]
-        public string DeviceToken { get; set; }
-
-3. In **QSTodoService**, override the existing client declaration to be:
+1. In Xamarin.Studio, open **QSTodoService**, override the existing client declaration to be:
 
         public MobileServiceClient client { get; private set; }
 
