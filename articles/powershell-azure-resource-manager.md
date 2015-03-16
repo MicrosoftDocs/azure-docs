@@ -99,11 +99,11 @@ You don't need to be an expert in Azure, SQL, websites, or resource management t
 
 2. Use the **Switch-AzureMode** cmdlet to import the cmdlets in the AzureResourceManager and AzureProfile modules. 
 
-        PS C:\> Switch-AzureMode AzureResourceManager`
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 3. To add your Azure account to the Windows PowerShell session, use the **Add-AzureAccount** cmdlet. 
 
-        PS C:\> Add-AzureAccount`
+        PS C:\> Add-AzureAccount
 
 The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Windows PowerShell. 
 
