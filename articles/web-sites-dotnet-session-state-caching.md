@@ -32,7 +32,7 @@ The basic steps to use the Cache Service (Preview) for session state caching inc
 * [Use the Session object to store and retrieve cached items.](#usesessionobject)
 
 <h2><a id="createcache"></a>Create the Cache</h2>
-Follow [these directions](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache) to create the cache.
+Follow [these directions](../cache-dotnet-how-to-use-azure-redis-cache/#create-cache) to create the cache.
 
 <h2><a id="configureproject"></a>Add the RedisSessionStateProvider NuGet package to your web app</h2>
 Install the NuGet `RedisSessionStateProvider` package.  Use the following command to install from the package manager console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
