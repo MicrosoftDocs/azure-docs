@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use ASP.NET session state with Azure Websites" 
+	pageTitle="Use ASP.NET session state with Azure Web Apps" 
 	description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -8,16 +8,16 @@
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/20/2015" 
+	ms.date="02/20/2015" 
 	ms.author="riande"/>
 
 
-# How to Use ASP.NET Session State with Azure Websites
+# How to Use ASP.NET Session State with Azure Web Apps
 
 
 This topic explains how to use the Azure Redis Cache Service (Preview) for session state.
