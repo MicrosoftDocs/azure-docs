@@ -41,7 +41,7 @@ To link to a page on ACOM (such as a pricing page, SLA page or anything else tha
 
     [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)
 
-To test your links, push your page to your fork, and view it in the rendered view or publish to Sandbox. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
+To test your links, push your page to your fork and view it in the rendered view and publish to Sandbox. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
 
 Our [markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md/) shows an alternate way to create crosslinks in markdown so all the crosslinks are coded together at the end of the article, even while they display inline. 
 
