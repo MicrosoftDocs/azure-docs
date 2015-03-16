@@ -16,7 +16,7 @@
    ms.date="02/27/2015"
    ms.author="hariag"/>
 
-##Creating a Trading Partner Agreement   
+#Creating a Trading Partner Agreement   
 
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners partake in establishing a relationship, this is referred to as an *Agreement*. The agreement defined is based on the communication the two partners wish to achieve and hence is protocol or transport specific. The various B2B protocols and transports supported by Azure App Services are:
 
@@ -28,7 +28,7 @@ Trading partners are the entities involved in B2B (Business-to-Business) communi
 
 The following API Apps enable the above capabilities via rich and intuitive experience in Azure Portal:
 
-**BizTalk Trading Partner Management i.e. TPM**
+##BizTalk Trading Partner Management i.e. TPM
 
 - Create and management of Partners, Profiles & Identities
 - Storage and management of EDI Schemas
@@ -37,18 +37,18 @@ The following API Apps enable the above capabilities via rich and intuitive expe
 - Create and management of EDIFACT Agreements (includes batching on the send side)
 - Create and management of X12 Agreements (includes batching on the send side)
 
-**AS2 Connector**
+##AS2 Connector
 
 - Executes AS2 Agreements as defined in the related TPM API App instance
 - Surfaces AS2 processing/tracking information for troubleshooting
 
-**BizTalk EDIFACT**
+##BizTalk EDIFACT
 
 - Executes EDIFACT Agreements as defined in the related TPM API App instance
 - Surfaces EDIFACT processing/tracking information for troubleshooting
 - Provides state management of batches (start and stop) as defined in EDIFACT Agreement(s) in the related TPM API App instance
 
-**BizTalk X12**
+##BizTalk X12
 
 - Executes X12 Agreements as defined in the related TPM API App instance 
 - Surfaces X12 processing/tracking information for troubleshooting
@@ -56,7 +56,7 @@ The following API Apps enable the above capabilities via rich and intuitive expe
 
 As stated above: AS2, X12 and EDIFACT API Apps require a TPM API App to function as expected.
 
-### Getting Started
+##Getting Started
 
 To create trading partner agreements:
 

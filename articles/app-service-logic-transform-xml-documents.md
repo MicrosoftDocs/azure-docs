@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Transform XML documents" 
 	description="Learn how to transform XML documents from one schema to another." 
-	authors="jtwist" 
+	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service-logic" 
@@ -9,21 +9,21 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="web"
+	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/05/2015"
-	ms.author="jtwist"/>
+	ms.author="anuragdalmia"/>
 
-##Transform XML documents
+#Transform XML documents
 
-###BizTalk Transform Service Overview
+##BizTalk Transform Service Overview
 
 BizTalk Transform API App converts data from one format to another format. You can create a transformation - a 'Map' between a 'Source Schema (XML Schema)' and a 'Target Schema (XML Schema)' in the Transform Designer in Visual Studio using the 'Microsoft Azure BizTalk Services SDK'.  You can use various inbuilt functions while creating your map, including string manipulations, conditional assignment, arithmetic expressions, date time formatters, and looping constructs. You can upload the map created in Visual Studio (.trfm) into BizTalk Transform API App.
 
 
-###Create a Transform Service API App
+##Create a Transform Service API App
 
 1.	Login to Azure Portal and go to homepage.
 
@@ -61,7 +61,7 @@ BizTalk Transform API App converts data from one format to another format. You c
 8.	Click on Create. Within a few minutes your BizTalk Transform Service API App will be created. 
 
 
-### Add a Map
+##Add a Map
 
 You can add the map (.trfm file) created in Visual Studio (VS) using ‘BizTalk Services SDK’ to the ‘BizTalk Transform Service API App’. Currently, it is only possible to use a map created in VS. To make any changes to the map, you need to edit the map in VS.
 
@@ -91,7 +91,7 @@ You can add the map (.trfm file) created in Visual Studio (VS) using ‘BizTalk 
 
 8.	Click on OK and a new map is created. It is shown in the list of maps.
 
-### Use a Transform APIApp in a Flow App
+##Use a Transform API App in a Flow App
 
 Once the map has been authored and tested, it is now ready for consumption. Users can create a new flow by doing New->Flow. 
 

@@ -16,14 +16,13 @@
    ms.date="02/27/2015"
    ms.author="andalmia"/>
 
-## Use BizTalk Rules 
+#Use BizTalk Rules 
 
 Business rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
 
 Implementing these policies in traditional programming languages requires substantial time and coordination, and does not enable non-programmers to participate in creation and maintenance of business policies. BizTalk Business Rules provides a way to rapidly implement these policies and decouple the rest of buisness process. This allows for making required changes to business policies without impacting the rest of the business process.
 
-
-## Why Rules
+##Why Rules
 
 There are 3 key reasons to use BizTalk Business Rules in business process:
 
@@ -31,9 +30,9 @@ There are 3 key reasons to use BizTalk Business Rules in business process:
 - Allow Business Analysts to have more control over business logic management
 + Changes to business logic go to production faster
 
-## Rules Concepts
+###Rules Concepts
 
-### Vocabulary
+##Vocabulary
 
 The terms used to define rule conditions and actions are usually expressed by domain or industry-specific nomenclature. For example, an e-mail user writes rules in terms of messages "received from" and messages "received after," while an insurance business analyst writes rules in terms of "risk factors" and "coverage amount."
 Underlying this domain-specific terminology are the technology artifacts (objects, database tables, and XML documents) that implement rule conditions and rule actions. Vocabularies are designed to bridge the gap between business semantics and implementation.
@@ -41,7 +40,7 @@ Underlying this domain-specific terminology are the technology artifacts (object
 For example, a data binding for an approval status might point to a certain column in a certain row in a certain database, represented as an SQL query. Instead of inserting this sort of complex representation in a rule, you might instead create a vocabulary definition, associated with that data binding, with a friendly name of "Status." Subsequently you can include "Status" in any number of rules, and the rule engine can retrieve the corresponding data from the table.
 A _vocabulary_ is a collection of definitions consisting of friendly names for the computing objects used in rule conditions and actions. Vocabulary definitions make the rules easier to read, understand, and share by people in a particular business domain.
 
-### Rule
+##Rule
 
 Business rules are declarative statements that govern the conduct of business processes. A rule consists of a condition and actions. The condition is evaluated, and if it evaluates to true, the rule engine initiates one or more actions.
 Rules in the Business Rules Framework are defined by using the following format:
@@ -56,30 +55,30 @@ Consider the following example:
 This rule determines whether a transaction will be conducted by applying business logic, in the form of a comparison of two monetary values, in the form of a transaction amount and available funds.
 You can use the Business Rule to create, modify, and deploy business rules. Alternatively, you can perform the preceding tasks programmatically.
 
-#### Conditions
+###Conditions
 
 A condition is a true/false (Boolean) expression that consists of one or more predicates.
 In our example, the predicate less than or equal to is applied to the amount and available funds. This condition will always evaluate to either true or false.
 Predicates can be combined with the logical operators AND, OR, and NOT to form a logical expression that is potentially quite large, but will always evaluate to either true or false.
 
-#### Actions
+###Actions
 
 Actions are the functional consequences of condition evaluation. If a rule condition is met, a corresponding action or actions are initiated.
 In our example, "conduct transaction" and "print receipt" are actions that are carried out when, and only when, the condition (in this case, "IF amount is less than or equal to available funds") is true.
 Actions are represented in the Business Rules Framework by performing set operations on XML documents.
 
-### Policy
+##Policy
 
 A policy is a logical grouping of rules. You compose a policy, save it, test it and, when you are satisfied with the results, use it in a production environment.
 
-#### Policy composition
+###Policy composition
 
 You can compose policies in the Rules portal. A policy can contain an arbitrarily large set of rules, but typically you compose a policy from rules that pertain to a specific business domain within the context of the application that will be using the policy.
 
-#### Policy testing
+###Policy testing
 You can effectively perform a test run of your policy before it is used in a production environment. The Rules Portal allows you to supply inputs to a policy, run the policy, and view its output. The output includes logs, rule execution, condition evaluation, and resulting outputs.
 
-## Sample Scenario - Insurance Claims
+##Sample Scenario - Insurance Claims
 Let’s take a sample scenario and walk through it as we compose the Business Logic for the same.
 
 ![Alt text][1]
@@ -92,7 +91,7 @@ The Claim Processing Unit in our scenario would be the one encompassing the Busi
 Let us now use Business Rules to implement this business logic.
 
 
-## Creation of Rules Api App
+##Creation of Rules Api App
 1.	Login to the Azure Portal and get to the home page. 
 2.	Click on New->Marketplace->API Apps->Biz Talk Rules->Create
  
@@ -106,7 +105,7 @@ Let us now use Business Rules to implement this business logic.
 	1. Location – Choose the geographic location where you would like the App to be deployed.
 4.	Click on Create. Within a few minutes your BizTalk Rules API App would be created.
 
-## Vocabulary Creation
+##Vocabulary Creation
 After creating a BizTalk Rules API App, the next step would be to create vocabularies. The expectation is that the developer is the more common persona to be doing this exercise. To do this follow the following steps:
 1.	Browse to the created API App by Browse->API Apps-><Your Rules API App>. This should get you to the Rules API App Dashboard similar to below:
  
@@ -115,7 +114,7 @@ After creating a BizTalk Rules API App, the next step would be to create vocabul
 2.	Next Click on “Vocabulary definitions”. This would show you the Vocabulary Authoring Screen. Click on “Add” to begin adding new vocabulary definitions.
 There are 2 types of vocabulary definitions currently supported – Literal and XML.
 
-### Literal Definition
+##Literal Definition
 1.	After clicking on “Add”, a new “Add Definition” Blade Opens up. Enter the following values
   1.	Name – only alphanumeric characters are expected without any special characters. This should also be unique to your existing vocabulary definition list.
   2.	Description – optional field.
@@ -127,7 +126,7 @@ There are 2 types of vocabulary definitions currently supported – Literal and 
     iv.	DateTime – this means that the def is of type date type. Data must be entered using this format – mm/dd/yyyy hh:mm:ss AM\PM  
     v.	Input – This is where you enter the value of your definition. The values entered here must conform to the chosen data type. User can either enter a single value, a set of values separated by commas, or a range of values using keyword to. For eg., user can enter unique value 1; a set 1, 2, 3; or a range 1 to 5. Note that range is only supported for number.
 
-### XML Definition
+##XML Definition
 1.	If Vocabulary Type is chosen as XML, the following inputs needs to be specified  
   a.	Schema – Clicking on this will open a new blade allowing user to either choose from a list of already uploaded schemas or allowing to upload a new one.   
   b.	XPATH – this input gets unlocked only after choosing a schema in the previous step. Clicking on this will display the schema that was selected and allows the user to select the node for which a vocabulary definition needs to be created.  
@@ -139,14 +138,14 @@ Clicking on “Add Bulk” will take you to a new blade. The first step is to se
 Now the XPATHS property gets unlocked. Clicking on this will open the Schema Viewer where multiple nodes can be selected.
 The names for the multiple definitions created will default to the name of the node selected. These can always be modified after creation.
 
-## Policy Creation
+##Policy Creation
 Once the developer has created required vocabularies, the expectation is that the Business Analyst would be the one creating Business Policies via the Azure Portal.  
 	1.	On the Rules App created, there is a Policy lens clicking which the user will go into the Policy creation page.  
 	2.	This page will show the list of policies, this particular Rules App has. User can add a new Policy by simply typing a policy name and hitting tab. Multiple policies can reside in a single Rules API App.  
 	3.	Clicking on the created Policy will take the user to the Policy details page where one can see the rules that are in the policy.  
 	4.	Click on “Add New” to add a new rule. This will take you to a new blade.
 
-### Rule Creation
+##Rule Creation
 A rule is collection of condition and action statements. The actions get executed if the condition evaluates to true. In the Create Rule blade, give a unique rule name (for that policy) and description (optional).
 The Condition box can be used to create complex conditional statements. Following are the keywords supported:  
 1. 	And – conditional operator  
@@ -176,18 +175,18 @@ The Action(Then) box can contain multiple statements, one per line, to create ac
 
 Condition and action boxes provide Intellisense to help user author a rule quickly. This can be triggered by hitting ctrl+space or by just starting to type. Keywords matching typed characters will automatically be filtered down and shown. The intellisense window will show all keywords and vocabulary definitions.
 
-### Explicit Forward Chaining
+##Explicit Forward Chaining
 BizTalk Rules supports explicit forward chaining. What this means is that if users would like to re-evaluate rules in response to certain actions, they can trigger this by using certain keywords. The following are the keywords supported:  
    1.	update <vocabulary definition> – this keyword re-evaluates all rules that use the specified vocabulary definition in its condition.  
    2.	Halt – this keyword stops all rule executions
 
-### Enable\Disable Rules
+##Enable\Disable Rules
 Each rule in the policy can be enabled or disabled. By default all rules are enabled. Disabled rules wont be executed during policy execution. Enable\Disable rules can be done either from the rule blade directly – the commands are available in the command bar at the top of the blade, or from the policy, the context menu (right-click on a rule) has the option to enable\disable.
 
-### Rule Priority
+##Rule Priority
 All the rules of a policy are executed in order. The priority of execution is determined by the order in which they occur in the policy. This priority can be changed by simply dragging and dropping the rule. 
 
-### Test Policy
+##Test Policy
 After authoring your policy, before using it in production, there is provision for testing the policy. By using the “Test Policy” command, users can get into the Test Policy blade. In this blade you can see a list of vocabulary definitions that are used in the policy that require a user input. Users can manually add values for these inputs for their test scenario. Alternately, users can also choose to import test XMLs for inputs. Once all the inputs are in, the test can be run and the outputs for each vocabulary definition will be displayed in the output column for easy comparison. To view Business Analyst friendly logs, click on “View Logs” to view the execution logs. To save the logs, the “Save Output” option is available to store all test related data for independent analysis.
 
 ## Using Rules in Logic Apps
