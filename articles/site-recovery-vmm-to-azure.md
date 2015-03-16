@@ -157,7 +157,7 @@ After the Provider is installed continue setup to register the server in the vau
 If you don't ave an Azure storage account click **Add an Azure Storage Account**. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.
 
 
-![Storage account](./media/hyper-v-recovery-manager-configure-vault/SR_E2AStorageAgent.png)
+![Storage account](./media/site-recovery-vmm-to-azure/ASRE2AVMM_StorageAgent.png)
 
 ## Step 5: Install the Azure Recovery Services Agent
 
@@ -165,7 +165,7 @@ Install the Azure Recovery Services agent on each Hyper-V host server located in
 
 1. On the Quick Start page, click <b>Download Azure Site Recovery Services Agent and install on hosts</b> to obtain the latest version of the agent installation file.
 
-	![Install Recovery Services Agent](./media/site-recovery-vmm-to-azure/?ASRE2AVMM_E2AInstallHyperVAgent.png)
+	![Install Recovery Services Agent](./media/site-recovery-vmm-to-azure/?ASRE2AVMM_InstallHyperVAgent.png)
 
 2. Run the installation file on each Hyper-V host server that's located in VMM clouds you want to protect.
 3. On the **Prerequisites Check** page click <b>Next</b>. Any missing prerequisites will be automatically installed.
@@ -191,7 +191,7 @@ After the VMM server is are registered, you can configure cloud protection setti
 8. In <b>Frequency of application-consistent snapshots</b>, leave the default setting. This value specifies how often to create snapshots. Snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.  If you do set a value, make sure it's less than the number of additional recovery points you configure.
 9. In <b>Replication start time</b>, specify when initial replication of data to Azure should start. The timezone on the Hyper-V host server will be used. We recommend that you schedule the initial replication during off-peak hours. 
 
-	![Cloud replication settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_CloudSettingsE2A.png)
+	![Cloud replication settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_CloudSettings.png)
 
 After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. All Hyper-V host servers in the VMM source cloud will be configured for replication.
 

@@ -51,7 +51,7 @@ Make sure you have these prerequisites in place:
 	- One or more virtual machines on the host server. 
 - Learn more about setting up VMM clouds:
 	- Read more about private VMM clouds in [What’s New in Private Cloud with System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) and in [VMM 2012 and the clouds](http://go.microsoft.com/fwlink/?LinkId=324956). 
-	- Learn about [Configuring the VMM cloud fabric](https://msdn.microsoft.com/en-us/library/azure/dn469075.aspx#BKMK_Fabric)
+	- Learn about [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
 	- After your cloud fabric elements are in place learn about creating private clouds in  [Creating a private cloud in VMM](http://go.microsoft.com/fwlink/?LinkId=324953) and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/?LinkId=324954).
 
 ### Hyper-V prerequisites
@@ -78,7 +78,7 @@ For instructions see [How to create storage classifications in VMM](http://go.mi
 
 ## Step 1: Create a Site Recovery vault
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com) from the VMM server you want to register.
+1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register.
 
 2. Expand **Data Services** > **Recovery Services** and click **Site Recovery Vault**.
 
