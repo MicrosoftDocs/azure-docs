@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/13/2015" 
 	ms.author="josephd"/>
 
-#Set up a simulated hybrid cloud environment for testing
+# Set up a simulated hybrid cloud environment for testing
 
 This topic steps you through creating a simulated hybrid cloud environment with Microsoft Azure for testing using two separate Azure virtual networks. Use this configuration as an alternative to 
-[Set up a hybrid cloud environment for testing](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
+[Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing/) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
 
 ![](./media/virtual-networks-set-up-simulated-hybrid-cloud-environment-for-testing/CreateSimHybridCloud_4.png)
 
@@ -47,8 +47,7 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
 
-
-##Phase 1: Configure the TestLab virtual network
+## Phase 1: Configure the TestLab virtual network
 
 Use the instructions in the [Test Lab Guide: Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
@@ -63,7 +62,7 @@ This is your current configuration.
 
 ![](./media/virtual-networks-set-up-simulated-hybrid-cloud-environment-for-testing/CreateSimHybridCloud_1.png)
  
-##Phase 2: Create the TestVNET virtual network
+## Phase 2: Create the TestVNET virtual network
 
 First, create a new virtual network named TestVNET.
 
@@ -151,7 +150,7 @@ This is your current configuration.
 
 ![](./media/virtual-networks-set-up-simulated-hybrid-cloud-environment-for-testing/CreateSimHybridCloud_3.png)
  
-##Phase 4: Configure DC2
+## Phase 4: Configure DC2
 
 First, create an Azure Virtual Machine for DC2. Run these commands at the Azure PowerShell command prompt on your local computer.
 
@@ -224,14 +223,14 @@ You can also build these configurations in this test environment:
 - [Web-based LOB application](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 - [Office 365 Directory Synchronization (DirSync) server](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-##Additional Resources
+## Additional Resources
 
 [Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
 [Configure a VNet to VNet Connection](http://msdn.microsoft.com/library/azure/dn690122.aspx)
 
 
-##<a id="costs"></a>Minimizing the ongoing costs of this environment
+## <a id="costs"></a>Minimizing the ongoing costs of this environment
 
 To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the TestLab and Test_VNET virtual networks at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples/). When you start the virtual machines on the Corpnet subnet again, start DC1 first.
 

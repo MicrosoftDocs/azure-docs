@@ -27,46 +27,6 @@ This guide assumes that you have prior experience using [Azure Storage](http://a
 
 The first section in this guide provides a quick glance at Azure Storage and PowerShell. For detailed information and instructions, start from the [Prerequisites for using Azure PowerShell with Azure Storage](#pre).
 
-## Table of contents
-  
- - [Getting started with Azure Storage and PowerShell in 5 minutes][]
- - [Prerequisites for using Azure PowerShell with Azure Storage][] 
- - [How to manage storage accounts in Azure][]
-	 - [How to set a default Azure subscription][]
-	 - [How to create a new Azure storage account][]
-	 - [How to set a default Azure storage account][]
-	 - [How to list all Azure storage accounts in a subscription][]
-	 - [How to create an Azure storage context][]
- - [How to manage Azure blobs and blob snapshots][]
-	 - [How to create a container][]
-	 - [How to upload a blob into a container][]
-	 - [How to download blobs from a container][]
-	 - [How to copy blobs from one storage container to another][]
-	 - [How to delete a blob][]
-	 - [How to manage Azure blob snapshots][]
-	 	- [How to create a blob snapshot][]
-	 	- [How to list snapshots of a blob][]
-	 	- [How to copy a snapshot of a blob][]
- - [How to manage Azure tables and table entities][]
-	 - [How to create a table][]
-	 - [How to retrieve a table][]
-	 - [How to delete a table][]
-	 - [How to manage table entities][]
-	 	- [How to add table entities][]
-	 	- [How to query table entities][]
-	 	- [How to delete table entities][]
- - [How to manage Azure queues and queue messages][]
-	 - [How to create a queue][]
-	 - [How to retrieve a queue][]
-	 - [How to delete a queue][]
-	 - [How to manage queue messages][]
-	 	- [How to insert a message into a queue][]
-	 	- [How to de-queue at the next message][]
- - [How to manage Azure file shares and files][]
- - [How to set and query storage analytics][]
- - [How to manage Shared Access Signature (SAS) and Stored Access Policy][]
- - [How to use Azure Storage for U.S. government and Azure China][]
- - [Next Steps][]
  
 ## <a name="getstart"></a>Getting started with Azure Storage and PowerShell in 5 minutes
 This section shows you how to access Azure Storage via PowerShell in 5 minutes. 

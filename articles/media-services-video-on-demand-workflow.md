@@ -85,6 +85,11 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 
 This article contains links to topics that show how to set up your development environment and perform tasks mentioned above.
 
+
+##Concepts
+
+For concepts related to delivering your content on demand, see [Media Services Concepts](../media-services-concepts).
+
 ##Creating a Media Services account
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
@@ -152,9 +157,7 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 Create a content key with which you want to encrypt your asset using **.NET** or **REST API**.
 
-[Create content key with .NET](../media-services-rest-create-contentkey)
-
-[Create content key with REST API](../media-services-dotnet-create-contentkey)
+[AZURE.INCLUDE [media-services-selector-create-contentkey](../includes/media-services-selector-create-contentkey.md)]
 
 ##Configuring content key authorization policy 
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.date="03/12/2015"
    ms.author="larryfr"/>
 
 
@@ -56,7 +56,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 2. Click **HDInsight** on the left, and then **+NEW** in the lower-left corner of the page.
 
-3. Click the HDInsight icon in the second column, and then select **QUICK CREATE**.
+3. Click the HDInsight icon in the second column, and then select **STORM**.
 
 	![quick create](./media/hdinsight-storm-getting-started/quickcreate.png)
 
