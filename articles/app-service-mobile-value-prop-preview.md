@@ -38,7 +38,7 @@ Azure App Service is a fully managed Platform as a Service (PaaS) offering for p
 - **Auto Scaling** - App Service enables you to quickly scale-up or out to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling to scale your mobile app backend based on load or schedule.
 
 ## Getting Started ##
-To get started with Web Apps, follow the [Get Started] tutorial.
+To get started with Mobile Apps, follow the [Get Started] tutorial.
 
 For more information on Azure App Service platform, see [Azure App Service].
 
