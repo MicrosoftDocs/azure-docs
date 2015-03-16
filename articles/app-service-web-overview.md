@@ -10,10 +10,10 @@
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
-	ms.tgt_pltfrm=""
-	ms.devlang=""
-	ms.topic=""
-	ms.date="2/24/2015"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/24/2015"
 	ms.author="jaime.espinosa"/>
 
 #What are Web Apps?
