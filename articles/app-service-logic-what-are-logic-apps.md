@@ -46,6 +46,8 @@ Logic Apps allow developers to design workflows that articulate intent via a tri
 
 ## Logic App Concepts
 
+The following are some of the key pieces that comprise the Logic Apps experience. 
+
 - **Workflow** - Logic Apps provides a graphical way to model your business processes as a series of steps or a workflow.
 - **Connectors** - Your logic apps need access to data and services. A type of API App, a connector is a special type of API app created specifically to aid in connecting to and working with data easily. Find our more in [what are Connectors][biztalk].
 - **Triggers** - Some connectors can also act as a trigger, starting a new instance of a workflow based on a specific event, like the arrival of an e-mail or a change in your Azure Storage account.
