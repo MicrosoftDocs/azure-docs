@@ -34,7 +34,7 @@ As an administrator, you can add Search to an existing subscription at no cost w
 
      ![][3]
 
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/en-us/library/azure/dn857353.aspx) for more information about naming conventions. 
+	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions. 
 	
 	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels. 
 	

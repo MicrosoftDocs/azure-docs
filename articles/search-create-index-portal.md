@@ -80,7 +80,7 @@ The portal is different. In the portal, search behaviors are off by default so t
 
 Although the index is defined, it won't be ready to use until you load documents. To do this easily, continue on with [How to use Fiddler with Azure Search](../search-fiddler/), at **Load Documents**. You can then follow the remaining steps in that article to run some queries.
 
-Once you are comfortable with the basic index, consider adding a language analyzer or suggester to add multilanguage support or type-ahead suggestions. Both features are specified in the index schema. See [Language Support](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx) and [Create Index](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx) for more information.
+Once you are comfortable with the basic index, consider adding a language analyzer or suggester to add multilanguage support or type-ahead suggestions. Both features are specified in the index schema. See [Language Support](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx) and [Create Index](https://msdn.microsoft.com/library/azure/dn798941.aspx) for more information.
 
 <!--Image references-->
 [1]: ./media/search-create-index-portal/AzureSearch-PortalIndex-1.PNG

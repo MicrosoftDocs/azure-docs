@@ -78,7 +78,7 @@ The remainder of this section covers a few points about each project. Where appr
 
 To keep things simple, the data is embedded within the solution, in a text file generated from data on the [United States Geological Services (USGS) web site](http://geonames.usgs.gov/domestic/download_data.htm). 
 
-Alternatives to embedding data include [indexers for DocumentDB](./documentdb-search-indexer/) or [indexers for Azure SQL Database](./search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
+Alternatives to embedding data include [indexers for DocumentDB](../documentdb-search-indexer/) or [indexers for Azure SQL Database](../search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
 
 You can also load data from an on premises SQL Server database. [This tutorial](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) shows you how.
 
@@ -98,7 +98,7 @@ This is the first Azure Search tutorial based on the USGS dataset. Over time, we
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/en-us/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
 
 <!--Image references-->
 [1]:./media/search-get-started-20150228/consolemessages.png
