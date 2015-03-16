@@ -29,7 +29,7 @@ To link to an anchor in another article:
     [link text](article-name.md#anchor-name)
     [Configure your profile](media-services-create-account.md#configure-your-profile)
 
-Since Includes are located in another directory, you will need to use relative paths as below:
+Since includes are located in another directory, you will need to use relative paths as below:
 
     > [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
     - [(Text1 | Example1 )](../articles/example-azure-note.md)
