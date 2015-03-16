@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
+	ms.date="03/16/2015" 
 	ms.author="jgao"/>
 
 
@@ -21,23 +21,29 @@
 
 Learn how to manage Azure Stream Analytics resources using Azure PowerShell.
 
->[WACOM.NOTE] The following error messages indicates that Azure Stream Analytics is not enabled on the subscription:
->
-	Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
-
->To resolve this issue, please enable Stream Analytics preview on the subscription and then run the following cmdlets to switch the subscription:
->
-	Select-AzureSubscription –SubscriptionId xxxxxxxx -Default
-  	Select-AzureSubscription –SubscriptionId xxxxxxxx -Current 
-
-
 ## Prerequisites for running Stream Analytics PowerShell cmdlets
 
-1.	Install and configure Azure PowerShell
+1.	Install and configure Azure PowerShell.
 
 	Follow the instructions on [How to install and configure Azure PowerShell][powershell-install] to install Azure PowerShell.
 
-2.	Configure Azure mode
+	To connecto to your Azure subscription using the Azure AD method:
+
+		Add-AzureAccount
+
+	To select your Azure subscription with Azure Stream Analytics service enabled:
+
+		Select-AzureSubscription
+
+	>[WACOM.NOTE] The following error messages indicates that Azure Stream Analytics is not enabled on the subscription:
+	>
+		Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
+	
+	>To resolve this issue, please enable Stream Analytics preview on the subscription and then run the following cmdlets to switch the subscription:
+	>
+		Select-AzureSubscription –SubscriptionId xxxxxxxx
+
+2.	Configure Azure mode.
 
 	After installing Azure PowerShell, run the [Switch-AzureMode][msdn-switch-azuremode] cmdlet to set the appropriate Azure mode to access Stream Analytics cmdlets:
 
@@ -59,26 +65,26 @@ This command returns information about all the Stream Analytics jobs in the Azur
 
 **Example 2**
 
-	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US 
-This command returns information about all the Stream Analytics jobs in the resource group StreamAnalytics-Default-West-US.
+	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
+This command returns information about all the Stream Analytics jobs in the resource group StreamAnalytics-Default-Central-US.
 
 **Example 3**
 
-	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US -Name StreamingJob
-This command returns information about the Stream Analytics job StreamingJob in the resource group StreamAnalytics-Default-West-US.
+	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
+This command returns information about the Stream Analytics job StreamingJob in the resource group StreamAnalytics-Default-Central-US.
 
 ### Get-AzureStreamAnalyticsInput
 Lists all of the inputs that are defined in a specified Stream Analytics job or gets information about a specific input.
 
 **Example 1**
 
-	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob
+	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
 This command returns information about all the inputs defined on the job StreamingJob.
 
 **Example 2**
 
-	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob –Name EntryStream
+	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
 This command returns information about the input named EntryStream defined on the job StreamingJob.
 
 ### Get-AzureStreamAnalyticsOutput
@@ -86,12 +92,12 @@ Lists all of the outputs that are defined in a specified Stream Analytics job or
 
 **Example 1**
 
-	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob
+	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 This command returns information about the outputs defined on the job StreamingJob.
 
 **Example 2**
 
-	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob –Name Output
+	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
 This command returns information about the output named Output defined on the job StreamingJob.
 
 ### Get-AzureStreamAnalyticsQuota
@@ -99,15 +105,15 @@ Gets information about the Streaming Unit quota of a specified region.
 
 **Example 1**
 
-	Get-AzureStreamAnalyticsQuota –Location "West US" 
-This command returns information about Streaming Unit quota and usage in the West US region.
+	Get-AzureStreamAnalyticsQuota –Location "Central US" 
+This command returns information about Streaming Unit quota and usage in the Central US region.
 
 ### Get-AzureStreamAnalyticsTransformation
 Gets information about a specific transformation defined on Stream Analytics job.
 
 **Example 1**
 
-	Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob –Name StreamingJob
+	Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
 This command returns information about the transformation called StreamingJob on the job StreamingJob.
 
 ### New-AzureStreamAnalyticsInput
@@ -121,17 +127,17 @@ If you specify –Force parameter and specify an existing input name, the input 
 
 **Example 1**
 
-	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob –File "C:\Input.json" 
+	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
 This command creates a new input from the file Input.json.  If an existing input with the name specified in the input definition file is already defined, the cmdlet will ask whether or not to replace it.
 
 **Example 2**
 	
-	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
+	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
 This command creates a new input on the job called EntryStream.  If an existing input with this name is already defined, the cmdlet will ask whether or not to replace it.
 
 **Example 3**
 
-	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-West-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
+	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
 This command replaces the definition of the existing input source called EntryStream with the definition from file.
 
 ### New-AzureStreamAnalyticsJob
@@ -145,12 +151,12 @@ If you specify –Force parameter and specify an existing job name, the job defi
 
 **Example 1**
 
-	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US –File "C:\JobDefinition.json" 
+	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
 This command creates a new job from the definition in JobDefinition.json.  If an existing job with the name specified in the job definition file is already defined, the cmdlet will ask whether or not to replace it.
 
 **Example 2**
 
-	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
+	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
 This command replaces the job definition for StreamingJob.
 
 ### New-AzureStreamAnalyticsOutput
@@ -164,12 +170,12 @@ If you specify –Force parameter and specify an existing output name, the outpu
 
 **Example 1**
 
-	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-West-US –File "C:\Output.json" –JobName StreamingJob –Name output
+	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
 This command creates a new output called "output" in the job StreamingJob.  If an existing output with this name is already defined, the cmdlet will ask whether or not to replace it.
 
 **Example 2**
 
-	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-West-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
+	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
 This command replaces the definition for "output" in the job StreamingJob.
 
 ### New-AzureStreamAnalyticsTransformation
@@ -183,12 +189,12 @@ If you specify –Force parameter and specify an existing transformation name, t
 
 **Example 1**
 
-	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-West-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
+	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
 This command creates a new transformation called StreamingJobTransform in the job StreamingJob.  If an existing transformation is already defined with this name, the cmdlet will ask whether or not to replace it.
 
 **Example 2**
 
-	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-West-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
+	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
  This command replaces the definition of StreamingJobTransform in the job StreamingJob.
 
 ### Remove-AzureStreamAnalyticsInput
@@ -197,7 +203,7 @@ If you specify –Force parameter the input will be deleted without confirmation
 
 **Example 1**
 	
-	Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-West-US –JobName StreamingJob –Name EventStream
+	Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
 This command removes the input EventStream in the job StreamingJob.  
 
 ### Remove-AzureStreamAnalyticsJob
@@ -206,7 +212,7 @@ If you specify –Force parameter the job will be deleted without confirmation.
 
 **Example 1**
 
-	Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US –Name StreamingJob 
+	Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 This command removes the job StreamingJob.  
 
 ### Remove-AzureStreamAnalyticsOutput
@@ -215,7 +221,7 @@ If you specify –Force parameter the output will be deleted without confirmatio
 
 **Example 1**
 
-	Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-West-US –JobName StreamingJob –Name Output
+	Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 This command removes the output Output in the job StreamingJob.  
 
 ### Start-AzureStreamAnalyticsJob
@@ -223,7 +229,7 @@ Asynchronously deploys and starts a Stream Analytics job in Microsoft Azure.
 
 **Example 1**
 
-	Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
+	Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
 
 This command starts the job “StreamingJob” with a custom output start time set to December 12, 2012 12:12:12 UTC.
 
@@ -233,7 +239,7 @@ Asynchronously stops a Stream Analytics job from running in Microsoft Azure and 
 
 **Example 1**
 
-	Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-West-US –Name StreamingJob 
+	Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 This command stops the job StreamingJob.  
 
 ### Test-AzureStreamAnalyticsInput
@@ -241,7 +247,7 @@ Tests the ability of Stream Analytics to connect to a specified input.
 
 **Example 1**
 
-	Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-West-US –JobName StreamingJob –Name EntryStream
+	Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
 This tests the connection status of the input EntryStream in StreamingJob.  
 
 ###Test-AzureStreamAnalyticsOutput
@@ -249,7 +255,7 @@ Tests the ability of Stream Analytics to connect to a specified output.
 
 **Example 1**
 
-	Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-West-US –JobName StreamingJob –Name Output
+	Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 This tests the connection status of the output Output in StreamingJob.  
 
 

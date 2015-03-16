@@ -93,10 +93,11 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 10. [Image Gallery](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
 11. [How to: Use CoreOS on Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-coreos-how-to/)
-12. [Blog: TechEd Europe -- Windows Docker Client and Linux Containers](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
-13. [Blog: Azure's getting bigger, faster, and more open](http://azure.microsoft.com/blog/2014/10/20/azures-getting-bigger-faster-and-more-open/)
-14. [GitHub: Quickstart for Deploying CoreOS on Azure](https://github.com/timfpark/coreos-azure)
-15. [GitHub: Deploying Java app with Spring Boot, MongoDB, and CoreOS](https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init)
+12. [How to: Get Started with Fleet and Docker on CoreOS on Azure](../virtual-machines-linux-coreos-fleet-get-started/)
+13. [Blog: TechEd Europe -- Windows Docker Client and Linux Containers](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
+14. [Blog: Azure's getting bigger, faster, and more open](http://azure.microsoft.com/blog/2014/10/20/azures-getting-bigger-faster-and-more-open/)
+15. [GitHub: Quickstart for Deploying CoreOS on Azure](https://github.com/timfpark/coreos-azure)
+16. [GitHub: Deploying Java app with Spring Boot, MongoDB, and CoreOS](https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init)
 
 #### [Oracle Linux](http://azure.microsoft.com/marketplace/?term=Oracle+Linux)
   2. [Prepare an Oracle Linux Virtual Machine for Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-oracle/)
@@ -291,5 +292,5 @@ Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-
 [Support, Troubleshooting, and "It Just Doesn't Work"]: #supportdebug
 
 <!--Link references--In actual articles, you only need a single period before the slash.>
-[How to use docker-machine with Azure]: ../virtual-machines-docker-machine/
+[How to use docker-machine on Azure]: ../virtual-machines-docker-machine/
 [How to use docker with swarm on Azure]: ../virtual-machines-docker-swarm/
