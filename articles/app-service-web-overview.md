@@ -22,7 +22,7 @@ Azure App Service is a fully managed Platform as a Service (PaaS) offering for p
 
 Leverage the power of Azure App Service Web Apps to use the languages and frameworks you know and depend on, deploy your applications quickly to the Azure Cloud and continuously improve your code without having to worry about infrastructure ever again.
 
-![Web Marketplace](./media/website-from-gallery/marketplace.png)
+![Web Marketplace](./media/app-service-web-overview/marketplace.png)
 
 ## More than just Websites ##
 
