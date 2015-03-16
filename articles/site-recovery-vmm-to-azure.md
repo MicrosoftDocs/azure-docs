@@ -165,7 +165,7 @@ Install the Azure Recovery Services agent on each Hyper-V host server located in
 
 1. On the Quick Start page, click <b>Download Azure Site Recovery Services Agent and install on hosts</b> to obtain the latest version of the agent installation file.
 
-	![Install Recovery Services Agent](./media/site-recovery-vmm-to-azure/?ASRE2AVMM_InstallHyperVAgent.png)
+	![Install Recovery Services Agent](./media/site-recovery-vmm-to-azure/ASRE2AVMM_InstallHyperVAgent.png)
 
 2. Run the installation file on each Hyper-V host server that's located in VMM clouds you want to protect.
 3. On the **Prerequisites Check** page click <b>Next</b>. Any missing prerequisites will be automatically installed.
