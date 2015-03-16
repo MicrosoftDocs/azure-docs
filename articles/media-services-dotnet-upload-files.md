@@ -21,7 +21,7 @@
 #Upload Files into a Media Services account using .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](./media-services-video-on-demand-workflow.md) series. 
 
 In Media Services, you upload (or ingest) your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
 
@@ -37,9 +37,9 @@ If you plan to deliver an MP4 using progressive download, use this option.
 
 	Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).
 
-	If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](../media-services-dotnet-configure-asset-delivery-policy).
+	If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy]./(media-services-dotnet-configure-asset-delivery-policy.md).
 
-If you specify for your asset to be encrypted with a **CommonEncrypted** option, or an **EnvelopeEncypted** option, you will need to associate your asset with a **ContentKey**. For more information, see [How to create a ContentKey](../media-services-dotnet-create-contentkey). 
+If you specify for your asset to be encrypted with a **CommonEncrypted** option, or an **EnvelopeEncypted** option, you will need to associate your asset with a **ContentKey**. For more information, see [How to create a ContentKey](./media-services-dotnet-create-contentkey.md). 
 
 If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET will create a **StorateEncrypted** **ContentKey** for your asset.
 
