@@ -21,7 +21,7 @@ To create an inline link to a page in the same directory as the current page (th
 
 To link to an anchor within the same article:
 
-    [link text](article-name.md#anchor-name
+    [link text](article-name.md#anchor-name)
     [Create cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)
 
 To link to an anchor in another article:
