@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.date="03/16/2015"
    ms.author="nitinme"/>
 
 
@@ -71,6 +71,8 @@ Before you begin this tutorial, you must have the following:
 HDInsight uses Azure Blob Storage for storing data. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
 When you provision an HDInsight cluster, you specify an Azure Storage account. A specific blob container from that account is designated as the default file system, like in the Hadoop distribute file system (HDFS). By default, the HDInsight cluster is provisioned in the same datacenter as the storage account you specify.
+
+>[WACOM.NOTE] Don't share a default Blob storage container with multiple HDInsight clusters. 
 
 In addition to this storage account, you can add additional storage accounts when you custom configure an HDInsight cluster. This additional storage account can be from the same Azure subscription or from different Azure subscriptions. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. 
 

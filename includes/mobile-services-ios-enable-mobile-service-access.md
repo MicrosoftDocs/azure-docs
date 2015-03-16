@@ -4,10 +4,10 @@ Now, let's update the app to store items in Azure Mobile Services instead of the
 1. In **TodoService.h**, locate the following line:
 
 ```
-// TODO - create an MSClient proeprty
+// TODO - create an MSClient property
 ```
 
-   Replace this comment with the following line. This creates a property that represents the `MSClient` to connect to the service.
+Replace this comment with the following line. This creates a property that represents the `MSClient` to connect to the service.
 
 ```
 @property (nonatomic, strong)   MSClient *client;
@@ -19,7 +19,7 @@ Now, let's update the app to store items in Azure Mobile Services instead of the
 // TODO - create an MSTable property for your items
 ```
 
-   	Replace this comment with the following line inside the `@interface` declaration. This creates a property representation for your mobile services table.
+Replace this comment with the following line inside the `@interface` declaration. This creates a property representation for your mobile services table.
 
 ```
 @property (nonatomic, strong)   MSTable *table;
@@ -33,7 +33,7 @@ Now, let's update the app to store items in Azure Mobile Services instead of the
 // Initialize the Mobile Service client with your URL and key.
 ```
 
-    After this comment, add the following line of code. Replace `APPURL` and `APPKEY` with the site URL and application key you obtained in the previous step.
+After this comment, add the following line of code. Replace `APPURL` and `APPKEY` with the site URL and application key you obtained in the previous step.
 
 ```
 self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
@@ -57,7 +57,7 @@ self.table = [self.client tableWithName:@"TodoItem"];
 // Create a predicate that finds items where complete is false
 ```
 
-  Replace this comment with the following line. This creates a query to return all tasks that have not yet been completed.
+Replace this comment with the following line. This creates a query to return all tasks that have not yet been completed.
 
 ```
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
@@ -98,7 +98,7 @@ self.items = [results mutableCopy];
 // Update the item in the TodoItem table and remove from the items array on completion
 ```
 
-    Replace the body of the method, from that point to the end of the method, with the following code. This code removes todo items after they are marked as completed.
+Replace the body of the method, from that point to the end of the method, with the following code. This code removes todo items after they are marked as completed.
 
 ```
 // Update the item in the TodoItem table and remove from the items array on completion
