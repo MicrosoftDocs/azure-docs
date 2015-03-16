@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade SQL Database Web/Business Databases to New Service Tiers" 
-	description="Upgrade Azure SQL Database Web or Business database to the new Azure SQL Database service tiers/performance levels." 
+	pageTitle="Upgrade SQL Database Web or Business Databases to New Service Tiers" 
+	description="Upgrade Azure SQL Database Web or Business database to the new Azure SQL Database service tiers/performance levels. Upgrade SQL Database, Change Service Tiers, Change Performance Level." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="jenniehubbard" 
@@ -8,12 +8,13 @@
 	editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.date="2/10/2015" 
-	ms.author="jhubbard" 
-	ms.workload="" 
-	ms.topic="" 
-	ms.tgt_pltfrm=""/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="03/12/2015" 
+	ms.author="jhubbard; v-stste@microsoft.com" 
+	ms.workload="data-services" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="NA"/>
 
 
 # Upgrade SQL Database Web or Business Databases to New Service Tiers
@@ -88,7 +89,21 @@ The Azure SQL Database service exposes information in the management portal, and
 Since Web and Business databases do not have any guaranteed DTUs/resource limits associated with them, we normalize the percentage values in terms of the amount of resources available to an S2 performance level database. The average DTU percentage consumption of a database at any specific interval can be calculated as the highest percentage value among CPU, IO and Log usage at that interval.
 
 
-Use the management portal for a high-level overview of DTU percentage usage, and then drill into the details using system views.
+Use the management portal for a high-level overview of DTU percentage usage, and then drill into the details using system views. 
+
+You can also use the new Azure management portal to view the recommended service tier for your Web or Business database when you upgrade a server to Azure SQL Database V12 ([at preview in some regions](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)).
+
+### How to view the recommended service tier in the new Azure Management Portal
+The management portal recommends the appropriate service tier for your Web or Business database during the process of upgrading a server to Azure SQL Database V12. The recommendation is based on a historical analysis of the resource consumption of the database.
+
+**New Management Portal**
+
+1. Log on to the [new management portal](https://portal.azure.com) and navigate to a server containing a Web or Business database.
+2. Click the **Latest Update** part in the server blade.
+3. Click **Upgrade this server**.
+
+The **Upgrade this server** blade now shows a list of Web or Business databases on the server along with the recommended service tier.
+
 
 
 ### How to view DTU consumption in the Management Portal
@@ -219,7 +234,7 @@ After you determine the appropriate service tier and performance level for your 
 | Management Tool | To change the service tier and performance level of a database|
 | :---| :---|
 | [Azure Management Portal](https://manage.windowsazure.com) | click the **SCALE** tab on your database's dashboard page. |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use the [Set-AzureSqlDatabase](http://msdn.microsoft.com/en-us/library/azure/dn546732.aspx) cmdlet. |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use the [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx) cmdlet. |
 | [Service Management REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) | use the [Update Database](http://msdn.microsoft.com/library/dn505718.aspx) command.|
 | [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | use the [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) statement. |
 
@@ -264,7 +279,7 @@ Additional [documentation](http://msdn.microsoft.com/library/dn800981.aspx) cont
 
 - **Alerts:** Set up 'Alerts' in the Azure Management Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Management Portal for various performance metrics like DTU, CPU, IO, and Log. 
 
-	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://msdn.microsoft.com/en-us/library/azure/dn306638.aspx) to learn more about how to configure alert notifications.
+	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://msdn.microsoft.com/library/azure/dn306638.aspx) to learn more about how to configure alert notifications.
 
 
 - **Scheduled performance level upgrade/downgrade:** If your application has specific scenarios that require more performance only at certain times of the day/week, you can use [Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx) to upsize/downsize your database to a higher/lower performance level as a planned operation.

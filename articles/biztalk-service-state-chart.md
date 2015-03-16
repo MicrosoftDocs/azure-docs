@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk Services: Service state chart | Azure" 
+	pageTitle="Tasks allowed in different states or statuses in BizTalk Services | Azure" 
 	description="The actions/operations allowed in different MABS status: stop, start, restart, suspend, resume, delete, scale, update configuration, and backing up" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
+	ms.date="02/25/2015" 
 	ms.author="mandia"/>
 
 
@@ -29,7 +29,7 @@ To provision a BizTalk Service, refer to [BizTalk Services: Provisioning Using A
 
 The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state. A check mark means the operation is allowed while in that state. A blank entry means the operation cannot be performed while in that state.
 
-#### Start, Stop, Restart, Suspend, Resume, and Delete Operations
+## Start, Stop, Restart, Suspend, Resume, and Delete Operations
 <table border="1">
 <tr>
         <th colspan="15">Operation or Action</th>
@@ -162,7 +162,7 @@ RestoreFailed<br/></b></td>
 </table>
 <br/>
 
-#### Scale, Update Configuration, and Backup Operations
+## Scale, Update Configuration, and Backup Operations
 <table border="1">
 <tr>
         <th colspan="15">Operation or Action</th>

@@ -1,7 +1,7 @@
 
 <properties 
     pageTitle="Try RemoteApp on your device in 3 minutes or less"
-    description="" 
+    description="Test drive RemoteApp functionality without installing the service." 
     services="remoteapp" 
     solutions="" documentationCenter="" 
     authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/19/2015" 
+    ms.date="03/02/2015" 
     ms.author="mbaldwin" />
 
 

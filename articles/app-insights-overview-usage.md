@@ -2,6 +2,7 @@
 	pageTitle="Usage analysis with Application Insights" 
 	description="Overview of usage analytics with Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-17" 
+	ms.date="05/03/2015" 
 	ms.author="awills"/>
  
 # Usage analysis with Application Insights
@@ -46,9 +47,9 @@ Compare two metrics, for example users and new users:
 
 ![Select a chart, search for and check or uncheck metrics.](./media/app-insights-overview-usage/031-dual.png)
 
-Segment data by a property such as Browser, Operating System, or City:
+Group (segment) data by a property such as Browser, Operating System, or City:
 
-![Select a chart that shows a single metric, switch on Segmenting, and choose a property](./media/app-insights-overview-usage/03-browsers.png)
+![Select a chart that shows a single metric, switch on Grouping, and choose a property](./media/app-insights-overview-usage/03-browsers.png)
 
  
 ## Page usage
@@ -97,7 +98,7 @@ The most frequent custom events are listed on the overview blade.
 
 Click the head of the table to see total numbers of events. You can segment the chart by various attributes such as the event name: 
 
-![Select a chart that shows just one metric. Switch on Segmenting. Choose a property. Not all properties are available.](./media/app-insights-overview-usage/06-eventsSegment.png)
+![Select a chart that shows just one metric. Switch on Grouping. Choose a property. Not all properties are available.](./media/app-insights-overview-usage/06-eventsSegment.png)
 
 The particularly useful feature of timelines is that you can correlate changes with other metrics and events. For example, at times when more games are played, you'd expect to see a rise in abandoned games as well. But the rise in abandoned games is disproportionate, you'd want to find out whether the high load is causing problems that users find unacceptable.
 
@@ -194,7 +195,7 @@ If you don’t know which variant of a feature will be more successful, release 
 
 For this technique, you attach distinct tags to all the telemetry that is sent by each version of your app. You can do that by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends – not just your custom messages, but the standard telemetry as well. 
 
-In the Application Insights portal, you’ll then be able to filter and segment your data on the tags, so as to compare the different versions.
+In the Application Insights portal, you’ll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.
 
 C# at server
 

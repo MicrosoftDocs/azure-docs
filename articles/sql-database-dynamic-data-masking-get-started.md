@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Get started with SQL Database Dynamic Data Masking" 
    description="How to get started with SQL Database Dynamic Data Masking" 
-   services="Azure SQL Database, dynamic data masking" 
+   services="sql-database" 
    documentationCenter="" 
    authors="nadavhelfman" 
    manager="jeffreyg" 
@@ -12,8 +12,8 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sql-database" 
-   ms.date="02/13/2015"
+   ms.workload="data-services" 
+   ms.date="02/24/2015"
    ms.author="nadavh; ronmat; v-romcal; v-stste"/>
 
 # Get started with SQL Database Dynamic Data Masking 
@@ -144,7 +144,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 ## Set up dynamic data masking for your database using REST API
 
-See [Operations for Azure SQL Databases](https://msdn.microsoft.com/en-us/library/dn505719.aspx).
+See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
 
 [Image1]: ./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png
 [Image2]: ./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png

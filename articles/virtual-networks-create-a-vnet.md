@@ -24,7 +24,7 @@ When you create a virtual network, your services and VMs within the VNet can com
 
 Once you create your virtual network, you can add new VMs and PaaS instances to it. Note that if you use the Management Portal to create your VMs, be sure to select **From Gallery** so that you can specify the virtual network. This is important because you can’t go back and put a VM in a virtual network after you’ve created the VM.
 
-[Azure Note] **Use this procedure to create a dedicated cloud-only virtual network.** Because of the greater complexity involved with creating a cross-premises configuration, don’t use this procedure to create a virtual network that will later be connected to your on-premises network. If you want to create a secure cross-premises connection between Azure and your on-premises network, see [About Secure Cross-Premises Connectivity](https://msdn.microsoft.com/en-us/library/azure/dn133798.aspx).
+[Azure Note] **Use this procedure to create a dedicated cloud-only virtual network.** Because of the greater complexity involved with creating a cross-premises configuration, don’t use this procedure to create a virtual network that will later be connected to your on-premises network. If you want to create a secure cross-premises connection between Azure and your on-premises network, see [About Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
 ## <a name="CreateyourVNet">Creating your virtual network</a>
 
@@ -45,7 +45,7 @@ Once you create your virtual network, you can add new VMs and PaaS instances to 
 
 
 6. Click the checkmark on the lower right of the Virtual Network Address Spaces page and your virtual network will begin to create. When your virtual network has been created, you will see Created listed under Status on the networks page in the Management Portal.
-7. Once your virtual network has been created, you can deploy to your VNet. For example, if you want to deploy a  VM to your VNet, see [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/). Be sure to select **From Gallery** when creating a new VM in order to have the option of selecting your virtual network. Note that if you have already existing VMs and PaaS instances deployed, they cannot simply be moved to your new VNet. This is because the network configuration settings are configured for them during deployment. You'll have to re-deploy them to the new VNet.
+7. Once your virtual network has been created, you can deploy to your VNet. For example, if you want to deploy a  VM to your VNet, see [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/). Be sure to select **From Gallery** when creating a new VM in order to have the option of selecting your virtual network. Note that if you have already existing VMs and PaaS instances deployed, they cannot simply be moved to your new VNet. This is because the network configuration settings are configured for them during deployment. You'll have to re-deploy them to the new VNet.
 
 
 
@@ -53,11 +53,11 @@ Once you create your virtual network, you can add new VMs and PaaS instances to 
 -  [Virtual Network Technical Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
  
--  [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
 -  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configuring a Virtual Network Using Network Configuration Files](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-using-network-configuration-file/)
+-  [Configuring a Virtual Network Using Network Configuration Files](http://azure.microsoft.com/documentation/articles/virtual-networks-using-network-configuration-file/)
 
 -  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
  

@@ -1,7 +1,7 @@
 <properties 
    pageTitle="How to use Azure Redis Cache with Java" 
    description="Get started with Azure Redis Cache using Java" 
-   services="cache" 
+   services="redis-cache" 
    documentationCenter="" 
    authors="MikeWasson" 
    manager="wpickett" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required" 
-   ms.date="02/20/2014"
+   ms.date="02/20/2015"
    ms.author="mwasson"/>
 
 # How to use Azure Redis Cache with Java 

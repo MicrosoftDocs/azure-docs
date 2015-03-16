@@ -24,13 +24,6 @@ Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clust
 
 >The most recent release has introduced some new features, such as Hive editor Intellisense support, Hive script local validation, and accessing Yarn logs.
 
-##In this article
-+ [Installation] 
-+ [Connect to your Azure subscription]
-+ [Navigate the linked resources]
-+ [Run Hive queries]
-+ [Next steps]
-
 
 ##Prerequisites
 
@@ -38,8 +31,8 @@ Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clust
 
 	- Windows 7, Windows 8, or Windows 8.1
 	- Visual Studio with the following versions:
-		- Visual Studio 2012 Professional/Premium/Ultimate with [Update 4](http://www.microsoft.com/en-us/download/details.aspx?id=39305)
-		- Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/en-us/download/details.aspx?id=44921)
+		- Visual Studio 2012 Professional/Premium/Ultimate with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+		- Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 Preview.
 
 	>[WACOM.NOTE] Currently the tools only come with the English version. 

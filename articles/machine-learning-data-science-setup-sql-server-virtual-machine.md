@@ -1,6 +1,20 @@
-<properties title="Set up a Data Science Virtual Machine" pageTitle="Set up a Data Science Virtual Machine" description="Set up a Data Science Virtual Machinee" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,xibingaomsft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Set up a Data Science Virtual Machine" 
+	description="Set up a Data Science Virtual Machinee" 
+	services="machine-learning" 
+	solutions="" documentationCenter="" 
+	authors="msolhab,xibingaomsft" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/05/2015" ms.author="msolhab,xibingaomsft" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="msolhab,xibingaomsft" />
 
 # Set up a Data Science Virtual Machine in Azure
 
@@ -29,7 +43,7 @@ In the following steps, you will:
 
 1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account. 
 	If you do not have an Azure account, visit [Azure free
-    trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
+    trial](http://www.windowsazure.com/pricing/free-trial/).
 
 2.  On the Azure Management Portal, at the bottom left of the web page,
     click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and
@@ -65,7 +79,7 @@ In the following steps, you will:
     information on available virtual machine sizes and the number of
     data disks that you can attach to a virtual machine, see [Virtual
     Machine Sizes for
-    Azure](http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/).
+    Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Click the next arrow on the bottom right to continue.
 
@@ -170,7 +184,7 @@ If your VM image does not include data disks, i.e., disks other than C drive (OS
 
  > [AZURE.NOTE] Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
-To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/), which will guide you through:
+To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/), which will guide you through:
 
 1. Attaching empty disk(s) to the virtual machine provisioned in earlier steps
 2. Initialization of the new disk(s) in the virtual machine
@@ -246,7 +260,7 @@ directly from your SQL Server VM databases in the
 To connect to the Database Engine from another computer, you must create
 at least one SQL Server authentication login.  
 
-> [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).  
+> [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).  
 	
     USE master
     go
@@ -351,9 +365,9 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/).
+In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/documentation/articles/machine-learning-what-is-ml-studio/).
 
-2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/en-us/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
+2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
 3.	In the **Database server name** text box, enter `tcp:<DNS name of your virtual machine>,1433`
 

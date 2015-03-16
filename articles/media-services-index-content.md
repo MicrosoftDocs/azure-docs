@@ -24,12 +24,21 @@ This article is part of the [Media Services Video on Demand workflow](../media-s
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch. You can also index files that are publicly available on the Internet by specifying URLs of the files in the manifest file.
 
 >[AZURE.NOTE] When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
->
-An indexing job generates SAMI and TTML output files (among other files).  Both SAMI and TTML include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+
+
+An indexing job generates four outputs to every indexing file:
+
+- Closed caption file in SAMI format.
+- Closed caption file in Timed Text Markup Language (TTML) format.
+
+	Both SAMI and TTML include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+- Keyword file (XML).
+- Audio indexing blob file (AIB) for use with SQL server.
+	
+	For more information, see [Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+
 
 This topic shows how to create indexing jobs to **Index an asset**, **Index multiple files**, and **files publicly available on the Internet**.
-
-For supported languages, see the **Supported Languages** section .
 
 For the latest Azure Media Indexer updates, see [Media Services blogs](http://azure.microsoft.com/blog/topics/media-services/).
 
@@ -39,7 +48,7 @@ You can specify more details for your indexing tasks by using a task configurati
 
 You can also process multiple media files at once by using a manifest file.
 
-For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ##Index an asset
 
@@ -57,7 +66,7 @@ Note that if no configuration file is specified, the media file will be indexed 
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -171,7 +180,7 @@ If not all input media files are indexed successfully, the indexing job will fai
 
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -189,7 +198,7 @@ A manifest file with the .lst extension is created and uploading into the asset.
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -298,7 +307,7 @@ The same outputs (as succeeded jobs) are generated. You can refer to the output 
 
 ##Index files from Internet
 
-For publicly available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+For publicly available media files on the internet, you can also index them without copying them to Azure Storage. You can use the manifest file to specify the URLs of the media files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 Note that HTTP and HTTPS URL protocols are supported.
 
@@ -318,7 +327,7 @@ The following method and configuration creates a job to index a media file on th
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
 	    // Read configuration.
@@ -370,7 +379,7 @@ For descriptions of output files, see [Output files](#output_files).
 
 Indexer supports basic authentication with username and password when downloading internet files via http or https.
 
-You can specify the **username** and **password** in the task configuration as described in [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-us/library/azure/dn783454.aspx).
+You can specify the **username** and **password** in the task configuration as described in [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Error codes
 
@@ -395,9 +404,13 @@ No audio stream in input media.</td></tr>
 </table>
 
 
-##Supported Languages
+##<a id="supported_languages"></a>Supported Languages
 
 Currently, only the English language is supported.
+
+##Related links
+
+[Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Common Scenarios for using Azure Data Factory" 
 	description="Learn about a few common scenarios for using the Azure Data Factory service" 
+	services="data-factory" 	
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="03/10/2015" 
 	ms.author="spelluru"/>
 
 # Common scenarios for using Azure Data Factory

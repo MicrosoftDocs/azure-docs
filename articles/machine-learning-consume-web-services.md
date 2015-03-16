@@ -1,6 +1,21 @@
-<properties title="How to consume an Azure Machine Learning web service" pageTitle="How to consume a Machine Learning web service that has been published from a Machine Learning experiment | Azure" description="required" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="bradsev" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="How to consume a Machine Learning web service that has been published from a Machine Learning experiment | Azure" 
+	description="Once a machine learning service is published, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service." 
+	services="machine-learning" 
+	solutions="big-data" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="machine-learning" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="tbd" ms.date="02/20/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="tbd" 
+	ms.date="02/20/2015" 
+	ms.author="bradsev" />
 
 
 # How to consume a published Azure Machine Learning web service

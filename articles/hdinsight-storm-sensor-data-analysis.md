@@ -145,7 +145,7 @@ Event Hub is the data source for this example. Use the following steps to create
 
 Use the following to download the project from GitHub.
 
-	git clone https://Blackmist/hdinsight-eventhub-example
+	git clone https://github.com/Blackmist/hdinsight-eventhub-example
 
 After the command completes, you will have the following directory structure:
 
@@ -408,6 +408,12 @@ Once you have started the topology on the Storm cluster and processed data, you 
 ##Summary
 
 You have now learned how to use Storm to read data from Event Hub and display information from Storm on an external dashboard using SignalR and D3.js. If you've used the optional steps, you've also learned how to configure HDInsight in a Virtual Network and how to communicate between a Storm topology and HBase using the HBase bolt.
+
+* For more examples of Storm topologies with HDinsight, see:
+
+	* [Storm on HDInsight Examples](https://github.com/hdinsight/hdinsight-storm-examples)
+	
+	* [Twitter Trending Hashtags](../hdinsight-storm-twitter-trending/)
 
 * For more information on Apache Storm, see [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 

@@ -224,18 +224,18 @@ More details here -
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[Notification Hubs Overview]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-overview/
-[Getting Started Tutorials]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Template guidance]: https://msdn.microsoft.com/en-us/library/dn530748.aspx 
+[Notification Hubs Overview]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
+[Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Template guidance]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM guidance]: http://developer.android.com/google/gcm/adv.html
-[Export/Import Registrations]: http://msdn.microsoft.com/en-us/library/dn790624.aspx
-[ServiceBus Explorer]: http://msdn.microsoft.com/en-us/library/dn530751.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
+[ServiceBus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
 [ServiceBus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[VS Server Explorer Overview]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn792122.aspx 
+[VS Server Explorer Overview]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
 [VS Server Explorer Blog post - 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
 [VS Server Explorer Blog post - 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
-[EnableTestSend feature]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
-[Programmatic Telemetry Access]: http://msdn.microsoft.com/en-us/library/azure/dn458823.aspx
+[EnableTestSend feature]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
+[Programmatic Telemetry Access]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [Telemetry Access via APIs sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 

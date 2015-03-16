@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" 
-	description="required" 
+	description="Create an Umbraco content management system and deploy to Azure website." 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="02/25/2015" 
 	ms.author="tomfitz"/>
 
 #Create an Umbraco website from the gallery in Microsoft Azure#
@@ -102,13 +102,13 @@ That’s it! You've successfully created a blog website using Umbraco CMS, in ju
 
 [Umbraco Video Tutorials](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Microsoft Azure Preview Portal Overview](http://azure.microsoft.com/en-us/overview/preview-portal/)
+[Microsoft Azure Preview Portal Overview](http://azure.microsoft.com/overview/preview-portal/)
 
-[Microsoft Azure Preview Portal Documentation](http://azure.microsoft.com/en-us/documentation/preview-portal/)
+[Microsoft Azure Preview Portal Documentation](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Azure Preview Portal (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
-[Microsoft Azure Web Sites documentation](http://azure.microsoft.com/en-us/documentation/services/web-sites/)
+[Microsoft Azure Web Sites documentation](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->

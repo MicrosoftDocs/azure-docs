@@ -22,15 +22,6 @@
 
 <p>We're creating a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/), a robust, scalable, and reliable drop-in replacement for MySQL, to work in a highly available environment on Azure Virtual Machines.</p>
 
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-+ [Architecture overview] 
-+ [Creating the template]
-+ [Creating the cluster]
-+ [Load balancing the cluster]
-+ [Validating the cluster]
-
-
 ## Architecture overview
 
 This topic performs the following steps:
@@ -374,10 +365,10 @@ You may want to take a look at [another way to cluster MySQL on Linux] and ways 
 <!--Image references-->
 
 <!--Link references-->
-[Azure CLI]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
-[Azure CLI command reference]: http://azure.microsoft.com/en-us/documentation/articles/command-line-tools/
+[Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
+[Azure CLI command reference]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [create an SSH key for authentication]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [performance tuning strategy]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [optimize and test MySQL performance on Azure Linux VMs]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[another way to cluster MySQL on Linux]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-mysql-cluster/
+[another way to cluster MySQL on Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/

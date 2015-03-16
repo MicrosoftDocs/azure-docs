@@ -8,12 +8,12 @@
 	editor="monicar"/>
 
 <tags 
-	ms.service="" 
-	ms.devlang="may be required" 
+	ms.service="documentdb" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="may be required" 
-	ms.workload="required" 
-	ms.date="01/05/2015" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="03/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -61,15 +61,6 @@ index precision in bytes to improve query performance. This article
 describes the various indexing configuration options available in
 DocumentDB, and how to customize indexing policy for your workloads.
 
-## In this article ##
-
-Section | Description
------| -----------
-[How DocumentDB indexing works](#HowWorks) | Explains how DocumentDB represented JSON documents as trees for indexing.  
-[Configuring the indexing policy of a collection](#ConfigPolicy) | In this step, you create a hello world project in Eclipse.
-[Performance tuning](#Perf) | In this step, you add the DocumentDB SDK as a dependency to the project.
-
-
 <a id="HowWorks"></a>How DocumentDB indexing works
 -----------------------------
 
@@ -110,7 +101,7 @@ and precisions.
  	Accept: application/json 
                                                                                                                          
  	{                                                                     
-	 "name":"customIndexCollection",                                     
+	 "id":"customIndexCollection",                                     
 	 "indexingPolicy":{                                                 
      "automatic":true,                                            
 	 "indexingMode":"Consistent",                                     
@@ -166,7 +157,7 @@ using the [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) 
 	// use the RequestOptions.IndexingDirective property.                                  
 	                                                                         
 	client.CreateDocumentAsync(defaultCollection.SelfLink,  
-	    new { Name = "AndersenFamily", isRegistered = true },                            
+	    new { Id = "AndersenFamily", isRegistered = true },                            
 		new RequestOptions                               
 		    {                                                                    
 			    IndexingDirective = IndexingDirective.Include                                                                                      
@@ -201,7 +192,7 @@ The following sample show how create a DocumentDB collection using the
 	 // fields. Hash indexes are compact and offer efficient                                                                                           
 	 // performance for equality queries.                                     
 	                                                                          
-	 var defaultCollection = new DocumentCollection { Name ="defaultCollection" };                                                   
+	 var defaultCollection = new DocumentCollection { Id ="defaultCollection" };                                                   
 	                                                                          
 	 // Optional. Override Automatic to false for opt-in indexing of documents.                                                                
 	                                                                          
@@ -228,7 +219,7 @@ The index precision for values at any path can be between 3 and 7 bytes.
 Since the same path might have numeric and string
 values in different documents, these can be controlled separately. In
 the .NET SDK, these values correspond to the [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) and
-[StringPrecision](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx) properties.
+[StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx) properties.
 
 There are two supported kinds of index types: Hash and Range. Choosing
 an index type of **Hash** enables efficient equality queries. For most
@@ -254,7 +245,7 @@ special path “/" – which is explained in the next section.
 	 // against ranges (>,>=,<=,<), then you can configure the collection to 
 	 // use range queries for all numeric values.                                                                                                      
  
-	var rangeDefault = new DocumentCollection { Name = "rangeCollection" };                                                              
+	var rangeDefault = new DocumentCollection { Id = "rangeCollection" };                                                              
 	rangeDefault.IndexingPolicy.IncludedPaths.Add(                                                             
 												 new IndexingPath {   
 													IndexType = IndexType.Range, Path = "/", 
@@ -387,7 +378,7 @@ custom precision value of 7 bytes:
  	// /"CreatedTimestamp"/?    
  	// allowing queries of the form WHERE CreatedTimestamp [>] X            
 	
-	var pathRange = new DocumentCollection { Name = "rangeSinglePathCollection" };    
+	var pathRange = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 	
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
@@ -415,7 +406,7 @@ AllowScanInQueryrequest option using the .NET SDK.               
 The next example excludes a sub-tree of paths from indexing using the
 "*" wildcard.
 
-	var excluded = new DocumentCollection { Name = "excludedPathCollection" };                                                                       
+	var excluded = new DocumentCollection { Id = "excludedPathCollection" };                                                                       
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
@@ -432,8 +423,8 @@ the DocumentDB APIs.
 
 To check the storage quota and usage of a collection, run a HEAD or GET request
 against the collection resource, and inspect the x-ms-request-quota and
-the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/en-us/library/dn850325.aspx)
-and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/en-us/library/dn799209.aspx) contain these
+the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx)
+and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these
 corresponding values.
 
 
@@ -445,7 +436,7 @@ corresponding values.
 
 To measure the overhead of indexing on each write operation (create,
 update, or delete), inspect the x-ms-request-charge header (or the
-equivalent [RequestCharge](http://msdn.microsoft.com/en-us/library/dn799099.aspx) property in [ResourceResponse<T\>](http://msdn.microsoft.com/en-us/library/dn799209.aspx) in the .NET
+equivalent [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) property in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in the .NET
 SDK) to measure the number of request units consumed by these
 operations.
 

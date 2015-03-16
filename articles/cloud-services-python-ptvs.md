@@ -39,7 +39,7 @@ Azure provides three compute models for running applications: [Azure Websites][e
 For more information, see [What is a Cloud Service?].
 
 > [AZURE.NOTE] **Looking to build a simple website?**
-If your scenario involves just a simple website front-end, consider using a lightweight Azure Website. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/en-us/develop/python/">Python Developer Center</a> for articles that cover development of Azure Websites.
+If your scenario involves just a simple website front-end, consider using a lightweight Azure Website. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/develop/python/">Python Developer Center</a> for articles that cover development of Azure Websites.
 <br />
 
 
@@ -116,11 +116,11 @@ For more details on using Azure services from your web and worker roles, such as
 
 <!--Link references-->
 
-[What is a Cloud Service?]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
+[What is a Cloud Service?]: /manage/services/cloud-services/what-is-a-cloud-service/
 [execution model-web sites]: ../fundamentals-application-models/#WebSites
 [execution model-vms]: ../fundamentals-application-models/#VMachine
 [execution model-cloud services]: ../fundamentals-application-models/#CloudServices
-[Python Developer Center]: /en-us/develop/python/
+[Python Developer Center]: /develop/python/
 
 [Blob Service]: ../storage-python-how-to-use-blob-storage/
 [Queue Service]: ../storage-python-how-to-use-queue-storage/

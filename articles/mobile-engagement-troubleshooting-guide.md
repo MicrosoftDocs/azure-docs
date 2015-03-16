@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="mobile" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
@@ -12,26 +12,33 @@
    ms.devlang="Java"
    ms.topic="article"
    ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
 # Azure Mobile Engagement - Troubleshooting Guides
 
-## Analytics, Monitoring, Segmentation, and Dashboards
+## Introduction
+
+The following troubleshooting guides cover the most common issues with Azure Mobile Engagement, with the exception of [billing][Link 11] questions and assistance signing up for the [preview][Link 7]. If you aren't able to resolve your issue with these troubleshooting guides you can either open an Azure service request - if you have an [Azure Support Agreement](http://azure.microsoft.com/support/options/) - or you can request assistance on the [MSDN Forum][Link 8]. Please be sure to include all of the troubleshooting information from <a href="#SR" title="SR">SR Info</a> when you open a service request to help technical support to investigate your issue.
+
+## <a name="#ANALYTICS">Analytics, Monitoring, Segmentation, and Dashboards</a>
+
+Issues with how Azure Mobile Engagement gathers information about your applications, devices, and users.
+
 **Symptom List:**
 
-    1. Missing/Delayed Information 
-    2. Can't locate items in UI
-    3. Crash troubleshooting
+1. <a href="#ANALYTICS1">Missing/Delayed Information</a> 
+2. <a href="#ANALYTICS2">Can't locate items in UI</a>
+3. <a href="#ANALYTICS3">Crash troubleshooting</a>
  
-**Symptom:**
+<a name="#ANALYTICS1">**Symptom:**
+1.    Missing/Delayed Information:</a>
 
-1.    Missing/Delayed Information:
-    - Information is delayed in appearing in Analytics, Segmentation, or Dashboard.
-    - Information is missing from Monitoring.
-    - Information is missing from Analytics, Segmentation, or Dashboard.
-    - Hitting segmentation limits.
+- Information is delayed in appearing in Analytics, Segmentation, or Dashboard.
+- Information is missing from Monitoring.
+- Information is missing from Analytics, Segmentation, or Dashboard.
+- Hitting segmentation limits.
 
 **Causes:**
 
@@ -50,12 +57,12 @@ Segments can only contain 10 criteria.
 
 - [Troubleshooting Guide - SDK][Link 2], [API Documentation][Link 4], [UI Documentation - Segments][Link 1]
 
-**Symptom:**
+<a name="#ANALYTICS2">**Symptom:**
+2. Can't locate items in UI:</a>
 
-2. Can't locate items in UI:
-    - Can't create segments based on certain built in or custom app info tag criteria.
-    - Can't find certain built in or custom app info tag criteria in Analytics, Monitoring, or Dashboards.
-    - Can't interpret the data in Analytics, Monitoring, Segmentation, or Dashboards.
+- Can't create segments based on certain built in or custom app info tag criteria.
+- Can't find certain built in or custom app info tag criteria in Analytics, Monitoring, or Dashboards.
+- Can't interpret the data in Analytics, Monitoring, Segmentation, or Dashboards.
 
 **Causes:**
 
@@ -67,8 +74,9 @@ Segments can only contain 10 criteria.
 
 - [UI Documentation - Reach New Push Criterion for targeting Audience][Link 1]
  
-**Symptom:**
-3. Crash troubleshooting:
+<a name="#ANALYTICS3">**Symptom:**
+3. Crash troubleshooting:</a>
+
 - Application Crashes appearing in Analytics, Monitoring, or Dashboard.
 
 **Causes:**
@@ -80,19 +88,21 @@ Segments can only contain 10 criteria.
 
 - [Concepts - FAQ][Link 6], [Concepts - Glossary][Link 6], [UI Documentation][Link 1], [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5], [How Tos - Device ID Registration][Link 3]
 
-## APIs
+## <a name="#APIS">APIs</a>
+
+Issues with how administrators interact with Azure Mobile Engagement via the APIs.
 
 **Symptom List:**
 
-    1. Syntax issues:
-    2. Unable to use the API to perform the same action available in the Azure Mobile Engagement UI:
-    3. Error Messages:
-    4. Silent failures:
+1. <a href="#APIS1">Syntax issues</a>
+2. <a href="#APIS2">Unable to use the API to perform the same action available in the Azure Mobile Engagement UI</a>
+3. <a href="#APIS3">Error Messages</a>
+4. <a href="#APIS4">Silent failures</a>
  
-**Symptom:**
+<a name="#APIS1">**Symptom:**
+1. Syntax issues:</a>
 
-1. Syntax issues:
-    - Syntax Errors using the API (or unexpected behavior).
+- Syntax Errors using the API (or unexpected behavior).
 
 **Causes:**
 
@@ -106,10 +116,10 @@ Segments can only contain 10 criteria.
  
 - [Concepts - Glossary][Link 6], [API Documentation][Link 4], [XMPP Protocol Info]( http://xmpp.org/extensions/xep-0199.html)
  
-**Symptom:**
+<a name="#APIS2">**Symptom:**
+2. Unable to use the API to perform the same action available in the Azure Mobile Engagement UI:</a>
 
-2. Unable to use the API to perform the same action available in the Azure Mobile Engagement UI:
-    - An action that works from the Azure Mobile Engagement UI doesn't work from the related Azure Mobile Engagement API.
+- An action that works from the Azure Mobile Engagement UI doesn't work from the related Azure Mobile Engagement API.
 
 **Causes:**
 
@@ -119,10 +129,10 @@ Segments can only contain 10 criteria.
  
 - [UI Documentation][Link 1]
  
-**Symptom:**
+<a name="#APIS3">**Symptom:**
+3. Error Messages:</a>
 
-3. Error Messages:
-    - Error codes using the API displayed at runtime or in logs.
+- Error codes using the API displayed at runtime or in logs.
 
 **Causes:**
 
@@ -152,10 +162,10 @@ Segments can only contain 10 criteria.
 
 - [API Documentation - for detailed errors on each specific API][Link 4]
  
-**Symptom:**
+<a name="#APIS4">**Symptom:**
+4. Silent failures:</a>
 
-4. Silent failures:
-    - API action fails with no error message displayed at runtime or in logs.
+- API action fails with no error message displayed at runtime or in logs.
 
 **Causes:**
 
@@ -166,20 +176,22 @@ Segments can only contain 10 criteria.
 
 - [Troubleshooting Guide - SDK][Link 2], [SDK Documentation][Link 5]
  
-## Push/Reach
+## <a name="#PUSH">Push/Reach</a>
+
+Issues with how Azure Mobile Engagement sends information to your users.
  
 **Symptom List:**
 
-    1. Push Failures:
-    2. Push Testing Issues:
-    3. Push Customization Issues:
-    4. Push Targeting Issues:
-    5. Push Scheduling:
+1. <a href="#PUSH1">Push Failures</a>
+2. <a href="#PUSH2">Push Testing Issues</a>
+3. <a href="#PUSH3">Push Customization Issues</a>
+4. <a href="#PUSH4">Push Targeting Issues</a>
+5. <a href="#PUSH5">Push Scheduling</a>
  
-**Symptom:**
+<a name="#PUSH1">**Symptom:**
+1. Push Failures:</a>
 
-1. Push Failures:
-    - Pushes don't work (in app, out of app, or both).
+- Pushes don't work (in app, out of app, or both).
 
 **Causes:**
 
@@ -206,10 +218,10 @@ Segments can only contain 10 criteria.
 
 - [Troubleshooting Guide - SDK][Link 2], [Troubleshooting Guide - Push][Link 2], [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5]
  
-**Symptom:**
+<a name="#PUSH2">**Symptom:**
+2. Push Testing Issues:</a>
 
-2. Push Testing Issues:
-    - Pushes can be sent to a specific device based on a Device ID.
+- Pushes can be sent to a specific device based on a Device ID.
 
 **Causes:**
 
@@ -220,14 +232,14 @@ Segments can only contain 10 criteria.
 
 - [UI Documentation - Reach][Link 1]
  
-**Symptom:**
+<a name="#PUSH3">**Symptom:**
+3. Push Customization Issues:</a>
 
-3. Push Customization Issues:
-    - Advanced push content item won't work (badge, ring, vibrate, picture, etc.).
-    - Links from pushes don't work (out of app, in app, to a website, to a location in app).
-    - Push statistics show that a push was not sent to as many people as expected (too many or not enough).
-    - Push duplicated and received twice.
-    - Can't register test device for Azure Mobile Engagement Pushes (with your own Prod or DEV app).
+- Advanced push content item won't work (badge, ring, vibrate, picture, etc.).
+- Links from pushes don't work (out of app, in app, to a website, to a location in app).
+- Push statistics show that a push was not sent to as many people as expected (too many or not enough).
+- Push duplicated and received twice.
+- Can't register test device for Azure Mobile Engagement Pushes (with your own Prod or DEV app).
 
 **Causes:**
 
@@ -242,13 +254,13 @@ Segments can only contain 10 criteria.
 
 - [How Tos - Push][Link 3], [Troubleshooting Guide - Push][Link 2], [HTTP Protocol Info]( http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
  
-**Symptom:**
+<a name="#PUSH4">**Symptom:**
+4. Push Targeting Issues:</a>
 
-4. Push Targeting Issues:
-    - Built in targeting doesn't work as expected.
-    - App Info Tag targeting doesn't work as expected.
-    - Geo-Location targeting doesn't work as expected.
-    - Language options don't work as expected.
+- Built in targeting doesn't work as expected.
+- App Info Tag targeting doesn't work as expected.
+- Geo-Location targeting doesn't work as expected.
+- Language options don't work as expected.
 
 **Causes:**
 
@@ -262,10 +274,10 @@ Segments can only contain 10 criteria.
 
 - [UI Documentation - Reach][Link 1], [UI Documentation - Settings][Link 1], [API Documentation - Reach][Link 4], [API Documentation - Push][Link 4], [API Documentation - Device][Link 4]
  
-**Symptom:**
+<a name="#PUSH5">**Symptom:**
+5. Push Scheduling:</a>
 
-5. Push Scheduling:
-    - Push scheduling doesn't work as expected (sent too early or delayed).
+- Push scheduling doesn't work as expected (sent too early or delayed).
 
 **Causes:**
 
@@ -281,17 +293,18 @@ Segments can only contain 10 criteria.
 
 - [How Tos - Scheduling][Link 3], [UI Documentation - Reach New Push Campaign][Link 1]
  
-## Service
+## <a name="#SERVICE">Service</a>
+
+Issues with how Azure Mobile Engagement runs.
 
 **Symptom List:**
 
-1. Service Outages:
-2. Connectivity and Incorrect Information Issues:
-3. Feature Requests:
+1. <a href="#SERVICE1">Service Outages</a>
+2. <a href="#SERVICE2">Connectivity and Incorrect Information Issues</a>
+3. <a href="#SERVICE3">Feature Requests</a>
  
-**Symptom:**
-
-1. Service Outages:
+<a name="#SERVICE1">**Symptom:**
+1. Service Outages:</a>
 
 **Causes:**
 
@@ -307,9 +320,9 @@ o    Scheduling delays, Targeting errors, Badge update issues, Statistics stop c
 <GooglePlay><iTunes><Windows Phone Store><Windows Store>
 
     - Cloud Dependency Outages
-[Azure Service Status]( http://azure.microsoft.com/en-us/status/), [Amazon Web Services (AWS) Status]( http://status.aws.amazon.com/) 
+[Azure Service Status]( http://azure.microsoft.com/status/), [Amazon Web Services (AWS) Status]( http://status.aws.amazon.com/) 
     - Push Notification Services (PNS) Dependency Outages
-[Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service]( http://www.apple.com/support/systemstatus/), [Android - Google GCM]( http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM]( https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/en-us/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS](http://msdn.microsoft.com/en-us/library/windows/apps/ff402558(v=vs.105).aspx), [Windows - WNS](https://developer.windows.com/)
+[Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service]( http://www.apple.com/support/systemstatus/), [Android - Google GCM]( http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM]( https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS](http://msdn.microsoft.com/library/windows/apps/ff402558(v=vs.105).aspx), [Windows - WNS](https://developer.windows.com/)
     - App Store Outages
 [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone Store](http://www.windowsphone.com/), [Windows Store](http://windows.microsoft.com/)
 
@@ -353,15 +366,15 @@ To test if the problem is with OS upgrades to end user Devices, which require an
     - Confirm that you are using the most recent version of the SDK.
 [Troubleshooting Guide - SDK][Link 2]
  
-**Symptom:**
+<a name="#SERVICE2">**Symptom:**
+2. Connectivity and Incorrect Information Issues:</a>
 
-2. Connectivity and Incorrect Information Issues:
-    - Problems logging into the Azure Mobile Engagement UI.
-    - Connection errors with the Azure Mobile Engagement API's.
-    - Problems uploading App Info Tags via the Device API.
-    - Problems downloading logs or exported data from Azure Mobile Engagement.
-    - Incorrect information shown in the Azure Mobile Engagement UI.
-    - Incorrect information shown in Azure Mobile Engagement logs.
+- Problems logging into the Azure Mobile Engagement UI.
+- Connection errors with the Azure Mobile Engagement API's.
+- Problems uploading App Info Tags via the Device API.
+- Problems downloading logs or exported data from Azure Mobile Engagement.
+- Incorrect information shown in the Azure Mobile Engagement UI.
+- Incorrect information shown in Azure Mobile Engagement logs.
 
 **Causes:**
 
@@ -379,33 +392,35 @@ To test if the problem is with OS upgrades to end user Devices, which require an
 
 [API Documentation][Link 4], [UI Documentation - Home][Link 1]
  
-**Symptom:**
+<a name="#SERVICE3">**Symptom:**
+3. Feature Requests:</a>
 
-3. Feature Requests:
-    - The feature you want to use doesn't appear to exist in Azure Mobile Engagement yet.
+- The feature you want to use doesn't appear to exist in Azure Mobile Engagement yet.
 
 **Causes:**
 
 To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
     - Open an Azure Mobile Engagement service request with as many details as possible about what new feature you would like to see in Azure Mobile Engagement.
  
-## SDK
+## <a name="#SDK">SDK</a>
+
+Issues with how Azure Mobile Engagement integrates into your application.
 
 **Symptom List:**
 
-1. Issues with the Azure Mobile Engagement SDK discovered by a failure in another area of your application:
-2. Advanced Coding Issues:
-3. Application Crash Issues:
-4. App Store Upload Failures:
+1. <a href="#SDK1">Issues with the Azure Mobile Engagement SDK discovered by a failure in another area of your application</a>
+2. <a href="#SDK2">Advanced Coding Issues</a>
+3. <a href="#SDK3">Application Crash Issues</a>
+4. <a href="#SDK4">App Store Upload Failures</a>
  
-**Symptom:**
+<a name="#SDK1">**Symptom:**
+1. Issues with the Azure Mobile Engagement SDK discovered by a failure in another area of your application:</a>
 
-1. Issues with the Azure Mobile Engagement SDK discovered by a failure in another area of your application:
-    - UI data collection failure (in Analytics, Monitoring, Segmentation, or Dashboards).
-    - Push Failures (Pushes don't work in app, out of app, or both).
-    - Advanced Feature Failures (Tracking, Geolocation, or platform specific Pushes don’t work).
-    - API Failures (APIs fail often silently without error messages).
-    - Service Failures (none of Azure Mobile Engagement works for your application).
+- UI data collection failure (in Analytics, Monitoring, Segmentation, or Dashboards).
+- Push Failures (Pushes don't work in app, out of app, or both).
+- Advanced Feature Failures (Tracking, Geolocation, or platform specific Pushes don’t work).
+- API Failures (APIs fail often silently without error messages).
+- Service Failures (none of Azure Mobile Engagement works for your application).
 
 **Causes:**
 
@@ -437,10 +452,10 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 - API usage is to confuse the SDK Key and the API Key.
 [Concepts - Glossary][Link 6]
  
-**Symptom:**
+<a name="#SDK2">**Symptom:**
+2. Advanced Coding Issues:</a>
 
-2. Advanced Coding Issues:
-    -  Platform specific code not directly related to Azure Mobile Engagement can cause issues on iOS, Android, and Windows Phone.
+-  Platform specific code not directly related to Azure Mobile Engagement can cause issues on iOS, Android, and Windows Phone.
 
 **Causes:**
 
@@ -461,10 +476,10 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 
  - [Troubleshooting Guide - Push][Link 2], [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5], [SDK Documentation - Android - Azure Mobile Engagement technical documentation overview][Link 5], [SDK Documentation - iOS - Azure Mobile Engagement technical documentation overview][Link 5], [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5], [Android Developer](https://developer.android.com/), [iOS Developer](https://developer.apple.com/), [Windows Developer](https://developer.windows.com/) 
  
-**Symptom:**
+<a name="#SDK3">**Symptom:**
+3.    Application Crash Issues</a>
 
-3.    Application Crash Issues
-    - Your application crashes on the end users' device.
+- Your application crashes on the end users' device.
 
 **Causes:**
 
@@ -476,10 +491,10 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 
 - [Concepts - FAQ][Link 6], [Concepts - Glossary][Link 6], [API Documentation - Analytics API - Crashes][Link 4], [UI Documentation - Analytics - Crashes][Link 1], [UI Documentation - Settings][Link 1], [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5]
 
-**Symptom:**
+<a name="#SDK4">**Symptom:**
+4. App Store Upload Failures</a>
 
-4. App Store Upload Failures
-    - Errors related to uploading the latest version of your app to iTunes, GooglePlay, the Windows or Windows Phone store.
+- Errors related to uploading the latest version of your app to iTunes, GooglePlay, the Windows or Windows Phone store.
 
 **Causes:**
 
@@ -490,7 +505,7 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 
 - [SDK Documentation - Release Notes][Link 5], [SDK Documentation - Upgrade Guides][Link 5] 
 
-## SR Troubleshooting Info
+## <a name="#SR">SR Troubleshooting Info</a>
 
 Please provide the following information when you open any Azure Mobile Engagement service request:
  
@@ -525,3 +540,30 @@ Please provide the following information when you open any Azure Mobile Engageme
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: ../mobile-engagement-user-interface-navigation/
+[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 14]: ../mobile-engagement-user-interface-my-account/
+[Link 15]: ../mobile-engagement-user-interface-analytics/
+[Link 16]: ../mobile-engagement-user-interface-monitor/
+[Link 17]: ../mobile-engagement-user-interface-reach/
+[Link 18]: ../mobile-engagement-user-interface-segments/
+[Link 19]: ../mobile-engagement-user-interface-dashboard/
+[Link 20]: ../mobile-engagement-user-interface-settings/
+[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
+[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
+[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
+[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
+[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
+[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
+[Link 27]: ../mobile-engagement-how-tos-first-push/
+[Link 28]: ../mobile-engagement-how-tos-test-campaign/
+[Link 29]: ../mobile-engagement-how-tos-personalize-push/
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
+[Link 32]: ../mobile-engagement-how-tos-text-view/
+[Link 33]: ../mobile-engagement-how-tos-web-view/

@@ -108,7 +108,7 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 	Add-AzureAccount
 	```
 
-2. In the **Sign in to Windows Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
+2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 3. Set the default storage account to the storage account you are using for the tutorial by executing these commands in the PowerShell window:
 
 	```

@@ -12,7 +12,7 @@
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="02/18/2015" 
 	ms.author="selcint"/>
 
@@ -25,9 +25,9 @@ The tutorial includes two main scenarios for a quick ramp up on Azure Storage:
 - Run your first Azure Storage application on Azure Storage Emulator
 - Run your first Azure Storage application on Azure Storage Service
 
-If you want to learn about Azure Storage before diving into the code, see [Next Steps][].
+If you want to learn about Azure Storage before diving into the code, see [Next Steps](#next-steps).
 
-## Run your first Azure Storage application on Azure Storage Emulator
+## Run your first Azure Storage application on the Azure Storage Emulator
 
 This section demonstrates how to program against **Azure Storage Blobs**, **Tables**, and **Queues** by developing a sample application accessing [Azure Storage Emulator](https://msdn.microsoft.com/library/azure/hh403989.aspx). The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without incurring any cost.
 
@@ -42,14 +42,11 @@ Now, let’s create a simple Azure Storage application using one of the Azure Qu
 1. Press the **Start** button or the Windows key, type Visual Studio 2013 or VS Express 2013 for Web. Click the program to start.
 2. From the **File** menu, click **New Project**.
 3. In the **New Project** dialog box, click **Installed** > **Templates** > **Visual C#** > **Cloud** > **Quick Starts** > **Data Services**.
-	- 3.a.  Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues. See the following screenshot as an example:
+	- 3.a.  Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues. 
+	- 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.	
+	- 3.c. Depending on the template you choose, name the application, such as **DataBlobStorage**, **DataTableStorage**, or **DataStorageQueue**. Click **OK**. This should create a new Visual Studio solution. See the following screenshot as an example:
 	
 	![Azure QuickStarts][Image1]
-
-
-	- 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.
-	
-	- 3.c. Depending on the template you choose, name the application, such as **DataBlobStorage**, **DataTableStorage**, or **DataStorageQueue**. Click **OK**. This should create a new Visual Studio solution. 
 
 We encourage you to review the source code to learn how to program against Azure Storage before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double click the Program.cs file. 
 
@@ -59,7 +56,7 @@ Now, run the sample application by using the [Azure Storage Emulator](https://ms
 2.	In Visual Studio, click **Build Solution** on the **Build** menu. 
 3.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
-## Run your first Azure Storage application on Azure Storage Service
+## Run your first Azure Storage application on Azure Storage in the cloud
 This section demonstrates how to program against **Azure Storage Blobs**, **Tables**, and **Queues** by developing a sample application accessing the [Azure Storage Service](http://azure.microsoft.com/documentation/services/storage/).
 
 To complete this section, make sure to perform the following prerequisite tasks first:
@@ -98,7 +95,7 @@ Now, run the sample application:
 5.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
 
-## <a name="next"></a>Next Steps
+## Next Steps
 In this tutorial, you've learned how to program against Azure Blob Storage, Azure Table Storage, and Azure Storage Queues. 
 
 If you want to learn more about them, follow these links:
@@ -114,4 +111,3 @@ If you want to learn more about them, follow these links:
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
-[Next Steps]: #next

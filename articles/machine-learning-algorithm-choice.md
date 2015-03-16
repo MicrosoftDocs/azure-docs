@@ -1,12 +1,21 @@
-<properties title="" pageTitle="How to choose an algorithm in Azure Machine Learning | Azure" 
-description="Explains how to How to choose an algorithm in Azure Machine Learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	title="" 
+	pageTitle="How to choose an algorithm in Azure Machine Learning | Azure" 
+	description="Explains how to How to choose an algorithm in Azure Machine Learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/9/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/9/2015" 
+	ms.author="bradsev" />
 
 
 # How to choose an algorithm in Azure Machine Learning
@@ -119,7 +128,7 @@ Bayesian works best with categorical/binomial data. Decision trees can't predict
 **How fast does your classification need to be generated?** 
 SVM's are fast when it comes to classifying since they only need to determine which side of the "line" your data is on. Decision trees can be slow especially when they're complex (e.g. lots of branches).
 
-**How much complexity does the preoblem present or require?** Neural nets and SVMs can handle complex non-linear classification.
+**How much complexity does the problem present or require?** Neural nets and SVMs can handle complex non-linear classification.
 
 ### Advantages and disadvantages of classification algorithms
 Each of these classification algorithms has some advantages and  some disadvantages:

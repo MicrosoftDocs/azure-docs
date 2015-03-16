@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="03/11/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -100,22 +100,9 @@ To learn more details:
 ## Problem: Custom Activity Fails
 When using a Custom Activity in Azure Data Factory (pipeline activity type CustomActivity), the custom application runs in the specified linked service to HDInsight as a Map only streaming MapReduce job. 
 
-To make it easier to troubleshoot potential failures, instrument your application code to output progress text and error context to the standard console output and the standard error console output. 
-
-Example logging instrumentation in C#: 
-
-    //Write beginning for troubleshooting context
-    Console.WriteLine(DateTime.Now + ": Beginning to run the custom activity now.");
-    
-    //Write to stderr output for troubleshooting context
-    Console.Error.WriteLine(DateTime.Now +": Write out when an error has occurred at this point.");
-
-    //Write progress to avoid 10 minute timeout
-    Console.WriteLine(DateTime.Now + ": The custom activity has progressed some.");
-
 When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the *adfjobs* storage container in your Azure Blob Storage account. In case of an error, you can read the text from **stderr** output text file after a failure has occurred. The files are accessible and readable from the Azure portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly. 
 
-To enumerate and read the logs for a particular Custom Activity:
+To enumerate and read the logs for a particular Custom Activity, you may follow one of the illustrated walkthroughs later on this page. In summary:
 
 1.  In the Azure portal **Browse** to locate your Data Factory.
 2.  Use the **Diagram** button to view the data factory diagram, and click on the **Dataset** Table that follows the specific **Pipeline** which has the Custom Activity. 
@@ -138,7 +125,37 @@ To see more details for this kind of error, open the **stderr** file. One common
 
 This same error may appear multiple times, if the job has retried 3 times for example, over the span of 30 or more minutes. 
 
-This error indicates a 600 second (10 minute) timeout has happened. Typically this means the custom .Net application has not issued any output for 10 minutes. If the application is hanging or stalled waiting on something for too long, the 10 minute timeout is a safety mechanism to prevent it from waiting forever and delaying your Azure Data Factory pipeline. If you know that the application is making progress, and is expected to take longer than 10 minutes to complete the activity, one way to avoid this timeout is to code the application to write progress text messages to the console output every few minutes as shown above in the C# code sample.
+This time out error indicates a 600 second (10 minute) timeout has happened. Typically this means the custom .Net application has not issued any status update for 10 minutes. If the application is hanging or stalled waiting on something for too long, the 10 minute timeout is a safety mechanism to prevent it from waiting forever and delaying your Azure Data Factory pipeline. 
+
+This time out originates in the configuration of HDInsight cluster that is linked in the custom activity. The setting is **mapred.task.timeout**, which defaults to 600000 milliseconds, as documented in the Apache default settings here: http://hadoop.apache.org/docs/r2.4.0/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
+
+You can overide this default by changing the defaults at the time of provisioning your HDInsight provisioning cluster. When using Azure Data Factory and **HDInsight On-demand** linked service, the JSON property can be added near your HDInsightOnDemandLinkedService JSON properties. For example, you can increase the value to 20 minutes using this JSON property.
+>         "mapReduceConfiguration" :
+>         {
+>            "mapreduce.task.timeout":"1200000"
+>        }
+
+For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/library/azure/dn893526.aspx
+
+## Problem: PowerShell request fails with error error 400 Bad Request "No registered resource provider found..."
+
+As of March 10, 2015, the Azure Data Factory PowerShell early private preview versions 2014-05-01-preview, 2014-07-01-preview, and 2014-08-01-preview will be discontinued. We recommend that you use the latest version of the ADF cmdlets, which are now part of the Azure PowerShell Download, such as the download from this URL http://go.microsoft.com/?linkid=9811175&clcid=0x409 
+
+If you use the discontinued versions of the Azure PowerShell SDK you may receive the following errors:
+
+		HTTP/1.1 400 Bad Request
+		Cache-Control: no-cache
+		Pragma: no-cache
+		Content-Type: application/json; charset=utf-8
+		Expires: -1
+		x-ms-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
+		x-ms-correlation-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
+		x-ms-routing-request-id: WESTUS:20150306T234829Z:e07181e4-e421-46be-8a08-1f71d5e90494
+		Strict-Transport-Security: max-age=31536000; includeSubDomains
+		Date: Fri, 06 Mar 2015 23:48:29 GMT
+		Content-Length: 157
+		{"error":{"code":"NoRegisteredProviderFound","message":"No registered resource provider found for location 'west US' and API version '2014-05-01-preview'."}}
+
 
 ## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
 In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.
@@ -354,9 +371,9 @@ Article | Description
 
 [image-data-factory-troubleshoot-table-blade-with-problem-slices]: ./media/data-factory-troubleshoot/TableBladeWithProblemSlices.png
 
-[image-data-factory-troubleshoot-activity-run-with-error]: ./media/data-factory-troubleshoot/DataSliceBladeWithActivityRuns.png
+[image-data-factory-troubleshoot-activity-run-with-error]: ./media/data-factory-troubleshoot/ActivityRunDetailsWithError.png
 
-[image-data-factory-troubleshoot-dataslice-blade-with-active-runs]: ./media/data-factory-troubleshoot/ActivityRunDetailsWithError.png
+[image-data-factory-troubleshoot-dataslice-blade-with-active-runs]: ./media/data-factory-troubleshoot/DataSliceBladeWithActivityRuns.png
 
 [image-data-factory-troubleshoot-walkthrough2-with-errors-link]: ./media/data-factory-troubleshoot/Walkthrough2WithErrorsLink.png
 

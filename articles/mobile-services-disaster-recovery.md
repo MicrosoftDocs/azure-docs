@@ -87,11 +87,11 @@ Now you should be in a state where your mobile service has been recovered to a n
 <!-- Images. -->
 
 <!-- URLs. -->
-[SQL Database business continuity guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
+[SQL Database business continuity guidance]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[source control feature]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-[using the Azure command-line tool]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+[source control feature]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[using the Azure command-line tool]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Azure portal]: http://manage.windowsazure.com/
-[Azure Service Dashboard]: http://www.windowsazure.com/en-us/support/service-dashboard/
-[Automate mobile services with command-line tools]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+[Azure Service Dashboard]: http://www.windowsazure.com/support/service-dashboard/
+[Automate mobile services with command-line tools]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/

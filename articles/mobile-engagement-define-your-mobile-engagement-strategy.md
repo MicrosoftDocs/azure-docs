@@ -22,9 +22,9 @@ You wrote your app for a reason: to have your users use it!
 
 We believe you certainly put a great deal of effort in trying to make it a great app that users will love. You also probably invested a sizeable amount of marketing budget to acquire users. But after the initial exhiliarating peak of users, you might see them slowly stop using your app. **This is what Azure Mobile Engagement all about!**: getting them to stick around and allow you to incrementally improve your app through test and learn.
 
-Our approach to improving retention and usage is based on engaging app users through Push Notifications and In-app messages, but in a very special way, with messages anbd communication tailored to them, each according to their behavior in your app. Our goal is to let you communicate with the right audience at the right time and the right location.
+Our approach to improving retention and usage is based on engaging app users through Push Notifications and In-app messages, but in a very special way, with messages and communication tailored to them, each according to their behavior in your app. Our goal is to let you communicate with the right audience at the right time and the right location.
 
-But for that, you'll have to start with **understanding your users**, then create groups based on what they did or their caracteristics (we call it Segments) and then create relevant communications to each segment.
+But for that, you'll have to start with **understanding your users**, then create groups based on what they did or their characteristics (we call it Segments) and then create relevant communications to each segment.
 
 ##Mobile Engagement serves your Objectives
 
@@ -40,7 +40,7 @@ Your use-cases are a simple list of campaigns you'd like to make to communicate 
 2. **What**: A message example (eg "Glad to have you onboard! Remember to login to get your 1st month free!"). This message is by no means final, you'll be able to change it any time you like, but it usually helps to start thinking about what we want to say
 3. **Who**: The segment that will receive this message (eg "All users who launched the app for the first time 3 days ago, have visited the login page but have not logged-in")
 	- Yes, you can do that very easily with Azure Mobile Engagement :)
-	- Again, this has not to be final as you can define your segments at anytime, but it is important to define early on your segmentation criteria to ensure you collect the right data
+	- Again, this does not have to be final as you can define your segments at anytime, but it is important to define early on your segmentation criteria to ensure you collect the right data
 4. **When**: The timing of your campaign. It may be on a given date, or after a specific action, based on a trigger. Mobile Engagement offers an important amount of possibilities to rightly time your communication
 
 Once use-cases and segment are defined, it gives a guideline to define the data that must be collected within an application. This is the role of a *“Tag Plan”*. A Tag plan allows ensuring that the data collection is specified to the developers. Hence, developers are able to embed Mobile Engagement with the right setup for you to work your campaigns with the right data. It will also be very important to run tests to ensure the integration is correct and collects what you need.
@@ -118,6 +118,14 @@ All of this type of data can be augmented with Parameters (`extra-information` i
 2.	Segment audience based on login status. Collect data to know if a user is connected or has created an account. Help targeting end-users that have not yet logged in and send push notification to engage end-user to convert.
 	![][2]
 
+### Next Steps
+- Visit [Mobile Engagement Concepts] to learn more about Mobile Engagement basic concepts.
+- Visit [Tutorials] to learn more about the implementation.
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-define-your-engagement-strategy/use-case1.png
 [2]: ./media/mobile-engagement-define-your-engagement-strategy/use-case2.png
+
+<!-- URLs. -->
+[Mobile Engagement Concepts]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
+[Tutorials]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/

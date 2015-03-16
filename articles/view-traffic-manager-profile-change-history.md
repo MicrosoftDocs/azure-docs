@@ -1,14 +1,18 @@
-<tags 
+<properties
    pageTitle="View Traffic Manager profile change history"
-   description="How to view Traffic Manager profile change history"
+   description="This article will help you view your change history for your Traffic Manager profile."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
 # View Traffic Manager Profile Change History
@@ -33,7 +37,7 @@ You can view the change history for your Traffic Manager profile in the Manageme
 
 [About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods)
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

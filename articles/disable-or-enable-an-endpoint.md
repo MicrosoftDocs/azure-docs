@@ -1,17 +1,21 @@
-<tags 
-   pageTitle="Disable or enable an endpoint"
-   description="Disable or enable endpoints in Traffic Manager"
+<properties
+   pageTitle="Disable or Enable a Traffic Manager endpoint"
+   description="This article will help disable or enable your Traffic Manager profile endpoints."
    services="traffic-manager"
+   documentationCenter="na"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/20/2015"
+   ms.workload="infrastructure-services"
+   ms.date="02/23/2015"
    ms.author="cherylmc" />
 
-# Disable or Enable an Endpoint
+# Disable or Enable a Traffic Manager Endpoint
 
 You can also disable individual endpoints that are part of a Traffic Manager profile. Endpoints include both cloud services and websites. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled
 
@@ -34,7 +38,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## See Also
 
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/hh744830.aspx)
+[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [Traffic Manager Overview](../traffic-manager)
 
