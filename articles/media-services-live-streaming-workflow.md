@@ -121,11 +121,16 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 
+##Enabling Azure CDN
+
+Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](../media-services-manage-origins#enable_cdn).
+
 ##Scaling a Media Services account
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
 
 For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+
 
 
 

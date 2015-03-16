@@ -52,6 +52,8 @@ One of the properties that you can specify when creating an asset is **Options**
 
 - **StorageEncrypted** = **1**: Specify if you want for your files to be encrypted with AES-256 bit encryption for upload and storage.
 
+	If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](../media-services-rest-configure-asset-delivery-policy).
+
 - **CommonEncryptionProtected** = **2**: Specify if you are uploading files protected with a common encryption method (such as PlayReady). 
 
 - **EnvelopeEncryptionProtected** = **4**: Specify if you are uploading HLS encrypted with AES files. Note that the files must have been encoded and encrypted by Transform Manager.

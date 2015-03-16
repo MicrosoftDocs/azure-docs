@@ -35,7 +35,9 @@ If you plan to deliver an MP4 using progressive download, use this option.
 - **EnvelopeEncrypted** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 - **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
 
-	Note that Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).
+	Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).
+
+	If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](../media-services-dotnet-configure-asset-delivery-policy).
 
 If you specify for your asset to be encrypted with a **CommonEncrypted** option, or an **EnvelopeEncypted** option, you will need to associate your asset with a **ContentKey**. For more information, see [How to create a ContentKey](../media-services-dotnet-create-contentkey). 
 
