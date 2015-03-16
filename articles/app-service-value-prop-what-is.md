@@ -1,4 +1,4 @@
-,<properties 
+<properties 
 	pageTitle="What is Azure App Service" 
 	description="Learn why Azure App Service is the best platform for developing web and mobile apps." 
 	services="app-service" 
