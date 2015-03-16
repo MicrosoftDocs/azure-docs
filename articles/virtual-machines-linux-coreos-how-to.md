@@ -43,7 +43,7 @@ Currently, CoreOS assumes that those who can SSH into the cluster have permissio
 
 ## <a id='usingcoreos'>How to use CoreOS on Azure</a>
 
-This section describes how to create an Azure Cloud Service with three CoreOS virtual machines in it using the [Azure Cross-Platform Interface (xplat-cli)]. The basic steps are as follows
+This section describes how to create an Azure Cloud Service with three CoreOS virtual machines in it using the [Azure Cross-Platform Interface (xplat-cli)]. The basic steps are as follows:
 
 1. Create the SSH certificates and keys to secure communication with the CoreOS virtual machine
 2. Obtain your cluster's etcd id for intercommunication
@@ -54,9 +54,9 @@ This section describes how to create an Azure Cloud Service with three CoreOS vi
 
 ### Create Public and Private Keys For Communication
  
-Use the instructions in [How to Use SSH with Linux on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/) to create a public and private key for SSH. (The basic steps are in the instructions below.) You are going to use these keys to connect to VMs in the cluster to verify that they are working and can communicate with each other.
+Use the instructions in [How to Use SSH with Linux on Azure](../virtual-machines-linux-use-ssh-key/) to create a public and private key for SSH. (The basic steps are in the instructions below.) You are going to use these keys to connect to VMs in the cluster to verify that they are working and can communicate with each other.
 
-> [AZURE.NOTE] This topic assumes that you do not have these keys, and requires you to create `myPrivateKey.pem`** and `myCert.pem` files for clarity. If you already have a public and private key pair saved to `~/.ssh/id_rsa`, you can just type `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` to obtain the .pem file that you need to upload to Azure.
+> [AZURE.NOTE] This topic assumes that you do not have these keys, and requires you to create `myPrivateKey.pem` and `myCert.pem` files for clarity. If you already have a public and private key pair saved to `~/.ssh/id_rsa`, you can just type `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` to obtain the .pem file that you need to upload to Azure.
 
 1. In a working directory, type `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` to create the private key and an the X.509 certificate associated with it. 
 
@@ -152,7 +152,7 @@ Then clone the **fleet** repository from github by typing:
 
 `git clone https://github.com/coreos/fleet.git`
 
-Build **fleet** by typing
+Build **fleet** by changing to the `fleet` directory and typing
 
 `./build`
 
