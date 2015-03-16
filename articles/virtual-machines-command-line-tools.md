@@ -352,9 +352,9 @@ This command creates a virtual machine endpoint. You may also use -u or --enable
 	+ Updating network configuration
 	info:   vm endpoint create command OK
 
-**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;lb-set-name>[:&lt;prob-protocol>:&lt;lb-prob-port>[:&lt;prob-path>]]]]] ]{1-*}**
+**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;enable-direct-server-return>[:&lt;lb-set-name>[:&lt;probe-protocol>[:&lt;probe-port>[:&lt;probe-path>[:&lt;internal-lb-name>]]]]]]]] {1-*}**
 
-Create multiple vm endpoints. You may also use -u or --enable-direct-server-return to specify whether to enable direct server return on this endpoint, disabled by default.
+Create multiple vm endpoints.
 
 **vm endpoint delete &lt;vm-name> &lt;lb-port>**
 
