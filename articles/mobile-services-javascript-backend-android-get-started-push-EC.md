@@ -166,7 +166,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Get started with data]
   <br/>Learn more about storing and querying data using mobile services.
 
-* [Get started with authentication]
+* [Add authentication to your app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
 * [What are Notification Hubs?]
