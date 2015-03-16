@@ -1,4 +1,4 @@
-<properties 
+properties 
 	pageTitle="Create your first Azure Search application in .NET" 
 	description="Tutorial on build a solution using the .NET client library from the Azure Search .NET SDK." 
 	services="search" 

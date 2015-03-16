@@ -18,7 +18,9 @@
 
 # Create an Azure Search service in the portal
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage of search data, which you access and manage using a .NET SDK or a REST API. For more information about what it does, see [Introducing Azure Search](../fundamentals-azure-search-chappell/).  
+Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides search features like type-ahead suggestions and fuzzy matching, a search engine, and storage of your search data, which you access and manage using the portal, a .NET SDK, or a REST API. For more information about what Search does, see [Introducing Azure Search](../fundamentals-azure-search-chappell/).
+
+##Add Search to your subscription##  
 
 As an administrator, you can add Search to an existing subscription at no cost when choosing the shared service, or at the standard rate when opting in for dedicated resources. 
 
@@ -46,6 +48,8 @@ As an administrator, you can add Search to an existing subscription at no cost w
 	- **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
 
 4. Click **Create** to provision the service. 
+
+Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
 
 <a id="sub-2"></a>
 ##Find the service name and api-keys of your Azure Search service##
