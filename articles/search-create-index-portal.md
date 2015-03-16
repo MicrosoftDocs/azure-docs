@@ -70,7 +70,7 @@ The portal is different. In the portal, search behaviors are off by default so t
 
 	![][5]
 
-	See [Naming rules](https://msdn.microsoft.com/en-us/library/azure/dn857353.aspx) and [Supported data types](https://msdn.microsoft.com/en-us/library/azure/dn798938.aspx) for reference information on field names and types.
+	See [Naming rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) and [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for reference information on field names and types.
 
 3. Click **Save** at the top of the page.
 
