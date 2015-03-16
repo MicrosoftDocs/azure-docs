@@ -149,6 +149,13 @@ Create from template
 ### Cluster Manifest Schema and Settings (Phosphorus)
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
+### Programming Models
+ [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudio**
+
+ Distributed Collections  **owner: matt**
+
+ State and Replica Management APIs
+
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
 ### Cluster
@@ -159,12 +166,6 @@ Create from template
 ### Names and Properties/Naming Service
 ### Image Store
 ### Monitoring and Diagnostics owner: kunal
-### Programming Models
- Actor Model **owner: claudio**
-
- Distributed Collections  **owner: matt**
-
- State and Replica Management APIs
 
 ### System Services 
 Failover Manager Service
