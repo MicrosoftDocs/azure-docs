@@ -6,7 +6,7 @@
 	authors="jeffgoll" 
 	writer="" 
 	manager="jeffreyg" 
-	editor="tysonn"/>
+	editor="monicar"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -124,25 +124,23 @@ As your skills increase, you will want to explore additional ways of creating a 
 
 In this step, you run two scripts. The first one creates a schema that defines tables, columns, and relationships. The second script adds the data. Each step is performed independently on a separate connection. If you've built databases in SQL Server before, one of the differences you'll notice in SQL Database is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize attacks against the data while it is in transit. 
 
-**Note:** The schema and data values are taken from this [MSDN article](http://msdn.microsoft.com/library/windowsazure/ee621790.aspx "MSDN article") and have been modified to work with SQL Database.
-
-1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of items on the home page.
+1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of **All** items on the home page.
 
 	![Navigation pane][Image8]
 
-2. Click on **School** to select it, then click **Manage** at the bottom of the page. This will open the Management Portal for SQL Database. This portal is separate from the Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries.
+2. Find the listing for your database **School**, and then click in the **Name** column. This opens the dashboard for the database.
 
-3. Enter the administrator login name and password to login to the **School** database. This is the administrator login that you specified when you created the server.
+3. Click **Manage** at the bottom of the dashboard page to open the SQL Database management portal, which you can use to run Transact-SQL commands and queries. Enter the administrator login name and password to login to the **School** database. This is the administrator login that you used when set up when you created the server earlier.
 
-4. In the management portal for SQL Database, click **New Query** in the ribbon. An empty query window will open in the workspace. In the next step, you will use this window to copy in a series of predefined scripts that will add structure and data to your empty database.
+4. In the SQL Database management portal, click **New Query** in the ribbon. An empty query window opens in the workspace. In the next step, you use this window to copy in a series of predefined scripts that add structure and data to your empty database.
 
 
 
 ## Step 5: Create the schema
 
-In this step, you will create the schema using the following script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
+In this step, you create the schema using the following Transact-SQL script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
 
-Copy the script and paste it into the query window. Click **Run** at the top of the window to execute the script.
+Copy the script and paste it into the query window. Then click **Run** at the top of the window to execute the script.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Create the Department table.
@@ -518,8 +516,7 @@ To create a login, you must first connect to the **master** database.
 
 <h4 id="CreateLogin">Create a SQL Server authentication login</h4>
 
-1. In the [Management Portal](http://manage.windowsazure.com), select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
-server page.
+1. In the [Management Portal](http://manage.windowsazure.com), select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the server page.
 
 2. On the Quick Start page, click **Manage Server** to open a new connection to the Management Portal for SQL Database. 
 

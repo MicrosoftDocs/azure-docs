@@ -25,9 +25,9 @@ The tutorial includes two main scenarios for a quick ramp up on Azure Storage:
 - Run your first Azure Storage application on Azure Storage Emulator
 - Run your first Azure Storage application on Azure Storage Service
 
-If you want to learn about Azure Storage before diving into the code, see [Next Steps][].
+If you want to learn about Azure Storage before diving into the code, see [Next Steps](#next-steps).
 
-## Run your first Azure Storage application on Azure Storage Emulator
+## Run your first Azure Storage application on the Azure Storage Emulator
 
 This section demonstrates how to program against **Azure Storage Blobs**, **Tables**, and **Queues** by developing a sample application accessing [Azure Storage Emulator](https://msdn.microsoft.com/library/azure/hh403989.aspx). The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without incurring any cost.
 
@@ -56,7 +56,7 @@ Now, run the sample application by using the [Azure Storage Emulator](https://ms
 2.	In Visual Studio, click **Build Solution** on the **Build** menu. 
 3.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
-## Run your first Azure Storage application on Azure Storage Service
+## Run your first Azure Storage application on Azure Storage in the cloud
 This section demonstrates how to program against **Azure Storage Blobs**, **Tables**, and **Queues** by developing a sample application accessing the [Azure Storage Service](http://azure.microsoft.com/documentation/services/storage/).
 
 To complete this section, make sure to perform the following prerequisite tasks first:
