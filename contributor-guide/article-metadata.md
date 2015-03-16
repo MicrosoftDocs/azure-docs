@@ -63,6 +63,7 @@ The tags section uses this syntax:
 - recovery-manager
 - redis-cache
 - service-bus
+- service-fabric
 - scheduler
 - sql-database
 - storage
@@ -122,6 +123,7 @@ The tags section uses this syntax:
  - **remoteapp**	
  - **scheduler**	
  - **service-bus**	
+ - **service-fabric**
  - **site-recovery**: formerly recovery-services
  - **sql-database**	
  - **sql-reporting**	
