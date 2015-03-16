@@ -45,12 +45,12 @@ Studio](http://azure.microsoft.com/en-us/campaigns/visual-studio-2013/) integrat
 - **No ops** - Run your API apps in a high-availability environment with automatic patching. API apps deployed with Azure App Service are isolated and are hosted in VMs dedicated to your applications – ensuring predictable performance and security isolation.
 
 - **Automatically scale** - Azure App Service enables you to quickly scale up or out to handle any incoming customer load. Manually select the number and size of VMs or set up
-[auto-scaling](http://azure.microsoft.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+[auto-scaling](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
 to scale your servers based on load or schedule.
 
 - **Access on-premises data** - Azure App Service enables you to build APIs that can consume data from your own data center. With [Hybrid Connections](../integration-hybrid-connection-overview/) and [VNET](../web-sites-integrate-with-vnet/) it's easy to access your data securely from your on-premises data
-centers - or anywhere else in the world. [Azure Active Directory](http://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) enables you to limit access to only your employees or partners.
-Interested in moving an on-premises website to the cloud? Use the [Migration Assistant](http://azure.microsoft.com/en-us/documentation/articles/web-sites-migration-from-iis-server/) to analyze and migrate your site with just a few clicks.
+centers - or anywhere else in the world. [Azure Active Directory](../active-directory-whatis/) enables you to limit access to only your employees or partners.
+Interested in moving an on-premises website to the cloud? Use the [Migration Assistant](../web-sites-migration-from-iis-server/) to analyze and migrate your site with just a few clicks.
 
 - **Friction-free deploy** - Set up continuous integration and deployment workflows with Visual Studio Online, GitHub, TeamCity, Hudson, or BitBucket – enabling you to automatically build, test and deploy your API app on each successful code check-in or integration tests.
 
