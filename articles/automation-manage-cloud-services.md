@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Manage Azure Cloud Services using Azure Automation" 
 	description="Learn about how the Azure Automation service can be used to manage Azure cloud services at scale." 
-	services="automation, cloud-services" 
+	services="cloud-services, automation" 
 	documentationCenter="" 
 	authors="jodoglevy" 
 	manager="eamono" 

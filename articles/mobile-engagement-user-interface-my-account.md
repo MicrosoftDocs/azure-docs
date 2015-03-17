@@ -22,7 +22,7 @@
 <a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
 <a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
+<a href="../mobile-engagement-user-interface-my-account" class="current" title="My Account">My Account</a>
 <a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
 <a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
 <a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>

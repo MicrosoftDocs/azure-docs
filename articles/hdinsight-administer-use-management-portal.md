@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="03/12/2015" 
 	ms.author="jgao"/>
 
 #Manage Hadoop clusters in HDInsight using the Azure Management Portal
@@ -30,44 +30,23 @@ Using the Azure management portal, you can provision Hadoop clusters in HDInsigh
 Before you begin this article, you must have the following:
 
 - **Azure subscription**. Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- **Azure storage account**. An HDInsight cluster uses an Azure Blob Storage container as the default file system. For more information about how Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 ##<a id="create"></a> Provision HDInsight clusters
 
-There are several methods for creating HDInsight clusters, this article only covers using the Quick Create option on Azure Management portal. For other options, see [Provision HDInsight clusters][hdinsight-provision].
+You can provision HDInsight clusters from the Azure Management Portal using the Quick Create or Custom Create options. See the following links for instructions
 
-An HDInsight cluster uses an Azure Blob Storage container as the default file system. For more information about how Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
-
+- [Provision a cluster using Quick Create](../hdinsight-get-started/#provision)
+- [Provision a cluster using Custom Create](../hdinsight-provision-clusters/#portal) 
 
 [AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
-
-
-For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
-
-
-**To provision an HDInsight cluster**
-
-1. Sign in to the [Azure Management Portal][azure-management-portal].
-2. Click **NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
-
-3. Provide **Cluster Name**, **Cluster Size**, **Cluster Admin Password**, and an Azure **Storage Account** and then click **Create HDInsight Cluster**. Once the cluster is created and running, the status shows *Running*.
-
-	![HDI.QuickCreate][image-cluster-quickcreate]
-
-	When using the Quick Create option to create a cluster, the default username for the Hadoop user account is *admin*. To give the account a different username, you can use the Custom Create option instead of Quick Create option. Or change the account name after it is provisioned.
-
-	When using the Quick Create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name of the container to be used by default by the cluster, you must use the custom create option. 
-
-	> [AZURE.NOTE] Once an Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.
-
-4. Click the newly created cluster.  It shows the landing page:
-
-	![HDI.ClusterLanding][image-cluster-landing]
 
 
 ##Customize HDInsight clusters
 
 HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, see [What version of Hadoop is in Azure HDInsight][hdinsight-versions]. HDInsight customization can be done using one of the following options:
 
+- Use Script Actions to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph, Solr, etc. For more information, see [Customize HDInsight cluster using Script Action](../hdinsight-hadoop-customize-cluster/).
 - Use the cluster customization parameters in HDInsight .NET SDK or Azure PowerShell during cluster provision. By doing so, these configuration changes are preserved through lifetime of the cluster and not affected by cluster node reimages that Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Provision HDInsight clusters][hdinsight-provision].
 - Some native Java components, like Mahout, Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage (WASB), and submitted to HDInsight clusters using Hadoop job submission mechanisms. For more information see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]. 
 
@@ -95,7 +74,7 @@ An HDInsight cluster can have two user accounts.  The HDInsight cluster user acc
 8. Click **SAVE**.
 
 
-##Connect to HDInsight clusters using RDP
+##<a id="enablerdp"></a>Connect to HDInsight clusters using RDP
 
 The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through remote desktop. Remote Desktop access is turned off by default and so direct access to the cluster using it requires some additional, post-creation configuration.
 
@@ -111,6 +90,10 @@ The credentials for the cluster that you provided at its creation give access to
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 	The expiration date must be in the future, and at most seven days from now. And the time is the midnight of the selected date.
+
+> [AZURE.NOTE] You can also use the HDInsight .NET SDK to enable remote desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable remote desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](http://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
+
+
 
 > [AZURE.NOTE] Once RDP is enabled for a cluster, you must refresh the page before you can connect to the cluster.
  

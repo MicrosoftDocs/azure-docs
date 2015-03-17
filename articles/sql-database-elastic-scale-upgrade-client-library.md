@@ -5,8 +5,8 @@
 	metaKeywords="sharding,elastic scale, Azure SQL DB sharding" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="stuarto", "sidneyh"/>
+	manager="stuarto" 
+	authors="stuarto"/>
 
 <tags 
 	ms.service="sql-database" 

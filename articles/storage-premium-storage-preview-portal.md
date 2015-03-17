@@ -246,7 +246,7 @@ If a disk is attached to a VM, certain API operations are not permitted on the p
 - If the copy blob operation on Premium Storage overwrites an existing blob at the destination, the blob being overwritten must not have any snapshots.  A copy within or between premium storage accounts require that the destination blob does not have snapshots when initiating the copy.
 - The number of snapshots for a single blob is limited to 100. A snapshot can be taken every 10 minutes at most.
 - 10 TB is the maximum capacity for snapshots per Premium Storage account. Note that the snapshot capacity is the unique data that exists in the snapshots. In other words, the snapshot capacity does not include the base blob size.
-- You can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- In order to copy a snapshot from a premium storage account to another account, you have to first do a CopyBlob of the snapshot to create a new blob in the same premium storage account. Then you can copy the new blob to other storage accounts. You can delete the intermediate blob after the copy finishes. Follow this process to copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - For detailed information on performing REST operations against page blobs in Premium Storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) in the MSDN library.
 
 ## Using Linux VMs with Premium Storage
@@ -254,10 +254,62 @@ Please refer to important instructions below for configuring your Linux VMs on P
 
 - For all Premium Storage disks with cache setting as either “ReadOnly” or “None”, you must disable “barriers” while mounting the file system in order to achieve the scalability targets for Premium Storage. You do not need barriers for this scenario because the writes to Premium Storage backed disks are durable for these cache settings. When the write request successfully completes, data has been written to the persistent store. Please use the following methods for disabling “barriers” depending on your file system:
 	- If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
-	- If you use **ext3/ext4**, disable barriers using the mount option “barriers=0” (For enabling barriers, use “barriers=1”)
+	- If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
 	- If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
+
+Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to one of these for better performance and stability with Premium Storage. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>Distribution</strong></td>
+	<td><strong>Version</strong></td>
+	<td><strong>Supported Kernel</strong></td>
+	<td><strong>Supported Image</strong></td>
+</tr>
+<tr>
+	<td rowspan="3"><strong>Ubuntu</strong></td>
+	<td>12.04</td>
+	<td>3.2.0-75.110</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
+</tr>
+<tr>
+	<td>14.04</td>
+	<td>3.13.0-44.73</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td>
+</tr>
+<tr>
+	<td>14.10</td>
+	<td>3.16.0-29.39</td>
+	<td>Ubuntu-14_10-amd64-server-20150202-en-us-30GB</td>
+</tr>
+<tr>
+	<td><strong>SUSE</strong></td>
+	<td>SLES 12</td>
+	<td>3.12.36-38.1</td>
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr>
+<tr>
+	<td rowspan="2"><strong>CoreOS</strong></td>
+	<td>Alpha-607.0.0</td>
+	<td>3.18.6</td>
+	<td>CoreOS-Alpha-607.0.0</td>
+</tr>
+<tr>
+	<td>Beta-584.0.0</td>
+	<td>3.18.4</td>
+	<td>CoreOS-Beta-584.0.0</td>
+</tr>
+<tr>
+	<td><strong>CentOS/Oracle</strong></td>
+	<td></td>
+	<td></td>
+	<td>Contact Support for details</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Pricing and Billing when using Premium Storage
 When using Premium Storage, the following billing considerations apply:
