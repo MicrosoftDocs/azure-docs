@@ -19,9 +19,9 @@ To create an inline link from an ACOM technical article to another ACOM technica
     [link text](article-name.md)
     [Create a Media Services account](media-services-create-account.md)
 
-To link to an anchor within the same article:
+You do not have to create anchors anymore - they are automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections:
 
-    [link text](#anchor-name)
+    [link](#the-text-of-the-H2-section-separated-by-hyphens)
     [Create cache](#create-cache)
 
 To link to an anchor in another article:
