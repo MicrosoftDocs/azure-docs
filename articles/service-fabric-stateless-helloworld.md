@@ -1,52 +1,16 @@
 #Getting Started with Microsoft Azure Service Fabric Stateless Services (VS 2015 CTP 6)
 
->**NOTE**: This set of training content is based on pre-release services, libraries and tools. Details are subject to change, and operation steps may differ from the final released products. Before you start, please make sure you are using the latest version of this package. 
->
->Please also note that steps annotated with ![](media/service-fabric-stateless-helloworld/change.png) are more likely to change. And steps annotated with ![](media/service-fabric-stateless-helloworld/workaround.png) are temporary workarounds.
-
->The official name of the service is **Microsoft Azure Service Fabric**, or **Service Fabric** in short. However, the tools and libraries haven't been refreshed to use this new name yet. In the following text and screen shots you'll see reference to *Windows Fabric*, which is the internal code name.
-
-The tutorial walks you through the steps of creating a "Hello World" stateless Service Fabric service. The tutorial assumes that you use Visual Studio 2015 CTP 6 or above. Please see [Getting Started with Microsoft Azure Service Fabric Stateful Services (VS 2015 CTP 6)](../HelloWorldAppStateful-VS2015) if you want to create a stateful service.
-
-You'll learn:
-
-- How to set up the development environment for Microsoft Azure Service Fabric.
-- How to implement a simple stateless service.
-- How to test your service locally using a development cluster.
-- How to deploy your service to Azure.
+The tutorial walks you through the steps of creating a "Hello World" stateless Service Fabric service. You’ll learn how to write a simple service, test it locally, and then push it to Microsoft Azure.
 
 Tutorial segments
 
-- [Set up the development environment](#setup)
 - [Implement the service](#implement)
 - [Test the service locally](#testlocally) 
 - [Deploy the service to Azure](#deploy)
 
-##<a name="setup"></a>Set up the development environment
-
-###Prerequisites
-- [Visual Studio 2015 CTP 6](https://www.visualstudio.com/en-us/news/vs2015-vs.aspx)
-- [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
-- If you want to deploy the service to Azure, an active Azure subscription. If you don't have one, you can get a free trial at [azure.microsoft.com](http://azure.microsoft.com/en-gb/pricing/free-trial/).
-
-###Install SDK and tools
-
-1. Install [Windows Fabric 3.2](../../resources/WindowsFabric.3.2.181.9490.msi).
-2. Install [Windows Fabric 3.2 SDK](../../resources/WindowsFabricSDK.3.2.181.9490.msi).
-3. Install [Windows Fabric Tool for Visual Studio 2015 Preview](../../resources/Fabric.VS140.en-us.msi).
-4. ![](media/service-fabric-stateless-helloworld/workaround.png) Extract [FabActSdk.zip](../../resources/FabActSdk.zip) under the **Resources** folder to your *%SystemDrive%* (i.e. C:\ if C: is your System Drive). After extraction, you should have a *FabActSDK* folder under your system drive root folder. This folder is referred to as the *FabActSdk* folder hereafter in this tutorial.
-6. ![](media/service-fabric-stateless-helloworld/workaround.png) Disable strong name verification. 
-	1. Launch **VS2015 x64 Cross Tools Command Prompt** as an **Administrator**.
-	2. Navigate to the *FabActSdk***\bin** folder.
-	3. Disable strong name verification for the following three assemblies by running the following commands:
-	
-			sn -Vr FabActUtil.exe
-			sn -Vr System.Fabric.Services.dll
-			sn -Vr WindowsFabricServiceModel.dll
-
 ##<a name="implement"></a>Implement the service
 
-A stateless service doesn't rely on persistent states. Each request can be handled independently without needing to consult or maintain a context across multiple requests. For example, a unit converter converts measurements to different units given a scalar value and two units. The inputs are sufficient for the service to carry out the required operation independently. The request is not affected by any historical requests, nor other instances of the service.
+In this tutorial, you’ll implement a simple “Hello World” service that prints out current date and time periodically. The service is an example of a background worker that runs constantly. This pattern is very similar to how a Cloud Service Worker Role is implemented.
 
 1. Launch Visual Studio 2015 CTP 6 as **Administrator**, and create a new **Windows Fabric Stateless Service** Project named **HelloWorldApp**.
 
@@ -54,7 +18,7 @@ A stateless service doesn't rely on persistent states. Each request can be handl
 	
 	You will see 2 projects in the created solution. The first project is the application project (_HelloWorldApp_), which contains the application manifest and a number of PowerShell scripts that help you to deploy your application. The second is the service project (_StatelessService1_), which contains the actual service implementation.
 
-	>**NOTE**: The solution should build out-of-box. If the solution fails to build, please check if you've extracted *FabActSdk.zip* to your *%SystemDrive%* root folder (see step 4 in previous section).
+	>**NOTE**: The solution should build out-of-box. If the solution fails to build, please check if you've extracted *FabActSdk.zip* to your *%SystemDrive%* root folder.
 
 5. Open **Service.cs** in the **StatelessService1** project, import the following namespaces:
 
@@ -92,7 +56,7 @@ A stateless service doesn't rely on persistent states. Each request can be handl
 	>**NOTE**: To debug locally, set break points at the lines of interest. 
 
 ##<a name="deploy"></a>Deploy the service to Azure
-You can deploy your Service Fabric services to a Service Fabric cluster on Azure or on-premises servers. Please see [Deploy to Azure](../DeployToAzure) tutorial for detailed instructions on how to provision a Service Fabric cluster on Azure.
+You can deploy your Service Fabric services to a Service Fabric cluster on Azure or on-premises servers. 
 
 1. In Visual studio, open the **Parameters.json** file under HelloWorldApp's **Scripts** folder.
 2. Add a parameter **clusterConnectionString** to your Service Fabric cluster address. For example, if your Service Fabric cluster is located at _mycluster.cloudapp.net_, then the modified JSON file should look like the following:
