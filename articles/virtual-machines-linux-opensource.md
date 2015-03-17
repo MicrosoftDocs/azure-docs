@@ -92,7 +92,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 CoreOS is a small, optimized distro for pure compute scale with a high degree of control for customization.
 
 10. [Image Gallery](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
-11. [How to: Use CoreOS on Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-coreos-how-to.md)
+11. [How to: Use CoreOS on Azure](virtual-machines-linux-coreos-how-to.md)
 12. [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [Blog: TechEd Europe -- Windows Docker Client and Linux Containers](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
 14. [Blog: Azure's getting bigger, faster, and more open](http://azure.microsoft.com/blog/2014/10/20/azures-getting-bigger-faster-and-more-open/)
