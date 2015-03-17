@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use blob storage (PHP) | Microsoft Azure" 
+	pageTitle="How to use Blob storage from PHP | Microsoft Azure" 
 	description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." 
 	documentationCenter="php" 
 	services="storage" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
-# How to use the Blob service from PHP
+# How to use Blob storage from PHP
+
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
 ## Overview
 

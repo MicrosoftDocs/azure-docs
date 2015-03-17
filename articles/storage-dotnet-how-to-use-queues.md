@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use queue storage from .NET | Microsoft Azure" 
+	pageTitle="How to use Queue storage from .NET | Microsoft Azure" 
 	description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." 
 	services="storage" 
 	documentationCenter=".net" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tamram"/>
 
-# How to use Queue Storage from .NET
+# How to use Queue storage from .NET
+
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
@@ -26,7 +28,7 @@ and use the Azure Storage Client for .NET. The scenarios covered include **inser
 **peeking**, **getting**, and **deleting** queue messages, as well as
 **creating and deleting queues**. 
 
-> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [How to: Programmatically access Queue storage][] below for more details on obtaining the Storage Client Library.
+> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [Programmatically access Queue storage](#programmatically-access-queue-storage) below for more details on obtaining the Storage Client Library.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 
@@ -34,7 +36,7 @@ and use the Azure Storage Client for .NET. The scenarios covered include **inser
 
 [AZURE.INCLUDE [storage-configure-connection-string-include](../includes/storage-configure-connection-string-include.md)]
 
-## How to: Programmatically access Queue storage
+## Programmatically access Queue storage
 
 ### Obtaining the assembly
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
@@ -73,7 +75,7 @@ If you are creating an application with no reference to Microsoft.WindowsAzure.C
 ### ODataLib dependencies
 ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
 
-## How to: Create a queue
+## Create a queue
 
 A **CloudQueueClient** object lets you get reference objects for queues.
 The following code creates a **CloudQueueClient** object. All code in
@@ -98,7 +100,7 @@ to use. You can create the queue if it doesn't exist.
     // Create the queue if it doesn't already exist
     queue.CreateIfNotExist();
 
-## How to: Insert a message into a queue
+## Insert a message into a queue
 
 To insert a message into an existing queue, first create a new
 **CloudQueueMessage**. Next, call the **AddMessage** method. A
@@ -123,7 +125,7 @@ doesn't exist) and inserts the message 'Hello, World':
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-## How to: Peek at the next message
+## Peek at the next message
 
 You can peek at the message in the front of a queue without removing it
 from the queue by calling the **PeekMessage** method.
@@ -144,7 +146,7 @@ from the queue by calling the **PeekMessage** method.
 	// Display message.
 	Console.WriteLine(peekedMessage.AsString);
 
-## How to: Change the contents of a queued message
+## Change the contents of a queued message
 
 You can change the contents of a message in-place in the queue. If the
 message represents a work task, you could use this feature to update the
@@ -176,7 +178,7 @@ that triggers an application error each time it is processed.
         TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
-## How to: De-queue the next message
+## De-queue the next message
 
 Your code de-queues a message from a queue in two steps. When you call
 **GetMessage**, you get the next message in a queue. A message returned
@@ -205,7 +207,7 @@ has been processed.
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
 
-## How to: Leverage additional options for de-queuing messages
+## Leverage additional options for de-queuing messages
 
 There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
@@ -234,7 +236,7 @@ will become visible again.
         queue.DeleteMessage(message);
     }
 
-## How to: Get the queue length
+## Get the queue length
 
 You can get an estimate of the number of messages in a queue. The
 **FetchAttributes** method asks the Queue service to
@@ -261,7 +263,7 @@ property returns the last value retrieved by the
 	// Display number of messages.
 	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## How to: Delete a queue
+## Delete a queue
 
 To delete a queue and all the messages contained in it, call the
 **Delete** method on the queue object.

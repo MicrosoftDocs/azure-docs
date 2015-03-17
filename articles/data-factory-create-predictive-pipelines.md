@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="03/10/2015" 
 	ms.author="spelluru"/>
 
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
