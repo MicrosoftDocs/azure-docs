@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure portal keyboard shortcuts" 
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts" 
+   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts." 
    services="cloud-services" 
    documentationCenter="dev-center-name" 
    authors="curtand" 
@@ -18,26 +18,39 @@
 
 # Azure portal keyboard shortcuts 
 
-Azure provides a number of keyboards shortcuts that you can use anywhere in the portal. Some services will have their own keyboard shortcuts, but these portal-wide shortcuts work in any service. The shortcuts will not work when you are working in an editing area, such as a text box, or a console view. 
+## Open hubs
 
-| Action | Shortcut |
+| Shortcut | Action |
 |--------|----------|
-|Switch between Azure portal home and the current blade | H |
-| Move to the first open blade | F |
-| Move to the last open blade | L
-| Move to the previous open blade | J |
-| Move to the next open blade | K |
-| Open notifications hub | N |
-| Open browse (services) hub | S or / |
-| Select and active session | A |
-| Create | C |
-| Close a hub menu, dialog box, account menu, any open menu | Esc |
-| Scroll to the top of the current blade | Home |
-| Scroll to the bottom of the current blade | End |
-| To tab out of an editing control | CTRL+M |
-| To use tabs to indent in an editing control | CTRL+M |
+| N | Open notifications hub |
+| S or / | Open browse (services) hub | 
+| A | Select an active session | 
+| C | Create | 
 
-## Next steps
+## Navigation
+
+| Shortcut | Action |
+|--------|----------|
+| F | Move to the first open blade | 
+| H | Switch between Azure portal home and the current blade | 
+| J | Move to the previous open blade | 
+| K | Move to the next open blade | 
+| L | Move to the last open blade | 
+| - | Minimize blade or restore from maximized | 
+| + | Maximize blade or restore from minimized | 
+| K | Move to the next open blade | 
+
+
+## Controls
+| Shortcut | Action |
+|--------|----------|
+| Esc | Close a hub menu, dialog box, account menu, any open menu | 
+| # | Close all open blades | 
+| Home | Scroll to the top of the current blade | 
+| End | Scroll to the bottom of the current blade | 
+| CTRL+M | To toggle between tabbing between controls and using tabs within an editing control | 
+
+# Next steps
 
 Get to know the Azure Portal better: http://azure.microsoft.com. 
 

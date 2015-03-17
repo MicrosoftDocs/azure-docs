@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 # Monitor a Storage Account in the Azure Management Portal

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/13/2015" 
 	ms.author="kathydav"/>
 
 #How to Capture a Windows Virtual Machine to Use as a Template#
