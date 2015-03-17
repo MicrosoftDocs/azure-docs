@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/17/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
@@ -114,6 +114,8 @@ Perform the following steps to run Spark queries from an interactive Spark shell
 ###<a name="sparksql"></a>Using the Spark shell to run Spark SQL queries
 
 Spark SQL allows you to use Spark to run relational queries expressed in Structured Query Language (SQL), HiveQL, or Scala. In this section, we look at using Spark to run a Hive query on a sample Hive table. The Hive table used in this section (called **hivesampletable**) is available by default when you provision a cluster.
+
+>[AZURE.NOTE] The sample below was created against **Spark 1.2.0**, which is installed if you run the script action while provisioning HDInsight 3.2 cluster.
 
 1. From the Azure portal, enable Remote Desktop for the cluster you created with Spark installed, and then remote into the cluster. For instructions, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
 
