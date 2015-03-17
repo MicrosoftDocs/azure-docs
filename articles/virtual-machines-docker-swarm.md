@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="n/a"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure" 
