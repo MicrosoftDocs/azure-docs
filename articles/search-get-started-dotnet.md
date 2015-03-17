@@ -13,18 +13,18 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="03/16/2015" 
 	ms.author="heidist"/>
 
 #Create your first Azure Search application in .NET#
 
-This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](./search-howto-dotnet-sdk) to build classes for the objects and operations used in the sample.
+This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](../search-howto-dotnet-sdk/) to build classes for the objects and operations used in the sample.
 
 You can download the sample from codeplex at [Azure Search Demo Using USGS Data](https://azsearchdemos.codeplex.com/SourceControl/latest) to follow the steps in this tutorial. The sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Washington. We'll use this data to build a search application based on data about landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
-You can begin with [Get started with Azure Search](../search-get-started/) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
+You can begin with [Create an Azure Search service](../search-create-service-portal/) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
 
 > [AZURE.TIP] We recommend updating NuGet packages before building any projects to avoid build errors. Right-click the solution and choose **Manage NuGet Packages**. Update all of the packages used in this solution.
 
@@ -101,7 +101,7 @@ If you already have some background in Azure Search, you can use this sample as 
 New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
 
 <!--Image references-->
-[1]:./media/search-get-started-20150228/consolemessages.png
-[2]:./media/search-get-started-20150228/portalindexstatus.png
-[3]:./media/search-get-started-20150228/usgssearchbox.png
-[4]:./media/search-get-started-20150228/snoqualmie.png
+[1]:./media/search-get-started-dotnet/consolemessages.png
+[2]:./media/search-get-started-dotnet/portalindexstatus.png
+[3]:./media/search-get-started-dotnet/usgssearchbox.png
+[4]:./media/search-get-started-dotnet/snoqualmie.png
