@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Create a Trading Partner Agreement" 
    description="This topic covers creation of Trading Partner Agreements" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 
