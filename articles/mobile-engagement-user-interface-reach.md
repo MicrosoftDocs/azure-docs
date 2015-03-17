@@ -25,7 +25,7 @@
 <a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
 <a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
 <a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
+<a href="../mobile-engagement-user-interface-reach" class="current" title="Reach">Reach</a>
 <a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
 <a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>

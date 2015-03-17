@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # How to manage developer accounts in Azure API Management
@@ -22,11 +22,11 @@ In API Management, developers are the users of the APIs that you expose using AP
 
 ## <a name="create-developer"> </a>Create a new developer
 
-To create a new developer, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To create a new developer, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
-![API Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 Click **Developers** from the **API Management** menu on the left, and then click **add user**.
 

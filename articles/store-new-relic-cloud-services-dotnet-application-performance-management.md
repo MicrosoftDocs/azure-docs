@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
+	ms.date="03/16/2015" 
 	ms.author="stepsic"/>
 
 
@@ -44,7 +44,7 @@ New Relic special pricing through the Azure Store
 New Relic Standard is free to Azure users
 New Relic Pro is offered based on instance size for Azure Cloud Services
 
-For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/gallery/store/new-relic/new-relic/).
+For pricing information see the [New Relic page in the Azure Store](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic).
 
 > [AZURE.NOTE] Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.date="03/13/2015"
    ms.author="nitinme"/>
 
 # Get started using Hadoop with Hive in HDInsight on Linux (Preview)
 
-This tutorial gets you started quickly with HDInsight on Linux by showing you how to provision an HDInsight Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data. Then, you’ll analyze the results in a Business Intelligence (BI) tool, such as Tableau.
+This tutorial gets you started quickly with HDInsight on Linux by showing you how to provision an HDInsight Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data.
 
 
 > [AZURE.NOTE] If you are new to Hadoop and Big Data, you can read more about the terms <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a>, and <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](../hdinsight-hadoop-introduction/).
@@ -78,7 +78,7 @@ For more information, see
 	
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision an HDInsight cluster on Linux using the quick-create option. This option uses default user names and Azure storage containers, and configures a cluster with HDInsight version 3.2 (Hadoop version 2.5, HDP version 2.2) running on Ubuntu 12.04 LTS. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision an HDInsight cluster on Linux using the quick-create option. This option uses default user names and Azure storage containers, and configures a cluster with HDInsight version 3.2 (Hadoop version 2.5, HDP version 2.2) running on Ubuntu 12.04 LTS. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](../hdinsight-component-versioning/) page.
 
 >[AZURE.NOTE]  You can also create Hadoop clusters running Windows Server OS. For instructions, see [Get Started with HDInsight on Windows](../hdinsight-get-started/).
 
@@ -180,7 +180,8 @@ Once you are connected to the cluster using SSH, use the following commands to r
 	- **STORED AS TEXTFILE LOCATION** - tells Hive where the data is stored (the example/data directory,) and that it is stored as text.
 	- **SELECT** - select a count of all rows where column t4 contain the value [ERROR]. 
 
-	>[WACOM.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but always want Hive queries to use the latest data. Dropping an external table does **not** delete the data, only the table definition.
+	>[AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but al
+	>ways want Hive queries to use the latest data. Dropping an external table does **not** delete the data, only the table definition.
 
 	This returns the following output.
 

@@ -70,17 +70,17 @@ For an example of using the HDInsight Tools to create a Storm application, see <
 
 For more information about the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using the HDInsight Tools for Visual Studio</a>.
 
-Each Storm on HDInsight cluster also provides a web-based Storm Dashboard that allows you to submit, monitor, and manage Storm topologies running on the cluster. 
+Each Storm on HDInsight cluster also provides a web-based Storm Dashboard that allows you to submit, monitor, and manage Storm topologies running on the cluster.
 
 ![Storm dashboard](./media/hdinsight-storm-overview/dashboard.png)
 
-For more information about using the Storm Dashboard, see <a href="../hdinsight-storm-deploy-monitor-manage-topology/" target="_blank">Deploy and manage Apache Storm topologies on HDInsight</a>.
+For more information about using the Storm Dashboard, see <a href="../hdinsight-storm-deploy-monitor-topology/" target="_blank">Deploy and manage Apache Storm topologies on HDInsight</a>.
 
 Storm on HDInsight also provides easy integration with Azure Event Hubs through the **Event Hub Spout**. This is available on each storm cluster at **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. For examples of using this spout in a Storm topology, see <a href="../service-bus-event-hubs-c-storm-getstarted/" target="_blank">Getting started with Event Hubs</a> and <a href="../hdinsight-storm-sensor-data-analysis/" target="_blank">Analyzing sensor data with Storm and HBase</a>.
 
 ###Reliability
 
-Apache Storm always guarantees that each incoming message will be fully processed, even when the data analysis is spread over hundreds of nodes. 
+Apache Storm always guarantees that each incoming message will be fully processed, even when the data analysis is spread over hundreds of nodes.
 
 The **Nimbus node** provides similar functionality to the Hadoop JobTracker, and it assigns tasks to other nodes in the cluster through **Zookeeper**. Zookeeper nodes provide coordination for the cluster and facilitate communication between Nimbus and the **Supervisor** process on the worker nodes. If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.
 
@@ -134,7 +134,7 @@ Apache Storm runs **topologies** instead of the MapReduce jobs that you may be f
 
 * **Apache Thrift**: A software framework for scalable cross-language service development. It allows you to build services that work between C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and other languages.
 
-	* **Nimbus** is a Thrift service, and a **topology** is a Thrift definition, so it is possible to develop topologies using a variety of programming languages. 
+	* **Nimbus** is a Thrift service, and a **topology** is a Thrift definition, so it is possible to develop topologies using a variety of programming languages.
 
 For more information about Storm components, see the [Storm tutorial][apachetutorial] at apache.org.
 
@@ -175,7 +175,7 @@ Joining two streams of data will vary between applications. For example, you cou
 
 In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the **MyJoiner** bolt.
 
-	builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2")); 
+	builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
 ###Batching
 
