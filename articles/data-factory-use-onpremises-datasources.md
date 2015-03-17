@@ -13,7 +13,7 @@ git s<properties
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/1/2015" 
+	ms.date="03/17/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -112,8 +112,14 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 	
 	See [Data Management Gateway](#DMG) section for details about the gateway including best practices and important considerations. 
 
-4. Click the **NOTIFICATIONS** hub on the left. Wait until you see **Express setup for 'adftutorialgateway' succeeded** message in the **Notifications** blade
-5. Click **OK** on the **New data gateway** blade.
+4. Click the **NOTIFICATIONS** hub on the left. Wait until you see **Express setup for 'adftutorialgateway' succeeded** message in the **Notifications** blade.
+
+	![Express setup succeeded][express-setup-succeeded]
+5. Click **OK** on the **Create** blade and then on the **New data gateway** blade.
+6. Close the **Linked Services** blade (by pressing **X** button in the top-right corner) and reopen the **Linked Services** blade to see the latest status of the gateway. 
+7. Confirm that the **status** of the gateway is **Online**. 
+
+	![Gateway status][gateway-status]
 5. Launch **Microsoft Data Management Gateway Configuration Manager** application  on your computer.
 
 	![Gateway Configuration Manager][image-data-factory-gateway-configuration-manager]
@@ -543,7 +549,8 @@ Article | Description
 [image-editor-newdatastore-onpremsql-settings]: ./media/data-factory-use-onpremises-datasources/editor-onprem-sql-settings.png
 [image-editor-sql-linked-service-successful]: ./media/data-factory-use-onpremises-datasources/editor-sql-linked-service-successful.png
 
-
+[gateway-status]: ./media/data-factory-use-onpremises-datasources/gateway-status.png
+[express-setup-succeeded]:./media/data-factory-use-onpremises-datasources/express-setup-succeeded.png
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png
 
 [image-data-factory-onprem-datastorage-cache-backup]: ./media/data-factory-use-onpremises-datasources/OnPremDataStorageCacheBackup.png
