@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Managing Azure Media Services Jobs" 
+	pageTitle="Working with Azure Media Services Jobs" 
 	description="This topics gives an overview of how to manage Managing Azure Media Services Jobs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -11,12 +11,12 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="03/10/2015" 
 	ms.author="juliako"/>
 
-##Managing Jobs
+##Working with Azure Media Services Jobs
 
 A **Job** contains metadata about the processing to be performed. Each **Job** contains one or more **Tasks** that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. For more information on encoder settings, see Encoder Guides and Encoder Schemas.
 

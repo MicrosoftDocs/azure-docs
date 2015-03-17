@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to use table storage (Ruby) | Microsoft Azure" 
+	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="tfitzmac,tamram" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
 
+# How to use Table storage from Ruby
 
-
-
-# How to Use the Table Service from Ruby
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 
@@ -161,6 +160,6 @@ To delete a table, use the **delete\_table()** method and pass in the name of th
 
 Now that you've learned the basics of table storage, follow these links to learn about more complex storage tasks.
 
-* See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-* Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-* Visit the [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+- See the MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+- Visit the [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

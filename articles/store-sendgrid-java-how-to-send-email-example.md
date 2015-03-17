@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to Send Email Using SendGrid from Java in an Azure Deployment" 
-	description="" 
+	pageTitle="store-sendgrid-java-how-to-send-email-example" 
+	description="How to send email using SendGrid from Java in an Azure Deployment" 
 	services="" 
 	documentationCenter="java" 
 	authors="thinkingserious" 
@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/30/2014" 
-	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
+	ms.author="vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com"/>
 
 # How to Send Email Using SendGrid from Java in an Azure Deployment
 
