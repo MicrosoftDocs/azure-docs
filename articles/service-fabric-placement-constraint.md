@@ -1,14 +1,14 @@
 <properties
    pageTitle="Placement Constraints"
    description="A conceptual overview of placement constraints in Service Fabric"
-   services="service-fabric"
+   services="Service-Fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="service-fabric"
+   ms.service="Service-Fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="abhic"/>
 
-# Technical Overview
+# Placement Constraints Overview
 
 Service Fabric allows developers to constrain the placement of service replicas on to nodes that satisfy particular conditions. These conditions are expressed via a boolean expression that is evaluated with appropriate service-context specific values.
 
@@ -36,4 +36,4 @@ NodeProperty- A user or system defined map from a string to a value, that can va
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-For more information: [Application Scenarios](../service-fabric-application-scenarios). 
+For more information: [Application Scenarios](../service-fabric-application-scenarios).
