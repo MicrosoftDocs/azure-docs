@@ -3,7 +3,7 @@
 	pageTitle="Process Data from Hive Tables | Azure" 
 	description="Process Data from Hive Tables" 
 	metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
@@ -11,7 +11,7 @@
 	editor="cgronlun"  />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 

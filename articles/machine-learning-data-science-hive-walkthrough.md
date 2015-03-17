@@ -1,9 +1,8 @@
 <properties 
-	title="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters" 
-	pageTitle="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters | Azure" 
+	pageTitle="Azure Data Science Process in action - Using Azure HDInsight Hadoop clusters | Azure" 
 	description="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters" 
 	metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
@@ -12,7 +11,7 @@
 
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -21,7 +20,7 @@
 	ms.author="hangzh;bradsev" />
 
                 
-# Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters
+# Azure Data Science Process in action - Using Azure HDInsight Hadoop clusters
 
 In this tutorial, you will follow the Azure Data Science Process map end-to-end using an Azure HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. This tutorial needs to be carried out on **Windows** computers since the steps of [Getting the Data from Public Source](#getdata) and [Uploading the Data to the Default Container of Azure HDInsight Hadoop Cluster](#upload) use AzCopy, which is a Windows software. The other steps in this tutorial can run on both Windows and Ubuntu Linux systems. 
 

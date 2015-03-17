@@ -1,8 +1,7 @@
 <properties 
-	title="Customize Azure HDInsight Hadoop Clusters for Data Science" 
 	pageTitle="Customize Azure HDInsight Hadoop Clusters for Data Science | Azure" 
 	description="Customize Azure HDInsight Hadoop Clusters for Data Science" metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
@@ -10,13 +9,13 @@
 	editor="cgronlun"  />
 
 <tags 
-	s.service="data-science-process" 
+	s.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/17/2015" 
-	ms.author="hangzh, bradsev" />
+	ms.author="hangzh;bradsev" />
 
 # Customize Azure HDInsight Hadoop Clusters for Data Science
 

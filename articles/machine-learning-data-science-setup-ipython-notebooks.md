@@ -1,9 +1,8 @@
 <properties 
-	title="Easy Installing, Configuring, and Launching IPython Notebooks on Azure Virtual Machines" 
-	pageTitle="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines | Azure" 
+	pageTitle="Set Up IPython Notebook servers on Azure Virtual Machines | Azure" 
 	description="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines" 
 	metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
@@ -11,7 +10,7 @@
 	editor="cgronlun"  />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -20,7 +19,7 @@
 	ms.author="hangzh;bradsev" />
 
  
-#Setting Up IPython Notebook servers on Azure Virtual Machines
+#Set Up IPython Notebook servers on Azure Virtual Machines
  
 In this document, we describe how to set up IPython Notebook servers on Azure virtual machines, by just running two or four shell commands, in Windows or Ubuntu Linux systems, respectiely. After the setting up completes, the IPython Notebook server is **automatically launched** on the virtual machine and can be instantly accessed from web browsers on any machines. Even if the hosting virtual machines restart, the IPython Notebook server is automatically restarted. 
 

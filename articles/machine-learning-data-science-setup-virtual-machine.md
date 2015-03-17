@@ -3,7 +3,7 @@
 	pageTitle="Set up a Data Science Virtual Machine" 
 	description="Set up a Data Science Virtual Machinee" 
 	metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
@@ -11,7 +11,7 @@
 	editor="cgronlun"  />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 

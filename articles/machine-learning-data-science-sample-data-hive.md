@@ -1,9 +1,8 @@
 <properties 
-	title="Down sampling data in Azure HDInsight Hive Tables" 
-	pageTitle="Down sampling data in Azure HDInsight Hive Tables | Azure" 
+	pageTitle="Down sampling data in Azure HDInsight Hive tables | Azure" 
 	description="Down sampling data in Azure HDInsight Hive Tables" 
 	metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
@@ -11,7 +10,7 @@
 	editor="cgronlun"  />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
