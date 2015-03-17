@@ -28,7 +28,7 @@
 <a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
 <a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
 <a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
+<a href="../mobile-engagement-user-interface-settings" class="current" title="Settings">Settings</a>
 </div>
 
 # Settings
