@@ -38,7 +38,7 @@ The following sections describe the StorSimple security features that help prote
 
 The StorSimple Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured. You can access the StorSimple Manager service by using your organizational credentials to log on to the Azure Management Portal through a web browser. 
 
-Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](http://azure.microsoft.com/documentation/articles/sign-up-organization/). 
+Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](sign-up-organization.md). 
 
 Because the StorSimple Manager service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/security/).
 
