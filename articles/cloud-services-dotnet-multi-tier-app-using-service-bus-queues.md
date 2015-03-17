@@ -27,8 +27,7 @@
 Developing for Microsoft Azure is easy using Visual Studio 2013 and the
 free Azure SDK for .NET. If you do not already have Visual
 Studio 2013, the SDK will automatically install Visual Studio Express, so you can start developing for Azure entirely for
-free. This guide assumes you have no prior experience using Windows
-Azure. On completing this tutorial, you will have an application that uses
+free. This guide assumes you have no prior experience using Azure. On completing this tutorial, you will have an application that uses
 multiple Azure resources running in your local environment and
 demonstrating how a multi-tier application works.
 
