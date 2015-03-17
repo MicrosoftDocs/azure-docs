@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use table storage (Node.js) | Microsoft Azure" 
+	pageTitle="How to use Table storage from Node.js | Microsoft Azure" 
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." 
 	services="storage" 
 	documentationCenter="nodejs" 
@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="03/11/2015" 
 	ms.author="mwasson"/>
 
-# How to Use the Table Service from Node.js
+
+# How to use Table storage from Node.js
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
+
 
 ## Overview
 

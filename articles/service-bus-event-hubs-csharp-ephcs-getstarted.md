@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Event Hubs" 
-	description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="Get Started with Event Hubs"
+	description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost"
+	services="service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="csharp" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="hero-article"
+	ms.date="02/10/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -22,9 +22,9 @@
 
 ## Introduction
 
-Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster. For more information about Event Hubs, see the [Event Hubs developer guide]. 
+Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.
 
-For more information, please see [Event Hubs Overview].
+For more information about Event Hubs, please see [Event Hubs Overview].
 
 In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using the C# [Event Processor Host] library.
 

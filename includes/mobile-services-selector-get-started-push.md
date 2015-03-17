@@ -7,3 +7,5 @@
 - [(Windows Phone | Javascript)](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)
 - [(Android | .NET)](/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/)
 - [(Android | Javascript)](/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)
+- [(Xamarin iOS | Javascript)](/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push/)
+- [(Xamarin Android | Javascript)](/documentation/articles/partner-xamarin-mobile-services-android-get-started-push/)

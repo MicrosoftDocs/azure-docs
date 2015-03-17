@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.date="03/16/2015"
    ms.author="nitinme"/>
 
 
-# Get started using Hadoop with Hive in HDInsight to analyze mobile handset use
+# Get started using Hadoop with Hive in HDInsight
 
 <!--div class="dev-center-tutorial-selector sublanding">
 <a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a>
@@ -25,14 +25,14 @@
 <!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a>
 </div-->
 
-To get you started quickly using HDInsight, this tutorial shows you how to run a Hive query to extract meaningful information from unstructured data in a Hadoop cluster. Then, you’ll analyze the results in Microsoft Excel.
+To get you started quickly using HDInsight, this tutorial shows you how to run a Hive query to extract meaningful information about mobile handset use from unstructured data in a Hadoop cluster. Then, you’ll analyze the results in Microsoft Excel.
 
 
 > [WACOM.NOTE] If you are new to Hadoop and Big Data, you can read more about the terms [Apache Hadoop][apache-hadoop], [MapReduce][apache-mapreduce], [HDFS][apache-hdfs], and  [Hive][apache-hive]. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight][hadoop-hdinsight-intro].
 
 In conjunction with the general availability of Azure HDInsight, Microsoft also provides HDInsight Emulator for Azure, formerly known as *Microsoft HDInsight Developer Preview*. The Emulator targets developer scenarios and only supports single-node deployments. For information about using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
-> [WACOM.NOTE] For instructions on how to provision an HBase cluster, see [Provision HBase cluster in HDInsight][hdinsight-hbase-custom-provision]. See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one database over the other.   
+> [AZURE.NOTE] For instructions on how to provision an HBase cluster, see [Provision HBase cluster in HDInsight][hdinsight-hbase-custom-provision]. See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one database over the other.   
 
 ## What does this tutorial achieve? ##
 
@@ -71,6 +71,8 @@ Before you begin this tutorial, you must have the following:
 HDInsight uses Azure Blob Storage for storing data. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
 When you provision an HDInsight cluster, you specify an Azure Storage account. A specific blob container from that account is designated as the default file system, like in the Hadoop distribute file system (HDFS). By default, the HDInsight cluster is provisioned in the same datacenter as the storage account you specify.
+
+>[WACOM.NOTE] Don't share a default Blob storage container with multiple HDInsight clusters. 
 
 In addition to this storage account, you can add additional storage accounts when you custom configure an HDInsight cluster. This additional storage account can be from the same Azure subscription or from different Azure subscriptions. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. 
 

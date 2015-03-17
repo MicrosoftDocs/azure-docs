@@ -65,6 +65,9 @@ This is a stacked chart which breaks the total page load time into the [standard
 
 ![](./media/app-insights-web-track-usage/08-client-split.png)
 
+Note that the *network connect* time is usually lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
+
+
 ### Click through to client performance by page
 
 Click the client performance chart to see a more detailed blade, which includes a grid segmented by page URL:

@@ -43,76 +43,23 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 > [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F"%20target="_blank).
 
-<h2><a name="register"></a>Enable Google Cloud Messaging</h2>
+##<a name="register"></a>Enable Google Cloud Messaging
 
-<p></p>
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-> [AZURE.IMPORTANT] To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302"%20target="_blank).
+##<a name="configure-hub"></a>Configure your Notification Hub
 
-1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> website, sign-in with your Google account credentials, and then click **Create project...**.
+[AZURE.INCLUDE [notification-hubs-android-configure-push](../includes/notification-hubs-android-configure-push.md)]
 
-   	![][1]
-
-	> [AZURE.NOTE] When you already have an existing project, you are directed to the **Dashboard** page after login. To create a new project from the Dashboard, expand **API Project**, click **Create...** under **Other projects**, then enter a project name and click **Create project**.
-
-2. Click **Overview** in the left column, and make a note of the project number in the **Dashboard** section.
-
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
-
-3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service.
-
-4. Click **API Access**, and then click **Create new Server key...**
-
-   	![][2]
-
-5. In **Configure Server Key for API Project**, click **Create**.
-
-   	![][3]
-
-6. Make a note of the **API key** value.
-
-   	![][4]
-
-Next, you will use this API key value to enable your notification hub to authenticate with GCM and send push notifications on behalf of your application.
-
-<h2><a name="configure-hub"></a>Configure your Notification Hub</h2>
-
-1. Log on to the [Azure Management Portal], and then click **+NEW** at the bottom of the screen.
-
-2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
-
-   	![][7]
-
-3. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
-
-   	![][8]
-
-4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click **Configure** at the top.
-
-   	![][9]
-
-5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
-
-   	![][10]
-
-6. Click the **Configure** tab at the top, enter the **API Key** value you obtained in the previous section, and then click **Save**.
-
-   	![][11]
-
-7. Select the **Dashboard** tab at the top, then click **Connection Information**. Take note of the two connection strings.
-
-   	![][12]
-
-Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
-
-<h2><a name="connecting-app"></a>Connecting your app to the Notification Hub</h2>
+##<a name="connecting-app"></a>Connect your app to the Notification Hub
 
 ### Create a new project
 
-1. In Xamarin Studio (or Visual Studio), create a new Android project (File, New, Solution, Android Application).
+1. In Xamarin Studio (or Visual Studio), click **File** and **New**, then click **Android Application** in the **New Solution** dialog, and finally click **OK**.
 
-   	![][13]
    	![][14]
+
+	This creates a new Android project.
 
 2. Open the project properties by right clicking on your new project in the Solution view, and choosing **Options**. Select the **Android Application** item in the **Build** section.
 
@@ -190,32 +137,35 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 6. In **MyBroadcastReceiver.cs** change the **MyBroadcastReceiver** class to match the following:
 
     	[BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class MyBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
+			Categories = new string[] { "@PACKAGE_NAME@" })]
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, 
+			Categories = new string[] { "@PACKAGE_NAME@" })]
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
+			Categories = new string[] { "@PACKAGE_NAME@" })]
+        public class MyBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
             public static string[] SENDER_IDS = new string[] { Constants.SenderID };
 
             public const string TAG = "MyBroadcastReceiver-GCM";
         }
 
-7. Add another class in **MyBroadcastReceiver.cs** named **PushHandlerService** which derives from **PushHandlerServiceBase**. Make sure to use the **Service** directive on the class:
+7. Add another class in **MyBroadcastReceiver.cs** named **PushHandlerService** which derives from **GcmServiceBase**. Make sure to apply the **Service** attribute to the class:
 
-    	[Service] //Must use the service tag
-    	public class GcmService : GcmServiceBase
+    	[Service] // Must use the service tag
+    	public class PushHandlerService : GcmServiceBase
     	{
         	public static string RegistrationID { get; private set; }
         	private NotificationHub Hub { get; set; }
 
-        	public GcmService() : base(Constants.SenderID)
+        	public PushHandlerService() : base(Constants.SenderID)
        		{
-            	Log.Info(MyBroadcastReceiver.TAG, "GcmService() constructor");
+            	Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
         	}
     	}
 
 
-8. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our implementation class **GcmService** must override these methods, and these methods will fire in response to interacting with the notification hub.
+8. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our implementation class **PushHandlerService** must override these methods, and these methods will fire in response to interacting with the notification hub.
 
 9. Override the **OnRegistered()** method in **PushHandlerService** with the following code:
 
@@ -224,7 +174,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
             Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
             RegistrationID = registrationId;
 
-            createNotification("GcmService-GCM Registered...", "The device has been Registered, Tap to View!");
+            createNotification("PushHandlerService-GCM Registered...", "The device has been Registered, Tap to View!");
 
             Hub = new NotificationHub (Constants.NotificationHubPath, Constants.ConnectionString);
             try
@@ -308,6 +258,8 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 
 When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
+	> [AZURE.IMPORTANT] In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to **Settings** and click **Add Account**). Also, make sure that the emulator is connected to the Internet.
+
 1. From **Tools**, click **Open Android Emulator Manager**, select your device, and then click **Edit**.
 
    	![][18]
@@ -316,11 +268,9 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
    	![][19]
 
-3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and run the app.
+3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and runs the app.
 
-4. The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
-
-	> [AZURE.IMPORTANT] In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to **Settings** and click **Add Account**). Also, make sure that the emulator is connected to the Internet.
+  The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
 
 <h2><a name="send"></a>Send notification from your back-end</h2>
 
@@ -448,4 +398,5 @@ In this simple example you broadcast notifications to all your Android devices. 
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-[Google Cloud Messaging Component]: http://components.xamarin.com/view/GCMClient/
+[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
+[Azure Messaging Component]: http://components.xamarin.com/view/azure-messaging

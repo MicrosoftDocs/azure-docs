@@ -28,6 +28,8 @@ Encoding jobs are one of the most common processing operations in Media Services
 
 It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](https://msdn.microsoft.com/library/azure/jj889436.aspx).
 
+If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](../media-services-rest-configure-asset-delivery-policy).
+
 ##Create a job with a single encoding task 
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
@@ -110,7 +112,7 @@ In many application scenarios, developers want to create a series of processing 
 
 
 ##Next Steps
-Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](../media-services-rest-check-job-progress/) topic.
+Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](media-services-rest-check-job-progress.md) topic.
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
