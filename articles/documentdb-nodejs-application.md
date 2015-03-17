@@ -154,7 +154,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		        
 		        client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
 		            if (err) {
-		                return callback(err);
+		                callback(err);
 		
 		            } else {		
 		                if (results.length === 0) {
