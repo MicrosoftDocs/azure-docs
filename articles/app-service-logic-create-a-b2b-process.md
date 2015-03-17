@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Creating a B2B process" 
    description="This topic covers creation of B2B Business Process" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 
