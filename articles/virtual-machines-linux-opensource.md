@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/11/2015"
+	ms.date="03/17/2015"
 	ms.author="rasquill"/>
 
 
@@ -232,7 +232,7 @@ This section contains information about several different storage approaches and
 8. [Installing Postgres with corosync, pg_bouncer using ILB](https://github.com/chgeuer/postgres-azure) 
 
 
-## <a id='security'>Auth and Encryption</a>
+## Auth and Encryption
 
 Authentication and encryption are critical topics in software development, and there are many, many topics on the web that describe how to learn and use proper security techniques for both. We describe some of the basic usage to get up and running quickly with Linux and opensource workloads, as well pointing to tools to use to reset or remove remote security features on Azure. These are basic procedures, and we will be adding more complex scenarios soon. 
 
@@ -250,13 +250,12 @@ This section starts with a blog entry containing a series of videos on [Video: A
 	- [Using the Docker VM Extension from the Azure Cross-Platform Command-line Interface (xplat-cli)](http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/)
 	- [Using the Docker VM Extension from the Azure Preview Portal](http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/)
 	- [Getting Started Quickly with Docker in the Azure Marketplace](http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/)
-	- [How to use docker-machine on Azure]
-	- [How to use docker with swarm on Azure]
+	- [How to use docker-machine on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-machine/)
+	- [How to use docker with swarm on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-swarm/)
 	
 2. [Fleet with CoreOS](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-coreos-how-to/)
 3. Deis
-	- [GitHub repo:
-Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
+	- [GitHub repo: Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
 4. Kubernetes
 	- [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
 5. Jenkins and Hudson
