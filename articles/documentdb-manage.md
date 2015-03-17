@@ -23,12 +23,12 @@ You can get started with DocumentDB by creating a database account through the [
 
 Each capacity unit comes with a quota of collections for storing document data, provisioned document storage and provisioned throughput as request units per second. If the capacity requirements of your application change, you can scale up or scale down the amount of provisioned capacity in your database account. Capacity provisioned under a database account is available for all databases and collections that exist or are created within the account.
 
-> [AZURE.NOTE] Each collection can scale in both storage and throughput up to the maximum supported [limit](http://azure.microsoft.com/documentation/articles/documentdb-limits/). Throughput will be evenly distributed to all collections up to the maximum limit per collection.
+> [AZURE.NOTE] Each collection can scale in both storage and throughput up to the maximum supported [limit](documentdb-limits.md). Throughput will be evenly distributed to all collections up to the maximum limit per collection.
 
 When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
 ##<a name="DBaccount"></a>Database account and administrative resources
-As an Azure subscriber, you can provision one or more DocumentDB database accounts. Each database account comes with a quota of administrative resources including databases, users and permissions. These resources are subject to [limits and quotas](http://azure.microsoft.com/documentation/articles/documentdb-limits/). If you need additional administrative resources, please contact support.   
+As an Azure subscriber, you can provision one or more DocumentDB database accounts. Each database account comes with a quota of administrative resources including databases, users and permissions. These resources are subject to [limits and quotas](documentdb-limits.md). If you need additional administrative resources, please contact support.   
 
 ##<a name="DBstorage"></a> Databases with unlimited document storage
 A single DocumentDB database can contain practically an unlimited amount of document storage partitioned by collections. Collections form the transaction domains for the documents contained within them. A DocumentDB database is elastic by default – ranging from a few GB to potentially terabytes of SSD backed document storage and provisioned throughput. Unlike a traditional RDBMS database, a database in DocumentDB is not scoped to a single machine.   
