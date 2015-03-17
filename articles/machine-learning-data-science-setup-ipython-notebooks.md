@@ -1,12 +1,10 @@
 <properties 
-	title="Easy Installing, Configuring, and Launching IPython Notebooks on Azure Virtual Machines" 
 	pageTitle="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines | Azure" 
 	description="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines" 
-	metaKeywords="" 
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft, bradsev" 
+	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
@@ -17,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="hangzh-msft, bradsev" />
+	ms.author="hangzh-msft;bradsev" />
 
  
 #Setting Up IPython Notebook servers on Azure Virtual Machines
@@ -59,7 +57,7 @@ Before starting the process of creating virtual machines on Azure, users need to
 	
 	![Create workspace][10]
 
-	>[AZURE.NOTES] If you want to use this virtual machine to try out the examples **Cloud Data Science Process in Action** (links are provided at the bottom of the [Cloud Data Science Process map](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-how-to-create-machine-learning-service/)), you need to select images of Windows since in these examples, some steps depend on some software that is Windows specific.
+	>[AZURE.NOTE] If you want to use this virtual machine to try out the examples **Cloud Data Science Process in Action** (links are provided at the bottom of the [Cloud Data Science Process map](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-how-to-create-machine-learning-service/)), you need to select images of Windows since in these examples, some steps depend on some software that is Windows specific.
 
 3. Input the name of the virtual machine you want to create, select the size of the machine based on the size of the data the machine is going to handle and how powerful you want the machine to be (memory size and the number of cores), the user name and the password of the machine. Then, click the right arrow to go to the next configuration page.
 
