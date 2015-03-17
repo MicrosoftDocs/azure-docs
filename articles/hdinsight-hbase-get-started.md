@@ -69,7 +69,7 @@ This section describes how to use the HBase shell to create HBase tables, add ro
 
 		hbase shell
 
-4. Create an HBase with one column and insert a row:
+4. Create an HBase with one column family and insert a row:
 
 		create 'sampletable', 'cf1'
 		put 'sampletable', 'row1', 'cf1:col1', 'value1'
@@ -91,7 +91,7 @@ In a high availability cluster, you will find a link to the current active HBase
 
 **Bulk load a sample table**
 
-1. From the HBase shell, create an HBase table with two columns:
+1. From the HBase shell, create an HBase table with two column families:
 
 		create 'Contacts', 'Personal', 'Office'
 
