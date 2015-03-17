@@ -3,21 +3,21 @@
 	pageTitle="Process Data from Hive Tables | Azure" 
 	description="Process Data from Hive Tables" 
 	metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft, bradsev" 
+	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="hangzh-msft, bradsev" /> 
+	ms.author="hangzh;bradsev" /> 
 
 #<a name="heading"></a>Hive Queries to Process Data from Hive Tables in Azure HDInsight Hadoop Clusters
 

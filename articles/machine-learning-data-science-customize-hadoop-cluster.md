@@ -1,6 +1,21 @@
-<properties title="Customize Azure HDInsight Hadoop Clusters for Data Science" pageTitle="Customize Azure HDInsight Hadoop Clusters for Data Science | Azure" description="Customize Azure HDInsight Hadoop Clusters for Data Science" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="hangzh-msft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Customize Azure HDInsight Hadoop Clusters for Data Science | Azure" 
+	description="Customize Azure HDInsight Hadoop Clusters for Data Science" metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/09/2015" ms.author="hangzh-msft" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/17/2015" 
+	ms.author="hangzh;bradsev" />
 
 # Customize Azure HDInsight Hadoop Clusters for Data Science
 
@@ -8,11 +23,6 @@ In this document, we describe how to customize HDInsight Hadoop clusters such th
 
 We also describe after the Hadoop cluster is provisioned, how to access the head node of the cluster remotely, and how to submit Hive queries in the Hadoop Command Line in the head node.
 
-
-- [Customize Azure HDInsight Hadoop Cluster](#customize)
-- [Access the Head Node of Hadoop Cluster](#remoteaccess)
-- [Run Hive Queries in Head Node of Hadoop Cluster](#hivequery)
-- [Output Hive Query Results to Files](#output)
 
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
 

@@ -1,23 +1,22 @@
 <properties 
-	title="Create Hive tables and load data in blob to hive tables" 
-	pageTitle="Create Hive tables and load data in blob to hive tables | Azure" 
+	pageTitle="Create Hive tables and load data in blob to Hive tables | Azure" 
 	description="Create Hive tables and load data in blob to hive tables" 
 	metaKeywords="" 
-	services="data-science-process" 
+	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft, bradsev" 
+	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
 <tags 
-	ms.service="data-science-process" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="hangzh-msft, bradsev" />
+	ms.author="hangzh;bradsev" />
 
  
 #Create and load data to Hive tables
