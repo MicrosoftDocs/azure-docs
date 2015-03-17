@@ -9,7 +9,7 @@
 	editor="cgronlun"  />
 
 <tags 
-	s.service="machine-learning" 
+	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
