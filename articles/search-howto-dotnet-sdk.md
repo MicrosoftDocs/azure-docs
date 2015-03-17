@@ -1,19 +1,19 @@
 <properties 
    pageTitle="How to use Azure Search from a .NET Application" 
    description="How to use Azure Search from a .NET Application" 
-   services="azure-search" 
-   documentationCenter=".net" 
+   services="search" 
+   documentationCenter="" 
    authors="brjohnstmsft" 
    manager="pablocas" 
    editor=""/>
 
 <tags
-   ms.service="azure-search"
+   ms.service="search"
    ms.devlang="dotnet"
+   ms.workload="search" 
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="search" 
-   ms.date="03/10/2015"
+   ms.date="03/16/2015"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application #
