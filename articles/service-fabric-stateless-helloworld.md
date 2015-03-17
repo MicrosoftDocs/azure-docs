@@ -1,4 +1,22 @@
-#Getting Started with Microsoft Azure Service Fabric Stateless Services (VS 2015 CTP 6)
+<properties 
+   pageTitle="getting-started-with-microsoft-azure-service-fabric-stateless-services" 
+   description="The tutorial walks you through the steps of creating, debugging and deploying a 'Hello World' stateless Service Fabric service." 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="haishibai" 
+   manager="larar" 
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="multiple" 
+   ms.date="03/17/2015"
+   ms.author="hbai"/>
+
+# Getting Started with Microsoft Azure Service Fabric Stateless Services
 
 The tutorial walks you through the steps of creating a "Hello World" stateless Service Fabric service. You’ll learn how to write a simple service, test it locally, and then push it to Microsoft Azure.
 
