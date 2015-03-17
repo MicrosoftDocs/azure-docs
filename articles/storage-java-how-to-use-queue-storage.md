@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use the queue service (Java) | Microsoft Azure" 
+	pageTitle="How to use Queue storage from Java | Microsoft Azure" 
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." 
 	services="storage" 
 	documentationCenter="java" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="03/11/2015" 
 	ms.author="robmcm"/>
 
-# How to use Queue Storage from Java
+# How to use Queue storage from Java
+
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 

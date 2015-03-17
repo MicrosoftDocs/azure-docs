@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use the queue service (PHP) | Microsoft Azure" 
+	pageTitle="How to use Queue storage from PHP | Microsoft Azure" 
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." 
 	documentationCenter="php" 
 	services="storage" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
-# How to use the Queue service from PHP
+# How to use Queue storage from PHP
+
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
