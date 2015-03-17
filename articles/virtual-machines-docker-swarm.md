@@ -23,7 +23,7 @@ This topic shows a very simple way to use [docker](https://www.docker.com/) with
 
 > [AZURE.NOTE] This is an early version of software, so check back for updates about using this on Azure to create large, balanced, and controlled clusters of Docker containers, as well as checking the docker swarm documentation to discover all its features.
 <!-- -->
-> In addition, this topic uses docker with swarm and the xplat-cli *without* using docker-machine in order to show how the different tools work together but remain independent. docker-machine has **--swarm** switches that enable you to use docker-machine to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed docker-machine running against Azure VMs, see [How to use docker-machine with Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-docker-machine/).
+> In addition, this topic uses docker with swarm and the xplat-cli *without* using docker-machine in order to show how the different tools work together but remain independent. docker-machine has **--swarm** switches that enable you to use docker-machine to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed docker-machine running against Azure VMs, see [How to use docker-machine with Azure](virtual-machines-docker-machine.md).
 
 ## Create docker hosts with Azure Virtual Machines
 
