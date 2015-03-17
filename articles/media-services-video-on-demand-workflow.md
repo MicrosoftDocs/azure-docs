@@ -88,11 +88,11 @@ This article contains links to topics that show how to set up your development e
 
 ##Concepts
 
-For concepts related to delivering your content on demand, see [Media Services Concepts](../media-services-concepts).
+For concepts related to delivering your content on demand, see [Media Services Concepts](media-services-concepts.md).
 
 ##Creating a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
+Use **Azure Management Portal** to [Create Azure Media Services Account](media-services-create-account.md). 
 
 ##Setting up development environment  
 
@@ -109,7 +109,7 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 
 ##Configuring streaming endpoints
 
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](../media-services-manage-origins/).
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md).
 
 ##Uploading media 
 
@@ -121,7 +121,7 @@ Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 A job is an entity that contains metadata about a set of tasks (for example, encoding or indexing). Each task performs an atomic operation on the input asset(s). For example on how to create encoding jobs, see:
 
-For an overview, see [Working with Azure Media Services Jobs](../media-services-jobs).
+For an overview, see [Working with Azure Media Services Jobs](media-services-jobs.md).
 
 Get a Media Processor appropriate for your task with **.NET** or **REST API**.
 
@@ -137,11 +137,11 @@ The following examples create encoding jobs with **Azure Management Portal**, **
 
 ##Encoding 
 
-An overview: [Encoding On-Demand Content with Azure Media Services](../media-services-encode-asset).
+An overview: [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
 
 Encode with **Media Encoder Premium Workflow** using **.NET**. 
 
-[Advanced encoding with Media Encoder Premium Workflow](../media-services-encode-with-premium-workflow).
+[Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
@@ -177,17 +177,21 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
+##Enabling Azure CDN
+
+Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
+
 ##Scaling a Media Services account
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with. 
 
 You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
 
-[This](../media-services-how-to-scale) topic links to relevant topics.
+[This](media-services-how-to-scale.md) topic links to relevant topics.
 
 
 ##Playback your content
 
-For more information, see [playing your content with existing players](../media-services-playback-content).
+For more information, see [playing your content with existing players](media-services-playback-content.md).
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png

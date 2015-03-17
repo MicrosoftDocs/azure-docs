@@ -66,15 +66,15 @@ This article contains links to topics that show how to set up your development e
 
 ##Concepts
 
-For concepts related to live streaming, see [Media Services Concepts](../media-services-concepts).
+For concepts related to live streaming, see [Media Services Concepts](media-services-concepts.md).
 
 ##Creating a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
+Use **Azure Management Portal** to [Create Azure Media Services Account](media-services-create-account.md).
 
 ##Configuring streaming endpoints
 
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](../media-services-manage-origins/)
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](./media-services-manage-origins.md)
 
 ##Setting up development environment  
 
@@ -121,11 +121,16 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 
+##Enabling Azure CDN
+
+Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
+
 ##Scaling a Media Services account
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
 
-For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
+
 
 
 
