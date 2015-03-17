@@ -22,7 +22,7 @@
 
 BizTalk Transform API App converts data from one format to another format. You can create a transformation - a 'Map' between a 'Source Schema (XML Schema)' and a 'Target Schema (XML Schema)' in the Transform Designer in Visual Studio using the 'Microsoft Azure BizTalk Services SDK'.  You can use various inbuilt functions while creating your map, including string manipulations, conditional assignments, arithmetic expressions, date time formatters, and looping constructs. You can upload the map created in Visual Studio (.trfm) into the BizTalk Transform API App.
 
-You create a map by expressing a graphical correlation between two XML schemas that defines a relationship between elements in those schemas. The transformation defined in a map can be simple, such as copying a name and address from one document to another. You can express a direct data copy by using a link, which is shown in BizTalk Mapper as a line connecting the appropriate elements in the source schema with their counterparts in the destination schema. You can also specify more complex transformations by using various out of box map operations. See [Create a Map in Visual Studio](https://msdn.microsoft.com/en-us/library/azure/hh689910.aspx) for more details.
+You create a map by expressing a graphical correlation between two XML schemas that defines a relationship between elements in those schemas. The transformation defined in a map can be simple, such as copying a name and address from one document to another. You can express a direct data copy by using a link, which is shown in BizTalk Mapper as a line connecting the appropriate elements in the source schema with their counterparts in the destination schema. You can also specify more complex transformations by using various out of box map operations. See [Create a Map in Visual Studio](http://aka.ms/createamapinvs) for more details.
 
 
 ## **Create a new BizTalk Transform API App**
@@ -65,7 +65,7 @@ You create a map by expressing a graphical correlation between two XML schemas t
 
 ### Add a Map
 
-You can add the map (.trfm file) created in Visual Studio (VS) using ‘BizTalk Services SDK’ to the ‘BizTalk Transform API App’. See [Create a Map in Visual Studio](https://msdn.microsoft.com/en-us/library/azure/hh689910.aspx) for more details.
+You can add the map (.trfm file) created in Visual Studio (VS) using ‘BizTalk Services SDK’ to the ‘BizTalk Transform API App’. See [Create a Map in Visual Studio](http://aka.ms/createamapinvs) for more details.
 
 If the map is modified after it is uploaded, you can upload the updated map and it will replace the existing map in the Transform API App.
 
