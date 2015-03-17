@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploy an Azure API App" 
 	description="Learn how to deploy an API App project to your Azure subscription." 
-	services="app-service-api" 
+	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
 	manager="wpickett" 
