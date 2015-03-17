@@ -6,7 +6,7 @@
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab;xibingao;bradsev" 
+	authors="msolhab" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
@@ -17,7 +17,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/17/2015" 
-	ms.author="msolhab;xibingao;bradsev" />
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Set up a Data Science Virtual Machine in Azure
 

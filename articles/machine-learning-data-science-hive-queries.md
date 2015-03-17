@@ -6,7 +6,7 @@
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft;bradsev" 
+	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
@@ -17,7 +17,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="hangzh-msft;bradsev" /> 
+	ms.author="hangzh;bradsev" /> 
 
 #<a name="heading"></a>Hive Queries to Process Data from Hive Tables in Azure HDInsight Hadoop Clusters
 
