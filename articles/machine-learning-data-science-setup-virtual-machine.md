@@ -1,5 +1,5 @@
 <properties 
-	title="Set up a Data Science Virtual Machine" 
+	title="Set up a Virtual Machine in Azure for Data Science" 
 	pageTitle="Set up a Data Science Virtual Machine" 
 	description="Set up a Data Science Virtual Machinee" 
 	metaKeywords="" 
@@ -19,82 +19,82 @@
 	ms.date="03/17/2015" 
 	ms.author="mohabib;xibingao;bradsev" />
 
-# Set up a Data Science Virtual Machine in Azure
+# Set up a Virtual Machine in Azure for Data Science
 
-In this tutorial, you will learn how to provision and configure an Azure Virtual Machine to be used as part of a Data Science environment. The virtual machine will also serve as an IPython Notebook server. Virtual machines running on Windows will be configured with supporting tools including Azure Storage Explorer and AzCopy, and packages which are useful for data science projects. Azure Storage Explorer and AzCopy provide convenient ways to download/upload data from/to Azure blob storages.
+In this tutorial, you learn how to provision and configure several types of Azure Virtual Machines that are to be used as part of a data science environment. The virtual machines are also set up as IPython Notebook servers. The virtual machines run on Windows and are configured with supporting tools, including Azure Storage Explorer and AzCopy, and other packages which are useful for data science projects. Azure Storage Explorer and AzCopy provide convenient ways to download/upload data from/to Azure blob storage.
 
-We will first show how to provision a general purpose Azure virtual machine step by step. Then, we will describe steps of provisioning a SQL Server virtual machine in case that SQL Server meets your data needs. 
+This tutorial has two parts. The first part shows how to provision a general purpose Azure virtual machine step by step. The second part  describes the steps for the provisioning of a SQL Server virtual machine for cases in which SQL Server is required to satisfy your data needs. 
 
 
 ##<a name="general"></a>Set Up a General Purpose Azure Virtual Machine with IPython Notebook Server
 
 - [Step 1: Create an Azure virtual machine and add an endpoint for IPython Notebooks](#create-vm)
 - [Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint)
-- [Step 3: Run shell commands on virtual machines to set up IPython Notebook server](#run-commands)
-- [Step 4: Access IPython Notebooks in web browsers](#access)
-- [Upload an existing IPython Notebook on local machine to the IPython Notebook server](#upload)
+- [Step 3: Run shell commands on virtual machines to set up an IPython Notebook server](#run-commands)
+- [Step 4: Access IPython Notebooks from a web browser](#access)
+- [Step 5: Upload an existing IPython Notebook from a local machine to the IPython Notebook server](#upload)
 
 ### <a name="create-vm"></a>Step 1: Create an Azure virtual machine and add an endpoint for IPython Notebooks
 
-If a user already has an Azure virtual machine and just wants to set up IPython Notebook server on it, this step can be skipped and please jump to the next step to [add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint). 
+If a user already has an Azure virtual machine and just wants to set up an IPython Notebook server on it, this step can be skipped. Such users can proceed to [Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint). 
  
-Before starting the process of creating virtual machines on Azure, users need to decide the size of the machine that is suitable for the data that the machine is going to process. Smaller machines have smaller memory size and less CPU cores than larger machines, but also less costly. 
+Before starting the process of creating a virtual machine on Azure, users need to determine the size of the machine that is needed to process the data for their project. Smaller machines have less memory and fewer CPU cores than larger machines, but they are also less costly. 
 
-1. Log in to `https://manage.windowsazure.com`, and click `New` in the bottom left corner. A window will be popped up. Then select `COMPUTE` > `VIRTUAL MACHINE` > `FROM GALLERY`.
+1. Log in to https://manage.windowsazure.com, and click **New** in the bottom left corner. A window will be popped up. Then select **COMPUTE** -> **VIRTUAL MACHINE** -> **FROM GALLERY**.
 
 	![Create workspace][24]
 
-2. Choose an image. Since the shell scripts of setting up IPython Notebook server only work on **Windows Server 2012**, user can only choose images that are running on Windows Server 2012, such as Windows Server 2012 R2 Datacenter, Windows Server Essentials Experience (Windows Server 2012 R2), SQL Server 2012 xxx (Windows Server 2012 R2), etc. Then, click the right arrow to go the the next configuration page.
+2. Choose an image. Since the shell scripts for setting up the IPython Notebook server only work on **Windows Server 2012**, user can only choose images that are running on Windows Server 2012. These includes Windows Server 2012 R2 Datacenter, Windows Server Essentials Experience (Windows Server 2012 R2), and SQL Server 2012 xxx (Windows Server 2012 R2). Then, click the arrow pointing right at the lower right to go the next configuration page.
 	
 	![Create workspace][25]
 
-3. Input the name of the virtual machine you want to create, select the size of the machine based on the size of the data the machine is going to handle and how powerful you want the machine to be (memory size and the number of cores), the user name and the password of the machine. Then, click the right arrow to go to the next configuration page.
+3. Input the name of the virtual machine you want to create, select the size of the machine based on the size of the data the machine is going to handle and how powerful you want the machine to be (memory size and the number of cores), the user name and the password of the machine. Then, click the arrow pointing right to go to the next configuration page.
 
 	![Create workspace][26]
 
-4. Select the `REGION/AFFINITY GROUP/VIRTUAL NETWORK` as the one that the `STORAGE ACCOUNT` that you are planning to use for this virtual machine, and select the storage account. Add an endpoint at the bottom of the `ENDPOINTS` by inputting the name of the endpoint ("IPython" here). You can choose any string as the **NAME** of the end point, and any integer between 0 and 65536 that is **available** as the **PUBLIC PORT**. The **PRIVATE PORT** has to be **9999**. Users should **avoid** using any public port that has already been assigned for internet services. [Ports for Internet Services](http://www.chebucto.ns.ca/~rakerman/port-table.html) provides a complete list of ports that have been assigned and you cannot use. 
+4. Select the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** that contains the **STORAGE ACCOUNT** that you are planning to use for this virtual machine, and then select that storage account. Add an endpoint at the bottom in the **ENDPOINTS**  field by inputting the name of the endpoint ("IPython" here). You can choose any string as the **NAME** of the end point, and any integer between 0 and 65536 that is **available** as the **PUBLIC PORT**. The **PRIVATE PORT** has to be **9999**. Users should **avoid** using any public port that has already been assigned for internet services. [Ports for Internet Services](http://www.chebucto.ns.ca/~rakerman/port-table.html) provides a complete list of ports that have been assigned and you cannot use. 
 
 	![Create workspace][27]
 
-	>[AZURE.NOTES] If the endpoint is added at this step, the next step [Add an endpoint for IPython Notebook to an existing virtual machine](#add-endpoint) can be skipped.
+	>[AZURE.NOTE] If the endpoint is added at this step,[Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint) can be skipped.
 
-5. Click the check mark, the virtual machine provisioning process will start. 
+5. Click the check mark to start the virtual machine provisioning process. 
 
 	![Create workspace][28]
 
 
-It may take around 15-25 minutes to complete the virtual machine provisioning process. After the virtual machine is created, you should be able to see the status of this machine showing as **Running**.
+It may take 15-25 minutes to complete the virtual machine provisioning process. After the virtual machine has been created, the status of this machine should show as **Running**.
 
 ![Create workspace][29]
 	
 ### <a name="add-endpoint"></a>Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine
 
-If you create the virtual machine by following the instructions above, the endpoint for IPython Notebook has already been added. This step can be skipped. 
+If you create the virtual machine by following the instructions above, then the endpoint for IPython Notebook has already been added and this step can be skipped. 
 
-If the virtual machine has already been created, and and you need to add an endpoint for IPython Notebooks, first log into Azure management portal, click the virtual machine, and then add the endpoint for IPython Notebook server. The following figure is the screen shot after the endpoint for IPython Notebook has been added to a Windows virtual machine. 
+If the virtual machine had already been created, and and you need to add an endpoint for IPython Notebooks, first log into Azure management portal, click the virtual machine, and then add the endpoint for IPython Notebook server. The following figure contains a screen shot of the portal after the endpoint for IPython Notebook has been added to a Windows virtual machine. 
 
 ![Create workspace][17]
 
 ### <a name="run-commands"></a>Step 3: Install IPython Notebook and other supporting tools
 
-After the virtual machine is created, you need to [log on to the virtual machine](virtual-machines-log-on-windows-server.md) using RDP. Then run the following command in the **Command Prompt** (**Not the Powershell command window**). Users have to run this command in the role of **Administrator**. 
+After the virtual machine is created, use RDP to log on to the virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md). Open the **Command Prompt** (**Not the Powershell command window**) as an Administrator and run the following command. Users must run this command in the **Administrator** role. 
  
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-After the installing completes, the IPython Notebook server will be automatically launched in the directory of `C:\Users\<user name>\Documents\IPython Notebooks`. 
+When the installation completes, the IPython Notebook server is launched automatically in the *C:\Users\&#60;user name>\Documents\IPython Notebooks* directory.
 
-During the installing process, you will be asked to input the password of the IPython Notebooks, and the password of the machine so that the IPython Notebook can be added as a service running on the machines. 
+The installation process will require the password of the IPython Notebooks and the password of the machine. Providing them enables the IPython Notebook to run as a service on the machine. 
 
-### <a name="access"></a>Access IPython Notebooks in web browser
-To access the IPython Notebook server, just open a web browser, and input **`https://<virtual machine DNS name>:<public port number>`** in the URL text box. Here, the `<public port number>` is the port number users specify when the IPython Notebook endpoint is added. Since 443 is the default port number for `https`, if users choose `443` as the public port number, the IPython Notebook can be accessed without explicitly claiming the port number in the URL text box. Otherwise, the `:<public port number>` is required. 
+### <a name="access"></a>Step 4: Access IPython Notebooks from a web browser
+To access the IPython Notebook server, open a web browser, and input *https://&#60;virtual machine DNS name>:&#60;public port number>* in the URL text box. Here, the *&#60;public port number>* should  be the port number users specify when the IPython Notebook endpoint is added, unless 443 is used. This option exists as 443 is the default port number for HTTPS. So if users choose *443* as the public port number, the IPython Notebook can be accessed without explicitly claiming the port number in the URL text box. Otherwise, the **&#60;public port number>* is required. 
 
-The **`<virtual machine DNS name>`** can be found at the management portal of Azure. After logging in to the management portal, click the **VIRTUAL MACHINES**, select the machine you create, and then select **DASHBOARD**, the DNS name will be shown as follows:
+The *&#60;virtual machine DNS name>* can be found at the management portal of Azure. After logging in to the management portal, click the **VIRTUAL MACHINES**, select the machine you created, and then select **DASHBOARD**, the DNS name will be shown as follows:
 
 ![Create workspace][19]
 
-Users will encounter the warning that _There is a problem with this website's security certificate_ (Internet Explorer) or _Your connection is not private_ (Chrome), as shown in the following figures. Users need to click _Continue to this website (not recommended)_ (Internet Explorer) or _Advanced_ and then _Proceed to `<DNS Name>` (unsafe)_ (Chrome) to continue. Then, users will be asked to input password to access the IPython Notebooks.
+Users will encounter the warning that _There is a problem with this website's security certificate_ (Internet Explorer) or _Your connection is not private_ (Chrome), as shown in the following figures. Users need to click **Continue to this website (not recommended)** (Internet Explorer) or **Advanced** and then **Proceed to &#60;*DNS Name*> (unsafe)** (Chrome) to continue. Then, users will be asked to input a password to access the IPython Notebooks.
 
 Internet Explorer:
 ![Create workspace][20]
@@ -102,11 +102,11 @@ Internet Explorer:
 Chrome:
 ![Create workspace][21]
 
-After users log on to the IPython Notebooks, a directory `DataScienceSamples` will show on the browser. This directory contains the sample IPython Notebooks shared by Microsoft which aim to help users conduct data science tasks on Azure. These sample IPython Notebooks have been checked out from [**Github repository**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) to the virtual machines during the IPython Notebook server setting up process. Microsoft is maintaining and updating this repository frequently. Users can always visit this Github repository to get the most recently updated sample IPython Notebooks. 
+After users log on to the IPython Notebooks, a directory *DataScienceSamples* will show on the browser. This directory contains the sample IPython Notebooks that are shared by Microsoft to help users conduct data science tasks on Azure. These sample IPython Notebooks have been checked out from [**Github repository**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) to the virtual machines during the IPython Notebook server set up process. Microsoft is maintaining and updating this repository frequently. Users can always visit this Github repository to get the most recently updated sample IPython Notebooks. 
 ![Create workspace][18]
 
-### <a name="upload"></a>Upload an existing IPython Notebook on local machine to the IPython Notebook server
-IPython Notebooks provide an easy way for users to upload an existing IPython Notebook on their own local machines to the IPython Notebook server on the virtual machines. After users log on to the IPython Notebook in web browser, click into the **directory** that the IPython Notebook will be uploaded to. Then, select the IPython Notebook .ipynb file on the local machine in the **File Explorer**, and drag and drop it to the IPython Notebook directory on the web browser. Finally, click the "Upload" button, the .ipynb file will be uploaded to the IPython Notebook server, and users can start using it in the web browser.
+### <a name="upload"></a>Step 5: Upload an existing IPython Notebook from a local machine to the IPython Notebook server
+IPython Notebooks provide an easy way for users to upload an existing IPython Notebook on their local machines to the IPython Notebook server on the virtual machines. After users log on to the IPython Notebook in a web browser, click into the **directory** that the IPython Notebook will be uploaded to. Then, select the IPython Notebook .ipynb file to upload from the local machine in the **File Explorer**, and drag and drop it to the IPython Notebook directory on the web browser. Click the **Upload** button, to upload the .ipynb file to the IPython Notebook server. Other users can then start using it in from their web browsers.
 
 ![Create workspace][22]
 
@@ -114,13 +114,12 @@ IPython Notebooks provide an easy way for users to upload an existing IPython No
 
 ## <a name="sqlserver"></a>Set Up a SQL Server Virtual Machine with IPython Notebook Server
 
-The Azure virtual machine gallery includes several images that contain
-Microsoft SQL Server. Select an SQL Server VM image that is suitable for your data needs. Recommended images are:
+The Azure virtual machine gallery includes several images that contain Microsoft SQL Server. Select a SQL Server VM image that is suitable for your data needs. Recommended images are:
 
 - SQL Server 2012 SP2 Enterprise for small to medium data sizes
 - SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads for large to very large data sizes
 
- > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise image **does not include a data disk**. You will need to add and/or attach one or more virtual hard disks to store your data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
+ > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise image **does not include a data disk**. You will need to add and/or attach one or  create additional virtual hard disks to store your data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
 In the following steps, you will:
 
@@ -137,47 +136,25 @@ In the following steps, you will:
 
 ##<a name="Provision"></a>Connect to the Azure management portal and provision an SQL Server virtual machine
 
-1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account. 
-	If you do not have an Azure account, visit [Azure free
-    trial](http://www.windowsazure.com/pricing/free-trial/).
+1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account. If you do not have an Azure account, visit the [Azure Free one-month](http://www.windowsazure.com/pricing/free-trial/) page to sign up for a free trial.
 
-2.  On the Azure Management Portal, at the bottom left of the web page,
-    click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and
-    then click **FROM GALLERY**.
+2.  On the Azure Management Portal, at the bottom left of the web page, select **+NEW** -> **COMPUTE** -> **VIRTUAL MACHINE** -> **FROM GALLERY**.
 
-3.  On the **Create a Virtual Machine** page, select a virtual machine
-    image containing SQL Server based on your data needs, and then click the next arrow at the
-    bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure, 
-    see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set.
+3.  On the **Create a Virtual Machine** page, select a virtual machine image containing the SQL Server that best satisfies your data needs, and then click the next arrow at the bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure, see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation.
 
 	![Select SQL Server VM][1]
 
-4.  On the first **Virtual Machine Configuration** page, provide the
-    following information:
+4.  On the first **Virtual Machine Configuration** page, provide the following information:
 
-    -   Provide a **VIRTUAL MACHINE NAME**.
-    -   In the **NEW USER NAME** box, type unique user name for the VM
-        local administrator account.
-    -   In the **NEW PASSWORD** box, type a strong password. For more
-        information, see [Strong Passwords](http://msdn.microsoft.com/library/ms161962.aspx).
-    -   In the **CONFIRM PASSWORD** box, retype the password.
-    -   Select the appropriate **SIZE** from the drop down list.
+    -   a **VIRTUAL MACHINE NAME**.
+    -   a unique user name for the local administrator of the VM account in the **NEW USER NAME** box.
+    -   a strong password in the **NEW PASSWORD** box. For more information on strong passwords, see [Strong Passwords](http://msdn.microsoft.com/library/ms161962.aspx).
+    -   a retyped password in the **CONFIRM PASSWORD** box.
+    -   an appropriate VM **SIZE** from the drop down list.
 
-     > [AZURE.NOTE] The size of the virtual machine is specified during provisioning: A2
-    is the smallest size recommended for production workloads. The
-    minimum recommended size for a virtual machine is A3 when using SQL
-    Server Enterprise Edition. Select A3 or higher when using SQL Server
-    Enterprise Edition. Select A4 when using SQL Server 2012 or 2014
-    Enterprise Optimized for Transactional Workloads images.
-     Select A7 when using SQL Server 2012 or 2014 Enterprise Optimized
-    for Data Warehousing Workloads images. The size selected limits the
-    number of data disks you can configure. For most up-to-date
-    information on available virtual machine sizes and the number of
-    data disks that you can attach to a virtual machine, see [Virtual
-    Machine Sizes for
-    Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/).
+> [AZURE.NOTE] The size of the virtual machine is specified during provisioning: A2 is the smallest size recommended for production workloads. The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition. Select A3 or higher when using SQL Server Enterprise Edition. Select A4 when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images. Select A7 when using SQL Server 2012 or 2014 Enterprise Optimizedfor Data Warehousing Workloads images. The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For pricing information, see [VIrtual Macines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/).
 
-    Click the next arrow on the bottom right to continue.
+Click the next arrow on the bottom right to continue.
 
     ![VM Configuration][2]
 

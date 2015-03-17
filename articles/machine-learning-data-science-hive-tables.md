@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create Hive tables and load data in blob to Hive tables | Azure" 
+	pageTitle="Create and load data into Hive tables from Azure blob storage | Azure" 
 	description="Create Hive tables and load data in blob to hive tables" 
 	metaKeywords="" 
 	services="machine-learning" 
@@ -19,7 +19,7 @@
 	ms.author="hangzh;bradsev" />
 
  
-#Create and load data to Hive tables
+#Create and load data into Hive tables from Azure blob storage
  
 In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. We share these Hive queries in Github repository. Users need to plug in their own data schema and Azure blob storage configuration in the corresponding fields in these queries. 
 
