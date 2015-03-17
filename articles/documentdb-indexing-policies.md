@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="documentdb" 
-	ms.devlang="may be required" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/23/2015" 
+	ms.date="03/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -101,7 +101,7 @@ and precisions.
  	Accept: application/json 
                                                                                                                          
  	{                                                                     
-	 "name":"customIndexCollection",                                     
+	 "id":"customIndexCollection",                                     
 	 "indexingPolicy":{                                                 
      "automatic":true,                                            
 	 "indexingMode":"Consistent",                                     
@@ -157,7 +157,7 @@ using the [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) 
 	// use the RequestOptions.IndexingDirective property.                                  
 	                                                                         
 	client.CreateDocumentAsync(defaultCollection.SelfLink,  
-	    new { Name = "AndersenFamily", isRegistered = true },                            
+	    new { Id = "AndersenFamily", isRegistered = true },                            
 		new RequestOptions                               
 		    {                                                                    
 			    IndexingDirective = IndexingDirective.Include                                                                                      
@@ -192,7 +192,7 @@ The following sample show how create a DocumentDB collection using the
 	 // fields. Hash indexes are compact and offer efficient                                                                                           
 	 // performance for equality queries.                                     
 	                                                                          
-	 var defaultCollection = new DocumentCollection { Name ="defaultCollection" };                                                   
+	 var defaultCollection = new DocumentCollection { Id ="defaultCollection" };                                                   
 	                                                                          
 	 // Optional. Override Automatic to false for opt-in indexing of documents.                                                                
 	                                                                          
@@ -245,7 +245,7 @@ special path “/" – which is explained in the next section.
 	 // against ranges (>,>=,<=,<), then you can configure the collection to 
 	 // use range queries for all numeric values.                                                                                                      
  
-	var rangeDefault = new DocumentCollection { Name = "rangeCollection" };                                                              
+	var rangeDefault = new DocumentCollection { Id = "rangeCollection" };                                                              
 	rangeDefault.IndexingPolicy.IncludedPaths.Add(                                                             
 												 new IndexingPath {   
 													IndexType = IndexType.Range, Path = "/", 
@@ -378,7 +378,7 @@ custom precision value of 7 bytes:
  	// /"CreatedTimestamp"/?    
  	// allowing queries of the form WHERE CreatedTimestamp [>] X            
 	
-	var pathRange = new DocumentCollection { Name = "rangeSinglePathCollection" };    
+	var pathRange = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 	
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
@@ -406,7 +406,7 @@ AllowScanInQueryrequest option using the .NET SDK.               
 The next example excludes a sub-tree of paths from indexing using the
 "*" wildcard.
 
-	var excluded = new DocumentCollection { Name = "excludedPathCollection" };                                                                       
+	var excluded = new DocumentCollection { Id = "excludedPathCollection" };                                                                       
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 

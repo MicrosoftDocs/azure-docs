@@ -39,22 +39,22 @@ You need admin access to the server, and a Microsoft Azure account.
 
 4. In the installation wizard, sign in to Microsoft Azure.
 
-    ![](./media/appinsights/appinsights-035-signin.png)
+    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
 5. Pick the installed web application or website that you want to monitor, then configure the name under which you want to see the results in the Application Insights portal. .
 
-    ![](./media/appinsights/appinsights-036-configAIC.png)
+    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
     Normally, you should choose to configure a new resource.
 
     You might use an existing resource if, for example, if you already set up [web tests][availability] for your site.  
 
 6. Restart IIS.
-    ![](./media/appinsights/appinsights-036-restart.png)
+    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
 6. Notice that ApplicationInsights.config has been inserted into the websites that you want to monitor.
 
-    ![](./media/appinsights/appinsights-034-aiconfig.png)
+    ![](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
 
    There are also some changes to web.config.
 
@@ -62,7 +62,7 @@ You need admin access to the server, and a Microsoft Azure account.
 
 After you complete the wizard, you can re-configure the agent whenever you want. You can also use this if you installed the agent but there was some trouble with the initial setup.
 
-![Click the Application Insights icon on the task bar](./media/appinsights/appinsights-033-aicRunning.png)
+![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
 
 ## View performance telemetry
 
@@ -100,11 +100,14 @@ You can drill down to specific exceptions (from the last seven days) and get sta
 
   * Use your site, to generate some data.
   * Wait a few minutes to let the data arrive, then click Refresh.
-  * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section.
+  * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
+  
+  ![](.\media\app-insights-monitor-performance-live-website-now\appinsights-status-monitor-diagnostics-message.png)
+
   * Make sure your server firewall allows outgoing traffic on port 443 to dc.services.visualstudio.com. 
   * If on the server you see a message about "insufficient permissions":
-   * In IIS Manager, select your application pool, open Advanced Settings, and under Process Model note the Identity.
-   * In Computer management control panel, add this identity to the Performance Monitor Users group.
+  * In IIS Manager, select your application pool, open Advanced Settings, and under Process Model note the Identity.
+  * In Computer management control panel, add this identity to the Performance Monitor Users group.
   * See [Troubleshooting][qna].
 
 ## System Requirements
