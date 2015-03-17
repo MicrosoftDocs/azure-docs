@@ -135,4 +135,4 @@ You can deploy your Service Fabric services to a Service Fabric cluster on Azure
 	![](media/service-fabric-stateless-helloworld/GetWindowsFabricApplicationHealthOutput.png)
 
 ##Conclusion
-In this tutorial, you created a stateless service, tested it locally, and then deployed it to Microsoft Azure.
+In this tutorial, you created a "Hello World" stateless service, tested it locally, and then deployed it to Microsoft Azure.
