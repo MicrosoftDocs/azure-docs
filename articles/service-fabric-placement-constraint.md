@@ -1,14 +1,14 @@
 <properties
    pageTitle="Placement Constraints"
    description="A conceptual overview of placement constraints in Service Fabric"
-   services="service-fabric"
+   services="Service-Fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="service-fabric"
+   ms.service="Service-Fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
