@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Create an EAI Logic App using VETR" 
    description="This topic covers the features of BizTalk XML services and details the Validate, Encode and Transform features." 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="dwrede" 
