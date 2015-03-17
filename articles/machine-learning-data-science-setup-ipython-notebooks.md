@@ -6,7 +6,7 @@
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft, bradsev" 
+	authors="hangzh-msft;bradsev" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
@@ -17,14 +17,14 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="hangzh-msft, bradsev" />
+	ms.author="hangzh-msft;bradsev" />
 
  
 #Setting Up IPython Notebook servers on Azure Virtual Machines
  
 In this document, we describe how to set up IPython Notebook servers on Azure virtual machines, by just running two or four shell commands, in Windows or Ubuntu Linux systems, respectiely. After the setting up completes, the IPython Notebook server is **automatically launched** on the virtual machine and can be instantly accessed from web browsers on any machines. Even if the hosting virtual machines restart, the IPython Notebook server is automatically restarted. 
 
->[Azure.Note] IPython Notebook server will be accessible around 1 minute after the virtual machine is restarted. The virtual machine needs this time to launch the IPython Notebook server.
+>[AZURE.NOTE] IPython Notebook server will be accessible around 1 minute after the virtual machine is restarted. The virtual machine needs this time to launch the IPython Notebook server.
 
 The shell commands automate several post-install procedures, which include:
 
@@ -34,12 +34,6 @@ The shell commands automate several post-install procedures, which include:
 	- Downloading and installing useful Data Science Python packages
 	- Downloading and installing Azure tools such as AzCopy and Azure Storage Explorer (Windows machine only)
 
-- [Supported operation systems](#supported-os)
-- [Step 1: Create an Azure virtual machine and add an endpoint for IPython Notebooks](#create-vm)
-- [Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint)
-- [Step 3: Run shell commands on virtual machines to set up IPython Notebook server](#run-commands)
-- [Step 4: Access IPython Notebooks in web browsers](#access)
-- [Upload an existing IPython Notebook on local machine to the IPython Notebook server](#upload)
 
 ## <a name="supported-os"></a>Supported operation systems
 
@@ -59,7 +53,7 @@ Before starting the process of creating virtual machines on Azure, users need to
 	
 	![Create workspace][10]
 
-	>[AZURE.NOTES] If you want to use this virtual machine to try out the examples **Cloud Data Science Process in Action** (links are provided at the bottom of the [Cloud Data Science Process map](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-how-to-create-machine-learning-service/)), you need to select images of Windows since in these examples, some steps depend on some software that is Windows specific.
+	>[AZURE.NOTE] If you want to use this virtual machine to try out the examples **Cloud Data Science Process in Action** (links are provided at the bottom of the [Cloud Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md)), you need to select images of Windows since in these examples, some steps depend on some software that is Windows specific.
 
 3. Input the name of the virtual machine you want to create, select the size of the machine based on the size of the data the machine is going to handle and how powerful you want the machine to be (memory size and the number of cores), the user name and the password of the machine. Then, click the right arrow to go to the next configuration page.
 

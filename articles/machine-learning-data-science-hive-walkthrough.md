@@ -6,7 +6,7 @@
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft, bradsev" 
+	authors="hangzh-msft;bradsev" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
@@ -15,29 +15,16 @@
 	ms.service="data-science-process" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="hangzh-msft, bradsev" />
+	ms.author="hangzh-msft;bradsev" />
 
                 
 # Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters
 
 In this tutorial, you will follow the Azure Data Science Process map end-to-end using an Azure HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. This tutorial needs to be carried out on **Windows** computers since the steps of [Getting the Data from Public Source](#getdata) and [Uploading the Data to the Default Container of Azure HDInsight Hadoop Cluster](#upload) use AzCopy, which is a Windows software. The other steps in this tutorial can run on both Windows and Ubuntu Linux systems. 
 
-The following sections are organized as follows:
-
-- [NYC Taxi Trips Dataset Description](#dataset)
-- [Examples of Prediction Problems](#mltasks)
-- [Setting Up the Azure Data Science Environment](#setup)
-- [Getting the Data from Public Source](#getdata)
-- [Uploading the Data to the Default Container of Azure HDInsight Hadoop Cluster](#upload)
-- [Creating Hive Database and Tables](#hive-db-tables)
-- [Loading Data to Hive Tables by Partitions](#load-data)
-- [Showing Databases in HDInsight Hadoop Cluster](#show-db)
-- [Showing Tables in Database nyctaxidb](#show-tables)
-- [Data Exploration and Feature Engineering in Hive and IPython Notebook](#explore-hive)
-- [Building Models in Azure Machine Learning](#mlmodel)
-- [Deploying Models in Azure Machine Learning](#mldeploy)
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
 
@@ -92,7 +79,7 @@ As you can see from the [Plan Your Environment](machine-learning-data-science-pl
 
 Please take the following steps to set up your Azure Data Science environment so that you can use Azure HDInsight Hadoop clusters (Hive, more specifically) to process the data:
 
-1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account.md)
+1. [Create a storage account](articles/storage-create-storage-account.md)
 
 2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
@@ -574,7 +561,7 @@ To begin the modeling exercise, log in to your Azure Machine Learning workspace.
 
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 
-3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. Fore more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](http://azure.microsoft.com/en-us/documentation/services/machine-learning/).
+3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. Fore more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](http://azure.microsoft.com/documentation/services/machine-learning/).
 
 A typical training experiment consists of the following:
 

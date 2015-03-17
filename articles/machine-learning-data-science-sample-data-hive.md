@@ -6,18 +6,18 @@
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft, bradsev" 
+	authors="hangzh-msft;bradsev" 
 	manager="jacob.spoelstra" 
 	editor="cgronlun"  />
 
 <tags 
-	ms.service="Azure Data Science Process" 
+	ms.service="data-science-process" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="hangzh-msft, bradsev" />
+	ms.author="hangzh-msft;bradsev" />
 
 # Down sampling data in Azure HDInsight Hive Tables 
 
