@@ -39,7 +39,7 @@ Internal and external watchdogs can report on the same entities based on applica
 Users or automated services can evaluate any entity at any point in time. When asked to evaluate the health of an entity, the Health Store aggregates all health reports on the entity and also evaluates its children. The health aggregation algorithm uses the health policies specified in the cluster or the application configurations. The health evaluation policies can also be passed in in the evaluate requests.
 
 ### Health States
-Service Fabric uses three health states to describe whether an entity is halthy or not. Any report sent to the Health Store must specify one of these states. Any entity evaluation results in one of this states. The three states are:
+Service Fabric uses three health states to describe whether an entity is healthy or not. Any report sent to the Health Store must specify one of these states. Any entity evaluation results in one of this states. The possible health states are:
 - Ok: The entity is healthy. There are no known issues noticed or reported.
 - Warning: The entity experiences some issues but is not yet unhealthy (i.e., unexpected delay that  it is not causing any functional issue and may fix itself without any special intervention).
 - Error: The entity is unhealthy. Action should be taken to fix the state of the entity, as it can't function properly.
