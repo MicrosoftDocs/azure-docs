@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Track B2B messages" 
    description="This topic covers tracking of B2B processing" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 
