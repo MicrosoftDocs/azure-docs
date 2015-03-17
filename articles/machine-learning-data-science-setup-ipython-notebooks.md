@@ -1,6 +1,23 @@
-<properties title="Easy Installing, Configuring, and Launching IPython Notebooks on Azure Virtual Machines" pageTitle="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines | Azure" description="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="hangzh-msft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	title="Easy Installing, Configuring, and Launching IPython Notebooks on Azure Virtual Machines" 
+	pageTitle="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines | Azure" 
+	description="Easy Installing, Configuring, and Launching IPython Notebook on Azure Virtual Machines" 
+	metaKeywords="" 
+	services="data-science-process" 
+	solutions="" 
+	documentationCenter="" 
+	authors="hangzh-msft, bradsev" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/09/2015" ms.author="hangzh-msft" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="hangzh-msft, bradsev" />
 
  
 #Setting Up IPython Notebook servers on Azure Virtual Machines
@@ -52,7 +69,7 @@ Before starting the process of creating virtual machines on Azure, users need to
 
 	![Create workspace][12]
 
-	>[AZURE.NOTES] If the endpoint is added at the virtual machine configuration, the next step can be skipped.
+	>[AZURE.NOTE] If the endpoint is added at the virtual machine configuration, the next step can be skipped.
 
 5. Click the check mark, the virtual machine provisioning process will start. 
 
@@ -73,7 +90,7 @@ If the virtual machine has already been created, and and you need to add an endp
 
 ## <a name="run-commands"></a>Step 3: Run shell commands on virtual machines to set up IPython Notebook server
 
-After the virtual machine is created, user needs to [log on to the virtual machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-log-on-windows-server/) using RDP (Windows), or ssh into it using tools like [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Ubuntu). If it is a Windows machine, run the following command in the **Command Prompt** (**Not the Powershell command window**). Users have to run this command in the role of **Administrator**. 
+After the virtual machine is created, user needs to [log on to the virtual machine](virtual-machines-log-on-windows-server.md) using RDP (Windows), or ssh into it using tools like [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Ubuntu). If it is a Windows machine, run the following command in the **Command Prompt** (**Not the Powershell command window**). Users have to run this command in the role of **Administrator**. 
  
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 

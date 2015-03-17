@@ -1,6 +1,23 @@
-<properties title="Down sampling data in Azure HDInsight Hive Tables" pageTitle="Down sampling data in Azure HDInsight Hive Tables | Azure" description="Down sampling data in Azure HDInsight Hive Tables" metaKeywords="" services="Azure Data Science Process" solutions="" documentationCenter="" authors="hangzh-msft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	title="Down sampling data in Azure HDInsight Hive Tables" 
+	pageTitle="Down sampling data in Azure HDInsight Hive Tables | Azure" 
+	description="Down sampling data in Azure HDInsight Hive Tables" 
+	metaKeywords="" 
+	services="data-science-process" 
+	solutions="" 
+	documentationCenter="" 
+	authors="hangzh-msft, bradsev" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
-<tags ms.service="Azure Data Science Process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/09/2015" ms.author="hangzh-msft" />
+<tags 
+	ms.service="Azure Data Science Process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="hangzh-msft, bradsev" />
 
 # Down sampling data in Azure HDInsight Hive Tables 
 

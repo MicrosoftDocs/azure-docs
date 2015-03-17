@@ -1,6 +1,23 @@
-<properties title="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters" pageTitle="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters | Azure" description="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="hangzh-msft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	title="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters" 
+	pageTitle="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters | Azure" 
+	description="Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters" 
+	metaKeywords="" 
+	services="data-science-process" 
+	solutions="" 
+	documentationCenter="" 
+	authors="hangzh-msft, bradsev" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="hangzh-msft" /> 
+
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="hangzh-msft, bradsev" />
 
                 
 # Azure Data Science Process in Action - Using Azure HDInsight Hadoop Clusters
@@ -67,7 +84,7 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 
 ## <a name="setup"></a>Setting Up the Azure Data Science Environment
 
-As you can see from the [Plan Your Environment](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-your-environment/) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
+As you can see from the [Plan Your Environment](machine-learning-data-science-plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
 
 - Work with the data in Azure blobs then model in Azure Machine Learning
 - Load the data into a SQL Server database then model in Azure Machine Learning
@@ -75,11 +92,11 @@ As you can see from the [Plan Your Environment](http://azure.microsoft.com/en-us
 
 Please take the following steps to set up your Azure Data Science environment so that you can use Azure HDInsight Hadoop clusters (Hive, more specifically) to process the data:
 
-1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/)
+1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account.md)
 
-2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
+2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
-3. [Provision a Data Science **Windows** Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-ipython-notebooks/), which will serve as an IPython Notebook server.
+3. [Provision a Data Science **Windows** Virtual Machine](machine-learning-data-science-setup-ipython-notebooks.md), which will serve as an IPython Notebook server.
 
 	> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the virtual machine setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
 	> - Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
@@ -87,13 +104,13 @@ Please take the following steps to set up your Azure Data Science environment so
 	> where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
 	> Sample Hive queries are in files with extension .hql in the **Sample Scripts** folder.
 
-4. [Customize Azure HDInsight Hadoop Clusters for Data Science](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-customize-hadoop-cluster/). This step will create an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. 
+4. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md). This step will create an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. 
 
-Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#7: Large dataset in local files, target Hive in Azure HDInsight Hadoop clusters](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios/#largelocaltohive).
+Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#7: Large dataset in local files, target Hive in Azure HDInsight Hadoop clusters](machine-learning-data-science-plan-sample-scenarios.md#largelocaltohive).
 
 ## <a name="getdata"></a>Getting the Data from Public Source
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-move-azure-blob/) to copy the data to your new virtual machine.
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your new virtual machine.
 
 To copy the data using AzCopy:
 
@@ -551,9 +568,9 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 3. Regression task: To predict the amount of tip paid for a trip.  
 
-To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/).
+To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](machine-learning-create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 
@@ -598,7 +615,7 @@ An example of a binary classification experiment reading data directly from the 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](machine-learning-overview-of-azure-ml-process.md).
 
 To deploy a new web service, you need to:
 

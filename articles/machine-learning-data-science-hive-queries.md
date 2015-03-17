@@ -1,14 +1,27 @@
-<properties title="Process Data from Hive Tables" pageTitle="Process Data from Hive Tables | Azure" description="Process Data from Hive Tables" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="hangzh-msft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	title="Process Data from Hive Tables" 
+	pageTitle="Process Data from Hive Tables | Azure" 
+	description="Process Data from Hive Tables" 
+	metaKeywords="" 
+	services="data-science-process" 
+	solutions="" 
+	documentationCenter="" 
+	authors="hangzh-msft, bradsev" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="03/01/2015" ms.author="hangzh-msft" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="hangzh-msft, bradsev" /> 
 
 #<a name="heading"></a>Hive Queries to Process Data from Hive Tables in Azure HDInsight Hadoop Clusters
 
 In this document, we describe different ways of submitting Hive queries, and provide generic Hive queries to explore the data and generate features using embedded Hive User Defined Functions (UDFs). Queries specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) are also provided in Github repository. These queries already have the data schema, and are ready to be submitted to run. 
-
-- [How to Submit Hive Queries](#submit)
-- [Data Exploration and Feature Engineering](#explore)
-- [Advanced topics: Tune Hive Parameters to Improve Query Speed](#tuning)
 
 ## <a name="submit"></a>How to Submit Hive Queries
 
@@ -16,7 +29,7 @@ In this document, we describe different ways of submitting Hive queries, and pro
 
 If the query is complex, usually submitting Hive queries directly in the head node of the Hadoop cluster can lead to faster turn around than submitting in IPython Notebook, Hive Editor, or Azure PowerShell scripts. 
 
-We assume that the remote access to the Hadoop cluster has been enabled. If not, please enable it by following the instructions in [Access the Head Node of Hadoop Cluster](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-customize-hadoop-cluster.html#remoteaccess). 
+We assume that the remote access to the Hadoop cluster has been enabled. If not, please enable it by following the instructions in [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 After you log in to the head node of the Hadoop cluster, open the Hadoop Command Line on the desktop of the head node. Then, enter command `cd %hive_home%\bin`.
 
@@ -70,13 +83,13 @@ If you open the default container of the Hadoop cluster using tools like Azure S
 
 ###2. Through IPython Notebooks
 
-Hive queries can be submitted in Python. An IPython Notebook describing how to submit Hive queries in Python and retrieve query outputs is shared at [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks/machine-learning-data-science-hive-queries-in-python.ipynb). If users create an Azure virtual machine and set up IPython Notebook server by following the instructions in [Setting Up IPython Notebook servers on Azure Virtual Machines](machine-learning-data-science-setup-ipython-notebooks.html), this IPython Notebook has already been checked out on your virtual machine. Otherwise, users need to copy and paste the Python scripts from the Github file to their own Python codes. Then, you only need to plug in the HDInsight Hadoop cluster information and the Hive query, and the query should be able to be submitted and run on Hadoop cluster.  
+Hive queries can be submitted in Python. An IPython Notebook describing how to submit Hive queries in Python and retrieve query outputs is shared at [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks/machine-learning-data-science-hive-queries-in-python.ipynb). If users create an Azure virtual machine and set up IPython Notebook server by following the instructions in [Setting Up IPython Notebook servers on Azure Virtual Machines](machine-learning-data-science-setup-ipython-notebooks.md), this IPython Notebook has already been checked out on your virtual machine. Otherwise, users need to copy and paste the Python scripts from the Github file to their own Python codes. Then, you only need to plug in the HDInsight Hadoop cluster information and the Hive query, and the query should be able to be submitted and run on Hadoop cluster.  
 
 The benefit of running Hive queries in IPython Notebook is that after the query completes, the query output is returned as a pandas data frame. It facilitates further analysis and process of the Hive query results. 
 
 ###3. Through Hive Editor or Azure PowerShell Commands
 
-Users can also use Query Console (Hive Editor) by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (you will be asked to input the Hadoop cluster credentials to log in), or can [submit Hive jobs using PowerShell](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/). 
+Users can also use Query Console (Hive Editor) by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (you will be asked to input the Hadoop cluster credentials to log in), or can [submit Hive jobs using PowerShell](hdinsight-submit-hadoop-jobs-programmatically.md). 
 
 ## <a name="explore"></a>Data Exploration, Feature Engineering and Hive Parameter Tuning
 
@@ -86,7 +99,7 @@ We describe the following data wrangling tasks in this section using Hive in Azu
 2. [Feature Generation](#hive-featureengineering)
 3. [Advanced topic: tune Hive parameters to improve query speed](#tune-parameters)
 
-> [AZURE.NOTE] The sample Hive queries assume that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.html) to upload data to Hive tables first.
+> [AZURE.NOTE] The sample Hive queries assume that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
 
 ###<a name="hive-dataexploration"></a>Data Exploration
 Here are a few sample Hive scripts that can be used to explore data in Hive tables.
@@ -239,11 +252,11 @@ The fields that are used in this query are GPS coordinates of pickup and dropoff
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-The mathematical equations of calculating distance between two GPS coordinates can be found at [here](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
+The mathematical equations of calculating distance between two GPS coordinates can be found at [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
 
 ![Create workspace][1]
 
-A full list of Hive embedded UDFs can be found [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
+A full list of Hive embedded UDFs can be found [Hive Mathematical Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
 
 ## <a name="tuning"></a> Advanced topics: Tune Hive Parameters to Improve Query Speed
 
@@ -279,7 +292,7 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-hive-queries/atan2new.png
+[1]:  ./media/machine-learning-data-science-hive-queries/atan2new.png
 [10]: ./media/machine-learning-data-science-hive-queries/run-hive-queries-1.png
 [11]: ./media/machine-learning-data-science-hive-queries/run-hive-queries-2.png
 [12]: ./media/machine-learning-data-science-hive-queries/output-hive-results-1.png

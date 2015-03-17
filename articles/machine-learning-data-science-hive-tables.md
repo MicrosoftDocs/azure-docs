@@ -1,6 +1,23 @@
-<properties title="Create Hive tables and load data in blob to hive tables" pageTitle="Create Hive tables and load data in blob to hive tables | Azure" description="Create Hive tables and load data in blob to hive tables" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="hangzh-msft" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	title="Create Hive tables and load data in blob to hive tables" 
+	pageTitle="Create Hive tables and load data in blob to hive tables | Azure" 
+	description="Create Hive tables and load data in blob to hive tables" 
+	metaKeywords="" 
+	services="data-science-process" 
+	solutions="" 
+	documentationCenter="" 
+	authors="hangzh-msft, bradsev" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/09/2015" ms.author="hangzh-msft" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="hangzh-msft, bradsev" />
 
  
 #Create and load data to Hive tables
@@ -9,11 +26,11 @@ In this document, generic Hive queries that create Hive tables and load data fro
 
 In this repository, we also provide queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) as examples. These queries already have the data schema. Users only need to plug in the Azure blob storage configuration in the corresponding fields. Then the queries are ready to be submitted to run. 
 
-We assume that the data for Hive tables has been downloaded to the local machine of users and are in **uncompressed** tabular format, and the data has been uploaded to the default or additional container of the storage account used by the Hadoop cluster. If users want to practice on the _NYC Taxi Trip Data_, they need to first [download all 24 files](http://www.andresmh.com/nyctaxitrips/) (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and upload them to the default or additional container of the Azure storage account that are used when the [Azure HDInsight Hadoop cluster is customized](machine-learning-data-science-customize-hadoop-cluster.html). 
+We assume that the data for Hive tables has been downloaded to the local machine of users and are in **uncompressed** tabular format, and the data has been uploaded to the default or additional container of the storage account used by the Hadoop cluster. If users want to practice on the _NYC Taxi Trip Data_, they need to first [download all 24 files](http://www.andresmh.com/nyctaxitrips/) (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and upload them to the default or additional container of the Azure storage account that are used when the [Azure HDInsight Hadoop cluster is customized](machine-learning-data-science-customize-hadoop-cluster.md). 
 
-Hive queries can be submitted in Python. An IPython Notebook describing how to submit Hive queries in Python and retrieve query outputs is shared at [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks/machine-learning-data-science-hive-queries-in-python.ipynb). If users create an Azure virtual machine and set up IPython Notebook server by following the instructions in [Setting Up IPython Notebook servers on Azure Virtual Machines](machine-learning-data-science-setup-ipython-notebooks.html), this IPython Notebook has already been checked out on your virtual machine. Otherwise, users need to copy and paste the Python scripts from the Github file to their own Python codes. Then, you only need to plug in the HDInsight Hadoop cluster information and the Hive query, and the query should be able to be submitted and run on Hadoop cluster.  
+Hive queries can be submitted in Python. An IPython Notebook describing how to submit Hive queries in Python and retrieve query outputs is shared at [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks/machine-learning-data-science-hive-queries-in-python.ipynb). If users create an Azure virtual machine and set up IPython Notebook server by following the instructions in [Setting Up IPython Notebook servers on Azure Virtual Machines](machine-learning-data-science-setup-ipython-notebooks.md), this IPython Notebook has already been checked out on your virtual machine. Otherwise, users need to copy and paste the Python scripts from the Github file to their own Python codes. Then, you only need to plug in the HDInsight Hadoop cluster information and the Hive query, and the query should be able to be submitted and run on Hadoop cluster.  
 
-Users can also use [Query Console (Hive Editor)] by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor (you will be asked to input the Hadoop cluster credentials to log in), or can [submit Hive jobs using PowerShell](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/). 
+Users can also use [Query Console (Hive Editor)] by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor (you will be asked to input the Hadoop cluster credentials to log in), or can [submit Hive jobs using PowerShell](hdinsight-submit-hadoop-jobs-programmatically.md). 
 
 - [Step 1: Create Hive database and tables](#create-tables)
 - [Step 2: Load data to Hive tables](#load-data)
