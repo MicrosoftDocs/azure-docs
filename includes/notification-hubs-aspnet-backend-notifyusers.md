@@ -17,7 +17,7 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
 
 	![][2]
 
-4. In the **Configure Azure Site** dialog, choose a subscription, region, and database to use for this project. Then click **OK** to create the project.
+4. In the **Configure Azure Site** dialog, choose a subscription, region, and database to use for this project. Enter the password for your account and then click **OK** to create the project.
 
 	![][5]
 
@@ -29,7 +29,7 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
 
 	![][14]
 
-8. We will now create a new class **Notifications.cs**. Go to the Solution Explorer, right-click the **Models** folder, click **Add**, then **Class**. After naming the new class **Notifications.cs**, click **Add** to generate the class. This module represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory.
+8. We will now create a new class file named **Notifications.cs**. Go to the Solution Explorer, right-click the **Models** folder, click **Add**, then **Class**. After naming the new class **Notifications.cs**, click **Add** to generate the class. This module represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory.
 
 	![][6]
 
@@ -46,20 +46,19 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
             public NotificationHubClient Hub { get; set; }
 
             private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
+                Hub = NotificationHubClient.CreateClientFromConnectionString("<conn string with full access>", "<hub name>");
             }
         }
 
-11. We will then create a new class **AuthenticationTestHandler.cs**. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class is used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
+11. Next, add another new class file named **AuthenticationTestHandler.cs**. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class is used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
 
 12. In AuthenticationTestHandler.cs, add the following `using` statements:
 
         using System.Net.Http;
-        using System.Threading.Tasks;
         using System.Threading;
-        using System.Text;
         using System.Security.Principal;
         using System.Net;
+        using System.Web;
 
 13. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following:
 
@@ -235,7 +234,7 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
             }
         }
 
-18. Create a new controller **NotificationsController**, following how we created **RegisterController**. This component exposes a way for the device to retrieve the notification securely, and provides a way for a user to trigger a secure push to devices. Note that when sending the notification to the Notification Hub, we send a raw notification with only the ID of the notification (no actual message).
+18. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController**. This component exposes a way for the device to retrieve the notification securely, and provides a way for a user to trigger a secure push to devices. Note that when sending the notification to the Notification Hub, we send a raw notification with only the ID of the notification (no actual message).
 
 19. In NotificationsController.cs, add the following `using` statements:
 
