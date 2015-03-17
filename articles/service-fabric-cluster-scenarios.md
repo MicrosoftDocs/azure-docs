@@ -3,7 +3,7 @@
    description="Categories of applications and services" 
    services="service-fabric" 
    documentationCenter=".net" 
-   authors="msfussell" 
+   authors="chackdan" 
    manager="timlt" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="02/18/2015"
-   ms.author="mfussell"/>
+   ms.date="03/17/2015"
+   ms.author="chackdan"/>
 
 # Application Scenarios 
 
