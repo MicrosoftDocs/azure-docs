@@ -91,7 +91,7 @@ The credentials for the cluster that you provided at its creation give access to
 
 	The expiration date must be in the future, and at most seven days from now. And the time is the midnight of the selected date.
 
-> [AZURE.NOTE] You can also use the HDInsight .NET SDK to enable remote desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: *client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))*. Similarly, to disable remote desktop on the cluster, you can use *client.DisableRdp(clustername, location)*. For more information on these methods, see [HDInsight .NET SDK Reference](http://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
+> [AZURE.NOTE] You can also use the HDInsight .NET SDK to enable remote desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable remote desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](http://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
 
 
 
