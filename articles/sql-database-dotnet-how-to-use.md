@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="03/16/2015" 
 	ms.author="jeffreyg"/>
 
 
@@ -131,7 +131,11 @@ You now have a database instance, logical server, a firewall rule that allows in
 ## Connect to SQL Database
 
 This section shows how to connect to SQL Database instance using different
-.NET Framework data providers.
+.NET Framework data providers. For central recommendations about connecting to an SQL Database server and database, see:
+
+
+- [Connections to SQL Database: Central recommendations](../sql-database-connect-central-recommendations/).
+
 
 If you choose to use Visual Studio and your configuration doesn't
 include an Azure web application as a front-end, there are no

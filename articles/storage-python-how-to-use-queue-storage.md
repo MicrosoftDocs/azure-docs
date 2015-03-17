@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use the queue service (Python) | Microsoft Azure" 
+	pageTitle="How to use Queue storage from Python | Microsoft Azure" 
 	description="Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages." 
 	services="storage" 
 	documentationCenter="python" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="03/11/2015" 
 	ms.author="huvalo"/>
 
+# How to use Queue storage from Python
 
-
-# How to Use the Queue Storage Service from Python
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
