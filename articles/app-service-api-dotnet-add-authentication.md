@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Remotely debug an Azure API App" 
+	pageTitle="Remotely debug an Azure API app" 
 	description="Learn how to remotely debug an Azure API App using Visual Studio." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Protect an API App: Add Azure Active Directory or social provider authentication
+# Protect an API app: Add Azure Active Directory or social provider authentication
 
 ## Overview
 
@@ -177,9 +177,9 @@ These instructions show how to use the Postman tool in the Chrome browser, but y
 
 3. In the **Resources** tab of Chrome developer tools, find the cookies for your gateway, and triple-click the Value of the **x-zumo-auth** cookie to select all of it.
 
-	**Note:**  Make sure you get all of the cookie's value. If you double-click you'll only get the first part of it.
+	**Note:**  Make sure you get all of the cookie's value. If you double-click, you'll get only the first part of it.
 
-5. right-click the **Value** of the **x-zumo-auth** cookie, and then click **Copy**.
+5. Right-click the **Value** of the **x-zumo-auth** cookie, and then click **Copy**.
 
 	![Copy auth token](./media/app-service-api-dotnet-add-authentication/copyzumotoken.png)
 
