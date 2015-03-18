@@ -18,14 +18,13 @@
 	ms.author="jeffreyg"/>
 
 
-## Getting Started with Microsoft Azure SQL Database
+# Getting Started with Microsoft Azure SQL Database
 
 In this tutorial you will learn the fundamentals of Microsoft Azure SQL Database administration using the Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
 
 This tutorial does not assume prior experience with SQL Server or Azure SQL Database. When you complete this tutorial, you will have a sample database on Azure and an understanding of how to perform basic administration tasks using the Management Portal.
 
 You will create and provision a sample database on the Azure platform and query system and user data using Excel.
-
 
 
 
