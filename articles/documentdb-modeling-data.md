@@ -114,7 +114,7 @@ Take this JSON snippet.
 
 This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there is no (practical) limit to the number of comments any single post can have. This will become a problem as the size of the document could grow significantly.
 
-> [AZURE.TIP] Documents in DocumentDB have a maximum size. For more on this refer to [DocumentDB limits](../documentdb-limits).
+> [AZURE.TIP] Documents in DocumentDB have a maximum size. For more on this refer to [DocumentDB limits](documentdb-limits.md).
 
 As the size of the document grows the ability to transmit the data over the wire as well as reading and updating the document, at scale, will be impacted.
 
@@ -387,8 +387,8 @@ Just as there is no single way to represent a piece of data on a screen, there i
 
 To learn more about Azure DocumentDB, refer to the service’s [documentation]( ../../services/documentdb/) page. 
 
-To learn about tuning indexes in Azure DocumentDB, refer to the article on [indexing policies](../documentdb-indexing-policies).
+To learn about tuning indexes in Azure DocumentDB, refer to the article on [indexing policies](documentdb-indexing-policies.md).
 
-To understand how to shard your data across multiple partitions, refer to [Partitioning Data in DocumentDB](../documentdb-partition-data). 
+To understand how to shard your data across multiple partitions, refer to [Partitioning Data in DocumentDB](documentdb-partition-data.md). 
 
 And finally, for guidance on data modeling and sharding for multi-tenant applications, consult [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
