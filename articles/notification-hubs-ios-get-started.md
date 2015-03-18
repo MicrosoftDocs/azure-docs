@@ -1,17 +1,24 @@
-<properties pageTitle="Get Started with Azure Notification Hubs" description="Learn how to use Azure Notification Hubs to push notifications." services="notification-hubs" documentationCenter="ios" authors="wesmc" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Get Started with Azure Notification Hubs" 
+	description="Learn how to use Azure Notification Hubs to push notifications." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="hero-article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.date="03/16/2015" 
+	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-get-started/" title="iOS" class="current">iOS</a><a href="/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome">Chrome</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
 ##Overview
 
@@ -33,7 +40,7 @@ This tutorial requires the following prerequisites:
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for iOS apps.
 
-> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target="_blank).
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
@@ -135,7 +142,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 ##Send notification from your backend
 
-You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/) | [JavaScript backend](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/documentation/articles/notification-hubs-php-backend-how-to/)).
+You can send notifications using Notification Hubs from any back-end using the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](./mobile-services-javascript-backend-ios-get-started-push.md) | [JavaScript backend](./mobile-services-javascript-backend-ios-get-started-push.md)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](./notification-hubs-java-backend-how-to.md) | [PHP](./notification-hubs-php-backend-how-to.md)).
 
 1. In Visual Studio, from the **File** menu select **New** and then **Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**.  
 
@@ -270,8 +277,8 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: ./notification-hubs-ios-mobile-services-register-user-push-notifications.md
+[Use Notification Hubs to send breaking news]: ./notification-hubs-ios-send-breaking-news.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
