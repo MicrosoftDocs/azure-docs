@@ -13,7 +13,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="03/17/2015" 
+	ms.date="03/18/2015" 
 	ms.author="Justinha"/>
 
 
@@ -119,9 +119,9 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 -  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-networks-install-replica-active-directory-domain-controller)
 
--  [Windows Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
+-  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
--  [Windows Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
+-  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
 -  [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
