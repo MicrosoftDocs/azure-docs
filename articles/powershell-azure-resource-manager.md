@@ -99,11 +99,11 @@ You don't need to be an expert in Azure, SQL, websites, or resource management t
 
 2. Use the **Switch-AzureMode** cmdlet to import the cmdlets in the AzureResourceManager and AzureProfile modules. 
 
-        PS C:\> Switch-AzureMode AzureResourceManager`
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 3. To add your Azure account to the Windows PowerShell session, use the **Add-AzureAccount** cmdlet. 
 
-        PS C:\> Add-AzureAccount`
+        PS C:\> Add-AzureAccount
 
 The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Windows PowerShell. 
 
@@ -152,13 +152,13 @@ You can view the template file in a text editor, such as Notepad. Each template 
 
 The **parameters** section of the template is a collection of the parameters that are defined in all of the resources. It includes property values you can provide when setting up your resource group.
 
-	"parameters": {
+    "parameters": {
       "siteName": {
-      "type": "string"
-    }, 
+        "type": "string"
+      },
       "hostingPlanName": {
-      "type": "string"
-    },
+        "type": "string"
+      },
       "siteLocation": {
         "type": "string"
       },
@@ -167,9 +167,9 @@ The **parameters** section of the template is a collection of the parameters tha
 
 Some parameters have a default value. When you use the template, you are not required to supply values for these parameters. If you do not specify a value, the default value is used. 
 
-	"collation": {
-	      "type": "string",
-	      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    "collation": {
+      "type": "string",
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     },
 
 When parameters that have enumerated values, the valid values are listed with the parameter. For example, the **sku** parameter can take values of Free, Shared, Basic, or Standard. If you don't specify a value for the **sku** parameter, it uses the default value, Free.
@@ -210,7 +210,7 @@ The definition of each resource includes its properties, such as name, type and 
           "maxSizeBytes": "[parameters('maxSizeBytes')]",
           "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
         }
-      },
+    },
 
 
 We're almost ready to use the template, but before we do, we need to find locations for each of the resources.

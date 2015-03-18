@@ -1,4 +1,8 @@
 
+
+>[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+
+
 1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **Create Project**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
@@ -27,5 +31,5 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
 
-	You will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of your app.
+	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm=""
 	ms.workload="big-data" 
 	ms.date="02/20/2015"
-	ms.author="raymondl,garye"/>
+	ms.author="raymondl;garye"/>
 
 
 

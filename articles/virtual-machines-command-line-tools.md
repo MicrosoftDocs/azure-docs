@@ -18,7 +18,7 @@
 
 #Using the Azure Cross-Platform Command-Line Interface
 
-This tool provides functionality for creating, deploying, and managing virtual machines, websites, Azure Mobile Services, and many other Azure services from Mac, Linux, and WIndows desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+This tool provides functionality for creating, deploying, and managing virtual machines, websites, Azure Mobile Services, and many other Azure services from Mac, Linux, and Windows desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
 For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](/documentation/articles/xplat-cli/).
 
@@ -352,9 +352,9 @@ This command creates a virtual machine endpoint. You may also use -u or --enable
 	+ Updating network configuration
 	info:   vm endpoint create command OK
 
-**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;lb-set-name>[:&lt;prob-protocol>:&lt;lb-prob-port>[:&lt;prob-path>]]]]] ]{1-*}**
+**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;enable-direct-server-return>[:&lt;lb-set-name>[:&lt;probe-protocol>[:&lt;probe-port>[:&lt;probe-path>[:&lt;internal-lb-name>]]]]]]]] {1-*}**
 
-Create multiple vm endpoints. You may also use -u or --enable-direct-server-return to specify whether to enable direct server return on this endpoint, disabled by default.
+Create multiple vm endpoints.
 
 **vm endpoint delete &lt;vm-name> &lt;lb-port>**
 
