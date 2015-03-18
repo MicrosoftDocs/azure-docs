@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Remotely debug an Azure API App" 
 	description="Learn how to remotely debug an Azure API App using Visual Studio." 
-	services="app-service-api" 
+	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -13,64 +13,64 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
 # Protect an API App: Add Azure Active Directory or social provider authentication
 
 ## Overview
 
-In the [deploy an API app](/app-service-dotnet-deploy-api-app/) tutorial, you deployed an API app with **Available to anyone** access level. This tutorial shows how to protect an API app so that only authenticated users can acess it.
+In the [Deploy an API app](/app-service-dotnet-deploy-api-app/) tutorial, you deployed an API app with **Available to anyone** access level. This tutorial shows how to protect an API app so that only authenticated users can access it.
 
-## Use Swagger to Access the API 
+You'll perform the following steps:
 
-You can use Swagger to easily access your Azure API app from a web page. The Swagger UI provides an easy-to-use interface that provides details about your API App's endpoints.
+- Call the API app to verify that it's working.
+- Apply authentication rules to the API app.
+- Call the API app again to verify that it rejects unauthenticated requests.
+- Log in to the configured provider.
+- Call the API app again to verify that authenticated access works.
 
-The URL to access Swagger is the URL of your running Azure API app's gateway site, with the API app's ID appended to it.The exact URL format of the Swagger UI dashboard is as follows:
+## Prerequisites
 
-    	http://[AzureApiAppProxySite].azurewebsites.net/[Azure API ID]/Swagger
+This tutorial works with the API app that you created in [Create an API app](/app-service-dotnet-create-api-app/) and deployed in [Deploy an API app](/app-service-dotnet-deploy-api-app/).
 
-The first node of the proxy site URL is the name of the resource group followed by "proxysite". For example, if you named your resource group ContactsListRG and your API ID ContactsList2, the URL would be as follows:
+## Use the browser to call the API app 
 
-		http://contactsListrgproxysite.azurewebsites.net/contactslist2/Swagger 
+The simplest way to verify that your API app is publicly accessible is to call it from a browser.
 
-1. In your browser, go to the URL for Swagger for your API app.  
+1. Open a browser window and enter in the address bar the URL that calls your API app's Get method.  The URL follows this pattern:
 
-	![Swagger UI](./media/app-service-dotnet-remotely-debug-api-app/40-swagger-ui.png)
+    	http://[resourcegroupname]gateway.azurewebsites.net/[apiappid]/api/contacts/get
 
-2. Click **Try it out!** to call the API method directly from the Swagger UI. 
+	For example, if you named your resource group myfirstrg and your API app ID is myfirstapiapp, the URL would be the following:
 
-## Generate an API App Client for use in a Desktop App
+    	http://myfirstrggateway.azurewebsites.net/myfirstapiapp/api/contacts/get
 
-In this tutorial you'll learn how easy the API App tools in Visual Studio make it for you to generate C# code used for calling out to your Azure API Apps from desktop, store, and mobile apps. 
+	Different browsers handle API calls differently. The image shows a successful call from a Chrome browser.
 
-1. Right-click your solution and select the **Add -> New Project** option.
+	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+	<!--todo: replace with screenshot not showing hunter etc.-->
 
-![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/01-add-new-project.png)
-
-2. Select the **Windows Desktop** category and **Console Application** project template.
-
-	![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/02-contact-list-console-project.png)
-
-3. Once the solution returns to focus, right-click the Console Application project you created and select the **Add - Azure API App Client** menu item. 
-
-	![Add a new Client](./media/app-service-dotnet-remotely-debug-api-app/03-add-azure-api-client.png)
-	
-4. Select the API App you want to code against from the dialog
-
-	![Generation Screen](./media/app-service-dotnet-remotely-debug-api-app/04-select-the-api.png)
-
-5. Once you select the API App for which your client code will need a client, code will be dropped into your C# project enabling a typed interface to the API App layer.
-
-	![Generation Happening](./media/app-service-dotnet-remotely-debug-api-app/05-metadata-downloading.png)
-
-6. Once code generation is complete you'll see a new folder in your Visual Studio Solution Explorer named with the name of the API App you're hitting in Azure. Within that folder is code that exposes strongly-typed classes that make it easy for client developers to reach out to the APIs. 
-
-	![Generation Complete](./media/app-service-dotnet-remotely-debug-api-app/06-code-gen-output.png)
+2. Save the URL you used; you'll use it again later in the tutorial.
 
 ## Protect the API app
 
-1. In the Azure [preview portal](https://portal.azure.com/) click **Browse > API Apps**, and then click the name of the API app that you want to protect.
+When you deployed your API app, you deployed it to a resource group. You can add web apps and other API apps to the same resource group, and each API app within the resource group can have one of three accessibility settings:
+<!--todo: diagram showing different accessibility settings-->
+
+- **Public (anonymous)** - Anyone can call the API app from outside the resource group without being logged in.
+- **Public (authenticated)** - Only authenticated users are allowed to call the API app from outside the resource group.
+- **Internal** - Only other API apps or web apps in the same resource group are allowed to call the API app.
+
+When Visual Studio created the resource group for you, it also created a *gateway*.  A gateway is a special web app that handles all requests destined for API apps in the resource group.
+
+When you go to the resource group's blade in the [preview portal](https://portal.azure.com/), you can see your API app and the gateway in the diagram.
+
+![Resource group diagram](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
+
+To configure your API app to accept only authenticated requests, you'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
+
+1. In the Azure [preview portal] click **Browse > API Apps**, and then click the name of the API app that you want to protect.
 
 	![Browse](./media/app-service-api-dotnet-add-authentication/browse.png)
 
@@ -86,15 +86,13 @@ In this tutorial you'll learn how easy the API App tools in Visual Studio make i
 
 	![Click Basic settings](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
 
+	You have now protected the API app from unauthenticated access. Next you have to configure the gateway to specify which authentication provider to use.
+
 4. Scroll left back to the API app blade, and then click the link to the gateway.
 
 	![Click gateway](./media/app-service-api-dotnet-add-authentication/gateway.png)
 
-5. Make a note of the gateway URL, as you might need it later to configure authentication.
-
-	![Click gateway](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
- 
-7. Click **Settings**, and then click **Identity**.
+7. In the **Gateway** blade, click **Settings**, and then click **Identity**.
 
 	![Click Settings](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
 
@@ -104,7 +102,7 @@ In this tutorial you'll learn how easy the API App tools in Visual Studio make i
 
 	![Identity blade](./media/app-service-api-dotnet-add-authentication/identityblade.png)
   
-3. Choose the identity provider you want to use, and follow the steps in the following corresponding document to configure your API app with that provider. You can choose more than one provider.  These documents refer to mobile apps, but the procedures are the same for API apps.
+3. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use both the [management portal] and the [preview portal]. 
 
  - [Microsoft Account](../app-service-mobile-how-to-configure-microsoft-authentication-preview/)
  - [Facebook login](../app-service-mobile-how-to-configure-facebook-authentication-preview/)
@@ -112,8 +110,111 @@ In this tutorial you'll learn how easy the API App tools in Visual Studio make i
  - [Google login](../app-service-mobile-how-to-configure-google-authentication-preview/)
  - [Azure Active Directory](../app-service-mobile-how-to-configure-active-directory-authentication-preview/)
 
-	Your application is now configured to work with your chosen authentication provider.
+As an example, the following screen shots show what you should see in the [management portal] pages and [preview portal] blades after you have set up Azure Active Directory authentication.
 
-## Summary
+In the [preview portal], The **Azure Active Directory** blade has a **Client ID** from the application you created in the Azure Active Directory tab of the [management portal], and **Allowed Tenants** has your Azure Active Directory tenant (for example, "contoso.onmicrosoft.com").
 
-The remote debugging features available for Azure API Apps make it simple to determine how your code is running in the Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for your remotely-running Azure API Apps.
+![Azure Active Directory blade](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
+
+In the [management portal], the **Configure** tab for the application you created in the **Azure Active Directory** tab has the **Sign-on URL**, **App ID URI**, and **Reply URL** from the **Azure Active Directory** blade in the [preview portal].
+
+![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
+
+![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
+
+![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
+
+![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
+
+	(The Reply URL in the image shows the same URL twice, once with `http:` and once with `https:`.)
+
+## Verify that authentication works 
+
+1. Open a browser window, and in the address bar enter the URL that calls your API app's `Get` method, as you did earlier.
+
+	This time the attempt to access the API app results in an error message.
+
+	![Chrome Get response fail](./media/app-service-api-dotnet-add-authentication/chromegetfail.png)
+
+2. In the browser, go to the login URL: 
+
+    	http://[resourcegroupname]gateway.azurewebsites.net/login/[providername]
+
+	For example, if you named your resource group myfirstrg and you configured the gateway for Azure Active Directory authentication, the URL would be the following:
+
+    	http://myfirstrggateway.azurewebsites.net/login/aad
+
+	Notice that unlike the earlier URL, this one does not include your API app name:  the gateway is authenticating you, not the API app.  The gateway handles authentication for all API apps in the resource group.
+
+3. Enter your credentials when the browser displays a login page. 
+ 
+	If you configured Azure Active Directory login, use one of the users listed in the **Users** tab for the application you created in the Azure Active Directory tab of the [management portal], such as admin@contoso.onmicrosoft.com.
+
+	![AAD users](./media/app-service-api-dotnet-add-authentication/aadusers.png)
+
+	![Login page](./media/app-service-api-dotnet-add-authentication/ffsignin.png)
+
+4. When the "login complete" message appears, enter the URL to your API app's Get method again.
+
+	This time because you've authenticated, the call is successful. The gateway recognizes that you are an authenticated user and passes your request on to your API app.
+
+	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
+
+	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+	<!--todo:replace with image showing fictional names-->
+
+## Use Postman to send a Post request
+
+When you log in to the gateway, the gateway sends back an authentication token.  This token must be included with all requests from external sources that go through the gateway. When you access an API with a browser, the browser typically stores the token in a cookie and sends it along with all subsequent calls to the API.
+
+So you can see what is happening in the background, in this section you use a browser tool to create and submit a Post request, and you get the authorization token from the cookie and include it in an HTTP header.
+
+These instructions show how to use the Postman tool in the Chrome browser, but you could do the same thing with any REST client tool and browser developer tools.
+
+1. In a Chrome browser window, go through the steps shown in the previous section to authenticate, and then open developer tools (F12).
+
+	![Go to Resources tab](./media/app-service-api-dotnet-add-authentication/resources.png)
+
+3. In the **Resources** tab of Chrome developer tools, find the cookies for your gateway, and triple-click the Value of the **x-zumo-auth** cookie to select all of it.
+
+	**Note:**  Make sure you get all of the cookie's value. If you double-click you'll only get the first part of it.
+
+5. right-click the **Value** of the **x-zumo-auth** cookie, and then click **Copy**.
+
+	![Copy auth token](./media/app-service-api-dotnet-add-authentication/copyzumotoken.png)
+
+4. Install the Postman extension in your Chrome browser if you haven't done so yet.
+
+6. Open the Postman extension.
+
+7. Enter the Request URL.
+ 
+		http://[resourcegroupname]gateway.azurewebsites.net/[apiappid]/api/contacts
+    
+8. Click **Headers**, and then add an *x-zumo-auth* header. Paste the token value from the clipboard into the **Value** field.
+
+9. Add a *Content-Type* header with value *application/json*.
+
+10. Click **form-data**, and then add a *contact* key with the following value:
+
+		{   "Id": 0,   "Name": "Li Yan",   "EmailAddress": "yan@contoso.com" }
+
+11. Click Send.
+
+	![Add headers and body](./media/app-service-api-dotnet-add-authentication/addcontact.png)
+
+	The API app returns a *201 Created* response.
+
+12. To verify that this request would not work without the authentication token, delete the authentication header and click Send again.
+
+	You get a *403 Forbidden* response.
+
+	![403 Forbidden response](./media/app-service-api-dotnet-add-authentication/addcontact.png)
+
+## Next steps
+
+You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information about Azure API apps, see [What are API apps?](../app-service-api-apps-why-best-platform/). 
+
+[management portal]: https://manage.windowsazure.com/
+[preview portal]: https://portal.azure.com/
+
