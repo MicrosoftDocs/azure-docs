@@ -47,7 +47,7 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 
 > [AZURE.NOTE] The sample script works only with HDInsight 3.1 and 3.2 clusters. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
-1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). Pick the cluster version depending on the following:
+1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](../hdinsight-provision-clusters/#portal). Pick the cluster version depending on the following:
 
 	- If you want to install **Spark 1.2.0**, provision an HDInsight 3.2 cluster.
 	- If you want to install **Spark 1.0.2**, provision an HDInsight 3.1 cluster.
