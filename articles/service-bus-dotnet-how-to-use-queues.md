@@ -166,7 +166,7 @@ maximum size of 5 GB and a default message time-to-live of 1 minute:
 ## How to send messages to a queue
 
 To send a message to a Service Bus queue, your application creates a
-[`QueueClient`](https://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.queueclient.aspx) object using the connection string.
+[`QueueClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.aspx) object using the connection string.
 
 The code below demonstrates how to create a [`QueueClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.aspx) object for the "TestQueue" queue you just created using the [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx) API call:
 
@@ -214,7 +214,7 @@ upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For 
 ## How to receive messages from a queue
 
 The recommended way to receive messages from a queue is to use a
-[`QueueClient`](https://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.queueclient.aspx) object. `QueueClient` objects can work in two different modes: [`ReceiveAndDelete` and `PeekLock`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.receivemode.aspx).
+[`QueueClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.aspx) object. `QueueClient` objects can work in two different modes: [`ReceiveAndDelete` and `PeekLock`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.receivemode.aspx).
 
 When using the **ReceiveAndDelete** mode, the receive is a single-shot
 operation - that is, when Service Bus receives a read request for a
@@ -333,4 +333,4 @@ links to learn more.
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/hh367516.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/hh367512.aspx
   [Azure Samples]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/en-us/library/dn194201.aspx
+  [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx

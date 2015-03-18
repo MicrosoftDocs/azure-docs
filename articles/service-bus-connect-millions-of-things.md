@@ -28,7 +28,7 @@ Smart and connected "things" increasingly proliferate in modern technology ecosy
  
 ## Build
 - [Partitioning Messaging Entities](http://msdn.microsoft.com/library/dn520246.aspx)
-- [Service Bus Topics](http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/)
+- [Service Bus Topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - [Using Apache Qpid Proton C with Azure Service Bus on Linux and Windows](http://msdn.microsoft.com/library/dn235560.aspx) 
  
 ## Popular

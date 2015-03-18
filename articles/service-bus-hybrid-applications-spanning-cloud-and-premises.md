@@ -22,12 +22,12 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. S
 
 ## Explore
 
-- [Service Bus Relay](http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-relay/)
+- [Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 - [Relayed and Brokered Messaging](http://msdn.microsoft.com/library/azure/hh367519.aspx)
 
 ## Build
 
-- [Build a .NET on-premises/cloud hybrid application using Service Bus Relay](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-hybrid-app-using-service-bus-relay/)
+- [Build a .NET on-premises/cloud hybrid application using Service Bus Relay](cloud-services-dotnet-hybrid-app-using-service-bus-relay.md)
 - [How to use Service Bus Relay (video and code sample)](http://appfabricdemos.codeplex.com/releases/view/67597)
 - [How to integrate an Azure Web Site with a LOB app via Service Bus Relay](http://code.msdn.microsoft.com/windowsazure/How-to-integrate-a-Windows-f1fedff8) 
 - [Geo-replication with Service Bus Relayed Messages](http://code.msdn.microsoft.com/windowsazure/Geo-replication-with-16dbfecd)

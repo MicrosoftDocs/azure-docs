@@ -232,9 +232,9 @@ Now when a message is sent to "TestTopic," it is always delivered to receivers s
 ## How to send messages to a topic
 
 To send a message to a Service Bus topic, your application creates a
-[`TopicClient`](https://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.topicclient.aspx) object using the connection string.
+[`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) object using the connection string.
 
-The code below demonstrates how to create a [`TopicClient`](https://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.topicclient.aspx) object
+The code below demonstrates how to create a [`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) object
 for the "TestTopic" topic created above using the [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx) API call:
 
     string connectionString = 
@@ -257,7 +257,7 @@ then be used to serialize the object. Alternatively, a
 **System.IO.Stream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-"TestTopic" [`TopicClient`](https://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.topicclient.aspx) object obtained in the previous code snippet.
+"TestTopic" [`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) object obtained in the previous code snippet.
 Note that the [`MessageNumber`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) property value of each message varies on
 the iteration of the loop (this determines which subscriptions receive it):
 
@@ -284,7 +284,7 @@ upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For 
 ## How to receive messages from a subscription
 
 The recommended way to receive messages from a subscription is to use a
-[`SubscriptionClient`](https://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.subscriptionclient.aspx) object. **SubscriptionClient** objects can work in two
+[`SubscriptionClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.subscriptionclient.aspx) object. **SubscriptionClient** objects can work in two
 different modes: [`ReceiveAndDelete` and `PeekLock`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.receivemode.aspx).
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot
@@ -416,4 +416,4 @@ links to learn more.
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/hh367512.aspx
   [Azure Samples]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/en-us/library/dn194201.aspx
+  [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx

@@ -27,7 +27,7 @@ Modern applications create a large amount of information while they are running.
 - [Event Sourcing Pattern](http://msdn.microsoft.com/library/dn589792.aspx)
  
 ## Build
-- [Event Hubs REST API Reference](https://msdn.microsoft.com/en-us/library/dn790674.aspx)
+- [Event Hubs REST API Reference](https://msdn.microsoft.com/library/dn790674.aspx)
 - [Event Hubs Code Samples](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Related services
