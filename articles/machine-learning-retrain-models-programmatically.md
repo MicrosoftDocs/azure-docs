@@ -3,7 +3,7 @@
 	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="raymondlag" 
+	authors="raymondlaghaeian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm=""
 	ms.workload="big-data" 
 	ms.date="02/20/2015"
-	ms.author="raymondl,garye"/>
+	ms.author="raymondl;garye"/>
 
 
 

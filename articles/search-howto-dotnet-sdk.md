@@ -1,19 +1,19 @@
 <properties 
    pageTitle="How to use Azure Search from a .NET Application" 
    description="How to use Azure Search from a .NET Application" 
-   services="azure-search" 
-   documentationCenter=".net" 
+   services="search" 
+   documentationCenter="" 
    authors="brjohnstmsft" 
    manager="pablocas" 
    editor=""/>
 
 <tags
-   ms.service="azure-search"
+   ms.service="search"
    ms.devlang="dotnet"
+   ms.workload="search" 
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="search" 
-   ms.date="03/10/2015"
+   ms.date="03/16/2015"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application #
@@ -339,7 +339,7 @@ This step completes the tutorial, but don't stop here. **Next steps** provides a
 
 ## Next Steps ##
 
-- Deepen your knowledge through [videos and other samples and tutorials]](https://msdn.microsoft.com/en-us/library/azure/dn818681.aspx).
+- Deepen your knowledge through [videos and other samples and tutorials](https://msdn.microsoft.com/en-us/library/azure/dn818681.aspx).
 - Read about features and capabilities in this version of the Azure Search SDK: [Azure Search Overview](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx)
 - Review [naming conventions](https://msdn.microsoft.com/en-us/library/azure/dn857353.aspx) to learn the rules for naming various objects.
 - Review [supported data types](https://msdn.microsoft.com/en-us/library/azure/dn798938.aspx) in Azure Search.
