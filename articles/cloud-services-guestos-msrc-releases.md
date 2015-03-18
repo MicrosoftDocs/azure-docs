@@ -100,4 +100,4 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [2896881]: http://support.microsoft.com/kb/2896881
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
-[family-explain]: ../cloud-services-guestos-update-matrix#guest-os-family-version-and-release-explanation
+[family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation

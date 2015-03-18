@@ -48,7 +48,7 @@ The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for 
 
 ![][1]
  
-These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see the Permissions section of [DocumentDB Resource Model and Concepts](../documentdb-resources/).
+These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see the Permissions section of [DocumentDB Resource Model and Concepts](documentdb-resources.md).
 
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
@@ -214,7 +214,7 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, righ
 [Query DocumentDB Resources]: #Query
 [Next steps]: #NextSteps
 [doc-landing-page]: ../documentation/services/documentdb/
-[documentdb-create-account]: ../documentdb-create-account/
-[documentdb-manage]: ../documentdb-manage/
+[documentdb-create-account]: documentdb-create-account.md
+[documentdb-manage]: documentdb-manage.md
 
 [1]: ./media/documentdb-get-started/gs1.png
