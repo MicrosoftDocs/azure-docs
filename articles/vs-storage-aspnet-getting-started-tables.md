@@ -19,15 +19,15 @@
 # Getting Started with Azure Storage (ASP.NET Projects)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
-> - [What Happened](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
+> - [What Happened](vs-storage-aspnet-what-happened.md)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Queues](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-table "How to use Table Storage from .NET") for more information.
 
 Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 

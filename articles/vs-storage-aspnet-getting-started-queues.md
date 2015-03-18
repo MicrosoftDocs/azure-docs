@@ -19,15 +19,15 @@
 # Getting Started with Azure Storage (ASP.NET Projects)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [What Happened](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
+> - [What Happened](vs-storage-aspnet-what-happened.md)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Queues](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
-Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/) for more information.
+Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md) for more information.
 
 Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 
