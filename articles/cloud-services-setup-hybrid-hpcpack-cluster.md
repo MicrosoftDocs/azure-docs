@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2015" 
+	ms.date="03/18/2015" 
 	ms.author="danlep"/>
 
 
@@ -25,7 +25,7 @@ This tutorial shows one approach, sometimes called cluster "burst to the cloud,"
 
 This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). If you want to set up an HPC Pack cluster entirely in Azure, see [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375). 
 
->[AZURE.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [About the A8 and A9 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
+>[AZURE.NOTE] Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
 <h2 id="BKMK_Prereq">Prerequisites</h2>
 
@@ -307,6 +307,7 @@ After you try out the cluster, you can use HPC Cluster Manager to stop the Azure
 * [Burst to Azure with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Microsoft HPC Pack in Azure VMs](http://go.microsoft.com/fwlink/p/?linkid=330375)
 * [Azure Big Compute: HPC and Batch](http://azure.microsoft.com/solutions/big-compute/)
+* [Azure Big Compute: HPC and Batch Technical Documentation](http://msdn.microsoft.com/library/azure/dn482128.aspx)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
