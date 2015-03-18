@@ -19,12 +19,12 @@
 # Get Started with Azure Cloud Services and ASP.NET
 
 > [AZURE.SELECTOR]
-- [Node.js](../cloud-services-nodejs-develop-deploy-app)
-- [.NET](../cloud-services-dotnet-get-started)
+- [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+- [.NET](cloud-services-dotnet-get-started.md)
 
 ## Overview
 
-This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](/documentation/articles/fundamentals-application-models/#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
+This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](fundamentals-application-models.md#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
 
 The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and finally how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
 
@@ -38,7 +38,7 @@ The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/
 
 ## Alternative architecture: Websites and WebJobs
 
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## What you'll learn
 
@@ -811,5 +811,5 @@ For more information, see the following resources:
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Azure Cloud Services](/documentation/services/cloud-services/)
 * [Azure Storage](/documentation/services/storage/)
-* [How to use Blob Storage from .NET](/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [How to use Queue Storage from .NET](/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
+* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
