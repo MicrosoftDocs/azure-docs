@@ -35,7 +35,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 	
 	On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances. 
 
-2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service/).
+2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](how-to-monitor-a-cloud-service.md).
 
 
 3. For service roles (grouped by role), you can update the following settings:
