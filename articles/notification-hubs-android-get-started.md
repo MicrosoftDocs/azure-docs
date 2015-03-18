@@ -10,7 +10,7 @@
 	ms.author="ricksal"/>
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome">Chrome</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome">Chrome</a></div>
 
 This topic shows you how to use Azure Notification Hubs to send push notifications to an Android application. 
 In this tutorial, you create a blank Android app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
@@ -36,38 +36,12 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-Next, you will use this API key value to enable your notification hub to authenticate with GCM and send push notifications on behalf of your application.
 
 ##<a id="configure-hub"></a>Configure your Notification Hub
 
-1. Log on to the [Azure Management Portal], and then click **+NEW** at the bottom of the screen.
-
-2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
-
-   	![][7]
-
-3. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
-
-   	![][8]
-
-4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click **Configure** at the top.
-
-   	![][9]
-
-5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
-
-   	![][10]
-
-6. Click the **Configure** tab at the top, enter the **API Key** value you obtained in the previous section, and then click **Save**.
-
-   	![][11]
-
-7. Select the **Dashboard** tab at the top, then click **View Connection String**. Take note of the two connection strings.
-
-
-Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
+[AZURE.INCLUDE [notification-hubs-android-configure-push](../includes/notification-hubs-android-configure-push.md)]
 
 ##<a id="connecting-app"></a>Connecting your app to the Notification Hub
 
@@ -219,7 +193,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 ##<a name="send"></a>How to send a notification to your app
 
-You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [JavaScript backend](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](/en-us/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/en-us/documentation/articles/notification-hubs-php-backend-how-to/)).
+>[AZURE.NOTE]You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see [Get started with push notifications in Mobile Services](/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).  For an example of how to send notifications using the REST APIs, see [How to use Notification Hubs from Java](/documentation/articles/notification-hubs-java-backend-how-to/) or [How to use Notification Hubs from PHP](/documentation/articles/notification-hubs-php-backend-how-to/).
 
 1. In Visual Studio, from the **File** menu select **New** and then **Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**.  
 
@@ -301,11 +275,7 @@ In this simple example you broadcast notifications to all your Android devices. 
 [4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
 [5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
-[7]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
-[8]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
-[10]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal2.png
-[11]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
+
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
 
 [13]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
@@ -328,18 +298,18 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-android
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-android
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-android
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-android
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Use Notification Hubs to push notifications to users]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
+[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
 

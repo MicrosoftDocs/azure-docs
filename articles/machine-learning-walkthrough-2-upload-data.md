@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2015" 
+	ms.date="02/18/2015" 
 	ms.author="garye"/>
 
 This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:

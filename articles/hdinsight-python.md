@@ -239,7 +239,7 @@ These steps use Azure PowerShell. If this is not already installed and configure
 
 	This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
-	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/) document.
+	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](/documentation/articles/hdinsight-upload-data/) document.
 
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 

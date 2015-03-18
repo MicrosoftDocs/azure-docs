@@ -479,7 +479,7 @@ Article | Description
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[sqlcmd-install]: http://www.microsoft.com/en-us/download/details.aspx?id=35580
+[sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
 [azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
 

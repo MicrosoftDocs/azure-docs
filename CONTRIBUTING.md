@@ -14,16 +14,16 @@ Thank you for your interest in Azure documentation!
 
 You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
 
-* Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 * Submit Disqus comments at the bottom of articles.
-* You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article. 
-* If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands. 
+* You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article.
+* If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands.
 
 ##About your contributions to Azure content
 
 ###Minor corrections
 
-Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/). 
+Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 
 ###Larger submissions
@@ -35,17 +35,17 @@ If you submit a pull request with new or significant changes to documentation an
 
 We need you to complete the online form before we can accept your pull request.
 
-Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla). 
+Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla).
 
 ## Repository organization
 
-The content in the azure-content repository follows the organization of documentation on [Azure.Microsoft.com](http://azure.microsoft.com). This repository contains two root folders: 
+The content in the azure-content repository follows the organization of documentation on [Azure.Microsoft.com](http://azure.microsoft.com). This repository contains two root folders:
 
-### \articles 
+### \articles
 
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*. 
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md). 
+* **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md).
 
 * **Media subfolders:** The *\articles* folder contains the *\media* folder, inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
 
@@ -63,9 +63,9 @@ This folder contains articles that are part of our contributors' guide.
 
 ## Use GitHub, Git, and this repository
 
-For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see [Install and set up tools for authoring in GitHub](./tools-and-setup.md).
+For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md).
 
-If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in [Git commands for creating a new article or updating an existing article](./git-commands-for-master.md)
+If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md)
 
 ### Branches
 
@@ -81,28 +81,17 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 
 - [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
-- [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
+- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true)
 
-- [Create tables in markdown](./create-tables-markdown.md)
 
-- [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
 
-- [Markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md)
-
-If you are looking for a good editor, try [Atom Editor](https://atom.io/). 
+If you are looking for a good markdown editor, try [Atom Editor](https://atom.io/). 
 
 
 ## Article metadata
 
-Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md). 
+Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](./contributor-guide/article-metadata.md).
 
 ## More resources
 
-See the [index of our contributor's guide](./contributor-guide-index.md) for all our guidance topics.
-
-
-
-
-
-
-
+See the [index of our contributor's guide](./contributor-guide/contributor-guide-index.md) for all our guidance topics.

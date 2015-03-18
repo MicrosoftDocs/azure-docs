@@ -32,11 +32,11 @@ Both the Storm Dashboard and Storm features of the HDInsight Tools rely on the S
 
 	One of the following versions of Visual Studio:
 
-	* Visual Studio 2012 with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	* Visual Studio 2012 with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
 
-	* Visual Studio 2013 with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	* Visual Studio 2013 with <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/en-us/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 	> [AZURE.NOTE] Currently the HDInsight Tools for Visual Studio only support Storm on HDInsight cluster versions 3.2.
 

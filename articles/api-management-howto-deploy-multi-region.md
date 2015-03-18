@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/24/2015"
+	ms.date="03/10/2015"
 	ms.author="sdanie"/>
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
@@ -26,9 +26,9 @@ When an API Management service is created initially, it contains only one [unit]
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 
-To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
-![API Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 

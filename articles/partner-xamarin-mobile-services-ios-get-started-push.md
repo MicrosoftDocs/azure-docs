@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/20/2014"
+	ms.date="3/10/2015"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push-xamarin](../includes/mobile-services-selector-get-started-push-xamarin.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-<p>This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.iOS 8 app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the [Get started with Mobile Services] project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
+This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.iOS 8 app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the [Get started with Mobile Services] project. When complete, your mobile service will send a push notification each time a record is inserted.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -396,12 +396,12 @@ You have successfully completed this tutorial.
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 

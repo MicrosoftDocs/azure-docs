@@ -101,9 +101,9 @@ Now that you've learned how to configure PHP in Azure Websites, follow the links
 - [Download the Azure SDK for PHP]
 
 
-[free trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
-[PHP Developer Center Tutorials]: https://www.windowsazure.com/en-us/develop/php/tutorials/
-[How to Configure Web Sites]: https://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites/
+[free trial]: https://www.windowsazure.com/pricing/free-trial/
+[PHP Developer Center Tutorials]: https://www.windowsazure.com/develop/php/tutorials/
+[How to Configure Web Sites]: https://www.windowsazure.com/manage/services/web-sites/how-to-configure-websites/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [List of php.ini directives]: http://www.php.net/manual/en/ini.list.php

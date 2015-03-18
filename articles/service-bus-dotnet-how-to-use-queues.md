@@ -76,7 +76,7 @@ projects and enables you to dynamically change configuration settings
 from the Azure Management Portal without redeploying your
 application.  For example, add a Setting to your service definition (`*.csdef`) file, as shown below:
 
-    <ServiceDefinition name="WindowsAzure1">
+    <ServiceDefinition name="Azure1">
     ...
         <WebRole name="MyRole" vmsize="Small">
             <ConfigurationSettings>
@@ -88,7 +88,7 @@ application.  For example, add a Setting to your service definition (`*.csdef`) 
 
 You then specify values in the service configuration (`*.cscfg`) file:
 
-    <ServiceConfiguration serviceName="WindowsAzure1">
+    <ServiceConfiguration serviceName="Azure1">
     ...
         <Role name="MyRole">
             <ConfigurationSettings>
@@ -336,14 +336,7 @@ links to learn more.
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ./media/service-bus-dotnet-how-to-use-queues/sb-queues-08.png
   [Azure Management Portal]: http://manage.windowsazure.com
-
-
-
-
-
-
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
-  [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/windowsazure/hh367512.aspx
+  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/library/hh367512.aspx

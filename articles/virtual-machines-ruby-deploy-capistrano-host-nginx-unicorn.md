@@ -435,7 +435,7 @@ The application should now be ready for deployment.
 
 	> [AZURE.NOTE] Some portions of the deployment may return 'exit status 1 (failed).' These can generally be ignored as long as the deployment completes successfully.
 
-	> [AZURE.NOTE] On some systems, you may encounter a situation where the SSH Agent cannot forward credentials to the remote VM when authenticating to GitHub. If this occurs, you can work around the error by modifying the **config/deploy.rb** file and change the `set :repo_url` line to use HTTPS when accessing Github. When using HTTPS, you must specify your GitHub user name and password (or authentication token,) as part of the URL. For example:
+	> [AZURE.NOTE] On some systems, you may encounter a situation where the SSH Agent cannot forward credentials to the remote VM when authenticating to GitHub. If this occurs, you can work around the error by modifying the **config/deploy.rb** file and change the `set :repo_url` line to use HTTPS when accessing GitHub. When using HTTPS, you must specify your GitHub user name and password (or authentication token,) as part of the URL. For example:
 	> 
 	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
 	> 
@@ -463,14 +463,14 @@ To learn how to use the Azure SDK for Ruby to access Azure services from your Ru
 
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
-[vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
+[vm-instructions]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 
 [rails-guides]: http://guides.rubyonrails.org/
-[blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
-[tables]: /en-us/develop/ruby/how-to-guides/table-service/
-[cdn-howto]: /en-us/develop/ruby/app-services/
-[ruby-vm]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+[blobs]: /develop/ruby/how-to-guides/blob-storage/
+[tables]: /develop/ruby/how-to-guides/table-service/
+[cdn-howto]: /develop/ruby/app-services/
+[ruby-vm]: /develop/ruby/tutorials/web-app-with-linux-vm/
  
 [blog-rails]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilslocal.png
 [blog-rails-cloud]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilscloud.png 

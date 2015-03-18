@@ -18,7 +18,7 @@
 
 # How to install and configure Azure PowerShell#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
 You can use Windows PowerShell to perform a variety of tasks in Azure, either interactively at a command prompt or automatically through scripts. Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, you can use the cmdlets to perform the same tasks that you can perform through the Azure Management Portal. For example, you can create and configure cloud services, virtual machines, virtual networks, and websites.
 
@@ -76,7 +76,7 @@ For more information about authentication and subscription management in Azure, 
 
 4. Azure authenticates and saves the credential information, and then closes the window.
 
-5. Staring from 0.8.6, if you sign in using a work or school account, you can type the following command to bypass the pop up window. This will pop up the standard Windows PowerShell credential window for you to enter your work or school account user name and password.
+5. Starting from 0.8.6, if you sign in using a work or school account, you can type the following command to bypass the pop up window. This will pop up the standard Windows PowerShell credential window for you to enter your work or school account user name and password.
 
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred

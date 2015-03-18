@@ -49,7 +49,7 @@ When you get the script from the Application Insights portal, insert a line afte
     } ...
 
 [>Cordova](http://cordova.apache.org/)
-[>Windows Store apps using JavaScript](https://msdn.microsoft.com/en-us/library/windows/apps/br211385.aspx)
+[>Windows Store apps using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 

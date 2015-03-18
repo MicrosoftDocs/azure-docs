@@ -3,7 +3,7 @@
 	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2014" 
+	ms.date="03/06/2014" 
 	ms.author="larryfr"/>
 
 #Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
@@ -28,7 +28,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [Maven](http://maven.apache.org/)
 
-* [An Azure HDInsight cluster with HBase](/en-us/documentation/articles/hdinsight-hbase-get-started/#create-hbase-cluster)
+* [An Azure HDInsight cluster with HBase](/documentation/articles/hdinsight-hbase-get-started/#create-hbase-cluster)
 
 ##Create the project
 
@@ -349,9 +349,9 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 ##Upload the JAR and start a job
 
-> [AZURE.NOTE] There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/). The steps below use [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](/documentation/articles/hdinsight-upload-data/). The steps below use [Azure PowerShell](/documentation/articles/install-configure-powershell/).
 
-1. After installing and configuring [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/), create a new file named __hbase-runner.psm1__. Use the following as the contents of this file.
+1. After installing and configuring [Azure PowerShell](/documentation/articles/install-configure-powershell/), create a new file named __hbase-runner.psm1__. Use the following as the contents of this file.
 
 		<#
 		.SYNOPSIS

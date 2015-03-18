@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use table storage (Java) | Microsoft Azure" 
+	pageTitle="How to use Table storage from Java | Microsoft Azure" 
 	description="Learn how to use the table storage service in Azure. Code samples are written in Java code." 
 	services="storage" 
 	documentationCenter="java" 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="03/11/2015" 
 	ms.author="robmcm"/>
 
-# How to use Table Storage from Java
+
+# How to use Table storage from Java
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 
@@ -36,7 +39,7 @@ To do so, you will need to install the Java Development Kit (JDK) and create an 
 
 ## Configure your application to access table storage
 
-Add the following import statements to the top of the Java file where you want to use Windows Azure storage APIs to access tables:
+Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:
 
     // Include the following imports to use table APIs
     import com.microsoft.azure.storage.*;

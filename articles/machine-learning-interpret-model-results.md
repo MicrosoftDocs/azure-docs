@@ -37,9 +37,9 @@ The modules used do prediction on top of these modules, called "scoring" them, g
 * **Assign to Clusters** module for clustering 
 * **Score Matchbox Recommender** for recommendation systems 
  
-This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-parameters-optimize).
+This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-algorithm-parameters-optimize).
 
-This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-evaluate-model-performance).
+This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-evaluate-model-performance).
 
 If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/) in the Azure Machine Learning Studio. 
 

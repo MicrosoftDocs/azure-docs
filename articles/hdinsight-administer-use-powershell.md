@@ -136,7 +136,7 @@ In the sample <i>hdiv2</i> is an HDInsight cluster name.
 
 >[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user username and password.
 
-This can also be done using the Windows Azure Management portal. See [Administer HDInsight using the Management portal][hdinsight-admin-portal].
+This can also be done using the Azure Management portal. See [Administer HDInsight using the Management portal][hdinsight-admin-portal].
 
 ##Submit MapReduce jobs
 The HDInsight cluster distribution comes with some MapReduce samples. One of the samples is for counting word frequencies in source files.

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/13/2015" 
 	ms.author="josephd"/>
 
 
-#Set up a SharePoint intranet farm in a hybrid cloud for testing
+# Set up a SharePoint intranet farm in a hybrid cloud for testing
 
 This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint farm hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -41,17 +41,19 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the SharePoint server (SP1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Phase 1: Set up the hybrid cloud environment
+## Phase 1: Set up the hybrid cloud environment
 
 Use the instructions in the [Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing/) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
 
 This is your current configuration.
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_1.png)
+
+> [AZURE.NOTE] For Phase 1, you can also set up the simulated hybrid cloud test environment. See [Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/) for the instructions.
  
-##Phase 2: Configure the SQL server computer (SQL1)
+## Phase 2: Configure the SQL server computer (SQL1)
 
 From the Azure Management Portal, start the DC2 computer if needed.
 
@@ -69,10 +71,11 @@ Next, create an Azure Virtual Machine for SQL1 with these commands at the Azure 
 	Set-AzureStorageAccount –StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
@@ -141,16 +144,17 @@ This is your current configuration.
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_2.png)
 
  
-##Phase 3: Configure the SharePoint server (SP1)
+## Phase 3: Configure the SharePoint server (SP1)
 
 First, create an Azure Virtual Machine for SP1 with these commands at the Azure PowerShell command prompt on your local computer.
 
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$LocalAdminName="<A local administrator account name>" 
+	$LocalAdminPW="<The password for the local administrator account>"
+	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
-	$localadmincred=Get-Credential -Message "Specify the name and password of the local administrator account"
-	$domainacctcred=Get-Credential CORP\User1 -Message "Specify the password of the CORP\User1 account"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadmincred.UserName -Password $localadmincred.Password -WindowsDomain -Domain "CORP" -DomainUserName $domainacctcred.UserName -DomainPassword $domainacctcred.Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
@@ -189,7 +193,7 @@ This is your current configuration.
  
 Your SharePoint intranet farm in a hybrid cloud environment is now ready for testing.
 
-##Additional Resources
+## Additional Resources
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
@@ -200,3 +204,5 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+
+[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)

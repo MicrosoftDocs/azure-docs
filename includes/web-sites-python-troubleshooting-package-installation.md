@@ -65,5 +65,5 @@ We recommend that you delete the existing virtual environment on the site, to pr
 
 
 [Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[Microsoft Visual C++ Compiler for Python 2.7]: http:://aka.ms/vcpython27
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949

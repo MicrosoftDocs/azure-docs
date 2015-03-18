@@ -527,7 +527,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[win-azure-account]: /en-us/pricing/free-trial/
+[win-azure-account]: /pricing/free-trial/
 [storage-account]: ../storage-create-storage-account/
 
 [download-SDK-PHP]: ../php-download-sdk/

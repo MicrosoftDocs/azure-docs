@@ -22,7 +22,7 @@
 <a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
 <a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
+<a href="../mobile-engagement-user-interface-my-account" class="current" title="My Account">My Account</a>
 <a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
 <a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
 <a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
@@ -142,10 +142,10 @@ Then, you can copy this Device ID and register it in the "UI - My Account - Devi
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: ../mobile-engagement-user-interface-navigation/
 [Link 13]: ../mobile-engagement-user-interface-home/
 [Link 14]: ../mobile-engagement-user-interface-my-account/

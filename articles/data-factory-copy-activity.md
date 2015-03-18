@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="03/03/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -49,7 +49,7 @@ The Copy Activity supports the following data movement scenarios:
 
 <table border="1">	
 	<tr>
-		<th><i>Sink/Source<i></th>
+		<th><i>Source/Sink<i></th>
 		<th>Azure Blob</th>
 		<th>Azure Table</th>
 		<th>Azure SQL Database</th>
@@ -349,6 +349,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 ## Advanced scenarios
 - **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.
 - **Transformation rules - Column mapping**. Column mapping can be used to specify how columns in source table map to columns in the sink table.
+- **Data Type Handling by the Copy Activity**. Explains in which case the data types specified in the Structure section of the Table definition are honored/ignored.
 - **Invoke stored procedure for SQL Sink**. When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked.
 
 See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article for details on these scenarios. 

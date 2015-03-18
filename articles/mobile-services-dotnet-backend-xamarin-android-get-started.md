@@ -124,16 +124,16 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
+[Get started with offline data sync]: /documentation/articles/mobile-services-xamarin-android-get-started-offline-data
+[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
+[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Management Portal]: https://manage.windowsazure.com/
-[JavaScript backend version]: /en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started
-[Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
-[Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[JavaScript backend version]: /documentation/articles/partner-xamarin-mobile-services-android-get-started
+[Get started with data in Mobile Services using Visual Studio 2012]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Troubleshoot a Mobile Services .NET backend]: /documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 
 [Xamarin Studio]: http://xamarin.com/download

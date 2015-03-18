@@ -134,9 +134,9 @@ The PaaS nature of Cloud Services has other implications, too. One of the most i
 
 Azure also offers other compute hosting models for more specialized purposes, such as the following:
 
-* [Mobile Services](/en-us/services/mobile-services/). Optimized to provide a cloud back-end for apps that run on mobile devices.
-* [Batch](/en-us/services/batch/) (currently in Preview). Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.
-* [HDInsight (Hadoop)](/en-us/services/hdinsight/). Optimized for running [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) jobs on Hadoop clusters. 
+* [Mobile Services](/services/mobile-services/). Optimized to provide a cloud back-end for apps that run on mobile devices.
+* [Batch](/services/batch/) (currently in Preview). Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.
+* [HDInsight (Hadoop)](/services/hdinsight/). Optimized for running [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) jobs on Hadoop clusters. 
 
 ## What Should I Use? Making a Choice
 

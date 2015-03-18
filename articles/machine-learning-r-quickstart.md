@@ -3,7 +3,7 @@
 	description="How to use R in the Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="02/18/2015" 
 	ms.author="larryfr"/>
 
 #Quick start guide to R for Azure Machine Learning
@@ -51,22 +51,6 @@ We will progress through several steps as you learn how to create, test and exec
 * With our data prepared we will perform an analysis of the correlations between several of the variables in our dataset.
 
 * Finally, we will create a seasonal time series forecasting model for milk production.
-
-##Table of contents
-
-* [Interacting with R in Machine Learning Studio](#mlstudio)
-
-* [Getting data in and out of the Execute R Script module](#scriptmodule)
-
-* [Data filtering and transformation](#filtering)
-
-* [Time series objects and correlation analysis](#timeseries)
-
-* [Time series example: seasonal forecasting](#seasonalforecasting)
-
-* [Appendix A - Guide to RStudio](#appendixa)
-
-* [Appendix B - Further reading](#appendixb)
 
 ##<a id="mlstudio"></a>Interacting with R in Machine Learning Studio
 
@@ -162,7 +146,7 @@ If you do not have R installed on your desktop machine, I recommend you do so no
 
 If you are new to RStudio, you should download and install the desktop version. You can find the RStudio downloads for Windows, Mac OS, and Linux/UNIX at http://www.rstudio.com/products/RStudio/. Follow the directions provided to install RStudio on your desktop machine.  
 
-A tutorial introduction to RStudio is available at https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio.
+A tutorial introduction to RStudio is available at https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 I provide some additional information on using RStudio in [Appendix A][appendixa].  
 
@@ -1114,19 +1098,19 @@ RStudio is quite well documented, so in this appendix I will provide some links 
 
 1.	Creating projects
 
-	You can organize and manage your R code into projects by using RStudio. The documentation that uses projects can be found at https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects.
+	You can organize and manage your R code into projects by using RStudio. The documentation that uses projects can be found at https://support.rstudio.com/hc/articles/200526207-Using-Projects.
 
 	I recommend that you follow these directions and create a project for the R code examples in this document.  
 
 2.	Editing and executing R code
 
-	RStudio provides an integrated environment for editing and executing R code. Documentation can be found at https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code.
+	RStudio provides an integrated environment for editing and executing R code. Documentation can be found at https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 
 3.	Debugging
 
-	RStudio includes powerful debugging capabilities. Documentation for these features is at https://support.rstudio.com/hc/en-us/articles/200713843-Debugging-with-RStudio.
+	RStudio includes powerful debugging capabilities. Documentation for these features is at https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
 
-	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/en-us/articles/200534337-Breakpoint-Troubleshooting.
+	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ##<a id="appendixb"></a>APPENDIX B - Further reading
 

@@ -84,6 +84,6 @@ You are now ready to use a Facebook login for authentication in your app by prov
 
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/

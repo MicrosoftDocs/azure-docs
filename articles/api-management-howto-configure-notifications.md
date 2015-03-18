@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # How to configure notifications and email templates in Azure API Management
@@ -22,11 +22,11 @@ API Management provides the ability to configure notifications for specific even
 
 ## <a name="publisher-notifications"> </a>Configure publisher notifications
 
-To configure notifications, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To configure notifications, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![API Management console][api-management-management-console]
 
 Click **Notifications** from the **API Management** menu on the left to view the available notifications.
 

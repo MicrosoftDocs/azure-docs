@@ -42,6 +42,6 @@ Azure AD has a number of functional levels, spanning from a cloud directory with
 
 **Additional Resources**
 
-* [Sign up for Azure as an organization](/en-us/manage/services/identity/organizational-account/)
-* [Azure Identity](/en-us/manage/windows/fundamentals/identity/)
+* [Sign up for Azure as an organization](/manage/services/identity/organizational-account/)
+* [Azure Identity](/manage/windows/fundamentals/identity/)
 * [Azure AD Library on MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="03/16/2015" 
 	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
@@ -44,10 +44,10 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
 
 	Query parameters for the sign-in / sign-up case:
-	- **operation**: identifies what type of delegation request it is - it can only be "SignIn" in this case
+	- **operation**: identifies what type of delegation request it is - it can only be **SignIn** in this case
 	- **returnUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
 	- **salt**: a special salt string used for computing a security hash
 	- **sig**: a computed security hash to be used for comparison to your own computed hash
@@ -74,6 +74,18 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 	* redirect the user to the above produced URL
 
+In addition to the **SignIn** operation, you can also perform account management by following the previous steps and using one of the following operations.
+
+-	**ChangePassword**
+-	**ChangeProfile**
+-	**CloseAccount**
+
+You must pass the following query parameters for account management operations.
+
+-	**operation**: identifies what type of delegation request it is (ChangePassword, ChangeProfile, or CloseAccount)
+-	**userId**: the user id of the account to manage
+-	**salt**: a special salt string used for computing a security hash
+-	**sig**: a computed security hash to be used for comparison to your own computed hash
 
 ## <a name="delegate-product-subscription"> </a>Delegating product subscription
 
@@ -91,7 +103,7 @@ Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
 	Query parameters for the product subscription case:
 	- **operation**: identifies what type of delegation request it is. For product subscription requests the valid options are:

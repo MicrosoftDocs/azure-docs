@@ -11,7 +11,7 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/27/2015" 
 	ms.author="juliako"/>
@@ -29,7 +29,7 @@ This document contains a list of the most common import and export file formats 
 
 [Media Encoder Import Formats ](#import_formats)
 
-[Media Encoder Export Formats](#import_formats)
+[Media Encoder Export Formats](#export_formats)
 
 
 ##<a id="import_formats"></a>Media Encoder Import Formats 
@@ -116,7 +116,7 @@ H.264 (High, Main, and Baseline Profiles)</td><td>Windows Media Audio Standard, 
 AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
 </table>
 
-For additional supported codecs and filters in Media Services, see [Windows DirectShow Filters](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375464.aspx).
+For additional supported codecs and filters in Media Services, see [Windows DirectShow Filters](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
 ##<a id="uncompressed"></a>Supported Uncompressed Video Formats 
 

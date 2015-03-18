@@ -173,7 +173,7 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
 [hdinsight-admin-cli]: ../hdinsight-administer-use-command-line/
-[hdinsight-documentation]: /en-us/documentation/services/hdinsight/
+[hdinsight-documentation]: /documentation/services/hdinsight/
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 

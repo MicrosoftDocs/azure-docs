@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Manage Azure Storage using Azure Automation" 
 	description="Learn about how the Azure Automation service can be used to manage Azure Storage at scale." 
-	services="automation, storage" 
+	services="storage, automation" 
 	documentationCenter="" 
 	authors="jodoglevy" 
 	manager="eamono" 
@@ -34,7 +34,7 @@ Lower operational overhead and free up IT / DevOps staff to focus on work that a
 
 ## How can Azure Automation help manage Azure Storage?
 
-Azure Storage can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx). Azure Automation has these Storage PowerShell cmdlets available out of the box, so that you can perform all of your blob, table, and queue management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+Azure Storage can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these Storage PowerShell cmdlets available out of the box, so that you can perform all of your blob, table, and queue management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
 
 ## Next Steps
