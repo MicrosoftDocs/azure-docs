@@ -105,7 +105,7 @@ The below resources should provide more information on deploying from the image 
 
 ###Other Resources: 
 
-- <a href="../virtual-machines-windows-tutorial/">Deploying a Windows Virtual Machine</a>
+- <a href="virtual-machines-windows-tutorial.md">Deploying a Windows Virtual Machine</a>
 
 - <a href="../virtual-machines-linux-tutorial/">Deploying a Linux Virtual Machine</a>
 
@@ -127,5 +127,5 @@ The below resources should provide more information on deploying from the image 
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
