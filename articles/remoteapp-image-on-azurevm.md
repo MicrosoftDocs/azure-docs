@@ -1,9 +1,8 @@
-
 <properties 
     pageTitle="Create a RemoteApp image based on an Azure VM"
     description="Learn how to create an image for RemoteApp starting with an Azure virtual machine." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -55,6 +54,6 @@ Use these steps to import the new image into RemoteApp:
 3. On the next page, select your custom image from the list and confirm that you followed the steps listed when you created your image. Click **Next**.
 4. Enter a name for the new RemoteApp image and pick the location, then click the checkmark to start the import process.
 
-[azure.note] You can import images from any Azure location supported by Azure Virtual Machines to any Azure location supported by Azure RemoteApp. Depending on the locations the import can take up to 25 minutes.
+> [azure.note] You can import images from any Azure location supported by Azure Virtual Machines to any Azure location supported by Azure RemoteApp. Depending on the locations the import can take up to 25 minutes.
 
 Now you are ready to create your new collection, either a [cloud](../remoteapp-create-cloud-deployment) collection or [hybrid](../remoteapp-create-hybrid-deployment), depending on your needs.
