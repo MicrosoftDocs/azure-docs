@@ -510,14 +510,14 @@ Article | Description
 
 
 
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[adf-getstarted]: ../data-factory-get-started
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
-[data-factory-editor]: ../data-factory-editor
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[adf-getstarted]: data-factory-get-started.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
+[data-factory-editor]: data-factory-editor.md
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -527,8 +527,8 @@ Article | Description
 [32bit-download-link]: http://go.microsoft.com/fwlink/?LinkId=517624
 
 [azure-preview-portal]: http://portal.azure.com
-[adfgetstarted]: ../data-factory-get-started
-[monitor-manage-powershell]: ../data-factory-monitor-manage-using-powershell
+[adfgetstarted]: data-factory-get-started.md
+[monitor-manage-powershell]: data-factory-monitor-manage-using-powershell.md
 
 
 
