@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/18/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -23,6 +23,8 @@ This walkthrough shows you how to create an Azure SDK for Java application that 
 
 - Part 1 demonstrates how to build a Java application that creates a website on Azure.
 - Part 2 demonstrates how to create a simple JSP "Hello World" application and deploy the code to the newly created website, then use an FTP client to transfer the files to the website.
+
+> **Note:**  The AzureWebDemo application code in this article was written using Azure Java SDK 0.6.0. If you installed the Azure Java SDK 0.7.0 released on January 30, 2015, this code will not compile properly. (You can verify the version of your packages in Eclipse by clicking **Help > Installation Details**.) This article will be updated with sample code that works with Azure Java SDK 0.7.0 as soon as possible.
 
 
 # Prerequisites
