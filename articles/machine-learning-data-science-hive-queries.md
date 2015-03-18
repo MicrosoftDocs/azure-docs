@@ -1,6 +1,5 @@
 <properties 
-	title="Process Data from Hive Tables" 
-	pageTitle="Process Data from Hive Tables | Azure" 
+	pageTitle="Submit Hive Queries to HDInsight Hadoop clusters in the Azure Data Science Process | Azure" 
 	description="Process Data from Hive Tables" 
 	metaKeywords="" 
 	services="machine-learning" 
@@ -19,7 +18,7 @@
 	ms.date="03/16/2015" 
 	ms.author="hangzh;bradsev" /> 
 
-#<a name="heading"></a>Hive Queries to Process Data from Hive Tables in Azure HDInsight Hadoop Clusters
+#<a name="heading"></a>Submit Hive Queries to HDInsight Hadoop clusters in the Azure Data Science Process
 
 In this document, we describe different ways of submitting Hive queries, and provide generic Hive queries to explore the data and generate features using embedded Hive User Defined Functions (UDFs). Queries specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) are also provided in Github repository. These queries already have the data schema, and are ready to be submitted to run. 
 
