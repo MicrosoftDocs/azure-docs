@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/17/2015"
+   ms.date="03/18/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restore a deleted Azure SQL database in the Azure portal
@@ -45,7 +45,7 @@ Restoring a deleted Azure SQL database creates a new database. The service autom
 
 ## How to: Restore a deleted Azure SQL database in the Azure portal
 
-> [AZURE.VIDEO Restore-a-Deleted-SQL-Database]
+> [AZURE.VIDEO restore-a-deleted-sql-database]
 
 1. Sign in to the Azure portal using your Microsoft account.
 
