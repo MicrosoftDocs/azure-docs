@@ -4,7 +4,7 @@
 	services="service-bus" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="mattshel" 
+	editor="" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/18/2015" 
 	ms.author="sethm"/>
 
 # Build reliable and elastic cloud apps with messaging 
  
-Dynamic demand is a reality for today's applications.  From seasonal and variable demand to unexpected social media trends modern applications must deal gracefully with spikes in load that can be both uncertain or expected. The Platform as a Service (PaaS) nature of Azure Service Bus enables you to create applications that scale easily and that can recover from spikes or momentary outages of components.  
+Dynamic demand is a reality for today's applications. From seasonal and variable demand to unexpected social media trends, modern applications must deal gracefully with spikes in load that can be both uncertain or expected. The Platform as a Service (PaaS) nature of Azure Service Bus enables you to create applications that scale easily and that can recover from spikes or momentary outages of components.  
  
 [Build a .NET multi-tier application using Service Bus Queues](/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
  
@@ -36,8 +36,8 @@ Dynamic demand is a reality for today's applications.  From seasonal and variabl
 - [Multi-Tier application with Azure Service Bus](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
  
 ## Popular
-- [Azure Queues and Azure Service Bus Queues - compared and contrasted](http://msdn.microsoft.com/library/azure/hh767287.aspx)
-- [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Azure Queues and Azure Service Bus Queues - compared and contrasted](http://msdn.microsoft.com/library/hh767287.aspx)
+- [Service Bus REST API Reference](http://msdn.microsoft.com/library/hh780717.aspx)
 
 ## Related services
 - [Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/) 
