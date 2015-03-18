@@ -16,11 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Getting Started with Azure Storage (ASP.NET 5 Projects)
+
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [What Happened](/documentation/articles/vs-storage-aspnet5-what-happened/)
-
-## Getting Started with Azure Storage (ASP.NET 5 Projects)
 
 > [AZURE.SELECTOR]
 > - [Blobs](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)

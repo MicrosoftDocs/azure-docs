@@ -16,11 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Getting Started with Azure Active Directory (.NET Projects)
+
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-active-directory-dotnet-getting-started/)
 > - [What Happened](/documentation/articles/vs-active-directory-dotnet-what-happened/)
-
-## Getting Started with Azure Active Directory (.NET Projects)
  
 #####Requiring authentication to access controllers 
 

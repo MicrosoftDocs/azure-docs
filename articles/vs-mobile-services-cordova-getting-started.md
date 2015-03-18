@@ -16,11 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="patshea"/>
 
+# Getting Started with Mobile Services (Cordova Projects)
+
 > [AZURE.SELECTOR]
 > - [Getting Started](/documentation/articles/vs-mobile-services-cordova-getting-started/)
 > - [What Happened](/documentation/articles/vs-mobile-services-cordova-what-happened/)
-
-## Getting Started with Mobile Services (Cordova Projects)
 
 The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.
 
