@@ -28,7 +28,6 @@ You will create and provision a sample database on the Azure platform and query 
 
 
 
-
 ## Step 1: Create a Microsoft Azure account
 
 1. Open a web browser, and browse to [http://azure.microsoft.com](http://azure.microsoft.com).
@@ -647,7 +646,7 @@ You can use ADO.NET to connect to Microsoft Azure SQL Database. Unlike an on-pre
 
 Now that you are familiar with SQL Database and the management portals, you can try out other tools and techniques used by SQL Server database administrators.
 
-To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](http://www.azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/).
+To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 
 Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/library/ms365303.aspx) to learn some basic skills.
 
