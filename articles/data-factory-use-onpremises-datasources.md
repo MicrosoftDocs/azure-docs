@@ -1,4 +1,4 @@
-git s<properties 
+<properties 
 	pageTitle="Enable your pipelines to work with on-premises data | Azure Data Factory" 
 	description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." 
 	services="data-factory" 
