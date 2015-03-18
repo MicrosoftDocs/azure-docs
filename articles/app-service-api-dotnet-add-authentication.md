@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Remotely debug an Azure API app" 
-	description="Learn how to remotely debug an Azure API App using Visual Studio." 
+	pageTitle="Protect an Azure API app" 
+	description="Learn how to protect an Azure API app using Visual Studio." 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -213,7 +213,7 @@ These instructions show how to use the Postman tool in the Chrome browser, but y
 
 ## Next steps
 
-You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information about Azure API apps, see [What are API apps?](../app-service-api-apps-why-best-platform/). 
+You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [What are API apps?](../app-service-api-apps-why-best-platform/). 
 
 [management portal]: https://manage.windowsazure.com/
 [preview portal]: https://portal.azure.com/
