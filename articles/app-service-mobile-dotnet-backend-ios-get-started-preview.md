@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get Started with Azure App Service Mobile iOS Apps"
 	description="Follow this tutorial to get started using Azure App Service for iOS development."
-	services="app-service-mobile"
+	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="yuaxu"
 	manager="dwrede"

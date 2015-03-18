@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with authentication for Mobile Apps in Windows" 
 	description="Learn how to use Mobile Apps to authenticate users of your Windows app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 

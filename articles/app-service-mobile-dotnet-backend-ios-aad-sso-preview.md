@@ -3,7 +3,7 @@
         description="Learn how to log users into your iOS application with the Active Directory Authentication Library." 
         documentationCenter="Mobile" 
         authors="mattchenderson" 
-        services="app-service-mobile" 
+        services="app-service\mobile" 
         manager="dwrede" />
 
 <tags ms.service="app-service"

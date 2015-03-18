@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migrate from Mobile Services to an App Service Mobile App" 
 	description="Learn how to easily migrate your Mobile Services application to an App Service Mobile App" 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
