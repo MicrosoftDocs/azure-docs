@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Reference for navigating the Azure portal"
 	description="Learn the different user experiences for App Service Web between the management portal and the Azure Portal"
-	services="app-service-web"
+	services="app-service\web"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/06/2015"
+	ms.date="03/24/2015"
 	ms.author="jaime-espinosa"/>
 
-# Reference on Websites and Web Apps in Azure App Service
+# Reference for navigating the Azure portal
 
-## Overview
-
-A website in the Azure Websites service is now called a web app in Azure App Service. We're updating all of our documentation to reflect this name change and to provide instructions for the [preview portal]. Until that process is done, you can use this document as a guide for working with web apps in the preview portal.
+Azure Websites now called Azure App Service Web Apps. We're updating all of our documentation to reflect this name change and to provide instructions for the [preview portal]. Until that process is done, you can use this document as a guide for working with Web Apps in the preview portal.
  
 ## The future of the management portal
 
-While you will notice the branding changes on the [management portal](http://manage.windowsazure.com/), that portal is in the process of being replaced by the [preview portal] (soon to be released in General Availability). As the management portal is being phased out, the focus for new development focus is shifting to the preview portal. All upcoming new features for web apps will come in the preview portal. Start using the preview portal to take advantage of the latest and greatest that web apps have to offer.
+While you will notice the branding changes on the [management portal](http://manage.windowsazure.com/), that portal is in the process of being replaced by the [preview portal] (soon to be released in General Availability). As the management portal is being phased out, the focus for new development focus is shifting to the preview portal. All upcoming new features for Web Apps will come in the preview portal. Start using the preview portal to take advantage of the latest and greatest that Web Apps have to offer.
 
 ## Layout differences between the management portal and Azure Portal
 
@@ -42,7 +40,7 @@ Creating new web apps is still as easy as 1-2-3. The following image shows the m
 
 In the preview portal you can choose from the most common types of web apps, including popular gallery applications like WordPress. For a full list of available applications, visit the [Azure Marketplace].
 
-When you create a web app, you specify URL, hosting plan, and location in the preview portal just as you do in the management portal. 
+When you create a web app, you specify URL, App Service plan, and location in the preview portal just as you do in the management portal. 
 
 ![](./media/app-service-web-app-preview-portal/CreateWebAppSettings.png)
 
