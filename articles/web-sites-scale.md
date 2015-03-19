@@ -24,7 +24,7 @@ Scaling up on Azure Websites involves two related actions: changing your Web Hos
 
 Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all websites in your Web Hosting Plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about Web Hosting Plans, see [What is a Web Hosting Plan?](../web-sites-web-hosting-plan-overview/) and [Azure Websites Web Hosting Plans In-Depth Overview](../azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual Web Hosting Plans, see [Websites Pricing Details](/pricing/details/websites/).  
+For information about Web Hosting Plans, see [What is a Web Hosting Plan?](../web-sites-web-hosting-plan-overview/) and [Azure Websites Web Hosting Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual Web Hosting Plans, see [Websites Pricing Details](/pricing/details/websites/).  
 
 > [AZURE.NOTE] Before switching a website from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Azure Websites subscription. To view or change options for your Microsoft Azure Websites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
@@ -134,7 +134,7 @@ For information about Web Hosting Plans, see [What is a Web Hosting Plan?](../we
 	
 14. After you have finished making changes to the items in the **Edit Scale Settings for Schedule** list, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
 
-> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com/), you can scale not only on CPU percentage, but also on the additional metrics of Memory Percentage, Disk Queue Length, HTTP Queue Length, Data In, and Data Out. You can also create one or more Scale up and Scale down rules that give you even more custom control over scaling. For more information, see [How to Scale a Website](../insights-how-to-scale/) in the Azure Preview Portal documentation.
+> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com/), you can scale not only on CPU percentage, but also on the additional metrics of Memory Percentage, Disk Queue Length, HTTP Queue Length, Data In, and Data Out. You can also create one or more Scale up and Scale down rules that give you even more custom control over scaling. For more information, see [How to Scale a Website](insights-how-to-scale.md) in the Azure Preview Portal documentation.
 
 <a name="ScalingSQLServer"></a>
 ## Scaling a SQL Database connected to your site	
@@ -169,7 +169,7 @@ Depending on the web hosting plan mode, the following developer-oriented feature
 
 **Web Endpoint Monitoring**
 
-- Web endpoint monitoring is available in the Basic and Standard web hosting plan modes. For more information about web endpoint monitoring, see [How to Monitor Websites](../web-sites-monitor/).
+- Web endpoint monitoring is available in the Basic and Standard web hosting plan modes. For more information about web endpoint monitoring, see [How to Monitor Websites](web-sites-monitor.md).
 
 - For detailed information about all of the remaining features in the web hosting plans, including pricing and features of interest to all users (including developers), see [Websites Pricing Details](/pricing/details/websites/).
 

@@ -274,7 +274,7 @@ You should see a notification on your device, **Congratulations!**:
 
 
 <!-- URLs. -->
-[Mobile Engagement Windows Store SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
+[Mobile Engagement Windows Store SDK documentation]: mobile-engagement-windows-store-integrate-engagement.md
 [Mobile Engagement Windows Store SDK]: http://go.microsoft.com/?linkid=9864592
 
 <!-- Images. -->

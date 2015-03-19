@@ -566,7 +566,7 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /documentation/articles/virtual-machines-command-line-tools/
+[Azure command-line tool for Mac and Linux]: virtual-machines-command-line-tools.md
 [Azure Developer Center]: /develop/nodejs/
 [Create and deploy a Node.js application to Azure Web Sites]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Publishing to Azure Web Sites with Git]: /develop/nodejs/common-tasks/publishing-with-git/
@@ -580,7 +580,7 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [installguides]: http://docs.mongodb.org/manual/installation/
 [azureportal]: https://manage.windowsazure.com/
 [mongodocs]: http://docs.mongodb.org/manual/
-[xplatcli]: /documentation/articles/xplat-cli/
+[xplatcli]: xplat-cli.md
 
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png
