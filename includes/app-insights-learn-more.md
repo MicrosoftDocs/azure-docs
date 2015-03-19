@@ -100,7 +100,7 @@ Usage tracking
 
 [portal]: http://portal.azure.com/
 [start]: ../articles/app-insights-get-started.md
-[greenbrown]: ../articles/app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [redfield]: ../articles/app-insights-monitor-performance-live-website-now.md
 [perf]: ../articles/app-insights-web-monitor-performance.md
 [diagnostic]: ../articles/app-insights-diagnostic-search.md
