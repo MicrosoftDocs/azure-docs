@@ -16,14 +16,9 @@
 	ms.date="03/24/2015" 
 	ms.author="mwasson"/>
 
-
-
-
-
-
 # Build and deploy a Node.js web app in Azure App Service
 
-This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to Azure App Service Web Apps using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
+This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
 A screenshot of the completed application is below:
 
@@ -38,7 +33,7 @@ Follow these steps to create a web app and enable Git publishing.
 > 
 > If you want to get started with Azure App Services before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Log in to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 2. Click the **+ NEW** icon on the bottom left of the portal
    
@@ -173,6 +168,10 @@ If you encounter problems with your application after it has been deployed to Az
 
 * [Azure PowerShell](install-configure-powershell.md)
 * [Azure Command-Line Tools for Mac and Linux](xplat-cli.md)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [nodejs.org]: http://nodejs.org
