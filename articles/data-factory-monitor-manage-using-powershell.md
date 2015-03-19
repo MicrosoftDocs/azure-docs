@@ -395,14 +395,14 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account/
+[data-factory-create-storage]: storage-create-storage-account.md
 
-[adf-get-started]: ../data-factory-get-started
+[adf-get-started]: data-factory-get-started.md
 [azure-preview-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure
-[data-factory-create-sql-database]: ../sql-database-create-configure/
-[data-factory-introduction]: ../data-factory-introduction
+[download-azure-powershell]: powershell-install-configure.md
+[data-factory-create-sql-database]: sql-database-create-configure.md
+[data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms/#Step2
+[sql-management-studio]: sql-database-manage-azure-ssms.md#Step2

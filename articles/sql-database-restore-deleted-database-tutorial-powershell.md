@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/17/2015"
+   ms.date="03/18/2015"
    ms.author="elfish; v-romcal; v-stste"/>
 
 # Restore a deleted Azure SQL database in Azure PowerShell
@@ -34,7 +34,7 @@ See [Restore a deleted Azure SQL database in the Azure portal](sql-database-rest
 
 ## How to: Restore a deleted Azure SQL database in Azure PowerShell
 
-> [AZURE.VIDEO Restore-a-Deleted-SQL-Database-With-Microsoft-Azure-PowerShell]
+> [AZURE.VIDEO restore-a-deleted-sql-database-with-microsoft-azure-powershell]
 
 You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](powershell-install-configure.md#use-the-certificate-method).
 

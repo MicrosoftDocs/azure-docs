@@ -42,7 +42,7 @@ If you're installing these tools for the first time, coreservlets.com provides a
 ##<a id="CreateDB"></a>Step 1: Create a DocumentDB database account ##
 To provision a DocumentDB database account in Azure:
 
-1. If you don't already have a database account, create one by following the instructions in [Create a database account](/documentation/articles/documentdb-create-account/). If you already have an account, proceed to step 2.
+1. If you don't already have a database account, create one by following the instructions in [Create a database account](documentdb-create-account.md). If you already have an account, proceed to step 2.
 2. Using the **Keys** blade shown in the following illustration, copy your endpoint **URI** and the **PRIMARY KEY** to your clipboard and keep them handy as we will use these values in the web application we create next.
 
 ![][1]
@@ -740,7 +740,7 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
  - In the Destination box, choose a destination to save the WAR file.
  - Click **Finish**.
 
-3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](../web-sites-java-add-app/).
+3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](web-sites-java-add-app.md).
 
 	Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 4. To view your finished product, navigate to http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ and start adding your tasks!
