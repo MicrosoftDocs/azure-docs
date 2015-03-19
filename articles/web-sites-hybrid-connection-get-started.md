@@ -20,7 +20,7 @@
 
 You can connect a web app in Azure App Service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between a web app in App Service and an on-premises SQL Server database.
 
-> [AZURE.NOTE] The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ## Prerequisites
 - An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
@@ -178,6 +178,10 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
 [Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference on Websites and Web Apps in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [New]:./media/web-sites-hybrid-connection-get-started/B01New.png
