@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Use ASP.NET session state with Azure Web Apps" 
 	description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." 
-	services="cache" 
+	services="app-service\web" 
 	documentationCenter=".net" 
  	authors="Rick-Anderson" 
 	manager="wpickett" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/20/2015" 
+	ms.date="03/24/2015" 
 	ms.author="riande"/>
 
 
@@ -41,7 +41,7 @@ In addition to making assembly references for Cache, the NuGet package adds stub
 
 1. Open the *web.config* and find the the **sessionState** element.
 
-1. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the Azure management preview portal blade for your cache instance. For more information, see [Connect to the cache](../cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file.
+1. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) blade for your cache instance. For more information, see [Connect to the cache](../cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file.
 
 
   <pre class="prettyprint">  
@@ -88,6 +88,10 @@ The following code retrieves this value from session state.
 
 You can also use the Redis Cache to cache objects in your web app. For more info, see [MVC movie app with Azure Redis Cache in 15 minutes](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 For more details about how to use ASP.NET session state, see [ASP.NET Session State Overview][].
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
   *By [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
