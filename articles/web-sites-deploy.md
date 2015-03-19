@@ -20,7 +20,7 @@
 
 ## Overview
 
-You have many options for deploying your own content to Azure App Service Web Apps. This topic provides a brief overview of each option and links to more information.
+You have many options for deploying your own content to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). This topic provides a brief overview of each option and links to more information.
 
 
 ###<a name="cloud"></a>Deploy from a cloud-hosted source control system
@@ -103,7 +103,7 @@ For information about how to deploy using Mercurial, see the following resources
 
 [Dropbox](https://www.dropbox.com/) is not a source control system, but if you store your source code in Dropbox you can automate deployment from your Dropbox account.
 
-* [Deploy To Web Apps from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Azure Management Portal to set up Dropbox deployment.
+* [Deploy To Web Apps from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) to set up Dropbox deployment.
 * [Dropbox Deployment to Web Apps](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a Dropbox folder to a web app and shows how quickly you can get a web app up and running or maintain it using simple drag-and-drop deployment.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
@@ -215,3 +215,7 @@ Having a backup and restore plan in place is an important part of any deployment
 For information about how to use Azure's Role-Based Access Control to manage access to Web Apps deployment, see [RBAC and Web App Publishing](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
 
 For information about other deployment topics, see the Deploy section in [Web Apps Documentation](/documentation/services/web-sites/).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

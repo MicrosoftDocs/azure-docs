@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Transform and extend your Azure App Service web app"
-	description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure App Service Web App and to add private extensions to enable custom administration actions."
+	description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure App Service web app and to add private extensions to enable custom administration actions."
 	authors="cephalin"
 	writer="cephalin"
 	editor="mollybos"
@@ -60,13 +60,13 @@ App Service supports web app extensions as an extensibility point for administra
 2. Web app extension **declaration**: create an ApplicationHost.xdt file
 3. Web app extension **deployment**: place content in the SiteExtensions folder under `root`
 
-Internal links for the web application should point to a path relative to the application path specified in the ApplicationHost.xdt file. Any change to the ApplicationHost.xdt file requires a web app recycle.
+Internal links for the web app should point to a path relative to the application path specified in the ApplicationHost.xdt file. Any change to the ApplicationHost.xdt file requires a web app recycle.
 
 **Note**: Additional information for these key elements is available at [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
 A detailed example is included to illustrate the steps for creating and enabling a private web app extension. The source code for the PHP Manager example that follows can be downloaded from [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
 
-###<a id="SiteSample"></a> Web App extension example: PHP Manager
+###<a id="SiteSample"></a> Web app extension example: PHP Manager
 
 PHP Manager is a web app extension that allows web app administrators to easily view and configure their PHP settings using a web interface instead of having to modify PHP .ini files directly. Common configuration files for PHP include the php.ini file located under Program Files and the .user.ini file located in the root folder of your web app. Since the php.ini file is not directly editable on the App Service platform, the PHP Manager extension uses the .user.ini file to apply setting changes.
 
@@ -83,7 +83,6 @@ The PHP Manager extension was created using the Visual Studio ASP.NET MVC 4 Web 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
 The only special logic needed for file I/O is to indicate where the wwwroot directory of the web app is located. As the following code example shows, the environment variable "HOME" indicates the web app's root path, and the wwwroot path can be constructed by appending "site\wwwroot":
-
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -170,6 +169,10 @@ You should be able to see your web app extension at:
 Note that the URL looks just like the URL for your web app, except that it uses HTTPS and contains ".scm".
 
 It is possible to disable all private (not pre-installed) extensions for your web app during development and investigations by adding an app settings with the key `WEBSITE_PRIVATE_EXTENSIONS` and a value of `0`.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png

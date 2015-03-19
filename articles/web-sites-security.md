@@ -19,7 +19,7 @@
 
 #Securing a web app in Microsoft Azure App Service
 
-One of the challenges of developing a web app is how to provide a safe and secure service for your customers. In this article, you will learn about features of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714 "Azure App Service") that can secure your web app.
+One of the challenges of developing a web app is how to provide a safe and secure service for your customers. In this article, you will learn about features of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that can secure your web app.
 
 > [AZURE.NOTE] A full discussion of security considerations for web-based applications is beyond the scope of this document. As a starting point for further guidance on securing web applications, see the [Open Web Application Security Project (OWASP)]( https://www.owasp.org/index.php/Main_Page), specifically the [top 10 project.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), which lists the current top 10 critical web application security flaws, as determined by OWASP members.
 
@@ -52,7 +52,7 @@ It's common practice to store connection strings, authentication credentials, an
 
 Azure App Service allows you to store configuration information as part of the Web Apps runtime environment as **app settings** and **connection strings**. The values are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime.
 
-**App settings** and **connection strings** are configurable using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715 "Azure Portal") or utilities such as PowerShell or the Azure Cross-Platform Command-Line Interface.
+**App settings** and **connection strings** are configurable using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) or utilities such as PowerShell or the Azure Cross-Platform Command-Line Interface.
 
 For more information on app settings and connection strings, see [Configuring web apps](../web-sites-configure/).
 
@@ -73,4 +73,4 @@ For information on logging information for web apps, which may be useful in dete
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-* For a guide to the change of the old portal to the new portal see: [Reference on Websites and Web Apps in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

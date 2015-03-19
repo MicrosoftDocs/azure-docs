@@ -1,29 +1,29 @@
 <properties 
-	pageTitle="Integrate Web Apps in Azure App Service with Azure Virtual Network" 
-	description="Shows you how to connect an Azure Web App in Azure App Service to a new or existing Azure virtual network" 
-	services="app-service-web" 
+	pageTitle="Integrate your web app in Azure App Service with Azure Virtual Network" 
+	description="Shows you how to connect an Azure web app in Azure App Service to a new or existing Azure virtual network" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-apps" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Integrate your Web App in Azure Azure App Service with an Azure Virtual Network #
-This document describes the virtual network integration preview feature and shows how to set it up with Web Apps in Azure App Service.  If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.  
+# Integrate your web app in Azure Azure App Service with an Azure Virtual Network #
+This document describes the virtual network integration preview feature and shows how to set it up with Web Apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).  If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.  
 
 This integration gives your web app access to resources in your virtual network but does not grant access to your web app from the virtual network.  Some standard scenarios are where your web app needs access to a database or web services that are running in virtual machines in your virtual network or even in your own data center.  It does not allow you to mount a drive.  It also currently does not support enabling integration with authentication systems in your virtual network.  The feature is in Preview though and will continue to be improved before reaching GA.
 
 For more details on Azure Virtual Networks see Virtual Network Overview about the use cases and benefits of an Azure Virtual Network.
 
-## Getting Started ##
+## Getting started ##
 Here are some things to keep in mind before connecting your web app to a virtual network.
 
 1.	Web Apps can only be connected to a virtual network if they are running on an App Service Plan that’s in the ‘Standard’ pricing tier.  Web Apps in Free, Shared and Basic plans cannot connect to a virtual network.
@@ -50,12 +50,12 @@ To connect a web app to a virtual network go to your web app’s blade, click th
 
 ![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
  
-The system will then create a certificate to authenticate with your virtual network if it is the first web app in your subscription to establish a connection to that network.  To see the certificate go to the current portal, navigate to Virtual Networks, select the network and select the Certificates tab.  
+The system will then create a certificate to authenticate with your virtual network if it is the first web app in your subscription to establish a connection to that network.  To see the certificate go to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), navigate to Virtual Networks, select the network and select the Certificates tab.  
 
 In the above image you can see a network named cantConnectVnet that is greyed out and cannot be selected.  There are only a two reasons that this should be the case.  It means that either you do not have point-to-site VPN enabled on your network or you have not provisioned a dynamic routing gateway in your virtual network.  When both items are satisfied then you will be able to select the virtual network for integration with your web app.
 
 ## Create and connect to a new Virtual Network ##
-In addition to connecting to a pre-existing virtual network, you can also create a new virtual network from the Azure management portal UI and automatically connect to it.  To do this follow the same path to reach the Virtual Network UI and select Create new virtual network.  The UI that opens up allows you to name the network, specify the address space and set the addresses for the DNS servers to be used by the virtual network.
+In addition to connecting to a pre-existing virtual network, you can also create a new virtual network from the Azure Portal UI and automatically connect to it.  To do this follow the same path to reach the Virtual Network UI and select Create new virtual network.  The UI that opens up allows you to name the network, specify the address space and set the addresses for the DNS servers to be used by the virtual network.
 
 ![](./media/web-sites-integrate-with-vnet/create-new-vnet.png)
  
@@ -65,7 +65,7 @@ The creation of a new virtual network with configured gateways can take up to 30
 
 Once the network has been joined to the web app, the web app will have access to resources in that virtual network over TCP or UDP.  If you wish to access resources in your on premise system that are available through Site-to-site VPN to your virtual network then you will need to add routes on your own corporate network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.
 
-After successfully completing integration, the Azure management portal will display basic information about the connection, give a way to disconnect the web app from the network and also give you a way to synchronize the certificates used to authenticate the connection.  Synchronization may be required if a certificate has been expired or revoked.  
+After successfully completing integration, the Azure Portal will display basic information about the connection, give a way to disconnect the web app from the network and also give you a way to synchronize the certificates used to authenticate the connection.  Synchronization may be required if a certificate has been expired or revoked.  
 
 ![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
@@ -77,7 +77,7 @@ Should the App Service Plan be scaled into a lower plan such as Free, Shared or 
 At this time it is not possible in Azure to take an existing virtual machine and move it into a virtual network.  The virtual machine needs to be provisioned into that virtual network during creation.  
 
 ## Accessing on premise resources ##
-When working with a virtual network that has been configured with Site-to-Site VPN there is an additional step required in order to provide access to your on-premise resources from your  Web App.  Routes need to be added to your on-premise network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.  To see your IP range for your Point-to-Site connectivity go to the Network area in the current portal as shown here.
+When working with a virtual network that has been configured with Site-to-Site VPN there is an additional step required in order to provide access to your on-premise resources from your  Web App.  Routes need to be added to your on-premise network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.  To see your IP range for your Point-to-Site connectivity go to the Network area in the Azure Portal as shown here.
 
 ![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
 
@@ -98,3 +98,7 @@ There is another feature offered by Web Apps called Hybrid Connections that is s
 Another difference is that you need to install a relay agent for Hybrid Connections to work.  This agent needs to run on a Windows Server instance.  With the Virtual Network feature there is nothing to install and it enables access to remote resources regardless of hosting operating systems.  
 
 There are also pricing tier differences at this time between the two features.  This is because at the least expensive levels the Hybrid Connections feature is extremely useful for dev/test scenarios and only gives access to a small number of endpoints.  The virtual network feature gives you access to everything in the VNET or connected to it.  
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
