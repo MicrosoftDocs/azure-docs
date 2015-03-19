@@ -33,7 +33,7 @@ Below is an example of a line-of-business application running on Azure Websites.
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
 > [AZURE.NOTE]
-> This guide presents some of the most common areas and tasks that are aligned with line-of-business applications. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on [Global Web Presence](../web-sites-global-web-presence-solution-overview/) and [Digital Marketing Campaigns](../web-sites-digital-marketing-application-solution-overview/).
+> This guide presents some of the most common areas and tasks that are aligned with line-of-business applications. However, there are other capabilities of Azure Websites that you can use in your specific implementation. To review these capabilities, also see the other guides on [Global Web Presence](web-sites-global-web-presence-solution-overview.md) and [Digital Marketing Campaigns](web-sites-digital-marketing-application-solution-overview.md).
 
 ## Bring existing assets
 
@@ -80,31 +80,31 @@ In the **Standard** hosting plan, monitor site responsiveness receive email noti
 ## More Resources
 
 - [Azure Websites Documentation](/documentation/services/websites/)
-- [Learning map for Azure Websites](../websites-learning-map/)
+- [Learning map for Azure Websites](websites-learning-map.md)
 - [Azure Web Blog](/blog/topics/web/)
 
 
 
 [Azure Websites]:/services/websites/
 
-[FTP]:../web-sites-deploy/#ftp
-[Visual Studio]:../web-sites-dotnet-get-started/
-[Visual Studio Online]:../cloud-services-continuous-delivery-use-vso/
-[Git]:../web-sites-publish-source-control/
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[HTTPS]:../web-sites-configure-ssl-certificate/
+[HTTPS]:web-sites-configure-ssl-certificate.md
 [Websites Pricing Details]:/pricing/details/web-sites/#service-ssl
-[Authenticate users]:../web-sites-authentication-authorization/
+[Authenticate users]:web-sites-authentication-authorization.md
 [Easy Auth]:/blog/2014/11/13/azure-websites-authentication-authorization/
-[Authorize users]:../web-sites-authentication-authorization/
+[Authorize users]:web-sites-authentication-authorization.md
 
 [Azure Trust Center]:/support/trust-center/
-[MySQL]:../web-sites-php-mysql-deploy-use-git/
-[Azure SQL Database]:../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[hybrid connection]:../web-sites-hybrid-connection-get-started/
-[Azure Virtual Network]:../web-sites-integrate-with-vnet/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Azure SQL Database]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[hybrid connection]:web-sites-hybrid-connection-get-started.md
+[Azure Virtual Network]:web-sites-integrate-with-vnet.md
 
-[scale up and out]:../web-sites-scale/
+[scale up and out]:web-sites-scale.md
 [Azure Management Portal]:http://manage.windowsazure.com/
 [Service Management API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [PowerShell scripting]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
@@ -114,8 +114,8 @@ In the **Standard** hosting plan, monitor site responsiveness receive email noti
 [ASP.NET session state]:https://msdn.microsoft.com/library/azure/dn690522.aspx
 [output cache]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[quick glance]:../web-sites-monitor/
+[quick glance]:web-sites-monitor.md
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:../store-new-relic-cloud-services-dotnet-application-performance-management/
+[New Relic]:store-new-relic-cloud-services-dotnet-application-performance-management.md
 [How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
