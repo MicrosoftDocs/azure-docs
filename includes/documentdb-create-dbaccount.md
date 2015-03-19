@@ -51,4 +51,4 @@
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]:../documentdb-manage/
+[documentdb-manage]:../articles/documentdb-manage.md

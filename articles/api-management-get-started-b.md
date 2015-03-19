@@ -181,17 +181,17 @@ After an operation is invoked, the developer portal displays the **Requested URL
 [View analytics]: #view-analytics
 [Next steps]: #next-steps
 
-[Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
-[Configure Notifications]: ../api-management-howto-configure-notifications
-[Responses]: ../api-management-howto-add-operations/#responses
-[How create and publish a product]: ../api-management-howto-add-products
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[Configure Notifications]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 [Management Portal]: https://manage.windowsazure.com/
 
-[Configure policies]: ../api-management-howto-policies
-[Customize the developer portal]: ../api-management-customize-portal
-[Trace calls using API inspector]: ../api-management-howto-api-inspector
+[Configure policies]: api-management-howto-policies.md
+[Customize the developer portal]: api-management-customize-portal.md
+[Trace calls using API inspector]: api-management-howto-api-inspector.md
 
 [api-management-management-console]: ./media/api-management-get-started-b/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started-b/api-management-create-instance-menu.png
