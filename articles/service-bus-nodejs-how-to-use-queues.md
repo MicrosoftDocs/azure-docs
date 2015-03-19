@@ -272,7 +272,7 @@ links to learn more.
   
   
   
-  [Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
   [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
