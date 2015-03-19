@@ -377,7 +377,7 @@ Export the web project files as a web archive (WAR) file so that you can deploy 
 
     `<project-path>/JSPHello/src/JSPHello.war`
 
-For more information on deploying WAR files, see [Adding an application to your Java website on Azure](http://azure.microsoft.com/documentation/articles/web-sites-java-add-app/).
+For more information on deploying WAR files, see [Adding an application to your Java website on Azure](web-sites-java-add-app/).
 
 
 ## Deploying the Hello World Application Using FTP
@@ -390,8 +390,8 @@ Select a third-party FTP client to publish the application. This procedure descr
 
 For more information on deployment to an Azure website using FTP, see the following topics:
 
-- [Manage websites through the Azure Management Portal: FTP Credentials](http://azure.microsoft.com/documentation/articles/web-sites-manage/#ftp-credentials)
-- [How to deploy using an FTP utility](http://azure.microsoft.com/documentation/articles/web-sites-deploy/#ftp)
+- [Manage websites through the Azure Management Portal: FTP Credentials](web-sites-manage/#ftp-credentials)
+- [How to deploy using an FTP utility](web-sites-deploy/#ftp)
 
 
 ### Set up deployment credentials
