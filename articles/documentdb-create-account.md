@@ -24,10 +24,10 @@ To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This t
 ##<a id="NextSteps"></a>Next steps
 To get started with Azure DocumentDB, explore these resources:
 
--	[Learning guide for DocumentDB](/documentation/articles/documentdb-learning-map/)
--	[DocumentDB resource model and concepts](/documentation/articles/documentdb-resources/)
--	[RESTful interactions with DocumentDB resources](/documentation/articles/documentdb-interactions-with-resources/)
--	[Get started with the DocumentDB .NET SDK](/documentation/articles/documentdb-get-started/)
+-	[Learning guide for DocumentDB](documentdb-learning-map.md)
+-	[DocumentDB resource model and concepts](documentdb-resources.md)
+-	[RESTful interactions with DocumentDB resources](documentdb-interactions-with-resources.md)
+-	[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)
 
 To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319).
 
