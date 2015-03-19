@@ -56,7 +56,7 @@ To complete this task, make sure you have an Azure Search service that's ready t
 
 9. Click **OK** on each blade (fields and index) to create the index.
 
-##Add fields##
+##Add fields
 
 In Azure Search, index attributes such as searchable, facetable, and filterable are enabled by default. Typically, when you set these attributes, its usually to turn off search behaviors that don't make sense (for example, sorting or faceting on a description).
 
@@ -76,7 +76,7 @@ The portal is different. In the portal, search behaviors are off by default so t
 
   	![][6]
 
-##Next steps##
+##Next steps
 
 Although the index is defined, it won't be ready to use until you load documents. To do this easily, continue on with [How to use Fiddler with Azure Search](../search-fiddler/), at **Load Documents**. You can then follow the remaining steps in that article to run some queries.
 

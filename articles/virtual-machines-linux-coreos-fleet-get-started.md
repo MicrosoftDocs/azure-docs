@@ -91,7 +91,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 One advantage of using CoreOS, Docker, and **fleet** is that it's easy to run services in a highly available manner. In this example you'll deploy a service that consists of three identical containers running the Apache web server. The containers will run on the three VMs in the cluster. This example is similar to one in [Launching containers with fleet] and uses the [CoreOS Apache Docker Hub image].
 
->[AZURE NOTE] To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure Management Portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
+>[AZURE.NOTE] To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure Management Portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
 
 On your client computer, use your favorite text editor to create a **systemd** template unit file, named apache@.service. You'll use that template to launch three separate instances, named apache@1.service, apache@2.service, and apache@3.service:
 

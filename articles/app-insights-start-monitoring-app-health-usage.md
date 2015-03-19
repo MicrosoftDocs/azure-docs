@@ -88,7 +88,7 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 #### Trouble on your build server?
 
-Please see [this Troubleshooting item](../app-insights-troubleshoot-faq/#NuGetBuild).
+Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
 ## Next steps
 
