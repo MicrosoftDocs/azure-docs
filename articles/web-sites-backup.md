@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure Web Apps Backups" 
 	description="Learn how to create backups of your Azure websites." 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 #Azure Web Apps Backups
 
-The Azure Web Apps Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your web app or website to a previous state, or create a new web app or website based on one of your original site's backups. 
+The [Azure Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your web app or website to a previous state, or create a new web app or website based on one of your original site's backups. 
 
 
 For information on restoring an Azure website from backup, see [Restore a web app](../web-sites-restore/).
@@ -40,7 +40,7 @@ This information is backed up to the Azure storage account and container that yo
 
 * The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale websites](../web-sites-scale/). 
 
-* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the website that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the Azure portal, and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the website that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
 <a name="manualbackup"></a>
 ## To Create a Manual Backup
@@ -149,4 +149,8 @@ To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/
 [StartDate]: ./media/web-sites-backup/08StartDate.png
 [StartTime]: ./media/web-sites-backup/09StartTime.png
 [SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference on Websites and in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529715)
 
