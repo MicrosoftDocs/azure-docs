@@ -600,8 +600,8 @@ While the steps in this article describe using the Table Service to store inform
 ## Additional resources
 
 [Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Azure Web Sites]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Publishing to Azure Web Sites with Git]: /documentation/articles/web-sites-publish-source-control/
+[Create and deploy a Node.js application to Azure Web Sites]: web-sites-nodejs-develop-deploy-mac.md
+[Publishing to Azure Web Sites with Git]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
 
 
@@ -611,10 +611,10 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
-[Node.js Web Application with MongoDB]: /documentation/articles/web-sites-nodejs-store-data-mongodb/
-[Azure command-line tool for Mac and Linux]: /documentation/articles/xplat-cli/
+[Node.js Web Application with MongoDB]: web-sites-nodejs-store-data-mongodb.md
+[Azure command-line tool for Mac and Linux]: xplat-cli.md
 
-[Publishing to Azure Web Sites with Git]: /documentation/articles/web-sites-publish-source-control/
+[Publishing to Azure Web Sites with Git]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
@@ -636,4 +636,4 @@ While the steps in this article describe using the Table Service to store inform
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Create and deploy a Node.js application to an Azure Web Site]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
