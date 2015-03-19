@@ -162,7 +162,7 @@ Before you begin this tutorial, you must have the following:
 	
 	![Configure Script Action to customize an HDInsight HBase cluster][img-provision-cluster-page5] 
 
-	> [AZURE.NOTE] This page can be used to customize the cluster during setup. For more information, see [Customize HDInsight clusters using Script Action](/documentation/articles/hdinsight-hadoop-customize-cluster/). 
+	> [AZURE.NOTE] This page can be used to customize the cluster during setup. For more information, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). 
 	
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight][hbase-get-started].
 
@@ -304,7 +304,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 To verify that the virtual machine can communicate with the HBase cluster, use the command `ping headnode0.<dns suffix>` from the virtual machine. For example, ping headnode0.mycluster.b1.cloudapp.net.
 
-To use this information in a Java application, you can follow the steps in [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)](azure.microsoft.com/documentation/articles/hdinsight-hbase-build-java-maven/) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
+To use this information in a Java application, you can follow the steps in [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)](hdinsight-hbase-build-java-maven.md) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
 
 	<property>
     	<name>hbase.zookeeper.quorum</name>
@@ -367,19 +367,19 @@ In this tutorial you learned how to provision an HBase cluster. To learn more, s
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
-[hbase-get-started]: ../hdinsight-hbase-get-started/
-[hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment/
+[hbase-get-started]: hdinsight-hbase-get-started.md
+[hbase-twitter-sentiment]: hdinsight-hbase-twitter-sentiment.md
 [vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
-[vm-create]: ../virtual-machines-windows-tutorial/
+[vm-create]: virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://manage.windowsazure.com
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: storage-create-storage-account.md 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/#rdp
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md#rdp
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
@@ -388,18 +388,18 @@ In this tutorial you learned how to provision an HBase cluster. To learn more, s
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: install-configure-powershell.md
 
 
-[hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage/#powershell
-[hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
-[hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-storage-powershell]: hdinsight-use-blob-storage.md#powershell
+[hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
+[hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
 [img-dns-surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png

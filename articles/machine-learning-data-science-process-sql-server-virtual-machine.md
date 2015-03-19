@@ -132,7 +132,7 @@ The newly generated feature can be added as a column to an existing table or sto
 
 ###<a name="python"></a>Using a programming language like Python
 
-Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented [here](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-data-blob/). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
+Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented [here](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username and password with your specific values):
 
@@ -145,10 +145,10 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Now you can work with the Pandas data frame as covered in topics [Process Azure Blob data in you data science environment](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-data-blob/).
+Now you can work with the Pandas data frame as covered in topics [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md).
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png

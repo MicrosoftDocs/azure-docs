@@ -59,5 +59,5 @@ Other ways to learn HDInsight include:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learning.map]: ../hdinsight-learning-map/
+[hdinsight.learning.map]: hdinsight-learning-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960

@@ -298,7 +298,7 @@ String IDs provide you with the following benefits:
 
 When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
 
-You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables).
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
 ##<a name="modifying"></a>How to: Modify data in a mobile service
 
@@ -554,10 +554,10 @@ To control which websites are allowed to interact with and send requests to your
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
-* [Add Mobile Services to an existing app](/documentation/articles/mobile-services-html-get-started-data)
+* [Add Mobile Services to an existing app](mobile-services-html-get-started-data.md)
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Add authentication to your mobile services app](/documentation/articles/mobile-services-html-get-started-users)
+* [Add authentication to your mobile services app](mobile-services-html-get-started-users.md)
   <br/>Learn how to authenticate users of your app with an identity provider.
 
 <!-- Anchors. -->

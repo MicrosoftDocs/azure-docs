@@ -52,7 +52,7 @@ The final stage of this tutorial is to build and run your new app.
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started with data]: /documentation/articles/mobile-services-android-get-started-data/
+[Get started with data]: ../articles/mobile-services-android-get-started-data.md
 [Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
 [Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125

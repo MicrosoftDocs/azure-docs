@@ -21,7 +21,7 @@
 
 When you develop a predictive analytics solution in Azure Machine Learning Studio, you train your model using data representative of your problem space.
 There are a number of sample datasets available in ML Studio that you can use for this purpose 
-(see [Use the sample datasets in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-use-sample-datasets/)). But you can also import your own data into ML Studio for use in your experiments.
+(see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)). But you can also import your own data into ML Studio for use in your experiments.
 
 To use your own data in ML Studio, you can upload a data file ahead of time from your local hard drive to create a dataset module in your workspace. 
 Or you can access data from one of several online sources while your experiment is running using the **Reader** module:
