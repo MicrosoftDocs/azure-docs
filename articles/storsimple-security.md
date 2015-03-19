@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple security" 
-   description="describes StorSimple security and privacy features, including service, device, and data protection, and includes a list of related questions and answers." 
+   description="Describes the security and privacy features that protect your StorSimple service, device, and data." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/17/2015"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="03/19/2015"
+   ms.author="v-sharos"/>
 
 # StorSimple security 
 
-This section describes Microsoft Azure StorSimple security and privacy features, including service, device, and data protection. It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.
+## Overview
 
 Security is a major concern for anyone who is adopting a new technology, especially when the technology is used with confidential or proprietary data. As you evaluate different technologies, you must consider increased risks and costs for data protection. Microsoft Azure StorSimple provides both a security and privacy solution for data protection, helping to ensure: 
 
@@ -32,7 +32,7 @@ The Microsoft Azure StorSimple solution consists of four main components that in
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the StorSimple device and generate data that needs to be protected.
 - **Cloud storage** – The location in the Azure cloud where data is stored.
 
-The following sections describe the StorSimple security features that help protect each of these components.
+The following sections describe the StorSimple security features that help protect each of these components. It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.
 
 ## StorSimple Manager service protection
 
@@ -46,43 +46,54 @@ Because the StorSimple Manager service is hosted in Azure, it is protected by th
 
 The StorSimple device is an on-premises hybrid storage device that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities. The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the StorSimple device or on-premises servers), while moving less frequently used data to the cloud.
 
-### Registration
+## Protect your StorSimple solution via device registration
 
 Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription. 
 
 To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key. The service registration key is a 128-bit random key generated in the portal. To learn how get a service registration key, go to [Step 2: Get the service registration key](https://msdn.microsoft.com/library/azure/dn772346.aspx).
 
-> [AZURE.NOTE]<ul><li>The service registration key is a long key that contains 100+ characters. We recommend that you copy the key and save it in a text file in a secure location so that you can use it to authorize additional devices as necessary.</li><li>If the service registration key is lost after you register your first device, you can generate a new key from the StorSimple Manager service. This will not affect the operation of existing devices.</li><li>
-After a device is registered, it uses tokens to communicate with Microsoft Azure. The service registration key is not used after device registration.</li></ul>
+> [AZURE.NOTE] The service registration key is a long key that contains 100+ characters. We recommend that you copy the key and save it in a text file in a secure location so that you can use it to authorize additional devices as necessary.
+> 
+> * If the service registration key is lost after you register your first device, you can generate a new key from the StorSimple Manager service. This will not affect the operation of existing devices. 
+> * After a device is registered, it uses tokens to communicate with Microsoft Azure. The service registration key is not used after device registration.
 
 
-### Passwords
+### Protect your StorSimple solution via passwords
 
-Passwords are an important aspect of computer security and are used extensively in the Microsoft Azure StorSimple solution to help ensure that your data is accessible to authorized users only. Azure StorSimple allows you to configure the following passwords:
+Passwords are an important aspect of computer security and are used extensively in the Microsoft Azure StorSimple solution to help ensure that your data is accessible to authorized users only. StorSimple allows you to configure the following passwords:
 
 - Windows PowerShell for StorSimple password
 - StorSimple device administrator password
 - Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
 - StorSimple Snapshot Manager password
 
-#### Windows PowerShell for StorSimple and StorSimple device administrator passwords
+### Windows PowerShell for StorSimple and StorSimple device administrator passwords
 
 Windows PowerShell for StorSimple is a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console or by using Windows PowerShell remoting. 
 
 PowerShell remoting can be done over HTTPS or HTTP. If remote management over HTTPS is enabled, you will need to download the remote management certificate from the device and install it on the remote client. 
 
-> [AZURE.IMPORTANT] <ul><li>Remote management is turned off by default. You can use the StorSimple Manager service to enable it. As a security best practice, remote access should be enabled only during the time period that it is actually needed.
-</li><li>If you change the password, be sure to notify all remote access users so that they do not experience an unexpected connectivity loss.</li><li>The StorSimple Manager service cannot retrieve existing passwords: it can only reset them. We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten. If you do need to reset a password, be sure to notify all users before you reset it. </li><li>You can access the Windows PowerShell interface by using a serial connection to the device. You can also access it remotely by using either HTTP or HTTPS, which provide additional security. HTTPS provides a higher level of security than either a serial or HTTP connection. However, to use HTTPS, you must first install a certificate on the client computer that will access the device. You can download the remote access certificate from the device configuration page in the StorSimple Manager service. If the certificate for remote access is lost, you must download a new certificate and propagate it to all clients that are authorized to use remote management.</li></ul>
+> [AZURE.IMPORTANT] 
+
+> * Remote management is turned off by default. You can use the StorSimple Manager service to enable it. As a security best practice, remote access should be enabled only during the time period that it is actually needed.
+> * If you change the password, be sure to notify all remote access users so that they do not experience an unexpected connectivity loss.
+> * The StorSimple Manager service cannot retrieve existing passwords: it can only reset them. We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten. If you do need to reset a password, be sure to notify all users before you reset it. 
+> * You can access the Windows PowerShell interface by using a serial connection to the device. You can also access it remotely by using either HTTP or HTTPS, which provide additional security. HTTPS provides a higher level of security than either a serial or HTTP connection. However, to use HTTPS, you must first install a certificate on the client computer that will access the device. You can download the remote access certificate from the device configuration page in the StorSimple Manager service. If the certificate for remote access is lost, you must download a new certificate and propagate it to all clients that are authorized to use remote management.
 
 After you use Windows PowerShell for StorSimple to connect to the device, you will need to provide the device administrator password to log on to the device.
 
-#### Challenge Handshake Authentication Protocol (CHAP)
+### Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
 
 CHAP is an authentication scheme used by the StorSimple device to validate the identity of remote clients. The verification is based on a shared password. CHAP can be one-way (unidirectional) or mutual (bidirectional). With one-way CHAP, the target (the StorSimple device) authenticates an initiator (host). Mutual CHAP requires that the target authenticate the initiator and then the initiator authenticate the target. Azure StorSimple can be configured to use either method.
 
-> [AZURE.IMPORTANT] <ul><li>The CHAP user name must contain fewer than 233 characters.</li><li>The CHAP password must be between 12 and 16 characters. Attempting to use a longer user name or password will result in an authentication failure on the Windows host.</li><li>You cannot use the same password for both the CHAP initiator and the CHAP target.</li><li>After you set the password, it can be changed but it cannot be retrieved. If the password is changed, be sure to notify all remote access users so that they can successfully connect to the StorSimple device.</li></ul>
+> [AZURE.IMPORTANT] 
+> 
+> * The CHAP user name must contain fewer than 233 characters.
+> * The CHAP password must be between 12 and 16 characters. Attempting to use a longer user name or password will result in an authentication failure on the Windows host.
+> * You cannot use the same password for both the CHAP initiator and the CHAP target.
+> * After you set the password, it can be changed but it cannot be retrieved. If the password is changed, be sure to notify all remote access users so that they can successfully connect to the StorSimple device.
 
-#### StorSimple Snapshot Manager password
+### StorSimple Snapshot Manager password
 
 StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.
 
@@ -105,25 +116,31 @@ We recommend that you use the following guidelines to help ensure that Azure Sto
 
 ## StorSimple data protection
 
-This section describes the Azure StorSimple security features for in-transit and stored data.
+This section describes the Azure StorSimple security features that protect in-transit and stored data.
 
 As described in other sections, passwords are used to authorize and authenticate users before they can gain access to your Microsoft Azure StorSimple solution. Another security consideration is protecting data from unauthorized users while it is being transferred between storage systems and while it is being stored. The following sections describe the data protection features provided with Azure StorSimple.
 
-### Data flowing through the service
+> [AZURE.NOTE] Deduplication provides additional protection for data stored on the StorSimple device and in Microsoft Azure storage. When data is deduplicated, the data objects are stored separately from the metadata used to map and access them: there is no available storage-level context to reconstruct the data based on volume structure, file system, or file name.
+
+## Protect data flowing through the service
 
 The primary purpose of the StorSimple Manager service is to manage and configure the StorSimple device. The StorSimple Manager service runs in Microsoft Azure. You use the Azure Management Portal to enter device configuration data, and then Microsoft Azure uses the StorSimple Manager service to send the data to the device. The StorSimple Manager service uses a system of asymmetric key pairs to help ensure that a compromise of the Azure service will not result in a compromise of stored information. The asymmetric key system helps protect the data that flows through the service as follows:
 
 1. A data encryption certificate that uses an asymmetric public and private key pair is generated on the device and is used to protect the data. The keys are generated when the first device is registered. 
 2. The data encryption certificate keys are exported into a Personal Information Exchange (.pfx) file that is protected by the service data encryption key, which is a strong 128-bit key that is randomly generated by the device during registration.
 3. The public key of the certificate is securely made available to the StorSimple Manager service, and the private key remains with the device.
-4. Data entering into the service is encrypted using the public key and decrypted using the private key stored on the device, ensuring that the Azure service cannot decrypt the data flowing to the device.
+4. Data entering the service is encrypted using the public key and decrypted using the private key stored on the device, ensuring that the Azure service cannot decrypt the data flowing to the device.
 
-> [AZURE.IMPORTANT] <ul><li>The service data encryption key is generated only on the first device registered with the service. All subsequent devices that are registered with the service must use the same service data encryption key. It is very important to make a copy of this key and save it in a secure location. A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.
-</li><li>You can change the service data encryption key and the corresponding data encryption certificate by selecting the Change service data encryption key option on the service dashboard. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Service dashboard](https://msdn.microsoft.com/library/azure/dn772326.aspx).</li><li>To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key.</li><li>If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01).
-</li><li>The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key on a regular schedule to help prevent key compromise.</li></ul>
+> [AZURE.IMPORTANT]
+> 
+> * The service data encryption key is generated only on the first device registered with the service. All subsequent devices that are registered with the service must use the same service data encryption key. It is very important to make a copy of this key and save it in a secure location. A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.
+> * You can change the service data encryption key and the corresponding data encryption certificate by selecting the Change service data encryption key option on the service dashboard. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Service dashboard](https://msdn.microsoft.com/library/azure/dn772326.aspx).
+> * To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key.
+> * If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01).
+> * The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key on a regular schedule to help prevent key compromise.</li></ul>
 
 
-### Data at rest
+## Protect data at rest
 
 The StorSimple device manages data by storing it in tiers locally and in the cloud, depending on frequency of use. All host machines that are connected to the device send data to the device, which then moves data to the cloud, as appropriate. Data is transferred from the device to the cloud over the iSCSI protocol. Each device has one iSCSI target that surfaces all shared volumes on that device. All data is encrypted before it is sent to cloud storage. To help ensure the security and integrity of data moved to the cloud, Azure StorSimple allows you to define cloud storage encryption keys as follows:
 
@@ -133,7 +150,7 @@ The StorSimple device manages data by storing it in tiers locally and in the clo
 - The cloud storage encryption key is not stored anywhere in the service and is known only to the device.
 - Specifying a cloud storage encryption key is optional. You can send data that has been encrypted at the host to the device.
 
-### Storage account access
+## Protect data via storage accounts
 
 Each Microsoft Azure subscription can create one or more storage accounts. (A storage account provides a unique namespace for working with data stored in the Azure cloud.) Access to a storage account is controlled by the subscription and access keys associated with that storage account. 
 
@@ -142,12 +159,14 @@ When you create a storage account, Microsoft Azure generates two 512-bit storage
 > [AZURE.IMPORTANT] 
 > 
 > We recommend that you follow these best practices for key rotation:
-> <ul><li>You should rotate storage account keys regularly to help ensure that your storage account is not accessed by unauthorized users.</li><li>Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Management Portal to directly access the storage account. </li></ul>
+> 
+> * You should rotate storage account keys regularly to help ensure that your storage account is not accessed by unauthorized users.
+> * Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Management Portal to directly access the storage account.
 
 
-### Encryption algorithms
+## Protect data via encryption
 
-The following table describes the encryption algorithms used within the Azure StorSimple solution.
+StorSimple uses the following encryption algorithms to protect data stored in or traveling between the components of your StorSimple solution.
 
 | Algorithm | Key length | Protocols/applications/comments |
 | --------- | ---------- | ------------------------------- |
@@ -156,11 +175,7 @@ The following table describes the encryption algorithms used within the Azure St
 | RSA       | 2048       | RSA PKCS 1 v1.7 is used by the Management Portal to encrypt the public portion of the service data encryption key before storing it in local portal storage. |
 
 
-### Deduplication and data protection
-
-Deduplication provides additional data protection for data stored on the StorSimple device and in Microsoft Azure storage. When data is deduplicated, the data objects are stored separately from the metadata used to map and access them: there is no available storage-level context to reconstruct the data based on volume structure, file system, or file name.
-
-## Questions and answers about StorSimple security
+## Frequently asked questions (FAQ)
 
 The following are some questions and answers about security and Microsoft Azure StorSimple.
 
