@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-compute" 
-	ms.date="02/25/2015" 
+	ms.date="03/19/2015" 
 	ms.author="yidingz, kabatta"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -53,7 +53,8 @@ When you use the Batch service, you take advantage of the following resources:
 
 ### <a name="account"></a>Account
 
-A Batch account is a uniquely identified entity within the Batch service. All processing is done through a Batch account. When you perform operations with the Batch service, you need the name of the account and the key for the account. Currently, you must contact the Azure Batch team to create a new account. After the account is created, a key is provided to you.
+A Batch account is a uniquely identified entity within the Batch service. All processing is done through a Batch account. When you perform operations with the Batch service, you need the name of the account and the key for the account. To create a batch account, refer to Batch account section of [Azure Batch overview](http://azure.microsoft.com/en-us/documentation/articles/batch-technical-overview/#BKMK_Account).
+
 
 ### <a name="taskvm"></a>Task Virtual Machine
 
