@@ -283,14 +283,14 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 
 [Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: /documentation/articles/mobile-services-ios-how-to-use-client-library/
+[How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
 [Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Mobile Services sample repository on GitHub]: https://github.com/Azure/mobile-services-samples
 
-[Get started with Mobile Services]: /documentation/articles/mobile-services-ios-get-started/
-[Get started with data]: /documentation/articles/mobile-services-ios-get-started-data/
-[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
-[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
+[Handling conflicts with offline support for Mobile Services]: mobile-services-ios-handling-conflicts-offline-data.md
+[Soft Delete]: mobile-services-using-soft-delete.md
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
