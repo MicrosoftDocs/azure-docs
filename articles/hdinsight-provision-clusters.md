@@ -40,7 +40,7 @@ Before you begin the instructions in this article, you must have the following:
 
 ###Clusters on Linux
 
-HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](../hdinsight-hadoop-linux-get-started). 
+HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md). 
 
 ###Additional storage
 
@@ -48,7 +48,7 @@ During configuration, you must specify an Azure Blob storage account and a defau
 
 >[WACOM.NOTE] Don't share one Blob storage container for multiple clusters. This is not supported. 
 
-For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/).
+For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
 ###Metastore
 
@@ -711,21 +711,21 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
-[hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
-[hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
+[hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
-[hdinsight-storm-get-started]: ../hdinsight-storm-getting-started/
+[hdinsight-storm-get-started]: hdinsight-storm-getting-started.md
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[azure-command-line-tools]: ../xplat-cli/
+[azure-command-line-tools]: xplat-cli.md
 
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -734,7 +734,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-customcreatecluster]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.png
 [image-hdi-customcreatecluster-clusteruser]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.ClusterUser.png
@@ -757,4 +757,4 @@ In this article, you have learned several ways to provision an HDInsight cluster
 
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
-  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+  [89e2276a]: hdinsight-use-sqoop.md "Use Sqoop with HDInsight"
