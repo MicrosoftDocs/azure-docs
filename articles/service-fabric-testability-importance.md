@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Importance of Testability." 
    description="This article talks about why testability is important for services written on windows fabric." 
-   services="Service-Fabric" 
-   documentationCenter="Windows Azure" 
+   services="service-fabric" 
+   documentationCenter=".net" 
    authors="rishirsinha" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="Service-Fabric"
+   ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
