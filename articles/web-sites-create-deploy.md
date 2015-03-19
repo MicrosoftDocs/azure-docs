@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to create Web Apps - Azure service management"
-	description="Learn how to create a Web App using the Azure Management Portal."
+	pageTitle="How to create a web app - Azure service management"
+	description="Learn how to create a web app using the Azure Portal."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
 #How to Create a web app
 
 This topic shows how to create a web app from the gallery or by using the Azure Portal.
 
-For information about how to deploy your content to a web app that you have created, see the **Deploy** section in [Azure Web Apps](/en-us/documentation/services/web-sites/).
+For information about how to deploy your content to a web app that you have created, see the **Deploy** section in [Azure Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 ##<a name="createawebsiteportal"></a>How to: Create a web app Using the Azure Portal
 
 Follow these steps to create a web app in Azure.
 
-1. Login to the [Azure Portal](https://portal.azure.com/).
+1. Login to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 2. Click the **New** icon on the bottom left of the Azure Portal.
 
@@ -61,4 +61,8 @@ Web Apps are deleted using the **Delete** icon in the Azure Portal. The **Delete
 
 ##<a name="nextsteps"></a> Next Steps
 
-For more information, see [Azure App Service](/documentation/services/web-sites/).
+For more information, see [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
