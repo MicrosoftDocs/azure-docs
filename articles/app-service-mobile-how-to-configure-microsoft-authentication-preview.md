@@ -2,7 +2,7 @@
 	pageTitle="How to configure Microsoft Account authentication for your App Services application"
 	description="Learn how to configure Microsoft Account authentication for your App Services application." 
 	authors="mattchenderson,ggailey777" 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="" 
 	manager="dwrede" 
 	editor=""/>

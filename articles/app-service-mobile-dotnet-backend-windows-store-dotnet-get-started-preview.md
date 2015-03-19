@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get Started with mobile app backends for Windows Store apps | Mobile Dev Center"
 	description="Follow this tutorial to get started using Azure mobile app backends for Windows Store development in C#, VB, or JavaScript."
-	services="app-service-mobile"
+	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="christopheranderson"
 	manager="dwrede"
@@ -29,7 +29,7 @@ In this tutorial, you will create both a new mobile app backend and a simple *To
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fapp-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview%2F).
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
 ## <a name="create-new-service"> </a>Create a new mobile app backend
