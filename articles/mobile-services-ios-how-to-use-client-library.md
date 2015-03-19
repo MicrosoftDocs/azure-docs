@@ -249,7 +249,7 @@ Azure Mobile Services supports various identity providers. For a basic tutorial,
 
 Azure Mobile Services supports two authentication workflows:
 
-- **Server-managed Login**: Azure Mobile Services manages login process on behalf of your app. It displays a provider-specific login page and authenticates with the chosen provider.
+- **Server-managed Login**: Azure Mobile Services manages the login process on behalf of your app. It displays a provider-specific login page and authenticates with the chosen provider.
 
 - **Client-managed Login**: The _app_ requests a token from the identity provider and presents this token to Azure Mobile Services for authentication.
 
@@ -263,7 +263,7 @@ Here is how you can add server-managed login to the [Mobile Services Quick Start
 
 ### Client-managed Login (Single Sign-on)
 
-You may do the login process outside the Mobile Services client, either to enable single sign-on or if your app contacts the identity provider directly. In such cases, you can login to Mobile Services by providing a token obtained independently from a supported identity provider.
+You may do the login process outside the Mobile Services client, either to enable single sign-on or if your app contacts the identity provider directly. In such cases, you can log in to Mobile Services by providing a token obtained independently from a supported identity provider.
 
 The following example uses the [Live Connect SDK] to enable single sign-on for iOS apps. It assumes that you have a **LiveConnectClient** instance named `liveClient` in the controller and the user is logged in.
 
