@@ -1,24 +1,24 @@
 <properties 
 	pageTitle="Authenticate and Authorize Line-of-Business Apps in Azure Websites" 
 	description="Learn the different authentication and authorization options for line-of-business applications that are deployed to Azure Websites" 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-apps" 
+	ms.service="app-service-web" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="02/12/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 # Authenticate and Authorize Users in Line-of-Business Applications in Azure web apps #
 
-[Azure web apps](http://azure.microsoft.com/en-us/services/websites/) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
+[Azure Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
 
 ## Zero-friction authentication and authorization ##
 
@@ -45,3 +45,7 @@ In many scenarios, you want to customize the authentication and authorization be
 	-	Only AD FS administrators can configure [relying party trusts and claim rules](http://technet.microsoft.com/library/dd807108.aspx).
 	-	Can manage [claims](http://technet.microsoft.com/library/ee913571.aspx) on a per-application basis.
 	-	Must have a separate solution for accessing on-premise AD data through the corporate firewall.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
