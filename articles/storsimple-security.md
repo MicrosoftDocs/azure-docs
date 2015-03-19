@@ -32,7 +32,7 @@ The Microsoft Azure StorSimple solution consists of four main components that in
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the StorSimple device and generate data that needs to be protected.
 - **Cloud storage** – The location in the Azure cloud where data is stored.
 
-The following sections describe the StorSimple security features that help protect each of these components. It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.
+The following sections describe the StorSimple security features that help protect each of these components and the data stored on them. It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.
 
 ## StorSimple Manager service protection
 
