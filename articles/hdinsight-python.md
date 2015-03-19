@@ -218,7 +218,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 ###PowerShell
 
-These steps use Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) before using the following steps.
+These steps use Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](install-configure-powershell.md) before using the following steps.
 
 1. Using the Python examples [streaming.py](#streamingpy) and [jython.py](#jythonpy), create local copies of the files on your development machine.
 
@@ -239,7 +239,7 @@ These steps use Azure PowerShell. If this is not already installed and configure
 
 	This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
-	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](/documentation/articles/hdinsight-upload-data/) document.
+	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
 
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 
@@ -326,8 +326,8 @@ If you need to load Python modules that aren't provided by default, see [How to 
 
 For other ways to use Pig, Hive, and to learn about using MapReduce, see the following.
 
-* [Use Hive with HDInsight](../hdinsight-use-hive)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with HDInsight](../hdinsight-use-pig)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with HDInsight](../hdinsight-use-mapreduce)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
