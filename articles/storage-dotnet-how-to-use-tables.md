@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use table storage  from .NET | Microsoft Azure" 
+	pageTitle="How to use Table storage from .NET | Microsoft Azure" 
 	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." 
 	services="storage" 
 	documentationCenter=".net" 
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tamram"/>
 
 
-# How to use Table Storage from .NET
+# How to use Table storage from .NET
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 
@@ -56,7 +58,7 @@ You can use the **CloudStorageAccount** type to represent
 your Storage Account information. If you are using an 
 Azure project template and/or have a reference to the
 Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
-can you use the **CloudConfigurationManager** type
+can use the **CloudConfigurationManager** type
 to retrieve your storage connection string and storage account
 information from the Azure service configuration:
 
@@ -68,7 +70,7 @@ If you are creating an application with no reference to Microsoft.WindowsAzure.C
 	using System.Configuration;
 	...
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+		ConfigurationManager.ConnectionStrings["StorageConnectionString"]);
 
 ### ODataLib dependencies
 ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
@@ -510,3 +512,4 @@ to learn about more complex storage tasks.
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+  [How to: Programmatically access Table Storage]: #tablestorage

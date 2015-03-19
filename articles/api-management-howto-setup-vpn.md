@@ -64,4 +64,4 @@ After your API Management service is connected to the VPN, accessing web service
 [Management Portal]: https://manage.windowsazure.com/
 
 [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
-[How to use the API Inspector to trace calls in Azure API Management]: ../api-management-howto-api-inspector
+[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md

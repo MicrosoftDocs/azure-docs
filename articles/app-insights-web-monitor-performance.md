@@ -30,7 +30,7 @@ If you haven't yet added Application Insights to your project (that is, if it do
 
 * [Add Application Insights to your project in Visual Studio][greenbrown] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
 * [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website.
-* [For a Microsoft Azure website](../insights-how-to-customize-monitoring/)  you can already see metrics on the website's Monitoring lens. 
+* [For a Microsoft Azure website](insights-how-to-customize-monitoring.md)  you can already see metrics on the website's Monitoring lens. 
 
 Using either of these methods, you'll quickly see data on the overview blade in Application Insights.
 

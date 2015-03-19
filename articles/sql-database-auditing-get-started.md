@@ -43,7 +43,7 @@ You can audit the following activities and events:
 - **Accounts, roles, and permissions (DCL)**
 - **Security exceptions**
 
-For further detail about the the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
+For further detail about the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
 
 You also choose the storage account where audit logs will be saved.
 

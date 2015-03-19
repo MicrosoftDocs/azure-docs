@@ -48,7 +48,7 @@ The tags section uses this syntax:
 - Sometimes displayed as the search results description in search results
 - Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
 
-![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. Values:
+![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - active-directory
 - backup
@@ -63,6 +63,7 @@ The tags section uses this syntax:
 - recovery-manager
 - redis-cache
 - service-bus
+- service-fabric
 - scheduler
 - sql-database
 - storage
@@ -71,7 +72,7 @@ The tags section uses this syntax:
 - visual-studio-online
 - web-sites
 
-![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. Values:
+![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - **.net** 
 - **nodejs** 
@@ -122,6 +123,7 @@ The tags section uses this syntax:
  - **remoteapp**	
  - **scheduler**	
  - **service-bus**	
+ - **service-fabric**
  - **site-recovery**: formerly recovery-services
  - **sql-database**	
  - **sql-reporting**	

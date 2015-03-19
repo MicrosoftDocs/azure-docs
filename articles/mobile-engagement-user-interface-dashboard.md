@@ -27,7 +27,7 @@
 <a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
 <a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
 <a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
+<a href="../mobile-engagement-user-interface-dashboard" class="current" title="Dashboard">Dashboard</a>
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
 </div>
 

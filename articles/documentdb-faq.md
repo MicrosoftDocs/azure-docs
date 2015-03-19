@@ -30,7 +30,7 @@ For instructions on deploying and using this service, see the [DocumentDB docume
 DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB SQL query grammar. DocumentDB provides high performance transactional processing of server side JavaScript through stored procedures, triggers, and user defined functions. The database also supports developer tunable consistency levels with associated performance levels.
  
 ###Do DocumentDB databases have tables like an RDBMS?
-No, DocumentDB  stores data in collections of JSON documents.  For information on DocumentDB resources, see the [DocumentDB Resource Model and Concepts](../documentdb-resources/) article. 
+No, DocumentDB  stores data in collections of JSON documents.  For information on DocumentDB resources, see the [DocumentDB Resource Model and Concepts](documentdb-resources.md) article. 
 
 ###Do DocumentDB databases support schema-free data?
 Yes, DocumentDB allows applications to store arbitrary JSON documents without schema definition or hints. Data is immediately available for query through the DocumentDB SQL query interface.   
@@ -42,7 +42,7 @@ Yes, DocumentDB supports cross-document transactions expressed as JavaScript sto
 DocumentDB is a good choice for new web and mobile applications where scale, performance, and the ability to query over schema-free data is important. DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user generated content and data are common use cases for DocumentDB.  
 
 ###What are the scale and capacity limits?
-Each Azure DocumentDB account supports a maximum number of capacity units which can be configured through the Azure portal. If you require additional capacity units, please contact support to have your account quota increased.  For more information on resource quotas, please see [DocumentDB Limits for the Preview Release.](../documentdb-limits/) 
+Each Azure DocumentDB account supports a maximum number of capacity units which can be configured through the Azure portal. If you require additional capacity units, please contact support to have your account quota increased.  For more information on resource quotas, please see [DocumentDB Limits for the Preview Release.](documentdb-limits.md) 
 
 
 ###How much does Microsoft Azure DocumentDB cost?
@@ -96,4 +96,4 @@ Yes, because DocumentDB is a RESTful service, resource links are immutable and c
 
 
 [preview-portal]: https://portal.azure.com
-[query]: ../documentdb-sql-query/
+[query]: documentdb-sql-query.md

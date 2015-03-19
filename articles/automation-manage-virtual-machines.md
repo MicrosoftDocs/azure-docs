@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Manage Azure Virtual Machines using Azure Automation" 
 	description="Learn about how the Azure Automation service can be used to manage Azure virtual machines at scale." 
-	services="automation, virtual-machines" 
+	services="virtual-machines, automation" 
 	documentationCenter="" 
 	authors="jodoglevy" 
 	manager="eamono" 

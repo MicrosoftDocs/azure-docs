@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/11/2014" 
+	ms.date="03/17/2014" 
 	ms.author="robb"/>
 
 
@@ -21,17 +21,6 @@
 # Enabling Diagnostics in Azure Cloud Services and Virtual Machines
 
 Azure Diagnostics 1.2 and 1.3 enable you to collect diagnostic data from a worker role, web role, or virtual machine running in Azure. This guide describes how to use Azure Diagnostics 1.2 and 1.3. For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems, see [Troubleshooting Best Practices for Developing Azure Applications][].
-
-## Table of Contents
-
--   [Overview][]
--   [How to Enable Diagnostics in a Worker Role][]
--   [How to Enable Diagnostics in a Virtual Machine][]
--   [Sample Configuration File and Schema][]
--   [Troubleshooting][]
--   [Frequently Asked Questions][]
--   [Comparing Azure Diagnostics Versions][]
--   [Additional Resources][]
 
 <h2><a name="overview"></a>Overview</h2>
 

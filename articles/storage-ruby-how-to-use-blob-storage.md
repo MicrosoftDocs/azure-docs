@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use blob storage (Ruby) | Microsoft Azure" 
+	pageTitle="How to use Blob storage from Ruby | Microsoft Azure" 
 	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
 
+# How to use Blob storage from Ruby
 
-
-
-# How to Use the Blob Service from Ruby
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
 ## Overview
 
