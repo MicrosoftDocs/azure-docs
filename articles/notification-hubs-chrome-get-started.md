@@ -411,8 +411,8 @@ Chrome App is created using JavaScript and you can use any of your preferred wor
 
 In this tutorial you send notifications with a .NET console application though you can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. 
 
-For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](./mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](./mobile-services-javascript-backend-android-get-started-push.md)).  
-For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP/Python** ([Java](./notification-hubs-java-backend-how-to.md) | [PHP](./notification-hubs-php-backend-how-to.md) | [Python](./notification-hubs-python-backend-how-to.md)).
+For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](mobile-services-javascript-backend-android-get-started-push.md)).  
+For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP/Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
 1. In Visual Studio, from the **File** menu select **New** and then **Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**.  This creates a new console application project.
 
@@ -496,5 +496,5 @@ In order to target specific users refer to the tutorial [Azure Notification Hubs
 [crypto-js library]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs Notify Users]: ./notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Azure Notification Hubs Breaking News]: ./notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Azure Notification Hubs Breaking News]: notification-hubs-windows-store-dotnet-send-breaking-news.md
