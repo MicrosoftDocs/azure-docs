@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="3/17/2015"
+	ms.date="03/24/2015"
 	ms.author="tomfitz"/>
 
 #How to configure PHP for Web Apps in Azure App Service
 
 ## Introduction
 
-This guide will show you how to configure the built-in PHP runtime in Web Apps for Azure App Service, provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP Web App in App Service.
+This guide will show you how to configure the built-in PHP runtime in Web Apps for Azure App Service, provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
 
 ## How to: Change the built-in PHP configuration
-By default, PHP 5.4 is installed and immediately available for use when you create an App Service Web App. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
+By default, PHP 5.4 is installed and immediately available for use when you create an App Service web app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
 PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To update the PHP version, follow these steps:
 
