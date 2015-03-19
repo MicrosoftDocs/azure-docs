@@ -26,7 +26,7 @@ On your application's Overview blade in the Application Insights portal, open Co
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Add an export, and choose an [Azure storage account](http://azure.microsoft.com/documentation/articles/storage-introduction/) where you want to put the data:
+Add an export, and choose an [Azure storage account](storage-introduction.md) where you want to put the data:
 
 ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
@@ -62,7 +62,7 @@ When you open your blob store with a tool such as [Server Explorer](http://msdn.
 
 The date and time are UTC and are when the telemetry was deposited in the store – not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
-To download this data programmatically, use the [blob store REST API](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
+To download this data programmatically, use the [blob store REST API](storage-dotnet-how-to-use-blobs.md#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
 
 Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in which you can set up pipelines to manage data at scale.
 
