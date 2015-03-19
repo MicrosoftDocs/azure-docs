@@ -126,10 +126,10 @@ The expectations for fast and agile execution in businesses continue to grow. Bu
 
 
 <!--Link references-->
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.scale.jobs]: ../stream-analytics-scale-jobs/
-[stream.analytics.limitations]: ../stream-analytics-limitations/
-[stream.analytics.introduction]: ../stream-analytics-introduction/
-[stream.analytics.get.started]: ../stream-analytics-get-started/
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
+[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
+[stream.analytics.limitations]: stream-analytics-limitations.md
+[stream.analytics.introduction]: stream-analytics-introduction.md
+[stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
