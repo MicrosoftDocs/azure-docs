@@ -16,6 +16,7 @@
    ms.date="03/18/2015"
    ms.author="hariag"/>
 
+
 #Archive AS2 Messages
 
 **AS2 Connector** exposes the ability to archive messages. Archiving  stores the message in the **Azure Blob Container** that is a part of package settings. 
