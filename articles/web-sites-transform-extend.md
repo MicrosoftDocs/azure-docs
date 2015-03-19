@@ -19,12 +19,12 @@
 
 # Transform and extend your Azure App Service web app
 
-By using [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Azure App Service web app. You can also use XDT declarations to add private extensions to enable custom Web App administration actions. This article includes a sample PHP Manager web app extension that enables management of PHP settings through a web interface.
+By using [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your web app in Azure App Service. You can also use XDT declarations to add private extensions to enable custom web app administration actions. This article includes a sample PHP Manager web app extension that enables management of PHP settings through a web interface.
 
-##<a id="transform"></a>Transform the web app Configuration in ApplicationHost.config
-The [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) platform provides flexibility and control for web app configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in App Service, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
+##<a id="transform"></a>Transform the Web App Configuration in ApplicationHost.config
+The App Service platform provides flexibility and control for web app configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in App Service, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
 
-To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the Web App root. You may need to restart the web app for changes to take effect.
+To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the web app root. You may need to restart the Web App for changes to take effect.
 
 The following applicationHost.xdt sample shows how to add a new custom environment variable to a web app that uses PHP 5.4.
 
@@ -82,8 +82,7 @@ The PHP Manager extension was created using the Visual Studio ASP.NET MVC 4 Web 
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-The only special logic needed for file I/O is to indicate where the wwwroot directory of the web app is located. As the following code example shows, the environment variable "HOME" indicates the web app root path, and the wwwroot path can be constructed by appending "site\wwwroot":
-
+The only special logic needed for file I/O is to indicate where the wwwroot directory of the web app is located. As the following code example shows, the environment variable "HOME" indicates the web app's root path, and the wwwroot path can be constructed by appending "site\wwwroot":
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
