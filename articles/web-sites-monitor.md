@@ -54,7 +54,7 @@ To determine the extent that a web app is impacting resource usage quotas, follo
 	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
 	-	**Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.   
 
-	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](azure-subscription-service-limits.md#websiteslimits).
 
 
 ##<a name="resourceusage"></a> How to: Avoid exceeding your quotas
@@ -194,7 +194,7 @@ You may also view a lie stream of log events by using the following command:
 
 This will display log information to the command prompt, PowerShell, bash or terminal session that the command is ran from.
 
-> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/) for installation and configuration information.
+> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](virtual-machines-command-line-tools.md) for installation and configuration information.
 
 ### Reading log files ###
 
