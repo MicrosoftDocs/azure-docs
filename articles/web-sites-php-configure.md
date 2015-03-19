@@ -1,14 +1,14 @@
 <properties
 	pageTitle="How to Configure PHP for Web Apps in Azure App Service"
 	description="Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service."
-	services="web-sites"
+	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="web-sites"
+	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
@@ -20,14 +20,14 @@
 
 ## Introduction
 
-This guide will show you how to configure the built-in PHP runtime in Web Apps for Azure App Service, provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
+This guide will show you how to configure the built-in PHP runtime in Web Apps for [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
 
 ## How to: Change the built-in PHP configuration
 By default, PHP 5.4 is installed and immediately available for use when you create an App Service web app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
 PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To update the PHP version, follow these steps:
 
-1. Browse to your web app in the Azure Portal and click on the **Settings** button.
+1. Browse to your web app in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) and click on the **Settings** button.
 
 	![Web App Settings][settings-button]
 
@@ -93,6 +93,10 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 8. Click the **Save** button at the top of the **Web app settings** blade.
 
 	![Save configuration settings][save-button]
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
