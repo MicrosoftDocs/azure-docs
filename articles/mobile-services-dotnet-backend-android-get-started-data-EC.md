@@ -178,7 +178,7 @@ Try one of these other tutorials:
 <!-- URLs. -->
 [Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
@@ -190,4 +190,4 @@ Try one of these other tutorials:
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[Mobile Services .NET How-to Conceptual Reference]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md  

@@ -18,7 +18,7 @@
 
 #How to Use the Engagement API on Windows Phone
 
-This document is an add-on to the document [How to integrate Mobile Engagement in your Windows Phone app](../mobile-engagement-windows-phone-integrate-engagement/). It provides in depth details about how to use the Engagement API to report your application statistics.
+This document is an add-on to the document [How to integrate Mobile Engagement in your Windows Phone app](mobile-engagement-windows-phone-integrate-engagement.md). It provides in depth details about how to use the Engagement API to report your application statistics.
 
 If you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `PhoneApplicationPage` sub-classes inherit from the `EngagementPage` class.
 
