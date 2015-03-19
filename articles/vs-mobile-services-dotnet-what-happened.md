@@ -17,8 +17,8 @@
 	ms.author="patshea"/>
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
-> - [What Happened](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 
