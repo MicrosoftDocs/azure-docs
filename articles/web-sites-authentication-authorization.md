@@ -18,7 +18,7 @@
 
 # Authenticate and Authorize Users in Line-of-Business Applications in Azure web apps #
 
-[Azure Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/en-us/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
+[Azure Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
 
 ## Zero-friction authentication and authorization ##
 
