@@ -19,7 +19,7 @@
 
 #Archive AS2 Messages
 
-**AS2 Connector** exposes the ability to archive messages. Archiving  stores the message in the **Azure Blob Container** that is a part of package settings. 
+**AS2 Connector** exposes the ability to archive messages. Archiving stores the message in the **Azure Blob Container** that is a part of package settings. 
 
 Archiving is exposed at two points for both messages and acknowledgements (MDNs):
 
