@@ -382,11 +382,11 @@ Article | Description
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
 
-[data-factory-introduction]: ../data-factory-introduction
-[adf-getstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
+[data-factory-introduction]: data-factory-introduction.md
+[adf-getstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877

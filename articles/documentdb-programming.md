@@ -142,7 +142,7 @@ Note that this stored procedure can be modified to take an array of document bod
 The example described demonstrated how to use stored procedures. We will cover triggers and user defined functions (UDFs) later in the tutorial. First, lets look at the general characteristics of the scripting support in DocumentDB.  
 
 ##Runtime Support
-[DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](../documentdb-interactions-with-resources.md).
+[DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).
  
 ##Transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation and Durability.  
@@ -601,7 +601,7 @@ This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/a
 	    });
 
 
-And the following example shows how to create a user defined function (UDF) and use it in a [DocumentDB SQL query](../documentdb-sql-query.md).
+And the following example shows how to create a user defined function (UDF) and use it in a [DocumentDB SQL query](documentdb-sql-query.md).
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/17/2015"
+   ms.date="03/18/2015"
    ms.author="elfish; v-romcal; v-stste"/>
 
 # Recover an Azure SQL database using Geo-Restore in Azure PowerShell
@@ -32,7 +32,7 @@ See [Recover an Azure SQL database using Geo-Restore in the Azure portal](sql-da
 
 ## How to: Recover an Azure SQL database with Geo-Restore in Azure PowerShell
 
-> [AZURE.VIDEO Restore-a-SQL-Database-Using-Geo-Restore-With-Microsoft-Azure-PowerShell]
+> [AZURE.VIDEO restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell]
 
 You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](powershell-install-configure.md#use-the-certificate-method).
 
