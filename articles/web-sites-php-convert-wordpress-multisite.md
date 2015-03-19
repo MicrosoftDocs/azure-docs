@@ -5,7 +5,7 @@
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="web-sites" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="2/12/2015" 
+	ms.date="3/18/2015" 
 	ms.author="tomfitz"/>
 
 
