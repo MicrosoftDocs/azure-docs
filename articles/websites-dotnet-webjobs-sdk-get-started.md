@@ -429,7 +429,7 @@ In this section you'll do the following tasks:
 	* Added a *webjobs-list.json* file in the web project Properties folder.
 	* Installed the Microsoft.Web.WebJobs.Publish NuGet package in the WebJob project.
 	 
-	For more information about these changes, see [How to Deploy WebJobs by using Visual Studio](/documentation/articles/websites-dotnet-deploy-webjobs/).
+	For more information about these changes, see [How to Deploy WebJobs by using Visual Studio](websites-dotnet-deploy-webjobs.md).
 
 ### Add NuGet packages
 
@@ -794,7 +794,7 @@ For more information about how to write functions that use  WebJobs SDK attribut
 
 ### WebJobs SDK versus Cloud Service worker role without WebJobs SDK
 
-If you compare the amount of code in the `GenerateThumbnails` method in this sample application with the worker role code in the [Cloud Service version of the application](/documentation/articles/cloud-services-dotnet-get-started/), you can see how much work the WebJobs SDK is doing for you. The advantage is greater than it appears, because the Cloud Service sample application code doesn't do all of the things (such as poison message handling) that you would do in a production application, and which the WebJobs SDK does for you.
+If you compare the amount of code in the `GenerateThumbnails` method in this sample application with the worker role code in the [Cloud Service version of the application](cloud-services-dotnet-get-started.md), you can see how much work the WebJobs SDK is doing for you. The advantage is greater than it appears, because the Cloud Service sample application code doesn't do all of the things (such as poison message handling) that you would do in a production application, and which the WebJobs SDK does for you.
 
 In the Cloud Service version of the application, the record ID is the only information in the queue message, and the background process gets the image URL from the database. In the WebJobs SDK version of the application, the queue message includes the image URL so that it can be provided to the `Blob` attributes. If the queue message didn't have the blob URL, you could [use the Blob attribute in the body of the method instead of in the method signature](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
 

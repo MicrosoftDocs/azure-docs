@@ -94,4 +94,4 @@ In the [Azure Portal](https://portal.azure.com), select the API App. Click on th
 
 ## Deploy the web application to Web Apps in App Service
 
-Follow the instructions available at [How to Deploy an Azure web app](http://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/).
+Follow the instructions available at [How to Deploy an Azure web app](web-sites-deploy.md).

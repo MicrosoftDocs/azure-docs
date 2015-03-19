@@ -107,7 +107,7 @@ This section steps through an example to to migrate a few websites that use a SQ
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](active-directory-whatis.md) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Once you make all the desired changes, click **Create** to start the migration process. The migration tool will create the Azure SQL Database and Azure web app, and then publish the website content and databases. The migration progress is clearly shown in the migration tool, and you will see a summary screen at the end, which details the sites migrated, whether they were successful, links to the newly-created Azure web apps. 
 
