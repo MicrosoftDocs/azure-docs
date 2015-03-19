@@ -827,7 +827,7 @@ Another way to store data in an Azure application is to use Azure storage, which
 * [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
 * [Intro to ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Your First ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [Debugging WAWS](http://www.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [Debugging WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
 This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
