@@ -20,9 +20,9 @@ authors="torsteng"/>
 
 Applications built on Azure SQL Database face challenges when their data or processing needs no longer fit a single scale unit in Azure SQL Database. Examples include applications that go viral or where a particular set of tenants grow beyond the limits of a single Azure SQL DB database. The Elastic Scale **Split/Merge Service** greatly eases this pain. 
 
-This discussion of the Split/Merge Service manages scale-in and scale-out by changing the number of Azure DB databases and balancing the distribution of **shardlets** among them. (For term definitions, see [Elastic Scale Glossary](./sql-database-elastic-scale-glossary.md)). 
+This discussion of the Split/Merge Service manages scale-in and scale-out by changing the number of Azure DB databases and balancing the distribution of **shardlets** among them. (For term definitions, see [Elastic Scale Glossary](sql-database-elastic-scale-glossary.md)). 
 
-With the current choices between Azure SQL DB editions, capacity can also be managed by scaling up or down the capacity of a single Azure SQL DB database. The scale-up/down dimension of elastic capacity management is not covered by Split/Merge – see Shard Elasticity instead [Elastic Scale Shard Elasticity](./sql-database-elastic-scale-elasticity.md)). 
+With the current choices between Azure SQL DB editions, capacity can also be managed by scaling up or down the capacity of a single Azure SQL DB database. The scale-up/down dimension of elastic capacity management is not covered by Split/Merge – see Shard Elasticity instead [Elastic Scale Shard Elasticity](sql-database-elastic-scale-elasticity.md)). 
  
 ## What's new in Split/Merge
 
@@ -65,7 +65,7 @@ Figure 1: Conceptual Overview of Split/Merge
 
 ## Concepts & Key Features
 
-**Customer-Hosted Services**: Split/Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Elastic Scale Security Considerations](./sql-database-elastic-scale-configure-security.md).
+**Customer-Hosted Services**: Split/Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split-Merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Elastic Scale Security Considerations](sql-database-elastic-scale-configure-security.md).
 
 The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons. 
 
@@ -109,7 +109,7 @@ The tables ‘region’ and ‘nation’ are defined as reference tables and wil
 
 ## Getting the Service Binaries
 
-The service binaries for Split/Merge are provided through [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). See the step-by-step [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) for more information about downloading the binaries.
+The service binaries for Split/Merge are provided through [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). See the step-by-step [Split-Merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for more information about downloading the binaries.
 
 ## The Split/Merge User Interface
 
@@ -204,9 +204,9 @@ In addition, a uniqueness property with the sharding key as the leading column w
 
 ## References 
 
-* [Split-Merge tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Split-Merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Elastic Scale Security Considerations](./sql-database-elastic-scale-configure-security.md)  
+* [Elastic Scale Security Considerations](sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

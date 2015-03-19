@@ -137,14 +137,14 @@ After the script runs, you should have a local destination folder that includes 
 ## Prerequisites for using Azure PowerShell with Azure Storage
 You need an Azure subscription and account to run the PowerShell cmdlets given in this guide, as described above.
 
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. For information on installing and setting up Azure PowerShell, see [How to install and configure Azure PowerShell](./powershell-install-configure.md). We recommend that you download and install or upgrade to the latest Azure PowerShell module before using this guide. 
+Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. For information on installing and setting up Azure PowerShell, see [How to install and configure Azure PowerShell](powershell-install-configure.md). We recommend that you download and install or upgrade to the latest Azure PowerShell module before using this guide. 
 
 You can run the cmdlets in the Azure PowerShell console, the standard Windows PowerShell console, or the Windows PowerShell Integrated Scripting Environment (ISE). For example, to open an **Azure PowerShell console**, go to the Start menu, type Microsoft Azure PowerShell, right-click and click Run as administrator. To open **Windows PowerShell ISE**, go to the Start menu, type Administrative Tools and click to run it. In the Administrative Tools window, right-click Windows PowerShell ISE, click Run as Administrator. 
 
 ## How to manage storage accounts in Azure
 
 ### How to set a default Azure subscription
-To manage Azure Storage using Azure PowerShell, you need to authenticate your client environment with Azure via Azure Active Directory Authentication or Certificate-based Authentication. For detailed information, see [How to install and configure Azure PowerShell](./powershell-install-configure.md) tutorial. This guide uses the Azure Active Directory authentication.
+To manage Azure Storage using Azure PowerShell, you need to authenticate your client environment with Azure via Azure Active Directory Authentication or Certificate-based Authentication. For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) tutorial. This guide uses the Azure Active Directory authentication.
 
 1.	In the Azure PowerShell console or in Windows PowerShell ISE, type the following command to add your Azure account to the local PowerShell environment:
 
@@ -186,7 +186,7 @@ To use Azure storage, you will need a storage account. You can create a new Azur
 	    $StorageAccountName = "yourstorageaccount"
 	    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
 
-> [AZURE.IMPORTANT] The name of your storage account must be unique within Azure and must be lowercase. For naming conventions and restrictions, see [About Azure Storage Accounts](./storage-create-storage-account.md) and [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> [AZURE.IMPORTANT] The name of your storage account must be unique within Azure and must be lowercase. For naming conventions and restrictions, see [About Azure Storage Accounts](storage-create-storage-account.md) and [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 ### How to set a default Azure storage account
 You can have multiple storage accounts in your subscription. You can choose one of them and set it as the default storage account for all the storage commands in the same PowerShell session. This enables you to run the Azure PowerShell storage commands without specifying the storage context explicitly. 
@@ -225,19 +225,19 @@ Use one of the following three ways to create a storage context:
     	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
     	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 
-	For more information, see [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) and [Shared Access Signatures, Part 1: Understanding the SAS Model ](./storage-dotnet-shared-access-signature-part-1.md).
+	For more information, see [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) and [Shared Access Signatures, Part 1: Understanding the SAS Model ](storage-dotnet-shared-access-signature-part-1.md).
 
 - In some cases, you may want to specify the service endpoints when you create a new storage context. This might be necessary when you have registered a custom domain name for your storage account with the Blob service or you want to use a shared access signature for accessing storage resources. Set the service endpoints in a connection string and use it to create a new storage context as shown below:
 
     	$ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
     	$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
 
-For more information on how to configure a storage connection string, see [Configuring Connection Strings](./storage-configure-connection-string.md).
+For more information on how to configure a storage connection string, see [Configuring Connection Strings](storage-configure-connection-string.md).
 
 Now that you have set up your computer and learned how to manage subscriptions and storage accounts using Azure PowerShell. Go to the next section to learn how to manage Azure blobs and blob snapshots.
 
 ## How to manage Azure blobs and blob snapshots
-Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob Storage Service concepts. For detailed information, see [How to use Blob Storage from .NET](./storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob Storage Service concepts. For detailed information, see [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### How to create a container
 Every blob in Azure storage must be in a container. You can create a private container using the New-AzureStorageContainer cmdlet:
@@ -245,7 +245,7 @@ Every blob in Azure storage must be in a container. You can create a private con
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] There are three levels of anonymous read access: **Off**, **Blob**, and **Container**. To prevent anonymous access to blobs, set the Permission parameter to **Off**. By default, the new container is private and can be accessed only by the account owner. To allow anonymous public read access to blob resources, but not to container metadata or to the list of blobs in the container, set the Permission parameter to **Blob**. To allow full public read access to blob resources, container metadata, and the list of blobs in the container, set the Permission parameter to **Container**. For more information, see [Manage Access to Azure Storage Resources](./storage-manage-access-to-resources.md).
+> [AZURE.NOTE] There are three levels of anonymous read access: **Off**, **Blob**, and **Container**. To prevent anonymous access to blobs, set the Permission parameter to **Off**. By default, the new container is private and can be accessed only by the account owner. To allow anonymous public read access to blob resources, but not to container metadata or to the list of blobs in the container, set the Permission parameter to **Blob**. To allow full public read access to blob resources, container metadata, and the list of blobs in the container, set the Permission parameter to **Container**. For more information, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
 
 ### How to upload a blob into a container
 Azure Blob Storage supports block blobs and page blobs. For more information, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
@@ -367,7 +367,7 @@ You can copy a snapshot of a blob to restore the snapshot. For detailed informat
 Now that you have learned how to manage Azure blobs and blob snapshots with Azure PowerShell. Go to the next section to learn how to manage tables, queues, and files.
 
 ## How to manage Azure tables and table entities
-Azure Table storage service is a NoSQL datastore, which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pair. This section assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) and [How to use Table Storage from .NET](./storage-dotnet-how-to-use-tables.md).
+Azure Table storage service is a NoSQL datastore, which you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pair. This section assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) and [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md).
 
 In the following sub sections, you’ll learn how to manage Azure Table storage service using Azure PowerShell. The scenarios covered include **creating**, **deleting**, and **retrieving** **tables**, as well as **adding**, **querying**, and **deleting table entities**.
 
@@ -510,7 +510,7 @@ You can delete an entity using its partition and row keys. The following example
     }
 
 ## How to manage Azure queues and queue messages
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. This section assumes that you are already familiar with the Azure Queue Storage Service concepts. For detailed information, see [How to use Queue Storage from .NET](./storage-dotnet-how-to-use-queues.md).
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. This section assumes that you are already familiar with the Azure Queue Storage Service concepts. For detailed information, see [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md).
 
 This section will show you how to manage Azure Queue storage service using Azure PowerShell. The scenarios covered include **inserting** and **deleting** queue messages, as well as **creating**, **deleting**, and **retrieving queues**.
  
@@ -592,10 +592,10 @@ Your code de-queues a message from a queue in two steps. When you call the [Micr
 ## How to manage Azure file shares and files
 Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API or Azure PowerShell.
 
-For more information on Azure File storage, see [How to use Azure File storage](./storage-dotnet-how-to-use-files.md) and [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+For more information on Azure File storage, see [How to use Azure File storage](storage-dotnet-how-to-use-files.md) and [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## How to set and query storage analytics
-You can use [Azure Storage Analytics](./storage-analytics.md) to collect metrics for your Azure storage accounts and log data about requests sent to your storage account. You can use storage metrics to monitor the health of a storage account, and storage logging to diagnose and troubleshoot issues with your storage account.
+You can use [Azure Storage Analytics](storage-analytics.md) to collect metrics for your Azure storage accounts and log data about requests sent to your storage account. You can use storage metrics to monitor the health of a storage account, and storage logging to diagnose and troubleshoot issues with your storage account.
 By default, storage metrics is not enabled for your storage services. You can enable monitoring using either the Azure Management Portal, Windows PowerShell, or programmatically through a storage API. Storage logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
 
 To learn how to enable and view Storage Metrics data using PowerShell, see [How to enable Storage Metrics using PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
@@ -616,7 +616,7 @@ A shared access signature can be in one of two forms:
 - **Ad hoc SAS**: When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI. This type of SAS may be created on a container, blob, table, or queue and it is non-revokable.
 - **SAS with stored access policy**: A stored access policy is defined on a resource container a blob container, table, or queue - and you can use it to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy. This type of SAS is revokable.
 
-For more information, see [the Shared Access Signatures tutorial](./storage-dotnet-shared-access-signature-part-1.md) and [Manage Access to Azure Storage Resources](./storage-manage-access-to-resources.md).
+For more information, see [the Shared Access Signatures tutorial](./storage-dotnet-shared-access-signature-part-1.md) and [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
 
 In the next sections, you will learn how to create a shared access signature token and stored access policy for Azure tables. Azure PowerShell provides similar cmdlets for containers, blobs, and queues as well. To run the scripts in this section, download the [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) or later.
 
@@ -678,7 +678,7 @@ To use Azure Storage with [U.S. Azure Government](http://azure.microsoft.com/fea
 
 For more information, see:
 
-- [Microsoft Azure Government Developer Guide](./azure-government-developer-guide.md). 
+- [Microsoft Azure Government Developer Guide](azure-government-developer-guide.md). 
 - [Differences between AzureCloud for global Azure and AzureChinaCloud for Azure operated by 21Vianet in China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## Next Steps

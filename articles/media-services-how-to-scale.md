@@ -29,7 +29,7 @@ This topic links to relevant topics.
 
 ##<a id="streaming_endpoins"></a>Streaming Reserved Units
 
-For more information, see [Scaling streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+For more information, see [Scaling streaming units](media-services-manage-origins.md#scale_streaming_endpoints).
 
 ##<a id="encoding_reserved_units"></a>Encoding Reserved Units
 

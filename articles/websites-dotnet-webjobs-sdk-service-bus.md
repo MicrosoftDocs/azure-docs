@@ -20,9 +20,9 @@
 
 ## Overview
 
-This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](../websites-dotnet-webjobs-sdk/) version 1.x.
+This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](../websites-dotnet-webjobs-sdk-get-started/).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
 
 The code snippets only show functions, not the code that creates the `JobHost` object as in this example:
 
@@ -70,7 +70,7 @@ The SDK will automatically deserialize a queue message that contains JSON for a 
 		    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
 		}
 
-For code samples showing how to use properties of the POCO to work with blobs and tables in the same function, see the [storage queues version of this article](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#pocoblobs).
+For code samples showing how to use properties of the POCO to work with blobs and tables in the same function, see the [storage queues version of this article](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
 
 ### Types ServiceBusTrigger works with
 
@@ -131,7 +131,7 @@ To create a message on a topic, use the `ServiceBus` attribute with a topic name
 
 ## <a id="queues"></a>Related topics covered by the storage queues how-to article
 
-For information about WebJobs SDK scenarios not specific to Service Bus, see [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+For information about WebJobs SDK scenarios not specific to Service Bus, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Topics covered in that article include the following:
 

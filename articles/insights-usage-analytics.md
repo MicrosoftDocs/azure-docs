@@ -19,7 +19,7 @@
 
 Wonder how many users have used your web app in Microsoft Azure App Service?  Wonder what the average page load time is or what browsers are being used?  By inserting a few lines of script in your web pages, you can collect data about how your website is used by your customers. 
 
-*You can do this for non-Azure websites too: [Monitor web app usage with Application Insights](../app-insights-web-track-usage/).*
+*You can do this for non-Azure websites too: [Monitor web app usage with Application Insights](app-insights-web-track-usage.md).*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 
@@ -49,5 +49,5 @@ The Analytics part shows:
 * [Monitor performance][azure-perf] to diagnose issues with your code's dependencies
 * [Create web tests][azure-availability] to make sure your site is available and responsive
 
-[azure-perf]: ../insights-perf-analytics/
-[azure-availability]: ../insights-create-web-tests/
+[azure-perf]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md

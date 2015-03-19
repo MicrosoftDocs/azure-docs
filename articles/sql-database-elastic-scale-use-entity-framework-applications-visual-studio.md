@@ -18,7 +18,7 @@
 
 # Using Elastic Scale with Entity Framework 
  
-You can use the Azure SQL Database Elastic Scale with Microsoft’s Entity Framework (EF) to build applications. Elastic scale allows you to grow and shrink capacity through sharding and scale-out for your application's data tier. This document shows the changes in an Entity Framework application that are needed to integrate with the Elastic Scale capabilities. The focus is on composing [Elastic Scale shard management](http://go.microsoft.com/?linkid=9862595) and [data-dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of the Elastic Scale samples in the Visual Studio Code Samples.
+You can use the Azure SQL Database Elastic Scale with Microsoft’s Entity Framework (EF) to build applications. Elastic scale allows you to grow and shrink capacity through sharding and scale-out for your application's data tier. This document shows the changes in an Entity Framework application that are needed to integrate with the Elastic Scale capabilities. The focus is on composing [Elastic Scale shard management](http://go.microsoft.com/?linkid=9862595) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of the Elastic Scale samples in the Visual Studio Code Samples.
   
 ## Downloading and Running the Sample Code
 To download the code for this article:
@@ -53,7 +53,7 @@ All these approaches rely on the DbContext class to transparently manage databas
 
 ## Elastic Scale Assumptions 
 
-For term definitions, see [Elastic Scale Glossary](./sql-database-elastic-scale-glossary.md).
+For term definitions, see [Elastic Scale Glossary](sql-database-elastic-scale-glossary.md).
 
 With Azure SQL Database Elastic Scale, you define partitions of your application data called shardlets.  Shardlets are identified by a sharding key and are mapped to specific databases. An application may have as many databases as needed and distribute the shardlets to provide enough capacity or performance given current business requirements. The mapping of sharding key values to the databases is stored by a shard map provided by the Elastic Scale APIs. We call this capability Shard Map Management, or SMM for short. The shard map also serves as the broker of database connections for requests that carry a sharding key. We refer to this capability as data-dependent routing. 
  

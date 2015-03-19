@@ -63,7 +63,7 @@ Get started with ...
 </li>
 <li><a href="../articles/app-insights-java-get-started.md">Java applications and web services</a>
 </li>
-<li><a href="../app-insights-platforms/">Other platforms</a>
+<li><a href="../articles/app-insights-platforms.md">Other platforms</a>
 </li>
 </ul>
 
@@ -83,7 +83,7 @@ Performance monitoring
 
 Usage tracking
 <ul>
-<li><a href="../app-insights-web-track-usage/">Analyze usage in web applications</a>
+<li><a href="../articles/app-insights-web-track-usage.md">Analyze usage in web applications</a>
 </li>
 <li><a href="../articles/app-insights-web-track-usage-custom-events-metrics.md">Track custom events and metrics</a>
 </li>
@@ -100,10 +100,10 @@ Usage tracking
 
 [portal]: http://portal.azure.com/
 [start]: ../articles/app-insights-get-started.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: ../articles/app-insights-start-monitoring-app-health-usage.md
 [redfield]: ../articles/app-insights-monitor-performance-live-website-now.md
 [perf]: ../articles/app-insights-web-monitor-performance.md
-[diagnostic]: ../articles/app-insights-diagnostic-search.md
+[diagnostic]: ../articles/app-insights-diagnostic-search.md 
 [availability]: ../articles/app-insights-monitor-web-app-availability.md
 [usage]: ../articles/app-insights-web-track-usage.md
 [track]: ../articles/app-insights-web-track-usage-custom-events-metrics.md

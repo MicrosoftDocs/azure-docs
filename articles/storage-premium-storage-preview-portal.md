@@ -37,7 +37,7 @@ The following is a list of important things to consider before or when using Pre
 
 - To use Premium Storage, you need to have a Premium Storage account. To learn how to create a Premium Storage account, see [Creating and using Premium Storage Account for Disks](#creating-and-using-premium-storage-account-for-disks).
 
-- Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) version 0.8.10 or later. 
+- Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](install-configure-powershell.md) version 0.8.10 or later. 
 
 - Premium Storage is available for limited preview in the following regions: West US, East US 2, and West Europe.
 
@@ -61,7 +61,7 @@ You can use Premium Storage for Disks in one of two ways:
 
 Azure uses the storage account as a container for your operating system (OS) and data disks. In other words, if you create an Azure DS-series VM and select an Azure Premium Storage account, your operating system and data disks are stored in that storage account.
 
-To leverage the benefits of Premium Storage, create a Premium Storage account using an account type of *Premium_LRS* first. To do this, you can use the [Microsoft Azure Preview Portal](https://portal.azure.com/), [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/), or the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx). For step-by-step instructions, see [Creating and using Premium Storage Account for Disks](#creating-and-using-premium-storage-account-for-disks).
+To leverage the benefits of Premium Storage, create a Premium Storage account using an account type of *Premium_LRS* first. To do this, you can use the [Microsoft Azure Preview Portal](https://portal.azure.com/), [Azure PowerShell](install-configure-powershell.md), or the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx). For step-by-step instructions, see [Creating and using Premium Storage Account for Disks](#creating-and-using-premium-storage-account-for-disks).
 
 ### Important notes:
 
@@ -137,7 +137,7 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 - [Azure Preview Portal](https://portal.azure.com/) does not support saving and deploying custom VM Images currently. To perform these tasks, use the Azure PowerShell cmdlets, such as [Save-AzureVMImage](https://msdn.microsoft.com/library/azure/dn495108.aspx).
 - Avoid adding DS-series VMs to an existing cloud service that includes non-DS-series VMs. A possible workaround is to migrate your existing VHDs to a new cloud service running only DS-series VMs.  If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](https://msdn.microsoft.com/library/azure/dn690120.aspx) feature.
 - The DS-series of Azure virtual machines can be configured to use an operating system (OS) disk hosted either on a Standard Storage account or on a Premium Storage account. If you use the OS disk only for booting, you may consider using a Standard Storage based OS disk. This provides cost benefits and similar performance results similar to the Premium Storage after booting up. If you perform any additional tasks on the OS disk other than booting, use Premium Storage as it provides better performance results. For example, if your application reads/writes from/to the OS disk, using Premium Storage based OS disk provides better performance for your VM.
-- You can use [Azure Cross-Platform Command-Line Interface (xplat-cli)](http://azure.microsoft.com/documentation/articles/xplat-cli/) with Premium Storage. To change the cache policy on one of your disks using xplat-cli, run the following command:
+- You can use [Azure Cross-Platform Command-Line Interface (xplat-cli)](xplat-cli.md) with Premium Storage. To change the cache policy on one of your disks using xplat-cli, run the following command:
 
 	`$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>`
 
@@ -246,7 +246,7 @@ If a disk is attached to a VM, certain API operations are not permitted on the p
 - If the copy blob operation on Premium Storage overwrites an existing blob at the destination, the blob being overwritten must not have any snapshots.  A copy within or between premium storage accounts require that the destination blob does not have snapshots when initiating the copy.
 - The number of snapshots for a single blob is limited to 100. A snapshot can be taken every 10 minutes at most.
 - 10 TB is the maximum capacity for snapshots per Premium Storage account. Note that the snapshot capacity is the unique data that exists in the snapshots. In other words, the snapshot capacity does not include the base blob size.
-- In order to copy a snapshot from a premium storage account to another account, you have to first do a CopyBlob of the snapshot to create a new blob in the same premium storage account. Then you can copy the new blob to other storage accounts. You can delete the intermediate blob after the copy finishes. Follow this process to copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- In order to copy a snapshot from a premium storage account to another account, you have to first do a CopyBlob of the snapshot to create a new blob in the same premium storage account. Then you can copy the new blob to other storage accounts. You can delete the intermediate blob after the copy finishes. Follow this process to copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - For detailed information on performing REST operations against page blobs in Premium Storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) in the MSDN library.
 
 ## Using Linux VMs with Premium Storage
@@ -352,12 +352,12 @@ This section shows how to create a Premium Storage account using Azure Preview P
 	
 5.	On the **Storage Account** blade, keep the default values for **Resource Group**, **Subscription**, **Location**, and **Diagnostics**. Click **Create**.
 
-For a complete walkthrough inside an Azure environment, see [Create a Virtual Machine Running Windows in the Azure Preview Portal](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial-azure-preview/).
+For a complete walkthrough inside an Azure environment, see [Create a Virtual Machine Running Windows in the Azure Preview Portal](virtual-machines-windows-tutorial-azure-preview.md).
 
 ### Create a Premium Storage account with Azure PowerShell
 This section shows how to create a Premium Storage account and how to use it while creating a virtual machine and attaching a data disk to a VM using Azure PowerShell.
 
-1. Setup your PowerShell environment by following the steps given at [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+1. Setup your PowerShell environment by following the steps given at [How to install and configure Azure PowerShell](install-configure-powershell.md).
 2. Start the PowerShell console, connect to your subscription, and run the following PowerShell cmdlet in the console window. As seen in this PowerShell statement, you need to specify the **Type** parameter as **Premium_LRS** when you create a premium storage account.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -390,7 +390,7 @@ This section shows how to create a Premium Storage account and how to use it whi
 
 [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
 
-[Create a Virtual Machine Running Windows](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial-azure-preview/)
+[Create a Virtual Machine Running Windows](virtual-machines-windows-tutorial-azure-preview.md)
 
 [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 

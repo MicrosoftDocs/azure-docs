@@ -266,7 +266,7 @@ If you want to export your virtual network settings to a network configuration f
 -  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
--  [Set up a hybrid cloud environment for testing](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)
+-  [Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
 

@@ -76,5 +76,5 @@ Drill through to see individual requests:
 * [Monitor usage][azure-usage] to find out how many users you have, how often they visit, and how the pages perform on their browsers
 * [Create web tests][azure-availability] to make sure your site is available and responsive
 
-[azure-usage]: ../insights-usage-analytics/
-[azure-availability]: ../insights-create-web-tests/
+[azure-usage]: insights-usage-analytics.md
+[azure-availability]: insights-create-web-tests.md

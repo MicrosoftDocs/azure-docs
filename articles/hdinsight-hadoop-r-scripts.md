@@ -34,9 +34,9 @@ R scripts can be run on Hadoop clusters in HDInsight that were customized using 
 
 A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) to install R on an HDInsight cluster is available from a read-only blob in Azure Storage. This section provides instructions about how to use the sample script while provisioning the cluster using the Azure portal.
 
-> [AZURE.NOTE] The sample script was introduced with HDInsight cluster version 3.1. For more information about  HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script was introduced with HDInsight cluster version 3.1. For more information about  HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
-1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](hdinsight-provision-clusters.md#portal). 
 2. On the **Script Actions** page of the wizard, click **Add script action** to provide details about the script actions, as follows:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
@@ -277,10 +277,10 @@ Provide a cluster name and press ENTER to provision a cluster with R installed.
 ## <a name="seeAlso"></a>See also
 
 - [Install and use Spark on HDInsight clusters][hdinsight-install-spark] for  instructions about how to use cluster customization to install and use Spark on HDInsight Hadoop clusters. Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications.
-- [Install Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
-- [Install Solr on HDInsight clusters](../hdinsight-hadoop-solr-install). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
