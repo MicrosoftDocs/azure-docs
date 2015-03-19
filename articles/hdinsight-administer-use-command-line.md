@@ -196,16 +196,16 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [Azure command-line tool for Mac and Linux][azure-command-line-tool]
 
 
-[azure-command-line-tools]: ../xplat-cli/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-command-line-tools]: xplat-cli.md
+[azure-create-storageaccount]: storage-create-storage-account.md 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
-[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png 
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
