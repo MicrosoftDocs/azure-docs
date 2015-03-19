@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Web Apps Backups" 
-	description="Learn how to create backups of your Azure websites." 
-	services="app-service-web" 
+	pageTitle="Back up a web app in Azure App Service" 
+	description="Learn how to create backups of your web apps in Azure App Service." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-#Azure Web Apps Backups
+# Back up a web app in Azure App Service
 
-The Azure Web Apps Backup and Restore feature lets you easily create website backups manually or automatically. You can restore your web app or website to a previous state, or create a new web app or website based on one of your original site's backups. 
+The Backup and Restore feature in Azure App Service Web Apps lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original app's backups. 
 
 
 For information on restoring an Azure website from backup, see [Restore a web app](../web-sites-restore/).
 
 <a name="whatsbackedup"></a>
-## What Gets Backed Up 
-Azure Web Apps can back up the following information:
+## What gets backed up 
+Web Apps can back up the following information:
 
-* Website or web app configuration
-* Website or web app file content
+* wWb app configuration
+* Web app file content
 * Any SQL Server or MySQL databases connected to your site (you can choose which ones to include in the backup)
 
 This information is backed up to the Azure storage account and container that you specify. 
@@ -36,16 +36,18 @@ This information is backed up to the Azure storage account and container that yo
 > [AZURE.NOTE] Each backup is a complete offline copy of your website, not an incremental update.
 
 <a name="requirements"></a>
-## Requirements and Restrictions
+## Requirements and restrictions
 
 * The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your website use a Standard tier, see [How to Scale websites](../web-sites-scale/). 
 
-* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the website that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the Azure portal, and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the website that you are going to back up. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+
+* The Backup and Restore feature only supports up to 10GB of website and database content. An error will be indicated in the Operation Logs if the backup feature cannot proceed because the payload exceeds this limit. 
 
 <a name="manualbackup"></a>
-## To Create a Manual Backup
+## Create a manual backup
 
-1. In the Azure portal, choose your website from the Web Apps blade. This will display the details of your website in a new blade.
+1. In the Azure portal, choose your web app from the Web Apps blade. This will display the details of your website in a new blade.
 2. Select **Settings** option. The **Settings** blade will be displayed allowing you to modify your website.
 	
 	![Backups page][ChooseBackupsPage]
@@ -60,7 +62,7 @@ This information is backed up to the Azure storage account and container that yo
 
 	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the portal.
 	
-6. In the **Backups** blade, select the **Backup destination**. You must choose an existing storage account.
+6. In the **Backups** blade, select the **Backup destination**. You must choose an existing storage account and container.
 7. In the command bar, click **Backup Now**.
 	
 	![BackUpNow button][BackUpNow]
@@ -68,10 +70,10 @@ This information is backed up to the Azure storage account and container that yo
 	You will see a progress message during the backup process.
 	
 
-You can make a manual backup at any time. During Preview, no more than 2 manual backups can be made in a 24-hour period (subject to change).  
+You can make a manual backup at any time.  
 
 <a name="automatedbackups"></a>
-## To Configure Automated Backups
+## Configure automated backups
 
 1. On the **Backups** blade, set **Scheduled Backup** to ON.
 	
@@ -98,7 +100,7 @@ You can make a manual backup at any time. During Preview, no more than 2 manual 
 	![Save button][SaveIcon]
 
 <a name="aboutbackups"></a>
-## How Backups Are Stored
+## How backups are stored
 
 After you have made one or more backups, the backups will be visible on the **Containers** blade of your **Storage Account**, as well as your web app. From the **Storage Account**, each backup consists of a .zip file that contains the backed up data and an .xml file that contains a manifest of the .zip file contents. 
 
@@ -116,9 +118,7 @@ For information on restoring an Azure website (including databases) by using the
 ## Notes
 
 * Make sure that you set up the connection strings for each of your databases properly on the **Web app settings** blade within **Settings** of the website so that the Backup and Restore feature can include your databases.
-* During Preview, you are responsible for managing the backed up content saved to your storage account and container. If you delete a backup from your storage account and have not made a copy elsewhere, you will not be able to restore the backup later. 
 * Although you can back up more than one website to the same storage account, for ease of maintenance, consider creating a separate storage account for each website.
-* During Preview, backup and restore operations are available only through the Azure Management Portal.
 
 <a name="nextsteps"></a>
 ## Next Steps
