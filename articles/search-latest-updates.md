@@ -42,16 +42,16 @@ Excludes:
 
 - [Indexers](http://go.microsoft.com/fwlink/p/?LinkId=528173)
 - [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- [2015-02-28-Preview](http://azure.microsoft.com/documentation/articles/search-api-2015-02-28-Preview/) features (currently preview-only features consist of Microsoft natural language processors and `moreLikeThis`).
+- [2015-02-28-Preview](../search-api-2015-02-28-Preview/) features (currently preview-only features consist of Microsoft natural language processors and `moreLikeThis`).
 
 See [How to use Azure Search in .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) for guidance on installation and usage of the SDK.
 
 ##Api-version 2015-02-28-Preview##
 **Released: 2015 March 5**
 
-- [Microsoft natural language processors](http://azure.microsoft.com/documentation/articles/search-api-2015-02-28-Preview/) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
+- [Microsoft natural language processors](../search-api-2015-02-28-Preview/) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
 
-- [moreLikeThis=](http://azure.microsoft.com/documentation/articles/search-api-2015-02-28-Preview/) is a search parameter, mutually exclusive of `search=`, that triggers an alternate query execution path. Instead of full-text search of `search=` based on a search term input, `moreLikeThis=` finds documents that are similar to a given document by comparing their searchable fields.
+- [moreLikeThis=](../search-api-2015-02-28-Preview/) is a search parameter, mutually exclusive of `search=`, that triggers an alternate query execution path. Instead of full-text search of `search=` based on a search term input, `moreLikeThis=` finds documents that are similar to a given document by comparing their searchable fields.
 
 ##Api-version 2015-02-28##
 **Released: 2015 March 5**
@@ -67,7 +67,7 @@ See [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p/?
 ##Api-version 2014-10-20-Preview##
 **Released: 2014 November, 2015 January**
 
-- [Lucene language analyzers](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/) was added to provide multi-lingual support for the custom language analyzers that are distributed with Lucene. 
+- [Lucene language analyzers](../search-api-2014-10-20-preview/) was added to provide multi-lingual support for the custom language analyzers that are distributed with Lucene. 
 
 - Tool support was introduced for building indexes, including scoring profiles, in the [Azure management portal](https://portal.azure.com).
 
@@ -76,9 +76,9 @@ See [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p/?
 
 This release was the public preview for Azure Search, providing the following core features:
 
-- REST API for index operations and document operations. The majority of the API is intact in 2015-02-28. You can access the documentation for this release at [Azure Search Service REST API Version 2014-07-31](http://azure.microsoft.com/documentation/articles/search-api-2014-07-31-preview/).
+- REST API for index operations and document operations. The majority of the API is intact in 2015-02-28. You can access the documentation for this release at [Azure Search Service REST API Version 2014-07-31](../search-api-2014-07-31-preview/).
 
-- Scoring profiles for tuning search results. A scoring profile adds criteria used to compute search scores. You can access the documentation for this release at [Azure Search Service Scoring Profiles REST API Version 2014-07-31](http://azure.microsoft.com/documentation/articles/search-api-scoring-profiles-2014-07-31-preview/).
+- Scoring profiles for tuning search results. A scoring profile adds criteria used to compute search scores. You can access the documentation for this release at [Azure Search Service Scoring Profiles REST API Version 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview/).
 
 - Geospatial support has been available from the beginning, provided through the `Edm.GeographyPoint` data type that has been part of Azure Search since its inception.
 
@@ -92,5 +92,5 @@ This release was the public preview for Azure Search, providing the following co
 ##Management api-version 2014-07-31-Preview##
 **Released: 2014 October**
 
-The preview release of [Management REST API](http://azure.microsoft.com/documentation/articles/search-management-api-2014-07-31-preview/) was added to support service administration programmatically. It is versioned independently of the service REST API.
+The preview release of [Management REST API](../search-management-api-2014-07-31-preview/) was added to support service administration programmatically. It is versioned independently of the service REST API.
 
