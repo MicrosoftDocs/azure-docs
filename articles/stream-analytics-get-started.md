@@ -19,20 +19,20 @@
 
 # Get started using Azure Stream Analytics
 
-Azure Stream Analytics is a fully managed service providing low latency, highly available, scalable complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics][stream.analytics.introduction] and [Azure Stream Analytics documentation][stream.analytics.documentation].
+Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics][stream.analytics.introduction] and [Azure Stream Analytics documentation][stream.analytics.documentation].
 
-To get you started quickly using Stream Analytics, this tutorial will show you how to consume device temperature reading data from an [Azure Service Bus Event Hub][azure.event.hubs.documentation] and process the data, outputting the results to an [Azure SQL Database][azure.sql.database.documentation].  The following diagram shows the flow of events from input to processing to output:
+To get you started quickly in using Stream Analytics, this tutorial will show you how to consume device temperature reading data from an [Azure Service Bus event hub][azure.event.hubs.documentation] and process the data, outputting the results to an [Azure SQL database][azure.sql.database.documentation]. The following diagram shows the flow of events from input to processing to output:
   
 ![Azure Stream Analytics get started flow][img.get.started.flowchart]
 
-## Generate Event Hub sample data
-This tutorial will leverage the Service Bus Event Hubs Getting Started application, a code sample in the MSDN CodeGallery, to create a new Event Hub, generate sample device temperature readings, and send the device reading data to the Event Hub.
+## Generate Event Hubs sample data
+This tutorial will leverage the Service Bus Event Hubs Getting Started application, a code sample in the MSDN Code Gallery, to create a new event hub, generate sample device temperature readings, and send the device reading data to the event hub.
 
 ### Create a Service Bus namespace
-The sample application will create an Event Hub in a preexisting Service Bus namespace.  You can use a Service Bus namespace you've already provisioned or follow the steps below to create a new one:
+The sample application will create an event hub in a preexisting Service Bus namespace. You can use a Service Bus namespace you've already provisioned or follow the steps below to create a new one:
 
-1.	Sign in to the [Azure Management portal][azure.management.portal].
-2.	Click **SERVICE BUS** in the left pane to open the Service Bus page. 
+1.	Sign in to the [Azure portal][azure.management.portal].
+2.	Click **SERVICE BUS** in the left pane to open the **SERVICE BUS** page. 
 3.	Click **CREATE** on the bottom of page, and follow the instructions to create a namespace. Use **MESSAGING** as the type. It takes a few moments to get the namespace created.
 4. Click the newly created namespace, and then click **CREATE CONSUMER GROUP** on the bottom of the page and give it a name.
 6. Click **CONNECTION INFORMATION** on the bottom of the page.
@@ -41,69 +41,69 @@ The sample application will create an Event Hub in a preexisting Service Bus nam
 
 ### Create an Azure Storage account
 
-This sample application requires an Azure Storage account or a Storage Emulator for maintaining the application state. You can use an existing Storage account or follow the steps below to create one: 
+This sample application requires an Azure Storage account or a storage emulator for maintaining the application state. You can use an existing Storage account or follow the steps below to create one: 
 
-1.	From the portal, create a new Storage Account by clicking **NEW**, **DATA SERVICES**, **STORAGE**, **QUICK CREATE**, and follow the instructions.
-2.	Select the newly created storage account and then click **MANAGE ACCESS KEYS** at the bottom of the page.
-3.	Copy the storage account name and one of the access keys.
+1.	From the portal, create a new Storage account by clicking **NEW**, **DATA SERVICES**, **STORAGE**, **QUICK CREATE**, and following the instructions.
+2.	Select the newly created Storage account, and then click **MANAGE ACCESS KEYS** at the bottom of the page.
+3.	Copy the Storage account name and one of the access keys.
 
-### Generate Event Hub sample data
+### Generate Event Hubs sample data
 
 1.	Download [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097), and then unzip it to your workstation.
 2.	Open the **EventHubSample.sln** solution file in Visual Studio.
 3.	Open **app.config**.
-4.	Specify both the Service Bus and the Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**.  
+4.	Specify both the Service Bus and Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**.  
 
-	The service bus connection string will be in the following format:  
+	The Service Bus connection string will be in the following format:  
 
 		Endpoint=sb://<namespaceName>.servicebus.windows.net/;SharedAccessKeyName=<yourAccessKeyName>;SharedAccessKey=<yourAccessKey>  
 
-	The storage account connection string will be in the following format: 
+	The Storage account connection string will be in the following format: 
 	
 
 		DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<yourAccountKey>;
 
 5.	Build the solution.
-6.	Run the application from the bins folder.  The usage is as follows: 
+6.	Run the application from the bins folder. The usage is as follows: 
 
 		BasicEventHubSample <eventhubname> <NumberOfMessagesToSend> <NumberOfPartitions> 
 
-	The following example creates a new Event Hub called **devicereadings** with **16** partitions, and then sends **200** events to the Event Hub: 
+	The following example creates a new event hub called **devicereadings** with 16 partitions, and then sends 200 events to the event hub: 
 
 		BasicEventHubSample devicereadings 200 16
 
  	![insert image here][img.stream.analytics.event.hub.client.output] 
 7. After the events have been sent, press **ENTER** to close the application. 
-8. 
-### Create an Event Hub Shared Access Policy
-While there is already a Shared Access Policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the Event Hub only.
+ 
+### Create a shared access policy for the event hub
+While there is already a shared access policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the event hub only.
 
-1.	From the Management portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
+1.	From the Azure portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
 2.	Click **EVENT HUBS** at the top of the page.
-3.	Click **devicereadings**, the Event Hub for this tutorial. This is the default Event Hub name created by BasicEventHubSample.  
+3.	Click **devicereadings**, the event hub for this tutorial. This is the default event-hub name created by BasicEventHubSample.  
 4.	Click **CONFIGURE** at the top of the page.
-5.	Under Shared Access Policies, create a new policy with **Manage** permissions.
+5.	Under **Shared Access Policies**, create a new policy with **Manage** permissions.
 
 	![][img.stream.analytics.event.hub.shared.access.policy.config]
 6.	Click **SAVE** at the bottom of the page.
-7.	If the Event Hub is in a different subscription than the Stream Analytics job will be in, you will need to copy and save the connection information for later.  To do this, click **DASHBOARD**, and then click **CONNECTION INFORMATION** at the bottom of the page and save the Connection String.
+7.	If the event hub is in a different subscription than the Stream Analytics job will be in, you will need to copy and save the connection information for later. To do this, click **DASHBOARD**, and then click **CONNECTION INFORMATION** at the bottom of the page and save the connection string.
 
 
-## Prepare an Azure SQL Database for storing output data
-Azure Stream Analytics can output data to Azure SQL Database, Azure Blob storage, Azure Table storage and Azure Event Hub. In this tutorial, you will define a job that outputs to an Azure SQL Database. For more information, see Getting Started with Microsoft Azure SQL Database.
+## Prepare an Azure SQL database for storing output data
+Azure Stream Analytics can output data to an Azure SQL database, Azure Blob storage, Azure Table storage, and an Azure event hub. In this tutorial, you will define a job that outputs to an Azure SQL database. For more information, see Getting Started with Microsoft Azure SQL Database.
 
-### Create Azure SQL Database
-If you already have an Azure SQL Database to use for this tutorial, skip this section.
+### Create an Azure SQL database
+If you already have an Azure SQL database to use for this tutorial, skip this section.
 
-1.	From the Management portal, click **NEW**, **DATA SERVICES**, **SQL DATABASE**, **QUICK CREATE**.  Specify a database name on an existing or a new SQL Database server.
-2.	Select the newly created database
+1.	From the Azure portal, click **NEW**, **DATA SERVICES**, **SQL DATABASE**, **QUICK CREATE**. Specify a database name on an existing or a new SQL Database server.
+2.	Select the newly created database.
 3.	Click **DASHBOARD**, click **Show connection strings** on the right pane of the page, and then copy the **ADO.NET** connection string. You will use it later in the tutorial.  
-4.	Make sure the server-level firewall settings enable you to connect to the database.  You can do this by adding a new IP rule under the Server's Configure tab. For more details, including how to handle dynamic IP, see [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
+4.	Make sure the server-level firewall settings enable you to connect to the database. You can do this by adding a new IP rule under the server's **Configure** tab. For more details, including how to handle dynamic IP, see [Azure SQL Database Firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ### Create output tables
 1.	Open Visual Studio or SQL Server Management Studio.
-2.	Connect to the Azure SQL Database.
-3.	Use the following T-SQL statements to create two tables to your database:
+2.	Connect to the Azure SQL database.
+3.	Use the following Transact-SQL statements to create two tables to your database:
 
 		CREATE TABLE [dbo].[PassthroughReadings] (
 		    [DeviceId]      BIGINT NULL,
@@ -131,71 +131,71 @@ If you already have an Azure SQL Database to use for this tutorial, skip this se
 	   
 ## Create a Stream Analytics job
 
-After you have created the Azure Service Bus Event Hub, the Azure SQL database and the output tables, you are ready to create a Stream Analytics job.
+After you have created the Azure Service Bus event hub, the Azure SQL database and the output tables, you are ready to create a Stream Analytics job.
 
 ### Provision a Stream Analytics job
-1.	From the Management portal, click **NEW**,**DATA SERVICES**, **STREAM ANALYTICS**, **QUICK CREATE**. 
+1.	From the Azure portal, click **NEW**, **DATA SERVICES**, **STREAM ANALYTICS**, **QUICK CREATE**. 
 2.	Specify the following values, and then click **CREATE STREAM ANALYTICS JOB**:
 
-	- **JOB NAME**: Enter a job name. For example, **DeviceTemperatures**.
-	- **REGION**: Select the region where you want to run the job. Azure Stream Analytics is currently only available in 2 regions during preview. For more information, see [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]. Consider placing the job and the Event Hub in the same region to ensure better performance and that you will not be paying to transfer data between regions.
-	- **STORAGE ACCOUNT**: Choose the Storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing Storage account or to create a new one.
+	- **JOB NAME** - Enter a job name. For example, **DeviceTemperatures**.
+	- **REGION** - Select the region where you want to run the job. Azure Stream Analytics is currently available in only 2 regions during preview. For more information, see [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]. Consider placing the job and the event hub in the same region to ensure better performance and to ensure that you will not be paying to transfer data between regions.
+	- **STORAGE ACCOUNT** - Choose the Storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing Storage account or to create a new one.
 	
 3.	Click **STREAM ANALYTICS** in the left pane to list the Stream Analytics jobs.
 
 	![][img.stream.analytics.portal.button]
  
-	The new job will be listed with a status of **NOT STARTED**.  Notice the **START** button on the bottom of the page is disabled. You must configure the job input, output, query and so on before you can start the job. 
+	The new job will be listed with a status of **NOT STARTED**. Notice that the **START** button on the bottom of the page is disabled. You must configure the job input, output, query, and so on before you can start the job. 
 
 ### Specify job input
 
 1.	Click the job name.
-2.	Click **INPUTS** from the top of the page, and then click **ADD INPUT**. The dialog that opens will walk you through a number of steps to setup your Input.
+2.	Click **INPUTS** from the top of the page, and then click **ADD INPUT**. The dialog that opens will walk you through a number of steps to set up your input.
 3.	Select **DATA STREAM**, and then click the right button.
-4.	Select **EVENT HUB**, and then click the right button
+4.	Select **EVENT HUB**, and then click the right button.
 5.	Type or select the following values on the third page: 
 
-	- **INPUT ALIAS**: Enter a friendly name for this job input. Note that you will be using this name in the query later on.
-	- **EVENT HUB**: If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace the Event Hub is in.  
+	- **INPUT ALIAS** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
+	- **EVENT HUB** - If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.  
 
-		If your Event Hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter the **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.  
+		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.  
 
 		>[WACOM.NOTE] This sample uses the default number of partitions, which is 16.
 		
-	- **EVENT HUB NAME**: Select the name of the Azure Event Hub you created. For this tutorial use **devicereadings**.
-	- **EVENT HUB POLICY NAME**: Select the Event Hub policy created earlier in this tutorial.
- 	- **EVENT HUB CONSUMER GROUP**: Type in the event hub consumer group created earlier in this tutorial.
+	- **EVENT HUB NAME** - Select the name of the Azure event hub you created. For this tutorial use **devicereadings**.
+	- **EVENT HUB POLICY NAME** - Select the event-hub policy created earlier in this tutorial.
+ 	- **EVENT HUB CONSUMER GROUP** - Type in the event-hub consumer group created earlier in this tutorial.
  
 	<!--![][img.stream.analytics.config.input]-->
 
 6.	Click the right button.
 7.	Specify the following values:
 
-	- **EVENT SERIALIZER FORMAT**: JSON
-	- **ENCODING**: UTF8
+	- **EVENT SERIALIZER FORMAT** - JSON
+	- **ENCODING** - UTF8
 
-8.	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the Event Hub.
+8.	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the event hub.
 
 ### Specify job output
-1.	Click **OUTPUT** from the top of the page, then click **ADD OUTPUT**.
+1.	Click **OUTPUT** from the top of the page, and then click **ADD OUTPUT**.
 2.	Select **SQL DATABASE**, and then click the right button.
-3.	Type or select the following values.  Use the ADO.NET connection string from your database to fill in the following fields:
+3.	Use the ADO.NET connection string from your database to fill in the following fields:
 
-	- **SQL DATABASE**: Choose the SQL Database you created earlier in the tutorial.  If it is in -the same subscription, select the database from the dropdown menu.   If not, manually enter the Server Name and Database fields. 
-	- **USERNAME**: Enter the SQL Database login name.
-	- **PASSWORD**: Enter the SQL Database login password.
-	- **TABLE**: Specify the table you wish to send output to.  For now, use **PassthroughReadings**.
+	- **SQL DATABASE** - Choose the SQL database you created earlier in the tutorial. If it is in the same subscription, select the database from the drop-down menu. If not, manually enter information in the **SERVER NAME** and **DATABASE** fields. 
+	- **USERNAME** - Enter the SQL Database login name.
+	- **PASSWORD** - Enter the SQL Database login password.
+	- **TABLE** - Specify the table you wish to send output to. For now, use **PassthroughReadings**.
 
 	![][img.stream.analytics.config.output]
 
-4.	Click the check button to create your output and verify that Stream Analytics can successfully connect to the SQL Database as specified.
+4.	Click the check button to create your output and verify that Stream Analytics can successfully connect to the SQL database as specified.
 
-### Specify job query
-Stream Analytics supports a simple, declarative query model for describing transformations.  To learn more about the language, please see the Azure Stream Analytics Query Language Reference.  
+### Specify the job query
+Stream Analytics supports a simple, declarative query model for describing transformations. To learn more about the language, please see the Azure Stream Analytics Query Language Reference.  
 
 This tutorial will start with a simple pass-through query that outputs device temperature readings to a SQL Database table.
 
-1.	Click **Query** from the top of the page 
+1.	Click **Query** from the top of the page. 
 2.	Add the following to the code editor:
 
 		SELECT DeviceId, Temperature FROM input
@@ -203,30 +203,30 @@ Make sure that the name of the input source matches the name of the input you sp
 3.	Click **SAVE** from the bottom of the page and **YES** to confirm.
 
 ## Start the job
-As a default, Stream Analytics jobs start reading incoming events from the time that the job starts.  Because the Event Hub contains existing data to process, we need to configure the job to consume this historical data.  
+By default, Stream Analytics jobs start reading incoming events from the time that the job starts. Because the event hub contains existing data to process, we need to configure the job to consume this historical data.  
 
 1.	Click **DASHBOARD** from the top of the page. 
 2.	Click **START** from the bottom of the page. 
-3.	Click **CUSTOM TIME**, and specify a start time.  Make sure that the start time is sometime before the time that you ran BasicEventHubSample.   
-4.	Click the check button on the bottom of the dialog. In the **quick glance** pane, the **STATUS** will change to **Starting** and may take a couple of minutes to complete the starting process and move into the **Running** state.  
+3.	Click **CUSTOM TIME**, and specify a start time. Make sure that the start time is sometime before the time that you ran BasicEventHubSample.   
+4.	Click the check button on the bottom of the dialog. In the **quick glance** pane, the status will change to **Starting**. The job may then take a couple of minutes to move from a status of **Starting** to a status of **Running**.  
 
 
 
 ## View job output
 
-1.	In Visual Studio or SQL Server Management Studio, connect to your SQL Database and run the following query: 
+1.	In Visual Studio or SQL Server Management Studio, connect to your SQL database and run the following query: 
 
 		SELECT * FROM PassthroughReadings
 
-2.	You will see records corresponding to the reading events from the Event Hub.   
+2.	You will see records corresponding to the reading events from the event hub.   
 
 	![][img.stream.analytics.job.output1]
 
 	You can rerun the BasicEventHubSample application to generate new events and see them propagate to the output in real time by rerunning the SELECT * query.
 	
-	If you have any issues with missing or unexpected output, view the Operation Logs for the job, linked on the right pane of the Dashboard page.
+	If you have any issues with missing or unexpected output, view the operation logs for the job, linked on the right pane of the **DASHBOARD** page.
 
-## Stop, update, and restart Job
+## Stop, update, and restart the job
 Now let us do a more interesting query over the data.
 
 1.	From the **DASHBOARD** or **MONITOR** page, click **STOP**.
@@ -236,18 +236,18 @@ Now let us do a more interesting query over the data.
 		FROM input
 		GROUP BY TumblingWindow(second, 5), DeviceId
 
-	This new query will use the time that the event was pushed to Event Hub as the timestamp, finding and projecting the average temperature reading every 5 seconds and the number of events that fall within that 5 second window.
-3.	From the **OUTPUT** page, click **EDIT**.  Change the output table from PassthroughReadings to AvgReadings and then click the check icon.
+	This new query will use the time that the event was pushed to the event hub as the timestamp, finding and projecting the average temperature reading every 5 seconds and the number of events that fall within that 5-second window.
+3.	From the **OUTPUT** page, click **EDIT**. Change the output table from PassthroughReadings to AvgReadings and then click the check icon.
 
 4.	From the **DASHBOARD** page, click **START**.
 
-## View Job output
+## View job output
 
-1.	In Visual Studio or SQL Server Management Studio, connect to the SQL Database and run the following query:
+1.	In Visual Studio or SQL Server Management Studio, connect to the SQL database and run the following query:
 
 		SELECT * from AvgReadings
 
-2.	You will see records for 5 second intervals showing the average temperature and number of events for each device: 
+2.	You will see records for 5-second intervals showing the average temperature and number of events for each device: 
 
 	![][img.stream.analytics.job.output2]
  
@@ -260,7 +260,7 @@ Now let us do a more interesting query over the data.
 
 
 ## Next steps
-In this tutorial, you have learned how to use Stream Analytics to process the weather data. To learn more, see the following articles:
+In this tutorial, you have learned how to use Stream Analytics to process weather data. To learn more, see the following articles:
 
 
 - [Introduction to Azure Stream Analytics][stream.analytics.introduction]
