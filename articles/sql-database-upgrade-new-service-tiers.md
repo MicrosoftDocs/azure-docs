@@ -91,7 +91,7 @@ Since Web and Business databases do not have any guaranteed DTUs/resource limits
 
 Use the management portal for a high-level overview of DTU percentage usage, and then drill into the details using system views. 
 
-You can also use the new Azure management portal to view the recommended service tier for your Web or Business database when you upgrade a server to Azure SQL Database V12 ([at preview in some regions](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)).
+You can also use the new Azure management portal to view the recommended service tier for your Web or Business database when you upgrade a server to Azure SQL Database V12 ([at preview in some regions](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)).
 
 ### How to view the recommended service tier in the new Azure Management Portal
 The management portal recommends the appropriate service tier for your Web or Business database during the process of upgrading a server to Azure SQL Database V12. The recommendation is based on a historical analysis of the resource consumption of the database.
