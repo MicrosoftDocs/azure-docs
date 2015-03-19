@@ -58,4 +58,4 @@ In this sample we showed how to use the same underlying database for an app that
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[Create a mobile app]: /documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/
+[Create a mobile app]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Monitoring basics for Web Apps in Azure App Service" 
-	description="Learn how to monitor Azure web apps by using the Management Portal." 
-	services="app-service-web" 
+	description="Learn how to monitor Web Apps in Azure App Service by using the Management Portal." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 

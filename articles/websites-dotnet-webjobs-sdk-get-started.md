@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Create a .NET WebJob using the WebJobs SDK" 
-	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a web app, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
-	services="app-service-web" 
+	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a web app in Azure App Service, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob using the WebJobs SDK
@@ -51,7 +51,7 @@ The tutorial shows how to do the following tasks:
 * Enable your machine for Azure development by installing the Azure SDK.
 * Create a Console Application project that automatically deploys as an Azure WebJob when you deploy the associated web project.
 * Test a WebJobs SDK backend locally on the development computer.
-* Publish an application with a WebJobs backend to an Azure web app.
+* Publish an application with a WebJobs backend to a web app in App Service.
 * Upload files and store them in the Azure Blob service.
 * Use the Azure WebJobs SDK to work with Azure Storage queues and blobs.
 
@@ -223,12 +223,12 @@ You've been running the application on your local computer, and it's using a SQL
 
 You'll do the following steps to run the application in the cloud:
 
-* Deploy to an Azure web app. Visual Studio will automatically create a new Azure web app and SQL Database instance.
+* Deploy to Web Apps. Visual Studio will automatically create a new web app in App Service and SQL Database instance.
 * Configure the web app to use your Azure SQL database and storage account.
 
 After you've created some ads while running in the cloud, you'll view the WebJobs SDK dashboard to see the rich monitoring features it has to offer.
 
-### Deploy to an Azure web app
+### Deploy to Web Apps
 
 1. Close the browser and the console application window.
 
@@ -264,7 +264,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	![Create web app on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)	
 
-	Visual Studio creates the solution, the web project, the Azure web app, and the Azure SQL Database instance.
+	Visual Studio creates the solution, the web project, the web app in Azure, and the Azure SQL Database instance.
 
 2. In the **Connection** step of the **Publish Web** wizard, click **Next**.
 

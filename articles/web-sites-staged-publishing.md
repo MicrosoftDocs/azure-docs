@@ -30,9 +30,9 @@ When you deploy your web app to Azure App Service, you can deploy to a separate 
 
 ## Deployment Slots Support Details ##
 
-Four deployment slots in addition to the production slot are supported for each web app in the **Standard** App Service plan mode. 
+Four deployment slots in addition to the production slot are supported for each web app in the **Standard** mode. 
 
-- Multiple deployment slots are only available for web apps in the **Standard** App Service plan mode. When your web app has multiple slots, you cannot change the App Service plan mode.
+- Multiple deployment slots are only available for web apps in the **Standard** mode. When your web app has multiple slots, you cannot change the mode.
 
 - Scaling is not available for non-production slots.
 
@@ -40,12 +40,12 @@ Four deployment slots in addition to the production slot are supported for each 
 
 - By default, your deployment slots share the same resources as your production slots and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
 	
-	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same App Service plan mode with the production slot before you can swap the two slots.
+	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##
 
-The web app must be running in the **Standard** App Service plan to enable multiple deployment slots. 
+The web app must be running in the **Standard** mode to enable multiple deployment slots. 
 
 1. In the [Azure Preview Portal](https://portal.azure.com/), open your web app's blade.
 2. Click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**. 
@@ -240,7 +240,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 ## Next Steps ##
 [Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Microsoft Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
+[Microsoft Azure Free Trial](/pricing/free-trial/)
 
 
 <!-- IMAGES -->
