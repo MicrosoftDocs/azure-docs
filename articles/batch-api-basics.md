@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-compute" 
 	ms.date="03/19/2015" 
-	ms.author="yidingz, kabatta"/>
+	ms.author="yidingz"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # API basics for Azure Batch
@@ -53,7 +53,7 @@ When you use the Batch service, you take advantage of the following resources:
 
 ### <a name="account"></a>Account
 
-A Batch account is a uniquely identified entity within the Batch service. All processing is done through a Batch account. When you perform operations with the Batch service, you need the name of the account and the key for the account. To create a batch account, refer to Batch account section of [Azure Batch overview](http://azure.microsoft.com/en-us/documentation/articles/batch-technical-overview/#BKMK_Account).
+A Batch account is a uniquely identified entity within the Batch service. All processing is done through a Batch account. When you perform operations with the Batch service, you need the name of the account and the key for the account. To create a batch account, refer to Batch account section of [Azure Batch overview][].
 
 
 ### <a name="taskvm"></a>Task Virtual Machine
@@ -389,6 +389,12 @@ For every task that is scheduled under a job, a specific set of environment vari
 </td>
 </table>
 
+**Note** 
+
+You cannot overwrite these system-defined variables.
+
+You can retrieve the value of environment settings by using the Get Task operation.
+
 ## <a name="errorhandling"></a>Error Handling
 
 ###Task Failure Handling
@@ -421,12 +427,7 @@ It is also possible for an intermittent issue to cause a task to hang or take to
 Each VM in a pool is given a unique name and the VM on which a task runs included in the task meta-data.  In the case where there is a VM that for some reason is causing tasks to fail, then this can be determined by the client and the suspect VM deleted from the pool. If a task was running on the VM that was deleted, then it will be automatically re-queued and executed on another VM.
 
 
-**Note** 
-
-You cannot overwrite these system-defined variables.
-
-You can retrieve the value of environment settings by using the Get Task operation.
-
-
 <!--Image references-->
 [1]: ./media/batch-api-basics/batch-api-basics-01.png
+
+[Azure Batch overview]: batch-technical-overview.md
