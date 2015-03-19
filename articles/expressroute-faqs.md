@@ -35,7 +35,7 @@ ExpressRoute is an Azure service that lets you create private connections betwee
 ExpressRoute connections do not go over the public Internet, and offer higher security, reliability and speeds with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
 
 ###  Where is the service available?
-See this page for service location and availability: [ExpressRoute locations](../expressroute-locations).
+See this page for service location and availability: [ExpressRoute locations](expressroute-locations.md).
 
 ###  How can I use ExpressRoute to connect to Azure if I don’t have partnerships with one of the ExpressRoute-carrier partners?
 You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Azure at the exchange providers’ location. Check with your NSP to see if they are present in any of the Exchange locations listed above and have your service provider extend your network to the Exchange location of choice. You can then order an ExpressRoute circuit through the Exchange provider to connect to Azure.
@@ -93,12 +93,12 @@ Supported bandwidth offers:
 |**Exchange providers**|200 Mbps, 500 Mbps, 1Gbps, 10Gbps|
 
 ###  Which service providers are available?
-See [ExpressRoute Locations](../expressroute-locations) for the list of service providers and locations.
+See [ExpressRoute Locations](expressroute-locations.md) for the list of service providers and locations.
 
 ##  Technical Details
 
 ###  What are the technical requirements for connecting my on-premises location to Azure?
-Please see [ExpressRoute prerequisites page](../expressroute-prerequisites) for requirements.
+Please see [ExpressRoute prerequisites page](expressroute-prerequisites.md) for requirements.
 
 ###  Are connections to ExpressRoute redundant?
 Yes. Each Express Route circuit has a redundant pair of cross connections configured to provide high availability.
@@ -128,12 +128,12 @@ The basic steps are outlined below.
 The following tutorials will help you:
 
 
-- [Configure an ExpressRoute Connection through a Network Service Provider](../expressroute-configuring-nsps)
+- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
 
 
-[Configure an ExpressRoute Connection through an Exchange Provider](../expressroute-configuring-exps)
+[Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
 
-[Configure a Virtual Network and Gateway for ExpressRoute](../expressroute-configuring-vnet)
+[Configure a Virtual Network and Gateway for ExpressRoute](expressroute-configuring-vnet.md)
 
 ###  Can I link to more than one virtual network to an ExpressRoute circuit?
 Yes. You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual networks must be in the same continent as the ExpressRoute circuit.

@@ -19,7 +19,7 @@
 
 # Continuous delivery to Azure using Visual Studio Online
 
-  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery).)
+  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](cloud-services-dotnet-continuous-delivery.md).)
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 

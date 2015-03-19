@@ -72,7 +72,7 @@ Provisioned throughput for your database account is allocated uniformly across a
 ##<a name="Consistency"></a>Choice of consistency level and throughput
 The choice of default consistency level has an impact on the throughput and latency.  You can set the default consistency level both programmatically and through the Azure portal. You can also override the consistency level on a per request basis. By default, the consistency level is that of session which provides monotonic read/writes and read your write guarantees. Session consistency is great for user-centric applications and provides an ideal balance of consistency and performance trade-offs.    
 
-For instructions on changing your consistency level on the Azure Preview Management Portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](../documentdb-manage-account/).
+For instructions on changing your consistency level on the Azure Preview Management Portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](documentdb-manage-account.md).
 
 ##<a name="IndexOverhead"></a>Provisioned document storage and index overhead
 With each CU purchased your account is provisioned with 10GB of SSD backed document storage. The 10GB of document storage includes the documents plus storage for the index. By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema. Based production usage in consumer scale first party applications using DocumentDB, the typical index overhead is between 2-20%. The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings.  
@@ -80,6 +80,6 @@ With each CU purchased your account is provisioned with 10GB of SSD backed docum
 By default all documents are indexed by DocumentDB automatically. However, in case you want to fine tune the index overhead, you can chose to remove certain documents from being indexed at the time of inserting or replacing a document. You can configure a DocumentDB collection to exclude all documents within the collection from being indexed. You can also configure a DocumentDB collection to selectively index only a certain properties or paths with wildcards of your JSON documents.  Excluding properties or documents also improves the write throughput – which means you will consume fewer request units.   
  
 ##<a name="NextSteps"></a>Next steps
-For instructions on managing your DocumentDB account in the Azure Preview portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](../documentdb-manage-account/).
+For instructions on managing your DocumentDB account in the Azure Preview portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](documentdb-manage-account.md).
 
-For instructions on monitoring performance levels on the Azure Preview portal, see [Monitor a DocumentDB account](../documentdb-monitor-accounts/).
+For instructions on monitoring performance levels on the Azure Preview portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
