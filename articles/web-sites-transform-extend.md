@@ -1,32 +1,32 @@
 <properties
-	pageTitle="Transform and extend your Azure App Service Web App"
-	description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure App Service Web App and to add private extensions to enable custom administration actions."
+	pageTitle="Transform and extend your Azure App Service web app"
+	description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure App Service web app and to add private extensions to enable custom administration actions."
 	authors="cephalin"
 	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
-	services="web-sites"
+	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="web-sites"
+	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2015"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
-# Transform and extend your Azure App Service Web App
+# Transform and extend your Azure App Service web app
 
-By using [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Azure App Service Web App. You can also use XDT declarations to add private extensions to enable custom Web App administration actions. This article includes a sample PHP Manager Web App extension that enables management of PHP settings through a web interface.
+By using [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Azure App Service web app. You can also use XDT declarations to add private extensions to enable custom Web App administration actions. This article includes a sample PHP Manager web app extension that enables management of PHP settings through a web interface.
 
-##<a id="transform"></a>Transform the Web App Configuration in ApplicationHost.config
-The App Service platform provides flexibility and control for Web App configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in App Service, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
+##<a id="transform"></a>Transform the web app Configuration in ApplicationHost.config
+The [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) platform provides flexibility and control for web app configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in App Service, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
 
-To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the Web App root. You may need to restart the Web App for changes to take effect.
+To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the Web App root. You may need to restart the web app for changes to take effect.
 
-The following applicationHost.xdt sample shows how to add a new custom environment variable to a Web App that uses PHP 5.4.
+The following applicationHost.xdt sample shows how to add a new custom environment variable to a web app that uses PHP 5.4.
 
 	<?xml version="1.0"?>
 	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
@@ -50,25 +50,25 @@ For additional samples, see [https://github.com/projectkudu/kudu/wiki/Azure-Site
 Elements from the list of modules under `system.webServer` cannot be removed or reordered, but additions to the list are possible.
 
 
-##<a id="extend"></a> Extend your Web App
+##<a id="extend"></a> Extend your web app
 
-###<a id="overview"></a> Overview of private Web App extensions
+###<a id="overview"></a> Overview of private web app extensions
 
-App Service supports Web App extensions as an extensibility point for administrative actions. In fact, some App Service platform features are implemented as pre-installed extensions. While the pre-installed platform extensions cannot be modified, you can create and configure private extensions for your own Web App. This functionality also relies on XDT declarations. The key steps for creating a private Web App extension are the following:
+App Service supports web app extensions as an extensibility point for administrative actions. In fact, some App Service platform features are implemented as pre-installed extensions. While the pre-installed platform extensions cannot be modified, you can create and configure private extensions for your own web app. This functionality also relies on XDT declarations. The key steps for creating a private web app extension are the following:
 
-1. Web App extension **content**: create any web application supported by App Service
-2. Web App extension **declaration**: create an ApplicationHost.xdt file
-3. Web App extension **deployment**: place content in the SiteExtensions folder under `root`
+1. Web app extension **content**: create any web application supported by App Service
+2. Web app extension **declaration**: create an ApplicationHost.xdt file
+3. Web app extension **deployment**: place content in the SiteExtensions folder under `root`
 
-Internal links for the web application should point to a path relative to the application path specified in the ApplicationHost.xdt file. Any change to the ApplicationHost.xdt file requires a Web App recycle.
+Internal links for the web app should point to a path relative to the application path specified in the ApplicationHost.xdt file. Any change to the ApplicationHost.xdt file requires a web app recycle.
 
 **Note**: Additional information for these key elements is available at [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
-A detailed example is included to illustrate the steps for creating and enabling a private Web App extension. The source code for the PHP Manager example that follows can be downloaded from [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
+A detailed example is included to illustrate the steps for creating and enabling a private web app extension. The source code for the PHP Manager example that follows can be downloaded from [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
 
-###<a id="SiteSample"></a> Web App extension example: PHP Manager
+###<a id="SiteSample"></a> Web app extension example: PHP Manager
 
-PHP Manager is a Web App extension that allows Web App administrators to easily view and configure their PHP settings using a web interface instead of having to modify PHP .ini files directly. Common configuration files for PHP include the php.ini file located under Program Files and the .user.ini file located in the root folder of your Web App. Since the php.ini file is not directly editable on the App Service platform, the PHP Manager extension uses the .user.ini file to apply setting changes.
+PHP Manager is a web app extension that allows web app administrators to easily view and configure their PHP settings using a web interface instead of having to modify PHP .ini files directly. Common configuration files for PHP include the php.ini file located under Program Files and the .user.ini file located in the root folder of your web app. Since the php.ini file is not directly editable on the App Service platform, the PHP Manager extension uses the .user.ini file to apply setting changes.
 
 ####<a id="PHPwebapp"></a> The PHP Manager web application
 
@@ -76,13 +76,13 @@ The following is the home page of the PHP Manager deployment:
 
 ![TransformSitePHPUI][TransformSitePHPUI]
 
-As you can see, a Web App extension is just like a regular web application, but with an additional ApplicationHost.xdt file placed in the root folder of the Web App (more details about the ApplicationHost.xdt file are available in the next section of this article).
+As you can see, a web app extension is just like a regular web application, but with an additional ApplicationHost.xdt file placed in the root folder of the web app (more details about the ApplicationHost.xdt file are available in the next section of this article).
 
 The PHP Manager extension was created using the Visual Studio ASP.NET MVC 4 Web Application template. The following view from Solution Explorer shows the structure of the PHP Manager extension.
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-The only special logic needed for file I/O is to indicate where the wwwroot directory of the Web App is located. As the following code example shows, the environment variable "HOME" indicates the Web App root path, and the wwwroot path can be constructed by appending "site\wwwroot":
+The only special logic needed for file I/O is to indicate where the wwwroot directory of the web app is located. As the following code example shows, the environment variable "HOME" indicates the web app root path, and the wwwroot path can be constructed by appending "site\wwwroot":
 
 
 	/// <summary>
@@ -102,11 +102,11 @@ The only special logic needed for file I/O is to indicate where the wwwroot dire
 
 After you have the directory path, you can use regular file I/O operations to read and write to files.
 
-One point of caution with Web App extensions regards the handling of internal links.  If you have any links in your HTML files that give absolute paths to internal links on your Web App, you must ensure those links are prepended with your extension name as your root. This is needed because the root for your extension is now "/`[your-extension-name]`/" rather than being just "/", so any internal links must be updated accordingly. For example, suppose your code includes a link to the following:
+One point of caution with web app extensions regards the handling of internal links.  If you have any links in your HTML files that give absolute paths to internal links on your web app, you must ensure those links are prepended with your extension name as your root. This is needed because the root for your extension is now "/`[your-extension-name]`/" rather than being just "/", so any internal links must be updated accordingly. For example, suppose your code includes a link to the following:
 
 `"<a href="/Home/Settings">PHP Settings</a>"`
 
-When the link is part of a Web App extension, the link must be in the following form:
+When the link is part of a web app extension, the link must be in the following form:
 
 `"<a href="/[your-site-name]/Home/Settings">Settings</a>"`
 
@@ -114,9 +114,9 @@ You can work around this requirement by either using only relative paths within 
 
 ####<a id="XDT"></a> The applicationHost.xdt file
 
-The code for your Web App extension goes under %HOME%\SiteExtensions\[your-extension-name]. We'll call this the extension root.  
+The code for your web app extension goes under %HOME%\SiteExtensions\[your-extension-name]. We'll call this the extension root.  
 
-To register your Web App extension with the applicationHost.config file, you need to place a file called ApplicationHost.xdt in the extension root. The content of the ApplicationHost.xdt file should be as follows:
+To register your web app extension with the applicationHost.config file, you need to place a file called ApplicationHost.xdt in the extension root. The content of the ApplicationHost.xdt file should be as follows:
 
 	<?xml version="1.0"?>
 	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
@@ -159,17 +159,21 @@ This has the effect of adding a new application path to the `system.applicationH
 	  ...
 	</system.applicationHost>
 
-###<a id="deploy"></a> Web App extension deployment
+###<a id="deploy"></a> Web app extension deployment
 
-To install your Web App extension, you can use FTP to copy all the files of your web application to the `\SiteExtensions\[your-extension-name]` folder of the Web App on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well. Restart your Web App to enable the extension.
+To install your web app extension, you can use FTP to copy all the files of your web application to the `\SiteExtensions\[your-extension-name]` folder of the web app on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well. Restart your web app to enable the extension.
 
-You should be able to see your Web App extension at:
+You should be able to see your web app extension at:
 
 `https://[your-site-name].scm.azurewebsites.net/[your-extension-name]`
 
-Note that the URL looks just like the URL for your Web App, except that it uses HTTPS and contains ".scm".
+Note that the URL looks just like the URL for your web app, except that it uses HTTPS and contains ".scm".
 
-It is possible to disable all private (not pre-installed) extensions for your Web App during development and investigations by adding an app settings with the key `WEBSITE_PRIVATE_EXTENSIONS` and a value of `0`.
+It is possible to disable all private (not pre-installed) extensions for your web app during development and investigations by adding an app settings with the key `WEBSITE_PRIVATE_EXTENSIONS` and a value of `0`.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
