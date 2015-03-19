@@ -2,7 +2,7 @@
    pageTitle="Importance of Testability." 
    description="This article talks about why testability is important for services written on windows fabric." 
    services="service-fabric" 
-   documentationCenter="Windows Azure" 
+   documentationCenter=".net" 
    authors="rishirsinha" 
    manager="timlt" 
    editor=""/>
