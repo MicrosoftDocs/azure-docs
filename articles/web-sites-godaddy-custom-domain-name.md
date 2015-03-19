@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-This article provides instructions on using a custom domain name purchased from [Go Daddy](https://godaddy.com) with Azure App Service Web Apps.
+This article provides instructions on using a custom domain name purchased from [Go Daddy](https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -83,3 +83,6 @@ To associate your custom domain with a web app in App Service, you must add a ne
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
