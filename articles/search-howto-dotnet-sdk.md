@@ -1,16 +1,16 @@
-<properties 
-   pageTitle="How to use Azure Search from a .NET Application" 
-   description="How to use Azure Search from a .NET Application" 
-   services="search" 
-   documentationCenter="" 
-   authors="brjohnstmsft" 
-   manager="pablocas" 
+<properties
+   pageTitle="How to use Azure Search from a .NET Application"
+   description="How to use Azure Search from a .NET Application"
+   services="search"
+   documentationCenter=""
+   authors="brjohnstmsft"
+   manager="pablocas"
    editor=""/>
 
 <tags
    ms.service="search"
    ms.devlang="dotnet"
-   ms.workload="search" 
+   ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.date="03/18/2015"
@@ -31,18 +31,18 @@ The client library defines classes like `Index`, `Field`, and `Document`, as wel
 
 The current version of the Azure Search .NET SDK is `0.9.6-preview`. This is a pre-release version of the SDK. If you would like to provide feedback for us to incorporate in the first stable version, please visit our [feedback page](http://feedback.azure.com/forums/263029-azure-search).
 
-The .NET SDK supports a subset of version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). New features that are *not* part of this version, such as support for Microsoft's natural language processors or the `moreLikeThis` search parameter, are in [preview](../search-api-2015-02-28-preview/) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) or [Latest updates to Azure Search](../search-latest-updates/) for status updates on either feature.
+The .NET SDK supports a subset of version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). New features that are *not* part of this version, such as support for Microsoft's natural language processors or the `moreLikeThis` search parameter, are in [preview](search-api-2015-02-28-preview.md) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) or [Latest updates to Azure Search](search-latest-updates.md) for status updates on either feature.
 
 Other features not supported in this SDK include:
 
   - [Indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx). Support for indexers will be available in the first stable version of the SDK.
-  - [Management Operations](https://msdn.microsoft.com/library/azure/dn832684.aspx). Management operations include provisioning Azure Search services and managing API keys. These will be supported in a separate Azure Search .NET Management SDK in the future. 
+  - [Management Operations](https://msdn.microsoft.com/library/azure/dn832684.aspx). Management operations include provisioning Azure Search services and managing API keys. These will be supported in a separate Azure Search .NET Management SDK in the future.
 
 ## Requirements for the SDK ##
 
 1. Visual Studio 2013 or a newer version.
 
-2. Your own Azure Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Getting started with Azure Search](../search-get-started/) will help you through these steps.
+2. Your own Azure Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Getting started with Azure Search](search-get-started.md) will help you through these steps.
 
 3. Download the Azure Search .NET SDK [NuGet package](http://www.nuget.org/packages/Microsoft.Azure.Search) by using "Manage NuGet Packages" in Visual Studio. Just search for the package name `Microsoft.Azure.Search` on NuGet.org. Make sure to select "Include Prerelease" to ensure that the pre-release SDK will appear in the search results.
 
@@ -56,7 +56,7 @@ There are several things you'll need to do in your search application. In this t
 - Populating the index with documents
 - Searching for documents using full-text search and filters
 
-The sample code that follows illustrates each of these. Feel free to use the code snippets in your own application. 
+The sample code that follows illustrates each of these. Feel free to use the code snippets in your own application.
 
 ### Overview ###
 
@@ -68,8 +68,8 @@ The sample application we'll be exploring creates a new index named "stores", po
         // Put your search service name here. This is the hostname portion of your service URL.
         // For example, if your service URL is https://myservice.search.windows.net, then your
         // service name is myservice.
-        string searchServiceName = "myservice"; 
-        
+        string searchServiceName = "myservice";
+
         string apiKey = "Put your API admin key here."
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
@@ -81,10 +81,10 @@ The sample application we'll be exploring creates a new index named "stores", po
         CreateStoresIndex(serviceClient);
 
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("stores");
-        
+
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
-        
+
         Console.WriteLine("{0}", "Searching documents 'bike store'...\n");
         SearchDocuments(indexClient, searchText: "bike store");
 
@@ -100,8 +100,8 @@ We'll walk through this step by step. First we need to create a new `SearchServi
         // Put your search service name here. This is the hostname portion of your service URL.
         // For example, if your service URL is https://myservice.search.windows.net, then your
         // service name is myservice.
-        string searchServiceName = "myservice"; 
-        
+        string searchServiceName = "myservice";
+
         string apiKey = "Put your API admin key here."
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
@@ -177,15 +177,15 @@ This method uses the given `SearchServiceClient` to check if the index exists, a
 
 > [AZURE.NOTE] The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the method above you could use `ExistsAsync` and `DeleteAsync` instead of `Exists` and `Delete`.
 
-Next, `Main` creates a new "stores" index by calling this method: 
+Next, `Main` creates a new "stores" index by calling this method:
 
     private static void CreateStoresIndex(SearchServiceClient serviceClient)
     {
         var definition = new Index()
         {
             Name = "stores",
-            Fields = new[] 
-            { 
+            Fields = new[]
+            {
                 new Field("storeId",        DataType.String) { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
                 new Field("storeName",      DataType.String) { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
                 new Field("addressLine1",   DataType.String) { IsKey = false, IsSearchable = true,  IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
@@ -290,9 +290,9 @@ The last step in the sample application is to search for some documents in the i
 
     private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
     {
-        // Execute search based on search text and optional filter 
+        // Execute search based on search text and optional filter
         var sp = new SearchParameters();
-    
+
         if (!String.IsNullOrEmpty(filter))
         {
             sp.Filter = filter;
@@ -368,8 +368,8 @@ Program.cs:
                 // Put your search service name here. This is the hostname portion of your service URL.
                 // For example, if your service URL is https://myservice.search.windows.net, then your
                 // service name is myservice.
-                string searchServiceName = "myservice"; 
-        
+                string searchServiceName = "myservice";
+
                 string apiKey = "Put your API admin key here."
 
                 SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
@@ -381,10 +381,10 @@ Program.cs:
                 CreateStoresIndex(serviceClient);
 
                 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("stores");
-            
+
                 Console.WriteLine("{0}", "Uploading documents...\n");
                 UploadDocuments(indexClient);
-            
+
                 Console.WriteLine("{0}", "Searching documents 'bike store'...\n");
                 SearchDocuments(indexClient, searchText: "bike store");
 
@@ -408,8 +408,8 @@ Program.cs:
                 var definition = new Index()
                 {
                     Name = "stores",
-                    Fields = new[] 
-                    { 
+                    Fields = new[]
+                    {
                         new Field("storeId",        DataType.String) { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
                         new Field("storeName",      DataType.String) { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
                         new Field("addressLine1",   DataType.String) { IsKey = false, IsSearchable = true,  IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
@@ -456,9 +456,9 @@ Program.cs:
 
             private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
             {
-                // Execute search based on search text and optional filter 
+                // Execute search based on search text and optional filter
                 var sp = new SearchParameters();
-            
+
                 if (!String.IsNullOrEmpty(filter))
                 {
                     sp.Filter = filter;

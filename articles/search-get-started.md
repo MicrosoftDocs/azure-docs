@@ -357,11 +357,11 @@ If you need a refresher on where to find the configuration pages, follow these s
 
 Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
-- [Create your first azure search solution](../search-create-first-solution/) 
+- [Create your first azure search solution](search-create-first-solution.md) 
 
-- [Create an Azure Search GeoSearch Sample](../search-create-geospatial/)
+- [Create an Azure Search GeoSearch Sample](search-create-geospatial.md)
 
-- [Manage your search solution in Microsoft Azure](../search-manage/) 
+- [Manage your search solution in Microsoft Azure](search-manage.md) 
 
 - [Azure Search Technical Overview](http://msdn.microsoft.com/library/dn798933.aspx)
 
@@ -402,7 +402,7 @@ Ready for the next step? The following links take you to additional material tha
 
 
 <!--Link references-->
-[Manage your search solution in Microsoft Azure]: ../search-manage/
-[Azure Search development workflow]: ../search-workflow/
-[Create your first azure search solution]: ../search-create-first-solution/
-[Create a geospatial search app using Azure Search]: ../search-create-geospatial/
+[Manage your search solution in Microsoft Azure]: search-manage.md
+[Azure Search development workflow]: search-workflow.md
+[Create your first azure search solution]: search-create-first-solution.md
+[Create a geospatial search app using Azure Search]: search-create-geospatial.md

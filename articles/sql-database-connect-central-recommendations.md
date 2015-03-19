@@ -130,7 +130,7 @@ For ADO.NET with Enterprise Library and the Transient Fault Handling classes, se
 For Elastic Scale, see:
 
 
-- [Get Started with Azure SQL Database Elastic Scale Preview](../sql-database-elastic-scale-get-started/)
+- [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 - [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 
 
