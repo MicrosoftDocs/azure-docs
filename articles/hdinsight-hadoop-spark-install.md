@@ -45,9 +45,9 @@ You can modify this script or create your own script to install other versions o
 
 A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal. 
 
-> [AZURE.NOTE] The sample script works only with HDInsight 3.1 and 3.2 clusters. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script works only with HDInsight 3.1 and 3.2 clusters. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
-1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](../hdinsight-provision-clusters/#portal). Pick the cluster version depending on the following:
+1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](hdinsight-provision-clusters.md#portal). Pick the cluster version depending on the following:
 
 	- If you want to install **Spark 1.2.0**, provision an HDInsight 3.2 cluster.
 	- If you want to install **Spark 1.0.2**, provision an HDInsight 3.1 cluster.
@@ -416,14 +416,14 @@ Provide a cluster name and press ENTER to provision a cluster with Spark install
 
 ## See also##
 - [Install R on HDInsight clusters][hdinsight-install-r] provides instructions on how to use cluster customization to install and use R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
-- [Install Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
-- [Install Solr on HDInsight clusters](../hdinsight-hadoop-solr-install). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on data stored.
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on data stored.
 
 
 
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
-[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[powershell-install-configure]: ../install-configure-powershell/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+[powershell-install-configure]: install-configure-powershell.md

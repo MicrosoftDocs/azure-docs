@@ -63,7 +63,7 @@ Get started with ...
 </li>
 <li><a href="../articles/app-insights-java-get-started.md">Java applications and web services</a>
 </li>
-<li><a href="../app-insights-platforms/">Other platforms</a>
+<li><a href="../articles/app-insights-platforms.md">Other platforms</a>
 </li>
 </ul>
 
@@ -83,7 +83,7 @@ Performance monitoring
 
 Usage tracking
 <ul>
-<li><a href="../app-insights-web-track-usage/">Analyze usage in web applications</a>
+<li><a href="../articles/app-insights-web-track-usage.md">Analyze usage in web applications</a>
 </li>
 <li><a href="../articles/app-insights-web-track-usage-custom-events-metrics.md">Track custom events and metrics</a>
 </li>
@@ -99,29 +99,29 @@ Usage tracking
 <!--Link references-->
 
 [portal]: http://portal.azure.com/
-[start]: ../app-insights-get-started/
-[greenbrown]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-diagnostic-search/ 
-[availability]: ../app-insights-monitor-web-app-availability/
+[start]: ../articles/app-insights-get-started.md
+[greenbrown]: ../articles/app-insights-start-monitoring-app-health-usage.md
+[redfield]: ../articles/app-insights-monitor-performance-live-website-now.md
+[perf]: ../articles/app-insights-web-monitor-performance.md
+[diagnostic]: ../articles/app-insights-diagnostic-search.md 
+[availability]: ../articles/app-insights-monitor-web-app-availability.md
 [usage]: ../app-insights-web-track-usage/
-[track]: ../app-insights-web-track-usage-custom-events-metrics/
-[qna]: ../app-insights-troubleshoot-faq/
-[data]: ../app-insights-data-retention-privacy/
-[export]: ../app-insights-export-telemetry/
-[azure]: ../insights-perf-analytics/
-[metrics]: ../app-insights-metrics-explorer/
-[trace]: ../app-insights-search-diagnostic-logs/
+[track]: ../articles/app-insights-web-track-usage-custom-events-metrics.md
+[qna]: ../articles/app-insights-troubleshoot-faq.md
+[data]: ../articles/app-insights-data-retention-privacy.md
+[export]: ../articles/app-insights-export-telemetry.md
+[azure]: ../articles/insights-perf-analytics.md
+[metrics]: ../articles/app-insights-metrics-explorer.md
+[trace]: ../articles/app-insights-search-diagnostic-logs.md
 [api]: http://msdn.microsoft.com/library/azure/dn887942.aspx
-[detect]: ../app-insights-detect-triage-diagnose/
-[knowUsers]: ../app-insights-overview-usage/
-[java]: ../app-insights-java-get-started/
-[javalogs]: ../app-insights-java-trace-logs/
+[detect]: ../articles/app-insights-detect-triage-diagnose.md
+[knowUsers]: ../articles/app-insights-overview-usage.md
+[java]: ../articles/app-insights-java-get-started.md
+[javalogs]: ../articles/app-insights-java-trace-logs.md
 [javareqs]: ../articles/app-insights-java-track-http-requests.md
 [eclipse]: ../articles/app-insights-java-eclipse.md
-[windows]: ../app-insights-windows-get-started/
-[desktop]: ../app-insights-windows-desktop/
+[windows]: ../articles/app-insights-windows-get-started.md
+[desktop]: ../articles/app-insights-windows-desktop.md
 [windowsUsage]: ../articles/app-insights-windows-usage.md
 [windowsCrash]: ../articles/app-insights-windows-crashes.md
 [platforms]: ../app-insights-platforms/

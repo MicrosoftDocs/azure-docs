@@ -20,7 +20,7 @@
  
 Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write MapReduce programs in C# that uses the Hadoop streaming interface and how to run the programs on Azure HDInsight using Azure PowerShell cmdlets. 
 
-> [AZURE.NOTE] The steps in this article only apply to Windows-based HDInsight clusters. For an example of streaming for Linux-based HDInsight, see [Develop Python streaming programs for HDInsight](../hdinsight-hadoop-streaming-python/).
+> [AZURE.NOTE] The steps in this article only apply to Windows-based HDInsight clusters. For an example of streaming for Linux-based HDInsight, see [Develop Python streaming programs for HDInsight](hdinsight-hadoop-streaming-python.md).
 
 In the example, both the mapper and the reducer are executables that read the input from [stdin][stdin-stdout-stderr] (line by line) and emit the output to [stdout][stdin-stdout-stderr]. The program counts all of the words in the text.
 
@@ -40,7 +40,7 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 
 - You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](../hdinsight-provision-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](hdinsight-provision-clusters.md)
 
 - You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 	
@@ -182,17 +182,17 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[hdinsight-samples]: ../hdinsight-run-samples/
-[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
-[hdinsight-sample-csharp-streaming]: ../hdinsight-sample-csharp-streaming/
-[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
-[hdinsight-sample-wordcount]: ../hdinsight-sample-wordcount/
+[hdinsight-samples]: hdinsight-run-samples.md
+[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
+[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
+[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
+[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 
 

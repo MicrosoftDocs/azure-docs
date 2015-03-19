@@ -48,7 +48,7 @@ For more information on creating Storage accounts, see
 
 ##Provision a Storm cluster on the Azure portal
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contain Apache Storm and related applications. You can also create Hadoop clusters for other versions by using the Azure portal, Azure PowerShell cmdlets for HDInsight, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their service level agreements (SLAs), see the [HDInsight component versioning](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contain Apache Storm and related applications. You can also create Hadoop clusters for other versions by using the Azure portal, Azure PowerShell cmdlets for HDInsight, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their service level agreements (SLAs), see the [HDInsight component versioning](hdinsight-component-versioning.md) page.
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -206,15 +206,15 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 * The following are other examples that can be used with Storm on HDInsight:
 
-	* [Analyzing sensor data with Storm on HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis)
+	* [Analyzing sensor data with Storm on HDInsight](hdinsight-storm-sensor-data-analysis.md)
 
-	* [Trending hashtags on Twitter with Storm on HDInsight](../hdinsight-storm-twitter-trending/)
+	* [Trending hashtags on Twitter with Storm on HDInsight](hdinsight-storm-twitter-trending.md)
 
 * To learn more about developing Storm topologies, see the following:
 
-	* [Develop Java topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
+	* [Develop Java topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 
-	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](/documentation/articles/hdinsight-storm-develop-csharp-visual-studio-topology/)
+	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 
 [apachestorm]: https://storm.incubator.apache.org
@@ -222,4 +222,4 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-provision]: hdinsight-provision-clusters.md
