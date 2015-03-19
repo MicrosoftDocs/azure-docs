@@ -1,32 +1,32 @@
 <properties 
-	pageTitle="Convert a WordPress Site to a Multisite" 
-	description="Learn how to take an existing WordPress website created through the gallery in Azure and convert it to WordPress Multisite" 
-	services="web-sites" 
+	pageTitle="Convert a WordPress web app to a Multisite" 
+	description="Learn how to take an existing WordPress web app created through the gallery in Azure and convert it to WordPress Multisite" 
+	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="3/18/2015" 
+	ms.date="03/24/2015" 
 	ms.author="tomfitz"/>
 
 
 
 
 
-# Convert a WordPress Site to a Multisite
+# Convert a WordPress web app to a Multisite
 
 ## Overview
 
 *By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-In this tutorial you will learn how to take an existing WordPress website created through the gallery in Azure and convert it into a WordPress Multisite install. Additionally, you will learn how to assign a custom domain to each of the subsites within your install.
+In this tutorial you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install. Additionally, you will learn how to assign a custom domain to each of the subsites within your install.
 
 It is assumed that you have an existing installation of WordPress. If you do not, please follow the guidance provided in [Create a WordPress web site from the gallery in Azure][website-from-gallery].
 
@@ -36,7 +36,7 @@ Lets get started.
 
 ## Allow Multisite
 
-You first need to enable Multisite through the `wp-config.php` file with the **WP\_ALLOW\_MULTISITE** constant. There are two methods to edit your website files: the first is through FTP, and the second through Git. If you are unfamiliar with how to setup either of these methods, please refer to the following tutorials:
+You first need to enable Multisite through the `wp-config.php` file with the **WP\_ALLOW\_MULTISITE** constant. There are two methods to edit your web app files: the first is through FTP, and the second through Git. If you are unfamiliar with how to setup either of these methods, please refer to the following tutorials:
 
 * [PHP web site with MySQL and FTP][website-w-mysql-and-ftp-ftp-setup]
 
@@ -52,7 +52,7 @@ Be sure to save the file and upload it back to the server!
 
 ## Network Setup
 
-Log in to the *wp-admin* area of your website and you should see a new item under the **Tools** menu called **Network Setup**. Click **Network Setup** and fill in the details of your network.
+Log in to the *wp-admin* area of your web app and you should see a new item under the **Tools** menu called **Network Setup**. Click **Network Setup** and fill in the details of your network.
 
 ![Network Setup Screen][wordpress-network-setup]
 
@@ -76,11 +76,11 @@ There should now be an additional menu on the admin bar labeled **My Sites**. Th
 
 The [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] plugin makes it a breeze to add custom domains to any site in your network. In order for the plugin to operate properly, you need to do some additional setup on the Portal, and also at your domain registrar.
 
-## Enable domain mapping to the website
+## Enable domain mapping to the web app
 
-The default free website mode does not support adding custom domains to Azure websites. You will need to switch to Shared or Standard mode. To do this:
+The **Free** App Service plan mode does not support adding custom domains to Web Apps. You will need to switch to **Shared** or **Standard** mode. To do this:
 
-* Log in to the Azure Portal and locate your website. 
+* Log in to the Azure Portal and locate your web app. 
 * Click on the **Scale** tab in the main content area
 * Under **General**, select either *SHARED* or *STANDARD*
 * Click **Save**
