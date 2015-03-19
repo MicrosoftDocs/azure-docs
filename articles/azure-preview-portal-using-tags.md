@@ -42,9 +42,9 @@ From here, you can click on each individual tag to view a list of all the resour
 
 ## Tagging with PowerShell
 
-First thing's first, grab the latest [Azure PowerShell module](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). If this is your first time using the Azure PowerShell module, [read the documentation](http://azure.microsoft.com/documentation/articles/install-configure-powershell) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
+First thing's first, grab the latest [Azure PowerShell module](install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](http://azure.microsoft.com/documentation/articles/install-configure-powershell) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
 
-Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
+Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
   Switch-AzureMode AzureResourceManager
 
