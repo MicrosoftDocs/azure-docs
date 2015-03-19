@@ -21,7 +21,7 @@
 This tutorial gets you started quickly with HDInsight on Linux by showing you how to provision an HDInsight Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data.
 
 
-> [AZURE.NOTE] If you are new to Hadoop and Big Data, you can read more about the terms <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a>, and <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](../hdinsight-hadoop-introduction/).
+> [AZURE.NOTE] If you are new to Hadoop and Big Data, you can read more about the terms <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a>, and <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
 
 ## What does this tutorial achieve? ##
@@ -49,11 +49,11 @@ Before you begin this tutorial, you must have the following:
 
 ## <a name="storage"></a>Create an Azure Storage account
 
-HDInsight uses Azure Blob Storage for storing data. It is called *WASB* or *Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage/).
+HDInsight uses Azure Blob Storage for storing data. It is called *WASB* or *Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md).
 
 When you provision an HDInsight cluster, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, just like in HDFS. The HDInsight cluster is by default provisioned in the same data center as the storage account you specify.
 
-In addition to this storage account, you can add additional storage accounts when you custom-configure an HDInsight cluster. This additional storage account can either be from the same Azure subscription or different Azure subscriptions. For instructions, see [Provision HDInsight Linux clusters using custom options](../hdinsight-hadoop-provision-linux-clusters). 
+In addition to this storage account, you can add additional storage accounts when you custom-configure an HDInsight cluster. This additional storage account can either be from the same Azure subscription or different Azure subscriptions. For instructions, see [Provision HDInsight Linux clusters using custom options](hdinsight-hadoop-provision-linux-clusters.md). 
 
 To simplify this tutorial, only the default blob container and the default storage account are used. In practice, the data files are usually stored in a designated storage account.
 
@@ -74,13 +74,13 @@ To simplify this tutorial, only the default blob container and the default stora
 
 
 For more information, see
-[How to Create a Storage Account](../storage-create-storage-account/) and [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage/).
+[How to Create a Storage Account](storage-create-storage-account.md) and [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 	
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision an HDInsight cluster on Linux using the quick-create option. This option uses default user names and Azure storage containers, and configures a cluster with HDInsight version 3.2 (Hadoop version 2.5, HDP version 2.2) running on Ubuntu 12.04 LTS. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](../hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contains Hadoop and related applications. In this section you provision an HDInsight cluster on Linux using the quick-create option. This option uses default user names and Azure storage containers, and configures a cluster with HDInsight version 3.2 (Hadoop version 2.5, HDP version 2.2) running on Ubuntu 12.04 LTS. For information about different HDInsight versions and their SLA, see [HDInsight component versioning](hdinsight-component-versioning.md) page.
 
->[AZURE.NOTE]  You can also create Hadoop clusters running Windows Server OS. For instructions, see [Get Started with HDInsight on Windows](../hdinsight-get-started/).
+>[AZURE.NOTE]  You can also create Hadoop clusters running Windows Server OS. For instructions, see [Get Started with HDInsight on Windows](hdinsight-get-started.md).
 
 
 **To provision an HDInsight cluster** 
@@ -112,7 +112,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 	
 5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
 
-	>[AZURE.NOTE] The procedure above creates a Linux cluster with the quick-create option that uses default SSH username and Azure storage containers. To create a cluster with custom options, such as using SSH key for authentication or using additional storage accounts, see [Provision HDInsight Linux clusters using custom options](../hdinsight-hadoop-provision-linux-clusters).
+	>[AZURE.NOTE] The procedure above creates a Linux cluster with the quick-create option that uses default SSH username and Azure storage containers. To create a cluster with custom options, such as using SSH key for authentication or using additional storage accounts, see [Provision HDInsight Linux clusters using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 
 
 ## <a name="hivequery"></a>Submit a Hive job on the cluster
@@ -241,28 +241,28 @@ Once you are connected to the cluster using SSH, use the following commands to r
 ## <a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a Hadoop Linux cluster with HDInsight and run a Hive query on it using SSH. To learn more, see the following articles:
 
-- [Provision HDInsight on Linux using custom options](../hdinsight-hadoop-provision-linux-clusters)
-- [Working with HDInsight on Linux](../hdinsight-hadoop-linux-information)
-- [Manage HDInsight clusters using Ambari](../hdinsight-hadoop-manage-ambari)
+- [Provision HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md)
+- [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md)
+- [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
 - [Use MapReduce with HDInsight][hdinsight-use-mapreduce]
 - [Use Hive with HDInsight][hdinsight-use-hive]
 - [Use Pig with HDInsight][hdinsight-use-pig]
-- [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage)
+- [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md)
 - [Upload data to HDInsight][hdinsight-upload-data]
 
 
-[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
+[1]: hdinsight-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: ../install-configure-powershell/
-[powershell-open]: ../install-configure-powershell/#Install
+[powershell-install-configure]: install-configure-powershell.md
+[powershell-open]: install-configure-powershell.md#Install
 
 [img-hdi-dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
