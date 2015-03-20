@@ -59,7 +59,7 @@ When creating a Linux-based HDInsight cluster, you have the option of using a pa
 
 	* The file location - defaults to ~/.ssh/id\_rsa.
 	* A passphrase - you will be prompted to re-enter this
-	
+
 		> [AZURE.NOTE] We strongly recommend that you use a secure passphrase for the key. However, if you forget the passphrase, there is no way to recover it.
 
 	After the command completes, you will have two new files, the private key (for example, **id\_rsa**,) and the public key (for example, **id\_rsa.pub**.)
@@ -95,7 +95,7 @@ For more information on using this command, see <a href="../hdinsight-hadoop-pro
 
 ##Connect to a Linux-based HDInsight cluster
 
-From a terminal session, use the SSH command to connect to the cluster by providing the user name and cluster address.
+From a terminal session, use the SSH command to connect to the cluster head node by providing the user name and cluster address.
 
 * **SSH address** - the cluster name, followed by **-ssh.azurehdinsight.net**. For example, **mycluster-ssh.azurehdinsight.net**.
 
@@ -110,18 +110,35 @@ If you used a **password** for the user account, you will be prompted to enter t
 If you used an **SSH key** that is secured with a passphrase, you will be prompted to enter the passphrase; otherwise, SSH will attempt to automatically authenticate using one of the local private keys on your client.
 
 > [AZURE.NOTE] If SSH does not automatically authenticate with the correct **private key**, use the **-i** parameter and specify the path to the private key. The following example will load the **private key** from `~/.ssh/id_rsa`.
-> 
+>
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
+
+###Connect to worker nodes
+
+The worker nodes are not directly accessible from outside the Azure datacenter, but they can be accessed from the cluster head node using SSH.
+
+**For a list of the nodes in the cluster**, use the following. Replace ADMINPASSWORD with the password for your cluster admin account. Replace CLUSTERNAME with the name of your cluster.
+    curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
+
+This will return information in JSON format for the nodes in the cluster, including the `host_name`, which contains the FQDN for each node.
+
+> [AZURE.NOTE] If you have the <a href="" target="_blank">jq</a> utility installed, you can filter the data to just the FQDN information by using the following:
+>
+> `curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts | jq .items[].Hosts.host_name`
+
+**If you secured your SSH account using a password**, connect to the cluster using SSH. Once connected, use SSH from the cluster to connect to each of the worker nodes using the FQDN for each node. When connecting, you will be prompted for to enter your password.
+
+**If you secured your SSH account using a certificate**, you must ensure that SSH
 
 ##Add additional accounts
 
-2. Generate a new **public key** and **private key** for the new user account as described in the [Create an SSH key](#create) section.
+1. Generate a new **public key** and **private key** for the new user account as described in the [Create an SSH key](#create) section.
 
 	> [AZURE.NOTE] The private key should either be generated on a client that the user will use to connect to the cluster, or securely transfered to such the client after creation.
 
 1. From an SSH session to the cluster, add the new user with the following command.
 
-		sudo adduser --disabled-password <username> 
+		sudo adduser --disabled-password <username>
 
 	This will create a new user account, but will disable password authentication.
 
@@ -164,7 +181,7 @@ Use the following steps to create an SSH tunnel and configure your browser to us
 	* **q** - quiet mode
 
 	* **T** - disable pseudo-tty allocation, since we are just forwarding a port
-	
+
 	* **n** - prevents reading of STDIN, since we are just forwarding a port
 
 	* **N** - do not execute a remote command, since we are just forwarding a port
@@ -234,4 +251,3 @@ Now that you understand how to authenticate using an SSH key, learn how to use M
 * [Use Pig with HDInsight](../hdinsight-use-pig/)
 
 * [Use MapReduce jobs with HDInsight](../hdinsight-use-mapreduce/)
- 
