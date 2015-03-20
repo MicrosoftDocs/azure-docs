@@ -19,7 +19,7 @@
 
 # Manage web apps through the Azure Portal
 
-In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](app-service-web-app-azure-portal.md) changes guide.) 
+In the [Azure Portal](https://portal.azure.com), you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](http://go.microsoft.com/fwlink/?LinkId=529715) changes guide.) 
 
 To view the blade for your web app, click **Home** and then the app name, or click **Browse** to see all of your Azure resources.
 
@@ -88,7 +88,6 @@ The following screen shot shows the console.
 
 ## Next steps
 
-- Please refer to [Services](app-service-changes-existing-services.md) and [Portal](app-service-web-app-azure-portal.md) changes guides. 
 - [Scale a Web App in Azure App Service](how-to-scale-websites.md)
 - [Run Background tasks with WebJobs](web-sites-create-web-jobs.md)
 - [Azure Web Apps backups](web-sites-backup.md) and [restore](web-sites-restore.md)
