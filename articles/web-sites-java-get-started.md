@@ -23,8 +23,8 @@ This tutorial shows how to create a web app on Microsoft Azure using Java, using
 If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web app to Azure](../web-sites-java-custom-upload).
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. 
-> 
-> If you want to get started with [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit card required, no commitments.
+
+>If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 # Create a Java web app using the Azure Marketplace
 
