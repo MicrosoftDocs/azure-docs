@@ -150,16 +150,16 @@ You can set it to any value that you want. This is just an example. The expressi
 
 
 <!-- Image reference -->
-[1]: ./media/app-service-logic-connector-FTP/LaunchAzureMarketplace.png
-[2]: ./media/app-service-logic-connector-FTP/SelectFTPConnector.png
-[3]: ./media/app-service-logic-connector-FTP/CreateFTPConnector.png
-[4]: ./media/app-service-logic-connector-FTP/CreateLogicApp.png
-[5]: ./media/app-service-logic-connector-FTP/LogicAppEmptyFlowDesigner.png
-[6]: ./media/app-service-logic-connector-FTP/ChooseFTPTrigger.png
-[7]: ./media/app-service-logic-connector-FTP/BasicInputsFTPTrigger.png
-[8]: ./media/app-service-logic-connector-FTP/AdvancedInputsFTPTrigger.png
-[9]: ./media/app-service-logic-connector-FTP/ConfiguredFTPTrigger.png
-[10]: ./media/app-service-logic-connector-FTP/ListOfFTPActions.png
-[11]: ./media/app-service-logic-connector-FTP/BasicInputsUploadFile.png
-[12]: ./media/app-service-logic-connector-FTP/AdvancedInputsUploadFile.png
-[13]: ./media/app-service-logic-connector-FTP/ConfiguredUploadFile.png
+[1]: ./media/app-service-logic-connector-FTP/LaunchAzureMarketplace.PNG
+[2]: ./media/app-service-logic-connector-FTP/SelectFTPConnector.PNG
+[3]: ./media/app-service-logic-connector-FTP/CreateFTPConnector.PNG
+[4]: ./media/app-service-logic-connector-FTP/CreateLogicApp.PNG
+[5]: ./media/app-service-logic-connector-FTP/LogicAppEmptyFlowDesigner.PNG
+[6]: ./media/app-service-logic-connector-FTP/ChooseFTPTrigger.PNG
+[7]: ./media/app-service-logic-connector-FTP/BasicInputsFTPTrigger.PNG
+[8]: ./media/app-service-logic-connector-FTP/AdvancedInputsFTPTrigger.PNG
+[9]: ./media/app-service-logic-connector-FTP/ConfiguredFTPTrigger.PNG
+[10]: ./media/app-service-logic-connector-FTP/ListOfFTPActions.PNG
+[11]: ./media/app-service-logic-connector-FTP/BasicInputsUploadFile.PNG
+[12]: ./media/app-service-logic-connector-FTP/AdvancedInputsUploadFile.PNG
+[13]: ./media/app-service-logic-connector-FTP/ConfiguredUploadFile.PNG
