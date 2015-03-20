@@ -21,7 +21,7 @@
 
 # Create and deploy an ASP.NET MVC app with authentication and SQL DB to Azure App Service
 
-This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Azure App Service.
+This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Azure for free.
 
@@ -29,7 +29,7 @@ This tutorial assumes that you have no prior experience using Azure. On completi
 
 You'll learn:
 
-* How to create a secure ASP.NET MVC 5 project and publish it to Web Apps in Azure App Service.
+* How to create a secure ASP.NET MVC 5 project and publish it to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) in Azure App Service.
 * How to use [OAuth](http://oauth.net/ "http://oauth.net/") and the ASP.NET membership database to secure your application.
 * How to use a SQL database to store data in Azure.
 
@@ -580,7 +580,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/library
 
 	![stop web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/s1.png) 
 
-	Alternatively, from the Azure management portal, you can select the web app, then click the **stop** icon at the bottom of the page.
+	Alternatively, from the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), you can select the web app, then click the **stop** icon at the bottom of the page.
 
 	![stop web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
 
@@ -714,6 +714,10 @@ This tutorial and the sample application was written by [Rick Anderson](http://b
 
 ***Please leave feedback*** on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. You can also request and vote on new topics at [Show Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
 [Using the Membership API]:#mbrDB
@@ -771,27 +775,3 @@ This tutorial and the sample application was written by [Rick Anderson](http://b
 [Next steps]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
