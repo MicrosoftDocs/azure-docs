@@ -99,13 +99,15 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**.
 
-2. Search for **WindowsAzure.ServiceBus** and click **Install** for all projects in the solution.
+2. Search for **Microsoft.Azure.NotificationHubs** and click **Install** for all projects in the solution.
 
 3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
         using System;
         using System.Collections.Generic;
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.Mobile.Server;
+        using Microsoft.Azure.Mobile.Server.Config;
+        using Microsoft.Azure.NotificationHubs;
 
 4. Update the `PostTodoItem` method definition with the following code:  
 
@@ -124,11 +126,11 @@ Now that push notifications are enabled in the app, you must update your app bac
 
             try
             {
-                var result = await Hub.Push.SendWindowsNativeNotificationAsync(windowsToastPayload);
+                var result = await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
             }
             catch (System.Exception ex)
             {
-                throw;
+                throw ex;
             }
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
@@ -152,7 +154,8 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 3. Open the App.xaml.cs project file and add the following `using` statements:
 
-        using Microsoft.AzureAppServiceMobile;
+        using Windows.Networking.PushNotifications;
+        using Microsoft.WindowsAzure.MobileServices;
 
     In a universal project, this file is located in the `<project_name>.Shared` folder.
 
