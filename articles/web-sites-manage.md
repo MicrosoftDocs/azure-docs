@@ -19,7 +19,7 @@
 
 # Manage web apps through the Azure Portal
 
-In the Azure Portal, you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](app-service-web-app-azure-portal.md) changes guide.) 
+In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](app-service-web-app-azure-portal.md) changes guide.) 
 
 To view the blade for your web app, click **Home** and then the app name, or click **Browse** to see all of your Azure resources.
 
@@ -33,7 +33,7 @@ The top part of the blade has controls for some common actions:
 
 - Other buttons start or stop the app, swap deployment slots, delete the app, and so forth.
 
-**Essentials** lists basic information about the app, including URL, location, App Service plan, and current status (running, stopped, etc).
+**Essentials** lists basic information about the app, including URL, location, [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan, and current status (running, stopped, etc).
 
 Below **Essentials** are various parts that you can use to monitor, manage, and deploy your app. To customize the layout of blade, right click and select **Customize** or **Add Parts**. The rest of this topic describes the parts in the default layout.
 
@@ -92,3 +92,7 @@ The following screen shot shows the console.
 - [Run Background tasks with WebJobs](web-sites-create-web-jobs.md)
 - [Azure Web Apps backups](web-sites-backup.md) and [restore](web-sites-restore.md)
 - [Monitoring basics for Web Apps in Azure App Service](web-sites-monitor.md)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
