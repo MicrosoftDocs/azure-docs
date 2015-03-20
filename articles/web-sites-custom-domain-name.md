@@ -39,7 +39,7 @@ When you create a web app, Azure assigns it to a subdomain of azurewebsites.net.
 
 <!--todo:![contoso.azurewebsites.net subdomain][subdomain]-->
 
-For a production web app, you probably want users to see a custom domain name. This article explains how to configure a custom domain with App Service Web Apps. (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
+For a production web app, you probably want users to see a custom domain name. This article explains how to configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -60,7 +60,7 @@ Here are the general steps to configure a custom domain name:
 
 1. Reserve your domain name. This article does not cover that process. There are many domain registrars to choose from. When you sign up, their site will walk you through the process.
 1. Create DNS records that map the domain to your Azure web app.
-1. Add the domain name inside the Azure Portal.
+1. Add the domain name inside the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 Within this basic outline, there are specific cases to consider:
 
@@ -144,6 +144,9 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview
