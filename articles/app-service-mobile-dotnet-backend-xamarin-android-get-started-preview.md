@@ -10,7 +10,7 @@
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="11/11/2014"
