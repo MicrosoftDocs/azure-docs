@@ -25,7 +25,7 @@
 	<a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
 <!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
     <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
+	<a href="partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to both iOS and Android apps developed through Appcelerator Titanium Studio. In this tutorial you add push notifications using the Apple Push Notification service (APNS) and Google Cloud Messaging to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.

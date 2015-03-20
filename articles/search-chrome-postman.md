@@ -24,7 +24,7 @@
  
 ## Requirements ##
 
-You must have an Azure Search service. As with any custom application that uses Azure Search, you will need the URL to your service, plus an admin `api-key` so that you can create the index. For instructions on how to get the values for your Search service, see [Getting Started with Azure Search](../search-get-started/).
+You must have an Azure Search service. As with any custom application that uses Azure Search, you will need the URL to your service, plus an admin `api-key` so that you can create the index. For instructions on how to get the values for your Search service, see [Getting Started with Azure Search](search-get-started.md).
 
 ## Install Postman ##
 To download Postman, visit the [Google Chrome Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). The link from this page allows you to download and install the REST client for Postman. Once installed, you can launch Postman from the Chrome App Launcher.

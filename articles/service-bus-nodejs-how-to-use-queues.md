@@ -202,19 +202,19 @@ processed using **receiveQueueMessage**. The example first receives and
 deletes a message, and then receives a message using **isPeekLock** set
 to true, then deletes the message using **deleteMessage**:
 
-    serviceBusService.receiveQueueMessage('taskqueue', function(error, receivedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
         if(!error){
             // Message received and deleted
         }
     });
-    serviceBusService.receiveQueueMessage(queueName, { isPeekLock: true }, function(error, lockedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
         if(!error){
             // Message received and locked
             serviceBusService.deleteMessage(lockedMessage, function (deleteError){
                 if(!deleteError){
                     // Message deleted
                 }
-            }
+            });
         }
     });
 
@@ -272,7 +272,7 @@ links to learn more.
   
   
   
-  [Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
   [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png

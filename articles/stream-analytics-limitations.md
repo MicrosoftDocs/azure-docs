@@ -133,11 +133,11 @@ Stream Analytics does not trim whitespace on column headers. Including whitespac
 <!--Link references-->
 
 [stream.analytics.documentation]: http://go.microsoft.com/fwlink/?LinkId=512093
-[stream.analytics.scale.jobs]: ../stream-analytics-scale-jobs/
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.introduction]: ../stream-analytics-introduction/
-[stream.analytics.get.started]: ../stream-analytics-get-started/
-[stream.analytics.limitations]: ../stream-analytics-limitations/
+[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
+[stream.analytics.introduction]: stream-analytics-introduction.md
+[stream.analytics.get.started]: stream-analytics-get-started.md
+[stream.analytics.limitations]: stream-analytics-limitations.md
 
 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
@@ -147,6 +147,6 @@ Stream Analytics does not trim whitespace on column headers. Including whitespac
 [microsoft.support]: http://support.microsoft.com/
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

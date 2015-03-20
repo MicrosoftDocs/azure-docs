@@ -258,8 +258,8 @@ After following these steps, only requests for URLs that contain the string **he
 
 Now that you understand how to authenticate using an SSH key, learn how to use MapReduce with Hadoop on HDInsight.
 
-* [Use Hive with HDInsight](../hdinsight-use-hive/)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with HDInsight](../hdinsight-use-pig/)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce jobs with HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
