@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" 
 	description="Find out how to use Microsoft Azure DocumentDB to write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." 
 	services="documentdb" 
@@ -20,7 +20,11 @@
 
 Learn how DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write application logic that can be shipped and executed directly on the database storage partitions 
 
-By reading this article, you'll be able to answer the following questions:
+We recommend getting started by watching the following video, where Andrew Liu provides a brief introduction to DocumentDB's server-side programming model. 
+
+> [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
+
+Then, return to this article, where you'll learn the answers to the following questions:  
 
 - How do I write a a stored procedure, trigger, or UDF using JavaScript?
 - How does DocumentDB guarantee ACID?
