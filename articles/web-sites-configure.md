@@ -45,7 +45,7 @@ For technical reasons, enabling Java for your website disables the .NET, PHP, an
 
 <strong>Platform</strong>. Selects whether your application runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
 
-<strong>Web Sockets</strong>. Set **ON** to enable the WebSocket protocol; for example, if your website uses [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/).
+<strong>Web Sockets</strong>. Set **ON** to enable the WebSocket protocol; for example, if your website uses [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](web-sites-nodejs-chat-app-socketio.md).
 
 <strong>Always On</strong>. By default, websites are unloaded if they are idle for some period of time. This lets the system conserve resources. In Basic or Standard mode, you can enable <strong>Always On</strong> to keep the site loaded all the time. If your site runs continuous web jobs, you should enable **Always On**, or the web jobs may not run reliably
 
@@ -56,17 +56,17 @@ Note: If you enable deployment from source control, it is possible for a deploym
 
 ### Certificates
 
-In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/documentation/articles/web-sites-configure-ssl-certificate/). 
+In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for an Azure website](web-sites-configure-ssl-certificate.md). 
 
 Your uploaded certificates are listed here. After you upload a certificate, you can assign it to any website in your subscription and region. Wildcard certificates can be used for any site within the domain for which it is valid. A certificate can be deleted only if there are no active bindings for that certificate.
 
 ### Domain names
 
-View or add additional domain names for the website. For more information, see [Configuring a custom domain name for an Azure website](http://www.windowsazure.com/documentation/articles/web-sites-custom-domain-name/).
+View or add additional domain names for the website. For more information, see [Configuring a custom domain name for an Azure website](web-sites-custom-domain-name.md).
 
 ### SSL Bindings
 
-If you uploaded SSL certificates, you can bind them to custom domain names. For more information, see [Enable HTTPS for an Azure website](http://www.windowsazure.com/documentation/articles/web-sites-configure-ssl-certificate/)
+If you uploaded SSL certificates, you can bind them to custom domain names. For more information, see [Enable HTTPS for an Azure website](web-sites-configure-ssl-certificate.md)
 
 ### Deployments
 
@@ -195,8 +195,8 @@ Alternatively, you can create the website with the **Custom Create** option. In 
 
 ##<a name="next"></a> Next steps
 
-- [Configure a custom domain name](http://www.windowsazure.com/documentation/articles/web-sites-custom-domain-name/)
-- [Enable HTTPS](http://www.windowsazure.com/documentation/articles/web-sites-configure-ssl-certificate/)
-- [How to Scale Web Sites](http://www.windowsazure.com/documentation/articles/web-sites-scale/)
-- [How to Monitor Web Sites](http://www.windowsazure.com/documentation/articles/web-sites-monitor/)
+- [Configure a custom domain name](web-sites-custom-domain-name.md)
+- [Enable HTTPS](web-sites-configure-ssl-certificate.md)
+- [How to Scale Web Sites](web-sites-scale.md)
+- [How to Monitor Web Sites](web-sites-monitor.md)
 

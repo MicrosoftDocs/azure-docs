@@ -18,7 +18,7 @@
 
 #How to Integrate Engagement Reach on Windows
 
-You must follow the integration procedure described in the [How to Integrate Engagement on Windows](../mobile-engagement-windows-store-integrate-engagement/) document before following this guide.
+You must follow the integration procedure described in the [How to Integrate Engagement on Windows](mobile-engagement-windows-store-integrate-engagement.md) document before following this guide.
 
 ##Embed the Engagement Reach SDK into your Windows project
 

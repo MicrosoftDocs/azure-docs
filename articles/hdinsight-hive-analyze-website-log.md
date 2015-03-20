@@ -51,7 +51,7 @@ In this sample you will use an HDInsight cluster to analyze website log files to
 Try the sample on how to analyze sensor data using Azure HDInsight. See [Analyzing sensor data using Hive with HDInsight][hdinsight-sensor-data-sample].
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png

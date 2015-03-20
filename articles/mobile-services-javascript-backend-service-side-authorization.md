@@ -17,8 +17,8 @@
 # Service-side Authorization of Users in Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Any | Javascript)](/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 This topic shows you how to use server-side scripts to authorize users. In this tutorial, you register scripts with Azure Mobile Services, filter queries based on user IDs, and give users access to only their own data.
 

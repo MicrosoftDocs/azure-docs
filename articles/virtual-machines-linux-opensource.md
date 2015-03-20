@@ -291,5 +291,5 @@ This section starts with a blog entry containing a series of videos on [Video: A
 [Support, Troubleshooting, and "It Just Doesn't Work"]: #supportdebug
 
 <!--Link references--In actual articles, you only need a single period before the slash.>
-[How to use docker-machine on Azure]: ../virtual-machines-docker-machine/
-[How to use docker with swarm on Azure]: ../virtual-machines-docker-swarm/
+[How to use docker-machine on Azure]: virtual-machines-docker-machine.md
+[How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md

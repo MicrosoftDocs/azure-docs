@@ -19,7 +19,7 @@
 
 #How to: Get a Media Processor Instance
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
 
 ##Overview
 
@@ -74,9 +74,9 @@ The following table provides the name and description of each available media pr
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](../media-services-rest-how-to-use).
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect_programmatically.md). 
 
 
 
@@ -117,6 +117,6 @@ Response:
 ##Next Steps
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset][] topic which will show you how to use the Azure Media Encoder to encode an asset.
 
-[How to Encode an Asset]: ../media-services-rest-encode-asset/
+[How to Encode an Asset]: media-services-rest-encode-asset.md
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/

@@ -46,7 +46,7 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
-This configuration requires a test subnet of up to four computers connected directly to the Internet using a public IP address. If you don't have these resources, you can also [Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/). The simulated hybrid cloud test environment requires only an Azure subscription.
+This configuration requires a test subnet of up to four computers connected directly to the Internet using a public IP address. If you don't have these resources, you can also [Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). The simulated hybrid cloud test environment requires only an Azure subscription.
 
 ## Phase 1: Configure the computers on the Corpnet subnet
 
@@ -126,7 +126,7 @@ First, log on to the [Azure Management Portal](https://manage.windowsazure.com/)
 	- Click **Add Gateway Subnet**.
 11.	Click the Complete icon. Wait until the virtual network is created before continuing.
 
-Next, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell/) to install Azure PowerShell on your local computer.
+Next, use the instructions in [How to install and configure Azure PowerShell](install-configure-powershell.md) to install Azure PowerShell on your local computer.
 
 Next, create a new cloud service for the TestVNET virtual network. You must pick a unique name. For example, you could name it TestVNET-*UniqueSequence*, in which *UniqueSequence* is an abbreviation of your organization. For example, if your organization is named Tailspin Toys, you could name the cloud service TestVNET-Tailspin.
 
@@ -289,17 +289,17 @@ Your hybrid cloud environment is now ready for testing.
 
 ## Additional Resources
 
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 ## Minimizing the ongoing costs of this environment
 
-To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the Test_VNET virtual network at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples/). 
+To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the Test_VNET virtual network at the end of each business day. For more information, see [Get started with Azure Automation](automation-create-runbook-from-samples.md). 
 
 The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
 

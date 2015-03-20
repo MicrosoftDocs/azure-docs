@@ -299,14 +299,14 @@ In this tutorial, you have learned how to use Stream Analytics to process weathe
 [sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
 [event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
 [azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.sdk.net]: ../dotnet-sdk/
+[azure.sdk.net]: dotnet-sdk.md
 
-[stream.analytics.introduction]: ../stream-analytics-introduction/
-[stream.analytics.limitations]: ../stream-analytics-limitations/
-[stream.analytics.scale]: ../stream-analytics-scale-jobs/
+[stream.analytics.introduction]: stream-analytics-introduction.md
+[stream.analytics.limitations]: stream-analytics-limitations.md
+[stream.analytics.scale]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.documentation]: http://go.microsoft.com/fwlink/?LinkId=512093
 
 

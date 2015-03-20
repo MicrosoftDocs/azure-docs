@@ -17,7 +17,7 @@
 
 # Using Elastic Scale with Dapper 
 
-This document is for developers that rely on Dapper to build applications, but also want to embrace [Azure SQL Database Elastic Scale](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-introduction/) to elastically grow and shrink capacity through sharding and scale-out for their applications. This document illustrates the changes in Dapper-based applications that are necessary to integrate with the current Elastic Scale capabilities. Our focus is on composing Elastic Scale shard management and data dependent routing with Dapper. 
+This document is for developers that rely on Dapper to build applications, but also want to embrace [Azure SQL Database Elastic Scale](sql-database-elastic-scale-introduction.md) to elastically grow and shrink capacity through sharding and scale-out for their applications. This document illustrates the changes in Dapper-based applications that are necessary to integrate with the current Elastic Scale capabilities. Our focus is on composing Elastic Scale shard management and data dependent routing with Dapper. 
 
 **Sample Code**: [Elastic Scale with Azure SQL Database - Dapper Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
  
