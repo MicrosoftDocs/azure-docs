@@ -21,9 +21,9 @@
 
 ## Overview
 
-You can run programs or scripts in WebJobs in your Azure App Service web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
+You can run programs or scripts in WebJobs in your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
-This article shows how to deploy WebJobs by using the [Azure Portal](http://portal.azure.com). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
+This article shows how to deploy WebJobs by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
@@ -173,6 +173,10 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [ol
 ## <a name="NextSteps"></a>Next Steps
  
 For more information, see [Azure WebJobs Recommended Resources][WebJobsRecommendedResources].
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
