@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="List of Connectors and API Apps | Azure" 
-	description="Read about the Connectors and API Apps in Azure App Service" 
+	description="Read about the Connectors and API Apps in Azure App Service; microservices architecture" 
 	services="app-service" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="" 
+	ms.service="app-service-logic" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -19,7 +19,7 @@
 
 # Connectors and API Apps List in Microsoft Azure App Service
 
-The following table lists the available connectors and API Apps created by Microsoft: 
+The following table lists all the available connectors and API Apps created by Microsoft, in alphabetical order: 
 
 	Name  | Description
 ------------- | ------------- 

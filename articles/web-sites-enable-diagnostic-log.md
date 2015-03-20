@@ -20,13 +20,13 @@
 
 ## Overview
 
-Azure provides built-in diagnostics to assist with debugging a web app hosted in an Azure App Service. In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+Azure provides built-in diagnostics to assist with debugging a web app hosted in an [App Service](http://go.microsoft.com/fwlink/?LinkId=529714). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-> [AZURE.NOTE] This article uses the Azure Management Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
+> [AZURE.NOTE] This article uses the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
 
 ## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
 
-Azure web apps provide diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
+[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) provide diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
 
 ### Web server diagnostics
 
@@ -317,3 +317,6 @@ The web server logs are formatted using the [W3C extended log file format](http:
 - [Troubleshooting Azure Web Apps in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

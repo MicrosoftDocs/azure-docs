@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to use Visual Studio tools that help debug a web app while it runs in Azure App Service, by running in [debug mode](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools that help debug a web app while it runs in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
 
 You'll learn:
 
@@ -45,7 +45,7 @@ The streaming logs feature only works for applications that target .NET Framewor
 
 <h2><a name="sitemanagement"></a>Web app configuration and management</h2>
 
-Visual Studio provides access to a subset of the web app management functions and configuration settings available in the management portal. In this section you'll see what's available.
+Visual Studio provides access to a subset of the web app management functions and configuration settings available in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). In this section you'll see what's available.
 
 1. If you aren't already signed in to Azure in Visual Studio, click the **Connect to Azure** button in **Server Explorer**.
 
@@ -772,6 +772,9 @@ The Microsoft TechNet website includes a [Using Failed Request Tracing](http://w
 
 If you want to debug an Azure Cloud Service rather than a web app, see [Debugging Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx).
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
 [GetStarted]: ../web-sites-dotnet-get-started/
 [GetStartedWJ]: ../websites-dotnet-webjobs-sdk/
-

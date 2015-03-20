@@ -20,7 +20,7 @@
 
 This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider. 
 
-1. Log on to the [Preview Azure Management Portal], and navigate to your App Services gateway.
+1. Log on to the [Preview Azure Management Portal], and navigate to your App Service gateway.
 
 2. Under **Settings**, choose **Identity**, and then select **Azure Active Directory**. Copy the **APP URL**.
 
@@ -42,7 +42,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
     ![][3]
 
-9. Then copy the **Client ID** for the app.
+9. Click **Save**. Then copy the **Client ID** for the app.
 
 10. Return to the new management portal and the **User Authentication** blade for your gateway. Paste in the **Client ID** setting for the Azure Active Directory identity provider.
   

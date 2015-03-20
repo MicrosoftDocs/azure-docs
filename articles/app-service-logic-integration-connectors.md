@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="BizTalk Integration API Apps in Microsoft Azure App Service | Azure" 
-	description="Learn how to create the BizTalk integration API App and add the API App to your App; microservices" 
+	description="Learn how to create the BizTalk integration API Apps and add the API Apps; microservices architecture" 
 	services="app-service-logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -19,10 +19,10 @@
 # BizTalk Integration API Apps in Microsoft Azure App Service
 
 
-## What is an Integration API App
+## What are Integration API Apps
 BizTalk Integration API Apps are existing, pre-built API Apps that can do data processing and produce an output. For example, some of these API Apps allow different file formats to work together and some apply business logic or application logic. The Integration API Apps include: 
 
-API App | Description
+API Apps | Description
 --- | ---
 <ul><li>X12 API App</li><li>AS2 Connector</li><li>EDIFACT API App</li><li>Trading Partner Management API App</li> | These API Apps provide Business-to-Business abilities. [Business-to-Business Connectors](app-service-logic-b2b-connectors.md) provides more details on these API Apps.
 BizTalk Flat File Encoder | Makes flat file data (like Excel, csv) and XML data work together (interoperability). It can convert a  flat file instance to XML and vice versa.
@@ -46,21 +46,21 @@ You can also expand on that business policy. Let's say you have a goal to increa
 You can do this using these API Apps and without writing any code. Let's get started. 
 
 
-## Create an API App
+## Create the API Apps
 
-An integration API App can be created using the Azure portal or using REST APIs. 
+Integration API Apps can be created using the Azure portal or using REST APIs. 
 
-### Create an API App using REST APIs
-**INSERT LINK**
+### Create API Apps using REST APIs
+http://go.microsoft.com/fwlink/p/?LinkId=529766
 
 
-### Create an Integration API App in the Azure Portal
+### Create Integration API Apps in the Azure Portal
 
-In the Azure portal, you can create an Integration API App when creating a Logic App, Web App, or Mobile App. Or, you can create one using its own blade. Both ways are easy so it depends on your needs or preferences. Some users prefer to create all the Integration API Apps with their specific properties first. Then, create the Logic App/Web App/Mobile App, and add the integration API Apps you created.  
+In the Azure portal, you can create Integration API Apps when creating Logic Apps, Web Apps, or Mobile Apps. Or, you can create one using its own blade. Both ways are easy so it depends on your needs or preferences. Some users prefer to create all the Integration API Apps with their specific properties first. Then, create the Logic, Web, or Mobile Apps, and add the integration API Apps you created.  
 
-The following steps create an integration API App using the API Apps blade:
+The following steps create integration API Apps using the API Apps blade:
 
-1. In the Azure portal Startboard (the Home page), select **Marketplace**. **Web + mobile** lists all the existing API Apps and connectors. You can also **Search** for a specific integration API App.
+1. In the Azure portal Startboard (the Home page), select **Marketplace**. **API Apps** lists all the existing API Apps and connectors. You can also **Search** for a specific integration API App.
 2. Select the API App. In the new blade, select **Create**. 
 3. Enter the properties: 
 
@@ -72,25 +72,25 @@ Pricing Tier | Read-only property that lists the pricing category within your Az
 Resource Group | Create a new one or use an existing group. [Using resource groups](../azure-preview-portal-using-resource-groups) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
-Add to Startboard | Select this to add the integration API App to your Starboard (the home page).
+Add to Startboard | Select this to add the integration API Apps to your Starboard (the home page).
 
 
-## <a name="AddAPIApp"></a>Add the API App to your application 
-Microsoft Azure App Service (or App Service for short) exposes different application types that can use these integration API Apps. You can create a new or add your existing integration API Apps to a Logic App, Mobile App, or a Web App. 
+## <a name="AddAPIApp"></a>Add the API Apps to your application 
+Microsoft Azure App Service (or App Service for short) exposes different application types that can use these integration API Apps. You can create a new or add your existing integration API Apps to Logic Apps, Mobile Apps, or a Web Apps. 
 
-Within your App, simply selecting your integration API App from the Gallery automatically adds it to your App.
+Within your App, simply selecting your integration API Apps from the Gallery automatically adds it to your App.
 
-The following steps add an integration API App to a Logic App, Mobile App, or Web App: 
+The following steps add integration API Apps to Logic Apps, Mobile Apps, or Web Apps: 
 
-1. In the Azure portal Startboard (home page), go to the **Marketplace**, and search for your  Logic, Mobile, or Web App. 
+1. In the Azure portal Startboard (home page), go to the **Marketplace**, and search for your  Logic, Mobile, or Web Apps. 
 
-	If you are creating a new App, search for Logic App, Mobile App, or Web App. Select the App and in the new blade, select **Create**. [Create a Logic App](app-service-logic-create-a-logic-app.md) lists the steps. 
+	If you are creating a new App, search for Logic Apps, Mobile Apps, or Web Apps. Select the App and in the new blade, select **Create**. [Create a Logic App](app-service-logic-create-a-logic-app.md) lists the steps. 
 
 2. Open your App and select **Triggers and Actions**. 
 
 3. From the **Gallery**, select the integration API App, which automatically adds it to your App. 
 
-4. Configure the integration API App:
+4. Configure the integration API Apps:
 
 	API App | Tasks
 --- | ---
@@ -100,12 +100,12 @@ BizTalk Rules | Add your vocabularies and create your If THEN rules. See [Use Bi
 BizTalk Transform | Enter an input XML schema and an output XML schema. Use the built-in functions to manipulate the incoming message or data to match your output XML schema. See [Transform XML documents](app-service-logic-transform-xml-documents.md). 
 BizTalk XML Validator | Enter the XML to validate against a predefined XML schema. You can use   schemas based on a flat file instances, JSON instances, or existing connectors. 
 BizTalk XPath Extractor | Lookup and extract data from XML content based on a specific XPath.
-Wait |  Enter a time duration or a specific time to execute the Web App, Mobile App, or Logic App.
+Wait |  Enter a time duration or a specific time to execute the Web Apps, Mobile Apps, or Logic Apps.
 
 5. Select **OK** to save your changes.
 
 
-## More Integration API App resources
+## More Integration API Apps resources
 
 [Create an EAI Logic App using VETR](app-service-logic-create-EAI-logic-app-using-VETR.md)
 [Transform XML documents](app-service-logic-transform-xml-documents.md)
