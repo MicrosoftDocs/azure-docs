@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
 Microsoft Azure DocumentDB supports querying documents using SQL (Structured Query Language) over hierarchical JSON documents. DocumentDB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
+
 While designing the query language for DocumentDB we had two goals in mind:
 
 -	<strong>Embrace SQL</strong> – Instead of inventing a new query language, we wanted to embrace the SQL language. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL query language provides a formal programming model for rich queries over JSON documents.
@@ -25,9 +26,11 @@ While designing the query language for DocumentDB we had two goals in mind:
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
-To learn more about the DocumentDB query language capabilities and grammar, watch the following video, or complete the tutorial that follows in this article. 
+We recommend getting started by watching the following video, where Aravind Ramachandran shows DocumentDB's querying capabilities, and by visiting our [Query Playground](http://www.documentdb.com/sql/demo), where you can try out DocumentDB and run SQL queries against our dataset.
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
+
+Then, return to this article, where we'll start by walking through some simple JSON documents and queries.
 
 ## Getting Started
 To see DocumentDB SQL at work, let's begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with DocumentDB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a DocumentDB collection and subsequently query. 
