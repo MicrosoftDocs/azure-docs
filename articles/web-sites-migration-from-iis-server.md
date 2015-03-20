@@ -19,7 +19,7 @@
 
 # Migrate an enterprise web app to App Service using the Migration Assistant
 
-You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to Web Apps in Azure App Service. [Web Apps Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
+You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). [Web Apps Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
 
 >[AZURE.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web Apps is a low-risk, low-cost, and low-friction way to keep your websites online, and Web Apps Migration Assistant can help automate the migration process for you. 
 
@@ -119,8 +119,12 @@ This section steps through an example to to migrate a few websites that use a SQ
  
 20.	Click the links to the Azure web apps and verify that the migration has succeeded.
 
-21. You can now manage the migrated web apps in Azure App Service. To do this, log into the [Azure Portal](https://portal.azure.com).
+21. You can now manage the migrated web apps in Azure App Service. To do this, log into the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 22. In the Azure Portal, open the Web Apps blade to see your migrated websites (shown as web apps), then click on any one of them to start managing the web app, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.
 
 	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
