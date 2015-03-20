@@ -30,11 +30,11 @@ The Web Apps Restore feature, available on the **Backups** blade in the Azure po
 
 1. On the **Settings** blade of your web app in the Azure portal, click the **Backups** option to display the **Backups** blade. Scroll in this blade and select one of the backup item based on the **BACKUP TIME** and the **STATUS** from the backup list.
 	
-	<!--todo: ![Choose backup source][ChooseBackupSource] -->
+	![Choose backup source][ChooseBackupSource]
 	
 2. Select **Restore Now** at the top of the **Backups** blade. 
 
-	<!--todo: ![Choose restore now][ChooseRestoreNow]  -->
+	![Choose restore now][ChooseRestoreNow]
 
 3. In the **Restore** blade, to restore the existing web app, verify all the displayed details and then click **OK**. 
 
@@ -54,6 +54,8 @@ You can also restore your web app to a new web app by selecting the **WEB APP** 
 3. Select the **Containers** part in the **STORAGE** blade to display the **Containers** blade.
 
 	A list of containers will be displayed. This list will also show the URL and the date of when this container was last modified.
+
+	![View Containers][ViewContainers]
 
 4. In the list, select the container and display the blade that shows a list of file names, along with the size of each file.
 
@@ -75,6 +77,8 @@ The details blade will display the available information related to the operatio
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
 [StorageAccountFileSelected]: ./media/web-sites-restore/04StorageAccountFileSelected.png
