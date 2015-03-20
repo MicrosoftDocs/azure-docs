@@ -3,7 +3,7 @@
 	description="Describes what happened in your Azure Mobile Services .NET project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="patshea" 
 	manager="douge" 
 	editor=""/>
 
@@ -15,6 +15,8 @@
 	ms.topic="article" 
 	ms.date="02/02/2015" 
 	ms.author="patshea"/>
+
+# What happened to my project?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
