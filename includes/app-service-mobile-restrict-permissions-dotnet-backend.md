@@ -10,7 +10,7 @@ By default, all requests to App Service Mobile App resources are restricted to c
 
 3. Add the following `using` statement at the top of the code page:
 
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
+		using Microsoft.Azure.Mobile.Server.Security;
 
 4. Apply the following AuthorizeLevel attribute to the **TodoItemController** class:
 
