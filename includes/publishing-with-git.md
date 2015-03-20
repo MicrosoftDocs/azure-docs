@@ -1,6 +1,6 @@
 # Using Git to deploy Web Apps in Azure App Service
 
-Azure App Service supports continuous deployment to Web Apps from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your application, and then quickly and easily push changes to your Azure web app when you want.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) supports continuous deployment to Web Apps from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your application, and then quickly and easily push changes to your Azure web app when you want.
 
 In this article, you will learn how to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository sites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
 
@@ -58,7 +58,7 @@ Web Apps supports applications created in a variety of programming languages. Fo
 
 <h2><a id="Step4"></a>Enable the web app repository</h2>
 
-Perform the following steps to enable a Git repository for your web app by using the Azure portal:
+Perform the following steps to enable a Git repository for your web app by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715):
 
 1. Log in to the [Azure portal].
 
@@ -270,6 +270,10 @@ The following are errors or problems commonly encountered when using Git to publ
 * [How to use the Azure Command-Line Tools for Mac and Linux]
 * [Git Documentation]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Azure portal]: https://portal.azure.com
