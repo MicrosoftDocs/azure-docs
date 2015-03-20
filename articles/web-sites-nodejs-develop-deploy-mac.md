@@ -31,7 +31,7 @@ Follow these steps to create a web app and enable Git publishing.
 > [AZURE.NOTE]
 > To complete this tutorial, you need an Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 
-1. Log in to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
+1. Log in to the [Azure Portal](https://portal.azure.com).
 
 2. Click the **+ NEW** icon on the bottom left of the portal
    
