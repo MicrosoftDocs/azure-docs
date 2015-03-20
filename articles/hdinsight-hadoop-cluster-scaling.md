@@ -140,4 +140,4 @@ Here is some sample code that shows how to use the synchronous version of this m
 	}
 
 
-Please refer to the [Provision Hadoop clusters in HDInsight using custom options](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/) topic for more information on using HDInsight .NET SDK.
+Please refer to the [Provision Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md) topic for more information on using HDInsight .NET SDK.

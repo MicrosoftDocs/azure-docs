@@ -230,12 +230,12 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 ##Summary
 
-In this document, you have learned how to use a .NET application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](../hdinsight-python)
+In this document, you have learned how to use a .NET application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](hdinsight-python.md)
 
 For other ways to use Pig, Hive, and to learn about using MapReduce, see the following.
 
-* [Use Hive with HDInsight](../hdinsight-use-hive)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with HDInsight](../hdinsight-use-pig)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with HDInsight](../hdinsight-use-mapreduce)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)

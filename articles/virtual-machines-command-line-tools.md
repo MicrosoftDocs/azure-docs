@@ -20,7 +20,7 @@
 
 This tool provides functionality for creating, deploying, and managing virtual machines, websites, Azure Mobile Services, and many other Azure services from Mac, Linux, and Windows desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
-For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](/documentation/articles/xplat-cli/).
+For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 

@@ -30,11 +30,11 @@ For this walk-through, create two Azure VMs running Ubuntu 14.04. I'll call them
 
 You also need an Azure Storage account and key to access it (you can get this from the Azure portal).
 
-If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](../virtual-machines-linux-tutorial/).
+If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md).
 
 Though the specific install commands will assume Ubuntu, you can adapt the general steps for any supported distro.
 
-The *script-vm* VM needs to have xplat-cli installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli/).
+The *script-vm* VM needs to have xplat-cli installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
 
 ## Uploading a script
 
@@ -104,4 +104,4 @@ Here are some additional resources for xplat-cli, Linux and the CustomScript ext
 
 [Azure Linux Extensions (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Linux and Open-Source Computing on Azure](../virtual-machines-linux-opensource/)
+[Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource.md)

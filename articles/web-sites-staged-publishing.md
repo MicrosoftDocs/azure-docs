@@ -70,7 +70,7 @@ The website must be running in the **Standard** hosting plan to enable multiple 
 	
 5. Click the site URL in the slot's blade. Notice the the deployment slot has its own hostname and is also a live site. To limit public access to the deployment slot, see [Azure Websites – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-There is no content. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](../web-sites-publish-source-control/).
+There is no content. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](web-sites-publish-source-control.md).
 
 <a name="AboutConfiguration"></a>
 ## Configuration for Deployment Slots ##
@@ -121,7 +121,7 @@ In the blade for a deployment slot, click **Delete** in the command bar.
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing Azure Websites deployment slots. 
 
-- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Windows Azure subscription, see [How to install and configure Windows Azure PowerShell](../install-configure-powershell/).  
+- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Windows Azure subscription, see [How to install and configure Windows Azure PowerShell](install-configure-powershell.md).  
 
 - To list the cmdlets available for Azure Websites in PowerShell, call `help AzureWebsite`. 
 
@@ -176,7 +176,7 @@ If a deployment slot is no longer needed, it can be deleted by using the **Remov
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides cross-platform commands for working with Azure, including support for managing deployment slots on Azure Websites. 
 
-- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli/). 
+- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md). 
 
 -  To list the commands available for Azure Websites in the xplat-cli, call `azure site -h`. 
 

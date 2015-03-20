@@ -49,7 +49,7 @@ The application is a simple "hello world" application:
 
 - Install the Azure SDK for Node.js: <a href="http://go.microsoft.com/fwlink/?LinkId=254279">Windows installer</a> 
 
-- Install and configure [Azure Powershell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+- Install and configure [Azure Powershell](install-configure-powershell.md).
 
 
 ## Create an Azure Cloud Service project
