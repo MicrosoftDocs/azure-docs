@@ -12,20 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="03/06/2015"
+   ms.date="03/20/2015"
    ms.author="tamram" />
 
 # Azure Storage Scalability and Performance Targets
 
 This topic describes the scalability and performance topics for Microsoft Azure Storage. For a summary of other Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/).
 
-With the introduction of new Premium Storage, Microsoft Azure now offers two types of durable storage: Premium Storage and Standard Storage. Premium Storage stores data on the latest technology Solid State Drives (SSDs) whereas Standard Storage stores data on Hard Disk Drives (HDDs).
+Microsoft Azure now offers two types of durable storage accounts: Premium Storage and Standard Storage. Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. For information on the scalability targets for Premium Storage, see [Scalability Targets for Premium Storage Accounts](./storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage).
 
-Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. For detailed information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898). For information on the scalability targets for Premium Storage, see [Scalability Targets for Premium Storage Accounts](#scalability-targets-for-premium-storage-accounts).
+> [AZURE.NOTE] All storage accounts run on the new flat network topology and support the scalability and performance targets outlined below, regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see the Azure Storage Team Blog.
 
->[AZURE.NOTE] All storage accounts run on the new flat network topology and support the scalability and performance targets outlined below, regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see the Azure Storage Team Blog.
-
->[AZURE.IMPORTANT] The scalability and performance targets listed here are high-end targets, but are achievable. In all cases, the request rate and bandwidth achieved by your storage account depends upon the size of objects stored, the access patterns utilized, and the type of workload your application performs. Be sure to test your service to determine whether its performance meets your requirements. If possible, avoid sudden spikes in the rate of traffic and ensure that traffic is well-distributed across partitions  
+> [AZURE.IMPORTANT] The scalability and performance targets listed here are high-end targets, but are achievable. In all cases, the request rate and bandwidth achieved by your storage account depends upon the size of objects stored, the access patterns utilized, and the type of workload your application performs. Be sure to test your service to determine whether its performance meets your requirements. If possible, avoid sudden spikes in the rate of traffic and ensure that traffic is well-distributed across partitions  
 When your application reaches the limit of what a partition can handle for your workload, Azure Storage will begin to return error code 503 (Server Busy) or error code 500 (Operation Timeout) responses. When this occurs, the application should use an exponential backoff policy for retries. The exponential backoff allows the load on the partition to decrease, and to ease out spikes in traffic to that partition.
 
 If the needs of your application exceed the scalability targets of a single storage account, you should build your application to use multiple storage accounts, and partition your data objects across those storage accounts. A single Azure subscription is allowed 100 storage accounts. See [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/) for information on volume pricing.
