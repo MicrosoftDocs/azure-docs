@@ -32,7 +32,7 @@ Completing this tutorial is a prerequisite for all other Azure Mobile Apps tutor
 
 ## Create a new mobile app backend
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
 ## Create a new Xamarin Android app
 
