@@ -23,7 +23,7 @@ Connectors are API Apps that allow you to connect to services that are running i
 
 Azure App Services provides several connectors out of the box to help you connect to services of your interest, while focusing your efforts on the actual business logic of your application. In addition, the platform is easily extensible by writing your own API apps to connect to your legacy applications.
 
-Some of the key features of BizTalk connectors are:
+Some of the key features of BizTalk connectors are :
 
 1. Handle OAuth security for connecting to popular SaaS services (Facebook, Twitter, Office 365, SalesForce)
 2. Connectivity to your on-premises assets via a Service Bus Relay.
