@@ -4,7 +4,7 @@
 
 ## Markdown for Azure.microsoft.com
 
-For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/) and our [markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
+For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/) and our [markdown cheatsheet](./media/documents/markdown-cheatsheet.pdf?raw=true). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
 
 Azure.microsoft.com supports [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) and [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). However, ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block.
 
@@ -180,7 +180,7 @@ The image above shows the rendering on azure.microsoft.com. On the rendered GitH
 
 Two-way selectors lets users select a topics from a 2 x n matrix. This is essential when an Azure technology, such as Mobile Services, supports multiple backend platforms as well as multiple clients. Keep in mind the following:
 
-- While it was designed as `(Platform | Backend)`, the dropwdown text can now be customized. 
+- While it was designed as `(Platform | Backend)`, the dropwdown text can now be customized.
 - You do not need a list item for every point in your matrix, but do only have an item where a topic URL exists and is not a duplicate.
 - The link can be any URL, although it is generally another GitHub topic.
 
