@@ -19,7 +19,7 @@ Follow the steps in the tutorial [Create a mobile app] to create both a mobile a
 
 In this section, you will create a new web app using a sample application. You will modify the sample to use the same database schema name and the same connection string as the mobile app.
 
-1. In the Azure Portal, create a new web app, using the same Resource Group and Hosting Plan as your mobile app.
+1. In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), create a new web app, using the same Resource Group and Hosting Plan as your mobile app.
 
 2. Download the sample project [MultiChannelToDo] and open in Visual Studio. 
 
@@ -54,6 +54,9 @@ Open a web browser and connect to your web app backend. You can change todo item
 
 In this sample we showed how to use the same underlying database for an app that has both a website and a mobile client. Here, we did not have any business logic in the backend that we wanted to reuse across the two clients, so it was sufficient to simply share the same database. In the next tutorial, you will learn how to add business logic to your website backend (using ASP.NET Web API) and reuse that logic in your mobile backend.
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Links -->
 
