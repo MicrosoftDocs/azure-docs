@@ -56,7 +56,7 @@ Now that you have created your mobile backend, you can follow an easy quickstart
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Run your new iOS app
+## Run the iOS app
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../includes/app-service-mobile-ios-run-app-preview.md)]
 
