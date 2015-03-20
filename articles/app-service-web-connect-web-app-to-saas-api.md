@@ -18,7 +18,7 @@
 
 # Create a business-to-employee multi-channel app
 
-This tutorial shows you how to consume an API App from an ASP.NET hosted in Azure App Service Web Apps.
+This tutorial shows you how to consume an API App from an ASP.NET hosted in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 ## Overview
 
@@ -37,7 +37,7 @@ This tutorial builds upon the series from the API App tutorials:
 
 ## Make the API app publicly accessible
 
-In the [Azure Portal](https://portal.azure.com), select the API App. Click on the **Settings** button in the command bar. Under the **Basic Settings** blade, change the **Access Level** to **Public (anonymous)**.
+In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the API App. Click on the **Settings** button in the command bar. Under the **Basic Settings** blade, change the **Access Level** to **Public (anonymous)**.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -95,3 +95,7 @@ In the [Azure Portal](https://portal.azure.com), select the API App. Click on th
 ## Deploy the web application to Web Apps in App Service
 
 Follow the instructions available at [How to Deploy an Azure web app](web-sites-deploy.md).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
