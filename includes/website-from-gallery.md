@@ -1,4 +1,4 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the Azure Portal. 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 In this tutorial, you'll learn:
 
@@ -15,7 +15,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 ## Create a web app in the portal
 
-1. Log in to the [Azure Portal](https://portal.azure.com).
+1. Log in to the Azure Portal.
 
 2. Click the **New** icon on the bottom left of the dashboard.
 	
