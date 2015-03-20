@@ -4,7 +4,7 @@ After testing the client app against the local mobile app, the final stage of th
 
 > [AZURE.NOTE] This procedure shows how to publish your mobile app backend by using Visual Studio tools. You can also publish your .NET backend by using source control.
 
-1. Go to your mobile app in the portal, and look for the **Related** section for a web app which will be named like **code-microsoft-mobile**. Click on that part and it will show the **web app** blade which contains a link at the top called **Get Publish Profile**. Click that link and save it somewhere to access later.
+1. Go to your mobile app in the portal, and look for the **Related** section for a web app which will be named like `<your app name>-code`. Click on that part and it will show the **web app** blade which contains a link at the top called **Get Publish Profile**. Click that link and save it somewhere to access later.
 
    <!--todo: new screenshot when web app labels replace website in Ibiza-->
    ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-profile.png)
