@@ -22,13 +22,6 @@
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
-This tutorial walks you through these basic steps to enable authentication in your app:
-
-1. [Register your app for authentication and configure the App Service]
-2. [Restrict table permissions to authenticated users]
-3. [Add authentication to the app]
-4. [Store authentication tokens on the client]
-
 This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Get started with your mobile app]. 
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
