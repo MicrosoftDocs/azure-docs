@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="03/20/2015"
    ms.author="larryfr"/>
 
-##Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X (Preview)
+#Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X (Preview)
 
 Linux-based HDInsight clusters provide the option of securing SSH access using either a password or an SSH key. This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients.
 
@@ -30,7 +30,7 @@ Linux-based HDInsight clusters provide the option of securing SSH access using e
 
 OR
 
-* Azure Cross-Platform Command-line Tools
+* <a href="../xplat-cli/" target="_blank">Azure Cross-Platform Command-line Tools</a>
 
 ##What is SSH?
 
@@ -117,18 +117,58 @@ If you used an **SSH key** that is secured with a passphrase, you will be prompt
 
 The worker nodes are not directly accessible from outside the Azure datacenter, but they can be accessed from the cluster head node using SSH.
 
-**For a list of the nodes in the cluster**, use the following. Replace ADMINPASSWORD with the password for your cluster admin account. Replace CLUSTERNAME with the name of your cluster.
-    curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
+**If you use an SSH key to authenticate your user account**, you must complete the following steps on your client.
 
-This will return information in JSON format for the nodes in the cluster, including the `host_name`, which contains the FQDN for each node.
+1. Using a text editor, open `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
 
-> [AZURE.NOTE] If you have the <a href="" target="_blank">jq</a> utility installed, you can filter the data to just the FQDN information by using the following:
->
-> `curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts | jq .items[].Hosts.host_name`
+2. Add the following to the file. Replace CLUSTERNAME with the name of your HDInsight cluster.
 
-**If you secured your SSH account using a password**, connect to the cluster using SSH. Once connected, use SSH from the cluster to connect to each of the worker nodes using the FQDN for each node. When connecting, you will be prompted for to enter your password.
+        Host CLUSTERNAME-ssh.azurehdinsight.net
+          ForwardAgent yes
 
-**If you secured your SSH account using a certificate**, you must ensure that SSH
+    This configures SSH agent forwarding for your HDInsight cluster.
+
+3. Test SSH agent forwarding using the following command from the terminal.
+
+        echo "$SSH_AUTH_SOCK"
+
+    This should return information similar to the following.
+
+        /tmp/ssh-rfSUL1ldCldQ/agent.1792
+
+    If nothing is returned, this indicates that **ssh-agent** is not running. Consult your operating system documentation for specific steps on installing and configurating ssh-agent, or see <a href="http://mah.everybody.org/docs/ssh" target="_blank">Using ssh-agent with ssh</a>.
+
+4. Once you have verified that ssh-agent is running, use the following to add your SSH private key to the agent.
+
+        ssh-add ~/.ssh/id_rsa
+
+    If your private key is stored in a different file, replace `~/.ssh/id_rsa` with the path to the file.
+
+Use the following steps to connect to the worker nodes for your cluster.
+
+> [AZURE.IMPORTANT] If you use an SSH key to authenticate your account, you must complete the previous steps to verify that agent forwarding is working.
+
+1. Connect to the HDInsight cluster using SSH as described previously.
+
+2. Once connected, use the following to retrieve a list of the nodes in your cluster. Replace ADMINPASSWORD with the password for your cluster admin account. Replace CLUSTERNAME with the name of your cluster.
+
+        curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
+
+    This will return information in JSON format for the nodes in the cluster, including the `host_name`, which contains the fully qualified domain name (FQDN) for each node. The following is an example of a host_name entry returned by the curl command:
+
+        "host_name" : "workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net"
+
+3. Once you have a list of the worker nodes you want to connect to, use the following command from the SSH session to the server to open a connection to a worker node.
+
+        ssh USERNAME@FQDN
+
+    Replace USERNAME with your SSH user name and FQDN with the FQDN for the wroker node. For example, `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`.
+
+    > [AZURE.NOTE] If you use a **password** to authentication your SSH session, you will be prompted to enter the password again. If you use an **SSH key**, the connection should complete without any prompts.
+
+4. Once the session has been established, the your terminal prompt will change from `username@headnode` to `username@workernode` to indicate that you are connected to the worker node. Any commands you run at this point will run on the worker node.
+
+4. Once you have finished performing actions on the worker node, use the `exit` command to close the session to the worker node. This will return you to the `username@headnode` prompt.
 
 ##Add additional accounts
 
