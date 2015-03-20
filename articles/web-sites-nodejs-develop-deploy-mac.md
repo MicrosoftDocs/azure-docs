@@ -30,8 +30,6 @@ Follow these steps to create a web app and enable Git publishing.
 
 > [AZURE.NOTE]
 > To complete this tutorial, you need an Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
-> 
-> If you want to get started with Azure App Services before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service.
 
 1. Log in to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
@@ -152,6 +150,8 @@ In this section, you will create a **server.js** file containing the 'hello worl
 	![A web page displaying 'Hello Azure'][helloworld-completed]
 
 4. You can revert to the previous deployment by selecting it in **Deployments**.
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ##Next steps
 
