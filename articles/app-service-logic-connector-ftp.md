@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="FTP Connector"
+	description="Get started with FTP Connector"
+	authors="rajeshramabathiran" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
+	documentationCenter=""/>
+
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/05/2015"
+	ms.author="rajeshramabathiran"/>
+
 #FTP Connector
 
 ##Overview
