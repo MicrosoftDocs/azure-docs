@@ -20,14 +20,14 @@
 
 ## Overview
 
-This tutorial shows how to create an ASP.NET web application and deploy it to Azure App Service Web Apps by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial shows how to create an ASP.NET web application and deploy it to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio ASP.NET web project and deploy it to an Azure web app.
 * How to make a change to the web project and redeploy the application.
-* How to use the Azure Management Portal to monitor and manage your web app.
+* How to use the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) to monitor and manage your web app.
 
 You need an Azure account to complete this tutorial:
 
@@ -297,3 +297,7 @@ In this tutorial you've seen how to create a simple web application and deploy i
 * How to choose between App Service, Cloud Services, and VMs for web applications
 
 	In Azure you can run web applications in App Service Web Apps as shown in this tutorial, or in Cloud Services or in Virtual Machines. For more information, see [Azure Execution Models](/develop/net/fundamentals/compute/) and [Azure web apps, cloud services, and VMs: When to use which?](/manage/services/web-sites/choose-web-app-service/).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
