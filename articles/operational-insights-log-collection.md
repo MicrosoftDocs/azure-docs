@@ -75,7 +75,7 @@ The only IIS log format supported at the moment is W3C. Don't worry - it's the m
 3. Under **IIS LOGS**, select **Collect logs from Operations Manager**.
 
 
-## Collect IIS logs and/or Windows Events from Windows Azure Diagnostics
+## Collect IIS logs and/or Windows Events from Azure Diagnostics
 This is configurable from the Azure Management Portal, not the Operational Insights portal, under your workspace, go to the **Storage** tab and you can enable log collection from that storage account.
 
 

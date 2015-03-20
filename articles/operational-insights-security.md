@@ -53,9 +53,9 @@ The following diagram shows the flow of information from your company and how it
 For your organization to send data to the Operational Insights service, you must either configure Microsoft Monitoring agents when connecting directly to the web service or use a configuration wizard in the Operations console in Operations Manager. Users (which might be you, other individual users, or a group of people) must create one or more Operational Insights accounts and register either each directly-connected agent or their Operations Manager environment by using one of the following accounts:
 
 
-- [Organizational ID](http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/)
+- [Organizational ID](sign-up-organization.md)
 
-- [Microsoft Account - Outlook, Office Live, MSN](http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/)
+- [Microsoft Account - Outlook, Office Live, MSN](sign-up-organization.md)
 
 An Operational Insights account is where data is collected, aggregated, analyzed, and presented. An Operational Insights account is primarily used as a means to partition data, and each Operational Insights account is unique. For example, you might want to have your production data managed with one Operational Insights account and your test data managed with another account. Accounts also help an administrator control user access to the data. Each Operational Insights account can have multiple user accounts associated with it, and each user account can have multiple Operational Insights accounts.
 
@@ -147,7 +147,7 @@ With Operations Manager, you register an account with the Operational Insights s
 
 ### 3. The Operational Insights service receives and processes data
 
-The Operational Insights service ensures that incoming data is from a trusted source by validating certificates and the data integrity. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](http://azure.microsoft.com/en-us/documentation/services/storage/). Each Operational Insights user has a dedicated Azure blob, which is accessible only to that user. The type of data that is stored is dependent on the types of intelligence packs that were imported and used to collect data.
+The Operational Insights service ensures that incoming data is from a trusted source by validating certificates and the data integrity. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](http://azure.microsoft.com/documentation/services/storage/). Each Operational Insights user has a dedicated Azure blob, which is accessible only to that user. The type of data that is stored is dependent on the types of intelligence packs that were imported and used to collect data.
 
 The Operational Insights service processes the raw data, and the aggregated processed data is stored in a SQL database. Communication between the Operational Insights service and SQL database relies on SQL database authentication.
 

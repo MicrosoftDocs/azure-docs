@@ -75,7 +75,7 @@ Are you not seeing emails that you think you should? Try checking your spam filt
 
 Use the following steps to add a user or group to an Operational Insights workspace. The user or group will be able to view and act on all alerts that are associated with this workspace.
 
->[AZURE.NOTE] If you want to add a user or group from your Azure Active Directory organizational account, you must first ensure that you have associated your Operational Insights account with your Active Directory domain. See [Add an Azure Active Directory Organization to an existing workspace](https://msdn.microsoft.com/en-us/library/azure/dn884652.aspx).
+>[AZURE.NOTE] If you want to add a user or group from your Azure Active Directory organizational account, you must first ensure that you have associated your Operational Insights account with your Active Directory domain. See [Add an Azure Active Directory Organization to an existing workspace](https://msdn.microsoft.com/library/azure/dn884652.aspx).
 
 ###To add a user to an existing workspace
 1. On the **Settings** page ![settings](./media/operational-insights-setup-workspace/settings.png) in Operational Insights, in the **Manage User Accounts** section, click **Manage users**.
