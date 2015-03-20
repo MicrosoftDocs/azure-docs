@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Enterprise Connectors in Microsoft Azure App Service | Azure" 
-	description="Learn how to create an enterprise connector and add the connector to your App; microservices" 
+	description="Learn how to create an enterprise connector and add the connector to your App; microservices architecture" 
 	services="app-service-logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -49,6 +49,7 @@ When you create a connector that uses an on-premises system, like SAP, there are
 Requirement | Description
 --- | ---
 Service Bus Namespace and its Key values | When using on-premises SAP or MongoDB, a Service Bus Namespace and it's key values are needed. If you aren't connecting to an on-premises system, a Service Bus namespace is not needed.<br/><br/>[Create a Service Bus Namespace](http://msdn.microsoft.com/library/azure/hh690931.aspx)
+On-Premises Hybrid Connection Manager | When you're connecting to an on-premises system, you install the Hybrid Connection Manager on the on-premises system. When you create the on-premises connector, the download is available in the connector properties or settings. 
 
 
 
@@ -57,22 +58,22 @@ Service Bus Namespace and its Key values | When using on-premises SAP or MongoDB
 A connector can be created using the Azure portal or using REST APIs. 
 
 ### Create a Connector using REST APIs
-**INSERT LINK**
+http://go.microsoft.com/fwlink/p/?LinkId=529766
 
 
 ### Create a Connector in the Azure Portal
-In the Azure portal, you can create an enterprise connector when creating a Logic App, Web App, or Mobile App. Or, you can create one using its own blade. Both ways are easy so it depends on your needs or preferences. Some users prefer to create all the connector with their specific properties first. Then, create the Logic App/Web App/Mobile App, and add the connector you created.  
+In the Azure portal, you can create an enterprise connector when creating Logic Apps, Web Apps, or Mobile Apps. Or, you can create one using its own blade. Both ways are easy so it depends on your needs or preferences. Some users prefer to create all the connectors with their specific properties first. Then, create the Logic, Web, or Mobile Apps, and add the connector you created.  
 
 The following steps create an enterprise connector using the connector blade:
 
-1. In the Azure portal Startboard (the Home page), select **Marketplace**. **Web + mobile** lists all the existing connectors. You can also **Search** for a specific connector.
+1. In the Azure portal Startboard (the Home page), select **Marketplace**. **API Apps** lists all the existing connectors. You can also **Search** for a specific connector.
 2. Select the connector. In the new blade, select **Create**. 
 3. Enter the properties: 
 
 	Property | Description
 --- | ---
 Name | Enter any name for your connector. For example, you can name it *SAPConnector*,  *SalesForceGetAccounts*, or *QuickBooksGetItems*.
-Package Settings | Enter the enterprise system settings, like *SAP User Name* or *SugarCRM Server URL*. You can do this now or add these settings when you add the connector to your App. See [Add the Connector](#AddConnector) in this topic for the enterprise-specific properties. 
+Package Settings | Enter the enterprise system settings, like *SAP User Name* or *SugarCRM Server URL*. See [Add the Connector](#AddConnector) in this topic for the enterprise-specific properties. 
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
 Resource Group | Create a new one or use an existing group. [Using resource groups](../azure-preview-portal-using-resource-groups) explains this property. 
@@ -80,24 +81,38 @@ Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the connector to your Starboard (the home page).
 
+4. Select **Create**.
+
+
+### Install the On-Premises Hybrid Connection Manager
+After you create the enterprise connector that connects to an on-premises system, like SAP, install the Hybrid Conenction Manager: 
+
+1. On the on-premises enterprise system, open the Azure Management portal, and select your enterprise connector. 
+2. In the blade, select **Hybrid Connection**. 
+3. Copy the **Primary Gateway Configuration String** value. 
+4. Select **Download and Configure**. During the installation, paste the Gateway Configuration String you copied and continue with the installation. 
+5. To confirm connectivity, open your enterprise connector blade. The status should **Connected**. 
+
+[Integrate with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-SAP-server.md) provides an example. 
+
 
 ## <a name="AddConnector"></a>Add the Connector to your application 
-Microsoft Azure App Service (or App Service for short) exposes different application types that can use these connectors. You can create a new or add your existing connectors to a Logic App, Mobile App, or a Web App.  
+Microsoft Azure App Service (or App Service for short) exposes different application types that can use these connectors. You can create a new or add your existing connectors to Logic Apps, Mobile Apps, or a Web Apps.  
 
 Within your App, simply selecting your connector from the Gallery automatically adds it to your App. Add the properties, and its ready to be used.
 
-The following steps add an enterprise connector to a Logic App, Mobile App, or Web App: 
+The following steps add an enterprise connector to Logic Apps, Mobile Apps, or Web Apps: 
 
-1. In the Azure portal Startboard (home page), go to the **Marketplace**, and search for your  Logic, Mobile, or Web App.
+1. In the Azure portal Startboard (home page), go to the **Marketplace**, and search for your  Logic, Mobile, or Web Apps.
 
-	If you are creating a new App, search for Logic App, Mobile App, or Web App. Select the App and in the new blade, select **Create**. [Create a Logic App](app-service-logic-create-a-logic-app.md) lists the steps. 
+	If you are creating a new App, search for Logic Apps, Mobile Apps, or Web Apps. Select the App and in the new blade, select **Create**. [Create a Logic App](app-service-logic-create-a-logic-app.md) lists the steps. 
 
 2. Open your App and select **Triggers and Actions**. 
 
 3. From the **Gallery**, add the connectors you created, which automatically adds it to your App. 
 4. Enter the following properties: 
 
-> [AZURE.IMPORTANT] Every connector has properties that are specific to that enterprise system. When connecting to SAP, you enter SAP-specific properties. When connecting to Salesforce, you enter Salesforce-specific properties, and so on.	The following table lists the required enterprise system properties. 
+	> [AZURE.IMPORTANT] Every connector has properties that are specific to that enterprise system. When connecting to SAP, you enter SAP-specific properties. When connecting to Salesforce, you enter Salesforce-specific properties, and so on.	The following table lists the required enterprise system properties. 
 
 	Enterprise System | Required Properties
 --- | ---
@@ -107,6 +122,8 @@ QuickBooks | <ul><li>Company ID</li><li>Provider name</li></ul>
 SAP | <ul><li>Host Name</li><li>Language</li><li>User Name</li><li>Password</li><li>System Number</li><li>Service Bus Connection String</li><li>RFC Names</li><li>TRFC Names</li><li>BAPI Names</li><li>IDOC Name</li></ul>
 Salesforce | <ul><li>Provider name</li><li>Instance</li><li>Version</li><li>Entities (comma-separated values)</li></ul>
 SugarCRM | <ul><li>Server URL</li><li>Provider name</li><li>Module names</li></ul>
+
+5. Select **OK** to save your changes. 
 
 
 ## Security
