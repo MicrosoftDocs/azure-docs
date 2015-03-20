@@ -18,9 +18,9 @@
 	ms.author="cephalin"/>
 
 <a name="Overview"></a>
-# Deploy to staging slots for Web Apps in Azure App Service
+# Deploy to staging slots for web apps in Azure App Service
 
-When you deploy your web app to Azure App Service, you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 - You can validate web app changes in a staging deployment slot before swapping it with the production slot.
 
@@ -36,7 +36,7 @@ Four deployment slots in addition to the production slot are supported for each 
 
 - Linked resource management is not supported for non-production slots.
 	
-	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+	> [AZURE.NOTE] In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##
@@ -238,6 +238,9 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 
 [Microsoft Azure Free Trial](/pricing/free-trial/)
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
