@@ -73,14 +73,14 @@ Once your API app is created, you can now use the Facebook connector as a trigge
 
 
 	<!--Image references-->
-[1]: ./media/app-service-logic-connector-facebook/img1.PNG
-[2]: ./media/app-service-logic-connector-facebook/img2.PNG
-[3]: ./media/app-service-logic-connector-facebook/img3.PNG
-[4]: ./media/app-service-logic-connector-facebook/img4.PNG
-[5]: ./media/app-service-logic-connector-facebook/img5.PNG
-[6]: ./media/app-service-logic-connector-facebook/img6.PNG
-[7]: ./media/app-service-logic-connector-facebook/img7.PNG
-[8]: ./media/app-service-logic-connector-facebook/img8.PNG
-[9]: ./media/app-service-logic-connector-facebook/img9.PNG
-[10]: ./media/app-service-logic-connector-facebook/img10.PNG
-[11]: ./media/app-service-logic-connector-facebook/img11.PNG
+[1]: ./media/app-service-logic-connector-facebook/img1.png
+[2]: ./media/app-service-logic-connector-facebook/img2.png
+[3]: ./media/app-service-logic-connector-facebook/img3.png
+[4]: ./media/app-service-logic-connector-facebook/img4.png
+[5]: ./media/app-service-logic-connector-facebook/img5.png
+[6]: ./media/app-service-logic-connector-facebook/img6.png
+[7]: ./media/app-service-logic-connector-facebook/img7.png
+[8]: ./media/app-service-logic-connector-facebook/img8.png
+[9]: ./media/app-service-logic-connector-facebook/img9.png
+[10]: ./media/app-service-logic-connector-facebook/img10.png
+[11]: ./media/app-service-logic-connector-facebook/img11.png
