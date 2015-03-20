@@ -134,7 +134,7 @@ By default, only the storage account owner can access resources in the storage a
 
 Your storage account is assigned two private access keys on creation that are used for authentication. Having two keys ensures that your application remains available when you regularly regenerate the keys as a common security key management practice.
 
-If you do need to allow users controlled access to your storage resources, then you can create a [shared access signature](../storage-dotnet-shared-access-signature-part-1/). A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid. Note that Azure File storage does not currently support shared access signatures.
+If you do need to allow users controlled access to your storage resources, then you can create a [shared access signature](storage-dotnet-shared-access-signature-part-1.md). A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid. Note that Azure File storage does not currently support shared access signatures.
 
 Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
 
@@ -181,7 +181,7 @@ To get started with Azure Storage, explore these resources:
 
 - [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 - [Azure Storage Services REST API Reference](http://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [AzCopy Command-Line Tool Reference](./storage-use-azcopy.md/)
+- [AzCopy Command-Line Tool Reference](storage-use-azcopy.md)
 
 ### For PowerShell Users
 - [Azure Storage Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
@@ -189,9 +189,9 @@ To get started with Azure Storage, explore these resources:
 ### For .NET Developers
 
 - [.NET Client Library Reference](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [How to use Blob Storage from .NET](../storage-dotnet-how-to-use-blobs/)
-- [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/)
-- [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues/)
+- [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
+- [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)
+- [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
 
 ### For Java/Android Developers
 
@@ -202,24 +202,24 @@ To get started with Azure Storage, explore these resources:
 
 ### For Node.js Developers
 
-- [How to use Blob Storage from Node.js](../storage-nodejs-how-to-use-blob-storage/)
-- [How to use Table Storage from Node.js](../storage-nodejs-how-to-use-table-storage/)
-- [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queues/)
+- [How to use Blob Storage from Node.js](storage-nodejs-how-to-use-blob-storage.md)
+- [How to use Table Storage from Node.js](storage-nodejs-how-to-use-table-storage.md)
+- [How to use Queue Storage from Node.js](storage-nodejs-how-to-use-queues.md)
 
 ### For PHP Developers
 
-- [How to use Blob Storage from PHP](../storage-php-how-to-use-blobs/)
-- [How to use Table Storage from PHP](../storage-php-how-to-use-table-storage/)
-- [How to use Queue Storage from PHP](../storage-php-how-to-use-queues/)
+- [How to use Blob Storage from PHP](storage-php-how-to-use-blobs.md)
+- [How to use Table Storage from PHP](storage-php-how-to-use-table-storage.md)
+- [How to use Queue Storage from PHP](storage-php-how-to-use-queues.md)
 
 ### For Ruby Developers
 
-- [How to use Blob Storage from Ruby](../storage-ruby-how-to-use-blob-storage/)
-- [How to use Table Storage from Ruby](../storage-ruby-how-to-use-table-storage/)
-- [How to use Queue Storage from Ruby](../storage-ruby-how-to-use-queue-storage/)
+- [How to use Blob Storage from Ruby](storage-ruby-how-to-use-blob-storage.md)
+- [How to use Table Storage from Ruby](storage-ruby-how-to-use-table-storage.md)
+- [How to use Queue Storage from Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ### For Python Developers
 
-- [How to use Blob Storage from Python](../storage-python-how-to-use-blob-storage/)
-- [How to use Table Storage from Python](../storage-python-how-to-use-table-storage/)
-- [How to use Queue Storage from Python](../storage-python-how-to-use-queue-storage/)
+- [How to use Blob Storage from Python](storage-python-how-to-use-blob-storage.md)
+- [How to use Table Storage from Python](storage-python-how-to-use-table-storage.md)
+- [How to use Queue Storage from Python](storage-python-how-to-use-queue-storage.md)

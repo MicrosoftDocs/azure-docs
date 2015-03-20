@@ -19,8 +19,8 @@
 # Schedule recurring jobs in Mobile Services 
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(Any | Javascript)](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 

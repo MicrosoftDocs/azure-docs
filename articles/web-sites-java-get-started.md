@@ -20,7 +20,7 @@
 
 This tutorial shows how to create a website on Microsoft Azure using Java, using either the Azure application gallery, or the Azure website configuration UI. 
 
-If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web site to Azure](../web-sites-java-custom-upload).
+If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web site to Azure](web-sites-java-custom-upload.md).
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. 
 > 
@@ -72,4 +72,4 @@ Now that you've create the website with an app container, see the **Next steps**
 
 # Next steps
 
-At this point, you have a Java application server running as your Java website on Azure. To add in your own application or web page, see [Add an application or web page to your Java web site](../web-sites-java-add-app).
+At this point, you have a Java application server running as your Java website on Azure. To add in your own application or web page, see [Add an application or web page to your Java web site](web-sites-java-add-app.md).

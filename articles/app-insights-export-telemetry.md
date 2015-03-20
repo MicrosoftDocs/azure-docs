@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Export telemetry from Application Insights" 
-	description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." 
+	pageTitle="Continous export of telemetry from Application Insights" 
+	description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/18/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
-The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download and write whatever code you need to process it.  
+Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties. Continuous export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download and write whatever code you need to process it.  
 
 
 ## <a name="setup"></a> Set up continuous export

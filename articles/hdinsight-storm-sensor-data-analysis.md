@@ -9,16 +9,16 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="java"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="03/20/2015"
    ms.author="larryfr"/>
 
-##Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
+#Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
 
-Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub, and visualize it using D3.js. This document also describes how to use Azure Virtual Network to connect Storm on HDInsight with HBase on HDInsight, and store data from the topology into HBase. 
+Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub, and visualize it using D3.js. This document also describes how to use Azure Virtual Network to connect Storm on HDInsight with HBase on HDInsight, and store data from the topology into HBase.
 
 ##Prerequisites
 
@@ -51,7 +51,7 @@ This example consists of the following components:
 * **Azure Virtual Network** (optional, required if using HBase) - enables secure communications between the Storm on HDInsight and HBase on HDInsight clusters
 
 * **Dashboard website** - An example dashboard that charts data in real-time
-	
+
 	* The website is implemented in Node.js, so can run on any client OS for testing or be deployed to Azure Websites
 
 	* <a href="http://socket.io/" target="_blank">Socket.io</a> is used for real-time communication between the Storm topology and website
@@ -69,7 +69,7 @@ The following is a diagram of the topology.
 ![topology diagram](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
 
 > [AZURE.NOTE] This is a very simplified view of the topology - at runtime, an instance of each component is created for each partition for the Event Hub that is being read from. These instances are distributed across the nodes in the cluster, and data is routed between them as follows:
-> 
+>
 > * Data from the spout to the parser is load balanced
 > * Data from the parser to the Dashboard and HBase (if used) is grouped by Device ID, so that messages from the same device always flow to the same component
 
@@ -121,7 +121,7 @@ Event Hub is the data source for this example. Use the following steps to create
 
 4. On the **Cluster Details** page, enter the name of the new cluster, and select **Storm** for the **Cluster Type**. Select the arrow to continue.
 
-5. Enter 1 for the number of **Data Nodes** to use for this cluster. 
+5. Enter 1 for the number of **Data Nodes** to use for this cluster.
 
 	> [AZURE.NOTE] To minimize the cost for the cluster used for this article, reduce the **Cluster Size** to 1, and delete the cluster after you have finished using it.
 
@@ -299,13 +299,13 @@ If you plan on using HBase with this example, you must create an Azure Virtual N
 3. Type or select the following values:
 
 	- **Name**: The name of your virtual network.
-	
+
 	- **Address space**: Choose an address space for the virtual network that is large enough to provide addresses for all nodes in the cluster. Otherwise the provision will fail.
-	
+
 	- **Maximum VM count**: Choose one of the Maximum VM counts.
-	
+
 	- **Location**: The location must be the same as the HBase cluster that you will create.
-	
+
 	- **DNS server**: This article uses internal DNS server provided by Azure, therefore you can choose **None**. More advanced networking configuration with custom DNS servers are also supported. For the detailed guidance, see [http://msdn.microsoft.com/library/azure/jj156088.aspx](http://msdn.microsoft.com/library/azure/jj156088.aspx).
 
 4. Click **Create a Virtual Network**. The new virtual network name will appear in the list. Wait until the Status column shows **Created**.
@@ -372,7 +372,7 @@ The portion of the domain name beginning with the cluster name is the DNS suffix
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
-	This will be used by the HBase bolt to communicate with the HBase cluster. 
+	This will be used by the HBase bolt to communicate with the HBase cluster.
 
 1. Open **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\** in an editor, and uncomment the following lines by removing the `//` from the beginning. Save the file after making this change.
 
@@ -412,7 +412,7 @@ You have now learned how to use Storm to read data from Event Hub and display in
 * For more examples of Storm topologies with HDinsight, see:
 
 	* [Storm on HDInsight Examples](https://github.com/hdinsight/hdinsight-storm-examples)
-	
+
 	* [Twitter Trending Hashtags](hdinsight-storm-twitter-trending.md)
 
 * For more information on Apache Storm, see [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)

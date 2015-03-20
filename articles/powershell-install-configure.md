@@ -98,7 +98,7 @@ For more information about authentication and subscription management in Azure, 
 	>
 	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
 	>
-	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](http://azure.microsoft.com/documentation/articles/sign-up-organization/).
+	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
 
 <h3>Use the certificate method</h3>
 
@@ -253,7 +253,7 @@ For help from the community, try these popular forums:
 
 These are some of the resources available that you can use to learn to use Azure and Windows PowerShell.
 
-- To learn about how to access Azure Storage components, see [Using Azure PowerShell with Azure Storage](./storage-powershell-guide-full.md).
+- To learn about how to access Azure Storage components, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
 
 - To provide feedback about the cmdlets, report issues, or access the source code, see [Azure PowerShell code repository](https://github.com/WindowsAzure/azure-sdk-tools).
 

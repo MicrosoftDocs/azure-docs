@@ -27,7 +27,7 @@ Voice, per J.G., and remove C.4.1 bacpac issue text.
 -->
 
 
-This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 ([at preview in some regions](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)).
+This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 ([at preview in some regions](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)).
 
 
 A new [Azure preview portal](http://portal.azure.com/) is available to support your upgrade to V12.
@@ -40,8 +40,8 @@ The following table lists other Help topics for V12.
 | :--- | :--- |
 | [What's new in SQL Database V12](../sql-database-preview-whats-new/) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
 | [Walkthrough: sign up for the Latest SQL Database Update V12 (preview)](../sql-database-preview-sign-up/) | Describes the steps you must perform if you want to upgrade your Azure SQL databases to V12. |
-| [Create a database in the Latest SQL Database Update V12 (preview)](../sql-database-preview-create/) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
-| [Upgrade to the Latest SQL Database Update V12 (preview)](../sql-database-preview-upgrade/) | Describes how you can upgrade your Azure SQL databases to V12. It mentions that you should make a backup of your database first, because the upgrade is permanent and cannot be undone. |
+| [Create a database in the Latest SQL Database Update V12 (preview)](sql-database-preview-create.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
+| [Upgrade to the Latest SQL Database Update V12 (preview)](sql-database-preview-upgrade.md) | Describes how you can upgrade your Azure SQL databases to V12. It mentions that you should make a backup of your database first, because the upgrade is permanent and cannot be undone. |
 
 
 ## Plan ahead

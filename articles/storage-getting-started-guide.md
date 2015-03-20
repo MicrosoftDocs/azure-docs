@@ -88,7 +88,7 @@ Now, run the sample application:
 2.	Uncomment the connection string for the Azure Storage Service and provide the storage account name and access key in the App.config file:
 	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"` 
 
-	To find the storage account name and access key, see [What is a Storage Account](./storage-whatis-account.md). 
+	To find the storage account name and access key, see [What is a Storage Account](storage-whatis-account.md). 
 
 3.	After you provide the storage account name and access key in the App.config file, on the **File** menu, click **Save All** to save all the project files. 
 4.	On the **Build** menu, click **Build Solution**. 
@@ -100,10 +100,10 @@ In this tutorial, you've learned how to program against Azure Blob Storage, Azur
 
 If you want to learn more about them, follow these links:
 
-* [Introduction to Microsoft Azure Storage](./storage-introduction.md)
-* [How to use Blob Storage from .NET](./storage-dotnet-how-to-use-blobs.md)
-* [How to use Table Storage from .NET](./storage-dotnet-how-to-use-tables.md)
-* [How to use Queue Storage from .NET](./storage-dotnet-how-to-use-queues.md)
+* [Introduction to Microsoft Azure Storage](storage-introduction.md)
+* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
+* [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)
+* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
 * [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 * [Azure Storage Client Library](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
