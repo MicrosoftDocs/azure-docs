@@ -274,7 +274,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Add Mobile Services to an existing app]
   <br/>Learn more about storing and querying data using mobile services.
 
-* [Get started with authentication](/documentation/articles/partner-xamarin-mobile-services-android-get-started-users)
+* [Get started with authentication](partner-xamarin-mobile-services-android-get-started-users.md)
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
 * [What are Notification Hubs?](/documentation/articles/notification-hubs-overview/)
@@ -283,15 +283,15 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
   </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
 
-* [How to use the .NET client library for Mobile Services](/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
+* [How to use the .NET client library for Mobile Services](mobile-services-windows-dotnet-how-to-use-client-library.md)
   <br/>Learn more about how to use Mobile Services with Xamarin C# code.
 
-* [Mobile Services server script reference](/documentation/articles/mobile-services-how-to-use-server-scripts/)
+* [Mobile Services server script reference](mobile-services-how-to-use-server-scripts.md)
   <br/>Learn more about how to implement business logic in your mobile service.
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /documentation/articles/partner-xamarin-mobile-services-ios-get-started/
-[Add Mobile Services to an existing app]: /documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
+[Get started with Mobile Services]: partner-xamarin-mobile-services-ios-get-started.md
+[Add Mobile Services to an existing app]: partner-xamarin-mobile-services-android-get-started-data.md
 
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/

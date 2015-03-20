@@ -168,14 +168,14 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 
 
 <!-- URLs. -->
-[Add Authentication to your app]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[How to Register with the Azure Active Directory]: /documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Add Authentication to your app]: mobile-services-windows-store-dotnet-get-started-users.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Custom API Tutorial]: /documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
-[Store Server Scripts]: /documentation/articles/mobile-services-store-scripts-source-control/
-[Register to use an Azure Active Directory Login]: /documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Custom API Tutorial]: mobile-services-windows-store-dotnet-call-custom-api.md
+[Store Server Scripts]: mobile-services-store-scripts-source-control.md
+[Register to use an Azure Active Directory Login]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
-[Role based access control with the AAD in Mobile Services]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
+[Role based access control with the AAD in Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536
