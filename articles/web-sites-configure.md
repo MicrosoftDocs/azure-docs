@@ -127,9 +127,12 @@ To view the log files, you must create FTP credentials, as follows:
 3. Enter a user name and password.
 4. Click **Save**.
 
+![](./media/web-sites-configure/configure03.png)
+
+
 The full FTP user name is “app\username” where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
 
-
+![](./media/web-sites-configure/configure02.png)
 
 ## Other configuration tasks
 
