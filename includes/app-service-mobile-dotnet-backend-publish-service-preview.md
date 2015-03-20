@@ -9,7 +9,7 @@ After testing the client app against the local mobile app, the final stage of th
    <!--todo: new screenshot when web app labels replace website in Ibiza-->
    ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-profile.png)
 
-2. In Solution Explorer, right-click the mobile app project (it is your app name with "Code" appended), click **Publish**, then in the **Publish Web** dialog box click **Import**. From there, select your file you just downloaded.
+2. In Solution Explorer, right-click the mobile app project (it is your app name with "Service" appended), click **Publish**, then in the **Publish Web** dialog box click **Import**. From there, select your file you just downloaded. Click **OK** and then **Next**.
 
    ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-import.png)
 
@@ -17,4 +17,4 @@ After testing the client app against the local mobile app, the final stage of th
 
    ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-settings.png)
 
-   After publishing succeeds, you will again see the confirmation page that the mobile app backend is up and running, this time in Azure.
+   After publishing succeeds, you will see the confirmation page that the mobile app backend is up and running in Azure. Your VS output window will also show success.
