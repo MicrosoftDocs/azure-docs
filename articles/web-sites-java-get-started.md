@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Create a Java Web App in Azure App Service" 
-	description="This tutorial shows you how to deploy a Java web app to Microsoft Azure." 
-	services="app-service-web" 
+	pageTitle="Create a Java web app in Azure App Service" 
+	description="This tutorial shows you how to deploy a Java web app to Azure App Service." 
+	services="app-service\web" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/24/2015" 
 	ms.author="robmcm"/>
 
-# Create a Java Web App in Azure App Service
+# Create a Java web app in Azure App Service
 
-This tutorial shows how to create a web app on Microsoft Azure using Java, using either the Azure Marketplace, or the Azure web app configuration UI. 
+This tutorial shows how to create a web app on Microsoft Azure using Java, using either the Azure Marketplace, or the Web Apps configuration UI. 
 
 If you don't want to use either of those techniques, for example, if you want to customize your application container, see [Upload a custom Java web app to Azure](../web-sites-java-custom-upload).
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. 
 > 
-> If you want to get started with Azure Web Apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter web app in Azure Web apps for free. No credit card required, no commitments.
+> If you want to get started with Azure App Service before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit card required, no commitments.
 
 # Create a Java web app using the Azure Marketplace
 

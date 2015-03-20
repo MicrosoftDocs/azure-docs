@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Create a business-to-employee multi-channel app" 
-   description="This tutorial shows you how to consume a SaaS API App from an ASP.NET hosted in Web App." 
-   services="app-service-web" 
+   description="This tutorial shows you how to consume a SaaS API App from an ASP.NET hosted in Azure App Service Web Apps." 
+   services="app-service\web" 
    documentationCenter="" 
    authors="syntaxc4" 
    manager="yochayk" 
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web" 
-   ms.date="03/05/2015"
+   ms.date="03/24/2015"
    ms.author="cfowler"/>
 
 # Create a business-to-employee multi-channel app
 
-This tutorial shows you how to consume an API App from an ASP.NET hosted in Web App.
+This tutorial shows you how to consume an API App from an ASP.NET hosted in Azure App Service Web Apps.
 
 ## Overview
 
 You will learn:
 
-- How to consume an API app from ASP.NET hosted in Web App.
+- How to consume an API app from ASP.NET hosted in Web Apps.
 
 ## Prerequisites
 
@@ -92,6 +92,6 @@ In the [Azure Portal](https://portal.azure.com), select the API App. Click on th
 
 	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
-## Deploy the web application to Web App in App Service
+## Deploy the web application to Web Apps in App Service
 
-Follow the instructions available at [How to Deploy an Azure web app](http://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/).
+Follow the instructions available at [How to Deploy an Azure web app](web-sites-deploy.md).

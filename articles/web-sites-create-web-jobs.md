@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Run Background tasks with WebJobs" 
 	description="Learn how to run background tasks in Azure web apps." 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	writer="tdykstra" 
@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
 # Run Background tasks with WebJobs
 
 ## Overview
 
-You can run programs or scripts in WebJobs in your Azure web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
+You can run programs or scripts in WebJobs in your Azure App Service web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
-This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Web Apps](http://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-deploy-webjobs).
+This article shows how to deploy WebJobs by using the [Azure Portal](http://portal.azure.com). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
-The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk).
+The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 
@@ -40,7 +40,7 @@ The following file types are accepted:
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 
-1. In the **Web App** blade of the [Azure management portal](http://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
+1. In the **Web App** blade of the [Azure Portal](http://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
 	
 	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 	
