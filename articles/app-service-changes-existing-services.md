@@ -21,24 +21,19 @@
 # Azure App Service and Its Impact on Existing Azure Services
 
 This article outlines the changes to existing Azure
-services as part of the move to consolidate several existing services
+services as part of the move to consolidate several existing as well as new Azure services
 under the App Service brand. It explains the change and impact of the new branding.
 
 ## Overview 
 
-Azure App Service is a fully managed platform for
-enterprise developers and system integrators to easily
-build employee, partner, and customer facing multi-channel (multi-device and
-multi-platform) apps that are backed with business processes. App Service provides an
-integrated cloud app platform that spans the diverse needs of modern
-enterprise apps across both client and mobile devices. Azure App Service
-includes the following pieces:
+Azure App Service is a one-of-a king cloud service that enables you to create enterprise grade web and mobile apps for any platform or device, fast. App Service is an integrated solution designed to streamline repeated coding functions, integrate with enterprise and SaaS systems and automate business processes while meeting your company’s requirements for security, reliability, and scalability. App Service provides an integrated cloud app platform that spans the diverse needs of modern
+enterprise apps across both client and mobile devices. Azure App Service includes the following pieces:
 
 -   Web Apps
 -   Mobile Apps
 -   API Apps
 -   Logic Apps
--   BizTalk Services
+-   BizTalk Connectors
 
 Azure already offers Websites and Mobile Services. The following tables
 explain how App Service impacts these existing services and adds new features.
@@ -92,5 +87,6 @@ explain how App Service impacts these existing services and adds new features.
 </tbody>
 </table>
 
+[Learn more about App Service]: http://azure.microsoft.com/documentation/services/app-service/
 [Azure Portal]: https://portal.azure.com
 
