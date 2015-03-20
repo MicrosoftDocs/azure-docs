@@ -83,7 +83,7 @@ will use this value in your code later in this tutorial.
 ![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
 > [AZURE.NOTE]
-> You can also find this key if you log on to the,
+> You can also find this key if you log on to the
 > [Azure Management Portal](http://manage.windowsazure.com/) and navigate to the
 > connection information for your service bus namespace.
 
