@@ -22,12 +22,6 @@
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
 
-This tutorial walks you through these basic steps to enable authentication in your app:
-
-1. [Register your app for authentication and configure App Services]
-2. [Restrict table permissions to authenticated users]
-3. [Add authentication to the app]
-
 This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Get started with your mobile app]. 
 
 ##<a name="register"></a>Register your app for authentication and configure App Services
@@ -58,7 +52,7 @@ In this section, you will modify the app to display a login screen before displa
 
 2. Add a new method **Authenticate** to **QSTodoService** with the following definition:
 
-        private async Task Authenticate(UIViewController view)
+        public async Task Authenticate(UIViewController view)
         {
             try
             {
@@ -79,18 +73,14 @@ In this section, you will modify the app to display a login screen before displa
 			base.ViewDidLoad ();
 
 			todoService = QSTodoService.DefaultService;
+           await todoService.InitializeStoreAsync ();
 
-			todoService.BusyUpdate += (bool busy) => {
-				if (busy)
-					activityIndicator.StartAnimating ();
-				else 
-					activityIndicator.StopAnimating ();
-			};
+           RefreshControl.ValueChanged += async (sender, e) => {
+                await RefreshAsync ();
+           }
 
 			// Comment out the call to RefreshAsync
 			// await RefreshAsync ();
-
-			AddRefreshControl ();
 		}
 
 
@@ -111,13 +101,6 @@ In this section, you will modify the app to display a login screen before displa
 	Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items and you can make updates to the data.
 
  
-<!-- Anchors. -->
-[Register your app for authentication and configure App Services]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
-[Next Steps]:#next-steps
-
-
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
