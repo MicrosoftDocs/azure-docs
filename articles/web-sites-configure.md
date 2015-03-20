@@ -162,6 +162,7 @@ In Basic or Standard mode, you can  test the availability of HTTP or HTTPS endpo
 
 For more information, see [How to: Monitor web endpoint status](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Next steps
 
