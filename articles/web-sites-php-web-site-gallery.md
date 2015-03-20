@@ -26,3 +26,6 @@ You've seen how to create and deploy a web app from the gallery. To learn more a
 - [Create a PHP-MySQL Azure web app and deploy using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/) -- Create an PHP web app from scratch and deploy it to Azure App Service using Git
 - [More PHP tutorials](/en-us/develop/php/tutorials/) - Create additional types of applications using PHP and Azure
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
