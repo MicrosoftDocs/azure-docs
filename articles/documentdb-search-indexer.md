@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="03/02/2015" 
+    ms.date="03/19/2015" 
     ms.author="andrl"/>
 
 #Connecting DocumentDB with Azure Search using indexers
@@ -196,7 +196,7 @@ You will receive an HTTP 201 Created response if the index was successfully crea
 
 You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.
     
-    POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
