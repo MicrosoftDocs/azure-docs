@@ -18,18 +18,18 @@
 
 
 #Android SDK for Azure Mobile Engagement v3.0.0
-Start here to get all the details on how to integrate Azure Mobile Engagement in an Android App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](../mobile-engagement-android-get-started/).
+Start here to get all the details on how to integrate Azure Mobile Engagement in an Android App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-android-get-started.md).
 
-Click to see the [SDK Content](../mobile-engagement-android-sdk-content)
+Click to see the [SDK Content](mobile-engagement-android-sdk-content.md)
 
 ##Integration procedures
-1. Start here: [How to integrate Mobile Engagement in your Android app](../mobile-engagement-android-integrate-engagement/)
+1. Start here: [How to integrate Mobile Engagement in your Android app](mobile-engagement-android-integrate-engagement.md)
 
-2. For Notifications: [How to integrate Reach (Notifications) in your Android app](../mobile-engagement-android-integrate-engagement-reach/)
-	1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](../mobile-engagement-android-gcm-integrate/)
-	2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](../mobile-engagement-android-adm-integrate/)
+2. For Notifications: [How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)
+	1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Android app](../mobile-engagement-android-use-engagement-api/)
+3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
 
 
 ##Release notes
@@ -43,13 +43,13 @@ Click to see the [SDK Content](../mobile-engagement-android-sdk-content)
 -   Security improvements.
 -   Google Play and SmartAd tracking removed.
 
-For earlier version please see the [complete release notes](../mobile-engagement-android-release-notes/)
+For earlier version please see the [complete release notes](mobile-engagement-android-release-notes.md)
 
 ##Upgrade procedures
 
 If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
-You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](../mobile-engagement-android-upgrade-procedure/). For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
+You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md). For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
 
 Whatever the version you upgrade from, you have to replace all the `mobile-engagement-VERSION.jar` by the new ones.
 

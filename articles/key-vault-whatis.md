@@ -56,7 +56,7 @@ Developers can also manage the keys directly, by using  APIs. For more informati
 
 ## Next Steps
 
-For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](../key-vault-get-started).
+For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](key-vault-get-started.md).
 
 For more information about using keys and secrets with Azure Key Vault, see [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 

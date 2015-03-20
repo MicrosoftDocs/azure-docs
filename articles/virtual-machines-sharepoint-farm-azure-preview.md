@@ -32,7 +32,7 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 
 You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
  
-For the configuration details of both of these farms, see [SharePoint Server Farm Configuration Details](../virtual-machines-sharepoint-farm-config-azure-preview/).
+For the configuration details of both of these farms, see [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ##Stepping through configuration##
 
@@ -81,12 +81,12 @@ Notes:
 
 ##Azure Resource Manager##
 
-SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
+SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 ##Additional Resources
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[SharePoint Server Farm Configuration Details](../virtual-machines-sharepoint-farm-config-azure-preview/)
+[SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)

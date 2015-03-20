@@ -326,12 +326,12 @@ The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azu
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]:
-/documentation/articles/mobile-services-javascript-backend-service-side-authorization/
+mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Dynamic Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: /documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables
-[Conflict-Handler]: /documentation/articles/mobile-services-ios-handling-conflicts-offline-data/#add-conflict-handling
+[CLI to manage Mobile Services tables]: virtual-machines-command-line-tools.md#Mobile_Tables
+[Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling

@@ -45,13 +45,13 @@ If you do not already have an Azure subscription, you can sign up for a free tri
 
 ## Phase 1: Set up the hybrid cloud environment
 
-Use the instructions in the [Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing/) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
+Use the instructions in the [Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
 
 This is your current configuration.
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_1.png)
 
-> [AZURE.NOTE] For Phase 1, you can also set up the simulated hybrid cloud test environment. See [Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/) for the instructions.
+> [AZURE.NOTE] For Phase 1, you can also set up the simulated hybrid cloud test environment. See [Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) for the instructions.
  
 ## Phase 2: Configure the SQL server computer (SQL1)
 
@@ -196,12 +196,12 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[SharePoint Server Farm](../virtual-machines-sharepoint-farm-azure-preview/)
+[SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[Set up a hybrid cloud environment for testing](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Set up a simulated hybrid cloud environment for testing](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)

@@ -50,7 +50,7 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 
 * After you add a website to a profile, the **Site URL** on the Dashboard of the website's portal page will display the custom domain URL of the website if you have set one up. Otherwise, it will display the Traffic Manager profile URL (for example, `contoso.trafficmgr.com`). Both the direct domain name of the website and the Traffic Manager URL will be visible on the website's Configure page under the **Domain Names** section.
 
-* Your custom domain names will work as expected, but in addition to adding them to your websites, you must also configure your DNS map to point to the Traffic Manager URL. For information on how to set up a custom domain for a Azure website,  see [Configuring a custom domain name for an Azure web site](https://www.windowsazure.com/documentation/articles/web-sites-custom-domain-name/).
+* Your custom domain names will work as expected, but in addition to adding them to your websites, you must also configure your DNS map to point to the Traffic Manager URL. For information on how to set up a custom domain for a Azure website,  see [Configuring a custom domain name for an Azure web site](web-sites-custom-domain-name.md).
 
 * You can only add websites that are in Standard mode to a Azure Traffic Manager profile.
 

@@ -22,7 +22,7 @@
 The schema info object is only used to split merge scenarios. If an application is inherently single-tenant, then it does not require the Split Merge service and thus there is no need to populate the schema info object.
 
 #### I’ve provisioned a database and I already have a Shard Map Manager, how do I register this new database as a shard?
-Please see **[Adding a Shard To an Elastic Scale Application](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-add-a-shard/)**. 
+Please see **[Adding a Shard To an Elastic Scale Application](sql-database-elastic-scale-add-a-shard.md)**. 
 
 #### How much does Elastic Scale cost?
 Using the Elastic Scale library does not incur any costs. Costs accrue only for the Azure SQL databases that you use for shards and the Shard Map Manager, as well as the web/worker roles provisioned for the Split Merge service.

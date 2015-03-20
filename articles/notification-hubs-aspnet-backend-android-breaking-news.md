@@ -314,7 +314,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
 <!-- URLs.-->
-[get-started]: /documentation/articles/notification-hubs-android-get-started/
+[get-started]: notification-hubs-android-get-started.md
 [Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/

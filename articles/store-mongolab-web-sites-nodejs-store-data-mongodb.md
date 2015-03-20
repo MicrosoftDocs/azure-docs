@@ -405,7 +405,7 @@ To install the command-line tools, use the following command:
 	
 	npm install azure-cli -g
 
-If you have already installed the <strong>Azure SDK for Node.js</strong> from the <a href="/develop/nodejs/">Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/documentation/articles/virtual-machines-command-line-tools/">Azure command-line tool for Mac and Linux</a>.
+If you have already installed the <strong>Azure SDK for Node.js</strong> from the <a href="/develop/nodejs/">Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="virtual-machines-command-line-tools.md">Azure command-line tool for Mac and Linux</a>.
 
 While the Azure command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 

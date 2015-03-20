@@ -4,7 +4,7 @@ Azure Websites supports continuous deployment from source code control and repos
 
 In this article, you will learn how to use Git to publish directly from your local computer to an Azure Website (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository websites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
 
-> [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a Website using the [Azure Command-Line Tools for Mac and Linux](../xplat-cli/).
+> [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a Website using the [Azure Command-Line Tools for Mac and Linux](../articles/xplat-cli.md).
 
 ## <a id="Step1"></a>Step 1: Install Git
 
@@ -305,8 +305,8 @@ The following are errors or problems commonly encountered when using Git to publ
 [Azure portal]: http://manage.windowsazure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[How to use PowerShell for Azure]: ../install-configure-powershell/
-[How to use the Azure Command-Line Tools for Mac and Linux]: ../xplat-cli/
+[How to use PowerShell for Azure]: ../articles/install-configure-powershell.md
+[How to use the Azure Command-Line Tools for Mac and Linux]: ../articles/xplat-cli.md
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -326,4 +326,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Azure using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
+[Continuous delivery to Azure using Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
