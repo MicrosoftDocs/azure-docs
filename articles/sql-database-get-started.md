@@ -68,7 +68,7 @@ When you add an IP address, a new firewall rule on the server is created to allo
 1. If you're not already there from the previous step, in the Management Portal, click **SQL Databases** on the left nav, find your database in the list, and then click the link under **Server**.<br/>
    ![The server for school db](./media/sql-database-get-started/schooldbshowserver.png)<br/><br/>
 2. Click **Configure**, and you'll see a list of **allowed IP addresses** along with the **Current client IP address** that the SQL Database server recognizes from your connection.<br/>
-   ![Firewall settings][./media/sql-database-get-started/sqldbfirewall.png]<br/><br/>
+   ![Firewall settings](./media/sql-database-get-started/sqldbfirewall.png)<br/><br/>
 3. Click **Add to the allowed IP addresses**, which creates a firewall rule to allow your current client IP address. You can create additional firewall rules by providing a **Rule name** and the **Start IP Address** and **End IP address** in a range.<br/><br/>
 4. Click **SAVE** at the bottom of the page.
    >[AZURE.IMPORTANT] Depending on your network configuration, your originating IP address may change frequently, which can result in a "Client with IP Address xxx.xxx.xxx.xxx is not allowed to access the server" error. Check back here to find your client IP address and then add it, or choose a range of inclusive IP addresses.
