@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create an app with a mobile and web client in Azure App Service"
 	description="Create a multi-channel app with both a website and mobile client in Azure App Service."
-	services="app-service-mobile"
+	services="app-service\mobile"
 	documentationCenter=".net" 
 	authors="lindydonna"
 	manager="dwrede"

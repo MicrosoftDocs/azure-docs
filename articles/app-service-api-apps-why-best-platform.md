@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="What are API Apps?" 
 	description="Learn why Azure App Service is the best platform for developing, publishing, and hosting RESTful APIs." 
-	services="app-service-api" 
+	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -40,12 +40,12 @@ social authentication to Google, Microsoft, Facebook, and Twitter is also availa
 - **Automatic SDK generation** - Azure App Service enables you to take your existing APIs and automatically build SDKs for a variety of languages including C#, Java, and Javascript, making your APIs available to many platforms.
 
 - **Use the best IDE in the market** - [Visual
-Studio](http://azure.microsoft.com/en-us/campaigns/visual-studio-2013/) integration allows for full lifecycle app management in one place. Azure VS integration allows you to create and continuously package and publish your API apps. With VS you can debug in the cloud as well as view live log diagnostic data.
+Studio](/campaigns/visual-studio-2013/) integration allows for full lifecycle app management in one place. Azure VS integration allows you to create and continuously package and publish your API apps. With VS you can debug in the cloud as well as view live log diagnostic data.
 
 - **No ops** - Run your API apps in a high-availability environment with automatic patching. API apps deployed with Azure App Service are isolated and are hosted in VMs dedicated to your applications – ensuring predictable performance and security isolation.
 
 - **Automatically scale** - Azure App Service enables you to quickly scale up or out to handle any incoming customer load. Manually select the number and size of VMs or set up
-[auto-scaling](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
+[auto-scaling](/documentation/videos/auto-scaling-azure-web-sites/)
 to scale your servers based on load or schedule.
 
 - **Access on-premises data** - Azure App Service enables you to build APIs that can consume data from your own data center. With [Hybrid Connections](../integration-hybrid-connection-overview/) and [VNET](../web-sites-integrate-with-vnet/) it's easy to access your data securely from your on-premises data
@@ -56,6 +56,6 @@ Interested in moving an on-premises website to the cloud? Use the [Migration Ass
 
 ## Getting started
 
-To get started with API apps, follow the [Create an API app tutorial](../app-service-dotnet-api-apps-create/).
+To get started with API apps, follow the [Create an API app tutorial](../app-service-dotnet-create-api-app/).
 
 For more information about the Azure App Service platform, see [Azure App Service](../app-service-value-prop-what-is/).

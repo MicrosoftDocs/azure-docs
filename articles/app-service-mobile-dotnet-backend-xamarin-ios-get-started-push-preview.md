@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Get Started with Azure App Service for Xamarin iOS apps" 
+	pageTitle="Add push notifications to your Xamarin iOS app with Azure App Service" 
 	description="Learn how to use Azure App Service to send push notifications to your Xamarin iOS app" 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="xamarin" 
 	authors="yuaxu"
 	manager="dwrede" 

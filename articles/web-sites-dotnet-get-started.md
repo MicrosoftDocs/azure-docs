@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Create and deploy an ASP.NET Web App in Azure App Service" 
+	pageTitle="Create and deploy an ASP.NET web app in Azure App Service" 
 	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to a web app in Azure App Service. In less than 15 minutes you'll have an app up and running in the cloud." 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="03/05/2015" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Create and deploy an ASP.NET Web App in Azure App Service
+# Create and deploy an ASP.NET web app in Azure App Service
 
 ## Overview
 
-This tutorial shows how to create an ASP.NET web application and deploy it to Azure App Service Web App by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial shows how to create an ASP.NET web application and deploy it to Azure App Service Web Apps by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 You'll learn:
 
@@ -31,11 +31,11 @@ You'll learn:
 
 You need an Azure account to complete this tutorial:
 
-* You can [open an Azure account for free](/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web App.
-* You can [activate MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+* You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as App Service Web Apps.
+* You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
 
 > [AZURE.NOTE]
-> If you want to get started with Web App before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter app in Web App.
+> If you want to get started with Web Apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter app in Web Apps.
 
 The following illustration shows the completed application:
 
@@ -231,7 +231,7 @@ In this section of the tutorial, you change the **h1** heading of the home page,
 
 ## Monitor and manage the web app in the management portal
   
-The [Azure Management Portal](/en-us/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web app you just created. In this section of the tutorial you look at some of what you can do in the portal.
+The [Azure Management Portal](/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web app you just created. In this section of the tutorial you look at some of what you can do in the portal.
 
 1. In your browser, go to [http://portal.azure.com](), and sign in with your Azure credentials.
 
@@ -277,18 +277,18 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 * How to add database and authorization functionality
 
-	For a tutorial that shows how to access a database and restrict some application functions to authorized users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/en-us/develop/net/tutorials/web-site-with-sql-database/).
+	For a tutorial that shows how to access a database and restrict some application functions to authorized users, see [Deploy a secure ASP.NET MVC app with membership, OAuth, and SQL Database to an Azure web app](/develop/net/tutorials/web-site-with-sql-database/).
 
 * How to add a custom domain name and SSL
 
 	For information about how to use SSL and your own domain (for example www.contoso.com instead of contoso.azurewebsites.net), see the following resources:
 
-	* [Configuring a custom domain name for an Azure Website](/documentation/articles/web-sites-custom-domain-name/). 
-	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Configuring a custom domain name for an Azure Website](web-sites-custom-domain-name.md). 
+	* [Enable HTTPS for an Azure website](web-sites-configure-ssl-certificate.md)
 
 * How to avoid wake-up wait time after idle time-outs 
 
-	By default, web apps are unloaded if they have been idle for some period of time. The first request after that has to wait for the web app to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to configure web app](http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/).
+	By default, web apps are unloaded if they have been idle for some period of time. The first request after that has to wait for the web app to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to configure web app](web-sites-configure.md).
 
 * How to add real-time features such as chat
 
@@ -296,4 +296,4 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 * How to choose between App Service, Cloud Services, and VMs for web applications
 
-	In Azure you can run web applications in App Service Web App as shown in this tutorial, or in Cloud Services or in Virtual Machines. For more information, see [Azure Execution Models](/en-us/develop/net/fundamentals/compute/) and [Azure web apps, cloud services, and VMs: When to use which?](/en-us/manage/services/web-sites/choose-web-app-service/).
+	In Azure you can run web applications in App Service Web Apps as shown in this tutorial, or in Cloud Services or in Virtual Machines. For more information, see [Azure Execution Models](/develop/net/fundamentals/compute/) and [Azure web apps, cloud services, and VMs: When to use which?](/manage/services/web-sites/choose-web-app-service/).

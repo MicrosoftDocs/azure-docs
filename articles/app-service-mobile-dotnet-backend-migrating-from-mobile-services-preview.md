@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migrate from Mobile Services to an App Service Mobile App" 
 	description="Learn how to easily migrate your Mobile Services application to an App Service Mobile App" 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="app-service" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/20/2015" 

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="BizTalk templates and Logic Apps" 
 	description="Learn how to create APIs, operations, and products in API Management." 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
 	authors="jtwist" 
 	manager="dwrede" 

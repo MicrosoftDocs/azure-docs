@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploy to Staging Environments for Web Apps in Azure App Service" 
 	description="Learn how to use staged publishing for web apps in Azure App Service." 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -14,25 +14,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 <a name="Overview"></a>
 # Deploy to Staging Environments for Web Apps in Azure App Service
 
-When you deploy your web app to Azure App Service, you can deploy to a separate deployment slot instead of the default production slot, which are actually live web apps with their own hostnames. This option is available in the **Standard** App Service plan mode. Furthermore, you can swap the apps and app configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app to Azure App Service, you can deploy to a separate deployment slot instead of the default production slot, which are actually live web apps with their own hostnames. This option is available in any **Standard** App Service plan mode. Furthermore, you can swap the apps and app configurations between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 - You can validate web app changes in a staging deployment slot before swapping it with the production slot.
 
 - After a swap, the slot with previously staged web app now has the previous production web app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back. 
  
-- Deploying a web app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your web app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. 
+- Deploying a web app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your web app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated simply by configuring [Auto Swap](#Configure-Auto-Swap-for-your-web-app). 
 
 ## Deployment Slots Support Details ##
 
-Four deployment slots in addition to the production slot are supported for each web app in the **Standard** App Service plan mode. 
+Four deployment slots in addition to the production slot are supported for each web app in the **Standard** mode. 
 
-- Multiple deployment slots are only available for web apps in the **Standard** App Service plan mode. When your web app has multiple slots, you cannot change the App Service plan mode.
+- Multiple deployment slots are only available for web apps in the **Standard** mode. When your web app has multiple slots, you cannot change the mode.
 
 - Scaling is not available for non-production slots.
 
@@ -40,12 +40,12 @@ Four deployment slots in addition to the production slot are supported for each 
 
 - By default, your deployment slots share the same resources as your production slots and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
 	
-	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same App Service plan mode with the production slot before you can swap the two slots.
+	> [AZURE.NOTE] In the [Azure Preview Portal](https://portal.azure.com) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 <a name="Add"></a>
-## To Add a Deployment Slot to a Web App ##
+## Add a deployment slot to a web app ##
 
-The web app must be running in the **Standard** App Service plan to enable multiple deployment slots. 
+The web app must be running in the **Standard** mode to enable multiple deployment slots. 
 
 1. In the [Azure Preview Portal](https://portal.azure.com/), open your web app's blade.
 2. Click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**. 
@@ -84,6 +84,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 - Connection strings (can be configured to stick to a slot)
 - Handler mappings
 - Monitoring and diagnostic settings
+- Unscheduled WebJobs
 
 **Settings that are not swapped**:
 
@@ -91,6 +92,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 - Custom Domain Names
 - SSL certificates and bindings
 - Scale settings
+- Scheduled WebJobs
 
 <a name="Swap"></a>
 ## To Swap Deployment Slots ##
@@ -103,6 +105,31 @@ When you clone configuration from another deployment slot, the cloned configurat
 	
 3. Click **OK** to complete the operation. When the operation finishes, the deployment slots have been swapped.
 
+## Configure Auto Swap for your web app ##
+
+Auto Swap streamlines DevOps scenarios where you want to continuously deploy your web app with zero downtime. When a deployment slot is configured for Auto Swap into production, every time you push your code update to that slot, Web Apps will automatically swap the web app into production after it has already warmed up in the slot. This configuration removes any downtime in your customer's experience of the production web app through out the code update.
+
+You can only configure Auto Swap for a non-production slot.
+
+When you configure Auto Swap for a slot
+
+>[AZURE.IMPORTANT] When you configure Auto Swap for a slot, make sure that the slot has identical configuration settings with the target slot (usually the production slot).
+
+Configuring Auto Swap for a slot is easy. Follow the steps below:
+
+1. In the **Deployment Slots** blade, select a non-production slot, click **All Settings** for that slot's blade.  
+
+	![][Autoswap1]
+
+2. Click **Application Settings**. Select **On** for **Auto Swap**, select the desired target slot in **Auto Swap Slot**, and click **Save** in the command bar. Make sure that the application settings for your slot is identical to those of the target slot.
+
+	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete.
+
+	![][Autoswap2]
+
+	>[AZURE.NOTE] To test Auto Swap for your web app, you can select a non-production target slot in **Auto Swap Slot** to determine the target slot's responsiveness to user requests across a code push.  
+
+3. Execute a code push to that deployment slot. Auto Swap will happen after a short time and the update will be reflected at your target slot's URL.
 
 <a name="Rollback"></a>
 ## To Rollback a Production App to Staging ##
@@ -213,7 +240,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 ## Next Steps ##
 [Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Microsoft Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/)
+[Microsoft Azure Free Trial](/pricing/free-trial/)
 
 
 <!-- IMAGES -->
@@ -227,3 +254,5 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 [SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
 [DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
 [SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
+[Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
+[Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png

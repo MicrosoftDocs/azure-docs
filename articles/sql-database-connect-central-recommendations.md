@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="03/16/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,7 +22,7 @@
 
 
 <!--
-GeneMi , 2015-March-13 Friday 14:11pm
+GeneMi , 2015-March-16 Monday 15:50pm
 sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
@@ -124,7 +124,7 @@ For Elastic Scale, see:
 
 
 - [Get Started with Azure SQL Database Elastic Scale Preview](../sql-database-elastic-scale-get-started/)
-- [Data dependent routing](./sql-database-elastic-scale-data-dependent-routing/)
+- [Data dependent routing](../sql-database-elastic-scale-data-dependent-routing/)
 
 
 ##Incomplete or outdated posts

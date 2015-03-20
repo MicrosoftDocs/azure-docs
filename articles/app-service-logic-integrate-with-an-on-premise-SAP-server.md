@@ -4,7 +4,7 @@
 	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags

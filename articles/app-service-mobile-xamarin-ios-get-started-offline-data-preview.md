@@ -5,7 +5,7 @@
     authors="lindydonna" 
     manager="dwrede" 
     editor="" 
-    services="app-service-mobile"/>
+    services="app-service\mobile"/>
 
 <tags 
     ms.service="app-service-mobile" 

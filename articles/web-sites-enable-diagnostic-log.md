@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Enable Diagnostics Logging for Web Apps in Azure App Service" 
 	description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 # Enable Diagnostics Logging for Web Apps in Azure App Service
@@ -115,7 +115,7 @@ To download the log files using the Azure Command Line Tools, open a new command
 
 This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](/documentation/articles/xplat-cli/).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](xplat-cli.md).
 
 ##<a name="streamlogs"></a> How to: Stream logs
 
@@ -161,7 +161,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](/documentation/articles/xplat-cli/).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](xplat-cli.md).
 
 ##<a name="understandlogs"></a> How to: Understand diagnostics logs
 
@@ -315,5 +315,5 @@ The web server logs are formatted using the [W3C extended log file format](http:
 - [How to Monitor Web Apps](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 - [Tutorial - Troubleshooting Web Apps](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
 - [Troubleshooting Azure Web Apps in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
-- [Analyze Web App Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+- [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

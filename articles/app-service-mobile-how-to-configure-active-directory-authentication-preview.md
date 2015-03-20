@@ -2,7 +2,7 @@
 	pageTitle="How to configure Azure Active Directory authentication for your App Services application" 
 	description="Learn how to configure Azure Active Directory authentication for your App Services application." 
 	authors="mattchenderson,wesmc7777" 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="" 
 	manager="dwrede" 
 	editor=""/>

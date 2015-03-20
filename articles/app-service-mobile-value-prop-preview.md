@@ -1,7 +1,7 @@
 <properties
 	pageTitle="What are Mobile Apps"
 	description="Learn what advantages does App Service bring to your enterprise mobile apps."
-	services="app-service-mobile"
+	services="app-service\mobile"
 	documentationCenter=""
 	authors="kirillg"
 	manager="dwrede"
