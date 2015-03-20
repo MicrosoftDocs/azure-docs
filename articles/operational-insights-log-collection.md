@@ -9,9 +9,9 @@
 
 <tags
    ms.service="operational-insights"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="operational-insights" 
    ms.date="03/20/2015"
    ms.author="banders"/>

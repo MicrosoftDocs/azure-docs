@@ -121,7 +121,7 @@ The Update Assessment, Change Tracking, and SQL Assessment intelligence packs al
 
 For Azure virtual machines, there are two easy ways to enable agent-based data collection:
 
-- In the Azure management portal
+- In the Microsoft Azure management portal
 
 - Using PowerShell
 
@@ -129,7 +129,7 @@ When using agent-based collection for log data, you must configure which logs to
 
 If you’ve configured Operational Insights to index log data using diagnostics in Azure Cloud Services and you configure the agent to collect logs, then the same event logs will have 2 copies of the data indexed. If you have the agent installed, then you should collect log data using the agent and do not index the logs collected by diagnostics in Azure Cloud Services.
 
-### Azure Management Portal
+### Microsoft Azure Management Portal
 
 In the [Operational Insights portal](https://preview.opinsights.azure.com/), go to your Operational Insights workspace and select the Servers tab. On the tab, you’ll see a list of your virtual machines. Select the virtual machine you want to install the agent on and then click **Enable Op Insights**.
 
@@ -274,13 +274,13 @@ In [Step 4: Configure storage of your diagnostics data](https://msdn.microsoft.c
     </ConfigurationSettings>
 
 
-The **AccountName** and **AccountKey** values are found in the Windows Azure Management Portal in the storage account dashboard, under Manage Access Keys. The protocol for the connection string must be **https**.
+The **AccountName** and **AccountKey** values are found in the Microsoft Azure Management Portal in the storage account dashboard, under Manage Access Keys. The protocol for the connection string must be **https**.
 
 Once the updated diagnostic configuration is applied to your cloud service and it is writing diagnostics to Azure Storage, then you are ready to configure Operational Insights.
 
 ### Enable Azure Cloud Services diagnostics in a virtual machine for event log and IIS log collection
 
-Use the following procedure to enable Azure Cloud Services diagnostics in a virtual machine for Event Log and IIS log collection using the Azure management portal.
+Use the following procedure to enable Azure Cloud Services diagnostics in a virtual machine for Event Log and IIS log collection using the Microsoft Azure management portal.
 
 #### To enable Azure Cloud Services diagnostics in a virtual machine with the Azure management portal
 
