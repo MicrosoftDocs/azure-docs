@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/17/2015" 
+	ms.date="03/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
 
 This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
 
-After completing this tutorial, you'll be able to answer the following questions:
+We recommend getting started by watching the following video, where Andrew Liu shows you how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application. 
+
+> [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
+
+Then, return to this article, where you'll learn the answers to the following questions:
 
 - How do I work with DocumentDB using the documentdb npm module?
 - How do I deploy the web application to Azure Websites?
