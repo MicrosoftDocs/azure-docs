@@ -324,7 +324,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 12. After the web app stops, right-click the web app again, and then click **Start web app**.
 
-	The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the web app or restart the WebJob in the Azure management portal. It's generally recommended to restart the web app after a configuration change. 
+	The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the web app or restart the WebJob in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). It's generally recommended to restart the web app after a configuration change. 
 
 9. Refresh the browser window that has the web app URL in its address bar.
 
@@ -341,7 +341,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 ### View the WebJobs SDK dashboard
 
-1. In the [Azure management portal](http://portal.azure.com/), select your web app.
+1. In the Azure Portal, select your web app.
 
 2. Click the **WebJobs** tab.
 
@@ -811,3 +811,7 @@ For more information, see [Getting a dashboard for local development with the We
 In this tutorial you've seen a simple multi-tier application that uses the WebJobs SDK for backend processing. The application has been kept simple for a getting-started tutorial. For example, it doesn't implement [dependency injection](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) or the [repository and unit of work patterns](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), it doesn't [use an interface for logging](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), it doesn't use [EF Code First Migrations](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) to manage data model changes or [EF Connection Resiliency](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) to manage transient network errors, and so forth.
 
 For more information, see [Azure Web Jobs Recommended Resources](http://go.microsoft.com/fwlink/?LinkId=390226).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
