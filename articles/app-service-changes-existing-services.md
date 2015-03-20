@@ -29,7 +29,7 @@ under the App Service brand. It explains the change and impact of the new brandi
 Azure App Service is a one-of-a-kind cloud service that enables you to create enterprise grade web and mobile apps for any platform or device, fast. App Service is an integrated solution designed to streamline repeated coding functions, integrate with enterprise and SaaS systems, and automate business processes while meeting your company’s requirements for security, reliability, and scalability. App Service provides an integrated cloud app platform that spans the diverse needs of modern
 enterprise apps across both client and mobile devices. Azure App Service includes the following pieces:
 
--   Web Apps
+-   [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)
 -   Mobile Apps
 -   API Apps
 -   Logic Apps
@@ -50,9 +50,9 @@ explain how App Service impacts these existing services and adds new features.
 <tr class="odd">
 <td align="left">Azure Websites</td>
 <td align="left">Web Apps</td>
-<td align="left"><li>For Azure Websites, Azure App Service is strictly limited to changing the name Azure Websites Azure App Service Web Apps.
+<td align="left"><li>For Azure Websites, Azure App Service is strictly limited to changing the name Azure Websites to Azure App Service Web Apps.
 <p><li>All your existing instances of Azure Websites are now Web Apps.</p>
-<p><li>You can access your existing websites via the [Azure Portal], where you will find all your existing sites under <em>Web Apps</em>.</p>
+<p><li>You can access your existing websites via the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), where you will find all your existing sites under <em>Web Apps</em>.</p>
 <p><li><em>Web Hosting Plan</em> is now <em>App Service Plan</em>. An <em>App Service Plan</em> can host any service type of App Service, such as Web, Mobile, Logic, or API apps.</p>
 <p><li>Azure App Service Web Apps is in General Availability.</p>
 <p><li>Learn more about Web Apps.</p></td>
@@ -90,3 +90,6 @@ explain how App Service impacts these existing services and adds new features.
 [Learn more about App Service]: http://azure.microsoft.com/documentation/services/app-service/
 [Azure Portal]: https://portal.azure.com
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
