@@ -1,10 +1,9 @@
 <properties 
-	pageTitle="Getting started with SQL Database - Azure" 
+	pageTitle="Get started with SQL Database" 
 	description="Get started creating and managing SQL Databases in Azure." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="jeffgoll" 
-	writer="" 
 	manager="jeffreyg" 
 	editor="monicar"/>
 
@@ -14,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2014" 
+	ms.date="03/20/2015" 
 	ms.author="jeffreyg"/>
-
 
 # Get started with SQL Database
 
@@ -26,7 +24,6 @@ Another option for running SQL in the cloud is to host SQL Server on a virtual m
 
 ## Step 1: Create a Microsoft Azure account
 Skip this step if you already have an Azure account. If you don't, click Free Trial in the upper right of this page and then come back after you've signed up.
-
 
 ## Step 2: Use the Azure Management Portal to create a database and a logical server
 
@@ -63,7 +60,7 @@ When you create a server, the SQL Database firewall prevents access until you gi
 
 When you add an IP address, a new firewall rule on the server is created to allow traffic from that IP address, which is often the router or proxy server your device is listening on.
 
->[AZURE.IMPORTANT] The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [SQL Database firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+> [AZURE.IMPORTANT] The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [SQL Database firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 1. If you're not already there from the previous step, in the Management Portal, click **SQL Databases** on the left nav, find your database in the list, and then click the link under **Server**.<br/>
    ![The server for school db](./media/sql-database-get-started/schooldbshowserver.png)<br/><br/>
@@ -72,7 +69,6 @@ When you add an IP address, a new firewall rule on the server is created to allo
 3. Click **Add to the allowed IP addresses**, which creates a firewall rule to allow your current client IP address. You can create additional firewall rules by providing a **Rule name** and the **Start IP Address** and **End IP address** in a range.<br/><br/>
 4. Click **SAVE** at the bottom of the page.
    >[AZURE.IMPORTANT] Depending on your network configuration, your originating IP address may change frequently, which can result in a "Client with IP Address xxx.xxx.xxx.xxx is not allowed to access the server" error. Check back here to find your client IP address and then add it, or choose a range of inclusive IP addresses.
-
 
 Congratulations! You now have a database running in Azure on a SQL Database server, with a server-level SQL administrator, and a firewall rule that enables client access! But you still don't have a working database you can play with. To do that, your database needs a schema and some data. We'll do that next.
 
@@ -101,8 +97,10 @@ In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft
 
 1. In Object Explorer, expand **Databases**, click **School** and then click **New Query**.<br/>
    ![School database in SSMS](./media/sql-database-get-started/ssmsschool.png)<br/><br/>
-2. Copy this script, paste it into the query window that opens, and then click **Execute**.<br/>
-<div style="width:auto; height:600px; overflow:auto"><pre>
+2. Copy this script, paste it into the query window that opens, and then click **Execute**.
+
+<br/>
+
 	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
@@ -338,15 +336,15 @@ In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
    	 CONSTRAINT [FK_OfficeAssignment_Person];
 	GO
-</pre></div><br/>
+
 
 ## Step 6: Insert data
 This script uses the [INSERT](http://msdn.microsoft.com/library/windowsazure/ee336284.aspx) statement to add values to each column.
 
-1. Click **New Query** again, copy this script, paste it into the new query window, and then click **Execute**.<br/>
-<div style="width:auto; height:600px; overflow:auto"><pre>
+Click **New Query** again, copy this script, paste it into the new query window, and then click **Execute**.
+ 
 	-- Insert data into the Person table.
-	SET IDENTITY_INSERT dbo.Person ON;
+    SET IDENTITY_INSERT dbo.Person ON;
 	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (1, 'Abercrombie', 'Kim', '1995-03-11', null);
@@ -420,23 +418,19 @@ This script uses the [INSERT](http://msdn.microsoft.com/library/windowsazure/ee3
 	SET IDENTITY_INSERT dbo.Person OFF;
 	GO
 
-</pre></div>
-
 ## Step 7: Query sample and system data
 
 To check your work, run simple queries that return the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
 
-###Query sample data
+### Query sample data
 
 In a new query window, copy and run the following Transact-SQL script to retrieve some of the data you just added.
 
-<div style="width:auto; height:auto; overflow:auto"><pre>
 	SELECT * From Person
-</pre></div>
 
 You should see a result set with 34 rows from the person table, including PersonID, LastName, FirstName, HireDate, and EnrollmentDate.
 
-###Query system data
+### Query system data
 
 You can also use system views and built-in stored procedures to get information from the server. For the purposes of this tutorial, you will try out just a few commands.
 
@@ -452,7 +446,6 @@ Run this stored procedure to return a list of all of the objects in the **School
 
 	EXEC SP_help
 
-
 ## Step 8: Create a database login and assign permissions
 
 With SQL Database, you can create logins and grant permissions using Transact-SQL similar to the one you created when you set up the server. In this lesson, using SSMS and T-SQL, you'll do three things:
@@ -466,7 +459,7 @@ With SQL Database, you can create logins and grant permissions using Transact-SQ
    ```
    CREATE LOGIN SQLDBLogin WITH password='Password1';
 	```<br/><br/>
-###Create a database user and assign permissions
+### Create a database user and assign permissions
 
 Now that you've created the SQL Server authentication login, the next step is to create a user for the School database and assign the database and permission levels associated with the user. You do this by creating a **database user** on each database you want the user to access.
 
@@ -488,7 +481,7 @@ You now have a new SQL Server authentication login that has read-only permission
 
 You can use ADO.NET to connect to Microsoft Azure SQL Database. Unlike an on-premises connection, you need to account for throttling or other service faults that could terminate a connection or temporarily block new connections. This condition is called a transient fault. To manage transient faults, you implement a retry strategy. When connecting to Azure SQL Database, the [Transient Fault Handling Application Block](http://go.microsoft.com/fwlink/?LinkId=519356), part of Enterprise Library 6 – April 2013, has detection strategies that identify a transient fault condition.
 
-<h4>Sample C# Console Application</h4>
+### Sample C# Console Application
 
 
 	static void Main(string[] args)
