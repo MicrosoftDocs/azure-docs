@@ -75,7 +75,7 @@ The details blade will display the available information related to the operatio
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
-[ChooseRestoreNow]: ./media/web-sites-restore/01AChooseRestoreNow.png
+<!-- [ChooseRestoreNow]: ./media/web-sites-restore/01AChooseRestoreNow.png -->
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
 [StorageAccountFileSelected]: ./media/web-sites-restore/04StorageAccountFileSelected.png
