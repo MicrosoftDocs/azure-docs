@@ -30,11 +30,11 @@ The Web Apps Restore feature, available on the **Backups** blade in the Azure po
 
 1. On the **Settings** blade of your web app in the Azure portal, click the **Backups** option to display the **Backups** blade. Scroll in this blade and select one of the backup item based on the **BACKUP TIME** and the **STATUS** from the backup list.
 	
-	![Choose backup source][ChooseBackupSource]
+	<!--todo: ![Choose backup source][ChooseBackupSource] -->
 	
 2. Select **Restore Now** at the top of the **Backups** blade. 
 
-	![Choose restore now][ChooseRestoreNow]
+	<!--todo: ![Choose restore now][ChooseRestoreNow]  -->
 
 3. In the **Restore** blade, to restore the existing web app, verify all the displayed details and then click **OK**. 
 
