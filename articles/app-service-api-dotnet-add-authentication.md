@@ -38,18 +38,31 @@ This tutorial works with the API app that you created in [Create an API app](/ap
 
 The simplest way to verify that your API app is publicly accessible is to call it from a browser.
 
-1. Open a browser window and enter in the address bar the URL that calls your API app's Get method.  The URL follows this pattern:
+1. In your browser, go to the [preview portal].
 
-    	http://[resourcegroupname]gateway.azurewebsites.net/[apiappid]/api/contacts/get
+3. From the home page click **Browse > API Apps** and then click the name of the API app you want to protect.
 
-	For example, if you named your resource group myfirstrg and your API app ID is myfirstapiapp, the URL would be the following:
+	![Browse](./media/app-service-api-dotnet-add-authentication/browse.png)
 
-    	http://myfirstrggateway.azurewebsites.net/myfirstapiapp/api/contacts/get
+	![Select API app](./media/app-service-api-dotnet-add-authentication/select.png)
+
+3. In the **API App** blade, click the **URL** to open a browser window that calls your API App.
+
+	![API App blade](./media/app-service-api-dotnet-add-authentication/chooseapiappurl.png)
+
+2. Add `/api/contacts/get/` to the URL in the browser address bar.
+
+	For example, if your API app's URL is this:
+
+    	https://microsoft-apiappeeb5bdsasd744e188be7fa26f239bd4b.azurewebsites.net/
+
+	The complete URL would be this:
+
+    	https://microsoft-apiappeeb5bdsasd744e188be7fa26f239bd4b.azurewebsites.net/api/contacts/get/
 
 	Different browsers handle API calls differently. The image shows a successful call from a Chrome browser.
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
-	<!--todo: replace with screenshot not showing hunter etc.-->
 
 2. Save the URL you used; you'll use it again later in the tutorial.
 
@@ -70,25 +83,21 @@ When you go to the resource group's blade in the [preview portal](https://portal
 
 To configure your API app to accept only authenticated requests, you'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
 
-1. In the Azure [preview portal] click **Browse > API Apps**, and then click the name of the API app that you want to protect.
+1. Go back to the **API App** blade for the API app that you want to protect.
 
-	![Browse](./media/app-service-api-dotnet-add-authentication/browse.png)
-
-	![Select API app](./media/app-service-api-dotnet-add-authentication/select.png)
-
-2. In the API app blade, click **Settings**, and then click **Basic settings**.
+2. In the **API App** blade, click **Settings**, and then click **Application settings**.
 
 	![Click Settings](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
 
-	![Click Basic settings](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
+	![Click Application settings](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
 
-3. In the **Basic Settings** blade, change **Access Level** to **Public (authenticated)**, and then click **Save**.
+3. In the **Application Settings** blade, change **Access Level** to **Public (authenticated)**, and then click **Save**.
 
 	![Click Basic settings](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
 
 	You have now protected the API app from unauthenticated access. Next you have to configure the gateway to specify which authentication provider to use.
 
-4. Scroll left back to the API app blade, and then click the link to the gateway.
+4. Scroll left back to the **API App** blade, and then click the link to the gateway.
 
 	![Click gateway](./media/app-service-api-dotnet-add-authentication/gateway.png)
 
@@ -126,7 +135,7 @@ In the [management portal], the **Configure** tab for the application you create
 
 ![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
 
-	(The Reply URL in the image shows the same URL twice, once with `http:` and once with `https:`.)
+(The Reply URL in the image shows the same URL twice, once with `http:` and once with `https:`.)
 
 ## Verify that authentication works 
 
@@ -145,6 +154,8 @@ In the [management portal], the **Configure** tab for the application you create
     	http://myfirstrggateway.azurewebsites.net/login/aad
 
 	Notice that unlike the earlier URL, this one does not include your API app name:  the gateway is authenticating you, not the API app.  The gateway handles authentication for all API apps in the resource group.
+
+	(If you have a problem signing in, try opening a private or incognito window.)
 
 3. Enter your credentials when the browser displays a login page. 
  
@@ -187,9 +198,9 @@ These instructions show how to use the Postman tool in the Chrome browser, but y
 
 6. Open the Postman extension.
 
-7. Enter the Request URL.
+7. In the Request URL field, enter the URL to your API app's Get method that you used previously, but omit `get/` from the end.
  
-		http://[resourcegroupname]gateway.azurewebsites.net/[apiappid]/api/contacts
+		http://[apiappurl]/api/contacts
     
 8. Click **Headers**, and then add an *x-zumo-auth* header. Paste the token value from the clipboard into the **Value** field.
 
@@ -201,15 +212,15 @@ These instructions show how to use the Postman tool in the Chrome browser, but y
 
 11. Click Send.
 
-	![Add headers and body](./media/app-service-api-dotnet-add-authentication/addcontact.png)
-
 	The API app returns a *201 Created* response.
+
+	![Add headers and body](./media/app-service-api-dotnet-add-authentication/addcontact.png)
 
 12. To verify that this request would not work without the authentication token, delete the authentication header and click Send again.
 
 	You get a *403 Forbidden* response.
 
-	![403 Forbidden response](./media/app-service-api-dotnet-add-authentication/addcontact.png)
+	![403 Forbidden response](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
 
 ## Next steps
 
