@@ -1,22 +1,22 @@
 <properties 
 	pageTitle="Create a Logic App" 
-	description="Create a Logic App" 
+	description="Get started with creating a basic Logic App" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="web"
+	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/10/2015"
 	ms.author="stepsic"/>
 
-##Create a Logic App
+#Create a Logic App
 You can get started with Logic Apps in just a few minutes. In this scenario, we'll walk  through how you can get a record of Tweets that you’re interested in delivered right to a Dropbox folder.
 
 To use this scenario you will need:
@@ -105,4 +105,4 @@ Click on Browse at the left side of the screen and select Logic Apps. You’ll s
 
 Now you can see all the details. Click the Triggers and Actions part to edit the Logic app you created. Or you can turn it off by clicking **Disable** in the command bar.
 
-In less than 5 minutes you were able to set up a simple Logic App running in the cloud. To learn more about using Logic App features, see **Using Logic App Features**.
+In less than 5 minutes you were able to set up a simple Logic App running in the cloud. To learn more about using Logic App features, see [Use Logic App Features](](../app-service-logic-use-logic-app-features/)).

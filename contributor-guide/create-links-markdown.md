@@ -8,18 +8,28 @@
 
 | Link scenario | Guidance  |
 |---------------|-----------|
-|Linking from an ACOM article to another ACOM article|Use relative links. Do not include the language locale in your relative links ("/").|
-|​Linking to an MSDN library topic, a TechNet library topic, or KB article|​Use the actual link to the article or topic, but remove the language locale ("/") from the link. Removing the language locale from the link allows the correct translated content to be returned based on the language locale set on the user's operating system.|
+|Linking from an ACOM article to another ACOM article|Use relative links. Do not include the en-us language locale in your relative links.|
+|​Linking to an MSDN library topic, a TechNet library topic, or KB article|​Use the actual link to the article or topic, but remove the en-us language locale from the link.|
 |Linking from an ACOM article to any other web page|Use the direct link|
 
 ###Markdown syntax for ACOM relative links
 
-To create an inline link to a page in the same directory as the current page (this is the case for all our ACOM technical articles), use the two-dot notation. Include the markdown file name extension:
+To create an inline link to a page in the same directory as the current page (this is the case for all our ACOM technical articles), use the dot notation. Include the markdown file name extension:
 
-    [link text](../<article name>)
-    [Create a Media Services account!](../media-services-create-account)
- 
-To link to a page in a different directory (to link from a tech doc to a feature page, for example), you need to use the ../ syntax to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
+    [link text](./article-name.md)
+    [Create a Media Services account](./media-services-create-account.md)
+
+To link to an anchor within the same article:
+
+    [link text](article-name.md#anchor-name
+    [Create cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)
+
+To link to an anchor in another article:
+
+    [link text](./article-name.md#anchor-name)
+    [Configure your profile](./media-services-create-account.md#configure-your-profile)
+
+To link to a page in a different directory (to link from a tech doc to a feature page, for example), you need to use the two-dot syntax (../) to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
 
     [link text](../../services/virtual-machines/)
  

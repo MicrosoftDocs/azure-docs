@@ -1,22 +1,22 @@
 <properties
- pageTitle="Use Logic App Templates"
- description="Learn how to use pre-created Logic App Templates to help you get started."
+ pageTitle="Use Logic App templates"
+ description="Learn how to use pre-created Logic App templates to help you get started."
  authors="kevinlam1"
  manager="dwrede"
  editor=""
- services="app-service-logic"
+ services="app-service\logic"
  documentationCenter=""/>
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="mobile"
+	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/10/2015"
 	ms.author="klam"/>
 
-## Use Logic App Templates
+# Use Logic App templates
 
 Logic App Templates are a set of curated pre-built Logic Apps to help you quickly get started building your own integration application.
 

@@ -1,76 +1,58 @@
 
-Now, let's update the app to store items in Azure Mobile Services instead of the local in-memory collection.
+Now, let's update the app to store items in Azure Mobile Services instead of the local in-memory collection. 
 
-1. In **TodoService.h**, locate the following line:
-
+* In **TodoService.h**, locate the following line:
 ```
-// TODO - create an MSClient proeprty
+// TODO - create an MSClient property
 ```
-
-   Replace this comment with the following line. This creates a property that represents the `MSClient` to connect to the service.
-
+Replace this comment with the following line. This creates a property that represents the `MSClient` to connect to the service.
 ```
 @property (nonatomic, strong)   MSClient *client;
 ```
 
-2. In **TodoService.m**, locate the following line:
-
+* In **TodoService.m**, locate the following line:
 ```
 // TODO - create an MSTable property for your items
 ```
-
-   	Replace this comment with the following line inside the `@interface` declaration. This creates a property representation for your mobile services table.
-
+Replace this comment with the following line inside the `@interface` declaration. This creates a property representation for your mobile services table.
 ```
 @property (nonatomic, strong)   MSTable *table;
 ```
 
-3. In the Management Portal, click **Mobile Services**, and then click the mobile service. Click the **Dashboard** tab and make a note of the **Site URL**. Then click **Manage Keys** and make a note of the **Application Key**. You will need these values when accessing the mobile service from your app code.
+* In the Management Portal, click **Mobile Services**, and then click the mobile service. Click the **Dashboard** tab and make a note of the **Site URL**. Then click **Manage Keys** and make a note of the **Application Key**. You will need these values when accessing the mobile service from your app code.
 
-4. In **TodoService.m**, locate the following line:
-
+* In **TodoService.m**, locate the following line:
 ```
 // Initialize the Mobile Service client with your URL and key.
 ```
-
-    After this comment, add the following line of code. Replace `APPURL` and `APPKEY` with the site URL and application key you obtained in the previous step.
-
+After this comment, add the following line of code. Replace `APPURL` and `APPKEY` with the site URL and application key you obtained in the previous step.
 ```
 self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
 ```
 
-5. In **TodoService.m**, locate the following line:
-
+* In **TodoService.m**, locate the following line:
 ```
 // Create an MSTable instance to allow us to work with the TodoItem table.
 ```
-
 Replace this comment with the following line. This creates the TodoItem table instance.
-
 ```
 self.table = [self.client tableWithName:@"TodoItem"];
 ```
 
-6. In **TodoService.m**, locate the following line:
-
+* In **TodoService.m**, locate the following line:
 ```
 // Create a predicate that finds items where complete is false
 ```
-
-  Replace this comment with the following line. This creates a query to return all tasks that have not yet been completed.
-
+Replace this comment with the following line. This creates a query to return all tasks that have not yet been completed.
 ```
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 
-7. Locate the following line:
-
+* Locate the following line:
 ```
 // Query the TodoItem table and update the items property with the results from the service
 ```
-
 Replace the comment and the subsequent **completion** block invocation with the following code:
-
 ```
 [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
 {
@@ -79,8 +61,7 @@ self.items = [results mutableCopy];
 }];
 ```
 
-8. Locate the **addItem** method, and replace its body with the following code. This code sends an insert request to the mobile service.
-
+* Locate the **addItem** method, and replace its body with the following code. This code sends an insert request to the mobile service.
 ```
 // Insert the item into the TodoItem table and add to the items array on completion
 [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
@@ -92,14 +73,11 @@ self.items = [results mutableCopy];
 }];
 ```
 
-9. Locate the **completeItem** method, and locate the following commented line of code:
-
+* Locate the **completeItem** method, and locate the following commented line of code:
 ```
 // Update the item in the TodoItem table and remove from the items array on completion
 ```
-
-    Replace the body of the method, from that point to the end of the method, with the following code. This code removes todo items after they are marked as completed.
-
+Replace the body of the method, from that point to the end of the method, with the following code. This code removes todo items after they are marked as completed.
 ```
 // Update the item in the TodoItem table and remove from the items array on completion
 [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
@@ -113,8 +91,8 @@ self.items = [results mutableCopy];
     completion(index);
 }];
 ```
-10. In TodoListController.m, locate the **onAdd** method and overwrite it with the following code:
 
+* In TodoListController.m, locate the **onAdd** method and overwrite it with the following code:
 ```
 - (IBAction)onAdd:(id)sender
 {

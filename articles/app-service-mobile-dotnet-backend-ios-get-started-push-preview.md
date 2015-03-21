@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Create a mobile app with Push Notifications (iOS) | Mobile Dev Center" 
+	pageTitle="Add push notifications to your iOS app with Azure App Service" 
 	description="Learn how to use Azure App Service to send push notifications to your iOS app." 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="ios" 
 	manager="dwrede"
 	editor="" 
@@ -46,13 +46,13 @@ This tutorial requires the following:
 
    > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with App Service mobile apps].
+This tutorial is based on the App Service Mobile App quickstart. Before you start this tutorial, you must first complete either [Get started with App Service mobile apps].
 
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 
-## Configure Mobile Services to send push requests
+## Configure Mobile App to send push requests
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
@@ -103,8 +103,9 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
 ## Add push notifications to your app
+1. Download and include the App Service Mobile App Client SDK in your project.
 
-1. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
+2. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
 
         #import <WindowsAzureAppServiceMobile/WindowsAzureAppServiceMobile.h>
 
@@ -187,10 +188,6 @@ Your app is now updated to support push notifications.
   	![][26]
 
 You have successfully completed this tutorial.
-
-## Next steps
-
-This tutorial demonstrated the basics of enabling an iOS app to use App Service to send push notifications.
 
 <!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates

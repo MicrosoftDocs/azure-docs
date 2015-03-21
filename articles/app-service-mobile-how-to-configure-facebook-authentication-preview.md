@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to configure Facebook authentication for your App Services application"
 	description="Learn how to configure Facebook authentication for your App Services application." 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 
@@ -32,19 +32,18 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 5. Pick a category for your application from the dropdown. Then click **Create App ID**.
 
-6. On the next page, select **Skip Quick Start** in the top left. This will take you to the developer dashboard for your application.
+6. On the next page, select **Skip Quick Start** in the top right. This will take you to the developer dashboard for your application.
 
-7. On the left navigation bar, click **Settings**. Type the URL of the gateway in **App Domains**, and enter a **Contact Email**.
+7. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. 
+
+	> [AZURE.NOTE] **Security Note**
+	The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+
+8. On the left navigation bar, click **Settings**. Type the URL of the gateway in **App Domains**, and enter a **Contact Email**.
 
     ![][0]
 
-8. Type the URL of your App Service gateway in **Site URL**, then click **Save Changes**.
-
-9. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. 
-
-	> [AZUTE.NOTE] **Security Note**
-	The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
-
+9. If you don't see a website section below, click **Add Platform** and select **Website**. Type the URL of your App Service gateway in **Site URL**, then click **Save Changes**.
 
 10. Click the **Advanced** tab and add your redirect URI to **Valid OAuth redirect URIs**. Then click **Save Changes**. Your redirect URI is the URL of your gateway appended with the path, _/signin-facebook_. For example, `https://contosoproxysite.azurewebsites.net/signin-facebook`.
 

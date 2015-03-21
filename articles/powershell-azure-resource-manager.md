@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2015" 
+	ms.date="03/13/2015" 
 	ms.author="tomfitz"/>
 
 # Using Windows PowerShell with Resource Manager #
@@ -35,7 +35,7 @@ Before you can use Windows PowerShell with Resource Manager, you must have the f
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 	
-- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/).
+- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure/).
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -99,13 +99,13 @@ You don't need to be an expert in Azure, SQL, websites, or resource management t
 
 2. Use the **Switch-AzureMode** cmdlet to import the cmdlets in the AzureResourceManager and AzureProfile modules. 
 
-	`PS C:\> Switch-AzureMode AzureResourceManager`
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 3. To add your Azure account to the Windows PowerShell session, use the **Add-AzureAccount** cmdlet. 
 
-    `PS C:\> Add-AzureAccount`
+        PS C:\> Add-AzureAccount
 
-The cmdlet prompts you for an email address and password. Then it downloads your account settings so they are available to Windows PowerShell. 
+The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Windows PowerShell. 
 
 The account settings expire, so you need to refresh them occasionally. To refresh the account settings, run **Add-AzureAccount** again. 
 
@@ -119,7 +119,7 @@ There are several ways to create a resource group and its resources, but the eas
 
 Azure hosts a gallery of resource group templates and you can create your own templates, either from scratch or by editing a gallery template. In this tutorial, we'll use a gallery template. 
 
-To see all of the template in the Azure resource group template gallery, use the **Get-AzureResourceGroupGalleryTemplate** cmdlet; however, this command returns a large number of templates. To see a more manageable number of templates, specify a publisher parameter. 
+To see all of the templates in the Azure resource group template gallery, use the **Get-AzureResourceGroupGalleryTemplate** cmdlet; however, this command returns a large number of templates. To see a more manageable number of templates, specify a publisher parameter. 
 
 At the Windows Powershell prompt, type:
     
@@ -150,30 +150,27 @@ Save-AzureResourceGroupGalleryTemplate saves the template and returns the path a
 
 You can view the template file in a text editor, such as Notepad. Each template has a **parameters** section and a **resources** section.
 
-The **parameters** section of the template is a collection of the parameters that are defined in all of the resources. It includes the databaseName, serverLocation, and collation properties.
+The **parameters** section of the template is a collection of the parameters that are defined in all of the resources. It includes property values you can provide when setting up your resource group.
 
-	"parameters": {
-	...    
-
-    "serverLocation": {
-      "type": "string"
-    }, 
-	...
-
-    "databaseName": {
-      "type": "string"
-    },
-    "collation": {
-      "type": "string",
-      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    "parameters": {
+      "siteName": {
+        "type": "string"
+      },
+      "hostingPlanName": {
+        "type": "string"
+      },
+      "siteLocation": {
+        "type": "string"
+      },
+      ...
     }
 
 Some parameters have a default value. When you use the template, you are not required to supply values for these parameters. If you do not specify a value, the default value is used. 
 
-	"collation": {
-	      "type": "string",
-	      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
-	    }
+    "collation": {
+      "type": "string",
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
 
 When parameters that have enumerated values, the valid values are listed with the parameter. For example, the **sku** parameter can take values of Free, Shared, Basic, or Standard. If you don't specify a value for the **sku** parameter, it uses the default value, Free.
 
@@ -213,7 +210,7 @@ The definition of each resource includes its properties, such as name, type and 
           "maxSizeBytes": "[parameters('maxSizeBytes')]",
           "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
         }
-      },
+    },
 
 
 We're almost ready to use the template, but before we do, we need to find locations for each of the resources.
@@ -226,7 +223,7 @@ Select any location that supports the resource type. The resources in a resource
 
 To get the locations that support each resource type, use the **Get-AzureLocation** cmdlet. To limit your output to a specific type of of resource, such as ResourceGroup, use:
 
-    Get-AzureLocation | Where-Object Name -like "ResourceGroup" | Format-Table Name, Locations -Wrap
+    Get-AzureLocation | Where-Object Name -eq "ResourceGroup" | Format-Table Name, LocationsString -Wrap
 
 The output will look similar to:
 
@@ -240,16 +237,13 @@ Now, we have the information that we need to create the resource group.
 
 ### Step 5: Create a resource group
  
-In this step, we'll use the resource group template to create the resource group. For reference, open the Microsoft.WebSiteSQLDatabase.0.2.2-preview JSON file on disk and follow along. 
+In this step, we'll use the resource group template to create the resource group. For reference, open the New_WebSite_And_Database.json file on disk and follow along. The template file can be very helpful for determining parameter values to pass, such as the correct ApiVersion for a resource.
 
 To create a resource group, use the **New-AzureResourceGroup** cmdlet.
 
 The command uses the **Name** parameter to specify a name for the resource group and the **Location** parameter to specify its location. Use the output of **Get-AzureLocation** to select a location for the resource group. It uses the **GalleryTemplateIdentity** parameter to specify the gallery template.
 
-	PS C:\> New-AzureResourceGroup ` 
-			-Name TestRG1 `
-			-Location "East Asia" `
-			-GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview `
+	PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
             ....
 
 As soon as you type the template name, New-AzureResourceGroup fetches the template, parses it, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, Windows PowerShell prompts you for the value.
@@ -270,13 +264,13 @@ When a template parameter has enumerated values, such as the sku parameter in th
 
     PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
-
     PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
+
+    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
 
 Here is an example of a New-AzureResourceGroup command that specifies only the required template parameters and the **Verbose** common parameter. Note that the **administratorLoginPassword** is omitted. (The backtick (`) is the Windows PowerShell line continuation character.)
 
-	PS C:\> New-AzureResourceGroup 
+	PS C:\> New-AzureResourceGroup `
 	-Name TestRG `
 	-Location "East Asia" `
 	-GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview `
@@ -358,7 +352,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 	                    TestPlan               Microsoft.Web/serverFarms             westus
 	                    TestSite               Microsoft.Web/sites                   westus
 
-- To get the resources in the resource group, use the **GetAzureResource** cmdlet and its ResourceGroupName parameter. Without parameters, Get-AzureResource gets all resources in your Azure subscription.
+- To get the resources in the resource group, use the **Get-AzureResource** cmdlet and its ResourceGroupName parameter. Without parameters, Get-AzureResource gets all resources in your Azure subscription.
 
 		PS C:\> Get-AzureResource -ResourceGroupName TestRG
 		
@@ -376,27 +370,23 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 - To add a resource to the resource group, use the **New-AzureResource** cmdlet. This command adds a new website to the TestRG resource group. This command is a bit more complex, because it does not use a template. 
 
-            PS C:\>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2004-04-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
+        PS C:\>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
 
 - To add a new template-based deployment to the resource group, use the **New-AzureResourceGroupDeployment** command. 
 
 		PS C:\>New-AzureResourceGroupDeployment ` 
 		-ResourceGroupName TestRG `
-		-GalleryTemplateIdentity Microsoft.WebSite.0.1.0-preview1 `
+		-GalleryTemplateIdentity Microsoft.WebSite.0.2.6-preview `
 		-siteName TestWeb2 `
 		-hostingPlanName TestDeploy2 `
-		-siteMode Limited `
-		-computeMode Dedicated `
-		-siteLocation "North Europe" `
-		-subscriptionID "9b14a38b-4b93-4554-8bb0-3cefb47abcde" `
-		-resourceGroup TestRG
+		-siteLocation "North Europe" 
 
 
 - To delete a resource from the resource group, use the **Remove-AzureResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
 	This command removes the TestSite2 website from the TestRG resource group.
 
-		Remove-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2004-04-01
+		Remove-AzureResource -Name TestSite2 -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01
 
 - To delete a resource group, use the **Remove-AzureResourceGroup** cmdlet. This cmdlet deletes the resource group and its resources.
 
@@ -435,8 +425,8 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 To learn more about using Windows PowerShell with Resource Manager:
  
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
-- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://www.windowsazure.com/documentation/articles/xplat-cli-azure-resource-manager/): Learn how to create and manage resource groups with command-line tools that work on many operating system platforms. 
-- [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
+- [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](../xplat-cli-azure-resource-manager/): Learn how to create and manage resource groups with command-line tools that work on many operating system platforms. 
+- [Azure blog](http://azure.microsoft.com/blog/): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.

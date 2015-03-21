@@ -25,20 +25,21 @@ This topic describes steps of a typical Azure Media Services (AMS) Live Streamin
 
 Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN, or a third-party CDN. 
 
-The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
+The following diagram shows the major parts of the Media Services platform that are involved in the Live Streaming Workflow.
 ![Live workflow][live-overview]
 
 
 ##Common Scenarios: Delivering Live Streaming.
 
-###Deliver live streaming media in the clear (non-encrypted)
+###Deliver live streaming media using on-premises encoder
 
 1. Create and start a channel.
 1. Retrieve the channel ingest URL.
 1. Start and configure the live transcoder of your choice.
 1. Retrieve the channel’s preview endpoint and verify that your channel is properly receiving the live stream.
-1. Create a program and asset. 
-2. Configure delivery policy for the asset (used by dynamic packaging).
+2. Create an asset.
+1. Configure asset delivery policy (used by dynamic packaging).
+3. Create a program and specify to use the asset that you created.
 1. Publish the asset associated with the program by creating an OnDemand locator.  
 
 	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
@@ -50,27 +51,30 @@ The following diagram shows the major parts of the Media Services platform that 
 
 To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
 
-1. Create and start a channel.
-1. Retrieve the channel ingest URL.
-1. Start and configure the live transcoder of your choice.
-1. Retrieve the channel’s preview endpoint and verify that your channel is properly receiving the live stream.
-1. Create a program and asset. 
+1. Same steps as described in the earlier scenario until the step where you create an asset. 
+2. Create an asset that you want to encrypt. 
 1. Create encryption content key for the asset you want to be dynamically encrypted during playback.
 2. Configure content key authorization policy.
 1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
-1. Publish the asset associated with the program by creating an OnDemand locator.  
+3. Create a program and specify to use the asset that is configured for dynamic encryption.
+4. Publish the asset associated with the program by creating an OnDemand locator.  
 1. Start the program when you are ready to start streaming and archiving.
 1. Stop the program whenever you want to stop streaming and archiving the event.
 1. Delete the Program (and optionally delete the asset).  
 
+This article contains links to topics that show how to set up your development environment and perform tasks mentioned above.
+
+##Concepts
+
+For concepts related to live streaming, see [Media Services Concepts](media-services-concepts.md).
 
 ##Creating a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
+Use **Azure Management Portal** to [Create Azure Media Services Account](media-services-create-account.md).
 
 ##Configuring streaming endpoints
 
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](../media-services-manage-origins/)
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](./media-services-manage-origins.md)
 
 ##Setting up development environment  
 
@@ -84,7 +88,7 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
-##Working with Live Transcoders
+##Working with 3rd Party Live Transcoders
 
 For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
@@ -96,9 +100,7 @@ For more information, see [Live Streaming](https://msdn.microsoft.com/library/az
 
 Create a content key with which you want to encrypt your asset using **.NET** or **REST API**.
 
-[Create content key with .NET](../media-services-rest-create-contentkey)
-
-[Create content key with REST API](../media-services-dotnet-create-contentkey)
+[AZURE.INCLUDE [media-services-selector-create-contentkey](../includes/media-services-selector-create-contentkey.md)]
 
 ##Configuring content key authorization policy 
 
@@ -119,11 +121,16 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 
+##Enabling Azure CDN
+
+Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
+
 ##Scaling a Media Services account
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
 
-For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
+
 
 
 

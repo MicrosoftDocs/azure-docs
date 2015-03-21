@@ -42,7 +42,7 @@ Azure Storage is accessible from anywhere in the world, from any type of applica
 
 Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, and C++) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
 
-Azure Premium Storage is now available in preview. Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for more details. 
+Azure Premium Storage is now available in preview. Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage-premium-storage-preview-portal) for more details. 
 
 ## Introducing the Azure Storage Services ##
 
@@ -53,7 +53,7 @@ An Azure storage account is a secure account that gives you access to services i
 
 Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 100 uniquely named storage accounts with a single subscription. See [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
-You can get started with Azure with a [free trial](/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](/pricing/purchase-options/). If you’re an [MSDN subscriber](/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
+You can get started with Azure with a [free trial](http://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](http://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
 
 ### Standard Storage Accounts
 
@@ -144,7 +144,7 @@ Customers are charged for Azure Storage based on four factors: the storage capac
 
 Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. Every read and write operation against Azure Storage also makes a request against the service. Data egress refers to data transferred out of a Microsoft Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Microsoft Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.) 
 
-The [Storage Pricing Details](/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](/pricing/calculator/?scenario=data-management) to help estimate your costs.
+The [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](http://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](http://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
 ## Developing Against Storage ##
 
@@ -175,9 +175,9 @@ To get started with Azure Storage, explore these resources:
 
 ### Documentation
 
-- [Azure Storage Documentation](/documentation/services/storage/)
+- [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 - [Azure Storage Services REST API Reference](http://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [AzCopy Command-Line Tool Reference](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
+- [AzCopy Command-Line Tool Reference](./storage-use-azcopy.md/)
 
 ### For PowerShell Users
 - [Azure Storage Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)

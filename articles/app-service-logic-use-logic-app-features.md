@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Use Logic App Features" 
+	pageTitle="Use Logic App features" 
 	description="Learn how to use the advanced features of logic apps." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="mobile"
+	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/10/2015"
 	ms.author="stepsic"/>
 	
-## Use Logic App Features
+# Use Logic App features
 
-You’ve [created a basic Logic App](./app-service-logic-create-a-logic-app/), but now you want to get more serious and make a full process using Logic Apps. We will cover several key topics in this article:
+You’ve [created a basic Logic App](../app-service-logic-create-a-logic-app/), but now you want to get more serious and make a full process using Logic Apps. We will cover several key topics in this article:
 
 - Add conditional logic (for example, only execute an action if a certain condition is met) and adding loops
 - Using the Code view to edit a Logic App
@@ -28,7 +28,7 @@ To get started, first walk through this article to create a basic Logic App. Onc
 
 ## Adding conditional logic and adding repeat
 
-Although the basic flow works fine, you may have noticed a couple gaps with it. First, it only will email you the top tweet, not all of the tweets on the keyword. In order to repeat an action for a list of items you can use the “repeat” property.
+Although the basic flow works fine, you may have noticed a couple gaps with it. First, it only will email you the top tweet, not all of the tweets on the keyword. In order to repeat an action for a list of items you can use the `repeat` property.
 
 ### Repeating
 Repeat takes a list of items and executes the action for each item in that list. To use repeat, click the gear icon at the top of the **Search twitter** action and select **Repeat over a list**. This will display a text box, and type:

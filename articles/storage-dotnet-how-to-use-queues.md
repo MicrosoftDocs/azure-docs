@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use queue storage from .NET | Microsoft Azure" 
+	pageTitle="How to use Queue storage from .NET | Microsoft Azure" 
 	description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." 
 	services="storage" 
 	documentationCenter=".net" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tamram"/>
 
-# How to use Queue Storage from .NET
+# How to use Queue storage from .NET
+
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 

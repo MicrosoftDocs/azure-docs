@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" 
+	pageTitle="Configure Azure Backup Services to quickly and easily back-up Windows Server" 
 	description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." 
-	services="site-recovery" 
+	services="backup" 
 	documentationCenter="" 
 	authors="markgalioto" 
 	manager="jwhit" 

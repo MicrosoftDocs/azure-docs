@@ -259,6 +259,58 @@ Please refer to important instructions below for configuring your Linux VMs on P
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
 
+Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to one of these for better performance and stability with Premium Storage. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>Distribution</strong></td>
+	<td><strong>Version</strong></td>
+	<td><strong>Supported Kernel</strong></td>
+	<td><strong>Supported Image</strong></td>
+</tr>
+<tr>
+	<td rowspan="3"><strong>Ubuntu</strong></td>
+	<td>12.04</td>
+	<td>3.2.0-75.110</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
+</tr>
+<tr>
+	<td>14.04</td>
+	<td>3.13.0-44.73</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td>
+</tr>
+<tr>
+	<td>14.10</td>
+	<td>3.16.0-29.39</td>
+	<td>Ubuntu-14_10-amd64-server-20150202-en-us-30GB</td>
+</tr>
+<tr>
+	<td><strong>SUSE</strong></td>
+	<td>SLES 12</td>
+	<td>3.12.36-38.1</td>
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr>
+<tr>
+	<td rowspan="2"><strong>CoreOS</strong></td>
+	<td>Alpha-607.0.0</td>
+	<td>3.18.6</td>
+	<td>CoreOS-Alpha-607.0.0</td>
+</tr>
+<tr>
+	<td>Beta-584.0.0</td>
+	<td>3.18.4</td>
+	<td>CoreOS-Beta-584.0.0</td>
+</tr>
+<tr>
+	<td><strong>CentOS/Oracle</strong></td>
+	<td></td>
+	<td></td>
+	<td>Contact Support for details</td>
+</tr>
+</tbody>
+</table>
+
+
 ## Pricing and Billing when using Premium Storage
 When using Premium Storage, the following billing considerations apply:
 

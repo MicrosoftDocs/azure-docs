@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get Started with Mobile Apps in Xamarin iOS"
 	description="Get started using Xamarin iOS to build an Azure Mobile App with Azure App Service."
-	services="app-service-mobile"
+	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="christopheranderson"
 	manager="dwrede"

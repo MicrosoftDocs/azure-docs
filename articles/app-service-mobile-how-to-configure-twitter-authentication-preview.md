@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to configure Twitter authentication for your App Services application"
 	description="Learn how to configure Twitter authentication for your App Services application." 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 
@@ -30,9 +30,9 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 3.  At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. This registers the app displays the application details.
 
-4. Click the **Settings** tab, scroll down and check **Allow this application to be used to sign in with Twitter**, then click **Update this Twitter application's settings**.
+4. Click the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
 
-5. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer key** and **Consumer secret**. 
+5. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**. 
 
     > [AZURE.NOTE] The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 

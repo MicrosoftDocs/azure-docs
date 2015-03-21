@@ -40,28 +40,11 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
->[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
-
 [AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
-
-Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of your app.
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
-
-2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, then click **Save**.
-
-	>[AZURE.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
-
-   	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
-
-	> [AZURE.IMPORTANT] When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.
-
-
-Both your mobile service and your app are now configured to work with GCM and Notification Hubs.
+[AZURE.INCLUDE [mobile-services-android-configure-push](../includes/mobile-services-android-configure-push.md)]
 
 ##<a id="add-push"></a>Add push notifications to your app
 
@@ -183,7 +166,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Get started with data]
   <br/>Learn more about storing and querying data using mobile services.
 
-* [Get started with authentication]
+* [Add authentication to your app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
 * [What are Notification Hubs?]

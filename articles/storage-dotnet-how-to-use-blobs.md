@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use blob storage from .NET | Azure" 
+	pageTitle="How to use Blob storage from .NET | Microsoft Azure" 
 	description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." 
 	services="storage" 
 	documentationCenter=".net" 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/12/2015" 
 	ms.author="tamram"/>
 
-# How to use Blob Storage from .NET
+
+# How to use Blob storage from .NET
+
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
 ## Overview
 

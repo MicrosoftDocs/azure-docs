@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get Started with Azure App Service Mobile iOS Apps"
 	description="Follow this tutorial to get started using Azure App Service for iOS development."
-	services="app-service-mobile"
+	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="yuaxu"
 	manager="dwrede"
@@ -56,7 +56,7 @@ Now that you have created your mobile backend, you can follow an easy quickstart
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Run your new iOS app
+## Run the iOS app
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../includes/app-service-mobile-ios-run-app-preview.md)]
 
