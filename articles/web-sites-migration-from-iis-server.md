@@ -27,7 +27,7 @@ You can easily migrate your existing websites that run on Internet Information S
 The Migration Assistant creates a readiness report to identify any potential causes for concern or blocking issues which may prevent a successful migration from on-premises IIS to Azure App Service Web Apps. Some of the key items to be aware of are:
 
 -	Port Bindings – Web Apps only supports Port 80 for HTTP and Port 443 for HTTPS traffic. Different port configurations will be ignored and traffic will be routed to 80 or 443. 
--	Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication can be used by integrating with Azure Active Directory and ADFS only. All other forms of authentication, e.g. Basic Authentication, are not currently supported. 
+-	Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication can be used by integrating with Azure Active Directory and ADFS only. All other forms of authentication - for example, Basic Authentication - are not currently supported. 
 -	Global Assembly Cache (GAC) – The GAC is not supported in Web Apps. If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web Apps. 
 -	IIS5 Compatibility Mode – This is not supported in Web Apps. 
 -	Application Pools – In Web Apps, each site and its child applications run in the same application pool. If your site has multiple child applications utilizing multiple application pools, consolidate them to a single application pool with common settings or migrate each application to a separate web app.
