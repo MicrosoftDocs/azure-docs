@@ -23,6 +23,8 @@ Azure Fabric Service Actors is a natural fit for modeling complex solutions invo
  
 As the diagram illustrates it is straightforward to model a user as an actor instance (node in the network). For example, the “Friends Feed” (sometimes referred as the "follower" problem) allows users to view status updates from people they are connected to, similar to how Facebook and Twitter work.
 The Actor model provides flexibility to approach the materialization problem. We can populate the Friends Feed at event time, updating the Friends Feed of all my friends at the moment an update is posted, as illustrated below:
+
+![][2]
  
 Sample code populating Friends Feed:
 
@@ -200,4 +202,5 @@ Let’s take the group chat example; a set of participants create a group chat a
 All it really does is leverage Fabric Service Actors ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialisation, or routing. 
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact/distributednetworks_arch1.png
+[1]: ./media/service-fabric-fabact/distributedNetworks_arch1.png
+[2]: ./media/service-fabric-fabact/distributedNetworks_arch2.png
