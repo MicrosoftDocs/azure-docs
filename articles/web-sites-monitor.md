@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Monitoring basics for Web Apps in Azure App Service" 
-	description="Learn how to monitor Azure web apps by using the Management Portal." 
-	services="app-service-web" 
+	description="Learn how to monitor Web Apps in Azure App Service by using the Management Portal." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 
 
 #<a name="howtomonitor"></a>Monitoring basics for Web Apps in Azure App Service 
 
-Azure web apps provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
+[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 
-1. In the [Azure Management Portal](http://manage.windowsazure.com/), from the web app's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
+1. In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), from the web app's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 
 2. To view additional metrics for the web app, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box. 
 
@@ -49,12 +49,12 @@ Web apps can be configured to run in either **Shared** or **Standard** mode from
 To determine the extent that a web app is impacting resource usage quotas, follow these steps:
 
 1. Open the web app's **Dashboard** management page.
-2. Under the **usage overview** section the usage quotas for your respective App Service plan are displayed, which is a subset of the following:
+2. Under the **usage overview** section the usage quotas for your respective [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan are displayed, which is a subset of the following:
 	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
 	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
 	-	**Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.   
 
-	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](azure-subscription-service-limits.md#websiteslimits).
 
 
 ##<a name="resourceusage"></a> How to: Avoid exceeding your quotas
@@ -89,7 +89,7 @@ You can enable or disable the following application diagnostics:
 
 	To specify the Azure Storage Account and blob, choose **On**, select the **Logging Level**, and then choose **Manage Blob Storage**. Specify the storage account, blob container, and blob name to use, or create a new container and blob.
 
-For more information about Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/).
+For more information about Azure Storage Accounts, see [How to Manage Storage Accounts](/manage/services/storage/how-to-manage-a-storage-account/).
 
 > [AZURE.NOTE] Application logging to table or blob storage is only supported for .NET applications.
 
@@ -99,7 +99,7 @@ Since application logging to storage requires using a storage client to view the
 
 > [AZURE.NOTE] Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet.
 > 
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](http://www.windowsazure.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE] Application logging relies on log information generated by your application. The method used to generate log information, as well as the format of the information is specific to the language your application is written in. For language-specific information on using application logging, see the following articles:
 > 
@@ -114,7 +114,7 @@ The **site diagnostics** section of the **Configure** management page controls t
 
 - **Web Server Logging** - Turn on Web Server logging to save web app logs using the W3C extended log file format. Web server logging produces a record of all incoming requests to your web app, which contains information such as the client IP address, requested URI, HTTP status code of the response, and the user agent string of the client. You can save the logs to an Azure Storage Account or to the File System.
 
- To save web server logs to an Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and an Azure Blob Container where the logs will be kept. For more information about Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/).
+ To save web server logs to an Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and an Azure Blob Container where the logs will be kept. For more information about Azure Storage Accounts, see [How to Manage Storage Accounts](/manage/services/storage/how-to-manage-a-storage-account/).
 
    To save web server logs to the file system, choose **File System**. This enables the **Quota** box where you can set the maximum amount of disk space for the log files. The minimum size is 25MB and the maximum is 100MB. The default size is 35MB.
 
@@ -194,7 +194,7 @@ You may also view a lie stream of log events by using the following command:
 
 This will display log information to the command prompt, PowerShell, bash or terminal session that the command is ran from.
 
-> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/) for installation and configuration information.
+> [AZURE.NOTE] If the **azure** command is not installed, see [How to use the Azure Command-Line Tools](virtual-machines-command-line-tools.md) for installation and configuration information.
 
 ### Reading log files ###
 
@@ -269,17 +269,16 @@ After you configure endpoint monitoring, you can drill down into the individual 
 
 For more on web app endpoint monitoring, see the following videos:
 
-- [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring](http://www.windowsazure.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring](/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](http://www.windowsazure.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-
-
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
-
-
-
 

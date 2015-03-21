@@ -8,7 +8,7 @@ Then, you will create a web app, using the same database as your mobile app. At 
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fapp-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview%2F).
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
 ## Create a new mobile app backend and client
@@ -19,7 +19,7 @@ Follow the steps in the tutorial [Create a mobile app] to create both a mobile a
 
 In this section, you will create a new web app using a sample application. You will modify the sample to use the same database schema name and the same connection string as the mobile app.
 
-1. In the Azure Portal, create a new web app, using the same Resource Group and Hosting Plan as your mobile app.
+1. In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), create a new web app, using the same Resource Group and Hosting Plan as your mobile app.
 
 2. Download the sample project [MultiChannelToDo] and open in Visual Studio. 
 
@@ -50,12 +50,17 @@ Run the mobile app that you created in the Create a mobile app tutorial.
 
 Open a web browser and connect to your web app backend. You can change todo items and you will see the same items reflected in the mobile app.
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 ## Next Steps
 
 In this sample we showed how to use the same underlying database for an app that has both a website and a mobile client. Here, we did not have any business logic in the backend that we wanted to reuse across the two clients, so it was sufficient to simply share the same database. In the next tutorial, you will learn how to add business logic to your website backend (using ASP.NET Web API) and reuse that logic in your mobile backend.
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[Create a mobile app]: /documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/
+[Create a mobile app]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md

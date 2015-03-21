@@ -1,10 +1,10 @@
 # Using Git to deploy Web Apps in Azure App Service
 
-Azure App Service supports continuous deployment to web apps from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your application, and then quickly and easily push changes to your Azure web app when you want.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) supports continuous deployment to Web Apps from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your application, and then quickly and easily push changes to your Azure web app when you want.
 
-In this article, you will learn how to use Git to publish directly from your local computer to a Web App (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository web apps like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
+In this article, you will learn how to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository sites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
 
-> [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a web app using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure Command-Line Tools for Mac and Linux</a>.
+> [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a web app using the [Azure Command-Line Tools for Mac and Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
 <h2><a id="Step2"></a>Installing Git</h2>
 
@@ -32,7 +32,7 @@ Perform the following tasks to create a new Git repository.
 
 ## <a id="Step3"></a>Step 3: Add a web page
 
-Web App supports applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web apps in other programming languages to Azure, see the [Azure Developer Center].
+Web Apps supports applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web apps in other programming languages to Azure, see the [Azure Developer Center].
 
 1. Using a text editor, create a new file named **index.html** in the root of the Git repository (the MyGitRepository directory that you created earlier).
 
@@ -58,13 +58,13 @@ Web App supports applications created in a variety of programming languages. For
 
 <h2><a id="Step4"></a>Enable the web app repository</h2>
 
-Perform the following steps to enable a Git repository for your web app by using the Azure portal:
+Perform the following steps to enable a Git repository for your web app by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715):
 
 1. Log in to the [Azure portal].
 
 2. In your web app's blade, scroll down to the **Deployment** section and click **Set up continous deployment**. Click **Choose Source**, then click **Local Git Repository**, and then click **OK**.  
 
-2. Wait until the web app creation process is finished in the **Web Apps** view, and then select the web app.
+2. Wait until the web app creation process is finished, and then select the web app in the Web Apps blade.
 
 	![An image displaying a selected web app](./media/publishing-with-git/azure1-local-git.png)
 
@@ -134,17 +134,17 @@ Use the following steps to publish your web app to Azure using Local Git:
 
 	![A webpage containing 'Yay!'][yay]
 
-<h3><a id="Step7"></a>Deploy files from a repository web app like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
+<h3><a id="Step7"></a>Deploy files from a repository site like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
 
 Pushing local files to Azure by using Local Git allows you to manually push updates from a local project to your web app in Azure, while deploying from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial results in a continuous deployment process where Azure will pull in the most recent updates from your project.
 
-While both methods result in your project being deployed to your Web App, continuous deployment is useful when you have multiple people working on a project and want to ensure that the latest version is always published regardless of who made the most recent update. Continuous deployment is also useful if you are using one of the above mentioned tools as the central repository for your application.
+While both methods result in your project being deployed to Web Apps, continuous deployment is useful when you have multiple people working on a project and want to ensure that the latest version is always published regardless of who made the most recent update. Continuous deployment is also useful if you are using one of the above mentioned tools as the central repository for your application.
 
 Deploying files from either GitHub, CodePlex, or BitBucket requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo (GitHub)], [Using Git with CodePlex], [Create a Repo (BitBucket)], [Using Dropbox to Share Git Repositories], or [Quick Start - Mercurial].
 
 1. First put your web app files into the selected repository that will be used for continuous deployment.
 
-2. In your web app's blade, scroll down to the **Deployment** section and click **Set up continous deployment**. Click **Choose Source**, then click **GitHub**, for example.  
+2. In your web app's blade in the portal, scroll down to the **Deployment** section and click **Set up continous deployment**. Click **Choose Source**, then click **GitHub**, for example.  
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
@@ -166,9 +166,9 @@ Azure creates an association with the selected repository, and pulls in the file
 
 ### <a id="Step75"></a>Deploy a Visual Studio solution from BitBucket, CodePlex, Dropbox, GitHub, or Mercurial
 
-Pushing a Visual Studio solution to Web App in Azure App Service is just as easy as pushing a simple index.html file. The Web App deployment process streamlines all the details, including restore NuGet dependencies and building the application binaries. You can follow the source control best practices of maintaining code only in your Git repository, and let Web App deployment take care of the rest.
+Pushing a Visual Studio solution to Web Apps in Azure App Service is just as easy as pushing a simple index.html file. The Web Apps deployment process streamlines all the details, including restore NuGet dependencies and building the application binaries. You can follow the source control best practices of maintaining code only in your Git repository, and let Web Apps deployment take care of the rest.
 
-The steps for pushing your Visual Studio solution to Web App is the same as in the [previous section](#Step7), provided that you configure your solution and repository as follows:
+The steps for pushing your Visual Studio solution to Web Apps is the same as in the [previous section](#Step7), provided that you configure your solution and repository as follows:
 
 -	In your repository root, add a `.gitignore` file, then specify all files and folders that you want to exclude from your repository, such as the `Obj`, `Bin`, and `packages` folders (see [gitignore documentation](http://git-scm.com/docs/gitignore) for formatting information). For example:
 
@@ -206,7 +206,7 @@ After answering **Yes** to the confirmation message, you can return to your web 
 
 ## <a id="Step8"></a>Troubleshooting
 
-The following are errors or problems commonly encountered when using Git to publish to an web app in Azure:
+The following are errors or problems commonly encountered when using Git to publish to a web app in Azure:
 
 ****
 
@@ -270,6 +270,12 @@ The following are errors or problems commonly encountered when using Git to publ
 * [How to use the Azure Command-Line Tools for Mac and Linux]
 * [Git Documentation]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Azure portal]: https://portal.azure.com

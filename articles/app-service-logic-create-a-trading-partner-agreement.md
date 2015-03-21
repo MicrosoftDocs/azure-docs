@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Create a Trading Partner Agreement" 
    description="This topic covers creation of Trading Partner Agreements" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 
@@ -15,6 +15,7 @@
    ms.workload="integration" 
    ms.date="02/27/2015"
    ms.author="hariag"/>
+
 
 #Creating a Trading Partner Agreement   
 
@@ -65,5 +66,3 @@ To create trading partner agreements:
 3. Browse to the TPM instance created and step into the ‘Partners’ part
 4. Create partners as desired. Also edit the profile(s) as appropriate and add the required identities
 5. Now use the ‘Agreements’ part to create agreements. During agreement creation one of the initial steps is to choose the protocol. Based on the protocol chosen the rest of the agreement configuration takes place.
-
-> INSERT SNAPSHOT

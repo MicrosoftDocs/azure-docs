@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -18,14 +18,14 @@
 
 #Monitor your Logic Apps
 
-After you've created your Logic App you can see the full history of its execution in the Azure portal. Click on **Browse** at the left side of the portal screen and select **Logic Apps**. You’ll see a list of Logic Apps in your subscription and if they are Enabled or not (*Enabled* just means that triggers will run your Logic App when they decide to, *Disabled* Logic Apps will not run in response to trigger events).
+After you created a Logic App by following the steps described in  [Created a Logic App](app-service-logic-create-a-logic-app.md), you can see the full history of its execution in the Azure portal. To view the history, click on **Browse** at the left side of the portal screen and select **Logic Apps**. A list of Logic Apps in your subscription will appear. A Logic App can be **Enabled** or **Disabled**. **Enabled** Logic Apps means that triggers will run your Logic App in response to trigger events, **Disabled** Logic App will not run in response to events.
 
 ![Overview](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
-When you see the blade for your Logic App there are 2 sections that are useful:
+When the blade for your Logic App appears, there are 2 sections that are useful:
 
-- **Summary**, which tells you the latest status and is an entry point to editing your Logic App
-- **All runs**, which shows you a list of the runs this Logic App has had
+- **Summary**, which tells you the latest status and is an entry point to editing your Logic App.
+- **All runs**, which shows you a list of the runs this Logic App has had.
 
 ##Runs
 
@@ -33,17 +33,17 @@ When you see the blade for your Logic App there are 2 sections that are useful:
 
 This list of runs shows the **Start time**, the **Run identifier** (you can use this when calling the REST API), and the **Duration** of the particular runs. Click any row to see details on that run.
 
-The details blade shows a graph with the execution time and sequence of all of the actions in the run. Below that is the full list of all of the actions that were executed.
+The details blade shows a graph with the execution time and sequence of all of the actions in the run. Below that, is the full list of all of the actions that were executed.
 
 ![Run and Actions](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
 Finally, on a particular action, you can get all of the data that was passed to the action, and that was received from the action in the **Inputs** and **Outputs** sections.
 
-There is also the **Tracking ID**. This is the identifier that all calls are passed in the header to identify themselves. If you have logging inside of your own service, we recommend logging the Tracking ID, and then you can cross-reference your own logs with this identifier.
+Another important piece of information is the **Tracking ID**. This identifier is passed in the headers of all action calls. If you have logging inside of your own service, we recommend logging the Tracking ID, and then you can cross-reference your own logs with this identifier.
 
 ##Trigger history and versioning
 
-There are two additional capabilities that are not currently possible in the UI but are coming soon. These are available via [the REST api](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+There are two additional capabilities that are not currently possible in the UI (coming soon) but are available via [the REST api](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 1. **Trigger history** - polling triggers check the API on some interval but don't necessarily start a run, depending on the response (for example a `200` means to run and a `202` means to not run). The trigger history gives you a way to see all of the calls that happen but that don't run the Logic App (the `202` responses).
 

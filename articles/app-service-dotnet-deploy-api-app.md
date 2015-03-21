@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploy an Azure API App" 
 	description="Learn how to deploy an API App project to your Azure subscription." 
-	services="app-service-api" 
+	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
 	manager="wpickett" 
@@ -129,4 +129,4 @@ In this section, you see how to navigate to the portal to view the basic setting
 
 ## Next steps
 
-You've seen how the direct deployment capabilities in Visual Studio for API App developers make it easy to iterate and deploy rapidly and test that your API is executing properly. In the [next tutorial](../app-service-dotnet-debug-api-app/), you'll see how to debug your API App while it runs in Azure.
+You've seen how the direct deployment capabilities in Visual Studio for API App developers make it easy to iterate and deploy rapidly and test that your API is executing properly. In the [next tutorial](../app-service-dotnet-remotely-debug-api-app/), you'll see how to debug your API App while it runs in Azure.

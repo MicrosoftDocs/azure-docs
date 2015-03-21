@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with authentication for Mobile Apps in Windows" 
 	description="Learn how to use Mobile Apps to authenticate users of your Windows app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="mattchenderson,ggailey777" 
 	manager="dwrede" 
@@ -21,13 +21,6 @@
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../includes/app-service-mobile-selector-get-started-users.md)]
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
-
-This tutorial walks you through these basic steps to enable authentication in your app:
-
-1. [Register your app for authentication and configure the App Service]
-2. [Restrict table permissions to authenticated users]
-3. [Add authentication to the app]
-4. [Store authentication tokens on the client]
 
 This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Get started with your mobile app]. 
 

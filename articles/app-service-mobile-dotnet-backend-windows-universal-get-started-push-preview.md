@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Add push notifications to your Windows Universal app with Azure App Service" 
 	description="Learn how to use Azure App Service to send push notifications to your Windows Universal app." 
-	services="app-service-mobile" 
+	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="yuaxu" 
 	manager="dwrede" 
