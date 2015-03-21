@@ -26,7 +26,8 @@ Typically in the past, this was solved by throttling through message-based middl
 In fact, like the Smart Cache pattern, this pattern spans across multiple scenarios and customers who already have working systems with constrained resources. They are building systems where they need to scale-out not just the services, but their state in-memory as well as the persisted state in stable storage.
 
 The diagram below illustrates this scenario:
-![Resource Governance Architecture](./media/service-fabric-fabact/resourcegovernance_arch1.png)   
+
+![][1]   
  
 Essentially we model access to resources as an actor or multiple actors that act as proxies (say connection, for example) to a resource or a group of resources. You can then either directly manage the resource through individual actors or use a coordination actor that manages the resource actors.
 To make this more concrete, we will address the common need of having to work against a partitioned (aka sharded) storage tier for performance and scalability reasons. 
@@ -51,7 +52,8 @@ Here is a very simple example—we do modulo arithmetic to determine the databas
 Simple yet not very flexible. Now let’s have a look at a more advanced and useful approach. 
 First, we model the affinity between physical resources and actors. This is done through an actor called Resolver that understands the mapping between users, logical partitions, and physical resources. Resolver maintains its data in a persisted store, however it is cached for easy lookup. As we saw in the Exchange Rate sample earlier in the Smart Cache pattern, Resolver can proactively fetch the latest information using a timer. Once the user actor resolves the resource it needs to use, it caches it in a local variable called _resolution and uses it during its lifetime. 
 We chose a look-up based resolution (illustrated below) over simple hashing or range hashing because of the flexibility it provides in operations such as scaling in/out or moving a user from one resource to another.
-![Resource Governance Architecture](./media/service-fabric-fabact/resourcegovernance_arch2.png) 
+
+![][2] 
  
 In the illustration above, we see that actor B23 is first resolving its resource (aka resolution) —DB1 and caches it. Subsequent operations can now use the cached resolution to access the constrained resource. Since the actors support single-threaded execution, developers no longer need to worry about concurrent access to the resource.
 The User and Resolver actors look like this:
@@ -140,7 +142,8 @@ Resource Governance – Resolver Example
 
 Now let’s look at another example; exclusive access to precious resources such as DB, storage accounts, and file systems with finite throughput capability. 
 Our scenario is as follows: we would like to process events using an actor called EventProcessor, which is responsible for processing and persisting the event, in this case to a .CSV file for simplicity. While we can follow the partitioning approach discussed above to scale-out our resources, we will still have to deal with the concurrency issues. That is why we chose a file-based example to illustrate this particular point—writing to a single file from multiple actors will raise concurrency issues. To address the problem we introduce another actor called EventWriter that has exclusive ownership of the constrained resources. The scenario is illustrated below:
-![Resource Governance Architecture](./media/service-fabric-fabact/resourcegovernance_arch3.png)
+
+![][3]
  
 We mark EventProcessor actors as “Stateless Workers,” which allows the runtime to scale them across the cluster as necessary. Hence we didn’t use any identifiers in the illustration above for these actors. In other words, stateless actors are a pool of workers maintained by the runtime. 
 In the sample code below, the EventProcessor actor does two things: it first decides which EventWriter (therefore resource) to use, and invokes the chosen actor to write the processed event. For simplicity, we are choosing Event Type as the identifier for the EventWriter actor. In other words, there will be one and only one EventWriter for this Event Type providing single-threaded and exclusive access to the resource.
@@ -391,3 +394,8 @@ Seem easy? Well it is. But the ease belies the enterprise power. With this archi
 * Efficient asynchronous dispatch.
 * A coding environment that will be familiar to any developer not just middleware specialists.
 This pattern is very common in scenarios where developers either have constrained resources they need to develop against or building large scale-out systems.
+
+<!--Image references-->
+[1]: ./media/service-fabric-fabact/resourcegovernance_arch1.png
+[2]: ./media/service-fabric-fabact/resourcegovernance_arch2.png
+[3]: ./media/service-fabric-fabact/resourcegovernance_arch3.png
