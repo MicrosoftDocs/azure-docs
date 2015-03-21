@@ -25,7 +25,6 @@ Visual Studio's remote debugging capabilities have been extended to include supp
 This tutorial is the last in a series of four:
 
 1. In [Create an API App](../app-service-dotnet-create-api-app/) you create a Web API project and prepare it to be published as an API App in the Azure API Marketplace.
-* In [Publish an API App](../app-service-dotnet-publish-api-app/) you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
 * In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deploy the API app you created to your Azure subscription.
 * In this tutorial you use Visual Studio to remotely debug the code while it runs in Azure.
 
@@ -33,7 +32,7 @@ This tutorial is the last in a series of four:
 ## Generate an API App Client for use in a Desktop App
 In this tutorial you'll learn how easy the API App tools in Visual Studio make it for you to generate C# code used for calling out to your Azure API Apps from desktop, store, and mobile apps. 
 
-1. Right-click your solution and select the **Add -> New Project** option.
+Right-click your solution and select the **Add -> New Project** option.
 
 ![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/01-add-new-project.png)
 
