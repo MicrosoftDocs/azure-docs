@@ -11,8 +11,8 @@
 <tags 
   ms.service="storage" 
   ms.workload="storage" 
-  ms.tgt_pltfrm="n/a" 
-  ms.devlang="n/a" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
   ms.topic="article" 
   ms.date="03/20/2015" 
   ms.author="tamram"/>
