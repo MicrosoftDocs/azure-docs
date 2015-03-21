@@ -20,11 +20,11 @@
 
 #<a name="howtomonitor"></a>Monitoring basics for Web Apps in Azure App Service 
 
-Azure web apps provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
+[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 
-1. In the [Azure Management Portal](http://manage.windowsazure.com/), from the web app's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
+1. In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), from the web app's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 
 2. To view additional metrics for the web app, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box. 
 
@@ -49,7 +49,7 @@ Web apps can be configured to run in either **Shared** or **Standard** mode from
 To determine the extent that a web app is impacting resource usage quotas, follow these steps:
 
 1. Open the web app's **Dashboard** management page.
-2. Under the **usage overview** section the usage quotas for your respective App Service plan are displayed, which is a subset of the following:
+2. Under the **usage overview** section the usage quotas for your respective [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan are displayed, which is a subset of the following:
 	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
 	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
 	-	**Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.   
@@ -273,13 +273,12 @@ For more on web app endpoint monitoring, see the following videos:
 
 - [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-
-
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
-
-
-
 

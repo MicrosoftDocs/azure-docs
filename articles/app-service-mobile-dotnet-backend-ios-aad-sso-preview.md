@@ -22,14 +22,6 @@ In this tutorial, you add authentication to the quickstart project using the Act
 
 To be able to authenticate users, you must register your application with your Azure Active Directory (AAD) tenant. This is done in two steps. First, you must register your App Service and expose permissions on it. Second, you must register your iOS app and grant it access to those permissions.
 
-This tutorial walks you through these basic steps:
-
-1. [Register your applicatoin with the Azure Active Directory]
-2. [Register your app with the Azure Active Directory]
-3. [Configure the application to require authentication]
-4. [Add authentication code to the client app]
-5. [Test the client using authentication]
-
 This tutorial requires the following:
 
 * XCode 4.5 and iOS 6.0 (or later versions)
@@ -106,15 +98,8 @@ This tutorial requires the following:
 2. You will receive a prompt to login against your Azure Active Directory.  
 3. The app authenticates and returns the todo items.
 
-<!-- Anchors. -->
-[Register your application with the Azure Active Directory]: #register-mobile-service-aad
-[Register your app with the Azure Active Directory]: #register-app-aad
-[Configure the application to require authentication]: #require-authentication
-[Add authentication code to the client app]: #add-authentication-code
-[Test the client using authentication]: #test-client
-
 <!-- URLs. -->
-[How to configure your Mobile App with Azure Active Directory]: /en-us/documentation/articles/app-service-how-to-configure-active-directory-authentication-preview/
+[How to configure your Mobile App with Azure Active Directory]: /en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  [Get started with Mobile Apps]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-get-started-preview/

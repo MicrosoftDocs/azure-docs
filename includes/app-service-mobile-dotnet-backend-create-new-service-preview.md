@@ -14,8 +14,6 @@ Follow these steps to create a new mobile app.
 
    > [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile app backend, you can instead choose **Use existing Database** and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.
 
-   > [AZURE.NOTE] It is sometimes useful to use an existing hosting plan. In this case, 1) Pick a name, 2) Pick subscription, 3) Pick existing web hosting plan (this determines the resource group and pricing tier), 4) Create new database or pick existing server.
-
 3. Select your subscription.
 
 4. Create a new resource group with the same name as your mobile app.

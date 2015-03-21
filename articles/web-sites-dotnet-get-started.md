@@ -20,22 +20,19 @@
 
 ## Overview
 
-This tutorial shows how to create an ASP.NET web application and deploy it to Azure App Service Web Apps by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial shows how to create an ASP.NET web application and deploy it to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio ASP.NET web project and deploy it to an Azure web app.
 * How to make a change to the web project and redeploy the application.
-* How to use the Azure Management Portal to monitor and manage your web app.
+* How to use the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) to monitor and manage your web app.
 
 You need an Azure account to complete this tutorial:
 
 * You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as App Service Web Apps.
 * You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
-
-> [AZURE.NOTE]
-> If you want to get started with Web Apps before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter app in Web Apps.
 
 The following illustration shows the completed application:
 
@@ -257,6 +254,8 @@ The [Azure Management Portal](/services/management-portal/) is a web interface t
 
 These are just a few of the management portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 ## Next steps
 
 In this tutorial you've seen how to create a simple web application and deploy it to an Azure web app. Here are some related topics and resources for learning more about them.
@@ -297,3 +296,7 @@ In this tutorial you've seen how to create a simple web application and deploy i
 * How to choose between App Service, Cloud Services, and VMs for web applications
 
 	In Azure you can run web applications in App Service Web Apps as shown in this tutorial, or in Cloud Services or in Virtual Machines. For more information, see [Azure Execution Models](/develop/net/fundamentals/compute/) and [Azure web apps, cloud services, and VMs: When to use which?](/manage/services/web-sites/choose-web-app-service/).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

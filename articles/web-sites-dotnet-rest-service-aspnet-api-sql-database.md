@@ -729,6 +729,8 @@ When you see that the item you enter is saved and appears on the contact manager
 
 The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
 A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) is based on this tutorial and shows how to deploy a web application with the membership database.

@@ -20,7 +20,7 @@
 
 ## Overview
 
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in Azure App Service as an [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the Azure Management Portal, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) as an [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 
@@ -189,6 +189,12 @@ To deploy a WebJobs project by itself, right-click the project in **Solution Exp
 	
 For an independent WebJob, the same **Publish Web** wizard that is used for web projects appears, but with fewer settings available to change.
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 ## <a id="nextsteps"></a>Next Steps
 
 For more information about how to deploy Azure WebJobs from Visual Studio and by using a continuous delivery process, see [Azure WebJobs - Recommended Resources - Deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
