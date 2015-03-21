@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migrate an enterprise web app to App Service using the Migration Assistant" 
-	description="Shows how to use Web App Migration Assistant to quickly migrate existing IIS websites to Azure App Service web apps" 
-	services="app-service-web" 
+	description="Shows how to use Web Apps Migration Assistant to quickly migrate existing IIS websites to Azure App Service Web Apps" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -14,25 +14,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 # Migrate an enterprise web app to App Service using the Migration Assistant
 
-You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to to web apps in Azure App Service. [Web App Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
+You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). [Web Apps Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
 
->[AZURE.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web App is a low-risk, low-cost, and low-friction way to keep your websites online, and Web App Migration Assistant can help automate the migration process for you. 
+>[AZURE.NOTE] Windows Server 2003 will reach end of support on July 14th 2015. If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web Apps is a low-risk, low-cost, and low-friction way to keep your websites online, and Web Apps Migration Assistant can help automate the migration process for you. 
 
 ## Elements Verified During Compatibility Analysis ##
 The Azure Websites Migration Assistant creates a readiness report to identify any potential causes for concern or blocking issues which may prevent a successful migration from on-premises IIS to Azure Websites. Some of the key items to be aware of are:
 
--	Port Bindings – Web App only supports Port 80 for HTTP and Port 443 for HTTPS traffic. Different port configurations will be ignored and traffic will be routed to 80 or 443. 
--	Authentication – Web App supports Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication can be used by integrating with Azure Active Directory and ADFS only. All other forms of authentication, e.g. Basic Authentication, are not currently supported. 
--	Global Assembly Cache (GAC) – The GAC is not supported in Web App. If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web App. 
--	IIS5 Compatibility Mode – This is not supported in Web App. 
--	Application Pools – In Web App, each site and its child applications run in the same application pool. If your site has multiple child applications utilizing multiple application pools, consolidate them to a single application pool with common settings or migrate each application to a separate web app.
--	COM Components – Web App does not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.
--	ISAPI Filters – Web App can support the use of ISAPI Filters. You need to do the following:
+-	Port Bindings – Web Apps only supports Port 80 for HTTP and Port 443 for HTTPS traffic. Different port configurations will be ignored and traffic will be routed to 80 or 443. 
+-	Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication can be used by integrating with Azure Active Directory and ADFS only. All other forms of authentication, e.g. Basic Authentication, are not currently supported. 
+-	Global Assembly Cache (GAC) – The GAC is not supported in Web Apps. If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web Apps. 
+-	IIS5 Compatibility Mode – This is not supported in Web Apps. 
+-	Application Pools – In Web Apps, each site and its child applications run in the same application pool. If your site has multiple child applications utilizing multiple application pools, consolidate them to a single application pool with common settings or migrate each application to a separate web app.
+-	COM Components – Web Apps does not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.
+-	ISAPI Filters – Web Apps can support the use of ISAPI Filters. You need to do the following:
 	-	deploy the DLLs with your web app 
 	-	register the DLLs using [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
 	-	place an applicationHost.xdt file in the site root with the content below:
@@ -50,15 +50,15 @@ The Azure Websites Migration Assistant creates a readiness report to identify an
 
 -	Other components like SharePoint, front page server extensions (FPSE), FTP, SSL certificates will not be migrated.
 
-## How to use the Web App Migration Assistant ##
+## How to use the Web Apps Migration Assistant ##
 This section steps through an example to to migrate a few websites that use a SQL Server database and running on an on-premise Windows Server 2003 R2 (IIS 6.0) machine:
 
 1.	On the IIS server or your client machine navigate to [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
-2.	Install Web App Migration Assistant by clicking on the **Dedicated IIS Server** button. More options will be options in the near future. 
-4.	Click the **Install Tool** button to install Web App Migration Assistant on your machine.
+2.	Install Web Apps Migration Assistant by clicking on the **Dedicated IIS Server** button. More options will be options in the near future. 
+4.	Click the **Install Tool** button to install Web Apps Migration Assistant on your machine.
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
@@ -68,7 +68,7 @@ This section steps through an example to to migrate a few websites that use a SQ
 
 	![](./media/web-sites-migration-from-iis-server/install-progress.png)
 
-	Once installed, Web App Migration Assistant automatically starts.
+	Once installed, Web Apps Migration Assistant automatically starts.
   
 6.	Choose **Migrate sites and databases from a remote server to Azure**. Enter the administrative credentials for the remote server and click **Continue**. 
 
@@ -107,7 +107,7 @@ This section steps through an example to to migrate a few websites that use a SQ
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] the **Enable Azure Active Directory** checkbox in custom settings integrates the Azure website with [Azure Active Directory](active-directory-whatis.md) (the **Default Directory**). For more information on syncing Azure Active Directory with your on-premise Active Directory, see [Directory integration](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Once you make all the desired changes, click **Create** to start the migration process. The migration tool will create the Azure SQL Database and Azure web app, and then publish the website content and databases. The migration progress is clearly shown in the migration tool, and you will see a summary screen at the end, which details the sites migrated, whether they were successful, links to the newly-created Azure web apps. 
 
@@ -119,8 +119,14 @@ This section steps through an example to to migrate a few websites that use a SQ
  
 20.	Click the links to the Azure web apps and verify that the migration has succeeded.
 
-21. You can now manage the migrated web apps in Azure App Service. To do this, log into the [Azure Portal](https://portal.azure.com).
+21. You can now manage the migrated web apps in Azure App Service. To do this, log into the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-22. In the Azure Portal, open the Web App blade to see your migrated websites (shown as web apps), then click on any one of them to start managing the web app, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.
+22. In the Azure Portal, open the Web Apps blade to see your migrated websites (shown as web apps), then click on any one of them to start managing the web app, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.
 
 	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

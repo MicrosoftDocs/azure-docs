@@ -1,7 +1,7 @@
 #Enable HTTPS for a web app
 
 > [AZURE.NOTE]
-> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure App Service a snap.
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
 You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure. This article discusses how to configure HTTPS for a web app in Azure App Service. 
 
@@ -390,7 +390,7 @@ Enabling HTTPS for a custom domain is only available for the **Standard** mode o
 
 > [AZURE.NOTE] Before switching a web app from the **Free** mode to **Standard** mode, you should remove spending caps in place for your web app subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** mode pricing, see [Pricing Details][pricing].
 
-1.	In your browser, open the [Azure Management Portal](https://portal.azure.com).
+1.	In your browser, open the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 2.	Click the **Browse** option on the left side of the page.
 3.	Click the **Web Apps** blade.
 4.	Click the name of your web app.
@@ -516,7 +516,13 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 - [Configuring Web Sites](../articles/web-sites-configure.md)
 - [Azure Management Portal](https://manage.windowsazure.com)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+[customdomain]: ../web-sites-custom-domain-name/
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

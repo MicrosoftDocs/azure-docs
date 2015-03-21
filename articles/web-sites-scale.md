@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Scale a Web App in Azure App Service" 
-	description="Learn how to scale up and scale out a Web App in Azure App Service, including autoscaling." 
-	services="app-service-web" 
+	pageTitle="Scale a web app in Azure App Service" 
+	description="Learn how to scale up and scale out a web app in Azure App Service, including autoscaling." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Scale a Web App in Azure App Service #
+# Scale a web app in Azure App Service #
 
-For increased performance and throughput for your web apps on Microsoft Azure, you can use the Azure Management Portal to scale your App Service hosting plan from Free mode to Shared, Basic, or Standard mode. 
+For increased performance and throughput for your web apps on Microsoft Azure, you can use the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) to scale your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan from **Free** mode to **Shared**, **Basic**, or **Standard** mode. 
 
-Scaling up on Azure web apps involves two related actions: changing your hosting plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
+Scaling up on Azure web apps involves two related actions: changing your App Service plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like Standard mode offer greater robustness and flexibility in determining how your resources on Azure are used.
 
-Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web apps in your hosting plan. They do not require your code to be changed or your applications to be redeployed.
+Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web apps in your App Service plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about hosting plans, see [What is an App Service Hosting Plan?](http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/) and [Azure App Service Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual hosting plans, see [App Service Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
+For information about App Service plans, see [What is an App Service Plan?](web-sites-web-hosting-plan-overview.md) and [Azure App Service Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
 
 > [AZURE.NOTE] Before switching a web app from the **Free** mode to **Basic** or **Standard** mode, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
-## Scaling to Shared or Basic hosting plan mode
+## Scaling to Shared or Basic mode
 <!-- ===================================== -->
 
 1. In your browser, open the [Azure Portal][portal].
 	
 2. In your web app's blade, click **All settings**, then click **Scale**, then click **Upgrade from a Free plan to add instances and get better performance**.
 	
-	![Choose Hosting Plan][ChooseWHP]
+	![Choose Plan][ChooseWHP]
 	
 4. In the **Choose your pricing tier** blade, choose either **Shared** or a **Basic** mode, then click **Select**.
 	
@@ -51,10 +51,10 @@ For information about hosting plans, see [What is an App Service Hosting Plan?](
 	
 <a name="scalingstandard"></a>
 <!-- ================================= -->
-## Scaling to Standard hosting plan mode
+## Scaling to Standard mode
 <!-- ================================= -->
 
-> [AZURE.NOTE] Before switching a hosting plan to **Standard** mode, you should remove spending caps in place for your Microsoft Azure App Service subscription. Otherwise, you risk your web app becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Before switching an App Service plan to **Standard** mode, you should remove spending caps in place for your Microsoft Azure App Service subscription. Otherwise, you risk your web app becoming unavailable if you reach your caps before the billing period ends. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 1. To scale to **Standard** mode, follow the same initial steps as when scaling to **Shared** or **Basic**, and then choose a **Standard** mode in **Choose your pricing tier**, then click **Select**. 
 	
@@ -68,7 +68,7 @@ For information about hosting plans, see [What is an App Service Hosting Plan?](
 	
 	![Autoscale Mode set to Performance][Autoscale]
 	
-3. In **Instance Range**, move the two sliders to define the minimum and maximum number of instances to scale automatically for the hosting plan. For this tutorial, move the maximum slider to **6** instances.
+3. In **Instance Range**, move the two sliders to define the minimum and maximum number of instances to scale automatically for the App Service plan. For this tutorial, move the maximum slider to **6** instances.
 	
 4. Click **Save** in the command bar.
 	
@@ -105,9 +105,9 @@ For information about hosting plans, see [What is an App Service Hosting Plan?](
 	
 <a name="ScalingSQLServer"></a>
 ##Scaling a SQL Server Database connected to your web app
-If you have one or more SQL Server databases linked to your web app (regardless of hosting plan mode), you can quickly scale them based on your needs.
+If you have one or more SQL Server databases linked to your web app (regardless of App Service plan mode), you can quickly scale them based on your needs.
 
-1. To scale one of the linked databases, open your web app blade in the [Azure portal][portal]. In the **Essentials** collapsible dropdown, click the **Resource group** link. Then, in the **Summary** part of the resource group blade, clicked one of the linked databases.
+1. To scale one of the linked databases, open your web app's blade in the [Azure portal][portal]. In the **Essentials** collapsible dropdown, click the **Resource group** link. Then, in the **Summary** part of the resource group blade, clicked one of the linked databases.
 	
 	![Linked database][ResourceGroup]
 	
@@ -121,7 +121,7 @@ If you have one or more SQL Server databases linked to your web app (regardless 
 
 <a name="devfeatures"></a>
 ## Developer Features
-Depending on the web app's hosting plan mode, the following developer-oriented features are available:
+Depending on the web app's mode, the following developer-oriented features are available:
 
 ### Bitness ###
 
@@ -130,17 +130,19 @@ Depending on the web app's hosting plan mode, the following developer-oriented f
 
 ### Debugger Support ###
 
-- Debugger support is available for the Free, Shared, and Basic hosting plan modes at 1 concurrent connection per application.
-- Debugger support is available for the Standard hosting plan mode at 5 concurrent connections per application.
+- Debugger support is available for the **Free**, **Shared**, and **Basic** modes at 1 concurrent connection per application.
+- Debugger support is available for the **Standard** mode at 5 concurrent connections per application.
 
 <a name="OtherFeatures"></a>
 ## Other Features
 
 ### Web Endpoint Monitoring ###
 
-- Web endpoint monitoring is available in the Basic and Standard hosting plan modes. For more information about web endpoint monitoring, see [How to Monitor Web Apps](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/).
+- Web endpoint monitoring is available in the **Basic** and **Standard** modes. For more information about web endpoint monitoring, see [How to Monitor Web Apps](web-sites-monitor.md).
 
-- For detailed information about all of the remaining features in the hosting plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+- For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](/pricing/details/web-sites/).
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 <a name="Next Steps"></a>	
 ## Next Steps
@@ -148,21 +150,21 @@ Depending on the web app's hosting plan mode, the following developer-oriented f
 - To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 - For information on pricing, support, and SLA, visit the following links.
 	
-	[Data Transfers Pricing Details](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
+	[Data Transfers Pricing Details](/pricing/details/data-transfers/)
 	
-	[Microsoft Azure Support Plans](http://www.windowsazure.com/en-us/support/plans/)
+	[Microsoft Azure Support Plans](/support/plans/)
 	
-	[Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/)
+	[Service Level Agreements](/support/legal/sla/)
 	
-	[SQL Database Pricing Details](http://www.windowsazure.com/en-us/pricing/details/sql-database/)
+	[SQL Database Pricing Details](/pricing/details/sql-database/)
 	
 	[Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
 	
-	[App Service Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
+	[App Service Pricing Details](/pricing/details/web-sites/)
 	
-	[App Service Pricing Details - SSL Connections](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+	[App Service Pricing Details - SSL Connections](/pricing/details/web-sites/#ssl-connections)
 
-- For information on Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web App](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- For information on Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Videos on scaling Azure Websites:
 	
@@ -170,7 +172,9 @@ Depending on the web app's hosting plan mode, the following developer-oriented f
 	- [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
 	- [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
-
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169

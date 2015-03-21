@@ -16,14 +16,9 @@
 	ms.date="03/24/2015" 
 	ms.author="mwasson"/>
 
-
-
-
-
-
 # Build and deploy a Node.js web app in Azure App Service
 
-This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to Azure App Service Web Apps using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
+This tutorial shows you how to create a [Node] [nodejs.org] application and deploy it to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
 A screenshot of the completed application is below:
 
@@ -35,10 +30,8 @@ Follow these steps to create a web app and enable Git publishing.
 
 > [AZURE.NOTE]
 > To complete this tutorial, you need an Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
-> 
-> If you want to get started with Azure App Services before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Log in to the [Azure Portal](https://portal.azure.com).
 
 2. Click the **+ NEW** icon on the bottom left of the portal
    
@@ -158,6 +151,8 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 4. You can revert to the previous deployment by selecting it in **Deployments**.
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 ##Next steps
 
 While the steps in this article use the Azure Portal to create a web app, you can also use the [Azure Command-Line Tools for Mac and Linux](xplat-cli.md) to perform the same operations.
@@ -173,6 +168,10 @@ If you encounter problems with your application after it has been deployed to Az
 
 * [Azure PowerShell](install-configure-powershell.md)
 * [Azure Command-Line Tools for Mac and Linux](xplat-cli.md)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [nodejs.org]: http://nodejs.org
