@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Authenticate and Authorize Line-of-Business Apps in Azure Websites" 
 	description="Learn the different authentication and authorization options for line-of-business applications that are deployed to Azure Websites" 
-	services="app-service\web" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -30,7 +30,7 @@ With a few clicks of the button, you can enable authentication and authorization
 
 In many scenarios, you want to customize the authentication and authorization behavior of the application, such as a login and logout page, custom authorization logic, mult-tenant application behavior, and so on. In these cases, it may be better to configure authentication and authorization manually for greater flexibility of its features. Below are two main options  
 
--	[Azure AD](../web-sites-dotnet-lob-application-azure-ad/) - You can implement authentication and authorization for your website with Azure AD. Using Azure AD as the identity provider has the following characteristics:
+-	[Azure AD](web-sites-dotnet-lob-application-azure-ad.md) - You can implement authentication and authorization for your website with Azure AD. Using Azure AD as the identity provider has the following characteristics:
 	-	Supports popular authentication protocols, such as [OAuth 2.0](http://oauth.net/2/), [OpenID Connect](http://openid.net/connect/), and [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0). For the complete list of supported protocols, see [Azure Active Directory Authentication Protocols](http://msdn.microsoft.com/library/azure/dn151124.aspx).
 	-	Can use an Azure-only identity provider without any on-premise infrastructure.
 	-	Can also configure directory sync with an on-premise AD (managed on-premise).

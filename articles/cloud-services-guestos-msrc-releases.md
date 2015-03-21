@@ -13,12 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="02/20/2015"
+   ms.date="03/18/2015"
    ms.author="adegeo"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+
+## March Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-018    | [3032359][3032359] | Cumulative Security Update for Internet Explorer                             | 4.18, 3.25, 2.37 | N/A |
+| MS15-019    | [3040297][3040297] | Vulnerability in VBScript Scripting Engine Could Allow Remote Code Execution | 4.18, 3.25, 2.37 | N/A |
+| MS15-020    | [3041836][3041836] | Vulnerabilities in Windows could allow Remote Code Execution                 | 4.18, 3.25, 2.37 | N/A |
+| MS15-021    | [3032323][3032323] | Vulnerabilities Adobe Font Driver Could Allow Remote Code Execution          | 4.18, 3.25, 2.37 | N/A |
+| MS15-023    | [3034344][3034344] | Vulnerabilities in Kernel Mode Driver Could Allow Elevation of Privilege     | 4.18, 3.25, 2.37 | N/A |
+| MS15-024    | [3035132][3035132] | Vulnerability in PNG Processing Could Allow Information Disclosure           | 4.18, 3.25, 2.37 | N/A |
+| MS15-025    | [3038680][3038680] | Vulnerabilities in Windows Kernel could allow Elevation of Privilege         | 4.18, 3.25, 2.37 | N/A |
+| MS15-027    | [3002657][3002657] | Vulnerability in NETLOGON Could Allow Spoofing                               | 4.18, 3.25, 2.37 | N/A |
+| MS15-029    | [3035126][3035126] | Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure | 4.18, 3.25, 2.37 | N/A |
+
+> [AZURE.NOTE] Bulletin MS15-031 may appear as uninstalled. However, it does not apply to this Guest OS release.
 
 ## February Guest OS
 
@@ -99,5 +116,16 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [2999802]: http://support.microsoft.com/kb/2999802
 [2896881]: http://support.microsoft.com/kb/2896881
 
+[3032359]: http://support.microsoft.com/kb/3032359
+[3040297]: http://support.microsoft.com/kb/3040297
+[3041836]: http://support.microsoft.com/kb/3041836
+[3032323]: http://support.microsoft.com/kb/3032323
+[3034344]: http://support.microsoft.com/kb/3034344
+[3035132]: http://support.microsoft.com/kb/3035132
+[3038680]: http://support.microsoft.com/kb/3038680
+[3002657]: http://support.microsoft.com/kb/3002657
+[3035126]: http://support.microsoft.com/kb/3035126
+
+
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
-[family-explain]: ../cloud-services-guestos-update-matrix#guest-os-family-version-and-release-explanation
+[family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation

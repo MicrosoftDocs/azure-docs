@@ -60,7 +60,7 @@ To determine the access key, go to the [Azure Management portal](https://manage.
 6.    Enter the name of the storage account and one of the access keys provided into the placeholders in the storage connection string. This connection string is used under both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** setting. You can potentially use different storage accounts for the different roles. 
 
 ### Configuring security 
-For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](./sql-database-elastic-scale-configure-security.md).
+For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](sql-database-elastic-scale-configure-security.md).
 
 For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
@@ -120,7 +120,7 @@ For the worker role:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-configure-security.md).
+Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-configure-security.md).
 
 ### Deploying your Split-Merge service
 1. Go to the [Azure Management Portal](https://manage.windowsazure.com).

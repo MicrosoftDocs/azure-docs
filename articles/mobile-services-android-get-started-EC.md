@@ -153,8 +153,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with data]: /documentation/articles/mobile-services-android-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-android-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Get started with authentication]: mobile-services-android-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 

@@ -37,7 +37,7 @@ As the following diagram illustrates, the DocumentDB **resource model** consists
 ![][1]  
 **Hierarchical resource model under a database account**   
 
-To start working with resources, you must [create a DocumentDB database account](./documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
+To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
 |Resource 	|Description
 |-----------|-----------
@@ -130,7 +130,7 @@ You can provision one or more DocumentDB database accounts using your Azure subs
 
 Based on your applications scale and performance needs, you can incrementally add or remove CUs. Each CU comes with a set of elastic collections, SSD backed provisioned document storage and provisioned throughput. The provisioned storage and the throughput capacity associated with a CU is distributed across the DocumentDB collections you create across various databases under your database account. Capacity provisioned under a database account is available to all databases and collections that exist or are created within the account. There is no practical scale limit to the size of a database account – any number of capacity units can be added over time subject to the offer restrictions. The resources managed within a CU are scaled out via partitioning and replicated for high availability. 
 
-You can [create and manage DocumentDB database accounts](./documentdb-create-account.md) via the Azure portal at [http://portal.azure.com/](http://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
+You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure portal at [http://portal.azure.com/](http://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
 
 ###Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  
@@ -288,7 +288,7 @@ After creating a collection, you can register stored procedures, triggers and UD
 	        })
 	};
 
-The client can “ship” the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with DocumentDB resources](../documentdb-interactions-with-resources/). 
+The client can “ship” the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with DocumentDB resources](documentdb-interactions-with-resources.md). 
 
 	client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
 	   .then(function(createdStoredProcedure) {
@@ -490,7 +490,7 @@ The only way to obtain a resource key is by creating a permission resource under
 As with all other resources, permissions in DocumentDB can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a permission. 
 
 ##Next steps
-Learn more about working with resources by using HTTP commands in [RESTful interactions with DocumentDB resources](../documentdb-interactions-with-resources/).
+Learn more about working with resources by using HTTP commands in [RESTful interactions with DocumentDB resources](documentdb-interactions-with-resources.md).
 
 
 [1]: ./media/documentdb-resources/resources1.png

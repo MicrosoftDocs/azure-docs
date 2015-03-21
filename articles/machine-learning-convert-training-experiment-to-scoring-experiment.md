@@ -99,7 +99,7 @@ You can define Web Service Parameters and associate them with one or more module
 For more information about Web Service Parameters, see [Using Azure Machine Learning Web Service Parameters
 ][webserviceparameters].
 
-[webserviceparameters]: ../machine-learning-web-service-parameters/
+[webserviceparameters]: machine-learning-web-service-parameters.md
 
 
 ##Publish the scoring experiment as a web service
@@ -108,7 +108,7 @@ Now that the scoring experiment has been sufficiently prepared, you can publish 
 
 For more information on the complete publishing process, see [Publish an Azure Machine Learning web service][publish]
 
-[publish]: ../machine-learning-publish-a-machine-learning-web-service/
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
 
 
 <!-- Images -->

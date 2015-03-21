@@ -413,18 +413,18 @@ You have now learned how to use Storm to read data from Event Hub and display in
 
 	* [Storm on HDInsight Examples](https://github.com/hdinsight/hdinsight-storm-examples)
 	
-	* [Twitter Trending Hashtags](../hdinsight-storm-twitter-trending/)
+	* [Twitter Trending Hashtags](hdinsight-storm-twitter-trending.md)
 
 * For more information on Apache Storm, see [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
-* For more information on HBase on HDInsight, see the [HBase with HDInsight Overview](../hdinsight-hbase-overview/)
+* For more information on HBase on HDInsight, see the [HBase with HDInsight Overview](hdinsight-hbase-overview.md)
 
 * For more information on Socket.io, see [http://socket.io](http://socket.io/)
 
 * For more information on D3.js, see [D3.js - Data Driven Documents](http://d3js.org/)
 
-* for information on creating topologies in Java, see [Develop Java topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
+* for information on creating topologies in Java, see [Develop Java topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 
-* For information on creating topologies in .NET, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* For information on creating topologies in .NET, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 [azure-portal]: https://manage.windowsazure.com/

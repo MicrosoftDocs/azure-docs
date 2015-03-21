@@ -46,10 +46,10 @@ To train a predictive analytics model, you use Azure Machine Learning Studio to 
 
 The process of creating and managing training experiments is covered more thoroughly elsewhere - see these articles for more information and examples:
 
-- [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/)
-- [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
-- [Import your training data into Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-import-data/)
-- [Manage experiment iterations in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-manage-experiment-iterations/)
+- [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md)
+- [Develop a predictive solution with Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+- [Import your training data into Azure Machine Learning Studio](machine-learning-import-data.md)
+- [Manage experiment iterations in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md)
 
 ##Convert the training experiment to a scoring experiment
 
@@ -58,7 +58,7 @@ By converting to a scoring experiment, you're getting your trained model ready t
 
 ![Convert to scoring experiment](./media/machine-learning-publish-web-service/figure-1.png)
 
-For more details on how to do this conversion, see [Convert a Machine Learning training experiment to a scoring experiment](http://azure.microsoft.com/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)
+For more details on how to do this conversion, see [Convert a Machine Learning training experiment to a scoring experiment](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 
 
 ##Publish the scoring experiment as a web service
@@ -74,7 +74,7 @@ To test the web service, click the **Test** link in the **DASHBOARD** tab. A dia
 ![Test the web service](./media/machine-learning-publish-web-service/figure-3.png)
 
 On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Azure Management Portal where you manage your web services.
-You can also enable logging to diagnose any failures that you're seeing when hitting your web service. For more information, see [Enable logging for Machine Learning web services](http://azure.microsoft.com/documentation/articles/machine-learning-web-services-logging/).
+You can also enable logging to diagnose any failures that you're seeing when hitting your web service. For more information, see [Enable logging for Machine Learning web services](machine-learning-web-services-logging.md).
 
 ![Configure the web service](./media/machine-learning-publish-web-service/figure-4.png)
 
@@ -86,14 +86,14 @@ Once you publish your web service from Machine Learning Studio, you can send dat
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 
-For more information about accessing a Machine Learning web service, see [How to consume a published Azure Machine Learning web service](http://azure.microsoft.com/documentation/articles/machine-learning-consume-web-services/).
+For more information about accessing a Machine Learning web service, see [How to consume a published Azure Machine Learning web service](machine-learning-consume-web-services.md).
 
 
 ##Manage the web service in the Azure Management Portal
 
 In the Azure Management Portal, you can manage your web services by clicking the **Machine Learning** service, opening your Machine Learning workspace, and then opening the web service from the **WEB SERVICES** tab. From this page you can monitor the web service, update it, and delete it. You can also add a second endpoint for your web service in addition to the default endpoint that is created when you publish it.
 
-For more information, see [Manage an Azure Machine Learning workspace](http://azure.microsoft.com/documentation/articles/machine-learning-manage-workspace/).
+For more information, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->

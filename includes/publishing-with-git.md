@@ -275,8 +275,8 @@ The following are errors or problems commonly encountered when using Git to publ
 [Azure portal]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[How to use PowerShell for Azure]: ../install-configure-powershell/
-[How to use the Azure Command-Line Tools for Mac and Linux]: ../xplat-cli/
+[How to use PowerShell for Azure]: ../articles/install-configure-powershell.md
+[How to use the Azure Command-Line Tools for Mac and Linux]: ../articles/xplat-cli.md
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -296,4 +296,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Azure using Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
+[Continuous delivery to Azure using Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md

@@ -19,7 +19,7 @@
 
 This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: machine-learning-walkthrough-develop-predictive-solution.md
 
 1.	**Create a Machine Learning workspace**
 2.	[Upload existing data][upload-data]
@@ -28,12 +28,12 @@ This is the first step of the walkthrough, [Developing a Predictive Solution wit
 5.	[Publish the web service][publish]
 6.	[Access the web service][access-ws]
 
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+[create-workspace]: machine-learning-walkthrough-1-create-ml-workspace.md
+[upload-data]: machine-learning-walkthrough-2-upload-data.md
+[create-new]: machine-learning-walkthrough-3-create-new-experiment.md
+[train-models]: machine-learning-walkthrough-4-train-and-evaluate-models.md
+[publish]: machine-learning-walkthrough-5-publish-web-service.md
+[access-ws]: machine-learning-walkthrough-6-access-web-service.md
 
 ----------
 
@@ -59,7 +59,7 @@ After your Machine Learning workspace is created, you will see it listed on the 
 <!-- Uncomment this when this article has more content
 For more information, see [Manage an Azure Machine Learning workspace][manageworkspace]
 
-[manageworkspace]: ../machine-learning-manage-workspace/
+[manageworkspace]: machine-learning-manage-workspace.md
 -->
 ----------
 

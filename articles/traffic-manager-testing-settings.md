@@ -65,11 +65,11 @@ There are free web-based DNS lookup and dig services available. Some of these gi
 
 ## See Also
 
-[About Traffic Manager Load Balancing Methods](../traffic-manager-load-balancing-methods)
+[About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md)
 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
-[Traffic Manager Overview](../traffic-manager-overview)
+[Traffic Manager Overview](traffic-manager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 

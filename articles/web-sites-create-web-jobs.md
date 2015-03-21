@@ -25,7 +25,7 @@ You can run programs or scripts in WebJobs in your Azure web app in three ways: 
 
 This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Web Apps](http://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-deploy-webjobs).
 
-The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk).
+The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 

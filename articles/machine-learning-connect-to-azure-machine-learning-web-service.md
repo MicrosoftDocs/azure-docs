@@ -22,7 +22,7 @@ The Azure Machine Learning developer experience is a web service API to make pre
 
 To learn about how to create and publish an Azure Machine Learning web service using ML Studio:
 
-- [Overview of Azure ML Process](http://azure.microsoft.com/documentation/articles/machine-learning-overview-of-azure-ml-process/)
+- [Overview of Azure ML Process](machine-learning-overview-of-azure-ml-process.md)
 - [Getting Started with ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure Machine Learning Preview](https://studio.azureml.net/)
 - [Machine Learning Documentation Center](http://azure.microsoft.com/documentation/services/machine-learning/)
@@ -36,7 +36,7 @@ Azure Machine Learning has two types of services:
 - Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and published from the ML Studio.
 - Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-For more information about Azure Machine Learning web services, see [Overview of Azure ML Process](http://azure.microsoft.com/documentation/articles/machine-learning-overview-of-azure-ml-process/).
+For more information about Azure Machine Learning web services, see [Overview of Azure ML Process](machine-learning-overview-of-azure-ml-process.md).
 
 ## Get an Azure Machine Learning authorization key ##
 You get a web service API key from an ML web service. You can get it from Microsoft Azure Machine Learning studio or the Azure Management Portal.
@@ -57,7 +57,7 @@ You get a web service API key from an ML web service. You can get it from Micros
 You can connect to an Azure Machine Learning web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from an Azure ML web service help page.
 
 ### To view an Azure ML Web Service API help page ###
-An Azure ML API help page is created when you publish a web service. See [Azure Machine Learning Walkthrough- Publish Web Service](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-5-publish-web-service/).
+An Azure ML API help page is created when you publish a web service. See [Azure Machine Learning Walkthrough- Publish Web Service](machine-learning-walkthrough-5-publish-web-service.md).
 
 
 **To view an Azure ML API help page**

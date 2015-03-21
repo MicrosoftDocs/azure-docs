@@ -22,12 +22,12 @@ The following guidance is for customers who built custom applications on the pre
 
 As a preview customer, you might have used either one of these older preview versions:
 
-- [2014-07-31-Preview](../search-api-2014-07-31-preview/)
-- [2014-10-20-Preview](../search-api-2014-10-20-preview/)
+- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
+- [2014-10-20-Preview](search-api-2014-10-20-preview.md)
 
 Now that Azure Search is generally available, we encourage transitioning to newer releases: 2015-02-28 is the official API version of the generally available release of Azure Search. This version is documented on [MSDN](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx ).
 
-We’re also rolling out the next preview version, [2015-02-28-Preview](../search-api-2015-02-28-preview/), introducing features that are still in development. We ask for your feedback on either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch ) or on our [feedback page](http://feedback.azure.com/forums/263029-azure-search ).
+We’re also rolling out the next preview version, [2015-02-28-Preview](search-api-2015-02-28-preview.md), introducing features that are still in development. We ask for your feedback on either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch ) or on our [feedback page](http://feedback.azure.com/forums/263029-azure-search ).
 
 ###Checklist for migration###
 

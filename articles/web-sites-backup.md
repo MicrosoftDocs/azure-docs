@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure Web Apps Backups" 
 	description="Learn how to create backups of your Azure websites." 
-	services="app-service\web" 
+	services="app-service-web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -49,7 +49,7 @@ This information is backed up to the Azure storage account and container that yo
 2. Select **Settings** option. The **Settings** blade will be displayed allowing you to modify your website.
 	
 	![Backups page][ChooseBackupsPage]
-
+	
 3. Choose the **Backups** option in the **Settings** blade. The **Backups** blade will be displayed.
 	
 4. From the **Backups** blade, choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the website that you are going to back up.
@@ -57,9 +57,9 @@ This information is backed up to the Azure storage account and container that yo
 	![Choose storage account][ChooseStorageAccount]
 	
 5. In the **Included databases** option in the **Backups** blade, select the databases that are connected to your website (SQL Server or MySQL) that you want to back up. 
-
-	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the portal.
 	
+	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the portal.
+
 6. In the **Backups** blade, select the **Backup destination**. You must choose an existing storage account.
 7. In the command bar, click **Backup Now**.
 	
@@ -67,7 +67,7 @@ This information is backed up to the Azure storage account and container that yo
 	
 	You will see a progress message during the backup process.
 	
-
+	
 You can make a manual backup at any time. During Preview, no more than 2 manual backups can be made in a 24-hour period (subject to change).  
 
 <a name="automatedbackups"></a>
@@ -134,7 +134,7 @@ To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/
 
 [How to: Create a storage account](../storage-create-storage-account/)
 
-[How To Monitor a Storage Account](../storage-monitor-storage-account/)
+[How To Monitor a Storage Account](storage-monitor-storage-account.md)
 
 [Understanding Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

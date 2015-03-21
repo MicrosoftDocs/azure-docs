@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="02/26/2015" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Secure Push

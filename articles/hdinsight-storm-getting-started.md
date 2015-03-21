@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Getting started using Apache Storm on HDInsight | Azure" 
-   description="Learn how to use Apache Storm to process data in realtime with Storm on HDInsight" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="Blackmist" 
-   manager="paulettm" 
+<properties
+   pageTitle="Getting started using Apache Storm on HDInsight | Azure"
+   description="Learn how to use Apache Storm to process data in realtime with Storm on HDInsight"
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="java"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="03/12/2015"
    ms.author="larryfr"/>
 
@@ -48,7 +48,7 @@ For more information on creating Storage accounts, see
 
 ##Provision a Storm cluster on the Azure portal
 
-When you provision an HDInsight cluster, you provision Azure compute resources that contain Apache Storm and related applications. You can also create Hadoop clusters for other versions by using the Azure portal, Azure PowerShell cmdlets for HDInsight, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their service level agreements (SLAs), see the [HDInsight component versioning](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/) page.
+When you provision an HDInsight cluster, you provision Azure compute resources that contain Apache Storm and related applications. You can also create Hadoop clusters for other versions by using the Azure portal, Azure PowerShell cmdlets for HDInsight, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their service level agreements (SLAs), see the [HDInsight component versioning](hdinsight-component-versioning.md) page.
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -68,7 +68,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 5. Finally, select the checkmark beside **CREATE HDINSIGHT CLUSTER** to create the cluster.
 
-> [AZURE.NOTE] Cluster provisioning takes some time, usually under 15 minutes, to create the cluster, configure software, and install sample data and topologies. 
+> [AZURE.NOTE] Cluster provisioning takes some time, usually under 15 minutes, to create the cluster, configure software, and install sample data and topologies.
 
 ##Using Storm on HDInsight
 
@@ -138,11 +138,11 @@ The Storm UI can be used to monitor the topology.
 	This page also provides actions that can be taken on the topology:
 
 	* **Activate** - Resumes processing of a deactivated topology.
-	
+
 	* **Deactivate** - Pauses a running topology.
-	
+
 	* **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
-	
+
 	* **Kill** - Terminates a Storm topology after the specified timeout.
 
 5. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
@@ -172,7 +172,7 @@ The Storm UI can be used to monitor the topology.
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957] 
+		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
 	From this data you can see that the word **seven** has occurred 1493957 times. That is how many times it has been encountered since this topology was started.
 
@@ -206,15 +206,15 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 * The following are other examples that can be used with Storm on HDInsight:
 
-	* [Analyzing sensor data with Storm on HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis)
+	* [Analyzing sensor data with Storm on HDInsight](hdinsight-storm-sensor-data-analysis.md)
 
-	* [Trending hashtags on Twitter with Storm on HDInsight](../hdinsight-storm-twitter-trending/)
+	* [Trending hashtags on Twitter with Storm on HDInsight](hdinsight-storm-twitter-trending.md)
 
 * To learn more about developing Storm topologies, see the following:
 
-	* [Develop Java topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
+	* [Develop Java topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 
-	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](/documentation/articles/hdinsight-storm-develop-csharp-visual-studio-topology/)
+	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 
 [apachestorm]: https://storm.incubator.apache.org
@@ -222,4 +222,4 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-provision]: hdinsight-provision-clusters.md
