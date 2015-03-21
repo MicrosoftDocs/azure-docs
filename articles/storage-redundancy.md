@@ -121,6 +121,6 @@ When you enable read-only access to your data in the secondary region, your data
 ## Next steps
 
 - [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) 
-- [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
+- [Microsoft Azure Storage Redundancy Options and Read Access Geo Redundant Storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
 - [Microsoft Azure Storage Emulator 3.1 with RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Azure Storage SOSP Paper](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
