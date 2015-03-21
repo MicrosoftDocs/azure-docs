@@ -29,7 +29,7 @@ under the App Service brand. It explains the change and impact of the new brandi
 Azure App Service is a one-of-a-kind cloud service that enables you to create enterprise grade web and mobile apps for any platform or device, fast. App Service is an integrated solution designed to streamline repeated coding functions, integrate with enterprise and SaaS systems, and automate business processes while meeting your company’s requirements for security, reliability, and scalability. App Service provides an integrated cloud app platform that spans the diverse needs of modern
 enterprise apps across both client and mobile devices. Azure App Service includes the following pieces:
 
--   [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)
+-   Web Apps
 -   Mobile Apps
 -   API Apps
 -   Logic Apps
