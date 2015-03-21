@@ -438,17 +438,17 @@ Article | Description
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: ../data-factory-editor
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[copy-activity]: ../data-factory-copy-activity/
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
+[data-factory-editor]: data-factory-editor.md
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[copy-activity]: data-factory-copy-activity.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
-[data-factory-create-sql-database]: ../sql-database-create-configure/
+[data-factory-create-sql-database]: sql-database-create-configure.md
 
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908

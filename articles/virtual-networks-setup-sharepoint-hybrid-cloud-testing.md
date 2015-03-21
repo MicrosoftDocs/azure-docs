@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="03/18/2015" 
 	ms.author="josephd"/>
 
 
@@ -67,15 +67,15 @@ When prompted to supply the SPFarmAdmin account password, type a strong password
 
 Next, create an Azure Virtual Machine for SQL1 with these commands at the Azure PowerShell command prompt on your local computer.
 
+
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SQL1."
+	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	Set-AzureStorageAccount –StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<The password for the local administrator account>"
-	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
@@ -148,13 +148,12 @@ This is your current configuration.
 
 First, create an Azure Virtual Machine for SP1 with these commands at the Azure PowerShell command prompt on your local computer.
 
-	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<The password for the local administrator account>"
-	$User1Password="<The password for the CORP\User1 account>"
+	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SP1."
+	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="03/18/2015" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing
@@ -113,11 +113,11 @@ Next, you configure each virtual network to use a site-to-site VPN connection an
 1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, and then verify that the **Status** column for **TestLab** is set to **Created**.
 2.	Click **TestLab**, and then click **Configure**. On the TestLab page, in the **Site-to-Site Connectivity** section, click **Connect to the local network**. 
 3.	In **Local Network**, select **TestVNETLNet**.
-4.	Click **Save** in the task bar.
+4.	Click **Save** in the task bar. In some cases, you might need to click **Add Gateway Subnet** to create a subnet used by the Azure VPN gateway.
 5.	Click **Networks** in the left pane, and then verify that the **Status** column for TestVNET is set to **Created**.
 6.	Click **TestVNET**, and then click **Configure**. On the TestVNET page, in the **Site-to-Site Connectivity** section, click **Connect to the local network**. 
 7.	In **Local Network**, select **TestLabLNet**.
-8.	Click **Save** in the task bar.
+8.	Click **Save** in the task bar. In some cases, you might need to click **Add Gateway Subnet** to create a subnet used by the Azure VPN gateway.
 
 Next, you create virtual network gateways for the two virtual networks.
 
@@ -155,11 +155,10 @@ This is your current configuration.
 First, create an Azure Virtual Machine for DC2. Run these commands at the Azure PowerShell command prompt on your local computer.
 
 	$ServiceName="<Your cloud service name from Phase 2>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None

@@ -2,7 +2,7 @@
 
 The new Twitter v1.1 APIs requires your app to authenticate before accessing resources. First, you need to get the credentials needed to request access by using OAuth 2.0. Then, you will store them securely in the app settings for your mobile service.
 
-1. If you haven't already done so, complete the steps in the topic <a href="/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Register your apps for Twitter login with Mobile Services</a>. 
+1. If you haven't already done so, complete the steps in the topic <a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">Register your apps for Twitter login with Mobile Services</a>. 
   
   	Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. You can get these credentials from the Twitter Developers website. 
 

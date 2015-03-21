@@ -173,9 +173,9 @@ If you really want to stop all the executions immediately, the only way would be
 
 [image-rerun-slice]: ./media/data-factory-faq/rerun-slice.png
 
-[adfgetstarted]: ../data-factory-get-started
-[adf-introduction]: ../data-factory-introduction
-[adf-troubleshoot]: ../data-factory-troubleshoot
+[adfgetstarted]: data-factory-get-started.md
+[adf-introduction]: data-factory-introduction.md
+[adf-troubleshoot]: data-factory-troubleshoot.md
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-preview-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx

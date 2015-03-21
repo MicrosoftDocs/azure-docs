@@ -13,28 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/24/2015"
+   ms.date="03/18/2015"
    ms.author="elfish; v-romcal; v-stste"/>
 
 # Recover an Azure SQL database using Geo-Restore in Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Geo-Restore - portal](./sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - REST API](./sql-database-geo-restore-tutorial-rest.md)   
+- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
+- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)   
 
 ## Overview
 
-This tutorial shows you how to recover an Azure SQL database using Geo-Restore in [Azure PowerShell](./powershell-install-configure.md). Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
+This tutorial shows you how to recover an Azure SQL database using Geo-Restore in [Azure PowerShell](powershell-install-configure.md). Geo-Restore is the core disaster recovery protection included for all Basic, Standard, and Premium Azure SQL Databases service tiers.
 
 ## Restrictions and Security
 
-See [Recover an Azure SQL database using Geo-Restore in the Azure portal](./sql-database-geo-restore-tutorial-management-portal.md).
+See [Recover an Azure SQL database using Geo-Restore in the Azure portal](sql-database-geo-restore-tutorial-management-portal.md).
 
 ## How to: Recover an Azure SQL database with Geo-Restore in Azure PowerShell
 
-<iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-SQL-Database-Using-Geo-Restore-With-Microsoft-Azure-PowerShell/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+> [AZURE.VIDEO restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell]
 
-You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](./powershell-install-configure.md#use-the-certificate-method).
+You must use certificate based authentication to run the following cmdlets. For more information, see the *Use the certificate method* section in [How to install and configure Azure PowerShell](powershell-install-configure.md#use-the-certificate-method).
 
 1. Get the list of recoverable databases by using the [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx) cmdlet. Specify the following parameter:
 	* **ServerName** where the database is located.	
@@ -69,9 +69,9 @@ The **State** and **PercentComplete** fields show the status of the restore.
 
 For more information, see the following:  
 
-[Restore an Azure SQL database using Point in Time Restore in the Azure portal](./sql-database-point-in-time-restore-tutorial-management-portal.md)
+[Restore an Azure SQL database using Point in Time Restore in the Azure portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
 
-[Restore a deleted Azure SQL database in the Azure portal](./sql-database-restore-deleted-database-tutorial-management-portal.md)
+[Restore a deleted Azure SQL database in the Azure portal](sql-database-restore-deleted-database-tutorial-management-portal.md)
 
 [Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 

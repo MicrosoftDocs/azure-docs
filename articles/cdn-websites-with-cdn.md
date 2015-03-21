@@ -23,7 +23,7 @@ Azure Websites can be integrated with [Azure CDN](/services/cdn/), adding to the
 
 Integrating Azure Websites with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure website's [continuous deployment](../web-sites-publish-source-control/) process
+- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure website's [continuous deployment](web-sites-publish-source-control.md) process
 - Easily upgrade the NuGet packages in your Azure website, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 - Integrate ASP.NET bundling and minification with Azure CDN
@@ -585,7 +585,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 # More Information #
 - [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Serve Content from Azure CDN in Your Web Application](../cdn-serve-content-from-cdn-in-your-web-application/)
-- [Integrate a cloud service with Azure CDN](../cdn-cloud-service-with-cdn/)
+- [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](../cdn-how-to-use/)
+- [Using CDN for Azure](cdn-how-to-use.md)
