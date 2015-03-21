@@ -183,7 +183,9 @@ The settings in the *apiapp.json* file determine how the API App is identified a
 		  }
 		}
 
-The following table explains the format and usage of the fields included in the file and additional optional fields that you can add to it.
+The following table explains the format and usage of the fields included in the file and additional optional fields that you can add to it. 
+
+**Note:** For the initial preview release, many of these fields will have no effect because they affect how the API app is presented in the Azure Marketplace, but Visual Studio does not yet include the ability to publish API apps to the Marketplace.
 
 | Name (bold=required) | Type | Comments |
 |:-----------|:------------|:------------|
@@ -245,6 +247,8 @@ The `name` property is a short description of the status, `message` is a longer 
 ## Review the Metadata folder
 
 The Metadata folder can contain icons and screenshots for the API Apps Gallery, a Swagger file documenting the API, and UI configuration for the Azure portal. All of this information is optional.
+
+**Note:** As noted above for *apiapps.json*, metadata that pertains to presentation of the API app in the Azure Marketplace has no effect for this initial preview release, because Visual Studio does not yet include the ability to publish API apps to the Marketplace.
 
 <!-- todo: add later
 an Azure Resource Manager template that specifies resources required, 

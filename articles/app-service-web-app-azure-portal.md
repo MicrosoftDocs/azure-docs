@@ -18,7 +18,7 @@
 
 # Reference for navigating the Azure portal
 
-Azure Websites now called Azure App Service Web Apps. We're updating all of our documentation to reflect this name change and to provide instructions for the [preview portal]. Until that process is done, you can use this document as a guide for working with Web Apps in the preview portal.
+Azure Websites is now called [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). We're updating all of our documentation to reflect this name change and to provide instructions for the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). Until that process is done, you can use this document as a guide for working with Web Apps in the preview portal.
  
 ## The future of the management portal
 
@@ -78,3 +78,9 @@ Other than the brand name, a few things in the portal have been renamed or group
 
 [preview portal]: https://portal.azure.com
 [Azure Marketplace]: /marketplace/
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

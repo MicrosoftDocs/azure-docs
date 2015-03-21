@@ -19,7 +19,7 @@
 
 # Manage web apps through the Azure Portal
 
-In the Azure Portal, you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](app-service-web-app-azure-portal.md) changes guide.) 
+In the [Azure Portal](https://portal.azure.com), you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](http://go.microsoft.com/fwlink/?LinkId=529715) changes guide.) 
 
 To view the blade for your web app, click **Home** and then the app name, or click **Browse** to see all of your Azure resources.
 
@@ -33,7 +33,7 @@ The top part of the blade has controls for some common actions:
 
 - Other buttons start or stop the app, swap deployment slots, delete the app, and so forth.
 
-**Essentials** lists basic information about the app, including URL, location, App Service plan, and current status (running, stopped, etc).
+**Essentials** lists basic information about the app, including URL, location, [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan, and current status (running, stopped, etc).
 
 Below **Essentials** are various parts that you can use to monitor, manage, and deploy your app. To customize the layout of blade, right click and select **Customize** or **Add Parts**. The rest of this topic describes the parts in the default layout.
 
@@ -43,7 +43,7 @@ Under **Monitoring** is a graph that shows metrics for your web app. To configur
 
 ![](./media/web-sites-manage/manage02.png)
 
-To add an alert rule, click the graph, then click **Add alert**. An alert rule notifies you when a particular metric reaches some threshold. For example, you can be alerted when the number of server errors exceeds some value over a 5 -minute period. 
+To add an alert rule, click the graph, then click **Add alert**. An alert rule notifies you when a particular metric reaches some threshold. For example, you can be alerted when the number of server errors exceeds some value over a 5-minute period. 
 
 **Monitoring** also includes parts to configure analytics, set up application monitoring, and create availability tests. For more information, see [Monitoring basics for Web Apps in Azure App Service](web-sites-monitor.md).
 
@@ -67,10 +67,6 @@ To add an alert rule, click the graph, then click **Add alert**. An alert rule n
 - **Console**. Click to open a command line that runs inside the portal. You can use this to run command commands like `mkdir` and `dir`.  
 - **Process explorer** (B). Click to view the processes running in the app, including working set and thread count.
 
-The following screen shot shows the console.
-
-![](./media/web-sites-manage/manage-console.png)
-
 ## Deployment
 
 ![](./media/web-sites-manage/manage05.png)
@@ -84,11 +80,15 @@ The following screen shot shows the console.
 - Connect the app to a virtual network
 - Add hybrid connections
 	
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Next steps
 
-- Please refer to [Services](app-service-changes-existing-services.md) and [Portal](app-service-web-app-azure-portal.md) changes guides. 
 - [Scale a Web App in Azure App Service](how-to-scale-websites.md)
 - [Run Background tasks with WebJobs](web-sites-create-web-jobs.md)
 - [Azure Web Apps backups](web-sites-backup.md) and [restore](web-sites-restore.md)
 - [Monitoring basics for Web Apps in Azure App Service](web-sites-monitor.md)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

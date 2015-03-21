@@ -1,25 +1,25 @@
 <properties 
 	pageTitle="Use Azure CDN in Azure App Service Web Apps" 
 	description="A tutorial that teaches you how to deploy a web app to Azure App Service that serves content from an integrated Azure CDN endpoint" 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="cdn" 
+	ms.service="app-service-web" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Use Azure CDN in Azure App Service Web Apps
 
-Azure App Service can be integrated with [Azure CDN](/services/cdn/), adding to the global scaling capabilities inherent in App Service Web Apps by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx). This integration dramatically increases the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
+[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) can be integrated with [Azure CDN](/services/cdn/), adding to the global scaling capabilities inherent in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx). This integration dramatically increases the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
 
 Integrating Web Apps with Azure CDN gives you the following advantages:
 
@@ -43,7 +43,7 @@ This tutorial has the following prerequisites:
 > + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
 > + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required, no commitments. 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 <a name="deploy"></a>
 ## Deploy a web app to Azure with an integrated CDN endpoint ##
@@ -79,7 +79,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	You will see your published web app in the browser when publishing is complete. 
 
-1. To create a CDN endpoint, log into your [Azure management portal](http://manage.windowsazure.com/). 
+1. To create a CDN endpoint, log into the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 2. Click **New** > **App Services** > **CDN** > **Quick Create**. Select **http://*&lt;sitename>*.azurewebsites.net/** and click **Create**.
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
@@ -583,3 +583,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Using CDN for Azure](cdn-how-to-use.md)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

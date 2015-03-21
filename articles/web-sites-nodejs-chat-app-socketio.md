@@ -26,77 +26,61 @@ Socket.IO provides real-time communication between your node.js server and clien
 > [AZURE.NOTE] The procedures in this task apply to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714); for Cloud Services, see <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
 
 
-## <a id="Download"></a>Download the Chat Example
+## Download the chat example
 
 For this project, we will use the chat example from the [Socket.IO
 GitHub repository]. Perform the following steps to download the example
 and add it to the project you previously created.
 
-1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.3.4 was used for this document)
+1.  Download a [ZIP or GZ archived release][release] of the Socket.IO project (version 1.3.5 was used for this document)
 
 
 3.  Extract the archive and copy the **examples\\chat**
     directory to a new location. For example, 
     **\\node\\chat**.
 
-## <a id="Modify"></a>Modify App.js and Install Modules
-
-Before deploying the app to Azure, we must make some minor modifications.
+## Modify app.js and install modules
 
 1.  Rename the **index.js** file to **app.js**. This allows Azure to detect that this is a Node.js application.
 
-1.  Open the **app.js** file in Notepad or other text editor.
-
-2.  Find the **Module dependencies** section at the beginning of app.js and change the line containing `var io = require('../..')(server);` to `var io = require('socket.io')(server);` as shown below:
+1.  Open the **app.js** file in a text editor. Change the line containing `var io = require('../..')(server);` as shown below:
 
 		var express = require('express');
 		var app = express();
 		var server = require('http').createServer(app);
 		// var io = require('../..')(server);
+        // New:
 		var io = require('socket.io')(server);
 		var port = process.env.PORT || 3000;
 
 
-After saving the changes to app.js, use the following steps to install required modules::
+3. Open the **package.json** file and add a reference to socket.io under `dependencies`, as shown below:
 
-1.  From the command-line, change directories to the **\\node\\chat** directory and use the following command to install the modules required by this application:
+        "dependencies": {
+		  "express": "3.4.8",
+		  "socket.io": "1.3.5"
+		}
+
+4. From the command-line, change to the **\\node\\chat** directory and use npm to install the modules required by this application:
 
         npm install
 
-    This will install the modules listed in the package.json file. After
-    the command completes, you should see output similar to the
-    following:
+    This will install the modules into a subfolder named **node_modules**.
 
-	    express@3.4.8 node_modules\express
-		├── methods@0.1.0
-		├── merge-descriptors@0.0.1
-		├── debug@0.8.1
-		├── cookie-signature@1.0.1
-		├── range-parser@0.0.4
-		├── fresh@0.2.0
-		├── buffer-crc32@0.2.1
-		├── cookie@0.1.0
-		├── mkdirp@0.3.5
-		├── commander@1.3.2 (keypress@0.1.0)
-		├── send@0.1.4 (mime@1.2.11)
-		└── connect@2.12.0 (uid2@0.0.3, pause@0.0.1, qs@0.6.6, bytes@0.2.1, raw-body@1.1.2, batch@0.5.0, negotiator@0.3.0, multiparty@2.2.0)
-
-2.  Since this example was originally a part of the Socket.IO GitHub
-    repository, and directly referenced the Socket.IO library by
-    relative path, Socket.IO was not referenced in the package.json
-    file, so we must install it by issuing the following command:
-
-        npm install socket.io@1.3.4 -save
-
-	> [AZURE.NOTE] While newer versions of Socket.IO may work with the steps in this article, this article was tested with version 1.3.4.
-
-## <a id="Publish"></a>Create an Azure Web App
+## Create an Azure Web App
 
 Follow these steps to create an Azure web app, enable Git publishing, and then enable WebSocket support for the web app.
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
 
-1. From the command-line, change directories to the **\\node\chat** directory and use the following command to create a new Azure web app and enable a Git repository for the web app and the local directory. This will also create a Git remote named 'azure'.
+1. Install the Azure Cross-Platform Command-Line Interface (xplat-cli) and connect to your Azure subscription. See [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli).
+
+2. If this is your first time setting up a repository in Azure, you need to create login credentials. From the xplat-cli, enter the following command:
+
+		azure site deployment user set [username] [password] 
+
+
+3. Change to the **\\node\chat** directory and use the following command to create a new Azure web app and a local Git repository. This command also creates a Git remote named 'azure'.
 
 		azure site create mysitename --git
 
@@ -122,17 +106,15 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
 	If prompted, enter the name of the web app.
 
 	>[AZURE.NOTE]
-	>The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the Azure Management Portal.
+	>The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the [Azure Portal](https://portal.azure.com).
 	>
-	>To enable WebSockets using the [Azure Management Portal](https://manage.windowsazure.com), click the web app from the Web Apps blade, click All Settings, click Application Settings, select On for the Web Sockets entry, and then click Save.
+	>To enable WebSockets using the Azure Portal, click the web app from the Web Apps blade, click **All settings** > **Application settings**. Under **Web Sockets**, click **On**. Then click **Save**.
 	
 5. To view the web app on Azure, use the following command to launch your web browser and navigate to the hosted web app:
 
 		azure site browse
 
 Your app is now running on Azure, and can relay chat messages between different clients using Socket.IO.
-
-> [AZURE.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.
 
 ##Scale out
 
@@ -188,7 +170,7 @@ Where __#__ is the number of instances to create.
 
 You can connect to your web app from multiple browsers or computers to verify that messages are correctly sent to all clients.
 
-##<a id="tshooting"></a>Troubleshooting
+## Troubleshooting
 
 ###Connection limits
 
@@ -284,6 +266,8 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		</configuration>
 
 	> [AZURE.NOTE] If your application uses an entry point other than **app.js**, you must replace all occurrences of **app.js** with the correct entry point. For example, replacing **app.js** with **server.js**.
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ##Next steps
 

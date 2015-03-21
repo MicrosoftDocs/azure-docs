@@ -22,6 +22,8 @@ This topic shows how to create a web app from the gallery or by using the Azure 
 
 For information about how to deploy your content to a web app that you have created, see the **Deploy** section in [Azure Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 ##<a name="createawebsiteportal"></a>How to: Create a web app Using the Azure Portal
 
 Follow these steps to create a web app in Azure.
@@ -34,13 +36,13 @@ Follow these steps to create a web app in Azure.
 
 4. When the web app has been created, you will see the text **Deployment to resource group <resouce group name> was successful**.
 
-5. In the portal, click the name of the web app displayed in the list of websites to open the web app's blade.
+5. In the portal, click the name of the web app displayed in the list of web apps to open the web app's blade.
 
-6. On the blade, you are provided with options to get web app development tools, set up publishing for your web app, or set up deployment from a source control provider like TFS or Git. FTP publishing is set up by default for websites and the FTP Host name is displayed in the **Essentials** section of the web app blade. Before publishing with FTP or Git, choose the option to **Reset publish profile** on the web app blade so that you can authenticate against the FTP Host or the Git Repository when deploying content to your web app.
+6. On the blade, you are provided with options to get web app development tools, set up publishing for your web app, or set up deployment from a source control provider like TFS or Git. FTP publishing is set up by default for web apps and the FTP Host name is displayed in the **Essentials** section of the web app blade. Before publishing with FTP or Git, choose the option to **Reset publish profile** on the web app blade so that you can authenticate against the FTP Host or the Git Repository when deploying content to your web app.
 
 7. The **Settings** blade exposes settings for your web app, such as:
 
-	- version of .NET, PHP, Java, or Python for your website
+	- version of .NET, PHP, Java, or Python for your web app
 	- edit in Visual Studio Online
 	- SSL bindings
 	- custom domain names

@@ -232,7 +232,7 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 
 * To enable incremental sync, pass a query ID to `pullWithQuery`. The query ID is used to store the last updated timestamp from the results of the last pull operation. The query ID should be a descriptive string that is unique for each logical query in your app. If the query has a parameter, then the same parameter value has to be part of the query ID.
 
-    If you want to opt out of incremental sync, pass `nill` as the query ID. In this case, all records will be retrieved on every call to `pullWithQuery`, which is potentially inefficient.
+    If you want to opt out of incremental sync, pass `nil` as the query ID. In this case, all records will be retrieved on every call to `pullWithQuery`, which is potentially inefficient.
 
 <!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->

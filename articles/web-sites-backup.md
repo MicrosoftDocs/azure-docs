@@ -18,8 +18,7 @@
 
 # Back up a web app in Azure App Service
 
-<<<<<<< HEAD
-The Backup and Restore feature in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original app's backups. 
+The Backup and Restore feature in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original app's backups.
 
 For information on restoring an Azure website from backup, see [Restore a web app](../web-sites-restore/).
 
@@ -27,7 +26,7 @@ For information on restoring an Azure website from backup, see [Restore a web ap
 ## What gets backed up 
 Web Apps can back up the following information:
 
-* wWb app configuration
+* Web app configuration
 * Web app file content
 * Any SQL Server or MySQL databases connected to your site (you can choose which ones to include in the backup)
 
@@ -118,6 +117,8 @@ For information on restoring an Azure website (including databases) by using the
 * Make sure that you set up the connection strings for each of your databases properly on the **Web app settings** blade within **Settings** of the website so that the Backup and Restore feature can include your databases.
 * Although you can back up more than one website to the same storage account, for ease of maintenance, consider creating a separate storage account for each website.
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 <a name="nextsteps"></a>
 ## Next Steps
 For information on restoring an Azure website from backup, see [Restore a web app](../web-sites-restore/).
@@ -136,6 +137,10 @@ To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/
 
 [Understanding Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png
 [ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount.png
@@ -147,7 +152,3 @@ To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/
 [StartDate]: ./media/web-sites-backup/08StartDate.png
 [StartTime]: ./media/web-sites-backup/09StartTime.png
 [SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
-
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
