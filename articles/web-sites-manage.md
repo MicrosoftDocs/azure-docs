@@ -43,7 +43,7 @@ Under **Monitoring** is a graph that shows metrics for your web app. To configur
 
 ![](./media/web-sites-manage/manage02.png)
 
-To add an alert rule, click the graph, then click **Add alert**. An alert rule notifies you when a particular metric reaches some threshold. For example, you can be alerted when the number of server errors exceeds some value over a 5 -minute period. 
+To add an alert rule, click the graph, then click **Add alert**. An alert rule notifies you when a particular metric reaches some threshold. For example, you can be alerted when the number of server errors exceeds some value over a 5-minute period. 
 
 **Monitoring** also includes parts to configure analytics, set up application monitoring, and create availability tests. For more information, see [Monitoring basics for Web Apps in Azure App Service](web-sites-monitor.md).
 
@@ -66,10 +66,6 @@ To add an alert rule, click the graph, then click **Add alert**. An alert rule n
 - **Streaming logs** (A). Click to view application logs. To enable logs, go to **Settings** and open the **Diagnostics logs** blade. 
 - **Console**. Click to open a command line that runs inside the portal. You can use this to run command commands like `mkdir` and `dir`.  
 - **Process explorer** (B). Click to view the processes running in the app, including working set and thread count.
-
-The following screen shot shows the console.
-
-![](./media/web-sites-manage/manage-console.png)
 
 ## Deployment
 
