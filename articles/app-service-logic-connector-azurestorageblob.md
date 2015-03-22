@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Azure Storage Blob Connector" 
+   description="Get started with Azure Storage Blob Connector" 
+   services="app-service-logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
+
+<tags
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="03/18/2015"
+   ms.author="rajram"/>
+   
 #Azure Storage Blob Connector
 
 ##Overview
@@ -131,14 +149,14 @@ You can set it to any value that you want. This is just an example. The expressi
 
 
 <!-- Image reference -->
-[1]: ./media/app-service-logic-connector-azurestorageblob/LaunchAzureMarketplace.png
-[2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.png
-[3]: ./media/app-service-logic-connector-azurestorageblob/CreateAzureStorageBlobConnector.png
-[4]: ./media/app-service-logic-connector-azurestorageblob/CreateLogicApp.png
-[5]: ./media/app-service-logic-connector-azurestorageblob/LogicAppEmptyFlowDesigner.png
-[6]: ./media/app-service-logic-connector-azurestorageblob/ChooseBlobAvailableTrigger.png
-[7]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsBlobAvailableTrigger.png
-[8]: ./media/app-service-logic-connector-azurestorageblob/AdvancedInputsBlobAvailableTrigger.png
-[9]: ./media/app-service-logic-connector-azurestorageblob/ConfiguredBlobAvailableTrigger.png
-[10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.png
-[11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.png
+[1]: ./media/app-service-logic-connector-azurestorageblob/LaunchAzureMarketplace.PNG
+[2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.PNG
+[3]: ./media/app-service-logic-connector-azurestorageblob/CreateAzureStorageBlobConnector.PNG
+[4]: ./media/app-service-logic-connector-azurestorageblob/CreateLogicApp.PNG
+[5]: ./media/app-service-logic-connector-azurestorageblob/LogicAppEmptyFlowDesigner.PNG
+[6]: ./media/app-service-logic-connector-azurestorageblob/ChooseBlobAvailableTrigger.PNG
+[7]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsBlobAvailableTrigger.PNG
+[8]: ./media/app-service-logic-connector-azurestorageblob/AdvancedInputsBlobAvailableTrigger.PNG
+[9]: ./media/app-service-logic-connector-azurestorageblob/ConfiguredBlobAvailableTrigger.PNG
+[10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
+[11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
