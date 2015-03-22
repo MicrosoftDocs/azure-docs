@@ -190,7 +190,7 @@ Once your API app is created, you can now use the Box Connector as a trigger or 
 
 7. If the Box Connector is configured as Trigger than the triggers are shown else list of actions is displayed and you can choose appropriate operation that you want to perform.  
 
-	![][5]![][6]
+	![][5]
 
 
 <!--Image references-->
@@ -199,5 +199,4 @@ Once your API app is created, you can now use the Box Connector as a trigger or 
 [3]: ./media/app-service-logic-connector-box/image_2.jpg
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
-[6]: ./media/app-service-logic-connector-box/image_5.jpg
 
