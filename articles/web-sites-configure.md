@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to configure a web app in Azure App Services" 
 	description="How to configure a web app in Azure App Services" 
-	services="app-service-web" 
+	services="app-service/web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
 	manager="wpickett" 

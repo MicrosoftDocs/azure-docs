@@ -1,18 +1,18 @@
-<properties
+<properties 
 	pageTitle="How to deploy to Web Apps"
 	description="Learn what methods are available for deploying content to Web Apps."
-	services="app-service\web"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	services="app-service/web"
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
-<tags
+<tags 
 	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
 	ms.date="03/24/2015"
 	ms.author="tdykstra"/>
 
@@ -25,7 +25,7 @@ You have many options for deploying your own content to [App Service Web Apps](h
 
 ###<a name="cloud"></a>Deploy from a cloud-hosted source control system
 
-The best way to deploy a website is to set up a [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrated with your [source control system](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable.
+The best way to deploy a website is to set up a [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrated with your [source control system](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable. 
 
 If you don't have source control set up yet, the easiest way to get started is to use a cloud-hosted source control system.
 
@@ -115,7 +115,7 @@ For information about how to deploy to Web Apps from Visual Studio, see the foll
 * [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md). How to configure Console Application projects so that they deploy as WebJobs.  
 * [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to Web Apps](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.
 * [Web Deployment Overview for Visual Studio and ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). A basic introduction to web deployment using Visual Studio. Dated but includes information that is still relevant, including an overview of options for deploying a database along with the web application and a list of additional deployment tasks you might have to do or manually configure Visual Studio to do for you. This topic is about deployment in general, not just about deployment to Web Apps.
-* [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing.
+* [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing. 
 * [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to the Git repository. Starting in Visual Studio 2013, Git support is built-in an doesn't require installation of a plug-in.
 
 ##<a name="webmatrix"></a>WebMatrix

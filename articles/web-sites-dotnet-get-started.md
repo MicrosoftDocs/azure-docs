@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Create and deploy an ASP.NET web app in Azure App Service" 
 	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to a web app in Azure App Service. In less than 15 minutes you'll have an app up and running in the cloud." 
-	services="app-service\web" 
+	services="app-service/web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -227,23 +227,23 @@ In this section of the tutorial, you change the **h1** heading of the home page,
 ![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
 ## Monitor and manage the web app in the management portal
-  
-The [Azure Management Portal](/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web app you just created. In this section of the tutorial you look at some of what you can do in the portal.
 
+The [Azure Management Portal](/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web app you just created. In this section of the tutorial you look at some of what you can do in the portal.
+  
 1. In your browser, go to [http://portal.azure.com](), and sign in with your Azure credentials.
 
 2. Click **Browse > Web Apps**, then click the name of your web app.
-  
-	The **Web App** blade for your web app displays an overview of usage statistics and links for a commonly used web app management functions.
 
+	The **Web App** blade for your web app displays an overview of usage statistics and links for a commonly used web app management functions.
+  
 	![Web app blade](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
 
 	At this point your web app hasn't had much traffic and may not show anything in the graph. If you browse to your application, refresh the page a few times, and then refresh the portal page, you'll see some statistics show up.
 
 3. Click **All settings** to see more options for configuring your web app.
-  
-	You see a list of types of settings.
 
+	You see a list of types of settings.
+  
 	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)-->
 
 4. Click **Application settings** to see an example of the kinds of settings you can configure in the portal.

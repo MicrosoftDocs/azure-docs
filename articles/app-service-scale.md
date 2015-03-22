@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Scale a Web App in Azure App Service" 
 	description="Learn how to scale up and scale out a Web App in Azure App Service, including autoscaling." 
-	services="app-service-web" 
+	services="app-service/web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 

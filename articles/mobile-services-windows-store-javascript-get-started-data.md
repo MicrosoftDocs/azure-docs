@@ -153,12 +153,12 @@ This tutorial demonstrated the basics of enabling a Windows Store app to work wi
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Refine queries with paging]: /documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
-[Get started with Mobile Services]: /documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/
-[Get started with data]: /documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
+[Validate and modify data with scripts]: mobile-services-windows-store-javascript-validate-modify-data-server-scripts.md
+[Refine queries with paging]: mobile-services-windows-store-javascript-add-paging-data.md
+[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
+[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

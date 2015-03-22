@@ -200,21 +200,21 @@ For more information on developing and publishing Azure Websites, see the tutori
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com 
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook on Azure]: ../virtual-machines-python-ipython-notebook/
-[Cloud Services]: ../cloud-services-python-ptvs/
-[Websites]: ../web-sites-python-ptvs-django-mysql
+[IPython Notebook on Azure]: virtual-machines-python-ipython-notebook.md
+[Cloud Services]: cloud-services-python-ptvs.md
+[Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409
-[Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
-[How to use the Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
-[Create a Virtual Machine Running Linux]: ../virtual-machines-linux-tutorial/
-[Creating Websites with Django]: ../web-sites-python-create-deploy-django-app/
-[Creating Websites with Bottle]: ../web-sites-python-create-deploy-bottle-app/
-[Creating Websites with Flask]: ../web-sites-python-create-deploy-flask-app/
-[Configuring Python with Azure Websites]: ../web-sites-python-configure/
-[table storage]: ../storage-python-how-to-use-table-storage/
-[queue storage]: ../storage-python-how-to-use-queue-storage/
-[blob storage]: ../storage-python-how-to-use-blob-storage/
+[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
+[How to use the Azure Command-Line Tools for Mac and Linux]: crossplat-cmd-tools.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
+[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
+[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
+[Configuring Python with Azure Websites]: web-sites-python-configure.md
+[table storage]: storage-python-how-to-use-table-storage.md
+[queue storage]: storage-python-how-to-use-queue-storage.md
+[blob storage]: storage-python-how-to-use-blob-storage.md

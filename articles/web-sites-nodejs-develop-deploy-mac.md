@@ -32,13 +32,13 @@ Follow these steps to create a web app and enable Git publishing.
 > To complete this tutorial, you need an Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Log in to the [Azure Portal](https://portal.azure.com).
-
+ 
 2. Click the **+ NEW** icon on the bottom left of the portal
-   
+
 3. Click **Web + Mobile**, then **Web app**.
 
     ![][portal-quick-create]
- 
+
 4. Enter a value for **URL**.
 
 5. Select an App Service plan or create a new one. If you create a new plan, select the pricing tier, location, and other options.
@@ -110,7 +110,7 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 		git remote add azure [URL for remote repository]
 
-
+ 
 4. Push your changes to Azure using the following command:
 
 		git push azure master
@@ -144,7 +144,7 @@ In this section, you will create a **server.js** file containing the 'hello worl
 		git push azure master
 
 	You will be prompted for the password you created earlier. 
-
+	
 3. Browse to your app by clicking **Browse** and note that the updates have been applied.
 
 	![A web page displaying 'Hello Azure'][helloworld-completed]
