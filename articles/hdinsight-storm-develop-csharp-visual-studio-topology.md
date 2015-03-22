@@ -293,7 +293,7 @@ Open **Program.cs**. The important method here is **ITopologyBuilder**, which is
         // Name the fields that are emitted 'word' and 'count'
         // Use fieldsGrouping to ensure that tuples are routed
         //   to counter instances based on the contents of field
-        //   position 0 (the word). This could also have been 
+        //   position 0 (the word). This could also have been
         //   List<string>(){"word"}.
         //   This ensures that the word 'jumped', for example, will always
         //   go to the same instance
@@ -407,7 +407,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 		{
 		    // An empty dictionary for use when creating components
 		    Dictionary<string, Object> emptyDictionary = new Dictionary<string, object>();
-		
+
 		    #region Test the spout
 		    {
 		        Console.WriteLine("Starting spout");
@@ -416,7 +416,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 		        LocalContext spoutCtx = LocalContext.Get();
 		        // Get a new instance of the spout, using the local context
 		        Spout sentences = Spout.Get(spoutCtx, emptyDictionary);
-		
+
 		        // Emit 10 tuples
 		        for (int i = 0; i < 10; i++)
 		        {
@@ -427,7 +427,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 		        Console.WriteLine("Spout finished");
 		    }
 		    #endregion
-		
+
 		    #region Test the splitter bolt
 		    {
 		        Console.WriteLine("Starting splitter bolt");
@@ -436,7 +436,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 		        LocalContext splitterCtx = LocalContext.Get();
 		        // Get a new instance of the bolt
 		        Splitter splitter = Splitter.Get(splitterCtx, emptyDictionary);
-		
+
 		        // Set the data stream to the data created by the spout
 		        splitterCtx.ReadFromFileToMsgQueue("sentences.txt");
 		        // Get a batch of tuples from the stream
@@ -451,7 +451,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 		        Console.WriteLine("Splitter bolt finished");
 		    }
 		    #endregion
-		
+
 		    #region Test the counter bolt
 		    {
 		        Console.WriteLine("Starting counter bolt");
@@ -460,7 +460,7 @@ While it is easy to deploy a topology to a cluster, in some cases you may need t
 		        LocalContext counterCtx = LocalContext.Get();
 		        // Get a new instance of the bolt
 		        Counter counter = Counter.Get(counterCtx, emptyDictionary);
-		
+
 		        // Set the data stream to the data created by splitter bolt
 		        counterCtx.ReadFromFileToMsgQueue("splitter.txt");
 		        // Get a batch of tuples from the stream
@@ -533,7 +533,9 @@ To view errors that have occurred in a running topology, use the following steps
 
 ##Next steps
 
-Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
+Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
+
+For an example of a C# topology that splits stream data into multiple streams, see [https://github.com/Blackmist/csharp-storm-example](https://github.com/Blackmist/csharp-storm-example).
 
 To discover more information about creating C# topologies, visit [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
@@ -541,24 +543,24 @@ For more ways to work with HDInsight, or more Storm on HDinsight samples, see th
 
 **Apache Storm on HDInsight**
 
-* [Deploy and monitor topologies with Apache Storm on HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
+* [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
+* [Develop Java-based topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 
-* [Trending hashtags for Twitter with Apache Storm on HDInsight](../hdinsight-storm-twitter-trending/)
+* [Trending hashtags for Twitter with Apache Storm on HDInsight](hdinsight-storm-twitter-trending.md)
 
 * [Storm on HDInsight examples](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop on HDInsight**
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [Getting started with HBase on HDInsight](../hdinsight-hbase-get-started/)
+* [Getting started with HBase on HDInsight](hdinsight-hbase-get-started.md)

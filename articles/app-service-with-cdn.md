@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Integrate an Azure Web app with Azure CDN" 
 	description="A tutorial that teaches you how to deploy an Azure web app that serves content from an integrated Azure CDN endpoint" 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 

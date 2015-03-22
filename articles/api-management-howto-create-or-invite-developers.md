@@ -86,9 +86,9 @@ Once a developer account is created, you can associate it with roles and subscri
 [Invite a developer]: #invite-developer
 [Deactivate or reactivate a developer account]: #block-developer
 [Next steps]: #next-steps
-[How to create and use groups]: ../api-management-howto-create-groups
-[How to associate groups with developers]: ../api-management-howto-create-groups/#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
-[Configure email templates]: ../api-management-howto-configure-notifications/#email-templates
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Configure email templates]: api-management-howto-configure-notifications.md#email-templates

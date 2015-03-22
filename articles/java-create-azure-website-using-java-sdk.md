@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/18/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -23,6 +23,8 @@ This walkthrough shows you how to create an Azure SDK for Java application that 
 
 - Part 1 demonstrates how to build a Java application that creates a website on Azure.
 - Part 2 demonstrates how to create a simple JSP "Hello World" application and deploy the code to the newly created website, then use an FTP client to transfer the files to the website.
+
+> **Note:**  The AzureWebDemo application code in this article was written using Azure Java SDK 0.6.0. If you installed the Azure Java SDK 0.7.0 released on January 30, 2015, this code will not compile properly. (You can verify the version of your packages in Eclipse by clicking **Help > Installation Details**.) This article will be updated with sample code that works with Azure Java SDK 0.7.0 as soon as possible.
 
 
 # Prerequisites
@@ -375,7 +377,7 @@ Export the web project files as a web archive (WAR) file so that you can deploy 
 
     `<project-path>/JSPHello/src/JSPHello.war`
 
-For more information on deploying WAR files, see [Adding an application to your Java website on Azure](http://azure.microsoft.com/documentation/articles/web-sites-java-add-app/).
+For more information on deploying WAR files, see [Adding an application to your Java website on Azure](web-sites-java-add-app/).
 
 
 ## Deploying the Hello World Application Using FTP
@@ -388,8 +390,8 @@ Select a third-party FTP client to publish the application. This procedure descr
 
 For more information on deployment to an Azure website using FTP, see the following topics:
 
-- [Manage websites through the Azure Management Portal: FTP Credentials](http://azure.microsoft.com/documentation/articles/web-sites-manage/#ftp-credentials)
-- [How to deploy using an FTP utility](http://azure.microsoft.com/documentation/articles/web-sites-deploy/#ftp)
+- [Manage websites through the Azure Management Portal: FTP Credentials](web-sites-manage/#ftp-credentials)
+- [How to deploy using an FTP utility](web-sites-deploy/#ftp)
 
 
 ### Set up deployment credentials

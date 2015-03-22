@@ -39,8 +39,8 @@ For instructions, download the "Getting Started Guide" available from the [Micro
 
 <!--Link references-->
 [New Integrations with Microsoft Azure and Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
-[How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
-[How to Log on to a Virtual Machine Running Linux]: ../virtual-machines-linux-how-to-log-on
+[How to Log on to a Virtual Machine Running Windows Server]: virtual-machines-log-on-windows-server.md
+[How to Log on to a Virtual Machine Running Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 

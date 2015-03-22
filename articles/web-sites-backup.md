@@ -18,7 +18,8 @@
 
 # Back up a web app in Azure App Service
 
-The Backup and Restore feature in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original app's backups.
+
+The Backup and Restore feature in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original app's backups. 
 
 For information on restoring an Azure website from backup, see [Restore a web app](../web-sites-restore/).
 
@@ -133,7 +134,7 @@ To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/
 
 [How to: Create a storage account](../storage-create-storage-account/)
 
-[How To Monitor a Storage Account](../storage-monitor-storage-account/)
+[How To Monitor a Storage Account](storage-monitor-storage-account.md)
 
 [Understanding Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

@@ -149,7 +149,7 @@ In this section, you have learned how to create a CDN endpoint, upload content t
 <a name="upload"></a>
 ## Automate content upload from your ASP.NET application to your CDN endpoint ##
 
-If you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint, or if your deploy your Web application using continuous delivery (for an example, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery/)), you can use Azure PowerShell to automate the synchronization of the latest content files to Azure blobs every time you deploy your Web application. For example, you can run the script at [Upload Content Files from ASP.NET Application to Azure Blobs](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) upload all the content files in an ASP.NET application. To use this script:
+If you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint, or if your deploy your Web application using continuous delivery (for an example, see [Continuous Delivery for Cloud Services in Azure](cloud-services-dotnet-continuous-delivery.md)), you can use Azure PowerShell to automate the synchronization of the latest content files to Azure blobs every time you deploy your Web application. For example, you can run the script at [Upload Content Files from ASP.NET Application to Azure Blobs](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) upload all the content files in an ASP.NET application. To use this script:
 
 4. From the **Start** menu, run **Microsoft Azure PowerShell**.
 5. In the Azure PowerShell window, run `Get-AzurePublishSettingsFile` to download a publish settings file for your Azure account.
@@ -180,7 +180,7 @@ Once the content has finished uploading, you can link to anything in your *\Cont
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
-For an example of integrating PowerShell scripts into your continuous delivery configuration, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery/). 
+For an example of integrating PowerShell scripts into your continuous delivery configuration, see [Continuous Delivery for Cloud Services in Azure](cloud-services-dotnet-continuous-delivery.md). 
 
 <a name="update"></a>
 ## Configure the CDN cache to reflect the desired content update ##
@@ -255,13 +255,13 @@ With [Azure Websites](/services/websites/) and [Azure Cloud Services](/services/
 
 Integrating Azure Websites or Azure Cloud Services with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure website's [continuous deployment](../web-sites-publish-source-control/) process
+- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure website's [continuous deployment](web-sites-publish-source-control.md) process
 - Easily upgrade your CDN-served NuGet packages, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 
 For related tutorials, see:
-- [Integrate an Azure Website with Azure CDN](../cdn-websites-with-cdn/)
-- [Integrate a cloud service with Azure CDN](../cdn-cloud-service-with-cdn/)
+- [Integrate an Azure Website with Azure CDN](cdn-websites-with-cdn.md)
+- [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 
 Without integration with Azure Websites or Azure Cloud Services, it is possible to use Azure CDN for your script bundles, with the following caveats:
 
@@ -272,7 +272,7 @@ Without integration with Azure Websites or Azure Cloud Services, it is possible 
 
 # More Information #
 - [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Integrate an Azure Website with Azure CDN](../cdn-websites-with-cdn/)
-- [Integrate a cloud service with Azure CDN](../cdn-cloud-service-with-cdn/)
+- [Integrate an Azure Website with Azure CDN](cdn-websites-with-cdn.md)
+- [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [How to Map Content Delivery Network (CDN) Content to a Custom Domain](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Using CDN for Azure](../cdn-how-to-use/)
+- [Using CDN for Azure](cdn-how-to-use.md)

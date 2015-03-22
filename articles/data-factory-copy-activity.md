@@ -372,9 +372,9 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 [table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
 
-[adfgetstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[copy-activity-advanced]: ../data-factory-copy-activity-advanced
+[adfgetstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 

@@ -23,7 +23,7 @@ ExpressRoute connections offer higher security, more reliability, faster speeds 
 
 See the ExpressRoute FAQ for more details.
 
-[ExpressRoute FAQ](../expressroute-faqs)
+[ExpressRoute FAQ](expressroute-faqs.md)
 
 ##  How does an ExpressRoute connection work?
 
@@ -33,7 +33,7 @@ In order to connect your WAN and services hosted in Azure (compute, storage, med
 
 -If you connect to Azure through a network service provider, the network service provider takes care of configuring routes to all the services. Work with your network service provider to have routes configured appropriately.
 
-The figure below shows a logical representation of connectivity between your infrastructure and Azure. In the diagram, a circuit represents a redundant pair of logical cross connections between your network and Azure configured in Active-Active configuration. The circuit is partitioned to 2 sub-circuits to isolate traffic. The following traffic is isolated: - Traffic is isolated between your premises and Azure compute services. Azure compute services, namely virtual machines (IaaS) and cloud services (PaaS) deployed within a virtual network are covered.  - Traffic is isolated between your premises and Azure services hosted on public IP addresses. The services that are supported can be found here: [Supported Azure Services](../expressroute-faqs)
+The figure below shows a logical representation of connectivity between your infrastructure and Azure. In the diagram, a circuit represents a redundant pair of logical cross connections between your network and Azure configured in Active-Active configuration. The circuit is partitioned to 2 sub-circuits to isolate traffic. The following traffic is isolated: - Traffic is isolated between your premises and Azure compute services. Azure compute services, namely virtual machines (IaaS) and cloud services (PaaS) deployed within a virtual network are covered.  - Traffic is isolated between your premises and Azure services hosted on public IP addresses. The services that are supported can be found here: [Supported Azure Services](expressroute-faqs.md)
 
 ![](./media/expressroute-introduction/expressroute-basic.png)
 
@@ -48,7 +48,7 @@ ExpressRoute providers are classified as Network Service Providers (NSPs) and Ex
 |---|---|---|
 |**Typical Connectivity model**| Point to point Ethernet links or Connectivity at a cloud exchange | Any to any connectivity through a telco VPN |
 |**Supported Bandwidths**|200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps|10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps|
-|**Connectivity Providers**|[Exchange Providers page](../expressroute-exchange-providers)|[Network Service Providers page](../expressroute-network-service-providers)|
+|**Connectivity Providers**|[Exchange Providers page](expressroute-exchange-providers.md)|[Network Service Providers page](expressroute-network-service-providers.md)|
 |**Routing**|BGP sessions directly with customer edge routers| BGP sessions with telco|
 |**Pricing**|[EXP pricing](http://azure.microsoft.com/pricing/details/expressroute/)|[NSP pricing](http://azure.microsoft.com/pricing/details/expressroute/)|
 
@@ -63,20 +63,20 @@ If you want a direct layer 3 connection through an exchange provider, you can do
 
 -You can work with your local metro Ethernet service provider to acquire leased lines in order to connect to the closest exchange provider facility that can connect to Azure.
 
-No matter which way you decide, for a direct level 3 connection, we configure a pair of cross-connections between Azure infrastructure and the connectivity provider’s infrastructure in active-active configuration to ensure that the connection is highly available and is resilient to failures. After you meet the [prerequisites](../expressroute-prerequisites), you can then setup BGP sessions between your routers and the Microsoft routers in order to exchange routes and have traffic flow between your network and Azure.
+No matter which way you decide, for a direct level 3 connection, we configure a pair of cross-connections between Azure infrastructure and the connectivity provider’s infrastructure in active-active configuration to ensure that the connection is highly available and is resilient to failures. After you meet the [prerequisites](expressroute-prerequisites.md), you can then setup BGP sessions between your routers and the Microsoft routers in order to exchange routes and have traffic flow between your network and Azure.
 
-For more information about configuration and to see real-world examples, you can follow the step by step guidance to [configure ExpressRoute circuits through EXPs using PowerShell](../expressroute-configuration-exps).
+For more information about configuration and to see real-world examples, you can follow the step by step guidance to [configure ExpressRoute circuits through EXPs using PowerShell](expressroute-configuration-exps.md).
 
-You can learn more about Exchange Providers by visiting our [Exchange Providers page](../expressroute-exchange-providers).
+You can learn more about Exchange Providers by visiting our [Exchange Providers page](expressroute-exchange-providers.md).
 
 
 ###  Network Service Providers (NSPs)
 
 We partner with Telcos such as AT&T, and British Telecom to offer connectivity between Azure and your WAN. We offer circuit bandwidths from 10 Mbps to 1 Gbps. If you use VPN services from any of the network service providers we partner with, they can extend the networks into Azure without having to deploy any new hardware or making major configuration changes to your existing networks.
 
-For more information about configuration and to see real-world examples, you can follow the step by step guidance to [configure ExpressRoute circuits through NSPs using PowerShell](../expressroute-configuring-nsps).
+For more information about configuration and to see real-world examples, you can follow the step by step guidance to [configure ExpressRoute circuits through NSPs using PowerShell](expressroute-configuring-nsps.md).
 
-You can learn more about Network Service Providers by visiting our [Network Service Providers page](../expressroute-network-service-providers).
+You can learn more about Network Service Providers by visiting our [Network Service Providers page](expressroute-network-service-providers.md).
 
 ##ExpressRoute SLA
 

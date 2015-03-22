@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Python Websites with Django - Azure tutorial" 
 	description="A tutorial that introduces you to running a Python website on Azure." 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="" 
 	editor=""/>
 
 <tags 
-	ms.service="web-apps" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
@@ -23,7 +23,7 @@
 
 This tutorial describes how to get started running Python on Azure Web Apps.  Azure Web Apps provide limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
 
-You will create an application using the Django web framework (see alternate versions of this tutorial for [Flask](../web-sites-python-create-deploy-flask-app) and [Bottle](../web-sites-python-create-deploy-bottle-app)).  You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
+You will create an application using the Django web framework (see alternate versions of this tutorial for [Flask](web-sites-python-create-deploy-flask-app.md) and [Bottle](web-sites-python-create-deploy-bottle-app.md)).  You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
 
 > [AZURE.NOTE]
 > To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/pricing/free-trial/">sign up for a free trial</a>.
@@ -519,10 +519,10 @@ For information on using SQL Database and MySQL:
 
 
 <!--Link references-->
-[Django and MySQL on Azure with Python Tools 2.1 for Visual Studio]: ../web-sites-python-ptvs-django-mysql
-[Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio]: ../web-sites-python-ptvs-django-sql
-[SQL Database]: ../web-sites-python-ptvs-django-sql
-[MySQL]: ../web-sites-python-ptvs-django-mysql
+[Django and MySQL on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-django-mysql.md
+[Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-django-sql.md
+[SQL Database]: web-sites-python-ptvs-django-sql.md
+[MySQL]: web-sites-python-ptvs-django-mysql.md
 
 
 <!--External Link references-->

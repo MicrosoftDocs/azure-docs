@@ -32,7 +32,7 @@
 
 - [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
-- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true)
+- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pdf?raw=true)
 
 - [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
 
