@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
-<p>This topic shows you how to use Azure App Service to send push notifications to a Xamarin iOS 8 app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the [Get started with App Service mobile apps] project. When complete, your mobile backend will send a push notification each time a record is inserted.</p>
+This topic shows you how to use Azure App Service to send push notifications to a Xamarin iOS 8 app. In this tutorial you add push notifications using the Apple Push Notification service (APNs) to the [Get started with App Service mobile apps] project. When complete, your mobile backend will send a push notification each time a record is inserted.
 
 This tutorial requires the following:
 
@@ -31,7 +31,7 @@ This tutorial requires the following:
 
    > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
-The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile app. Follow these instructions to create the necessary certificates and upload it to your mobile app. For the official APNS feature documentation, see [Apple Push Notification Service].
+The Apple Push Notification Service (APNs) uses certificates to authenticate your mobile app. Follow these instructions to create the necessary certificates and upload it to your mobile app. For the official APNS feature documentation, see [Apple Push Notification Service].
 
 ## <a name="certificates"></a>Generate the Certificate Signing Request file
 
@@ -147,6 +147,46 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
+##<a id="update-server"></a>Update the server to send push notifications
+
+1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**.
+
+2. Search for **WindowsAzure.ServiceBus** and click **Install** for all projects in the solution.
+
+3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
+
+        using System.Collections.Generic;
+        using Microsoft.Azure.NotificationHubs;
+
+4. Add the following snippet to the `PostTodoItem` method after the **InsertAsync** call:  
+
+        // get Notification Hubs credentials associated with this Mobile App
+        string notificationHubName = this.Services.Settings.NotificationHubName;
+        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+
+        // connect to notification hub
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+
+        // iOS payload
+        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+
+        try
+        {
+            await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
+        }
+        catch (System.Exception ex)
+        {
+            throw;
+        }
+        //return CreatedAtRoute("Tables", new { id = current.Id }, current);
+
+    This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
+
+
+<h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+
 ## <a name="configure-app"></a>Configure your Xamarin.iOS application
 
 1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID you created earlier.
@@ -167,23 +207,11 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
 
 ## <a name="add-push"></a>Add push notifications to your app
 
-1. In Xamarin.Studio, open the AppDelegate.cs file and add the following property:
-
-        public string DeviceToken { get; set; }
-
-2. In **QSTodoService**, override the existing client declaration to be:
+1. In **QSTodoService**, override the existing client declaration so **AppDelegate** can acquire the mobile client:
         
         public MobileServiceClient client { get; private set; }
 
-4. Then add the following method so **AppDelegate** can acquire the client later to register push notifications:
-
-        public MobileServiceClient GetClient {
-            get{ 
-                return client;
-            }
-        }
-
-5. In **AppDelegate**, override the **FinishedLaunching** event: 
+2. In **AppDelegate**, override the **FinishedLaunching** event: 
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -200,89 +228,36 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
             return true;
         }
 
-6. In **AppDelegate**, override the **RegisteredForRemoteNotifications** event:
+3. In the same file, override the **RegisteredForRemoteNotifications** event:
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            // Modify device token
-            DeviceToken = deviceToken.Description;
-            DeviceToken = DeviceToken.Trim ('<', '>').Replace (" ", "");
-
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
             // Register for push with your mobile app
             var push = client.GetPush();
-            push.RegisterAsync(DeviceToken);
+            push.RegisterAsync(deviceToken);
         }
 
-7. In **AppDelegate**, override the **ReceivedRemoteNotification** event:
+4. Then, override the **DidReceivedRemoteNotification** event:
 
-        public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
+        public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
-            Debug.WriteLine(userInfo.ToString());
-            NSObject inAppMessage;
+            NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
-            bool success = userInfo.TryGetValue(new NSString("inAppMessage"), out inAppMessage);
+            string alert = string.Empty;
+            if (aps.ContainsKey(new NSString("alert")))
+                alert = (aps [new NSString("alert")] as NSString).ToString();
 
-            if (success)
+            //show alert
+            if (!string.IsNullOrEmpty(alert))
             {
-                var alert = new UIAlertView("Got push notification", inAppMessage.ToString(), null, "OK", null);
-                alert.Show();
+                UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
+                avAlert.Show();
             }
         }
-
-8. In **TodoListViewController**, modify the **OnAdd** action to get the device token stored in **AppDelegeate**, and store it into the **TodoItem** being added.
-
-        string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
-
-        var newItem = new TodoItem() 
-        {
-            Text = itemText.Text, 
-            Complete = false,
-            DeviceToken = deviceToken
-        };
 
 Your app is now updated to support push notifications.
-
-##<a id="update-server"></a>Update the server to send push notifications
-
-1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**.
-
-2. Search for **WindowsAzure.ServiceBus** and click **Install** for all projects in the solution.
-
-3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile app project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
-
-		using System;
-		using System.Collections.Generic;
-        using Microsoft.ServiceBus.Notifications;
-
-4. Update the `PostTodoItem` method definition with the following code:  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            var appleNotificationPayload = "{\"aps\":{\"alert\":" + item.Text + "}}";
-
-            try
-            {
-                var result = await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
-
-    This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
 
 <h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>

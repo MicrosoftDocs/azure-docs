@@ -21,24 +21,22 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
-This topic shows you how to use Azure App Service to send push notifications to an iOS app with Apple Push Notification service (APNS). On completion, your .NET backend will send a push notification to your QuickStart ToDo app each time a record is inserted.
-
+This topic shows you how to use Azure App Service to send push notifications to an iOS app with Apple Push Notification service (APNS). On completion, your .NET backend will send a push notification to your QuickStart ToDo app each time a record is inserted. The app is compatible with iOS 8 and previous versions.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Generate the certificate signing request]
+1. [Generate iOS certificate signing request]
 2. [Register your app and enable push notifications]
 3. [Create a provisioning profile for the app]
-4. [Configure App Service Mobile to send push requests]
+4. [Configure your mobile backend to send push requests]
 5. [Update the server to send push notifications](#update-server)
 6. [Publish the mobile backend to Azure]
 7. [Add push notifications to the app]
-8. [Enable push notifications for local testing](#local-testing)
-9. [Test the app against the published mobile backend]
+8. [Test your app]
 
 This tutorial requires the following:
 
-+ [App Service Mobile iOS SDK]
++ [App Service Mobile App iOS SDK]
 + [Azure Notification Hubs Nuget]
 + [XCode 4.5][Install Xcode]
 + An iOS 6.0 (or later version) capable device
@@ -48,14 +46,11 @@ This tutorial requires the following:
 
 This tutorial is based on the App Service Mobile App quickstart. Before you start this tutorial, you must first complete either [Get started with App Service mobile apps].
 
-
 [AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
-
 
 ## Configure Mobile App to send push requests
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
-
 
 ##<a id="update-server"></a>Update the server to send push notifications
 
@@ -65,35 +60,30 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 
 3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
-		using System;
 		using System.Collections.Generic;
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
-4. Update the `PostTodoItem` method definition with the following code:  
+4. Add the following snippet to the `PostTodoItem` method after the **InsertAsync** call:  
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+        // get Notification Hubs credentials associated with this Mobile App
+        string notificationHubName = this.Services.Settings.NotificationHubName;
+        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+
+        // connect to notification hub
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+
+        // iOS payload
+        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+
+        try
         {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            var appleNotificationPayload = "{\"aps\":{\"alert\":" + item.Text + "}}";
-
-            try
-            {
-                var result = await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+            await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
         }
+        catch (System.Exception ex)
+        {
+            throw;
+        }
+        //return CreatedAtRoute("Tables", new { id = current.Id }, current);
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
@@ -103,48 +93,41 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
 ## Add push notifications to your app
-1. Download and include the App Service Mobile App Client SDK in your project.
+1. Download and add reference to the App Service Mobile App Client SDK in xcode.
 
-2. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
+2. In **QSAppDelegate.m**, add the following in **application:didFinishLaunchingWithOptions** to register the client with Apple Push Notification Service:
 
-        #import <WindowsAzureAppServiceMobile/WindowsAzureAppServiceMobile.h>
-
-2. Update the project for devices to register with APNs:
-
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // register iOS8 or previous devices for notifications
-            if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
-                [[UIApplication sharedApplication] registerForRemoteNotifications];
-            }
-            else {
-                // Register for remote notifications
-                [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-                UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            }
-
-            return YES;
+        // register iOS8 or previous devices for notifications
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
         }
+        else {
+            // Register for remote notifications
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+        }
+        // return YES;
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the App Service Mobile Url and Application Key values and switch them in for the placeholders:
+3. In the same file, add the following handler method inside the **QSAppDelegate** implementation:
 
+        // registration with APNs is successful
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
 
-            // TODO: update @"MobileServiceUrl" and @"AppKey" placeholders
-            MSClient *client = [MSClient clientWithApplicationURLString:@"MobileServiceUrl" applicationKey:@"AppKey"]
+            // make sure you have imported "QSTodoService.h"
+            QSTodoService *todoService = [QSTodoService defaultService];
+            MSClient *client = todoService.client;
 
-            [client.push register:deviceToken completion:^(NSError *error) {
+            [client.push registerDeviceToken:deviceToken completion:^(NSError *error) {
                 if (error != nil) {
                     NSLog(@"Error registering for notifications: %@", error);
                 }
             }];
         }
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation:
+4. Then, add the failure handler method inside the implementation:
 
-        // Handle any failure to register.
+        // handle any failure to register
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
@@ -152,18 +135,13 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 
 5. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
-        // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
         - (void)application:(UIApplication *)application didReceiveRemoteNotification:
         (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:[userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-
-   > [AZURE.NOTE] You must add this code before calling the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
@@ -190,18 +168,14 @@ Your app is now updated to support push notifications.
 You have successfully completed this tutorial.
 
 <!-- Anchors.  -->
-[Generate the certificate signing request]: #certificates
+[Generate iOS certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
-[Configure App Service Mobile to send push requests]: #configure
-[Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push
-[Insert data to receive notifications]: #test
-[Test the app against the published mobile backend]: #test-app
-[Next Steps]:#next-steps
-[Download the service locally]: #download-the-service-locally
-[Test the mobile backend]: #test-the-service
+[Configure your mobile backend to send push requests]: #configure
+[Update the server to send push notifications]: #update-server
 [Publish the mobile backend to Azure]: #publish-mobile-service
+[Test your app]: #test-the-service
 
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
@@ -249,12 +223,3 @@ You have successfully completed this tutorial.
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
-
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
-
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
