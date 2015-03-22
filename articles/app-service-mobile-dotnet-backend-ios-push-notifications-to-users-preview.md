@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Send push notifications to a specific user with Xamarin iOS client" 
-	description="Learn how to send push notifications to all devices of a user" 
+	pageTitle="Send x-plat notifications to a specific user with iOS client" 
+	description="Learn how to send push notifications to all devices of a specific user."
 	services="app-service\mobile" 
-	documentationCenter="windows" 
+	documentationCenter="ios" 
 	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,8 +10,8 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="mobile-dotnet" 
+	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
@@ -34,42 +34,34 @@ Before you start this tutorial, you must have already completed these App Servic
 
 ##<a name="client"></a>Update your client to register for templates to handle cross-platform pushes
 
-1. Move the APNs registration snippets from **FinishedLaunching** in **AppDelegate.cs** to the **RefreshAsync** Task definition in **QSTodoListViewController.cs**. The registrations should happen after authentication completes.
+1. Move the APNs registration snippets in **QSAppDelegate.m**'s **application:didFinishLaunchingWithOptions** to the call to **loginWithProvider** in **QSTodoListViewController.m** so it happens after authentication completes:
 
-        ...
-        if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate (this);
-            if (todoService.User == null) {
-                Console.WriteLine ("couldn't login!!");
-                return;
+        [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+            [self refresh];
+            
+            // register iOS8 or previous devices for notifications
+            if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
             }
+            else {
+                // Register for remote notifications
+                [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+                 UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+            }
+        }];
 
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes (
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound, 
-                new NSSet ());
+2. Replace your **registerDeviceToken** call in **application:didRegisterForRemoteNotificationsWithDeviceToken** with the following to work with templates:
 
-            UIApplication.SharedApplication.RegisterUserNotificationSettings (settings); 
-            UIApplication.SharedApplication.RegisterForRemoteNotifications ();
-        }
-        ...
-
-2. In **AppDelegate.cs**, replace the **RegisterAsync** call in **RegisteredForRemoteNotifications** with the following to work with templates:
-
-        // delete await push.RegisterAsync (deviceToken);
-        
-        var notificationTemplate = "{\"aps\": {\"alert\":\"$(message)\"}}";
-
-        JObject templateBody = new JObject();
-        templateBody["body"] = notificationTemplate;
-
-        JObject templates = new JObject();
-        templates["testApnsTemplate"] = templateBody;
-
+        NSDictionary *templates = @{
+                               @"testNotificationTemplate": @{ @"body" : @{ @"aps" : @{ @"alert": @"$(message)" } } }
+                               };
+    
         // register with templates
-        await push.RegisterAsync (deviceToken, templates);
+        [client.push registerDeviceToken:deviceToken template:templates completion:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            }
+        }];
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
@@ -94,7 +86,7 @@ Before you start this tutorial, you must have already completed these App Servic
 
             try
             {
-                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
+            	await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
             }
             catch (System.Exception ex)
             {
@@ -108,6 +100,6 @@ Before you start this tutorial, you must have already completed these App Servic
 Re-publish your mobile backend project and run any of the client apps you have set up. On item insertion, the backend will send notifications to all client apps where the user is logged in.
 
 <!-- URLs. -->
-[Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview/
-[Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/
+[Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-ios-get-started-push-preview/
+[Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-ios-get-started-push-preview/
 [templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
