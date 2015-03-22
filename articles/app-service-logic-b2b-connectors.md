@@ -194,21 +194,20 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 ## More B2B resources
 
-[Creating a B2B process](app-service-logic-create-a-b2b-process.md)
-[Creating a Trading Partner Agreement](app-service-logic-create-a-trading-partner-agreement.md)
-[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
+[Creating a B2B process](app-service-logic-create-a-b2b-process.md)<br/>
+[Creating a Trading Partner Agreement](app-service-logic-create-a-trading-partner-agreement.md)<br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)<br/>
 
 
 ## Read about Logic Apps and Web Apps
-[What are Logic Apps?](app-service-logic-what-are-logic-apps.md) 
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
+[What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
+[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)<br/>
 
 
 ## More Connectors
-
-[BizTalk Integration connectors](app-service-logic-integration-connectors.md)
-[Enterprise connectors](app-service-logic-enterprise-connectors.md)
-[Social connectors](app-service-logic-social-connectors.md)
-[Protocol connectors](app-service-logic-protocol-connectors.md)
-[App + Data Services connectors](app-service-logic-data-connectors)
-[Connectors and API Apps List](app-service-logic-connectors-list.md)
+[BizTalk Integration connectors](app-service-logic-integration-connectors.md)<br/>
+[Enterprise connectors](app-service-logic-enterprise-connectors.md)<br/>
+[Social connectors](app-service-logic-social-connectors.md)<br/>
+[Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
+[App + Data Services connectors](app-service-logic-data-connectors)<br/>
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/>
