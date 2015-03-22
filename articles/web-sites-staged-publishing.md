@@ -20,7 +20,7 @@
 <a name="Overview"></a>
 # Deploy to staging slots for web apps in Azure App Service
 
-When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 - You can validate web app changes in a staging deployment slot before swapping it with the production slot.
 
@@ -28,9 +28,9 @@ When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?Li
 
 - After a swap, the slot with previously staged web app now has the previous production web app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
-Four deployment slots in addition to the production slot are supported for each web app in the **Standard** mode. 
+Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your web app's mode supports, see [App Service Pricing](/pricing/details/app-service/). 
 
-- Multiple deployment slots are only available for web apps in the **Standard** mode. When your web app has multiple slots, you cannot change the mode.
+- When your web app has multiple slots, you cannot change the mode.
 
 - Scaling is not available for non-production slots.
 
@@ -41,7 +41,7 @@ Four deployment slots in addition to the production slot are supported for each 
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##
 
-The web app must be running in the **Standard** mode to enable multiple deployment slots. 
+The web app must be running in the **Standard** or **Premium** mode in order for you to add a deployment slot. To find out the number of slots your web app's mode supports, see [App Service Pricing](/pricing/details/app-service/). 
 
 1. In the [Azure Preview Portal](https://portal.azure.com/), open your web app's blade.
 2. Click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**.
@@ -49,7 +49,7 @@ The web app must be running in the **Standard** mode to enable multiple deployme
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 
 	> [AZURE.NOTE]
-	> If the web app is not already in **Standard** mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your web app before continuing.
+	> If the web app is not already in **Standard** or **Premium** mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your web app before continuing.
 
 2. In the **Add a slot** blade, give the slot a name, and select whether to clone web app configuration from another existing deployment slot. Click the check mark to continue.
 
@@ -159,7 +159,7 @@ The **Get-AzureWebsite** cmdlet presents information about Azure web apps for th
 ----------
 
 ### New-AzureWebsite
-You can create a deployment slot for any web app in **Standard** mode by using the **New-AzureWebsite** cmdlet and specifying the names of both the web app and slot. Also indicate the same region as the web app for deployment slot creation, as in the following example.
+You can create a deployment slot for any web app in **Standard** or **Premium** mode by using the **New-AzureWebsite** cmdlet and specifying the names of both the web app and slot. Also indicate the same region as the web app for deployment slot creation, as in the following example.
 
 `New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
 
@@ -212,7 +212,7 @@ For information about the web apps in the current subscription, call **azure sit
 
 ----------
 ### azure site create
-To create a deployment slot for any web app in **Standard** mode, call **azure site create** and specify the name of an existing web app and the name of the slot to create, as in the following example.
+To create a deployment slot for any web app in **Standard** or **Premium** mode, call **azure site create** and specify the name of an existing web app and the name of the slot to create, as in the following example.
 
 `azure site create webappslotstest --slot staging`
 
