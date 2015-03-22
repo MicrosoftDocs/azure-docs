@@ -18,8 +18,7 @@
 
 # Back up a web app in Azure App Service
 
-<<<<<<< HEAD
-The Backup and Restore feature in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original app's backups. 
+The Backup and Restore feature in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) lets you easily create website backups manually or automatically. You can restore your web app to a previous state, or create a new web app based on one of your original app's backups.
 
 For information on restoring an Azure website from backup, see [Restore a web app](../web-sites-restore/).
 
@@ -27,7 +26,7 @@ For information on restoring an Azure website from backup, see [Restore a web ap
 ## What gets backed up 
 Web Apps can back up the following information:
 
-* wWb app configuration
+* Web app configuration
 * Web app file content
 * Any SQL Server or MySQL databases connected to your site (you can choose which ones to include in the backup)
 
