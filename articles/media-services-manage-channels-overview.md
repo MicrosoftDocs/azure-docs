@@ -30,7 +30,7 @@ A streaming endpoint represents a streaming service that can deliver content dir
 
 The following diagram represents the live streaming workflow using an on-premises live encoder that outputs multi-bitrate RTMP, or Smooth Streaming (Fragmented MP4). When using an on-premises encoder, the incoming stream passes through to the streaming endpoint without any encoding.
 
-**Note** It is undesirable, but valid for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also passe through, but the client applications will get a single bitrate stream.
+Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also passe through, but the client applications will get a single bitrate stream.
 
 
 ![Live workflow][live-overview]
@@ -70,7 +70,7 @@ Valid streaming protocol options are:
 - Multi-bitrate Fragmented MP4 (Smooth Streaming). You can ingest live Fragmented MP4 (Smooth Streaming) content over an SSL connection.
 - Multi-bitrate RTMP. Currently, you cannot ingest RTMP over SSL.
 
-**Note**: It is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also passed through, but the client applications will get a single bitrate stream.
+Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also passed through, but the client applications will get a single bitrate stream.
 
 
 You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
@@ -122,7 +122,7 @@ You can get the preview URL when you create the channel. To get the URL, the cha
 
 Once the Channel starts ingesting data, you can preview your stream.
 
-**Note** Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Management Portal to view your stream.
+Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Management Portal to view your stream.
 
 
 ###Allowed IP Addresses
@@ -177,7 +177,7 @@ The following table demonstrates supported closed captioning and ad insertion st
 <tr><th>Standard</th><th>Notes</th></tr>
 <tr><td>CEA-708 and EIA-608 (708/608)</td><td>CEA-708 and EIA-608 are closed captioning standards for the United States and Canada.<br/>Currently, captioning is only supported if carried in the encoded input stream. You need to use a live media encoder that can insert 608 or 708 captions into the encoded stream which is sent to Media Services. Media Services will deliver the content with inserted captions to your viewers.</td></tr>
 <tr><td>TTML inside ismt (Smooth Streaming Text Tracks)</td><td>Media Services dynamic packaging enables your clients to stream content in any of the following formats: MPEG DASH, HLS or Smooth Streaming. However, if you ingest fragmented MP4 (Smooth Streaming) with captions inside .ismt (Smooth Streaming text tracks), you would only be able to deliver the stream to Smooth Streaming clients.</td></tr>
-<tr><td>SCTE-35</td><td>Digital signaling system used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<br/><b>Note</b>: Currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming.</td></tr>
+<tr><td>SCTE-35</td><td>Digital signaling system used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<br/>Note that currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming.</td></tr>
 </table>
 
 ##Considerations
