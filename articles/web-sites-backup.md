@@ -38,7 +38,7 @@ This information is backed up to the Azure storage account and container that yo
 <a name="requirements"></a>
 ## Requirements and restrictions
 
-* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your web app to use a Standard tier, see [Scale a web app in Azure App Service](../web-sites-scale/). Note that the Premium tier allows a greater number of daily backups to be performed over the Standard tier.
+* The Backup and Restore feature requires the site to be in Standard mode. For more information about scaling your web app to use Standard mode, see [Scale a web app in Azure App Service](../web-sites-scale/). Note that Premium mode allows a greater number of daily backups to be performed over the Standard mode.
 
 * The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the web app that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
@@ -56,11 +56,7 @@ This information is backed up to the Azure storage account and container that yo
 	
 	![Choose storage account][ChooseStorageAccount]
 	
-<<<<<<< HEAD
-5. In the **Included databases** option in the **Backups** blade, select the databases that are connected to your app (SQL Server or MySQL) that you want to back up. 
-=======
 5. In the **Included databases** option in the **Backups** blade, select the databases that are connected to your web app (SQL Server or MySQL) that you want to back up. 
->>>>>>> 65fa585328b4edebac1c09c5eb469d031a09c84a
 
 	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the portal.
 	
@@ -81,11 +77,7 @@ You can make a manual backup at any time.
 	
 	![Enable automated backups][SetAutomatedBackupOn]
 	
-<<<<<<< HEAD
-2. Select the storage account to which you want to back up your web app. The storage account must belong to the same subscription as the app that you are going to back up.
-=======
 2. Select the storage account to which you want to back up your web app. The storage account must belong to the same subscription as the web app that you are going to back up.
->>>>>>> 65fa585328b4edebac1c09c5eb469d031a09c84a
 	
 	![Choose storage account][ChooseStorageAccount]
 	
@@ -96,11 +88,7 @@ You can make a manual backup at any time.
 	
 	> [AZURE.NOTE] Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
 	
-<<<<<<< HEAD
-5. In the **Included Databases** section, select the databases that are connected to your app (SQL Server or MySQL) that you want to back up. For a database to appear in the list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the portal.
-=======
 5. In the **Included Databases** section, select the databases that are connected to your web app (SQL Server or MySQL) that you want to back up. For a database to appear in the list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the portal.
->>>>>>> 65fa585328b4edebac1c09c5eb469d031a09c84a
 	
 	> [AZURE.NOTE] If you choose to include one or more databases in the backup and have specified a Frequency of less than 7 days, you will be warned that frequent backups can increase your database costs.
 	
@@ -114,22 +102,13 @@ You can make a manual backup at any time.
 
 After you have made one or more backups, the backups will be visible on the **Containers** blade of your **Storage Account**, as well as your web app. From the **Storage Account**, each backup consists of a .zip file that contains the backed up data and an .xml file that contains a manifest of the .zip file contents. 
 
-<<<<<<< HEAD
-The .zip and .xml backup file names consist of your web app name, followed by an underscore and a time stamp of when the backup was taken. The time stamp contains the date in the format YYYYMMDD (in digits with no spaces) plus the 24-hour time in UTC format (for example, fabrikam_201402152300.zip). The content of these files can be unzipped and browsed in case you want to access your backups without actually performing a restore.
-=======
 The .zip and .xml backup file names consist of your web app name followed by an underscore and a time stamp of when the backup was taken. The time stamp contains the date in the format YYYYMMDD (in digits with no spaces) plus the 24-hour time in UTC format (for example, fabrikam_201402152300.zip). The content of these files can be unzipped and browsed in case you want to access your backups without actually performing a web app restore.
->>>>>>> 65fa585328b4edebac1c09c5eb469d031a09c84a
 
 The XML file that is stored with the zip file indicates the database file name under *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
 The database backup file itself is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, you can follow the steps in the article [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
-<<<<<<< HEAD
 For information on restoring a web app (including databases) by using the Azure Portal, see [Restore a web app in Azure App Service](../web-sites-restore/).
-=======
-For information on restoring an Azure web app (including databases) by using the Azure management portal, see [
-Restore a web app in Azure App Service](../web-sites-restore/).
->>>>>>> 65fa585328b4edebac1c09c5eb469d031a09c84a
 
 > [AZURE.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
@@ -137,11 +116,7 @@ Restore a web app in Azure App Service](../web-sites-restore/).
 ## Notes
 
 * Make sure that you set up the connection strings for each of your databases properly on the **Web app settings** blade within **Settings** of the web app so that the Backup and Restore feature can include your databases.
-<<<<<<< HEAD
-* Although you can back up more than one web app to the same storage account, for ease of maintenance, consider creating a separate storage account for each app.
-=======
 * Although you can back up more than one web app to the same storage account, for ease of maintenance, consider creating a separate storage account for each web app.
->>>>>>> 65fa585328b4edebac1c09c5eb469d031a09c84a
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
