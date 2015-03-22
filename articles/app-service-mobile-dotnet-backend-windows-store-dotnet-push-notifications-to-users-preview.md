@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Send push notifications to a specific user with App Service" 
-	description="Learn how to send push notifications to all devices of a user" 
+	pageTitle="Send x-plat notifications to a specific user with Windows Store client"
+	description="Learn how to send push notifications to all devices of a specific user."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="yuaxu" 
@@ -16,11 +16,13 @@
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
 
-# Send cross-platform push notifications to all devices of a specific user with templates
+# Send x-plat push notifications to all devices of a specific user with templates
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 
-This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend.
+This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend. It introduced the concept of [templates], which gives client applications the freedom of specifying payload formats and variable placeholders at registration. Send then hits every platform with these placeholders, enabling cross-platform notifications.
+
+> [AZURE.NOTE] To get push working with cross-platform clients, you will need to complete this tutorial for each platform you would like to enable. You will only need to do the [mobile backend update](#backend) once for clients that share the same mobile backend.
  
 ##Prerequisites 
 
@@ -32,22 +34,35 @@ Before you start this tutorial, you must have already completed these App Servic
 
 ##<a name="client"></a>Update your client to register for templates to handle cross-platform pushes
 
-1. In **App.xaml.cs**, replace the **InitNotificationsAsync** method with the following:
+1. We will instead perform **InitNotificationAsync** in **MainPage.cs** to work with user authentication. Delete your **InitNotificationAsync** method definition and call in **App.xmal.cs**, and add the following in **MainPage.cs** in the **MainPage** class:
 
         private async void InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-
-            string wnsTemplatesJson = 
-            '{"simpleNotification":{
-            	body: "<toast><visual lang='en-US'><binding template='ToastText01'><text id='1'>"'+ $message +'"</text></binding></visual></toast>",
-            	headers: {"X-WNS-Type":"wns/toast"}
-        	}}';
-
-            JObject wnsTemplates = JObject.Parse(wnsTemplatesJson);
-            
-			var result = MobileService.GetPush().RegisterAsync(channel.Uri, wnsTemplates);
+ 
+            // building templates for wns
+            var toastTemplate = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(message)</text></binding></visual></toast>";
+            JObject templateBody = new JObject();
+            templateBody["body"] = toastTemplate;
+ 
+            JObject wnsToastHeaders = new JObject();
+            wnsToastHeaders["X-WNS-Type"] = "wns/toast";
+            templateBody["headers"] = wnsToastHeaders;
+ 
+            JObject templates = new JObject();
+            templates["testTemplate"] = templateBody;
+ 
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri, templates);
         }
+
+    You will also want to transfer some using statements to **MainPage.cs**.
+
+2. Use this method right after the **AuthenticateAsync** call in **ButtonLogin_Click**.
+
+        await AuthenticateAsync();
+        InitNotificationAsync();
+
+Your app is now set up to register user device with the user login information.
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
@@ -86,5 +101,6 @@ Before you start this tutorial, you must have already completed these App Servic
 Re-publish your mobile backend project and run any of the client apps you have set up. On item insertion, the backend will send notifications to all client apps where the user is logged in.
 
 <!-- URLs. -->
-[Get started with authentication]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview/
-[Get started with push notifications]: /documentation/articles/app-service-mobile-dotnet-backend-windows-universal-get-started-push-preview/
+[Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview/
+[Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/
+[templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
