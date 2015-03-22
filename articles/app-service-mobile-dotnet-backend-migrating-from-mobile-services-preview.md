@@ -16,7 +16,7 @@
 	ms.date="03/22/2015" 
 	ms.author="mahender"/>
 
-# Migrate your existing Azure Mobile Service to an Azure App Service Mobile App.
+# Migrate your existing Azure Mobile Service to an Azure App Service Mobile App
 
 This topic shows you how to migrate an existing application from Azure Mobile Services to a new App Service Mobile App. All existing Mobile Services apps can be easily migrated to a new App Service Mobile app. During a migration, your existing Mobile Services application can continue to operate. Over time, the process for migrating will become even easier, but for those who wish to migrate today, the following steps can be used.
 
@@ -52,7 +52,7 @@ The full set of steps for this migration is as follows:
 
 
 ##<a name="mobile-app-version"></a>Setting up a Mobile App version of your application
-The first step in migrating is to create the App Service which will host the new version of your application. You can create a new Mobile App in the [Preview Azure Management Portal]. You can consult the [Create a mobile app] topic for further detail.
+The first step in migrating is to create the App Service which will host the new version of your application. You can create a new Mobile App in the [Preview Azure Management Portal]. You can consult the [Create a Mobile App] topic for further detail.
 
 You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values from the **Configure** tab of the Mobile Services section of the [Azure Management Portal]. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your Mobile App Code site and select **Settings**, **Application settings**, and add these connection strings, overwriting any existing values. You should additionally add these values to the Mobile App resource as well. To do this, navigate to the Mobile App blade, select **Settings** and then **Properties**. Click the link labeled **API App host** to view the site hosting your Mobile App resource. Go to **Settings**, **Application settings**, and paste in the connection strings as in the code site. Do not change other values as this could break Mobile App functionality. Please note that at the moment, the Mobile App blade will continue to show the existing connections even after this configuration step. Additional action may be required once the Mobile Apps experience has been updated.
 
@@ -90,7 +90,7 @@ The main change that will be required of your client code is in the constructor.
         "983682c4-f043-483e-a75b-8a8545fc1846"
     );
 
-This will allow the client to route requests to the components of your Mobile App. You can find more details specific to your target platform using the appropriate [Create a mobile app] topic.
+This will allow the client to route requests to the components of your Mobile App. You can find more details specific to your target platform using the appropriate [Create a Mobile App] topic.
 
 In the same update, you will need to adjust any push notification registration calls that you make. There are new APIs which make improvements to the registration process (using Windows as an example):
 
@@ -108,7 +108,7 @@ Once your customers have had a chance to receive these updates, you can delete t
 [What are Mobile Apps?]: /en-us/documentation/articles/app-service-mobile-value-prop-preview
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a mobile app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview
+[Create a Mobile App]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview
 [Add push notifications to your mobile app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview
 [Add authentication to your mobile app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
