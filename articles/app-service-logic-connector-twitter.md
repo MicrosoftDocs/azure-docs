@@ -56,12 +56,12 @@ Once your API app is created, you can now use the Twitter connector as a trigger
 4.	You can drop the Twitter Connector API app into the editor by clicking on the “Twitter Connector” under “Recently used” from the gallery on your right hand side. Click on the Authorize button. Provide your Twitter credentials. Click on “Authorize App”
  
 	![][5]
-5.	Select the trigger “New Tweet”
-6.	You can now use Twitter connector in the flow. The below flow will retrieve new message posted on Facebook User Wall and post the same tweet on Twitter.
+6.	You can now use Twitter connector in the flow. You can now use the Tweets retrieved from the Twitter trigger in other actions in the flow.
  
 	![][6]
-7.	In the similar way you can now use the Tweets retrieved from the Twitter trigger in other actions in the flow.
+7.	In the similar way you can use the Twitter actions in the flow. Select a Twitter action and configure the inputs for that respective action.
 
+	![][7] ![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -70,3 +70,5 @@ Once your API app is created, you can now use the Twitter connector as a trigger
 [4]: ./media/app-service-logic-connector-twitter/img4.png
 [5]: ./media/app-service-logic-connector-twitter/img5.png
 [6]: ./media/app-service-logic-connector-twitter/img6.png
+[7]: ./media/app-service-logic-connector-twitter/img7.png
+[8]: ./media/app-service-logic-connector-twitter/img8.png
