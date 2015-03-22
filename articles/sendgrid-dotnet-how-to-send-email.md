@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to use the SendGrid email service (.NET) - Azure" 
 	description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." 
-	services="app-service/web" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="thinkingserious" 
 	manager="sendgrid" 

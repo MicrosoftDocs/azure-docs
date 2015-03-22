@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Python Websites with Django - Azure tutorial" 
 	description="A tutorial that introduces you to running a Python website on Azure." 
-	services="app-service/web" 
+	services="app-service\web" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="" 

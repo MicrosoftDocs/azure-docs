@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Continuous delivery with Visual Studio Online in Azure" 
 	description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." 
-	services="app-service/web" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
