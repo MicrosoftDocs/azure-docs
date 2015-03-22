@@ -144,21 +144,21 @@ Some of the enterprise connectors us OAuth security. When you add the connector 
 
 
 ## More Enterprise Connector resources
-[Integrate with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-SAP-server.md)
-[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
+[Integrate with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-SAP-server.md)<br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)<br/>
 
 
 ## Read about Logic Apps and Web Apps
-[What are Logic Apps?](app-service-logic-what-are-logic-apps.md) 
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
+[What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
+[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)<br/>
 
 
 
 ## More Connectors
 
-[BizTalk Integration connectors](app-service-logic-integration-connectors.md)
-[Business-to-Business connectors](app-service-logic-b2b-connectors.md)
-[Social connectors](app-service-logic-social-connectors.md)
-[Protocol connectors](app-service-logic-protocol-connectors.md)
-[App + Data Services connectors](app-service-logic-data-connectors)
-[Connectors and API Apps List](app-service-logic-connectors-list.md)
+[BizTalk Integration connectors](app-service-logic-integration-connectors.md)<br/>
+[Business-to-Business connectors](app-service-logic-b2b-connectors.md)<br/>
+[Social connectors](app-service-logic-social-connectors.md)<br/>
+[Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
+[App + Data Services connectors](app-service-logic-data-connectors)<br/>
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/>
